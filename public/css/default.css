@@ -1,0 +1,45 @@
+/*------------------------------------------------------------------
+
+COLOR:	DEFAULT BLANK CSS (NO ANY CODE)
+
+-------------------------------------------------------------------*/
+.main_banner_1 {
+	font-size:18px;
+	color: #454545;
+	margin-bottom:5px;
+	padding:0px;
+}
+
+.main_banner_2 {
+	font-size:42px;
+	font-weight:bold;
+	color: #454545;
+	padding:15px 0 10px 0;
+	line-height:45px;
+}
+
+.main_banner_3 {
+	font-family: NanumGothic;
+	font-size:18px;
+	color: #454545;
+	margin-right: auto;
+    margin-left: auto;
+	width: 594px;
+	border-top: 1px solid #dedede;
+}
+
+p.b_txt01{
+	clear:both;
+	font-family: NanumGothic;
+	font-size:17px;
+	color: #454545;
+	margin-right: auto;
+    margin-left: auto;
+	margin-bottom:20px;
+	
+}
+
+.b {
+	font-weight:bold;
+	color:#fff;
+}
