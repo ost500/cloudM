@@ -11,27 +11,27 @@
 		  <p class="main_banner_1">영상 / 디자인 / 홈페이지 / 콘텐츠 제작 의뢰까지</p>
 
 		  
-		  <p class="main_banner_2">클라우드 마케팅 아웃소싱 플랫폼 abc</p>
+		  <p class="main_banner_2">클라우드 마케팅 아웃소싱 플랫폼 True Test</p>
           <p class="main_banner_3"></p><p class="b_txt01">광고주와 검증된 마케팅 대행사를 연결해 드립니다.</p>
 
           <a href="#." class="btn">무료로 프로젝트 등록하기<i class="fa fa-caret-right"></i></a> </div>
-      </li>
-    </ul>
-  </section>
+          </li>
+            </li>
+        </ul>
+    </section>
 
 
-  <!-- Counter -->
-    <section class="counter">
-      <div class="container"> 
-        
+<!-- Counter -->
+<section class="counter">
+    <div class="container">
+
         <!-- Team Member -->
         <ul class="row">
-          <li class="col-md-3">
-            <div class="count"> <span class="number"> <span class="timer" data-speed="2000" data-refresh-interval="10" data-to="16812" data-from="0"></span> </span>
-			  <span style="font-size:16px;" class="b">건</span>
-              <h6 class="h6_txt">등록된 프로젝트</h6>
-            </div>
-          </li>
+            <li class="col-md-3">
+                <div class="count"> <span class="number"> <span class="timer" data-speed="2000" data-refresh-interval="10" data-to="16812" data-from="0"></span> </span>
+                    <span style="font-size:16px;" class="b">건</span>
+                    <h6 class="h6_txt">등록된 프로젝트</h6>
+                </div>
           
           <!-- Line Of Codes -->
           <li class="col-md-6">
