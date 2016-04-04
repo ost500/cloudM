@@ -11,7 +11,7 @@
 		  <p class="main_banner_1">영상 / 디자인 / 홈페이지 / 콘텐츠 제작 의뢰까지</p>
 
 		  
-		  <p class="main_banner_2">클라우드 마케팅 아웃소싱 플랫폼 Test Again and Again</p>
+		  <p class="main_banner_2">클라우드 마케팅 아웃소싱 플랫폼 last Test</p>
           <p class="main_banner_3"></p><p class="b_txt01">광고주와 검증된 마케팅 대행사를 연결해 드립니다.</p>
 
           <a href="#." class="btn">무료로 프로젝트 등록하기<i class="fa fa-caret-right"></i></a> </div>
