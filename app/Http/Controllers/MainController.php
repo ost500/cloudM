@@ -12,4 +12,19 @@ class MainController extends Controller
     {
     	return view('index');
     }
+
+    public function p_add($num)
+    {
+        return view('p_add'.$num);
+    }
+    
+    public function p_search()
+    {
+        return view('p_search');
+    }
+
+    public function partner()
+    {
+        return view('partner');
+    }
 }
