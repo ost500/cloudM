@@ -26,5 +26,6 @@ class MainController extends Controller
     public function partner()
     {
         return view('partner');
+        
     }
 }
