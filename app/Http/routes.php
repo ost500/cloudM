@@ -13,7 +13,11 @@
 
 Route::get('/', 'MainController@index');
 
+Route::get('/p_add/{num}', 'MainController@p_add');
 
+Route::get('/p_search', 'MainController@p_search');
+
+Route::get('/partner', 'MainController@partner');
 
 Route::auth();
 

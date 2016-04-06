@@ -1,6 +1,5 @@
-<?
-	include_once("include/head.php");
-?>
+@extends('include.head')
+@section('content')
   <!-- Content -->
   <div id="content"> 
     
@@ -350,6 +349,5 @@
   
 </div>
 
-<?
-	include_once("include/footer.php");
-?>
+@include('include.footer')
+@endsection
