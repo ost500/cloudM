@@ -13,7 +13,15 @@
 
 Route::get('/', 'MainController@index');
 
-Route::get('/p_add/{num}', 'MainController@p_add');
+
+
+Route::get('/p_add/1', 'CreateController@index');
+
+Route::post('/p_add/store','CreateController@store');
+
+Route::get('/p_add/complete','CreateController@complete');
+
+
 
 Route::get('/p_search', 'MainController@p_search');
 

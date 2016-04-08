@@ -35,43 +35,43 @@
 			<ul class="p_align02">
 				<li class="parent dev-category-list">
 					<div class="dev-skipper"></div>
-					<input name="dev" id="dev" type="checkbox"></input>
+					<input name="dev" id="dev" type="checkbox"> </input>
 					<label for="dev" class="dev_txt">카테고리_01</label>
 						<ul class="child-list">
 							<li>
-							<input name="dev" id="dev-2" type="checkbox"></input>
+							<input name="dev" id="dev-2" type="checkbox"> </input>
 							<label for="dev-2">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-3" type="checkbox"></input>
+							<input name="dev" id="dev-3" type="checkbox"> </input>
 							<label for="dev-3">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-4" type="checkbox"></input>
+							<input name="dev" id="dev-4" type="checkbox"> </input>
 							<label for="dev-4">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-5" type="checkbox"></input>
+							<input name="dev" id="dev-5" type="checkbox"> </input>
 							<label for="dev-5">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-6" type="checkbox"></input>
+							<input name="dev" id="dev-6" type="checkbox"> </input>
 							<label for="dev-6">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-7" type="checkbox"></input>
+							<input name="dev" id="dev-7" type="checkbox"> </input>
 							<label for="dev-7">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-8" type="checkbox"></input>
+							<input name="dev" id="dev-8" type="checkbox"> </input>
 							<label for="dev-8">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-9" type="checkbox"></input>
+							<input name="dev" id="dev-9" type="checkbox"> </input>
 							<label for="dev-9">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-10" type="checkbox"></input>
+							<input name="dev" id="dev-10" type="checkbox"> </input>
 							<label for="dev-10">메뉴_01</label>				
 							</li>
 						</ul>
@@ -82,51 +82,51 @@
 
 				<li class="parent dev-category-list">
 					<div class="dev-skipper"></div>
-					<input name="dev" id="dev" type="checkbox"></input>
+					<input name="dev" id="dev" type="checkbox"> </input>
 					<label for="dev" class="dev_txt">카테고리_01</label>
 						<ul class="child-list">
 							<li>
-							<input name="dev" id="dev-2" type="checkbox"></input>
+							<input name="dev" id="dev-2" type="checkbox"> </input>
 							<label for="dev-2">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-3" type="checkbox"></input>
+							<input name="dev" id="dev-3" type="checkbox"> </input>
 							<label for="dev-3">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-4" type="checkbox"></input>
+							<input name="dev" id="dev-4" type="checkbox"> </input>
 							<label for="dev-4">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-5" type="checkbox"></input>
+							<input name="dev" id="dev-5" type="checkbox"> </input>
 							<label for="dev-5">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-6" type="checkbox"></input>
+							<input name="dev" id="dev-6" type="checkbox"> </input>
 							<label for="dev-6">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-7" type="checkbox"></input>
+							<input name="dev" id="dev-7" type="checkbox"> </input>
 							<label for="dev-7">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-8" type="checkbox"></input>
+							<input name="dev" id="dev-8" type="checkbox"> </input>
 							<label for="dev-8">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-9" type="checkbox"></input>
+							<input name="dev" id="dev-9" type="checkbox"> </input>
 							<label for="dev-9">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-10" type="checkbox"></input>
+							<input name="dev" id="dev-10" type="checkbox"> </input>
 							<label for="dev-10">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-11" type="checkbox"></input>
+							<input name="dev" id="dev-11" type="checkbox"> </input>
 							<label for="dev-11">메뉴_01</label>				
 							</li>
 							<li>
-							<input name="dev" id="dev-12" type="checkbox"></input>
+							<input name="dev" id="dev-12" type="checkbox"> </input>
 							<label for="dev-12">메뉴_01</label>				
 							</li>
 						</ul>
@@ -278,29 +278,29 @@
             
 
 
-            
-           
-          
-			
+
+
+
+@foreach($projects as $project)
 
 			          <!-- Job Content -->
-          <div id="accordion"> 
-            
+          <div id="accordion">
+
             <!-- Job Section -->
-            <div class="job-content job-post-page margin-top-20"> 
+            <div class="job-content job-post-page margin-top-20">
               <!-- Job Tittle -->
               <div class="panel-group">
-                <div class="panel panel-default"> 
+                <div class="panel panel-default">
                   <!-- Save -->
                   <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
                   <!-- PANEL HEADING -->
-                  <div class="panel-heading"> 
+                  <div class="panel-heading">
                     <div class="job-tittle">
                       <div class="media-left">
                         <div class="date_off"> 모집마감 <!--<span>MAY</span>--> </div>
                       </div>
                       <div class="media-body">
-                        <h5>반응형 회사 홈페이지 신규 구축</h5>
+                        <h5>{{ $project['title'] }}</h5>
                       </div>
 					  <span class="media-body-sm">예상금액 <span>5,000,000</span>원</span>
 					  <span class="media-body-sm">예상기간 <span>30</span>일</span>
@@ -310,7 +310,7 @@
                   <!-- Content -->
                   <div id="job1" class="panel-collapse collapse in">
                     <div class="panel-body">
-                      <p> [프로젝트 진행 방식] 시작시점에 미팅, 주 1회 미팅 등 [프로젝트의 현재 상황] 리뉴얼 기획 제안서만 있음 [상세한 업무 내용] 반응형 웹 제작 [참고자료 / 유의사항] http://www.skhynix.com/kor/index.jsp 와 같은 톤앤매너 구상</p>
+                      <p> {{ $project['category'] }}</p>
 				  <!-- Additional Requirements -->
 						<div>
                         <span class="media-body-sm margin-top-23">요구기술</span>
@@ -335,6 +335,7 @@
               </div>
             </div>
 
+@endforeach
 
 
 

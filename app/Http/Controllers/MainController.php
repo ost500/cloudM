@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Project;
 
 class MainController extends Controller
 {
@@ -12,15 +13,13 @@ class MainController extends Controller
     {
     	return view('index');
     }
-
-    public function p_add($num)
-    {
-        return view('p_add'.$num);
-    }
     
     public function p_search()
     {
-        return view('p_search');
+        $projects = Project::all();
+
+        return view('p_search', compact('projects'));
+//        return view('p_search', ['todos'=> $todos]);
     }
 
     public function partner()
