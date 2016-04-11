@@ -14,12 +14,11 @@
 Route::get('/', 'MainController@index');
 
 
-
-Route::get('/p_add/1', 'CreateController@index');
-
-Route::post('/p_add/store','CreateController@store');
-
 Route::get('/p_add/complete','CreateController@complete');
+
+Route::post('/p_add/{step}', 'CreateController@postCreate');
+
+Route::get('/p_add/{step}', 'CreateController@index');
 
 
 
