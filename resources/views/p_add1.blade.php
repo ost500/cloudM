@@ -49,7 +49,7 @@
                                             <div class="signup02">
 
 
-                                                <form action="{{ url('p_add/store') }}" method="POST" role="form">
+                                                <form action="{{ url('p_add/2') }}" method="POST" role="form">
                                                     {!! csrf_field() !!}
                                                     <div class="margin-bottom-69 ">
 
