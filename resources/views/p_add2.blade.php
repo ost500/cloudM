@@ -50,7 +50,7 @@
 
 
                                                 <div class="margin-bottom-40 job-tittle04 padding-bottom-40">
-                                                    <form action="{{ url('p_add/3') }}" method="post" role="form">
+                                                    <form action="{{ url('p_add/2') }}" method="post" role="form">
                                                         {!! csrf_field() !!}
                                                         <label for="ca001">카테고리<span class="set_st">*</span><br/>
 

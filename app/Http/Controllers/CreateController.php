@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 class CreateController extends Controller
 {
 
-    public $lastStep = "3";
+    public $lastStep = "2";
 
     public function index($step)
     {
@@ -24,14 +24,16 @@ class CreateController extends Controller
     public function postCreate(Request $request, $step)
     {
         switch ($step) {
-            case 2:
-
-                Session::regenerate();
-
+            case 1:
                 Session::put('title', $request->input('title'));
+                if(!Session::has('title'))
+                    abort(503);
                 break;
-            case 3:
+
+            case 2:
                 Session::put('category', $request->input('category'));
+                if(!Session::has('category'))
+                    abort(503);
                 break;
 
         }
@@ -39,14 +41,14 @@ class CreateController extends Controller
         if ($step == $this->lastStep) {
             echo "passed step";
             $input = new Project();
-            $input->title = Session::get('title');
-            $input->category = Session::get('category');
+            $input->title = Session::pull('title');
+            $input->category = Session::pull('category');
             $input->save();
             Session::flush();
             return redirect()->action('CreateController@complete');
 
         }
-        return redirect()->action('CreateController@index', ['step' => $step]);
+        return redirect()->action('CreateController@index', ['step' => $step+1]);
     }
 
 

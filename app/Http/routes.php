@@ -13,7 +13,7 @@
 
 Route::get('/', 'MainController@index');
 
-
+//프로젝트 등록
 Route::get('/p_add/complete','CreateController@complete');
 
 Route::post('/p_add/{step}', 'CreateController@postCreate');
@@ -21,11 +21,19 @@ Route::post('/p_add/{step}', 'CreateController@postCreate');
 Route::get('/p_add/{step}', 'CreateController@index');
 
 
+//프로젝트 검색
+Route::get('/p_search', 'SearchController@p_search');
 
-Route::get('/p_search', 'MainController@p_search');
+Route::get('/p_search/{id}', 'SearchController@detail');
 
+
+
+//파트너
 Route::get('/partner', 'MainController@partner');
 
+
+
+//로그인 적용 예제
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+
