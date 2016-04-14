@@ -95,7 +95,7 @@
 		  
           <!-- Search -->
           <div class="search-icon"> 
-			 <a href="login.php" class="button signin">로그인</a>
+			 <a href="{{ url("/login") }}" class="button signin">로그인</a>
 			 <a href="signup.php" class="button signup">회원가입</a>
           </div>
         </div>
