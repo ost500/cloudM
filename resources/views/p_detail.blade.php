@@ -243,42 +243,41 @@
                     <div class="job-content job-post-page margin-top-20 padding-bottom-20">
                         <h5>프로젝트 문의</h5>
 
-                        <div class="inquiry_01">
-                            <span><img class="partner_profile03" src="/images/p_img02.png"></span>
-                            <div>
-                                <span><strong>dkdlel123</strong></span><br>
-                                <span>마포구에서 주 1~2회 오프라인 미팅이 진행되나요? 마포구에서 주 1~2회 오프라인 미팅이 진행되나요? 마포구에서 주 1~2회 오프라인 미팅이 진행되나요? 마포구에서 주 1~2회 오프라인 미팅이 진행되나요?마포구에서 주 1~2회 오프라인 미팅이 진행되나요?마포구에서 주 1~2회 오프라인 미팅이 진행되나요?</span>
+                        @foreach($comment as $comments)
+                            <div class="inquiry_01">
+                                <span><img class="partner_profile03" src="/images/p_img02.png"></span>
+                                <div>
+                                    <span><strong>dkdlel123</strong></span><br>
+                                    <span>{{ $comments['comment'] }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="inquiry_01">
-                            <span><img class="partner_profile03" src="/images/p_img02.png"></span>
-                            <div>
-                                <span><strong>dkdlel123</strong></span><br>
-                                <span>마포구에서 주 1~2회 오프라인 미팅이 진행되나요? 마포구에서 주 1~2회 오프라인 미팅이 진행되나요? 마포구에서 주 1~2회 오프라인 미팅이 진행되나요? 마포구에서 주 1~2회 오프라인 미팅이 진행되나요?마포구에서 주 1~2회 오프라인 미팅이 진행되나요?마포구에서 주 1~2회 오프라인 미팅이 진행되나요?</span>
-                            </div>
-                        </div>
+                        @endforeach
 
-
-                        <div class="media inquiry_01">
-                            <img class="partner_profile03" src="/images/p_img02.png">
-                            <div class="media-body">
-                                <div class="col-md-9 ">
-                                    <textarea name="body" class="form-control06" id="id_body" required="" rows="10"
+                        <form action="{{ url('commentadd') }}" method="POST" role="form">
+                            {!! csrf_field() !!}
+                            <div class="media inquiry_01">
+                                <img class="partner_profile03" src="/images/p_img02.png">
+                                <div class="media-body">
+                                    <div class="col-md-9 ">
+                                    <textarea name="comment" type="text" class="form-control06" id="id_body" required="" rows="10"
                                               cols="40" resize="none"></textarea>
-                                </div>
-                                <div class="col-md-3 ">
-                                    <input name="comment_status" id="comment_status" type="checkbox">
-                                    <label for="comment_status"><i class="fa fa-lock" style="margin-right: 4px;"></i>비공개
-                                        설정</label>
-                                    <input class="button007" id="id_submit" type="button" value="작성하기">
-                                </div>
-                                <br>
-                                <div style="clear:both;"></div>
-                                <small class="text-warning02">프로젝트 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>
-                            </div>
-                            <span class="rd"><span class="rd_box">주의</span> 이메일, 전화번호 등을 게시하여 직거래를 유도하는 경우, 서비스 이용에 제재를 받을 수 있습니다.</span>
-                        </div>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <input name="comment_status" id="comment_status" type="checkbox">
+                                        <label for="comment_status"><i class="fa fa-lock"
+                                                                       style="margin-right: 4px;"></i>비공개
+                                            설정</label>
+                                        <input type="hidden" name="project_id" value="{{ $project['id'] }}">
+                                        <button type="submit" class="button007" id="id_submit" type="button" value="작성하기"/>
 
+                                    </div>
+                                    <br>
+                                    <div style="clear:both;"></div>
+                                    <small class="text-warning02">프로젝트 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>
+                                </div>
+                                <span class="rd"><span class="rd_box">주의</span> 이메일, 전화번호 등을 게시하여 직거래를 유도하는 경우, 서비스 이용에 제재를 받을 수 있습니다.</span>
+                            </div>
+                        </form>
 
                     </div>
 
