@@ -39,7 +39,6 @@ class CreateController extends Controller
         }
 
         if ($step == $this->lastStep) {
-            echo "passed step";
             $input = new Project();
             $input->title = Session::pull('title');
             $input->category = Session::pull('category');
