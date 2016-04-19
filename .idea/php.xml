@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Behat">
+    <behat_settings>
+      <BehatSettings behat_path="$PROJECT_DIR$" />
+    </behat_settings>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/phpunit.xml" phpunit_phar_path="" />
+      <phpunit_by_interpreter interpreter_id="c1178a6e-e8bd-42d8-b95c-b91c2cae9ddb" custom_loader_path="C:\Users\OST\Code\laravel\phpunit.xml" />
+    </phpunit_settings>
+  </component>
+</project>
