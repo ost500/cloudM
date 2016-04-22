@@ -40,7 +40,7 @@
                                 <ul class="child-list">
                                     <li>
                                         <input name="dev" id="dev-2" type="checkbox"> </input>
-                                        <label for="dev-2">메뉴_01</label>
+                                        <label for="dev-2">바이럴</label>
                                     </li>
                                     <li>
                                         <input name="dev" id="dev-3" type="checkbox"> </input>
@@ -217,62 +217,7 @@
                     </div>
 
 
-                    @foreach($projects as $project)
-
-                            <!-- Job Content -->
-                    <div id="accordion">
-
-                        <!-- Job Section -->
-                        <div class="job-content job-post-page margin-top-20">
-                            <!-- Job Tittle -->
-                            <div class="panel-group">
-                                <div class="panel panel-default">
-                                    <!-- Save -->
-                                    <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                                    <!-- PANEL HEADING -->
-                                    <div class="panel-heading">
-                                        <div class="job-tittle">
-                                            <div class="media-left">
-                                                <div class="date_off"> 모집마감 <!--<span>MAY</span>--> </div>
-                                            </div>
-                                            <div class="media-body">
-                                                <a href="{{ url('p_search/'.$project['id']) }}">
-                                                    <h5>{{ $project['title'] }}</h5></a>
-                                            </div>
-                                            <span class="media-body-sm">예상금액 <span>5,000,000</span>원</span>
-                                            <span class="media-body-sm">예상기간 <span>30</span>일</span>
-                                            <span class="media-body-sm la-line">등록일자 <span>2016. 01. 21</span></span>
-                                        </div>
-                                    </div>
-                                    <!-- Content -->
-                                    <div id="job1" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            <p> {{ $project['category'] }}</p>
-                                            <!-- Additional Requirements -->
-                                            <div>
-                                                <span class="media-body-sm margin-top-23">요구기술</span>
-                                                <ul class="tags dall margin-top-20 margin-bottom-10">
-                                                    <li><a href="#.">photoshop</a></li>
-                                                    <li><a href="#.">html</a></li>
-                                                    <li><a href="#.">css</a></li>
-                                                    <li><a href="#.">script</a></li>
-                                                    <li><a href="#.">php</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="tags_bg">
-                                                <span class="s_icon01">모집마감</span>
-                                                <span class="s_icon02">총 31명 지원</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    @endforeach
+                    <div id="check"></div>
 
 
                 </div>
@@ -283,6 +228,76 @@
 
 
 </div>
+<script type="text/javascript">
+
+    function viewLoad(option) {
+        var display_results = $("#check");
+        display_results.html("loading...");
+        $.ajaxSetup({cache : false});
+
+        $.ajax({
+            url: "p_search/"+option,
+            success: function (result, b) {
+                display_results.html(result, b);
+            }
+
+        });
+    }
+    $(function () {
+        viewLoad("all");
+
+    });
+
+    $('#dev-2').change(function(){
+        if($('#dev-2').is(':checked')){
+            viewLoad("바이럴");
+        }
+        else{
+            viewLoad("all");
+        }
+    });
+
+
+    //        var xhttp = new XMLHttpRequest();
+
+    //        xhttp.onreadystatechange = function() {
+    //            if (xhttp.readyState == 4 && xhttp.status == 200) {
+    //                display_results.html(xhttp.response);
+    //            }
+    //        };
+
+
+    //        xhttp.open("GET", "p_search/Hello", false);
+    //        xhttp.send();
+
+
+    //    var arr = new Array();
+    //    arr[0] = $("#dev-2");
+    //
+    //    function sortexe() {
+    //        var Plus = "ab";
+    //        for (var i = 1; i < arr[0].length; i++) {
+    //            Plus = Plus.add(arr[0][i].toString());
+    //            Plus = Plus.add("hi");
+    //        }
+    //        $("#check").html(Plus);
+    //    }
+    //    //클릭된 것들 다 찾아서 실행
+    //
+    //    $(function () {
+    //        //각각의 체크박스에 클릭메서드 입력
+    //        $("#dev-2").click(function () {
+    //
+    //            arr[0][1] = 1;
+    //
+    //            sortexe();
+    //
+    //        })
+    //    })
+</script>
+
+
+
 
 @include('include.footer')
 @endsection
