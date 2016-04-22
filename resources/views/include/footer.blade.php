@@ -69,7 +69,7 @@
     </div>
   </div>
 </div>
-<script src="/js/jquery-1.11.0.min.js"></script> 
+
 <script src="/js/bootstrap.min.js"></script> 
 <script src="/js/own-menu.js"></script> 
 <script src="/js/jquery.isotope.min.js"></script> 
