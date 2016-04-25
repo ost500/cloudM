@@ -24,11 +24,13 @@ Route::get('/p_add/{step}', 'CreateController@index');
 //프로젝트 검색
 Route::get('/p_search', 'SearchController@p_search');
 
-Route::get('/p_search/{id}', 'SearchController@detail')
+//프로젝트 상세화면
+Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
 
 //list search
-Route::get('/p_search/{SearchOption}','SearchController@get_p_list');
+Route::get('/p_search/{SearchOption}','SearchController@get_p_list')
+    ->where(['SearchOption' => '[0-9]+']);
 
 Route::post('/commentadd', 'SearchController@postcomment');
 

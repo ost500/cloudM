@@ -36,43 +36,23 @@
                             <li class="parent dev-category-list">
                                 <div class="dev-skipper"></div>
                                 <input name="dev" id="dev" type="checkbox"> </input>
-                                <label for="dev" class="dev_txt">카테고리_01</label>
+                                <label for="dev" class="dev_txt">분야</label>
                                 <ul class="child-list">
                                     <li>
-                                        <input name="dev" id="dev-2" type="checkbox"> </input>
-                                        <label for="dev-2">바이럴</label>
+                                        <input name="dev" id="dev-11" type="checkbox"> </input>
+                                        <label for="dev-11">광고 의뢰</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-3" type="checkbox"> </input>
-                                        <label for="dev-3">메뉴_01</label>
+                                        <input name="dev" id="dev-12" type="checkbox"> </input>
+                                        <label for="dev-12">운영 대행</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-4" type="checkbox"> </input>
-                                        <label for="dev-4">메뉴_01</label>
+                                        <input name="dev" id="dev-13" type="checkbox"> </input>
+                                        <label for="dev-13">Viral</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-5" type="checkbox"> </input>
-                                        <label for="dev-5">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-6" type="checkbox"> </input>
-                                        <label for="dev-6">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-7" type="checkbox"> </input>
-                                        <label for="dev-7">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-8" type="checkbox"> </input>
-                                        <label for="dev-8">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-9" type="checkbox"> </input>
-                                        <label for="dev-9">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-10" type="checkbox"> </input>
-                                        <label for="dev-10">메뉴_01</label>
+                                        <input name="dev" id="dev-14" type="checkbox"> </input>
+                                        <label for="dev-14">1회성 프로젝트</label>
                                     </li>
                                 </ul>
 
@@ -82,51 +62,31 @@
                             <li class="parent dev-category-list">
                                 <div class="dev-skipper"></div>
                                 <input name="dev" id="dev" type="checkbox"> </input>
-                                <label for="dev" class="dev_txt">카테고리_01</label>
+                                <label for="dev" class="dev_txt">업종</label>
                                 <ul class="child-list">
                                     <li>
-                                        <input name="dev" id="dev-2" type="checkbox"> </input>
-                                        <label for="dev-2">메뉴_01</label>
+                                        <input name="dev" id="dev-21" type="checkbox"> </input>
+                                        <label for="dev-15">의료</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-3" type="checkbox"> </input>
-                                        <label for="dev-3">메뉴_01</label>
+                                        <input name="dev" id="dev-22" type="checkbox"> </input>
+                                        <label for="dev-16">법률</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-4" type="checkbox"> </input>
-                                        <label for="dev-4">메뉴_01</label>
+                                        <input name="dev" id="dev-23" type="checkbox"> </input>
+                                        <label for="dev-17">스타트업</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-5" type="checkbox"> </input>
-                                        <label for="dev-5">메뉴_01</label>
+                                        <input name="dev" id="dev-24" type="checkbox"> </input>
+                                        <label for="dev-18">프랜차이즈</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-6" type="checkbox"> </input>
-                                        <label for="dev-6">메뉴_01</label>
+                                        <input name="dev" id="dev-25" type="checkbox"> </input>
+                                        <label for="dev-19">교육/대학교</label>
                                     </li>
                                     <li>
-                                        <input name="dev" id="dev-7" type="checkbox"> </input>
-                                        <label for="dev-7">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-8" type="checkbox"> </input>
-                                        <label for="dev-8">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-9" type="checkbox"> </input>
-                                        <label for="dev-9">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-10" type="checkbox"> </input>
-                                        <label for="dev-10">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-11" type="checkbox"> </input>
-                                        <label for="dev-11">메뉴_01</label>
-                                    </li>
-                                    <li>
-                                        <input name="dev" id="dev-12" type="checkbox"> </input>
-                                        <label for="dev-12">메뉴_01</label>
+                                        <input name="dev" id="dev-26" type="checkbox"> </input>
+                                        <label for="dev-20">쇼핑몰</label>
                                     </li>
                                 </ul>
 
@@ -230,13 +190,15 @@
 </div>
 <script type="text/javascript">
 
-    function viewLoad(option) {
+    var checked = 0;
+
+    function viewLoad() {
         var display_results = $("#check");
         display_results.html("loading...");
         $.ajaxSetup({cache : false});
 
         $.ajax({
-            url: "p_search/"+option,
+            url: "p_search/"+checked,
             success: function (result, b) {
                 display_results.html(result, b);
             }
@@ -244,18 +206,115 @@
         });
     }
     $(function () {
-        viewLoad("all");
+        if(checked ==0) {
+            viewLoad();
+        }
+
 
     });
 
-    $('#dev-2').change(function(){
-        if($('#dev-2').is(':checked')){
-            viewLoad("바이럴");
+    $('#dev-11').change(function(){
+        if($('#dev-11').is(':checked')){
+            checked = checked | 1;
+            viewLoad();
         }
         else{
-            viewLoad("all");
+            checked = checked & (2047-1);
+            viewLoad();
         }
     });
+    $('#dev-12').change(function(){
+        if($('#dev-12').is(':checked')){
+            checked = checked | 2;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 2);
+            viewLoad();
+        }
+    });
+    $('#dev-13').change(function(){
+        if($('#dev-13').is(':checked')){
+            checked = checked | 4;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 4);
+            viewLoad();
+        }
+    });
+    $('#dev-14').change(function(){
+        if($('#dev-14').is(':checked')){
+            checked = checked | 8;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 8);
+            viewLoad();
+        }
+    });
+    $('#dev-21').change(function(){
+        if($('#dev-21').is(':checked')){
+            checked = checked | 16;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 16);
+            viewLoad();
+        }
+    });
+    $('#dev-22').change(function(){
+        if($('#dev-22').is(':checked')){
+            checked = checked | 32;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 32);
+            viewLoad();
+        }
+    });
+    $('#dev-23').change(function(){
+        if($('#dev-23').is(':checked')){
+            checked = checked | 64;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 64);
+            viewLoad();
+        }
+    });
+    $('#dev-24').change(function(){
+        if($('#dev-24').is(':checked')){
+            checked = checked | 128;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 128);
+            viewLoad();
+        }
+    });
+    $('#dev-25').change(function(){
+        if($('#dev-25').is(':checked')){
+            checked = checked | 256;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 256);
+            viewLoad();
+        }
+    });
+    $('#dev-26').change(function(){
+        if($('#dev-26').is(':checked')){
+            checked = checked | 512;
+            viewLoad();
+        }
+        else {
+            checked = checked & (2047 - 512);
+            viewLoad();
+        }
+    });
+
+
 
 
     //        var xhttp = new XMLHttpRequest();
