@@ -19,7 +19,7 @@
                             <div class="date_off"> 모집마감 <!--<span>MAY</span>--> </div>
                         </div>
                         <div class="media-body">
-                            <a href="{{ url('p_search/'.$project['id']) }}">
+                            <a href="{{ url('detail/'.$project['id']) }}">
                                 <h5>{{ $project['title'] }}</h5></a>
 
                         </div>
