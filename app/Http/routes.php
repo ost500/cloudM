@@ -37,7 +37,14 @@ Route::post('/commentadd', 'SearchController@postcomment');
 //파트너
 Route::get('/partner', 'MainController@partner');
 
+//이용방법
+Route::get('/services','HowtouseController@services');
 
+Route::get('/serviceintro','HowtouseController@serviceintro');
+Route::get('/client-use','HowtouseController@client_use');
+Route::get('/partner-use','HowtouseController@partners_use');
+Route::get('/charge','HowtouseController@charge');
+Route::get('/faq','HowtouseController@faq');
 
 //로그인 적용 예제
 Route::auth();

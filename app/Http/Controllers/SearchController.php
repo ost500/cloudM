@@ -46,7 +46,6 @@ class SearchController extends Controller
         
         if($SearchOption == 0){
             $projects = Project::all()->forPage(1,4);
-//            $projects = Project::where('title','=',"GMLAB")->get();
             return view('p_search/p_searchSort', compact('projects'));
         }
 
