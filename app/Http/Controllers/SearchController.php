@@ -12,8 +12,8 @@ use App\Http\Requests;
 use Illuminate\Database\Eloquent\Builder;
 use DB;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\SimpleBootstrapFourPresenter;
 use PhpParser\Node\Expr\Variable;
-
 
 
 class SearchController extends Controller
@@ -39,61 +39,76 @@ class SearchController extends Controller
         return view('p_detail', compact('detailProject', 'comment'));
     }
 
-    public function get_p_list($SearchOption)
+
+    public function get_p_list($SearchOption, $page = "1", $sort = "3")
     {
 
         $SearchOption = intval($SearchOption);
-        
-        if($SearchOption == 0){
-            $projects = Project::all()->forPage(1,4);
+        $page = intval($page);
+
+        if ($SearchOption == 0) {
+
+            $projects = Project::all();
+//                $projects = Project::all()->forPage($page, 10);
+            $projects['count'] = Project::all()->count();
+            //sort
+            if ($sort == "3") {
+                $projects = $projects->sortBy('updated_at');
+            }
+            
+            $projects = new Paginator($projects, 10);
+
             return view('p_search/p_searchSort', compact('projects'));
         }
 
 
-        $optionArr=[];
+        $optionArr = [];
 
-        if(($SearchOption & 1) == true){
+        if (($SearchOption & 1) == true) {
             $optionArr[] = "광고 의뢰";
         }
-        if(($SearchOption & 2) == true){
+        if (($SearchOption & 2) == true) {
             $optionArr[] = "운영 대행";
         }
-        if(($SearchOption & 4) == true){
+        if (($SearchOption & 4) == true) {
             $optionArr[] = "Viral";
         }
-        if(($SearchOption & 8) == true){
+        if (($SearchOption & 8) == true) {
             $optionArr[] = "1회성 프로젝트";
         }
-        if(($SearchOption & 16) == true){
+        if (($SearchOption & 16) == true) {
             $optionArr[] = "의료";
         }
-        if(($SearchOption & 32) == true){
+        if (($SearchOption & 32) == true) {
             $optionArr[] = "법률";
         }
-        if(($SearchOption & 64) == true){
+        if (($SearchOption & 64) == true) {
             $optionArr[] = "스타트업";
         }
-        if(($SearchOption & 128) == true){
+        if (($SearchOption & 128) == true) {
             $optionArr[] = "프랜차이즈";
         }
-        if(($SearchOption & 256) == true){
+        if (($SearchOption & 256) == true) {
             $optionArr[] = "교육/대학교";
         }
-        if(($SearchOption & 512) == true){
+        if (($SearchOption & 512) == true) {
             $optionArr[] = "쇼핑몰";
         }
-        
-        $query= new Project();
-        for($i=0; $i<count($optionArr); $i++){
-            if($i == 0){
-                $query = $query->where('category','=',$optionArr[$i]);
-            }
-            else{
-                $query = $query->union(Project::where('category','=',$optionArr[$i]));
+
+        $query = new Project();
+        for ($i = 0; $i < count($optionArr); $i++) {
+            if ($i == 0) {
+                $query = $query->where('category', '=', $optionArr[$i]);
+            } else {
+                $query = $query->union(Project::where('category', '=', $optionArr[$i]));
             }
         }
 
         $projects = $query->get();
+        if ($sort == 3) {
+            $projects = $projects->sortBy('updated_at');
+        }
+        $projects = $projects->forPage($page, 10);
 
         return view('p_search/p_searchSort', compact('projects'));
         //blade view에서 projects 를 foreach문으로 돌리기로 했으므로 반드시 projects를 넘겨줘야 함
@@ -112,7 +127,6 @@ class SearchController extends Controller
 //        return compact('projects');
 
 
-
     }
 
 //    public function get_p_list($list)
@@ -121,7 +135,8 @@ class SearchController extends Controller
 //        return compact('projects');
 //    }
 
-    public function postcomment(Request $request)
+    public
+    function postcomment(Request $request)
     {
         $input = new Comments();
         $input->project_id = $request->input('project_id');

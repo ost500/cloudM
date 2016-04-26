@@ -1,7 +1,21 @@
+<!-- Pagination -->
+<div id = "count">{{ $projects['count'] }}</div>
+<div class="col-md-6">
+    <ul class="pagination">
+        <li><a style="cursor: pointer"><i class="fa fa-angle-left"></i></a></li>
 
+        <li><a style="cursor: pointer" id="one">1</a></li>
+        <li><a style="cursor: pointer" id="two">2</a></li>
+        {{--<li><a class="current" href="#.">2</a></li>--}}
+        <li><a style="cursor: pointer" id="three">3</a></li>
+        <li><a style="cursor: pointer" id="four">4</a></li>
+        <li><a style="cursor: pointer" id="five">5</a></li>
+        <li><a><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>
 
 @foreach($projects as $project)
-
+@if($project['title'])
         <!-- Job Content -->
 <div id="accordion">
 
@@ -55,5 +69,6 @@
         </div>
     </div>
 </div>
-
+@else
+@endif
 @endforeach
