@@ -6,26 +6,102 @@ var checked = 0;
 var page = 1;
 var pagemultiply = 1;
 var sort = 3;
+var countofprojects = 0;
+var maxpage = 0;
+var maxpageBlock = 0;
+var currentpageBlock = Number(1);
+var currentpageStartnum = Number(1);
+var currentpageEndnum = Number(1);
 
 function viewLoad() {
     var display_results = $("#check");
     display_results.html("loading...");
 
     $.ajax({
-        
         url: "p_search/" + checked + "/" + page + "/" + sort,
         success: function (result) {
             display_results.html(result);
-            
-
+            countofprojects = parseInt($('#count').text());
+            currentpageBlock = Math.ceil(page / 5);
+            pageLoad();
         }
-
     });
 }
+
+$("#nextPblock").click(function () {
+    var nextpageCheck = ((Math.ceil(page / 5)) * 5) + 1;
+    // maxpage = parseInt(countofprojects / 10);
+    if (maxpage >= nextpageCheck) {
+        page = nextpageCheck;
+        viewLoad();
+    }
+
+});
+$("#prevPblock").click(function () {
+    var prevpageCheck = (5 * (Math.ceil(page / 5) - 1));
+    if (0 < prevpageCheck) {
+        page = prevpageCheck;
+        viewLoad();
+    }
+
+});
+
+function pageLoad() {
+    maxpage = parseInt(countofprojects / 10);
+    maxpageBlock = parseInt(maxpage / 5);
+    if (countofprojects % 10) {
+        maxpage += 1;
+    }
+    if (maxpage % 5) {
+        maxpageBlock += 1;
+    }
+    // maxpage, maxpageBlock 계산
+    currentpageStartnum = (5 * (currentpageBlock - 1)) + 1;
+    currentpageEndnum = (currentpageStartnum + 4);
+    if (currentpageEndnum > maxpage) {
+        currentpageEndnum = maxpage;
+    }
+    // startpage 계산
+    var page_results = $("#pagination");
+    $.ajax({
+        url: "p_search/pagination/" + currentpageStartnum + "/" + currentpageEndnum,
+        success: function (result) {
+            page_results.html(result);
+        },
+        complete: function () {
+            $("#id2").click(function () {
+                page = ((currentpageBlock - 1) * 5) + 2;
+                viewLoad();
+            });
+            $("#id1").click(function () {
+                page = ((currentpageBlock - 1) * 5) + 1;
+                viewLoad();
+            });
+            $("#id3").click(function () {
+                page = ((currentpageBlock - 1) * 5) + 3;
+                viewLoad();
+            });
+            $("#id4").click(function () {
+                page = ((currentpageBlock - 1) * 5) + 4;
+                viewLoad();
+            });
+            $("#id5").click(function () {
+                page = ((currentpageBlock - 1) * 5) + 5;
+                viewLoad();
+            });
+
+        }
+    });
+
+
+}
+
+
 $(function () {
     if (checked == 0) {
         viewLoad();
     }
+    pageLoad();
 });
 
 $('#dev-11').change(function () {
@@ -135,25 +211,25 @@ $('#latestcreate').click(function () {
     sort = 3;
     viewLoad();
 });
-
-//----------------PAGE-------------------
-$('#one').click(function () {
-    page = ((pagemultiply - 1) * 5) + 1;
-    viewLoad();
-});
-$('#two').click(function () {
-    page = ((pagemultiply - 1) * 5) + 2;
-    viewLoad();
-});
-$('#three').click(function () {
-    page = ((pagemultiply - 1) * 5) + 3;
-    viewLoad();
-});
-$('#four').click(function () {
-    page = ((pagemultiply - 1) * 5) + 4;
-    viewLoad();
-});
-$('#five').click(function () {
-    page = ((pagemultiply - 1) * 5) + 5;
-    viewLoad();
-});
+//
+// //----------------PAGE-------------------
+// $('#one').click(function () {
+//     page = ((pagemultiply - 1) * 5) + 1;
+//     viewLoad();
+// });
+// $('#two').click(function () {
+//     page = ((pagemultiply - 1) * 5) + 2;
+//     viewLoad();
+// });
+// $('#three').click(function () {
+//     page = ((pagemultiply - 1) * 5) + 3;
+//     viewLoad();
+// });
+// $('#four').click(function () {
+//     page = ((pagemultiply - 1) * 5) + 4;
+//     viewLoad();
+// });
+// $('#five').click(function () {
+//     page = ((pagemultiply - 1) * 5) + 5;
+//     viewLoad();
+// });

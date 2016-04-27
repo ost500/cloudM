@@ -39,8 +39,13 @@ class SearchController extends Controller
         return view('p_detail', compact('detailProject', 'comment'));
     }
 
+    public function pagination($start, $end)
+    {
+        return view('p_search/pagination', ['start' => $start, 'end' => $end]);
+    }
 
-    public function get_p_list($SearchOption, $page = "1", $sort = "3")
+
+    public function get_p_list($SearchOption, $page, $sort = "3")
     {
 
         $SearchOption = intval($SearchOption);
@@ -48,15 +53,14 @@ class SearchController extends Controller
 
         if ($SearchOption == 0) {
 
-            $projects = Project::all();
-//                $projects = Project::all()->forPage($page, 10);
+//            $projects = Project::all();
+            $projects = Project::all()->forPage($page, 10);
             $projects['count'] = Project::all()->count();
             //sort
             if ($sort == "3") {
                 $projects = $projects->sortBy('updated_at');
             }
-            
-            $projects = new Paginator($projects, 10);
+
 
             return view('p_search/p_searchSort', compact('projects'));
         }
@@ -105,10 +109,14 @@ class SearchController extends Controller
         }
 
         $projects = $query->get();
+
+
         if ($sort == 3) {
             $projects = $projects->sortBy('updated_at');
         }
+        $count = $projects->count();
         $projects = $projects->forPage($page, 10);
+        $projects['count'] = $count;
 
         return view('p_search/p_searchSort', compact('projects'));
         //blade view에서 projects 를 foreach문으로 돌리기로 했으므로 반드시 projects를 넘겨줘야 함

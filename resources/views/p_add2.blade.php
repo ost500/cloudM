@@ -56,7 +56,7 @@
 
                                                             <select name="category" class="form-control03">
                                                                 <option name="카테고리">카테고리</option>
-                                                                <option name="키워드">키워드</option>
+                                                                <option name="키워드">광고 의뢰</option>
                                                                 {{--<option>바이럴</option>--}}
                                                                 {{--<option>SNS</option>--}}
                                                                 {{--<option>언론</option>--}}

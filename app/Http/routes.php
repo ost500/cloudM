@@ -27,6 +27,9 @@ Route::get('/p_search', 'SearchController@p_search');
 Route::get('/p_search/{SearchOption}/{page?}/{sort?}', 'SearchController@get_p_list')
     ->where(['SearchOption' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '[1-4]']);
 
+//프로젝트 pagination
+Route::get('/p_search/pagination/{start}/{end}','SearchController@pagination');
+
 //프로젝트 상세화면
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
