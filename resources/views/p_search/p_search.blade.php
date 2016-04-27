@@ -22,10 +22,10 @@
                     <div class="job-sider-bar">
                         <h5 class="side-tittle">프로젝트 정렬</h5>
                         <ul class="p_align">
-                            <li><a href="#">- 금액 높은 순</a></li>
-                            <li><a href="#">- 금액 낮은 순</a></li>
-                            <li><a href="#">- 최신 등록 순</a></li>
-                            <li><a href="#">- 마감 임박 순</a></li>
+                            <li id="moneyhigh"><a style="cursor:pointer">- 금액 높은 순</a></li>
+                            <li id="moneylow"><a style="cursor:pointer">- 금액 낮은 순</a></li>
+                            <li id="latestcreate"><a style="cursor:pointer">- 최신 등록 순</a></li>
+                            <li id="deadline"><a style="cursor:pointer">- 마감 임박 순</a></li>
                         </ul>
                     </div>
 
@@ -142,40 +142,35 @@
 
                     <!-- About Admin -->
                     <!--<h4 class="font-normal margin-top-50 margin-bottom-20">available jobs</h4>-->
-                    <div class="row">
 
-                        <!-- Grid Layout -->
-                        <div class="col-md-6">
 
-                            <div class="short-by">
-                                <!--<label>
-                                  <select class="selectpicker">
-                                    <option>-Sort by-</option>
-                                    <option>-Sort by-</option>
-                                    <option>-Sort by-</option>
-                                  </select>
-                                </label>-->
+                    <!-- Grid Layout -->
+                    <div class="col-md-6">
 
-                                <label>
-                                    <input type="text" class="form-control02 form-control01" placeholder="검색어를 입력하세요"><a
-                                            class="sea_button" href="#">검색</a>
-                                </label>
-                            </div>
-                        </div>
+                        <div class="short-by">
+                            <!--<label>
+                              <select class="selectpicker">
+                                <option>-Sort by-</option>
+                                <option>-Sort by-</option>
+                                <option>-Sort by-</option>
+                              </select>
+                            </label>-->
 
-                        <!-- Pagination -->
-                        <div class="col-md-6">
-                            <ul class="pagination">
-                                <li><a href="#."><i class="fa fa-angle-left"></i></a></li>
-                                <li><a href="#.">1</a></li>
-                                <li><a class="current" href="#.">2</a></li>
-                                <li><a href="#.">3</a></li>
-                                <li><a href="#.">4</a></li>
-                                <li><a href="#."><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
+                            <label>
+                                <input type="text" class="form-control02 form-control01" placeholder="검색어를 입력하세요"><a
+                                        class="sea_button" href="#">검색</a>
+                            </label>
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <ul class="pagination">
+
+                            <li><a id="prevPblock" style="cursor: pointer"><i class="fa fa-angle-left"></i></a></li>
+                            <li id="pagination"></li>
+                            <li><a id="nextPblock" style="cursor: pointer"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </div>
 
                     <div id="check"></div>
 
@@ -188,174 +183,7 @@
 
 
 </div>
-<script type="text/javascript">
-
-    var checked = 0;
-
-    function viewLoad() {
-        var display_results = $("#check");
-        display_results.html("loading...");
-        $.ajaxSetup({cache : false});
-
-        $.ajax({
-            url: "p_search/"+checked,
-            success: function (result, b) {
-                display_results.html(result, b);
-            }
-
-        });
-    }
-    $(function () {
-        if(checked ==0) {
-            viewLoad();
-        }
-
-
-    });
-
-    $('#dev-11').change(function(){
-        if($('#dev-11').is(':checked')){
-            checked = checked | 1;
-            viewLoad();
-        }
-        else{
-            checked = checked & (2047-1);
-            viewLoad();
-        }
-    });
-    $('#dev-12').change(function(){
-        if($('#dev-12').is(':checked')){
-            checked = checked | 2;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 2);
-            viewLoad();
-        }
-    });
-    $('#dev-13').change(function(){
-        if($('#dev-13').is(':checked')){
-            checked = checked | 4;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 4);
-            viewLoad();
-        }
-    });
-    $('#dev-14').change(function(){
-        if($('#dev-14').is(':checked')){
-            checked = checked | 8;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 8);
-            viewLoad();
-        }
-    });
-    $('#dev-21').change(function(){
-        if($('#dev-21').is(':checked')){
-            checked = checked | 16;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 16);
-            viewLoad();
-        }
-    });
-    $('#dev-22').change(function(){
-        if($('#dev-22').is(':checked')){
-            checked = checked | 32;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 32);
-            viewLoad();
-        }
-    });
-    $('#dev-23').change(function(){
-        if($('#dev-23').is(':checked')){
-            checked = checked | 64;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 64);
-            viewLoad();
-        }
-    });
-    $('#dev-24').change(function(){
-        if($('#dev-24').is(':checked')){
-            checked = checked | 128;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 128);
-            viewLoad();
-        }
-    });
-    $('#dev-25').change(function(){
-        if($('#dev-25').is(':checked')){
-            checked = checked | 256;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 256);
-            viewLoad();
-        }
-    });
-    $('#dev-26').change(function(){
-        if($('#dev-26').is(':checked')){
-            checked = checked | 512;
-            viewLoad();
-        }
-        else {
-            checked = checked & (2047 - 512);
-            viewLoad();
-        }
-    });
-
-
-
-
-    //        var xhttp = new XMLHttpRequest();
-
-    //        xhttp.onreadystatechange = function() {
-    //            if (xhttp.readyState == 4 && xhttp.status == 200) {
-    //                display_results.html(xhttp.response);
-    //            }
-    //        };
-
-
-    //        xhttp.open("GET", "p_search/Hello", false);
-    //        xhttp.send();
-
-
-    //    var arr = new Array();
-    //    arr[0] = $("#dev-2");
-    //
-    //    function sortexe() {
-    //        var Plus = "ab";
-    //        for (var i = 1; i < arr[0].length; i++) {
-    //            Plus = Plus.add(arr[0][i].toString());
-    //            Plus = Plus.add("hi");
-    //        }
-    //        $("#check").html(Plus);
-    //    }
-    //    //클릭된 것들 다 찾아서 실행
-    //
-    //    $(function () {
-    //        //각각의 체크박스에 클릭메서드 입력
-    //        $("#dev-2").click(function () {
-    //
-    //            arr[0][1] = 1;
-    //
-    //            sortexe();
-    //
-    //        })
-    //    })
-</script>
-
-
+<script type="text/javascript" src="js/projectList.js"></script>
 
 
 @include('include.footer')

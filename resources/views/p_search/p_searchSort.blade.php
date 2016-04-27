@@ -1,7 +1,9 @@
+<!-- Pagination -->
+<div id = "count">{{ $projects['count'] }}</div>
 
 
 @foreach($projects as $project)
-
+@if($project['title'])
         <!-- Job Content -->
 <div id="accordion">
 
@@ -55,5 +57,6 @@
         </div>
     </div>
 </div>
-
+@else
+@endif
 @endforeach

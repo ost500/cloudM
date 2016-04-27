@@ -12,8 +12,9 @@ class ProjectSeeder extends Seeder
     public function run()
     {
         DB::table('projects')->insert([
-            'category' => "바이럴",
+            'category' => "운영 대행",
             'title' => "GMLAB"
+            
         ]);
     }
 }
