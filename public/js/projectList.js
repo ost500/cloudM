@@ -53,12 +53,12 @@ function pageLoad() {
             page_results.html(result);
         },
         complete: function () {
-            $("#id2").click(function () {
-                page = ((currentpageBlock - 1) * 5) + 2;
-                viewLoad();
-            });
             $("#id1").click(function () {
                 page = ((currentpageBlock - 1) * 5) + 1;
+                viewLoad();
+            });
+            $("#id2").click(function () {
+                page = ((currentpageBlock - 1) * 5) + 2;
                 viewLoad();
             });
             $("#id3").click(function () {
@@ -73,6 +73,14 @@ function pageLoad() {
                 page = ((currentpageBlock - 1) * 5) + 5;
                 viewLoad();
             });
+
+            for (var i = 1; i <= 5; i++) {
+                if ($("#id" + i).hasClass("current")) {
+                    $("#id" + i).removeClass("current")
+                }
+            }
+
+            $("#id" + (page - ((currentpageBlock - 1) * 5))).addClass("current");
 
         }
     });
@@ -104,9 +112,7 @@ $("#prevPblock").click(function () {
         page = prevpageCheck;
         viewLoad();
     }
-
 });
-
 
 
 $('#dev-11').change(function () {
