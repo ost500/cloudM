@@ -13,9 +13,10 @@ var currentpageBlock = Number(1);
 var currentpageStartnum = Number(1);
 var currentpageEndnum = Number(1);
 
+// 뷰 가져오기-------------------------------------------
 function viewLoad() {
     var display_results = $("#check");
-    display_results.html("loading...");
+    display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
         url: "p_search/" + checked + "/" + page + "/" + sort,
@@ -28,24 +29,7 @@ function viewLoad() {
     });
 }
 
-$("#nextPblock").click(function () {
-    var nextpageCheck = ((Math.ceil(page / 5)) * 5) + 1;
-    // maxpage = parseInt(countofprojects / 10);
-    if (maxpage >= nextpageCheck) {
-        page = nextpageCheck;
-        viewLoad();
-    }
-
-});
-$("#prevPblock").click(function () {
-    var prevpageCheck = (5 * (Math.ceil(page / 5) - 1));
-    if (0 < prevpageCheck) {
-        page = prevpageCheck;
-        viewLoad();
-    }
-
-});
-
+// 페이지 가져오기-------------------------------------------
 function pageLoad() {
     maxpage = parseInt(countofprojects / 10);
     maxpageBlock = parseInt(maxpage / 5);
@@ -92,11 +76,9 @@ function pageLoad() {
 
         }
     });
-
-
 }
 
-
+// 첫 화면-------------------------------------------
 $(function () {
     if (checked == 0) {
         viewLoad();
@@ -104,7 +86,31 @@ $(function () {
     pageLoad();
 });
 
+
+// 페이지 이전-------------------------------------------
+$("#nextPblock").click(function () {
+    var nextpageCheck = ((Math.ceil(page / 5)) * 5) + 1;
+    // maxpage = parseInt(countofprojects / 10);
+    if (maxpage >= nextpageCheck) {
+        page = nextpageCheck;
+        viewLoad();
+    }
+
+});
+// 페이지 이후-------------------------------------------
+$("#prevPblock").click(function () {
+    var prevpageCheck = (5 * (Math.ceil(page / 5) - 1));
+    if (0 < prevpageCheck) {
+        page = prevpageCheck;
+        viewLoad();
+    }
+
+});
+
+
+
 $('#dev-11').change(function () {
+    page = 1
     if ($('#dev-11').is(':checked')) {
         checked = checked | 1;
         viewLoad();
@@ -115,6 +121,7 @@ $('#dev-11').change(function () {
     }
 });
 $('#dev-12').change(function () {
+    page = 1
     if ($('#dev-12').is(':checked')) {
         checked = checked | 2;
         viewLoad();
@@ -125,6 +132,7 @@ $('#dev-12').change(function () {
     }
 });
 $('#dev-13').change(function () {
+    page = 1
     if ($('#dev-13').is(':checked')) {
         checked = checked | 4;
         viewLoad();
@@ -135,6 +143,7 @@ $('#dev-13').change(function () {
     }
 });
 $('#dev-14').change(function () {
+    page = 1
     if ($('#dev-14').is(':checked')) {
         checked = checked | 8;
         viewLoad();
@@ -145,6 +154,7 @@ $('#dev-14').change(function () {
     }
 });
 $('#dev-21').change(function () {
+    page = 1
     if ($('#dev-21').is(':checked')) {
         checked = checked | 16;
         viewLoad();
@@ -155,6 +165,7 @@ $('#dev-21').change(function () {
     }
 });
 $('#dev-22').change(function () {
+    page = 1
     if ($('#dev-22').is(':checked')) {
         checked = checked | 32;
         viewLoad();
@@ -165,6 +176,7 @@ $('#dev-22').change(function () {
     }
 });
 $('#dev-23').change(function () {
+    page = 1
     if ($('#dev-23').is(':checked')) {
         checked = checked | 64;
         viewLoad();
@@ -175,6 +187,7 @@ $('#dev-23').change(function () {
     }
 });
 $('#dev-24').change(function () {
+    page = 1
     if ($('#dev-24').is(':checked')) {
         checked = checked | 128;
         viewLoad();
@@ -185,6 +198,7 @@ $('#dev-24').change(function () {
     }
 });
 $('#dev-25').change(function () {
+    page = 1
     if ($('#dev-25').is(':checked')) {
         checked = checked | 256;
         viewLoad();
@@ -195,6 +209,7 @@ $('#dev-25').change(function () {
     }
 });
 $('#dev-26').change(function () {
+    page = 1
     if ($('#dev-26').is(':checked')) {
         checked = checked | 512;
         viewLoad();
@@ -211,25 +226,3 @@ $('#latestcreate').click(function () {
     sort = 3;
     viewLoad();
 });
-//
-// //----------------PAGE-------------------
-// $('#one').click(function () {
-//     page = ((pagemultiply - 1) * 5) + 1;
-//     viewLoad();
-// });
-// $('#two').click(function () {
-//     page = ((pagemultiply - 1) * 5) + 2;
-//     viewLoad();
-// });
-// $('#three').click(function () {
-//     page = ((pagemultiply - 1) * 5) + 3;
-//     viewLoad();
-// });
-// $('#four').click(function () {
-//     page = ((pagemultiply - 1) * 5) + 4;
-//     viewLoad();
-// });
-// $('#five').click(function () {
-//     page = ((pagemultiply - 1) * 5) + 5;
-//     viewLoad();
-// });

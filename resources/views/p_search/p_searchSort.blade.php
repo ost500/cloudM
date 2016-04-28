@@ -1,5 +1,5 @@
 <!-- Pagination -->
-<div id = "count">{{ $projects['count'] }}</div>
+<h4 id = "count">{{ $projects['count'] }}개의 프로젝트</h4>
 
 
 @foreach($projects as $project)
