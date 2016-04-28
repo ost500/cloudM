@@ -33,12 +33,21 @@
                             {!! csrf_field() !!}
                             <article>
                                 <div class="signup">
-                                    {{--<label>이용목적 *<br/>--}}
-                                    {{--<label for="ccc" class="label_n"><input name="gender" id="ccc" type="radio"--}}
-                                    {{--value="ccc">클라이언트</label>--}}
-                                    {{--<label for="ppp" class="label_n"><input name="gender" id="ppp" type="radio"--}}
-                                    {{--value="ppp">파트너스</label>--}}
-                                    {{--</label>--}}
+                                    <div class="form-group{{ $errors->has('ClientPartners') ? ' has-error' : '' }}">
+                                        <label>이용목적 *<br/>
+                                            <label for="ccc" class="label_n"><input name="ClientPartners" id="ccc"
+                                                                                    type="radio"
+                                                                                    value="ccc">클라이언트</label>
+                                            <label for="ppp" class="label_n"><input name="ClientPartners" id="ppp"
+                                                                                    type="radio"
+                                                                                    value="ppp">파트너스</label>
+                                            @if ($errors->has('ClientPartners'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('ClientPartners') }}</strong>
+                                                </span>
+                                            @endif
+                                        </label>
+                                    </div>
                                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                         <label>이름 *
                                             <input class="form-control" type="text" name="name" placeholder=""
@@ -73,7 +82,8 @@
                                     </div>
                                     <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                                         <label>비밀번호 재입력 *
-                                            <input class="form-control" type="text" name="password_confirmation" placeholder="">
+                                            <input class="form-control" type="text" name="password_confirmation"
+                                                   placeholder="">
                                         </label>
                                         @if ($errors->has('password_confirmation'))
                                             <span class="help-block">
@@ -126,6 +136,12 @@
         </div>
     </section>
 </div>
+<script>
+    $(function(){
+        $('input:radio[name=ClientPartners]')[0].checked = true;
+    });
+
+</script>
 
 @include('include.footer')
 @endsection
