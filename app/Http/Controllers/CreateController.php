@@ -15,6 +15,11 @@ class CreateController extends Controller
 
     public $lastStep = "2";
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($step)
     {
         return view('p_add' . $step);

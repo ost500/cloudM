@@ -96,7 +96,7 @@
 
     function viewLoad() {
         var display_results = $("#story");
-        display_results.html("loading...");
+        display_results.html("<img src=images/ajax-loader.gif>");
         $.ajaxSetup({cache: false});
 
         $.ajax({

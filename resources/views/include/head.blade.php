@@ -98,8 +98,20 @@
 
                     <!-- Search -->
                     <div class="search-icon">
-                        <a href="{{ url("/login") }}" class="button signin">로그인</a>
-                        <a href="signup.php" class="button signup">회원가입</a>
+                        <?php
+                        if(Auth::check())
+                            {
+                                echo "<a href=".url("/logout")." class=\"button signup\">로그아웃/a>";
+
+                        }
+                            else {
+                                echo "<a href=".url("/login")." class=\"button signin\">로그인</a>";
+                                echo "<a href=".url("/register")." class=\"button signup\">회원가입</a>";
+                            }
+
+                            ?>
+
+
                     </div>
                 </div>
             </div>

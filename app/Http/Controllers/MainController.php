@@ -9,19 +9,9 @@ use App\Project;
 
 class MainController extends Controller
 {
-
-    
-    
     public function index()
     {
-    	return view('index');
+        return view('index');
     }
     
-    
-
-    public function partner()
-    {
-        return view('partner');
-        
-    }
 }
