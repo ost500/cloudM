@@ -41,13 +41,12 @@ class SearchController extends Controller
 
     public function pagination($start, $end)
     {
-        return view('p_search/pagination', ['start' => $start, 'end' => $end]);
+        return view('pagination', ['start' => $start, 'end' => $end]);
     }
 
 
-    public function get_p_list($SearchOption, $page, $sort = "3")
+    public function get_p_list($SearchOption, $page, $sort)
     {
-
         $SearchOption = intval($SearchOption);
         $page = intval($page);
 

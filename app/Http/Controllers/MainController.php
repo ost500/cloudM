@@ -13,8 +13,5 @@ class MainController extends Controller
     {
         return view('index');
     }
-    public function partner()
-    {
-        return view('partner');
-    }
+    
 }
