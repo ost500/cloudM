@@ -13,5 +13,5 @@ class MainController extends Controller
     {
         return view('index');
     }
-    
+    //브랜치 테스트 OST_GMLAB
 }
