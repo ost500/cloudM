@@ -35,7 +35,7 @@
                         <ul class="p_align02">
                             <li class="parent dev-category-list">
                                 <div class="dev-skipper"></div>
-                                <input name="dev" id="dev" type="checkbox"> </input>
+                                <input name="dev" id="dev-1" type="checkbox"> </input>
                                 <label for="dev" class="dev_txt">분야</label>
                                 <ul class="child-list">
                                     <li>
@@ -61,7 +61,7 @@
 
                             <li class="parent dev-category-list">
                                 <div class="dev-skipper"></div>
-                                <input name="dev" id="dev" type="checkbox"> </input>
+                                <input name="dev" id="dev-2" type="checkbox"> </input>
                                 <label for="dev" class="dev_txt">업종</label>
                                 <ul class="child-list">
                                     <li>
