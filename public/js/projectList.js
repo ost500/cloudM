@@ -115,113 +115,187 @@ $("#prevPblock").click(function () {
 });
 
 
+// 카테고리 체크박스 -----------------------------------
+$('#dev-1').change(function () {
+    page = 1;
+    if ($('#dev-1').is(':checked')) {
+        $('#dev-11').prop("checked", true);
+        checked = checked | 1;
+        $('#dev-12').prop("checked", true);
+        checked = checked | 2;
+        $('#dev-13').prop("checked", true);
+        checked = checked | 4;
+        $('#dev-14').prop("checked", true);
+        checked = checked | 8;
+    }
+    else {
+        $('#dev-11').attr("checked", false);
+        $('#dev-12').attr("checked", false);
+        $('#dev-13').attr("checked", false);
+        $('#dev-14').attr("checked", false);
+        checked = checked & (2047 - 1);
+        checked = checked & (2047 - 2);
+        checked = checked & (2047 - 4);
+        checked = checked & (2047 - 8);
+
+    }
+
+    viewLoad();
+});
+
 $('#dev-11').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-11').is(':checked')) {
         checked = checked | 1;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 1);
+        $('#dev-1').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-12').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-12').is(':checked')) {
         checked = checked | 2;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 2);
+        $('#dev-1').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-13').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-13').is(':checked')) {
         checked = checked | 4;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 4);
+        $('#dev-1').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-14').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-14').is(':checked')) {
         checked = checked | 8;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 8);
+        $('#dev-1').attr("checked", false);
         viewLoad();
     }
 });
+// 분야
+$('#dev-2').change(function () {
+    page = 1;
+    if ($('#dev-2').is(':checked')) {
+        $('#dev-21').prop("checked", true);
+        checked = checked | 16;
+        $('#dev-22').prop("checked", true);
+        checked = checked | 32;
+        $('#dev-23').prop("checked", true);
+        checked = checked | 64;
+        $('#dev-24').prop("checked", true);
+        checked = checked | 128;
+        $('#dev-25').prop("checked", true);
+        checked = checked | 256;
+        $('#dev-26').prop("checked", true);
+        checked = checked | 512;
+    }
+    else {
+        $('#dev-21').attr("checked", false);
+        $('#dev-22').attr("checked", false);
+        $('#dev-23').attr("checked", false);
+        $('#dev-24').attr("checked", false);
+        $('#dev-25').attr("checked", false);
+        $('#dev-26').attr("checked", false);
+        checked = checked & (2047 - 16);
+        checked = checked & (2047 - 32);
+        checked = checked & (2047 - 64);
+        checked = checked & (2047 - 128);
+        checked = checked & (2047 - 256);
+        checked = checked & (2047 - 512);
+
+    }
+
+    viewLoad();
+});
+
 $('#dev-21').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-21').is(':checked')) {
         checked = checked | 16;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 16);
+        $('#dev-2').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-22').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-22').is(':checked')) {
         checked = checked | 32;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 32);
+        $('#dev-2').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-23').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-23').is(':checked')) {
         checked = checked | 64;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 64);
+        $('#dev-2').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-24').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-24').is(':checked')) {
         checked = checked | 128;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 128);
+        $('#dev-2').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-25').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-25').is(':checked')) {
         checked = checked | 256;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 256);
+        $('#dev-2').attr("checked", false);
         viewLoad();
     }
 });
 $('#dev-26').change(function () {
-    page = 1
+    page = 1;
     if ($('#dev-26').is(':checked')) {
         checked = checked | 512;
         viewLoad();
     }
     else {
         checked = checked & (2047 - 512);
+        $('#dev-2').attr("checked", false);
         viewLoad();
     }
 });

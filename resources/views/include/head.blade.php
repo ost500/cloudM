@@ -85,7 +85,9 @@
                 <div class="container">
 
                     <!-- LOGO -->
-                    <div class="logo"><a href="/"><img class="img-responsive" src="images/logo02.png" alt=""></a></div>
+                    <div class="logo"><a href="{{ url("/") }}"><img class="img-responsive"
+                                                                    src="{{ URL::asset('images/logo02.png') }}"></a>
+                    </div>
 
                     <!-- Nav -->
                     <ul class="nav ownmenu">
@@ -99,17 +101,15 @@
                     <!-- Search -->
                     <div class="search-icon">
                         <?php
-                        if(Auth::check())
-                            {
-                                echo "<a href=".url("/logout")." class=\"button signup\">로그아웃/a>";
+                        if (Auth::check()) {
+                            echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃/a>";
 
+                        } else {
+                            echo "<a href=" . url("/login") . " class=\"button signin\">로그인</a>";
+                            echo "<a href=" . url("/register") . " class=\"button signup\">회원가입</a>";
                         }
-                            else {
-                                echo "<a href=".url("/login")." class=\"button signin\">로그인</a>";
-                                echo "<a href=".url("/register")." class=\"button signup\">회원가입</a>";
-                            }
 
-                            ?>
+                        ?>
 
 
                     </div>
@@ -117,5 +117,6 @@
             </div>
         </nav>
     </header>
+</div>
 
 @yield('content')
