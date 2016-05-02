@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Test extends Migration
+class ProjectsTimestampAdd extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,9 @@ class Test extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('projects', function($table){
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +24,9 @@ class Test extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('projects', function($table)
+        {
+            $table->dropTimestamps();
+        });
     }
 }
