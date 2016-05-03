@@ -102,7 +102,8 @@
                     <div class="search-icon">
                         <?php
                         if (Auth::check()) {
-                            echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃/a>";
+                            echo "<a href=" . url("/mypage") . " class=\"button signin\">내 정보</a>";
+                            echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃</a>";
 
                         } else {
                             echo "<a href=" . url("/login") . " class=\"button signin\">로그인</a>";
