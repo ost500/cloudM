@@ -23,7 +23,12 @@
                         <h5 class="side-tittle">파트너스</h5>
                         <div>
                             <img class="partner_profile02" src="/images/p_img02.png"><br>
-                            <h6>{{ $partner[0]->name }}</h6>
+                            <h6>{{ $loginUser->name }}</h6>
+                            <a href="#.">
+                                <div id="tag02">
+                                    <div class="button">기본정보수정</div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -49,7 +54,7 @@
                                         <div class="job-tittle02">
 
                                             <div class="media-body02">
-                                                <h3 class="margin-bottom-0">{{ $partner[0]['user']->name }}</h3>
+                                                <h3 class="margin-bottom-0">{{ $loginUser->name }}</h3>
                                             </div>
                                             <span class="media-body-sm"><i
                                                         class="fa fa-align-left"></i> 직종 <span>디자이너</span></span>
@@ -57,6 +62,7 @@
                                             <span class="media-body-sm"><i
                                                         class="fa fa-check-circle-o"></i> 신원미인증</span>
                                             <span class="media-body-sm la-line"><i class="fa fa-check-circle-o"></i> 연락처미등록</span>
+                                            <a href="#." class="button002 signup002 margin-top-20">수정하기</a>
                                             <div class="tags_bg02 margin-top-20 padding-top-5">
                                                 <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
 
@@ -95,38 +101,31 @@
 
                                         <div class="job-tittle02 txt_color_g">
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
-                                            <!--<a href="#." class="button002 signup002 margin-top-12">수정하기</a>-->
-                                            <a href="#." class="more_btn margin-top-20">더보기 ></a>
-
-
-                                            안녕하세요
-                                            13년차 프리랜서팀 입니다.<br>
-                                            원하시는 디자인 퀄리티와 개발이 가능하고 서로 만족스러운 프로젝트가 되도록 노력하겠습니다.<br><br>
-
-                                            개발 이슈가 큰 프로젝트는<br>
-
-                                            카드 https://www.dfgdxfhb.co.kr/<br>
-                                            캐피탈 http://www.fbzxf.co.kr/
-
+                                            <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
+                                            dasgdgsdfgfdgfsdgsdg
                                         </div>
 
 
                                         <div class="job-tittle02 txt_color_g">
                                             <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
-                                            <a href="#." class="more_btn margin-top-20">더보기 ></a>
+                                            <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
                                             <div class="row">
                                                 <div class="col-lg-4 port-img-d"><img class="img-responsive port-img"
-                                                                                      src="images/port.jpg"></div>
+                                                                                      src="../../../public/images/port.jpg">
+                                                </div>
                                                 <div class="col-lg-4 port-img-d"><img class="img-responsive port-img"
-                                                                                      src="images/port.jpg"></div>
+                                                                                      src="../../../public/images/port.jpg">
+                                                </div>
                                                 <div class="col-lg-4 port-img-d"><img class="img-responsive port-img"
-                                                                                      src="images/port.jpg"></div>
+                                                                                      src="../../../public/images/port.jpg">
+                                                </div>
                                             </div>
                                         </div>
 
 
                                         <div class="job-tittle02">
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">보유기술</h6>
+                                            <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
                                             <div class="panel02 panel-default02 margin-top-20">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -156,6 +155,7 @@
 
                                         <div class="job-tittle02">
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">경력</h6>
+                                            <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
                                             <div class="panel02 panel-default02 margin-top-20">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -187,6 +187,7 @@
 
                                         <div class="job-tittle02">
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">학력</h6>
+                                            <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
                                             <div class="panel02 panel-default02 margin-top-20">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -216,6 +217,7 @@
 
                                         <div class="job-tittle02">
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">자격증</h6>
+                                            <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
                                             <div class="panel02 panel-default02 margin-top-20">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -235,110 +237,6 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="job-tittle02">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
-                                            <a href="#." class="more_btn margin-top-20">더보기 ></a>
-                                            <div class="panel02 panel-default02 margin-top-20">
-                                                <div class="panel-heading03">
-                                                    <div>
-                                                        <ul>
-                                                            <li class="panel-heading03_title">CPS 머천트 사이트 PC 및 모바일 웹디자인,
-                                                                퍼블리싱
-                                                            </li>
-                                                            <li class="panel-heading03_title02">클라이언트 &nbsp; <strong>benbro</strong>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="panel-body04">
-                                                    <ul>
-                                                        <!--<li class="row">
-                                                          <span class="col-xs-4">계약일 2015년12월12일</span>
-                                                          <span class="col-xs-4">계약금액 5,000,000원</span>
-                                                          <span class="col-xs-4">계약기간 100일</span>
-                                                        </li>-->
-
-                                                        <li class="col-xs-4"><i class="fa fa-calendar-minus-o"></i> 계약일
-                                                            2015년12월12일
-                                                        </li>
-                                                        <li class="col-xs-4"><i class="fa fa-krw"></i> 계약금액 5,000,000원
-                                                        </li>
-                                                        <li class="col-xs-4"><i class="fa fa-clock-o"></i> 계약기간 100일
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="panel-body05">
-                                                    <ul>
-                                                        <li>
-                                                            <div>광고주 별점</div>
-                                                            <div class="rating star-lg star-lg-4"></div>
-                                                            <div>4.8</div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="panel-body06">
-                                                    <span><img class="partner_profile03"
-                                                               src="/images/p_img02.png"></span>
-                                                    <div>
-                                                        <span class="rd_box02">광고주</span><span><strong>dkdlel123</strong></span><br>
-                                                        <span>중간에 시안이 여러번 바뀌었음에도 잘 지원 해주신 부분이나, 추가 수정 요청부분에 잘 지원해 주신 부분이 좋았습니다. 디자인 퀄리티도 만족 합니다!</span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="panel02 panel-default02 margin-top-10">
-                                                <div class="panel-heading03">
-                                                    <div>
-                                                        <ul>
-                                                            <li class="panel-heading03_title">CPS 머천트 사이트 PC 및 모바일 웹디자인,
-                                                                퍼블리싱
-                                                            </li>
-                                                            <li class="panel-heading03_title02">클라이언트 &nbsp; <strong>benbro</strong>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="panel-body04">
-                                                    <ul>
-                                                        <!--<li class="row">
-                                                          <span class="col-xs-4">계약일 2015년12월12일</span>
-                                                          <span class="col-xs-4">계약금액 5,000,000원</span>
-                                                          <span class="col-xs-4">계약기간 100일</span>
-                                                        </li>-->
-
-                                                        <li class="col-xs-4"><i class="fa fa-calendar-minus-o"></i> 계약일
-                                                            2015년12월12일
-                                                        </li>
-                                                        <li class="col-xs-4"><i class="fa fa-krw"></i> 계약금액 5,000,000원
-                                                        </li>
-                                                        <li class="col-xs-4"><i class="fa fa-clock-o"></i> 계약기간 100일
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="panel-body05">
-                                                    <ul>
-                                                        <li>
-                                                            <div>광고주 별점</div>
-                                                            <div class="rating star-lg star-lg-4"></div>
-                                                            <div>4.8</div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="panel-body06">
-                                                    <span><img class="partner_profile03"
-                                                               src="/images/p_img02.png"></span>
-                                                    <div>
-                                                        <span class="rd_box02">광고주</span><span><strong>dkdlel123</strong></span><br>
-                                                        <span>중간에 시안이 여러번 바뀌었음에도 잘 지원 해주신 부분이나, 추가 수정 요청부분에 잘 지원해 주신 부분이 좋았습니다. 디자인 퀄리티도 만족 합니다!</span>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
 
@@ -371,3 +269,4 @@
 
 @include('include.footer')
 @endsection
+

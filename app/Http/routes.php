@@ -55,7 +55,10 @@ Route::get('/charge', 'HowtouseController@charge');
 Route::get('/faq', 'HowtouseController@faq');
 
 
-//로그인 적용 예제
+//로그인
 Route::auth();
 
-
+// mypage
+Route::get('/mypage', 'MypageController@mypage');
+Route::get('/setting', 'MypageController@setting');
+Route::get('/mypage/partner', 'MypageController@partnerMypage');
