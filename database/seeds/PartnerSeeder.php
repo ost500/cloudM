@@ -1,5 +1,6 @@
 <?php
 
+use App\Client;
 use App\Partners;
 use App\User;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,7 @@ class PartnerSeeder extends Seeder
                 'name' => '박한울'.$i,
                 'email' => 'foo'.$i.'@bar.com',
                 'password' => bcrypt('qwqw1212'),
+                'PorC' =>'P'
             ]);
 
             Partners::create([
@@ -27,6 +29,7 @@ class PartnerSeeder extends Seeder
                 'name' => '심현보'.$i,
                 'email' => 'foo'.($i+1).'@bar.com',
                 'password' => bcrypt('qwqw1212'),
+                'PorC' =>'P'
             ]);
 
             Partners::create([
@@ -36,9 +39,10 @@ class PartnerSeeder extends Seeder
                 'name' => '오상택'.$i,
                 'email' => 'foo'.($i+2).'@bar.com',
                 'password' => bcrypt('qwqw1212'),
+                'PorC' =>'C'
             ]);
 
-            Partners::create([
+            Client::create([
                 'user_id' => $userCreation['id']
             ]);
 

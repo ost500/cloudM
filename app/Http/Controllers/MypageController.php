@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Partners;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,21 +17,24 @@ class MypageController extends Controller
 
     public function mypage()
     {
-        $loginUser = Auth::user();
-        return view('mypage/mypage', compact('loginUser'));
+        if (Auth::user()->PorC == "P")
+        {
+            $loginUser = Auth::user();
+            return view('mypage/partnerMypage', compact('loginUser'));
+        }
+        else
+        {
+            $loginUser = Auth::user();
+            return view('mypage/clientMypage', compact('loginUser'));
+        }
+
     }
+
 
     public function setting()
     {
         $loginUser = Auth::user();
-
-        
         return view('mypage/setting', compact('loginUser'));
     }
-    
-    public function partnerMypage()
-    {
-        $loginUser = Auth::user();
-        return view('mypage/modify', compact('loginUser'));
-    }
+
 }

@@ -24,7 +24,7 @@
                         <div>
                             <img class="partner_profile02" src="/images/p_img02.png"><br>
                             <h6>{{ $loginUser->name }}</h6>
-                            <a href="#.">
+                            <a href="{{ url("/setting") }}">
                                 <div id="tag02">
                                     <div class="button">기본정보수정</div>
                                 </div>

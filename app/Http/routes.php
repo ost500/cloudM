@@ -59,9 +59,11 @@ Route::get('/faq', 'HowtouseController@faq');
 Route::auth();
 
 // mypage
+
 Route::get('/mypage', 'MypageController@mypage');
+
 Route::get('/setting', 'MypageController@setting');
-Route::get('/mypage/partner', 'MypageController@partnerMypage');
+
 
 // mypage post 
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
