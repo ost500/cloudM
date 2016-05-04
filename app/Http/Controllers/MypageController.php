@@ -23,6 +23,8 @@ class MypageController extends Controller
     public function setting()
     {
         $loginUser = Auth::user();
+
+        
         return view('mypage/setting', compact('loginUser'));
     }
     

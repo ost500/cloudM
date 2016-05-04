@@ -22,7 +22,7 @@
                     <div class="job-sider-bar003">
                         <h5 class="side-tittle">파트너스</h5>
                         <div>
-                            <img class="partner_profile02" src="/images/p_img02.png"><br>
+                            <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
                             <h6>{{ $loginUser->name }}</h6>
                             <a href="#.">
                                 <div id="tag02">
@@ -61,13 +61,20 @@
 
                                             <div class="job-tittle04 margin-bottom-30">
                                                 <h6 class="my_h6 margin-bottom-20">기본 정보 입력</h6>
-                                                <label>프로필사진<span class="set_st">*</span><br/>
-                                                    <input class="form-control03 input_width01" type="text" name=""
-                                                           placeholder="등록된 이미지가 없습니다.">
-                                                    <button class="input_width02" type="button"><i
-                                                                class="fa fa-plus"></i> 이미지 추가
-                                                    </button>
-                                                </label><br/>
+
+                                                <form action="{{ url('/mypage/img') }}" method="POST" role="form"
+                                                      enctype="multipart/form-data" accept-charset="UTF-8">
+                                                    {!! csrf_field() !!}
+                                                    <label>프로필사진<span class="set_st">*</span><br/>
+                                                        <input class="form-control03 input_width01" type="file"
+                                                               name="Image"
+                                                               placeholder="등록된 이미지가 없습니다.">
+                                                        <button class="input_width02" type="submit"><i
+                                                                    class="fa fa-plus"></i> 이미지 추가
+                                                        </button>
+                                                    </label>
+                                                </form>
+                                                <br/>
                                                 <label>파트너형태<span class="set_st">*</span>
                                                     <select name="form_of_business" class="form-control03 "
                                                             id="form_of_business" required="required">

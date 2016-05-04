@@ -22,7 +22,8 @@
                     <div class="job-sider-bar003">
                         <h5 class="side-tittle">파트너스</h5>
                         <div>
-                            <img class="partner_profile02" src="/images/p_img02.png"><br>
+
+                            <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
                             <h6>{{ $loginUser->name }}</h6>
                             <a href="{{ url("/setting") }}">
                                 <div id="tag02">

@@ -62,3 +62,6 @@ Route::auth();
 Route::get('/mypage', 'MypageController@mypage');
 Route::get('/setting', 'MypageController@setting');
 Route::get('/mypage/partner', 'MypageController@partnerMypage');
+
+// mypage post 
+Route::post('/mypage/img', 'MypagePostController@setProfileimg');
