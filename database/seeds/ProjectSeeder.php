@@ -15,43 +15,63 @@ class ProjectSeeder extends Seeder
 
             DB::table('projects')->insert([
                 'category' => "광고 의뢰",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "운영 대행",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "Viral",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "의료",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "법률",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "스타트업",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "프랜차이즈",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "교육/대학교",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "쇼핑몰",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
             DB::table('projects')->insert([
                 'category' => "1회성 프로젝트",
-                'title' => "GMLAB".$i
+                'title' => "GMLAB".$i,
+                'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
             ]);
         }
     }
