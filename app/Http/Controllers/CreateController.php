@@ -48,7 +48,7 @@ class CreateController extends Controller
             $input->title = Session::pull('title');
             $input->category = Session::pull('category');
             $input->save();
-            Session::flush();
+
             return redirect()->action('CreateController@complete');
 
         }
