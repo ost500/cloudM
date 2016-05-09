@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
@@ -22,6 +23,10 @@ class CreateController extends Controller
 
     public function index($step)
     {
+        if(Auth::user()->PorC == "P")
+        {
+            return redirect()->action('MainController@index');
+        }
         return view('p_add' . $step);
 //        return phpinfo();
     }
