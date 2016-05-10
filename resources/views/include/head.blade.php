@@ -20,6 +20,7 @@
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/modern-business.css" rel="stylesheet">
 
     <!-- Online Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,800,200,500' rel='stylesheet' type='text/css'>
@@ -54,15 +55,15 @@
             <div class="top-info">
                 <div class="container">
                     <ul class="personal-info">
+
                         <li>
-                            <p><i class="fa fa-phone"></i> 1661-8863</p>
+                            <p><i class="fa fa-bell"></i>
+                                <span id="noti"></span>
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+
                         </li>
-                        <li>
-                            <p>Hi! Here comes custom txt line </p>
-                        </li>
-                        <li>
-                            <p>help@gmlab.kr</p>
-                        </li>
+
                     </ul>
 
                     <!-- Right Sec -->
@@ -94,7 +95,7 @@
                         <?php
 
                         if (!Auth::check() || Auth::user()->PorC == "C") {
-                            echo "<li><a href=" . url("p_add/1") . ">프로젝트 등록</a></li>";
+                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\">프로젝트 등록</a></li>";
                         }
 
                         ?>
@@ -112,7 +113,7 @@
                             echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃</a>";
 
                         } else {
-                            echo "<a href=" . url("/login") . " class=\"button signin\">로그인</a>";
+                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"button signin\">로그인</a>";
                             echo "<a href=" . url("/register") . " class=\"button signup\">회원가입</a>";
                         }
 
@@ -125,5 +126,82 @@
         </nav>
     </header>
 </div>
+
+<div class="modal" id="login-modal" tabindex="-1"
+     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>로그인</h1><br>
+
+
+            <form role="form" method="POST" id="loginForm" action="/login">
+                {!! csrf_field() !!}
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <input type="email" name="email" placeholder="이메일">
+                    @if ($errors->has('email'))
+                        <span id="emailError" class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <input type="password" name="password" placeholder="비밀번호">
+                    @if ($errors->has('password'))
+                        <span id="passError" class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <input type="checkbox" name="remember"> 아이디 저장
+                <input type="submit" name="login" class="login loginmodal-submit" value="로그인">
+            </form>
+
+            <div class="login-help">
+                <a href="#">가입하기</a> - <a href="#">비밀번호 찾기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+if ($errors->has('email') || $errors->has('password')) {
+    echo "<script>";
+    echo "$(function(){";
+    echo "$(\"#login-modal\").modal('show');";
+    echo "});";
+    echo "</script>";
+}
+
+?>
+<script>
+    var display_results = $("#noti");
+
+    var maxnumofNoti = Number(2);
+    var numofNoti = maxnumofNoti;
+
+    function executeNoti () {
+        $.ajax({
+            url: "notification/" + numofNoti,
+            success: function (result) {
+                display_results.html(result);
+                
+                numofNoti -= 1;
+                if (numofNoti < 1) {
+                    numofNoti = maxnumofNoti;
+                }
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        executeNoti();
+
+        setInterval(executeNoti, 1000);
+
+    });
+
+
+</script>
+
 
 @yield('content')

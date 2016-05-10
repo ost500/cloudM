@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notification;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -13,6 +14,11 @@ class MainController extends Controller
     {
         return view('index');
     }
-    // new TEST branch once agian
-    // Let me know the logic of branch
+
+    public function notificationShow($id)
+    {
+        $noti = Notification::where('id', '=', $id)->get();
+        return view('include.notification', compact('noti'));
+    }
+
 }

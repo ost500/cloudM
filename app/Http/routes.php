@@ -58,6 +58,11 @@ Route::get('/faq', 'HowtouseController@faq');
 //로그인
 Route::auth();
 
+Route::get('/loginModal', 'MainController@loginModal');
+
+Route::get('/notification/{id}', 'MainController@notificationShow')
+    ->where(['id' => '[1-9]']);
+
 // mypage
 
 Route::get('/mypage', 'MypageController@mypage');
