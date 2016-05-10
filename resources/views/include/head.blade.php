@@ -57,14 +57,13 @@
                     <ul class="personal-info">
 
                         <li>
-                            <p><i class="fa fa-bell"></i>Hi! Here
-                                comes custom txt line <i class="fa fa-chevron-left" aria-hidden="true"></i> <i
-                                        class="fa fa-chevron-right" aria-hidden="true"></i></p>
+                            <p><i class="fa fa-bell"></i>
+                                <span id="noti"></span>
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
 
                         </li>
-                        <li>
-                            <p>help@gmlab.kr</p>
-                        </li>
+
                     </ul>
 
                     <!-- Right Sec -->
@@ -174,6 +173,17 @@ if ($errors->has('email') || $errors->has('password')) {
 }
 
 ?>
+<script>
+    var display_results = $("#noti");
+
+    $.ajax({
+        url: "notification/1" ,
+        success: function (result) {
+            display_results.html(result);
+            
+        }
+    });
+</script>
 
 
 @yield('content')
