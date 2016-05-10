@@ -20,6 +20,7 @@
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../css/modern-business.css" rel="stylesheet">
 
     <!-- Online Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,800,200,500' rel='stylesheet' type='text/css'>
@@ -112,11 +113,13 @@
                             echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃</a>";
 
                         } else {
-                            echo "<a href=" . url("/login") . " class=\"button signin\">로그인</a>";
+                            echo "<a data-toggle=\"modal\" data-target=\"#login-modal\" class=\"button signin\">로그인</a>";
                             echo "<a href=" . url("/register") . " class=\"button signup\">회원가입</a>";
                         }
 
                         ?>
+
+
 
 
                     </div>
@@ -124,6 +127,24 @@
             </div>
         </nav>
     </header>
+</div>
+
+<div class="modal" id="login-modal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>Login to Your Account</h1><br>
+            <form>
+                <input type="text" name="user" placeholder="Username">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+
+            <div class="login-help">
+                <a href="#">Register</a> - <a href="#">Forgot Password</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 @yield('content')
