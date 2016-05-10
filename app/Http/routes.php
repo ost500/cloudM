@@ -58,6 +58,8 @@ Route::get('/faq', 'HowtouseController@faq');
 //로그인
 Route::auth();
 
+Route::get('/loginModal', 'MainController@loginModal');
+
 // mypage
 
 Route::get('/mypage', 'MypageController@mypage');

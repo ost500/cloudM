@@ -13,6 +13,10 @@ class MainController extends Controller
     {
         return view('index');
     }
-    // new TEST branch once agian
-    // Let me know the logic of branch
+
+    public function loginModal()
+    {
+        return view('Auth/loginModal');
+    }
+
 }
