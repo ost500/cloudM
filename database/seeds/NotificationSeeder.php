@@ -12,7 +12,7 @@ class NotificationSeeder extends Seeder
     public function run()
     {
         DB::table('notifications')->insert([
-            'notification' => "론칭 이벤트 진행 중"
+            'notification' => "론칭 이벤트 진행 중2"
         ]);
     }
 }

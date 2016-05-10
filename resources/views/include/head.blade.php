@@ -176,13 +176,31 @@ if ($errors->has('email') || $errors->has('password')) {
 <script>
     var display_results = $("#noti");
 
-    $.ajax({
-        url: "notification/1" ,
-        success: function (result) {
-            display_results.html(result);
-            
-        }
+    var maxnumofNoti = Number(2);
+    var numofNoti = maxnumofNoti;
+
+    function executeNoti () {
+        $.ajax({
+            url: "notification/" + numofNoti,
+            success: function (result) {
+                display_results.html(result);
+                
+                numofNoti -= 1;
+                if (numofNoti < 1) {
+                    numofNoti = maxnumofNoti;
+                }
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        executeNoti();
+
+        setInterval(executeNoti, 1000);
+
     });
+
+
 </script>
 
 
