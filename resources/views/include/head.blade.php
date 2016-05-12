@@ -94,10 +94,13 @@
                     <ul class="nav ownmenu">
                         <?php
 
-                        if (!Auth::check() || Auth::user()->PorC == "C") {
-                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\">프로젝트 등록</a></li>";
-                        }
 
+                        if (!Auth::check()) {
+                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" >프로젝트 등록</a></li>";
+                        }
+                        else if (Auth::user()->PorC == "C") {
+                            echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
+                        }
                         ?>
                         <li><a href="{{ url('p_search') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
@@ -156,33 +159,6 @@
         </div>
     </div>
 </div>
-<script>
-    $("#loginForm").submit(function (event) {
-        event.preventDefault();
-        var $form = $(this),
-                data = $form.serialize(),
-                url = "/login";
-
-        $.ajax({
-            url: url,
-            type: 'POST',
-            data: data,
-            success: function (data) {
-                if (data["try"] == "Success") {
-                    location.reload();
-                }
-                else {
-                    $("#error").html(data);
-                }
-
-
-            },
-
-        });
-
-
-    });
-</script>
 
 
 <div class="modal" id="signup-modal" tabindex="-1"

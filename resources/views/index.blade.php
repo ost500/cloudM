@@ -9,12 +9,21 @@
             <div class="position-center-center">
 
 
-
                 <p class="main_banner_2">국내최초 마케팅 중계 플랫폼</p>
                 <p class="main_banner_3"></p>
                 <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.</p>
 
-                <a href="{{ url("/p_add/1") }}" class="btn">무료로 프로젝트 등록하기<i class="fa fa-caret-right"></i></a></div>
+
+            <?php
+            if (!Auth::check()) {
+                echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+
+            } else if (Auth::user()->PorC == "C") {
+                echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+            } else {
+                echo "<a style = \"cursor : pointer\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+            }
+            ?>
         </li>
         </li>
     </ul>

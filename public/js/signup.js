@@ -1,6 +1,35 @@
 /**
  * Created by OST on 2016-05-12.
  */
+
+
+$("#loginForm").submit(function (event) {
+    event.preventDefault();
+    var $form = $(this),
+        data = $form.serialize(),
+        url = "/login";
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: data,
+        success: function (data) {
+            if (data["try"] == "Success") {
+                location.reload();
+            }
+            else {
+                $("#error").html(data);
+            }
+
+
+        },
+
+    });
+
+
+});
+
+
 $("#signupForm").submit(function (event) {
     event.preventDefault();
     var $form = $(this),
