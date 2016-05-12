@@ -7,13 +7,12 @@
         <!-- SLIDER 1 -->
         <li class="slide-img-1" data-stellar-background-ratio="0.6">
             <div class="position-center-center">
-                <p class="main_banner_1">통합 IMC마케팅 / 브랜드관리 / SNS / 온라인마케팅</p>
-                <p class="main_banner_1">영상 / 디자인 / 홈페이지 / 콘텐츠 제작 의뢰까지</p>
 
 
-                <p class="main_banner_2">클라우드 마케팅 아웃소싱 플랫폼</p>
+
+                <p class="main_banner_2">국내최초 마케팅 중계 플랫폼</p>
                 <p class="main_banner_3"></p>
-                <p class="b_txt01">광고주와 검증된 마케팅 대행사를 연결해 드립니다.</p>
+                <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.</p>
 
                 <a href="{{ url("/p_add/1") }}" class="btn">무료로 프로젝트 등록하기<i class="fa fa-caret-right"></i></a></div>
         </li>
@@ -344,8 +343,9 @@
                                         <div class="m_icon05"> <!--<i class="icon-layers"></i>--> </div>
                                     </div>
                                     <div class="media-body">
-                                        <h6>세금계산서 및 계약서</h6>
-                                        <p>세금계산서 발행 및 계약서 작성까지, 클라우드엠이 안전하고 꼼꼼하게 처리해 드립니다.</p>
+                                        <h6>안심 계약서 및 분쟁조정</h6>
+                                        <p>공증 받아 안심할 수 있는 계약서 작성 및 세금계산서 발행, 이후 혹시 모를 분쟁조정까지, 클라우드엠이 안전하고 꼼꼼하게 처리해
+                                            드립니다.</p>
                                     </div>
                                 </div>
                             </li>
@@ -355,9 +355,8 @@
                                         <div class="m_icon06"> <!--<i class="icon-bulb"></i>--> </div>
                                     </div>
                                     <div class="media-body">
-                                        <h6>Innovative Ideas</h6>
-                                        <p>Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus,
-                                            ultricies id orci.</p>
+                                        <h6>프로젝트 일정관리 시스템</h6>
+                                        <p>클라우드엠 표준작업공정표를 이용하여 프로젝트의 일정을 관리하고 있으며, 이를 통해 작업 지연에 의한 손실을 최소화 합니다.</p>
                                     </div>
                                 </div>
                             </li>
