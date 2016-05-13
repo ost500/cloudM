@@ -116,11 +116,11 @@
                                             <a href="#." class="more_btn margin-top-20">더보기 ></a>
                                             <div class="row">
                                                 <div class="col-lg-4 port-img-d"><img class="img-responsive port-img"
-                                                                                      src="images/port.jpg"></div>
+                                                                                      src="/images/port.jpg"></div>
                                                 <div class="col-lg-4 port-img-d"><img class="img-responsive port-img"
-                                                                                      src="images/port.jpg"></div>
+                                                                                      src="/images/port.jpg"></div>
                                                 <div class="col-lg-4 port-img-d"><img class="img-responsive port-img"
-                                                                                      src="images/port.jpg"></div>
+                                                                                      src="/images/port.jpg"></div>
                                             </div>
                                         </div>
 
@@ -155,7 +155,7 @@
 
 
                                         <div class="job-tittle02">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">경력</h6>
+                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">분야</h6>
                                             <div class="panel02 panel-default02 margin-top-20">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -185,37 +185,37 @@
                                         </div>
 
 
-                                        <div class="job-tittle02">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">학력</h6>
-                                            <div class="panel02 panel-default02 margin-top-20">
-                                                <div class="panel-heading03">
-                                                    <div class="row">
-                                                        <span class="col-xs-2"><strong>학교명</strong></span>
-                                                        <span class="col-xs-2"><strong>분류</strong></span>
-                                                        <span class="col-xs-2"><strong>전공</strong></span>
-                                                        <span class="col-xs-2"><strong>상태</strong></span>
-                                                        <span class="col-xs-2"><strong>입학일</strong></span>
-                                                        <span class="col-xs-2"><strong>졸업일</strong></span>
-                                                    </div>
-                                                </div>
-                                                <div class="panel-body03">
-                                                    <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-2">학력 학교명</span>
-                                                            <span class="col-xs-2">학사</span>
-                                                            <span class="col-xs-2">학력 전공</span>
-                                                            <span class="col-xs-2">졸업</span>
-                                                            <span class="col-xs-2">2016년 12월 30일</span>
-                                                            <span class="col-xs-2">2016년 12월 30일</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {{--<div class="job-tittle02">--}}
+                                            {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">학력</h6>--}}
+                                            {{--<div class="panel02 panel-default02 margin-top-20">--}}
+                                                {{--<div class="panel-heading03">--}}
+                                                    {{--<div class="row">--}}
+                                                        {{--<span class="col-xs-2"><strong>학교명</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>분류</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>전공</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>상태</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>입학일</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>졸업일</strong></span>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
+                                                {{--<div class="panel-body03">--}}
+                                                    {{--<ul>--}}
+                                                        {{--<li class="row">--}}
+                                                            {{--<span class="col-xs-2">학력 학교명</span>--}}
+                                                            {{--<span class="col-xs-2">학사</span>--}}
+                                                            {{--<span class="col-xs-2">학력 전공</span>--}}
+                                                            {{--<span class="col-xs-2">졸업</span>--}}
+                                                            {{--<span class="col-xs-2">2016년 12월 30일</span>--}}
+                                                            {{--<span class="col-xs-2">2016년 12월 30일</span>--}}
+                                                        {{--</li>--}}
+                                                    {{--</ul>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
 
 
                                         <div class="job-tittle02">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">자격증</h6>
+                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">업종</h6>
                                             <div class="panel02 panel-default02 margin-top-20">
                                                 <div class="panel-heading03">
                                                     <div class="row">
