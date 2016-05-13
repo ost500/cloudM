@@ -213,7 +213,7 @@
     </div>
 </div>
 
-<script src="js/signup.js"></script>
+<script src="/js/signup.js"></script>
 
 
 <script>
@@ -224,7 +224,7 @@
 
     function executeNoti() {
         $.ajax({
-            url: "notification/" + numofNoti,
+            url: "/notification/" + numofNoti,
             success: function (result) {
                 display_results.html(result);
 

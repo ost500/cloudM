@@ -24,6 +24,7 @@
                 echo "<a style = \"cursor : pointer\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
             }
             ?>
+            </div>
         </li>
         </li>
     </ul>

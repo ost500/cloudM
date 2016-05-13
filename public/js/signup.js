@@ -2,7 +2,6 @@
  * Created by OST on 2016-05-12.
  */
 
-
 $("#loginForm").submit(function (event) {
     event.preventDefault();
     var $form = $(this),
