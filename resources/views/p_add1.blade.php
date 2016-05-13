@@ -41,7 +41,7 @@
 
                                     <!-- Revenues Sidebar -->
                                     <div class="col-lg-4 job-right margin-bottom-40">
-                                        <img class="step01 img-responsive" src="/images/step1.jpg">
+                                        <img class="step01 img-responsive" src="{{ URL::asset('/images/step1.jpg') }}">
                                     </div>
                                     <!-- Story -->
                                     <div class="col-lg-8 job-right">
@@ -90,10 +90,10 @@
                                                                   {{--id="company_intro" rows="4" cols="40"--}}
                                                                   {{--autocomplete="off"></textarea></label><br/>--}}
                                                         {{--<span class="gry">회사(개인)에 대해 간략하게 설명해주세요. (150자 이내)</span>--}}
-                                                        <!--<div class="checkbox">
-                                                          <input type="checkbox" name="checkbox1" id="checkbox1" value="option1" checked="">
-                                                          <label for="checkbox1"><a href="#">이용약관</a> 및 <a href="#">개인정보 보호방침</a>에 동의합니다.</label>
-                                                        </div>-->
+                                                        {{--<!--<div class="checkbox">--}}
+                                                          {{--<input type="checkbox" name="checkbox1" id="checkbox1" value="option1" checked="">--}}
+                                                          {{--<label for="checkbox1"><a href="#">이용약관</a> 및 <a href="#">개인정보 보호방침</a>에 동의합니다.</label>--}}
+                                                        {{--</div>-->--}}
                                                         <button class="button004 signup003 margin-top-10" type="submit">등록하기</button>
                                                     </div>
                                                 </form>

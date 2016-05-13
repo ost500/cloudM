@@ -31,7 +31,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-    protected $loginPath = '/login';
+
 
     /**
      * Create a new authentication controller instance.
@@ -52,6 +52,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'PorC' => 'required',
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
@@ -67,7 +68,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
 
-        if ($data['ClientPartners'] == "ccc") {
+        if ($data['PorC'] == "ccc") {
             $userCreation = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],

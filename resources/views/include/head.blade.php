@@ -94,10 +94,13 @@
                     <ul class="nav ownmenu">
                         <?php
 
-                        if (!Auth::check() || Auth::user()->PorC == "C") {
-                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\">프로젝트 등록</a></li>";
-                        }
 
+                        if (!Auth::check()) {
+                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" >프로젝트 등록</a></li>";
+                        }
+                        else if (Auth::user()->PorC == "C") {
+                            echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
+                        }
                         ?>
                         <li><a href="{{ url('p_search') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
@@ -114,7 +117,7 @@
 
                         } else {
                             echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"button signin\">로그인</a>";
-                            echo "<a href=" . url("/register") . " class=\"button signup\">회원가입</a>";
+                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#signup-modal\" class=\"button signup\">회원가입</a>";
                         }
 
                         ?>
@@ -133,24 +136,18 @@
         <div class="loginmodal-container">
             <h1>로그인</h1><br>
 
-
             <form role="form" method="POST" id="loginForm" action="/login">
                 {!! csrf_field() !!}
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" name="email" placeholder="이메일">
-                    @if ($errors->has('email'))
-                        <span id="emailError" class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
+                    <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+
                 </div>
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <input type="password" name="password" placeholder="비밀번호">
-                    @if ($errors->has('password'))
-                        <span id="passError" class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
+                    <span id="passError" class="help-block">
+                        <strong id="error"></strong>
+                    </span>
+
                 </div>
                 <input type="checkbox" name="remember"> 아이디 저장
                 <input type="submit" name="login" class="login loginmodal-submit" value="로그인">
@@ -163,28 +160,74 @@
     </div>
 </div>
 
-<?php
-if ($errors->has('email') || $errors->has('password')) {
-    echo "<script>";
-    echo "$(function(){";
-    echo "$(\"#login-modal\").modal('show');";
-    echo "});";
-    echo "</script>";
-}
 
-?>
+<div class="modal" id="signup-modal" tabindex="-1"
+     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <h1>회원가입</h1><br>
+
+
+            <form role="form" method="POST" id="signupForm" action="/register">
+                {!! csrf_field() !!}
+                <div class="form-group{{ $errors->has('ClientPartners') ? ' has-error' : '' }}">
+
+                    <label for="ccc" class="label_n"><input name="PorC" id="ccc"
+                                                            type="radio"
+                                                            value="ccc">클라이언트</label>
+                    <label for="ppp" class="label_n"><input name="PorC" id="ppp"
+                                                            type="radio"
+                                                            value="ppp">파트너스</label>
+                    <div id="PorCError"></div>
+
+
+                </div>
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+
+                    <input type="text" name="name" placeholder="이름"
+                           value="{{ old('name') }}">
+                    <div id="nameError"></div>
+
+                </div>
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+                    <div id="emailError"></div>
+                </div>
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <input type="password" name="password" placeholder="비밀번호">
+                    <div id="passwordError"></div>
+                </div>
+                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+
+                    <input type="password" name="password_confirmation"
+                           placeholder="비밀번호 재입력">
+
+                    <div id="passwordconfirmError"></div>
+                </div>
+                <strong id="errorSignup"></strong>
+                <input type="submit" name="login" class="login loginmodal-submit" value="회원가입">
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/signup.js"></script>
+
+
 <script>
     var display_results = $("#noti");
 
     var maxnumofNoti = Number(2);
     var numofNoti = maxnumofNoti;
 
-    function executeNoti () {
+    function executeNoti() {
         $.ajax({
-            url: "notification/" + numofNoti,
+            url: "/notification/" + numofNoti,
             success: function (result) {
                 display_results.html(result);
-                
+
                 numofNoti -= 1;
                 if (numofNoti < 1) {
                     numofNoti = maxnumofNoti;
@@ -196,10 +239,9 @@ if ($errors->has('email') || $errors->has('password')) {
     $(document).ready(function () {
         executeNoti();
 
-        setInterval(executeNoti, 1000);
+        setInterval(executeNoti, 4000);
 
     });
-
 
 </script>
 
