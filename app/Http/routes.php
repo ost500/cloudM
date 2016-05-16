@@ -65,6 +65,8 @@ Route::get('/notification/{id}', 'MainController@notificationShow')
 
 // mypage
 
+Route::get('/dashboard','MypageController@dashBoard');
+
 Route::get('/mypage', 'MypageController@mypage');
 
 Route::get('/setting', 'MypageController@setting');
