@@ -9,9 +9,8 @@
             <div class="position-center-center">
 
 
-                <p class="main_banner_2">국내최초 마케팅 중계 플랫폼</p>
-                <p class="main_banner_3"></p>
-                <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.</p>
+               <p class="main_banner_2">마케팅 중계 플랫폼, 클라우드엠에 오신 것을 환영합니다.</p>
+			   <p class="main_banner_3"></p><p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다. 지금 프로젝트를 등록하세요.</p>
 
 
             <?php
