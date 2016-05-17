@@ -143,7 +143,7 @@
 				</button>
 				<h4 class="modal-title" id="myModalLabel">로그인</h4>
 			</div>
-			<div class="modal-body" style="padding:50px 150px 50px 150px;">
+			<div class="modal-body" style="padding:30px 150px 50px 150px;">
 			
 			<form role="form" method="POST" id="loginForm" action="/login">
 			{!! csrf_field() !!}
