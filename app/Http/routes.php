@@ -74,3 +74,6 @@ Route::get('/setting', 'MypageController@setting');
 
 // mypage post 
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
+
+// application
+Route::get('/apply/{pid}', 'AppController@application_post');

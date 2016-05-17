@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Application;
 use App\Partners;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,10 @@ class MypageController extends Controller
         if (Auth::user()->PorC == "P")
         {
             $loginUser = Auth::user();
-            return view('mypage/dashBoardP', compact('loginUser'));
+            $app = Application::where('u_id','=',Auth::user()->id)->get();
+
+
+            return view('mypage/dashBoardP', compact('loginUser','app'));
         }
         else
         {
