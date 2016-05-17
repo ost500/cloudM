@@ -114,18 +114,15 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($checking as $checkItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $checkItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
+
                                                     </ul>
                                                 </div>
                                             </div>
@@ -144,18 +141,14 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($registered as $registeredItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $registeredItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>
@@ -175,18 +168,14 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($proceeding as $proceedingItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $proceedingItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>
@@ -206,18 +195,14 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($done as $doneItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $doneItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>

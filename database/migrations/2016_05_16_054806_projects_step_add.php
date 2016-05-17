@@ -14,7 +14,7 @@ class ProjectsStepAdd extends Migration
     {
         Schema::table('projects', function($table){
             $table->integer('step')->unsigned();
-            $table->integer('uid');
+            $table->integer('Client_id');
         });
     }
 
@@ -28,7 +28,7 @@ class ProjectsStepAdd extends Migration
         Schema::table('projects', function($table)
         {
             $table->dropColumn('step');
-            $table->dropColumn('uid');
+            $table->dropColumn('Client_id');
         });
     }
 }
