@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="job-sider-bar02">
-                        <h5 class="side-tittle">파트너스 히스토리</h5>
+                        <h5 class="side-tittle">클라이언트 히스토리</h5>
                         <table class="history_table">
                             <tbody>
                             <tr>
@@ -101,9 +101,8 @@
                                             </div>
                                         </div>-->
 
-
                                         <div class="job-tittle03">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">관심 프로젝트</h6>
+                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">검수중 프로젝트</h6>
                                             <div class="panel02 panel-default02">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -115,18 +114,41 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($checking as $checkItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $checkItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="job-tittle03">
+                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">등록 프로젝트</h6>
+                                            <div class="panel02 panel-default02">
+                                                <div class="panel-heading03">
+                                                    <div class="row">
+                                                        <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
+                                                        <span class="col-xs-3"><strong>예상금액</strong></span>
+                                                        <span class="col-xs-2"><strong>예상기간</strong></span>
+                                                        <span class="col-xs-3"><strong>마감일자</strong></span>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body03">
+                                                    <ul>
+                                                        @foreach($registered as $registeredItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $registeredItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>
@@ -134,7 +156,7 @@
 
 
                                         <div class="job-tittle03">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">지원한 프로젝트</h6>
+                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">진행중 프로젝트</h6>
                                             <div class="panel02 panel-default02">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -146,18 +168,14 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($proceeding as $proceedingItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $proceedingItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>
@@ -165,7 +183,7 @@
 
 
                                         <div class="job-tittle03 margin-bottom-10">
-                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">진행 중인 프로젝트</h6>
+                                            <h6 class="my_h6 margin-bottom-10 margin-top-20">완료된 프로젝트</h6>
                                             <div class="panel02 panel-default02">
                                                 <div class="panel-heading03">
                                                     <div class="row">
@@ -177,18 +195,14 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($done as $doneItem)
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $doneItem->title }}</span>
+                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-3">2016.01.21</span>
+                                                            </li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>

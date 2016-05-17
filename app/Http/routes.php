@@ -65,6 +65,8 @@ Route::get('/notification/{id}', 'MainController@notificationShow')
 
 // mypage
 
+Route::get('/dashboard','MypageController@dashBoard');
+
 Route::get('/mypage', 'MypageController@mypage');
 
 Route::get('/setting', 'MypageController@setting');
@@ -72,3 +74,6 @@ Route::get('/setting', 'MypageController@setting');
 
 // mypage post 
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
+
+// application
+Route::get('/apply/{pid}', 'AppController@application_post');

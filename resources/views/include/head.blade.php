@@ -80,6 +80,7 @@
             </div>
         </div>
 
+
         <!-- Navigation -->
         <nav class="navbar">
             <div class="sticky">
@@ -127,6 +128,21 @@
                 </div>
             </div>
         </nav>
+
+        {{--<div class="top-bar">--}}
+            {{--<div class="top-info" style="height:70px; background:#1193d4;">--}}
+                {{--<div class="container">--}}
+                    {{--<ul class="personal-info">--}}
+
+                        {{--<li><h5>대시보드</h5></li>--}}
+                        {{--<li><h5>마이페이지</h5></li>--}}
+                        {{--<li><h5>기본정보</h5></li>--}}
+
+                    {{--</ul>--}}
+
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
     </header>
 </div>
 
@@ -216,34 +232,34 @@
 <script src="/js/signup.js"></script>
 
 
-<script>
-    var display_results = $("#noti");
+{{--<script>--}}
+    {{--var display_results = $("#noti");--}}
 
-    var maxnumofNoti = Number(2);
-    var numofNoti = maxnumofNoti;
+    {{--var maxnumofNoti = Number(2);--}}
+    {{--var numofNoti = maxnumofNoti;--}}
 
-    function executeNoti() {
-        $.ajax({
-            url: "/notification/" + numofNoti,
-            success: function (result) {
-                display_results.html(result);
+    {{--function executeNoti() {--}}
+        {{--$.ajax({--}}
+            {{--url: "/notification/" + numofNoti,--}}
+            {{--success: function (result) {--}}
+                {{--display_results.html(result);--}}
 
-                numofNoti -= 1;
-                if (numofNoti < 1) {
-                    numofNoti = maxnumofNoti;
-                }
-            }
-        });
-    }
+                {{--numofNoti -= 1;--}}
+                {{--if (numofNoti < 1) {--}}
+                    {{--numofNoti = maxnumofNoti;--}}
+                {{--}--}}
+            {{--}--}}
+        {{--});--}}
+    {{--}--}}
 
-    $(document).ready(function () {
-        executeNoti();
+    {{--$(document).ready(function () {--}}
+        {{--executeNoti();--}}
 
-        setInterval(executeNoti, 4000);
+        {{--setInterval(executeNoti, 4000);--}}
 
-    });
+    {{--});--}}
 
-</script>
+{{--</script>--}}
 
 
 @yield('content')

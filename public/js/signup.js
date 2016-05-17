@@ -14,7 +14,7 @@ $("#loginForm").submit(function (event) {
         data: data,
         success: function (data) {
             if (data["try"] == "Success") {
-                location.reload();
+                document.location = "/dashboard";
             }
             else {
                 $("#error").html(data);
@@ -43,7 +43,7 @@ $("#signupForm").submit(function (event) {
             console.log(data);
             if (data["try"] == "Success") {
                 alert("회원가입에 성공했습니다");
-                location.reload();
+                document.location = "/dashboard";
             }
             else {
                 $("#errorSignup").html(data);
