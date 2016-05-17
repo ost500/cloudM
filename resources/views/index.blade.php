@@ -15,12 +15,12 @@
 
             <?php
             if (!Auth::check()) {
-                echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"btn_main\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
 
             } else if (Auth::user()->PorC == "C") {
-                echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn_main\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
             } else {
-                echo "<a style = \"cursor : pointer\" class=\"btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                echo "<a style = \"cursor : pointer\" class=\"btn_main\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
             }
             ?>
             </div>
@@ -269,7 +269,7 @@
     <section class="light-gray-bg padding-top-30 padding-bottom-20">
         <div class="container">
             <div style="text-align:center;">
-                <p>광고 캠페인/영상/홈페이지/콘텐츠 제작 등 프로젝트를 찾고 있는 대행사/프리랜서인가요? <a href="#." class="btn btn-1"
+                <p>광고 캠페인/영상/홈페이지/콘텐츠 제작 등 프로젝트를 찾고 있는 대행사/프리랜서인가요? <a href="#." class="btn_main btn_main-1"
                                                                        style="margin-left:30px;">회원가입하기<i
                                 class="fa fa-caret-right"></i></a></p>
             </div>
@@ -380,7 +380,7 @@
     <section class="light-gray-bg padding-top-30 padding-bottom-20">
         <div class="container">
             <div style="text-align:center;">
-                <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. <a href="#." class="btn btn-1"
+                <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. <a href="#." class="btn_main btn_main-1"
                                                                          style="margin-left:30px;">프로젝트 등록하기<i
                                 class="fa fa-caret-right"></i></a></p>
             </div>

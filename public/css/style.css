@@ -230,7 +230,7 @@ a:hover, a:focus {
 /*=======================================================
       BTN STYLE
 ========================================================*/
-.btn {
+.btn_main {
 	border: none;
 	color: #fff;
 	display: inline-block;
@@ -253,7 +253,7 @@ a:hover, a:focus {
 	-o-transition: 0.4s ease-in-out;
 	transition: 0.4s ease-in-out;
 }
-.btn i {
+.btn_main i {
 	background: #333333;
 	color: #fff;
 	height: 51px;
@@ -275,38 +275,38 @@ a:hover, a:focus {
 	width:100%;text-align:center;
 }
 
-.btn:hover {
+.btn_main:hover {
 	background: #1eb4ff;
 	color: #fff;
 }
-.btn:hover i {
+.btn_main:hover i {
 	/*background: #00b1f1;*/
 	background: #1eb4ff;
 	color: #fff;
 }
-.btn-1 {
+.btn_main-1 {
 	font-size: 14px;
 	height: 30px;
 	line-height: 30px;
 }
 
-.btn-1 i {
+.btn_main-1 i {
 	background: #333333;
 	color: #fff;
 	height: 31px;
 	line-height: 31px;
 }
-.btn-1:hover i {
+.btn_main-1:hover i {
 	color: #fff;
 	background: #00b1f1;
 }
-.btn-sm {
+.btn_main-sm {
 	height: 30px;
 	line-height: 30px;
 	padding-left: 10px;
 	padding-right:35px;
 }
-.btn-sm i {
+.btn_main-sm i {
 	height: 30px;
 	line-height: 30px;
 	padding: 0 10px;
