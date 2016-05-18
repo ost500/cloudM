@@ -82,10 +82,6 @@ trait AuthenticatesUsers
             $this->incrementLoginAttempts($request);
         }
 
-        if($request->ajax()) {
-            return $this->getFailedLoginMessage();
-        }
-
         return $this->sendFailedLoginResponse($request);
     }
 

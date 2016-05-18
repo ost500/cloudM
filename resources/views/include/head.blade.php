@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/form.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -105,6 +106,9 @@
                         <li><a href="{{ url('p_search') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
                         <li><a href="{{ url('services') }}">이용방법</a></li>
+
+
+
                     </ul>
 
 
@@ -116,12 +120,11 @@
                             echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃</a>";
 
                         } else {
-                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"button signin\">로그인</a>";
-                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#signup-modal\" class=\"button signup\">회원가입</a>";
+                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"button signin\">로그인</a>";
+                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#signinModal\" class=\"button signup\">회원가입</a>";
                         }
 
                         ?>
-
 
                     </div>
                 </div>
@@ -147,88 +150,130 @@
     </header>
 </div>
 
-<div class="modal" id="login-modal" tabindex="-1"
-     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="loginmodal-container">
-            <h1>로그인</h1><br>
 
-            <form role="form" method="POST" id="loginForm" action="/login">
-                {!! csrf_field() !!}
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">로그인</h4>
+			</div>
+			<div class="modal-body" style="padding:30px 150px 50px 150px;">
+			
+			<form role="form" method="POST" id="loginForm" action="/login">
+			{!! csrf_field() !!}
+				<div class="checkbox clip-check check-primary">
+						<input type="checkbox" id="remember" value="1">
+						<label for="remember"> 아이디 저장 </label>
+				</div>
 
-                </div>
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input type="password" name="password" placeholder="비밀번호">
-                    <span id="passError" class="help-block">
-                        <strong id="error"></strong>
-                    </span>
+				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+					<input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+				</div>
 
-                </div>
-                <input type="checkbox" name="remember"> 아이디 저장
-                <input type="submit" name="login" class="login loginmodal-submit" value="로그인">
-            </form>
+				<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+					<input type="password" name="password" placeholder="비밀번호">
+					<span id="passError" class="help-block">
+						<strong id="error"></strong>
+					</span>
+				</div>
 
-            <div class="login-help">
-                <a href="#">가입하기</a> - <a href="#">비밀번호 찾기</a>
-            </div>
-        </div>
-    </div>
+				<div class="text-left">
+					<a href="login_forgot.html"> 비밀번호를 잃어버리셨나요? </a><br>
+					<a href="login_registration.html"> 간단 회원가입하기 </a>
+				</div>
+
+				<div class="form-actions">
+					<button type="submit" class="btn btn-red btn-block">
+						로그인
+					</button>
+				</div>
+				
+			</form>
+				<div class="form-actions">
+				<button type="button" class="btn btn-red btn-block">
+					페이스북으로 로그인
+				</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 </div>
 
 
-<div class="modal" id="signup-modal" tabindex="-1"
-     aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="loginmodal-container">
-            <h1>회원가입</h1><br>
 
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<span class="modal-title" id="myModalLabel">회원가입</span>
+			</div>
+			<div class="modal-body loginmodal-container" style="padding:30px 150px 30px 150px;">
+			
+			<form role="form" method="POST" id="signupForm" action="/register">
+			{!! csrf_field() !!}
+				<div class="form-group{{ $errors->has('ClientPartners') ? ' has-error' : '' }}">
+					<div class="btn-group" data-toggle="buttons">
+						<label class="btn btn-primary active">
+							<input type="radio" name="paymentMethod" id="option1" autocomplete="off" value="ccc">
+							<i class="fa fa-cc-visa"></i> 클라이언트 </label>
 
-            <form role="form" method="POST" id="signupForm" action="/register">
-                {!! csrf_field() !!}
-                <div class="form-group{{ $errors->has('ClientPartners') ? ' has-error' : '' }}">
+						<label class="btn btn-primary">
+							<input type="radio" name="paymentMethod" id="option2" autocomplete="off" value="ppp">
+							<i class="fa fa-cc-paypal"></i> 파트너스 </label>
+					</div>
+					<div id="PorCError"></div>
+				</div>
+				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+					<input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+					<div id="emailError"></div>
+				</div>
+				<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+					<input type="password" name="password" placeholder="비밀번호">
+					<div id="passwordError"></div>
+				</div>
+				<div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+					<input type="password" name="password_confirmation" placeholder="비밀번호 재입력">
+					<div id="passwordconfirmError"></div>
+				</div>
 
-                    <label for="ccc" class="label_n"><input name="PorC" id="ccc"
-                                                            type="radio"
-                                                            value="ccc">클라이언트</label>
-                    <label for="ppp" class="label_n"><input name="PorC" id="ppp"
-                                                            type="radio"
-                                                            value="ppp">파트너스</label>
-                    <div id="PorCError"></div>
+				<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+					<input type="text" name="name" placeholder="이름" value="{{ old('name') }}">
+					<div id="nameError"></div>
+				</div>
 
+				<div class="checkbox clip-check check-primary">
+						<input type="checkbox" id="agree1" value="1">
+						<label for="agree1"> 이용약관 동의 </label><br>
+						<input type="checkbox" id="agree2" value="1">
+						<label for="agree2"> 개인정보수집 및 이용에 대한 안내 동의</label>
+				</div>
 
-                </div>
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+				<div class="form-actions">
+					<button type="submit" class="btn btn-red btn-block">
+						가입하기
+					</button>
+				</div>
+				
+			</form>
+				<div class="form-actions">
+				<img src="/images/btn_login_fb.png" width="250">
+				</div>
+			</div>
 
-                    <input type="text" name="name" placeholder="이름"
-                           value="{{ old('name') }}">
-                    <div id="nameError"></div>
-
-                </div>
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
-                    <div id="emailError"></div>
-                </div>
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input type="password" name="password" placeholder="비밀번호">
-                    <div id="passwordError"></div>
-                </div>
-                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-
-                    <input type="password" name="password_confirmation"
-                           placeholder="비밀번호 재입력">
-
-                    <div id="passwordconfirmError"></div>
-                </div>
-                <strong id="errorSignup"></strong>
-                <input type="submit" name="login" class="login loginmodal-submit" value="회원가입">
-            </form>
-
-
-        </div>
-    </div>
+			
+		</div>
+	</div>
 </div>
+
+
+
 
 <script src="/js/signup.js"></script>
 
