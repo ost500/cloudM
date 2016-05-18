@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
+
+
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     public function dashBoard()
@@ -23,7 +26,7 @@ class MypageController extends Controller
             $loginUser = Auth::user();
             $app = Application::where('u_id', '=', Auth::user()->id)->get();
             return view('mypage/dashBoardP', compact('loginUser', 'app'));
-            
+
         } else {
             $loginUser = Auth::user();
             $projects = Project::where('Client_id', '=', Auth::user()->id);
@@ -31,6 +34,7 @@ class MypageController extends Controller
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $registered = $projects->where('step', '=', '1')->get();
+
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $proceeding = $projects->where('step', '>', '1')->where('step', '<', '6')->get();
@@ -42,6 +46,15 @@ class MypageController extends Controller
         }
     }
 
+    public function applicationList($id)
+    {
+        $applistTrue = Application::where('p_id', '=', $id)->where('choice', '=', true)->get();
+        $applistFalse = Application::where('p_id', '=', $id)->where('choice', '=', false)->get();
+        $loginUser = Auth::user();
+        return view('mypage/applicant', compact('applistTrue', 'loginUser', 'applistFalse'));
+    }
+
+
     public function mypage()
     {
         if (Auth::user()->PorC == "P") {
@@ -52,6 +65,21 @@ class MypageController extends Controller
             return view('mypage/mypage', compact('loginUser'));
         }
 
+    }
+
+    public function meetingProposal(Request $request)
+    {
+        $meeting_proposal = Application::find($request->id);
+        $meeting_proposal->choice = true;
+        $meeting_proposal->save();
+        return redirect()->back();
+    }
+    public function meetingCancel(Request $request)
+    {
+        $meeting_proposal = Application::find($request->id);
+        $meeting_proposal->choice = false;
+        $meeting_proposal->save();
+        return redirect()->back();
     }
 
 

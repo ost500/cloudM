@@ -98,8 +98,7 @@
 
                         if (!Auth::check()) {
                             echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" >프로젝트 등록</a></li>";
-                        }
-                        else if (Auth::user()->PorC == "C") {
+                        } else if (Auth::user()->PorC == "C") {
                             echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
                         }
                         ?>
@@ -128,21 +127,23 @@
                 </div>
             </div>
         </nav>
+        @if(Auth::check())
+            <div class="top-bar">
+                <div class="top-info" style="height:40px; background:#1193d4;">
+                    <div class="container">
+                        <ul class="personal-info">
 
-        {{--<div class="top-bar">--}}
-            {{--<div class="top-info" style="height:70px; background:#1193d4;">--}}
-                {{--<div class="container">--}}
-                    {{--<ul class="personal-info">--}}
+                            <li><a href="{{ url("/dashboard") }}"><h5>대시보드</h5></a></li>
 
-                        {{--<li><h5>대시보드</h5></li>--}}
-                        {{--<li><h5>마이페이지</h5></li>--}}
-                        {{--<li><h5>기본정보</h5></li>--}}
+                            <li><a href="{{ url("/mypage") }}"><h5>마이페이지</h5></a></li>
+                            <li><a href="{{ url("/setting") }}"><h5>기본정보</h5></a></li>
 
-                    {{--</ul>--}}
+                        </ul>
 
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+                    </div>
+                </div>
+            </div>
+        @endif
     </header>
 </div>
 
@@ -233,31 +234,31 @@
 
 
 {{--<script>--}}
-    {{--var display_results = $("#noti");--}}
+{{--var display_results = $("#noti");--}}
 
-    {{--var maxnumofNoti = Number(2);--}}
-    {{--var numofNoti = maxnumofNoti;--}}
+{{--var maxnumofNoti = Number(2);--}}
+{{--var numofNoti = maxnumofNoti;--}}
 
-    {{--function executeNoti() {--}}
-        {{--$.ajax({--}}
-            {{--url: "/notification/" + numofNoti,--}}
-            {{--success: function (result) {--}}
-                {{--display_results.html(result);--}}
+{{--function executeNoti() {--}}
+{{--$.ajax({--}}
+{{--url: "/notification/" + numofNoti,--}}
+{{--success: function (result) {--}}
+{{--display_results.html(result);--}}
 
-                {{--numofNoti -= 1;--}}
-                {{--if (numofNoti < 1) {--}}
-                    {{--numofNoti = maxnumofNoti;--}}
-                {{--}--}}
-            {{--}--}}
-        {{--});--}}
-    {{--}--}}
+{{--numofNoti -= 1;--}}
+{{--if (numofNoti < 1) {--}}
+{{--numofNoti = maxnumofNoti;--}}
+{{--}--}}
+{{--}--}}
+{{--});--}}
+{{--}--}}
 
-    {{--$(document).ready(function () {--}}
-        {{--executeNoti();--}}
+{{--$(document).ready(function () {--}}
+{{--executeNoti();--}}
 
-        {{--setInterval(executeNoti, 4000);--}}
+{{--setInterval(executeNoti, 4000);--}}
 
-    {{--});--}}
+{{--});--}}
 
 {{--</script>--}}
 

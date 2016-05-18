@@ -48,6 +48,7 @@ $("#signupForm").submit(function (event) {
             else {
                 $("#errorSignup").html(data);
             }
+            
         },
         error: function (data) {
             console.log(data.responseJSON);
