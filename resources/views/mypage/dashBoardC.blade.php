@@ -143,7 +143,7 @@
                                                     <ul>
                                                         @foreach($registered as $registeredItem)
                                                             <li class="row">
-                                                                <span class="col-xs-4">{{ $registeredItem->title }}</span>
+                                                                <span class="col-xs-4"><a href="{{ url('/applist/'.$registeredItem->id) }}">{{ $registeredItem->title }} ({{ $registeredItem->application->count() }})</a></span>
                                                                 <span class="col-xs-3">5,000,000원</span>
                                                                 <span class="col-xs-2">30일</span>
                                                                 <span class="col-xs-3">2016.01.21</span>

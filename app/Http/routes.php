@@ -67,6 +67,9 @@ Route::get('/notification/{id}', 'MainController@notificationShow')
 
 Route::get('/dashboard','MypageController@dashBoard');
 
+Route::get('/applist/{id}','MypageController@applicationList')
+    ->where(['id' => '[0-9]+']);
+
 Route::get('/mypage', 'MypageController@mypage');
 
 Route::get('/setting', 'MypageController@setting');
