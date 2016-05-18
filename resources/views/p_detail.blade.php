@@ -24,7 +24,8 @@
                 <div class="col-md-3">
 
                     <a href="#.">
-                        <div class="button006 margin-top-10">프로젝트 지원하기</div>
+                        <div class="button006 margin-top-10"><a href="{{url("/apply/".$project['id'])}}">프로젝트 지원하기</a>
+                        </div>
                     </a>
                     <div class="job-sider-bar003">
                         <h5 class="side-tittle">광고주</h5>
@@ -259,7 +260,8 @@
                                 <img class="partner_profile03" src="/images/p_img02.png">
                                 <div class="media-body">
                                     <div class="col-md-9 ">
-                                    <textarea name="comment" type="text" class="form-control06" id="id_body" required="" rows="10"
+                                    <textarea name="comment" type="text" class="form-control06" id="id_body" required=""
+                                              rows="10"
                                               cols="40" resize="none"></textarea>
                                     </div>
                                     <div class="col-md-3 ">
@@ -268,7 +270,8 @@
                                                                        style="margin-right: 4px;"></i>비공개
                                             설정</label>
                                         <input type="hidden" name="project_id" value="{{ $project['id'] }}">
-                                        <button type="submit" class="button007" id="id_submit" type="button" value="작성하기"/>
+                                        <button type="submit" class="button007" id="id_submit" type="button"
+                                                value="작성하기"/>
 
                                     </div>
                                     <br>

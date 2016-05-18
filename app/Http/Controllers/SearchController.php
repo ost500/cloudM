@@ -53,13 +53,15 @@ class SearchController extends Controller
         if ($SearchOption == 0) {
 
 //            $projects = Project::all();
-            $projects = Project::all()->sortByDesc('updated_at')->forPage($page, 10);
-            $projects['count'] = Project::all()->count();
+            $projects = Project::where("step", "=", "1")->get()->sortByDesc('updated_at');
+            $count = $projects->count();
+            $projects = $projects->forPage($page, 10);
+            $projects['count'] = $count;
+
             //sort
             if ($sort == "3") {
                 $projects = $projects->sortByDesc('updated_at');
-            }
-            else{
+            } else {
                 $projects = $projects->sortByDesc('updated_at');
             }
 

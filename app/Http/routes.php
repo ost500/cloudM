@@ -64,6 +64,14 @@ Route::get('/notification/{id}', 'MainController@notificationShow')
     ->where(['id' => '[1-9]']);
 
 // mypage
+Route::get('/dashboard','MypageController@dashBoard');
+
+Route::get('/applist/{id}','MypageController@applicationList')
+    ->where(['id' => '[0-9]+']);
+// meeting proposal
+Route::post('/applist/meeting','MypageController@meetingProposal');
+// meeting cancel
+Route::post('/applist/meetingCancel','MypageController@meetingCancel');
 
 Route::get('/mypage', 'MypageController@mypage');
 
@@ -72,3 +80,6 @@ Route::get('/setting', 'MypageController@setting');
 
 // mypage post 
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
+
+// application
+Route::get('/apply/{pid}', 'AppController@application_post');
