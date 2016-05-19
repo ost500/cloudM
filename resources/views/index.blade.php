@@ -28,44 +28,53 @@
         </li>
     </ul>
 </section>
-
-
-<!-- Counter -->
 <section class="counter">
     <div class="container">
 
         <!-- Team Member -->
         <ul class="row">
             <li class="col-md-3">
-                <div class="count"><span class="number"> <span class="timer" data-speed="2000"
-                                                               data-refresh-interval="10" data-to="16812"
-                                                               data-from="0"></span> </span>
+                <div class="count">
+				<span class="number">
+					<i class="fa fa-file-powerpoint-o" aria-hidden="true" style="color:#333; font-size:25px;"></i>
+					<span class="timer" data-speed="2000" data-refresh-interval="10" data-to="16812" data-from="0">16,812</span>
+				</span>
                     <span style="font-size:16px;" class="b">건</span>
                     <h6 class="h6_txt">등록된 프로젝트</h6>
                 </div>
+            </li>
 
-                <!-- Line Of Codes -->
+            <!-- Line Of Codes -->
             <li class="col-md-6">
-                <div class="count"><span class="number"> <span class="timer" data-speed="2000"
-                                                               data-refresh-interval="10" data-to="4820012302"
-                                                               data-from="0"></span> </span><span
-                            style="font-size:16px;" class="b">원</span>
+                <div class="count">
+				<span class="number">
+					<i class="fa fa-check-square-o" aria-hidden="true" style="color:#333; font-size:25px;"></i>
+					<span class="timer" data-speed="2000" data-refresh-interval="10" data-to="4820012302" data-from="0">4,820,012,302</span>
+				</span>
+                    <span style="font-size:16px;" class="b">원</span>
                     <h6 class="h6_txt">프로젝트 등록금액</h6>
                 </div>
             </li>
+            <!-- 변경끝------------------------------------------------------------------------------- -->
+
+
+
 
             <!-- Satisfied Client -->
             <li class="col-md-3">
-                <div class="count"><span class="number"> <span class="timer" data-speed="2000"
-                                                               data-refresh-interval="10" data-to="92"
-                                                               data-from="0"></span> </span><span
-                            style="font-size:16px;" class="b">명</span>
-                    <h6 class="h6_txt">대행사 & 프리랜서</h6>
+                <div class="count">
+				<span class="number">
+					<i class="fa fa-smile-o" aria-hidden="true" style="color:#333; font-size:25px;"></i>
+					<span class="timer" data-speed="2000" data-refresh-interval="10" data-to="92" data-from="0">92</span>
+				</span>
+                    <span style="font-size:16px;" class="b">명</span>
+                    <h6 class="h6_txt">대행사 &amp; 프리랜서</h6>
                 </div>
             </li>
         </ul>
     </div>
 </section>
+
 
 <!-- Content -->
 <div id="content">
