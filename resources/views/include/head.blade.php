@@ -98,7 +98,7 @@
 
 
                         if (!Auth::check()) {
-                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" >프로젝트 등록</a></li>";
+                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" >프로젝트 등록</a></li>";
                         } else if (Auth::user()->PorC == "C") {
                             echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
                         }
