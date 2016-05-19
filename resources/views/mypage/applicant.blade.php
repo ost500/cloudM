@@ -101,8 +101,10 @@
                                             </div>
                                         </div>-->
 
-                                        @foreach($applistFalse as $app)
+
                                         <div class="job-tittle03">
+                                            <h4>지원자 목록</h4>
+                                            @foreach($applistFalse as $app)
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $app->project['title'] }}
                                                 프로젝트</h6>
                                             <div class="panel02 panel-default02">
@@ -137,11 +139,13 @@
 
                                                 </div>
                                             </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
-                                        @foreach($applistTrue as $app)
+
+
                                         <div class="job-tittle03">
-                                            <h6>미팅신청 목록</h6>
+                                            <h4>미팅신청 목록</h4>
+                                            @foreach($applistTrue as $app)
                                             <h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $app->project['title'] }}
                                                 프로젝트</h6>
                                             <div class="panel02 panel-default02">
@@ -172,9 +176,11 @@
                                                         </ul>
 
                                                 </div>
+
                                             </div>
+                                            @endforeach
                                         </div>
-                                        @endforeach
+
 
                                     </div>
                                     <!-- Content -->
