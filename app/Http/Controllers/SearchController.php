@@ -53,7 +53,7 @@ class SearchController extends Controller
         if ($SearchOption == 0) {
 
 //            $projects = Project::all();
-            $projects = Project::where("step", "=", "1")->get()->sortByDesc('updated_at');
+            $projects = Project::where("step", "=", "게시")->get()->sortByDesc('updated_at');
             $count = $projects->count();
             $projects = $projects->forPage($page, 10);
             $projects['count'] = $count;

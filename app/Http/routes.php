@@ -72,6 +72,8 @@ Route::get('/applist/{id}','MypageController@applicationList')
 Route::post('/applist/meeting','MypageController@meetingProposal');
 // meeting cancel
 Route::post('/applist/meetingCancel','MypageController@meetingCancel');
+// contract
+//Route::post('/applist/meetingCancel','MypageController@contract');
 
 Route::get('/mypage', 'MypageController@mypage');
 

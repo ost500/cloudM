@@ -103,33 +103,33 @@
 
 
                                         {{--<div class="job-tittle03">--}}
-                                            {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">관심 프로젝트</h6>--}}
-                                            {{--<div class="panel02 panel-default02">--}}
-                                                {{--<div class="panel-heading03">--}}
-                                                    {{--<div class="row">--}}
-                                                        {{--<span class="col-xs-4"><strong>프로젝트 제목</strong></span>--}}
-                                                        {{--<span class="col-xs-3"><strong>예상금액</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>예상기간</strong></span>--}}
-                                                        {{--<span class="col-xs-3"><strong>마감일자</strong></span>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-                                                {{--<div class="panel-body03">--}}
-                                                    {{--<ul>--}}
-                                                        {{--<li class="row">--}}
-                                                            {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
-                                                            {{--<span class="col-xs-3">5,000,000원</span>--}}
-                                                            {{--<span class="col-xs-2">30일</span>--}}
-                                                            {{--<span class="col-xs-3">2016.01.21</span>--}}
-                                                        {{--</li>--}}
-                                                        {{--<li class="row">--}}
-                                                            {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
-                                                            {{--<span class="col-xs-3">5,000,000원</span>--}}
-                                                            {{--<span class="col-xs-2">30일</span>--}}
-                                                            {{--<span class="col-xs-3">2016.01.21</span>--}}
-                                                        {{--</li>--}}
-                                                    {{--</ul>--}}
-                                                {{--</div>--}}
-                                            {{--</div>--}}
+                                        {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">관심 프로젝트</h6>--}}
+                                        {{--<div class="panel02 panel-default02">--}}
+                                        {{--<div class="panel-heading03">--}}
+                                        {{--<div class="row">--}}
+                                        {{--<span class="col-xs-4"><strong>프로젝트 제목</strong></span>--}}
+                                        {{--<span class="col-xs-3"><strong>예상금액</strong></span>--}}
+                                        {{--<span class="col-xs-2"><strong>예상기간</strong></span>--}}
+                                        {{--<span class="col-xs-3"><strong>마감일자</strong></span>--}}
+                                        {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="panel-body03">--}}
+                                        {{--<ul>--}}
+                                        {{--<li class="row">--}}
+                                        {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
+                                        {{--<span class="col-xs-3">5,000,000원</span>--}}
+                                        {{--<span class="col-xs-2">30일</span>--}}
+                                        {{--<span class="col-xs-3">2016.01.21</span>--}}
+                                        {{--</li>--}}
+                                        {{--<li class="row">--}}
+                                        {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
+                                        {{--<span class="col-xs-3">5,000,000원</span>--}}
+                                        {{--<span class="col-xs-2">30일</span>--}}
+                                        {{--<span class="col-xs-3">2016.01.21</span>--}}
+                                        {{--</li>--}}
+                                        {{--</ul>--}}
+                                        {{--</div>--}}
+                                        {{--</div>--}}
                                         {{--</div>--}}
 
 
@@ -139,21 +139,24 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>지원비용</strong></span>
+                                                        <span class="col-xs-2"><strong>지원비용</strong></span>
                                                         <span class="col-xs-2"><strong>기간</strong></span>
-                                                        <span class="col-xs-3"><strong>제출일자</strong></span>
+                                                        <span class="col-xs-2"><strong>제출일자</strong></span>
+                                                        <span class="col-xs-2"><strong>상태</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
                                                         @foreach($app as $appItem)
-                                                        <li class="row">
-                                                            <span class="col-xs-4">{{ $appItem->project()->get()[0]->title }}</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-
+                                                            @foreach($appItem->project()->get() as $apItem)
+                                                                <li class="row">
+                                                                    <span class="col-xs-4">{{ $apItem->title }}</span>
+                                                                    <span class="col-xs-2">5,000,000원</span>
+                                                                    <span class="col-xs-2">30일</span>
+                                                                    <span class="col-xs-2">2016.01.21</span>
+                                                                    <span class="col-xs-2">{{ $appItem->choice }}</span>
+                                                                </li>
+                                                            @endforeach
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -167,25 +170,25 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>클라이언트</strong></span>
+                                                        <span class="col-xs-2"><strong>클라이언트</strong></span>
                                                         <span class="col-xs-2"><strong>비용</strong></span>
-                                                        <span class="col-xs-3"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>상태</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
-                                                        <li class="row">
-                                                            <span class="col-xs-4">반응형 회사 홈페이지 구축</span>
-                                                            <span class="col-xs-3">5,000,000원</span>
-                                                            <span class="col-xs-2">30일</span>
-                                                            <span class="col-xs-3">2016.01.21</span>
-                                                        </li>
+                                                        @foreach($meeting as $meetingItem)
+                                                            @foreach($meetingItem->project()->get() as $eachmeetingItem)
+                                                                <li class="row">
+                                                                    <span class="col-xs-4">{{ $eachmeetingItem->title }}</span>
+                                                                    <span class="col-xs-2">{{ $eachmeetingItem->client()->get()[0]->name }}</span>
+                                                                    <span class="col-xs-2">30일</span>
+                                                                    <span class="col-xs-2">2016.01.21</span>
+                                                                    <span class="col-xs-2">{{ $eachmeetingItem->step }}</span>
+                                                                </li>
+                                                            @endforeach
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                             </div>

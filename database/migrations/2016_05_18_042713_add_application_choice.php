@@ -13,7 +13,7 @@ class AddApplicationChoice extends Migration
     public function up()
     {
         Schema::table('applications', function($table){
-            $table->boolean('choice');
+            $table->enum('choice', array('지원', '미팅','진행'));;
         });
     }
 

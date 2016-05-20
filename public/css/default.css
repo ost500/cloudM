@@ -13,7 +13,7 @@ COLOR:	DEFAULT BLANK CSS (NO ANY CODE)
 .main_banner_2 {
 	font-size:24px;
 	font-weight:bold;
-	color: #454545;
+	color: #fff;
 	padding:15px 0 0 0;
 	line-height:25px;
 }
@@ -25,21 +25,22 @@ COLOR:	DEFAULT BLANK CSS (NO ANY CODE)
 	margin-right: auto;
 	margin-left: auto;
 	width: 594px;
-	border-top: 1px solid #dedede;
+	border-top: 1px solid #5e6870;
 }
 
 p.b_txt01{
 	clear:both;
 	font-family: NanumGothic;
 	font-size:15px;
-	color: #454545;
+	color: #c8cacc;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom:30px;
+	font-weight:600;
 
 }
 
 .b {
 	font-weight:bold;
-	color:#fff;
+	color:#333;
 }
