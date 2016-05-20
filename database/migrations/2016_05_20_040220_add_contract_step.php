@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ProjectsStepAdd extends Migration
+class AddContractStep extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class ProjectsStepAdd extends Migration
      */
     public function up()
     {
-        Schema::table('projects', function($table){
-            $table->enum('step', array('검수', '게시','미팅','계약','대금지급','완료','취소'));
-            $table->integer('Client_id');
+        Schema::table('contracts', function ($table) {
+            $table->enum('step', array('계약', '대금지급', '전체완료','취소'));
         });
     }
 
@@ -25,10 +24,8 @@ class ProjectsStepAdd extends Migration
      */
     public function down()
     {
-        Schema::table('projects', function($table)
-        {
+        Schema::table('contracts', function ($table) {
             $table->dropColumn('step');
-            $table->dropColumn('Client_id');
         });
     }
 }

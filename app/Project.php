@@ -14,5 +14,12 @@ class Project extends Model
     {
         return $this->hasMany('App\Application', 'p_id', 'id');
     }
-    
+    public function contract()
+    {
+        return $this->hasMany('App\Contract','p_id','id');
+    }
+    public function client()
+    {
+        return $this->hasOne('App\User','id','Client_id');
+    }
 }
