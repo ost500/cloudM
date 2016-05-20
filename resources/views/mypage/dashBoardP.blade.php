@@ -139,9 +139,10 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>지원비용</strong></span>
+                                                        <span class="col-xs-2"><strong>지원비용</strong></span>
                                                         <span class="col-xs-2"><strong>기간</strong></span>
-                                                        <span class="col-xs-3"><strong>제출일자</strong></span>
+                                                        <span class="col-xs-2"><strong>제출일자</strong></span>
+                                                        <span class="col-xs-2"><strong>상태</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
@@ -150,9 +151,10 @@
                                                             @foreach($appItem->project()->get() as $apItem)
                                                                 <li class="row">
                                                                     <span class="col-xs-4">{{ $apItem->title }}</span>
-                                                                    <span class="col-xs-3">5,000,000원</span>
+                                                                    <span class="col-xs-2">5,000,000원</span>
                                                                     <span class="col-xs-2">30일</span>
-                                                                    <span class="col-xs-3">2016.01.21</span>
+                                                                    <span class="col-xs-2">2016.01.21</span>
+                                                                    <span class="col-xs-2">{{ $appItem->choice }}</span>
                                                                 </li>
                                                             @endforeach
                                                         @endforeach

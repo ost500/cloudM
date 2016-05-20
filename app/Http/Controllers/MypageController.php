@@ -29,13 +29,13 @@ class MypageController extends Controller
             $loginUser = Auth::user();
             $app = Application::where('u_id', '=', Auth::user()->id)
                 ->where('choice', '=', '지원')
-                ->union(Application::where('u_id','=',Auth::user()->id)
-                    ->where('choice','=','미팅'))
+                ->orwhere('choice','=','미팅')
                 ->get();
 
             //진행 중인 프로젝트
             $meeting = Contract::where('u_id', '=', Auth::user()->id)->get();
-            $compeleted = Contract::where('u_id', '=', Auth::user()->id)->get();
+            $compeleted = Contract::where('u_id', '=', Auth::user()->id)
+                ->where('step','=',['계약','대금지급'])->get();
 
 
             //완료 프로젝트
@@ -47,13 +47,12 @@ class MypageController extends Controller
             $checking = $projects->where('step', '=', '검수')->get();
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
-            $registered = $projects->where('step', '=', '게시')->get();
+            $registered = $projects->where('step', '=', '게시')->orwhere('step','=','미팅')->get();
 
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
-            $proceeding = $projects->where('step', '=', '미팅')
-                ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '계약'))
-                ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
+            $proceeding = $projects->where('step', '=', '계약')
+                ->orwhere('step', '=', '대금지급')
                 ->get();
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
@@ -66,27 +65,49 @@ class MypageController extends Controller
  //Client DashBoard
     public function applicationList($id)
     {
-        $applistTrue = Application::where('p_id', '=', $id)->where('choice', '=', '미팅')->get();
-        $applistFalse = Application::where('p_id', '=', $id)->where('choice', '=', '지원')->get();
+        $applist = Application::where('p_id', '=', $id)->get();
+//        $result_false="";
+//        $result_true="";
+//        foreach($applist as $app){
+//            $result_true = $app->project->where('step','=','미팅')->get();
+//            $result_false = $app->project->where('step','=','게시')->get();
+//        }
+
         $loginUser = Auth::user();
-        return view('mypage/applicant', compact('applistTrue', 'loginUser', 'applistFalse'));
+        return view('mypage/applicant', compact('applist', 'loginUser'));
     }
 
 
     public function meetingProposal(Request $request)
     {
-        $meeting_proposal = Application::find($request->id);
-        $meeting_proposal->choice = "미팅";
+        $meeting_proposal = Application::find($request->id)->project;
+        $meeting_proposal->step = "미팅";
         $meeting_proposal->save();
+
         return redirect()->back();
     }
 
     public function meetingCancel(Request $request)
     {
-        $meeting_proposal = Application::find($request->id);
-        $meeting_proposal->choice = "지원";
+        $meeting_proposal = Application::find($request->id)->project;
+        $meeting_proposal->step = "게시";
         $meeting_proposal->save();
+
         return redirect()->back();
+    }
+    public function contract(Request $request)
+    {
+        $app_carryon = Application::find($request->id);
+        $app_carryon->choice = "진행";
+        $app_carryon->save();
+
+        $contract = new Contract();
+        $contract->u_id = $app_carryon->u_id;
+        $contract->p_id = $app_carryon->p_id;
+        $contract->step = '계약';
+        $contract->save();
+
+        return redirect()->action('MypageController@dashBoard');
     }
 
 

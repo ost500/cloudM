@@ -8,7 +8,7 @@ class Contract extends Model
 {
     public function project()
     {
-        return $this->belongsTo('App\Project', 'p_id', 'id');
+        return $this->hasOne('App\Project', 'id', 'p_id');
     }
     public function user()
     {
