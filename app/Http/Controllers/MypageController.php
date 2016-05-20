@@ -27,19 +27,31 @@ class MypageController extends Controller
         if (Auth::user()->PorC == "P") {
             // 지원한 프로젝트
             $loginUser = Auth::user();
-            $app = Application::where('u_id', '=', Auth::user()->id)
-                ->where('choice', '=', '지원')
-                ->orwhere('choice','=','미팅')
-                ->get();
+            $appList = Application::where('u_id', '=', Auth::user()->id)->get();
+            $app = array();
+            for($i=0; $i < $appList->count(); $i++){
+                if($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
+                    $app[] = $appList[$i];
+            }
+
 
             //진행 중인 프로젝트
-            $meeting = Contract::where('u_id', '=', Auth::user()->id)->get();
+            $carryonList = Contract::where('u_id', '=', Auth::user()->id)->get();
+            $carryon = array();
+            for($i=0; $i < $carryonList->count(); $i++){
+                if($carryonList[$i]->project->step == "계약" || $carryonList[$i]->project->step == "대금지급")
+                    $carryon[] = $carryonList[$i];
+            }
+
+
+
+
             $compeleted = Contract::where('u_id', '=', Auth::user()->id)
-                ->where('step','=',['계약','대금지급'])->get();
+                ->where('step', '=', ['계약', '대금지급'])->get();
 
 
             //완료 프로젝트
-            return view('mypage/dashBoardP', compact('loginUser', 'app', 'meeting'));
+            return view('mypage/dashBoardP', compact('loginUser', 'app', 'carryon'));
 
         } else {
             $loginUser = Auth::user();
@@ -47,7 +59,7 @@ class MypageController extends Controller
             $checking = $projects->where('step', '=', '검수')->get();
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
-            $registered = $projects->where('step', '=', '게시')->orwhere('step','=','미팅')->get();
+            $registered = $projects->where('step', '=', '게시')->orwhere('step', '=', '미팅')->get();
 
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
@@ -62,7 +74,7 @@ class MypageController extends Controller
         }
     }
 
- //Client DashBoard
+    //Client DashBoard
     public function applicationList($id)
     {
         $applist = Application::where('p_id', '=', $id)->get();
@@ -95,6 +107,7 @@ class MypageController extends Controller
 
         return redirect()->back();
     }
+
     public function contract(Request $request)
     {
         $app_carryon = Application::find($request->id);
