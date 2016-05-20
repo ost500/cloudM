@@ -148,15 +148,15 @@
                                                 <div class="panel-body03">
                                                     <ul>
                                                         @foreach($app as $appItem)
-                                                            @foreach($appItem->project()->get() as $apItem)
-                                                                <li class="row">
-                                                                    <span class="col-xs-4">{{ $apItem->title }}</span>
-                                                                    <span class="col-xs-2">5,000,000원</span>
-                                                                    <span class="col-xs-2">30일</span>
-                                                                    <span class="col-xs-2">2016.01.21</span>
-                                                                    <span class="col-xs-2">{{ $appItem->choice }}</span>
-                                                                </li>
-                                                            @endforeach
+
+                                                            <li class="row">
+                                                                <span class="col-xs-4">{{ $appItem->project->title }}</span>
+                                                                <span class="col-xs-2">5,000,000원</span>
+                                                                <span class="col-xs-2">30일</span>
+                                                                <span class="col-xs-2">2016.01.21</span>
+                                                                <span class="col-xs-2">{{ $appItem->project->step }}</span>
+                                                            </li>
+
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -178,16 +178,16 @@
                                                 </div>
                                                 <div class="panel-body03">
                                                     <ul>
-                                                        @foreach($meeting as $meetingItem)
-                                                            @foreach($meetingItem->project()->get() as $eachmeetingItem)
+                                                        @foreach($carryon as $carryonItem)
+
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $eachmeetingItem->title }}</span>
-                                                                    <span class="col-xs-2">{{ $eachmeetingItem->client()->get()[0]->name }}</span>
+                                                                    <span class="col-xs-4">{{ $carryonItem->project->title }}</span>
+                                                                    <span class="col-xs-2">{{ $carryonItem->project->client->name }}</span>
                                                                     <span class="col-xs-2">30일</span>
                                                                     <span class="col-xs-2">2016.01.21</span>
-                                                                    <span class="col-xs-2">{{ $eachmeetingItem->step }}</span>
+                                                                    <span class="col-xs-2">{{ $carryonItem->project->step }}</span>
                                                                 </li>
-                                                            @endforeach
+
                                                         @endforeach
                                                     </ul>
                                                 </div>
