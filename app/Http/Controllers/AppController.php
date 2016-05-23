@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Application;
-use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +19,6 @@ class AppController extends Controller
         $newApp->u_id = Auth::user()->id;
         $newApp->p_id = $pid;
         $newApp->save();
-        return redirect()->back();
+        return redirect()->action('MypageController@dashBoard');
     }
 }

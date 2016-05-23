@@ -38,16 +38,20 @@
                         <table class="history_table">
                             <tbody>
                             <tr>
-                                <th>지원한 프로젝트</th>
-                                <td>1건</td>
+                                <th>검수중 프로젝트</th>
+                                <td>{{ count($checking) }}건</td>
                             </tr>
                             <tr>
-                                <th>계약한 프로젝트</th>
-                                <td>0건</td>
+                                <th>등록 프로젝트</th>
+                                <td>{{ count($registered) }}건</td>
                             </tr>
                             <tr>
-                                <th>완료한 프로젝트</th>
-                                <td>2건</td>
+                                <th>진행중 프로젝트</th>
+                                <td>{{ count($proceeding) }}건</td>
+                            </tr>
+                            <tr>
+                                <th>완료된 프로젝트</th>
+                                <td>{{ count($done) }}건</td>
                             </tr>
                             </tbody>
                         </table>
@@ -107,9 +111,10 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>예상금액</strong></span>
+                                                        <span class="col-xs-2"><strong>예상금액</strong></span>
                                                         <span class="col-xs-2"><strong>예상기간</strong></span>
-                                                        <span class="col-xs-3"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>상태</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
@@ -117,9 +122,10 @@
                                                         @foreach($checking as $checkItem)
                                                             <li class="row">
                                                                 <span class="col-xs-4">{{ $checkItem->title }}</span>
-                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">5,000,000원</span>
                                                                 <span class="col-xs-2">30일</span>
-                                                                <span class="col-xs-3">2016.01.21</span>
+                                                                <span class="col-xs-2">2016.01.21</span>
+                                                                <span class="col-xs-2">{{ $checkItem->step }}</span>
                                                             </li>
                                                         @endforeach
 
@@ -134,9 +140,10 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>예상금액</strong></span>
+                                                        <span class="col-xs-2"><strong>예상금액</strong></span>
                                                         <span class="col-xs-2"><strong>예상기간</strong></span>
-                                                        <span class="col-xs-3"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>상태</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
@@ -144,9 +151,10 @@
                                                         @foreach($registered as $registeredItem)
                                                             <li class="row">
                                                                 <span class="col-xs-4"><a href="{{ url('/applist/'.$registeredItem->id) }}">{{ $registeredItem->title }} ({{ $registeredItem->application->count() }})</a></span>
-                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">5,000,000원</span>
                                                                 <span class="col-xs-2">30일</span>
-                                                                <span class="col-xs-3">2016.01.21</span>
+                                                                <span class="col-xs-2">2016.01.21</span>
+                                                                <span class="col-xs-2">{{ $registeredItem->step }}</span>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -161,9 +169,10 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>지원비용</strong></span>
+                                                        <span class="col-xs-2"><strong>지원비용</strong></span>
                                                         <span class="col-xs-2"><strong>기간</strong></span>
-                                                        <span class="col-xs-3"><strong>제출일자</strong></span>
+                                                        <span class="col-xs-2"><strong>제출일자</strong></span>
+                                                        <span class="col-xs-2"><strong>상태</strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
@@ -171,9 +180,10 @@
                                                         @foreach($proceeding as $proceedingItem)
                                                             <li class="row">
                                                                 <span class="col-xs-4">{{ $proceedingItem->title }}</span>
-                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">5,000,000원</span>
                                                                 <span class="col-xs-2">30일</span>
-                                                                <span class="col-xs-3">2016.01.21</span>
+                                                                <span class="col-xs-2">2016.01.21</span>
+                                                                <span class="col-xs-2">{{ $proceedingItem->step }}</span>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -188,9 +198,10 @@
                                                 <div class="panel-heading03">
                                                     <div class="row">
                                                         <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                        <span class="col-xs-3"><strong>클라이언트</strong></span>
+                                                        <span class="col-xs-2"><strong>클라이언트</strong></span>
                                                         <span class="col-xs-2"><strong>비용</strong></span>
-                                                        <span class="col-xs-3"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2">상태</span>
                                                     </div>
                                                 </div>
                                                 <div class="panel-body03">
@@ -198,9 +209,10 @@
                                                         @foreach($done as $doneItem)
                                                             <li class="row">
                                                                 <span class="col-xs-4">{{ $doneItem->title }}</span>
-                                                                <span class="col-xs-3">5,000,000원</span>
+                                                                <span class="col-xs-2">5,000,000원</span>
                                                                 <span class="col-xs-2">30일</span>
-                                                                <span class="col-xs-3">2016.01.21</span>
+                                                                <span class="col-xs-2">2016.01.21</span>
+                                                                <span class="col-xs-2">{{ $doneItem->step }}</span>
                                                             </li>
                                                         @endforeach
                                                     </ul>
