@@ -73,14 +73,14 @@ Route::post('/applist/meeting','MypageController@meetingProposal');
 // meeting cancel
 Route::post('/applist/meetingCancel','MypageController@meetingCancel');
 // contract
-//Route::post('/applist/meetingCancel','MypageController@contract');
+Route::post('/applist/contract','MypageController@contract');
 
 Route::get('/mypage', 'MypageController@mypage');
 
 Route::get('/setting', 'MypageController@setting');
 
 
-// mypage post 
+// mypage post
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 
 // application

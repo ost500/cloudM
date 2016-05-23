@@ -16,7 +16,7 @@ class Application extends Model
     }
     public function projectStep($step)
     {
-        return $this->hasOne('App\Project', 'id', 'p_id')->orwhere('step','=',$step);
+        return $this->hasOne('App\Project', 'id', 'p_id')->where('step','=',$step);
     }
     public function projectArray($step)
     {

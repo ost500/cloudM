@@ -103,25 +103,25 @@
 
 
                                         <div class="job-tittle03">
-                                            <h4>지원자 목록</h4>
-                                            @foreach($applist as $app_list)
-                                                @foreach($app_list->projectStep('게시')->get() as $pro)
-                                                    <h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $pro->title }}
-                                                        프로젝트</h6>
-                                                    <div class="panel02 panel-default02">
-                                                        <div class="panel-heading03">
-                                                            <div class="row">
-                                                                <span class="col-xs-4"><strong>지원자</strong></span>
-                                                                <span class="col-xs-2"><strong>예상금액</strong></span>
-                                                                <span class="col-xs-2"><strong>예상기간</strong></span>
-                                                                <span class="col-xs-2"><strong>마감일자</strong></span>
-                                                                <span class="col-xs-2"><strong>미팅신청</strong></span>
+                                            <h4>{{ $project[0]->title }} 프로젝트</h4>
+                                            <h6>지원자 목록</h6>
 
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="panel-body03">
+                                            <div class="panel02 panel-default02">
+                                                <div class="panel-heading03">
+                                                    <div class="row">
+                                                        <span class="col-xs-4"><strong>지원자</strong></span>
+                                                        <span class="col-xs-2"><strong>예상금액</strong></span>
+                                                        <span class="col-xs-2"><strong>예상기간</strong></span>
+                                                        <span class="col-xs-2"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>미팅신청</strong></span>
 
+
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body03">
+                                                    @foreach($applist as $app_list)
+                                                        @foreach($app_list->projectStep('게시')->get() as $pro)
                                                             <ul>
                                                                 <li class="row">
                                                                     <span class="col-xs-4">{{ $app_list->user['name'] }}</span>
@@ -141,32 +141,32 @@
 
                                                                 </li>
                                                             </ul>
+                                                        @endforeach
+                                                    @endforeach
 
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            @endforeach
+                                                </div>
+                                            </div>
+
                                         </div>
 
 
                                         <div class="job-tittle03">
-                                            <h4>미팅신청 목록</h4>
-                                            @foreach($applist as $app_list)
-                                                @foreach($app_list->projectStep('미팅')->get() as $pro)
-                                                    <h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $pro->title }}
-                                                        프로젝트</h6>
-                                                    <div class="panel02 panel-default02">
-                                                        <div class="panel-heading03">
-                                                            <div class="row">
-                                                                <span class="col-xs-4"><strong>지원자</strong></span>
-                                                                <span class="col-xs-2"><strong>예상금액</strong></span>
-                                                                <span class="col-xs-2"><strong>예상기간</strong></span>
-                                                                <span class="col-xs-2"><strong>마감일자</strong></span>
-                                                                <span class="col-xs-2"><strong>미팅신청</strong></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="panel-body03">
+                                            <h6>미팅신청 목록</h6>
 
+
+                                            <div class="panel02 panel-default02">
+                                                <div class="panel-heading03">
+                                                    <div class="row">
+                                                        <span class="col-xs-4"><strong>지원자</strong></span>
+                                                        <span class="col-xs-2"><strong>예상금액</strong></span>
+                                                        <span class="col-xs-2"><strong>예상기간</strong></span>
+                                                        <span class="col-xs-2"><strong>마감일자</strong></span>
+                                                        <span class="col-xs-2"><strong>미팅신청</strong></span>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-body03">
+                                                    @foreach($applist as $app_list)
+                                                        @foreach($app_list->projectStep('미팅')->get() as $pro)
                                                             <ul>
                                                                 <li class="row">
                                                                     <span class="col-xs-4">{{ $app_list->user->name }}</span>
@@ -182,7 +182,7 @@
                                                                                                        type="submit">취소
                                                                             </button></span>
                                                                     </form>
-                                                                    <form action="{{ url('/applist/meetingCancel') }}"
+                                                                    <form action="{{ url('/applist/contract') }}"
                                                                           method="POST" role="form">
                                                                         {!! csrf_field() !!}
                                                                         <input name="id" type="hidden"
@@ -193,12 +193,12 @@
                                                                     </form>
                                                                 </li>
                                                             </ul>
+                                                        @endforeach
+                                                    @endforeach
+                                                </div>
 
-                                                        </div>
+                                            </div>
 
-                                                    </div>
-                                                @endforeach
-                                            @endforeach
                                         </div>
 
 

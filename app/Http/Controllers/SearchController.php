@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Comments;
 use App\Project;
-use Illuminate\Contracts\Database\ModelIdentifier;
-use Illuminate\Database\Eloquent\Collection;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Database\Eloquent\Builder;
-use DB;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Pagination\SimpleBootstrapFourPresenter;
-use PhpParser\Node\Expr\Variable;
 
 
 class SearchController extends Controller
@@ -21,7 +16,7 @@ class SearchController extends Controller
 
     public function p_search()
     {
-        $projects = Project::all();
+//        $projects = Project::all();
 //        $test = new Builder(DB::table('projects'));
 //        $test2 = $test->paginate(5);
 //        $projects = DB::table('projects')->paginate(5);
@@ -53,7 +48,7 @@ class SearchController extends Controller
         if ($SearchOption == 0) {
 
 //            $projects = Project::all();
-            $projects = Project::where("step", "=", "게시")->get()->sortByDesc('updated_at');
+            $projects = Project::where("step", "!=", "검수")->get()->sortByDesc('updated_at');
             $count = $projects->count();
             $projects = $projects->forPage($page, 10);
             $projects['count'] = $count;
@@ -104,11 +99,13 @@ class SearchController extends Controller
         }
 
         $query = new Project();
+
         for ($i = 0; $i < count($optionArr); $i++) {
             if ($i == 0) {
-                $query = $query->where('category', '=', $optionArr[$i]);
+                $query = $query->where('category', '=', $optionArr[$i])->where('step', '!=', '검수');
             } else {
-                $query = $query->union(Project::where('category', '=', $optionArr[$i]));
+                $query = $query->union(Project::where('category', '=', $optionArr[$i])
+                    ->where('step', '!=', '검수'));
             }
         }
 
@@ -147,8 +144,7 @@ class SearchController extends Controller
 //        return compact('projects');
 //    }
 
-    public
-    function postcomment(Request $request)
+    public function postcomment(Request $request)
     {
         $input = new Comments();
         $input->project_id = $request->input('project_id');
