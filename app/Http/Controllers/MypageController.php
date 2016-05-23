@@ -36,7 +36,7 @@ class MypageController extends Controller
             $app = array();
             for ($i = 0; $i < $appList->count(); $i++) {
                 if ($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
-                    $app[] = $appList[$i]->project;
+                    $app[] = $appList[$i];
             }
 
 
@@ -96,8 +96,11 @@ class MypageController extends Controller
 
     public function meetingProposal(Request $request)
     {
-        $meeting_proposal = Application::find($request->id)->project;
-        $meeting_proposal->step = "미팅";
+        $meeting_proposal = Application::find($request->id);
+        $meeting_proposal->project->step = "미팅";
+        $meeting_proposal->project->save();
+
+        $meeting_proposal->choice = "미팅";
         $meeting_proposal->save();
 
         return redirect()->back();
@@ -105,9 +108,13 @@ class MypageController extends Controller
 
     public function meetingCancel(Request $request)
     {
-        $meeting_proposal = Application::find($request->id)->project;
-        $meeting_proposal->step = "게시";
+        $meeting_proposal = Application::find($request->id);
+        $meeting_proposal->project->step = "게시";
+        $meeting_proposal->project->save();
+
+        $meeting_proposal->choice = "지원";
         $meeting_proposal->save();
+
 
         return redirect()->back();
     }
@@ -115,8 +122,8 @@ class MypageController extends Controller
     public function contract(Request $request)
     {
         $app_carryon = Application::find($request->id);
-//        $app_carryon->choice = "진행";
-//        $app_carryon->save();
+        $app_carryon->choice = "진행";
+        $app_carryon->save();
 
         $contract = new Contract();
         $contract->u_id = $app_carryon->u_id;
