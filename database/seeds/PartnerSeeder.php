@@ -48,5 +48,11 @@ class PartnerSeeder extends Seeder
 
 
         }
+        User::create([
+            'name' => '관리자',
+            'email' => 'admin@bar.com',
+            'password' => bcrypt('qwqw1212'),
+            'PorC' =>'A'
+        ]);
     }
 }

@@ -73,6 +73,7 @@
     <div class="row">
         <div class="left-column col-sm-2 ">
             <ul class="nav nav-sidebar">
+                <li><a href="{{ url("/admin/0") }}">검수 중 프로젝트</a></li>
                 <li><a href="{{ url("/admin/1") }}">프로젝트
 
                     </a></li>
@@ -96,6 +97,7 @@
 
 <!-- JavaScripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

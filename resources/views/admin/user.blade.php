@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h2 class="sub-header">프로젝트 지원 목록</h2>
+    <h2 class="sub-header">사용자</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

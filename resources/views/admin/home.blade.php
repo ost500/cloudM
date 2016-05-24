@@ -20,7 +20,7 @@
             @foreach($App as $app_item)
             <tr>
                 <td>{{ $app_item->id }}</td>
-                <td>{{ $app_item->project->title }}</td>
+                <td><a href="{{ url("/detail/".$pro->id) }}">{{ $app_item->project->title }}</a></td>
                 <td>{{ $app_item->project->step }}</td>
                 <td>{{ $app_item->user->name }}</td>
                 <td>{{ $app_item->choice }}</td>
