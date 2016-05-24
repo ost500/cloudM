@@ -85,3 +85,10 @@ Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 
 // application
 Route::get('/apply/{pid}', 'AppController@application_post');
+
+Route::get('/admin/{id}','HomeController@index')
+    ->where(['id' => '[0-9]+']);
+Route::get('/admin/post/{id}','HomeController@post_project')
+    ->where(['id' => '[0-9]+']);
+Route::get('/admin/step_change/{id}/{change}','HomeController@step_change')
+    ->where(['id' => '[0-9]+']);

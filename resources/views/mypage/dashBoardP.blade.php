@@ -150,11 +150,11 @@
                                                         @foreach($app as $appItem)
 
                                                             <li class="row">
-                                                                <span class="col-xs-4">{{ $appItem->title }}</span>
+                                                                <span class="col-xs-4">{{ $appItem->project->title }}</span>
                                                                 <span class="col-xs-2">5,000,000원</span>
                                                                 <span class="col-xs-2">30일</span>
                                                                 <span class="col-xs-2">2016.01.21</span>
-                                                                <span class="col-xs-2">{{ $appItem->step }}</span>
+                                                                <span class="col-xs-2">{{ $appItem->choice }}</span>
                                                             </li>
 
                                                         @endforeach

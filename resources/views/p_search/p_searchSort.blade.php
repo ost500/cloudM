@@ -21,7 +21,7 @@
                         </div>
                         <div class="media-body">
                             <a href="{{ url('detail/'.$project['id']) }}">
-                                <h5>{{ $project['title'] }}</h5></a>
+                                <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
 
                         </div>
                         <span class="media-body-sm">예상금액 <span>5,000,000</span>원</span>

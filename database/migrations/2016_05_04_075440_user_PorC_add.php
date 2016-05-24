@@ -13,7 +13,7 @@ class UserPorCAdd extends Migration
     public function up()
     {
         Schema::table('users', function($table){
-            $table->string('PorC');
+            $table->enum('PorC', array('P', 'C', 'A'));
         });
     }
 
