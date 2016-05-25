@@ -4660,3 +4660,7 @@ input#comment_status{ vertical-align:middle; margin-top:-4px; }
 }
 .panel-body06 div{ overflow:hidden; margin-bottom:20px; text-align:justify; }
 span.rd_box02 { color:#fff; background:#f95809; border-radius:2px; font-size:11px; padding:2px; margin-right:5px; }
+
+.top-info .personal-info .notice-li{ border-right:none; padding:0px}
+.top-info .personal-info .notice-li-txt{ width:150px;}
+.top-info .personal-info .notice-li p .fa-chevron-left{ float:left; }
