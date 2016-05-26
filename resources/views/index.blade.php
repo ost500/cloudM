@@ -84,7 +84,7 @@
         <div class="container">
             <!-- Heading -->
             <div class="heading text-center">
-                <h4 class="h4_txt">신규 프로젝트</h4>
+                <h4>프로세스</h4>
             </div>
         </div>
 
@@ -201,75 +201,8 @@
             <div class="heading text-center">
                 <h4>클라우드엠 프로세스</h4>
             </div>
-
-            <!-- Start Timeline -->
-            <div id="timeline" class="col-lg-10 col-md-12 col-sm-12">
-                <ul id="dates" class="custom-list">
-                    <li><a href="#date1"><span>프로젝트 등록</span></a></li>
-                    <li><a href="#date2"><span>지원자 비교</span></a></li>
-                    <li><a href="#date3"><span>선택 미팅 및 계약</span></a></li>
-                    <li><a href="#date4"><span>프로젝트 진행</span></a></li>
-                    <li><a href="#date5"><span>프로젝트 완료</span></a></li>
-                </ul>
-                <ul id="issues" class="custom-list">
-                    <li id="date1">
-                        <div class="row">
-                            <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0">
-                                <img src="images/time-line-img.jpg" alt="" width="130"></div>
-                            <div class="history-content col-lg-5 col-md-5 col-sm-5">
-                                <h5 class="title">프로젝트 등록</h5>
-                                <p>현재 준비중인 광고 캠페인 및 콘텐츠 제작 프로젝트를 등록하면, 클라우드엠에 등록된 수많은 광고대행사 및 프리랜서들이 광고 캠페인 및 프로젝트를 살펴
-                                    보고, 견적서/제안서를 제출합니다.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li id="date2">
-                        <div class="row">
-                            <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0">
-                                <img src="images/time-line-img.jpg" alt=""></div>
-                            <div class="history-content col-lg-5 col-md-5 col-sm-5">
-                                <h5 class="title">지원자 비교</h5>
-                                <p>지원자들의 포트폴리오와 다른 광고주들의 평판을 살펴 보십시요. 그리고 파트너가 제출한 견적서나 제안서를 살펴 보시고 마음에 드는 파트너를 선택하시면
-                                    됩니다.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li id="date3">
-                        <div class="row">
-                            <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0">
-                                <img src="images/time-line-img.jpg" alt=""></div>
-                            <div class="history-content col-lg-5 col-md-5 col-sm-5">
-                                <h5 class="title">선택 미팅 및 계약</h5>
-                                <p>마음에 드는 지원자를 선택하여 주시면 온라인/오프라인 미팅을 주선하여 드립니다. 미팅은 2회까지 가능합니다. 미팅 후 최종 선택을 하시면 클라우드엠에서
-                                    광고대행 계약서를 작성합니다.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li id="date4">
-                        <div class="row">
-                            <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0">
-                                <img src="images/time-line-img.jpg" alt=""></div>
-                            <div class="history-content col-lg-5 col-md-5 col-sm-5">
-                                <h5 class="title">프로젝트 진행</h5>
-                                <p>계약서 작성 후 결제를 하시면 프로젝트가 진행됩니다. 진행되는 동안 클라우드엠은 광고주와 약속한 스케쥴대로 프로젝트가 진행되고 있는지 체크하고,
-                                    프로젝트가 제대로 마무리 될 수 있도록 중재하기도 합니다.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li id="date5">
-                        <div class="row">
-                            <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0">
-                                <img src="images/time-line-img.jpg" alt=""></div>
-                            <div class="history-content col-lg-5 col-md-5 col-sm-5">
-                                <h5 class="title">프로젝트 완료</h5>
-                                <p>프로젝트는 광고주와 파트너가 모두 승인하는 경우에만 완료가 됩니다. 프로젝트가 완료되면 파트너에게 대행료를 입금하고 마무리 됩니다.</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <a href="#" id="next"><i class="ion-ios-arrow-right"></i></a> <a href="#" id="prev"><i
-                            class="ion-ios-arrow-left"></i></a></div>
-            <!-- End Timeline -->
+            <div class="main_process_big"><img class="img-responsive" src="images/cloud_ex.png"></div>
+            <div class="main_process_small"><img class="img-responsive" src="images/cloud_ex_600px.png"></div>
 
         </div>
     </section>

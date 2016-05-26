@@ -130,21 +130,14 @@
             </div>
         </nav>
         @if(Auth::check())
-            <div class="top-bar">
-                <div class="top-info" style="height:40px; background:#1193d4;">
-                    <div class="container">
-                        <ul class="personal-info">
-
-                            <li><a href="{{ url("/dashboard") }}"><h5>대시보드</h5></a></li>
-
-                            <li><a href="{{ url("/mypage") }}"><h5>마이페이지</h5></a></li>
-                            <li><a href="{{ url("/setting") }}"><h5>기본정보</h5></a></li>
-
-                        </ul>
-
-                    </div>
-                </div>
+            <div class="my_bar">
+                <ul>
+                    <li><a href="{{ url("/dashboard") }}">대시보드</a></li>
+                    <li><a href="{{ url("/mypage") }}">마이페이지</a></li>
+                    <li><a href="{{ url("/setting") }}">기본정보</a></li>
+                </ul>
             </div>
+
         @endif
     </header>
 </div>
@@ -160,7 +153,7 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel">로그인</h4>
             </div>
-            <div class="modal-body" style="padding:30px 150px 50px 150px;">
+            <div class="modal-body" style="padding:30px 100px 50px 100px;">
 
                 <form role="form" method="POST" id="loginForm" action="/login">
                     {!! csrf_field() !!}
@@ -214,7 +207,7 @@
                 </button>
                 <span class="modal-title" id="myModalLabel">회원가입</span>
             </div>
-            <div class="modal-body loginmodal-container" style="padding:30px 150px 30px 150px;">
+            <div class="modal-body loginmodal-container" style="padding:30px 100px 30px 100px;">
 
                 <form role="form" method="POST" id="signupForm" action="/register">
                     {!! csrf_field() !!}

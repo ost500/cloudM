@@ -510,8 +510,8 @@ section {
 header {
 	position: relative;
 	width: 100%;
-	z-index: 9999;
-	display: inline-block;
+	z-index: 9998;
+	display: block;
 }
 header .logo {
 	float: left;
@@ -4664,3 +4664,23 @@ span.rd_box02 { color:#fff; background:#f95809; border-radius:2px; font-size:11p
 .top-info .personal-info .notice-li{ border-right:none; padding:0px}
 .top-info .personal-info .notice-li-txt{ width:150px;}
 .top-info .personal-info .notice-li p .fa-chevron-left{ float:left; }
+
+div.my_bar{ position:relative; float:left; width:100%; height:38px; background:#1099dd; }
+div.my_bar>ul{ position:relative; width:1170px; margin:0px auto; padding-top:11px; }
+div.my_bar>ul li{ float:left; font-weight:600; letter-spacing:-1px; border-right:solid 1px #6bc0ea; padding-right:15px; margin-left:15px; line-height:12px; }
+div.my_bar>ul li:last-child{ border-right:none;}
+div.my_bar>ul li a{ color:#fff; }
+
+div.main_process_big{display:none; margin-bottom:26px;}
+div.main_process_small{display:none; margin-bottom:26px;}
+@media screen and (min-width:600px){
+	div.main_process_big{display:block;} }
+
+@media screen and (max-width:600px){
+	div.main_process_small{display:block;} }
+
+
+.margin-bottom-5{ float:left; margin-bottom:5px;}
+.clear{ clear:both; }
+h2.p_add_header{ width:100%; float:left; background:#f2f2f3; padding:10px 20px 10px 20px; border-radius:30px; font-size:20px; font-weight:500; letter-spacing:-1px; margin-bottom:30px; line-height:26px;}
+h2.p_add_header i{margin-right:5px;}

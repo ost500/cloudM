@@ -1,4 +1,4 @@
-<h4 id = "count">{{ $partners['count'] }}개의 파트너</h4>
+<h6 id = "count">{{ $partners['count'] }}개의 파트너</h6>
 @foreach($partners as $partner)
 @if($partner['id'])
 <!-- Job Content -->
