@@ -59,12 +59,9 @@ class SearchController extends Controller
 //            $projects = Project::all();
             $projects = Project::where("step", "!=", "검수")
                 ->where('title','LIKE', $keyword)
-                ->union(Project::where("step", "!=", "검수")
-                    ->where('title','LIKE', $keyword1))
-                ->union(Project::where("step", "!=", "검수")
-                    ->where('title','LIKE', $keyword2))
-                ->union(Project::where("step", "!=", "검수")
-                    ->where('title','LIKE', $keyword3))
+                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword1))
+                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword2))
+                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword3))
                 ->get()->sortByDesc('updated_at');
             $count = $projects->count();
             $projects->forPage($page, 10);

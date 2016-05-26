@@ -26,6 +26,7 @@ class User extends Authenticatable
 
     public function partners()
     {
-        return $this->hasOne('App\Partners','id','user_id');
+        return $this->hasOne('App\Partners','user_id','id');
     }
+
 }

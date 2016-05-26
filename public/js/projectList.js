@@ -23,7 +23,7 @@ function viewLoad() {
         url: "p_search/" + checked + "/" + page + "/" + sort + "/" + literal_search,
 
         success: function (result) {
-            
+
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
@@ -101,6 +101,8 @@ $(function () {
 $("#literal_button").click(function () {
     var search_text = $("#literal_text").val();
     literal_search = search_text;
+    page=1;
+    sort=3;
     viewLoad();
 
 });

@@ -2,6 +2,7 @@
 
 use App\Client;
 use App\Partners;
+use App\Partners_job;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -14,34 +15,44 @@ class PartnerSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 7; $i <= 150; $i+=4) {
+        for ($i = 7; $i <= 150; $i += 4) {
             $userCreation = User::create([
-                'name' => '박한울'.$i,
-                'email' => 'foo'.$i.'@bar.com',
+                'name' => '박한울' . $i,
+                'email' => 'foo' . $i . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
-                'PorC' =>'P'
+                'PorC' => 'P'
             ]);
 
-            Partners::create([
+            $partnerCreation = Partners::create([
                 'user_id' => $userCreation['id']
             ]);
-            $userCreation = User::create([
-                'name' => '심현보'.$i,
-                'email' => 'foo'.($i+1).'@bar.com',
-                'password' => bcrypt('qwqw1212'),
-                'PorC' =>'P'
+            Partners_job::create([
+                'partner_id' => $partnerCreation['id'],
+                'job' => 'Viral'
             ]);
 
-            Partners::create([
+
+            $userCreation = User::create([
+                'name' => '심현보' . $i,
+                'email' => 'foo' . ($i + 1) . '@bar.com',
+                'password' => bcrypt('qwqw1212'),
+                'PorC' => 'P'
+            ]);
+            $partnerCreation = Partners::create([
                 'user_id' => $userCreation['id']
             ]);
-            $userCreation = User::create([
-                'name' => '오상택'.$i,
-                'email' => 'foo'.($i+2).'@bar.com',
-                'password' => bcrypt('qwqw1212'),
-                'PorC' =>'C'
+            Partners_job::create([
+                'partner_id' => $partnerCreation['id'],
+                'job' => '1회성프로젝트'
             ]);
 
+
+            $userCreation = User::create([
+                'name' => '오상택' . $i,
+                'email' => 'foo' . ($i + 2) . '@bar.com',
+                'password' => bcrypt('qwqw1212'),
+                'PorC' => 'C'
+            ]);
             Client::create([
                 'user_id' => $userCreation['id']
             ]);
@@ -52,7 +63,7 @@ class PartnerSeeder extends Seeder
             'name' => '관리자',
             'email' => 'admin@bar.com',
             'password' => bcrypt('qwqw1212'),
-            'PorC' =>'A'
+            'PorC' => 'A'
         ]);
     }
 }

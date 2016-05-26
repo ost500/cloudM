@@ -14,4 +14,8 @@ class Partners extends Model
     {
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
+    public function job()
+    {
+        return $this->hasMany('App\Partners_job', 'partner_id', 'id');
+    }
 }

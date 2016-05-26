@@ -10,6 +10,7 @@ var maxpageBlock = 0;
 var currentpageBlock = Number(1);
 var currentpageStartnum = Number(1);
 var currentpageEndnum = Number(1);
+var keyword = "";
 
 // 뷰 가져오기-------------------------------------------
 function viewLoad() {
@@ -17,8 +18,9 @@ function viewLoad() {
     display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
-        url: "partner" + "/" + page + "/" + option,
+        url: "partner" + "/" + page + "/" + option + "/" + keyword,
         success: function (result) {
+            console.log("partner" + "/" + page + "/" + option + "/" + keyword);
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
@@ -86,10 +88,76 @@ function pageLoad() {
 
 // 첫 화면-------------------------------------------
 $(function () {
-    
+
     viewLoad();
 
 });
+
+
+// 검색-------------------------------------------
+$("#literal_search_button").click(function () {
+    var search_text = $("#literal_search_text").val();
+    console.log(search_text);
+    keyword = search_text;
+    page = 1;
+    option = 0;
+    viewLoad();
+
+});
+
+// 분야 검색-------------------------------------------
+$("#job_option").change(function(){
+    if( $("#job_option").val() == "all"){
+        console.log("all checked");
+        option = 0;
+    }
+    if( $("#job_option").val() == "광고의뢰"){
+
+        option = 1;
+        console.log(option);
+    }
+    if( $("#job_option").val() == "운영대행"){
+        console.log("2 checked");
+        option = 2;
+    }
+    if( $("#job_option").val() == "Viral"){
+        console.log("3 checked");
+        option = 3;
+    }
+    if( $("#job_option").val() == "1회성프로젝트"){
+        console.log("4 checked");
+        option = 4;
+    }
+    if( $("#job_option").val() == "의료"){
+        console.log("5 checked");
+        option = 5;
+    }
+    if( $("#job_option").val() == "법률"){
+        console.log("6 checked");
+        option = 6;
+    }
+    if( $("#job_option").val() == "스타트업"){
+        console.log("7 checked");
+        option = 7;
+    }
+    if( $("#job_option").val() == "프랜차이즈"){
+        console.log("8 checked");
+        option = 8;
+    }
+    if( $("#job_option").val() == "대학교"){
+        console.log("9 checked");
+        option = 9;
+    }
+    if( $("#job_option").val() == "쇼핑몰"){
+        console.log("10 checked");
+        option = 10;
+    }
+    page=1;
+    
+    viewLoad();
+});
+
+
 
 
 // 페이지 이전-------------------------------------------

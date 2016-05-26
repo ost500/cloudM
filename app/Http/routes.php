@@ -38,7 +38,7 @@ Route::post('/commentadd', 'SearchController@postcomment');
 Route::get('/partner', 'PartnerController@partner');
 //파트너 list
 Route::get('/partner/{page}/{option?}/{keyword?}', 'PartnerController@partner_list')
-    ->where(['id' => '[0-9]+', 'page' => '[0-9]+']);
+    ->where(['page' => '[0-9]+']);
 //프로젝트 pagination
 Route::get('/p_search/pagination/{start}/{end}','SearchController@pagination');
 Route::get('partner/{id}','PartnerController@detail')
