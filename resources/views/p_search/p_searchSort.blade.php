@@ -29,7 +29,7 @@
                                         <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
 
                                 </div>
-                                <span class="media-body-sm"> {{ $project['category'] }}</span>
+
                                 <span class="media-body-sm">예상금액 <span>{{ number_format($project['budget']) }}</span>원</span>
                                 <span class="media-body-sm">예상기간 <span>{{ $project['estimated_duration'] }}</span>일</span>
                                 <span class="media-body-sm la-line">등록일자 <span>{{ $project['updated_at'] }}</span></span>
@@ -42,13 +42,10 @@
                                 <p> {{ $project['intro'] }}</p>
                                 <!-- Additional Requirements -->
                                 <div>
-                                    <span class="media-body-sm margin-top-23">요구기술</span>
+
                                     <ul class="tags dall margin-top-20 margin-bottom-10">
-                                        <li><a href="#.">photoshop</a></li>
-                                        <li><a href="#.">html</a></li>
-                                        <li><a href="#.">css</a></li>
-                                        <li><a href="#.">script</a></li>
-                                        <li><a href="#.">php</a></li>
+                                        <li><a href="#.">{{ $project['area'] }}</a></li>
+                                        <li><a href="#.">{{ $project['category'] }}</a></li>
                                     </ul>
                                 </div>
                                 <div class="tags_bg">
