@@ -8,7 +8,7 @@
   position: fixed;
 }
 .modal-backdrop.in {
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 .modal-backdrop {
@@ -20,7 +20,6 @@
 }
 
 .modal-content {
-  background: #ffffff;
   box-shadow: none;
   border-top:1px solid #444f59;
 }
@@ -1555,8 +1554,8 @@
 }
 
 .btn-red {
-  background-color: #C82E29;
-  border-color: #C82E29;
+  background-color: #2b9adc;
+  border-color: #2b9adc;
   color: #ffffff;
   margin-top:15px;
   padding:10px !important;;

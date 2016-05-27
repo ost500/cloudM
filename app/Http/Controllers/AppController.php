@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Application;
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +13,8 @@ class AppController extends Controller
         $this->middleware('auth');
     }
 
-    public function application_post($pid){
+    public function application_post($pid)
+    {
         $newApp = new Application();
         $newApp->u_id = Auth::user()->id;
         $newApp->p_id = $pid;

@@ -1,6 +1,6 @@
-<h4 id = "count">{{ $partners['count'] }}개의 파트너</h4>
+<h6 id = "count">{{ $partners['count'] }}개의 파트너</h6>
 @foreach($partners as $partner)
-@if($partner['user_id'])
+@if($partner['id'])
 <!-- Job Content -->
 <div id="accordion">
 
@@ -23,7 +23,7 @@
                                 <div class="partner_icon"> 활동가능 <!--<span>MAY</span>--> </div>
                             </div>
                             <div class="media-body">
-                                <a href="{{ url('partner/'.$partner['id']) }}"><h5>{{ $partner['user']['name'] }}</h5></a>
+                                <a href="{{ url('partner/'.$partner['id']) }}"><h5>{{ $partner['name'] }}</h5></a>
                             </div>
                             <span class="media-body-sm">디자이너</span>
                             <span class="media-body-sm la-line">개인</span>

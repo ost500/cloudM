@@ -40,26 +40,41 @@ class SearchController extends Controller
     }
 
 
-    public function get_p_list($SearchOption, $page, $sort)
+    public function get_p_list($SearchOption, $page, $sort, $keyword = "%")
     {
         $SearchOption = intval($SearchOption);
         $page = intval($page);
+        $keyword1 ="";
+        $keyword2 = "";
+        $keyword3 = "";
+
+        if($keyword != "%"){
+//            $keyword1 = $keyword."%";
+//            $keyword2 = "%".$keyword;
+            $keyword3 = "%".$keyword."%";
+        }
 
         if ($SearchOption == 0) {
 
 //            $projects = Project::all();
-            $projects = Project::where("step", "!=", "검수")->get()->sortByDesc('updated_at');
+            $projects = Project::where("step", "!=", "검수")
+                ->where('title','LIKE', $keyword)
+//                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword1))
+//                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword2))
+                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword3))
+                ->get();
+
             $count = $projects->count();
-            $projects = $projects->forPage($page, 10);
-            $projects['count'] = $count;
 
             //sort
             if ($sort == "3") {
-                $projects = $projects->sortByDesc('updated_at');
+                $projects = $projects->sortBy('updated_at');
             } else {
-                $projects = $projects->sortByDesc('updated_at');
+                $projects = $projects->sortBy('updated_at');
             }
 
+            $projects = $projects->forPage($page, 10);
+            $projects['count'] = $count;
 
             return view('p_search/p_searchSort', compact('projects'));
         }

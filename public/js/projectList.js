@@ -12,6 +12,7 @@ var maxpageBlock = 0;
 var currentpageBlock = Number(1);
 var currentpageStartnum = Number(1);
 var currentpageEndnum = Number(1);
+var literal_search = "";
 
 // 뷰 가져오기-------------------------------------------
 function viewLoad() {
@@ -19,8 +20,10 @@ function viewLoad() {
     display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
-        url: "p_search/" + checked + "/" + page + "/" + sort,
+        url: "p_search/" + checked + "/" + page + "/" + sort + "/" + literal_search,
+
         success: function (result) {
+
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
@@ -92,6 +95,16 @@ $(function () {
         viewLoad();
     }
     pageLoad();
+});
+
+// 검색-------------------------------------------
+$("#literal_button").click(function () {
+    var search_text = $("#literal_text").val();
+    literal_search = search_text;
+    page=1;
+    sort=3;
+    viewLoad();
+
 });
 
 

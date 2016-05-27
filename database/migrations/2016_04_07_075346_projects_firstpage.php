@@ -14,7 +14,7 @@ class ProjectsFirstpage extends Migration
     {
         Schema::table('projects', function($table){
             $table->string('phone_num', 11);
-            $table->string('advertiser_intro', 255);
+            $table->string('intro', 255);
         });
     }
 
@@ -27,7 +27,7 @@ class ProjectsFirstpage extends Migration
     {
         Schema::table('projects', function($table)
         {
-            $table->dropColumn(['phone_num','advertiser_intro']);
+            $table->dropColumn(['phone_num','intro']);
         });
     }
 }
