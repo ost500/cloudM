@@ -157,7 +157,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 512) == true) {
-            
+
             $query = Project::where('category','=','쇼핑몰')->get();
 
             foreach ($query as $q){

@@ -24,6 +24,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function contract()
+    {
+        return $this->hasMany('App\Contract', 'u_id', 'id');
+    }
+
     public function partners()
     {
         return $this->hasOne('App\Partners','user_id','id');
