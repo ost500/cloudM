@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddApplicationChoice' => $baseDir . '/database/migrations/2016_05_18_042713_add_application_choice.php',
     'AddContractStep' => $baseDir . '/database/migrations/2016_05_20_040220_add_contract_step.php',
+    'AddProjectsColumns' => $baseDir . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
     'CommentSeeder' => $baseDir . '/database/seeds/CommentSeeder.php',
     'CommentsTable' => $baseDir . '/database/migrations/2016_04_15_023613_comments_table.php',
     'CreateApplicationsTable' => $baseDir . '/database/migrations/2016_05_16_093652_create_applications_table.php',

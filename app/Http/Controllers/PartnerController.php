@@ -84,8 +84,9 @@ class PartnerController extends Controller
         }
 
 
-        $partners['count'] = $partners->count();
-        $partners->forPage($page, 10);
+        $count = $partners->count();
+        $partners = $partners->forPage($page, 10);
+        $partners['count'] = $count;
         return view('partner/partnerList', compact('partners'));
     }
 

@@ -49,8 +49,8 @@ class SearchController extends Controller
         $keyword3 = "";
 
         if($keyword != "%"){
-            $keyword1 = $keyword."%";
-            $keyword2 = "%".$keyword;
+//            $keyword1 = $keyword."%";
+//            $keyword2 = "%".$keyword;
             $keyword3 = "%".$keyword."%";
         }
 
@@ -59,21 +59,22 @@ class SearchController extends Controller
 //            $projects = Project::all();
             $projects = Project::where("step", "!=", "검수")
                 ->where('title','LIKE', $keyword)
-                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword1))
-                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword2))
+//                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword1))
+//                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword2))
                 ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword3))
-                ->get()->sortByDesc('updated_at');
+                ->get();
+
             $count = $projects->count();
-            $projects->forPage($page, 10);
-            $projects['count'] = $count;
 
             //sort
             if ($sort == "3") {
-                $projects = $projects->sortByDesc('updated_at');
+                $projects = $projects->sortBy('updated_at');
             } else {
-                $projects = $projects->sortByDesc('updated_at');
+                $projects = $projects->sortBy('updated_at');
             }
 
+            $projects = $projects->forPage($page, 10);
+            $projects['count'] = $count;
 
             return view('p_search/p_searchSort', compact('projects'));
         }

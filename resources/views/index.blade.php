@@ -84,7 +84,7 @@
         <div class="container">
             <!-- Heading -->
             <div class="heading text-center">
-                <h4>프로세스</h4>
+                <h4>신규 프로젝트</h4>
             </div>
         </div>
 

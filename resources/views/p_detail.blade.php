@@ -24,32 +24,26 @@
                         <div class="col-md-3">
 
 
-
-
-
-
-
-                            <a style="cursor:pointer" id="pro_app_btn">
-                                <div class="button006 margin-top-10">프로젝트 지원하기
-                                </div>
-                            </a>
+                            @if(App\Project::find($project['id'])->step == "게시" || App\Project::find($project['id'])->step == "미팅")
+                                <a style="cursor:pointer" id="pro_app_btn">
+                                    <div class="button006 margin-top-10">프로젝트 지원하기
+                                    </div>
+                                </a>
+                            @endif
                             <?php
 
-                                echo '<script>';
-                                echo '$("#pro_app_btn").click(function(){';
-                                if(!Auth::check()){
-                                    echo '$("#loginModal").modal("show");';
-                                }
-                                else if (Auth::user()->PorC == "C"){
-                                    echo 'alert("파트너가 아닙니다")';
-                                }
-                                else if (App\Application::where('u_id', '=', Auth::user()->id, 'and', 'p_id', '=', $project['id'])->get()->isEmpty() == false) {
-                                    echo 'alert("이미 지원하셨습니다")';
-                                }
-                                else{
-                                    echo 'window.location = "'.url("/apply/".$project['id']) . '";';
-                                }
-                                echo '});';
+                            echo '<script>';
+                            echo '$("#pro_app_btn").click(function(){';
+                            if (!Auth::check()) {
+                                echo '$("#loginModal").modal("show");';
+                            } else if (Auth::user()->PorC == "C") {
+                                echo 'alert("파트너가 아닙니다")';
+                            } else if (App\Application::where('u_id', '=', Auth::user()->id, 'and', 'p_id', '=', $project['id'])->get()->isEmpty() == false) {
+                                echo 'alert("이미 지원하셨습니다")';
+                            } else {
+                                echo 'window.location = "' . url("/apply/" . $project['id']) . '";';
+                            }
+                            echo '});';
                             echo '</script>';
 
                             ?>
