@@ -81,11 +81,11 @@ class SearchController extends Controller
         }
 
 
-        $optionArr = [];
+
         $projects = new Collection();
 
         if (($SearchOption & 1) == true) {
-            $optionArr[] = "광고 의뢰";
+
             $query = Project::where('area','=','광고 의뢰')->get();
 
             foreach ($query as $q){
@@ -93,7 +93,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 2) == true) {
-            $optionArr[] = "운영 대행";
+
             $query = Project::where('area','=','운영 대행')->get();
 
             foreach ($query as $q){
@@ -101,7 +101,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 4) == true) {
-            $optionArr[] = "Viral";
+
             $query = Project::where('area','=','Viral')->get();
 
             foreach ($query as $q){
@@ -109,7 +109,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 8) == true) {
-            $optionArr[] = "1회성 프로젝트";
+
             $query = Project::where('area','=','1회성 프로젝트')->get();
 
             foreach ($query as $q){
@@ -117,7 +117,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 16) == true) {
-            $optionArr[] = "의료";
+
             $query = Project::where('category','=','의료')->get();
 
             foreach ($query as $q){
@@ -125,7 +125,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 32) == true) {
-            $optionArr[] = "법률";
+
             $query = Project::where('category','=','법률')->get();
 
             foreach ($query as $q){
@@ -133,7 +133,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 64) == true) {
-            $optionArr[] = "스타트업";
+
             $query = Project::where('category','=','스타트업')->get();
 
             foreach ($query as $q){
@@ -141,7 +141,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 128) == true) {
-            $optionArr[] = "프랜차이즈";
+
             $query = Project::where('category','=','프랜차이즈')->get();
 
             foreach ($query as $q){
@@ -149,7 +149,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 256) == true) {
-            $optionArr[] = "교육/대학교";
+
             $query = Project::where('category','=','교육/대학교')->get();
 
             foreach ($query as $q){
@@ -157,7 +157,7 @@ class SearchController extends Controller
             }
         }
         if (($SearchOption & 512) == true) {
-            $optionArr[] = "쇼핑몰";
+            
             $query = Project::where('category','=','쇼핑몰')->get();
 
             foreach ($query as $q){
