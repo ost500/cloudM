@@ -14,7 +14,8 @@ class ProjectSeeder extends Seeder
         for ($i = 1; $i < 15; $i++) {
 
             DB::table('projects')->insert([
-                'category' => "광고 의뢰",
+                'area' =>"광고 의뢰",
+                'category' => "의료",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -25,7 +26,8 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
-                'category' => "운영 대행",
+                'area' =>"광고 의뢰",
+                'category' => "법률",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -36,7 +38,8 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
-                'category' => "Viral",
+                'area' =>"광고 의뢰",
+                'category' => "스타트업",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -47,7 +50,8 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
-                'category' => "의료",
+                'area' =>"1회성 프로젝트",
+                'category' => "프랜차이즈",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -58,6 +62,7 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
+                'area' =>"1회성 프로젝트",
                 'category' => "법률",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -69,6 +74,7 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
+                'area' =>"1회성 프로젝트",
                 'category' => "스타트업",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -80,6 +86,7 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
+                'area' =>"Viral",
                 'category' => "프랜차이즈",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -91,6 +98,7 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
+                'area' =>"Viral",
                 'category' => "교육/대학교",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -102,6 +110,7 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
+                'area' =>"운영 대행",
                 'category' => "쇼핑몰",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
@@ -113,7 +122,8 @@ class ProjectSeeder extends Seeder
                 'estimated_duration' => "2016-12-25"
             ]);
             DB::table('projects')->insert([
-                'category' => "1회성 프로젝트",
+                'area' =>"운영 대행",
+                'category' => "기타",
                 'title' => "GMLAB".$i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
