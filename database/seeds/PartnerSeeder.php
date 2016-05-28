@@ -24,13 +24,22 @@ class PartnerSeeder extends Seeder
             ]);
 
             $partnerCreation = Partners::create([
-                'user_id' => $userCreation['id']
+                'user_id' => $userCreation['id'],
+                'intro' => "믿음이 가는 마케팅 업체! 믿고 맡겨 주세요".$i
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
                 'job' => 'Viral'
             ]);
-
+            Partners_job::create([
+                'partner_id' => $partnerCreation['id'],
+                'job' => '1회성프로젝트'
+            ]);
+            Partners_job::create([
+                'partner_id' => $partnerCreation['id'],
+                'job' => '광고의뢰'
+            ]);
+/////////////////////////////////////////////////////
 
             $userCreation = User::create([
                 'name' => '심현보' . $i,
@@ -39,11 +48,16 @@ class PartnerSeeder extends Seeder
                 'PorC' => 'P'
             ]);
             $partnerCreation = Partners::create([
-                'user_id' => $userCreation['id']
+                'user_id' => $userCreation['id'],
+                'intro' => "믿음이 가는 마케팅 업체! 믿고 맡겨 주세요".$i
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
                 'job' => '1회성프로젝트'
+            ]);
+            Partners_job::create([
+                'partner_id' => $partnerCreation['id'],
+                'job' => '광고의뢰'
             ]);
 
 
