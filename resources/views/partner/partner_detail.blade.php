@@ -7,14 +7,9 @@
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
 
-                <!--
-                        <div class="heading text-left margin-bottom-20">
-                          <h4>프로젝트 검색</h4>
-                        </div>
-                        <div class="coupen">
-                          <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
-                        </div>
-                -->
+                <div class="coupen">
+                    <p><span>파트너 상세정보</span> - 원하는 파트너를 직접 찾아보세요.</p>
+                </div>
 
                 <!-- Side Bar -->
                 <div class="row">
