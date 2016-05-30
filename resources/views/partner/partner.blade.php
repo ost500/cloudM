@@ -61,19 +61,20 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <ul class="pagination">
-                                    <li><a id="prevPblock" style="cursor: pointer"><i class="fa fa-angle-left"></i></a>
-                                    </li>
-                                    <li id="pagination"></li>
-                                    <li><a id="nextPblock" style="cursor: pointer"><i class="fa fa-angle-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
 
                         <div id="list"></div>
 
+                        <div style="padding: 40px;" class="col-md-7">
+                            <ul class="pagination">
+                                <li><a id="prevPblock" style="cursor: pointer"><i class="fa fa-angle-left"></i></a>
+                                </li>
+                                <li id="pagination"></li>
+                                <li><a id="nextPblock" style="cursor: pointer"><i class="fa fa-angle-right"></i></a>
+                                </li>
+                            </ul>
+                        </div>
 
                     </div>
                 </div>

@@ -60,8 +60,8 @@
                         <li class="notice-li"><p><i class="fa fa-bell"></i></p></li>
                         <li class="notice-li notice-li-txt "><p id="noti">dsdf</p></li>
                         <li class="notice-li">
-                            <i class="fa fa-chevron-left"></i>
-                            <i class="fa fa-chevron-right"></i>
+                            <a class="white-text" href=""><i class="fa fa-chevron-left"></i></a>
+                            <a class="white-text" href=""><i class="fa fa-chevron-right"></i></a>
                         </li>
 
 
