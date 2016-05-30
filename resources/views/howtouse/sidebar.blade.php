@@ -6,10 +6,8 @@
     <!-- Revenues -->
     <section class="revenues padding-top-15 padding-bottom-70">
         <div class="container">
-            <!-- Heading -->
-            <div class="heading text-left margin-bottom-20">
-                <h4>이용방법</h4>
-            </div>
+
+
 
             <!-- coupen -->
             <div class="coupen">

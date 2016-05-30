@@ -29,7 +29,7 @@ class AddProjectsColumns extends Migration
         Schema::table('projects', function ($table) {
             $table->dropColumn('budget');
             $table->dropColumn('estimated_duration');
-            
+
         });
     }
 }

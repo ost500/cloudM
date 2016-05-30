@@ -8,9 +8,6 @@
             <div class="container">
 
 
-                <div class="heading text-left margin-bottom-20">
-                    <h4>파트너 목록</h4>
-                </div>
                 <div class="coupen">
                     <p>Crowd m에서 직접 <span>파트너</span>를 찾아보세요.</p>
                 </div>

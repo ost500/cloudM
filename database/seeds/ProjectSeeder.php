@@ -23,7 +23,18 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
+
             ]);
             DB::table('projects')->insert([
                 'area' =>"광고 의뢰",
@@ -35,7 +46,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"광고 의뢰",
@@ -47,7 +68,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"1회성 프로젝트",
@@ -59,7 +90,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"1회성 프로젝트",
@@ -71,7 +112,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"1회성 프로젝트",
@@ -83,7 +134,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"Viral",
@@ -95,7 +156,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"Viral",
@@ -107,7 +178,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"운영 대행",
@@ -119,7 +200,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
             DB::table('projects')->insert([
                 'area' =>"운영 대행",
@@ -131,7 +222,17 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25"
+                'estimated_duration' => "2016-12-25",
+                'plan_status' => "기획 작성 중",
+                'managing_experience' => "있음",
+                'expected_start_date' => "2016-12-25",
+                'meeting_way'=>"온라인 미팅",
+                'address_sido'=>"서울특별시",
+                'address_gungu'=>"금천구",
+                'project_way' => "열심히 합시다",
+                'now_status' => "아무것도 준비 안됐습니다",
+                'detail_content' => "대박을 꿈꾸고 있습니다",
+                'reference_caution' => "인센티브 있습니다"
             ]);
         }
     }
