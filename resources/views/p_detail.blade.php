@@ -82,9 +82,9 @@
                                                         <h3 class="margin-bottom-20">{{ $project['title'] }}</h3>
                                                     </div>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-krw"></i> 예상금액 <span>25,000,000원 </span></span>
+                                                        class="fa fa-krw"></i> 예상금액 <span>{{ number_format($project['budget']) }}</span></span>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-clock-o"></i> 예상기간 <span>100일 </span></span>
+                                                        class="fa fa-clock-o"></i> 예상기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i
                                                                 class="fa fa-calendar-minus-o"></i> 모집마감 <span>2016년 3월 31일 </span></span>
                                                     <div style="clear:both;"></div>
@@ -230,22 +230,37 @@
                                                     <div class="margin-top-10">
                                                         <span class="media-body-sm margin-top-23">관련기술</span>
                                                         <ul class="tags dall margin-top-20 margin-bottom-10">
-                                                            <li><a href="#.">photoshop</a></li>
-                                                            <li><a href="#.">html</a></li>
-                                                            <li><a href="#.">css</a></li>
-                                                            <li><a href="#.">script</a></li>
-                                                            <li><a href="#.">php</a></li>
+                                                            <li><a href="#.">{{ $project['area'] }}</a></li>
+                                                            <li><a href="#.">{{ $project['category'] }}</a></li>
                                                         </ul>
                                                     </div>
 
 
                                                 </div>
 
+                                                @if(App\Project::find($project['id'])->step == "게시" || App\Project::find($project['id'])->step == "미팅")
+                                                    <a style="cursor:pointer" id="pro_app_big_btn">
+                                                        <div class="button006 margin-top-10 margin-bottom-20">프로젝트 지원하기
+                                                        </div>
+                                                    </a>
+                                                @endif
+                                                <?php
 
-                                                <a href="#.">
-                                                    <div class="button006 margin-top-10 margin-bottom-20">프로젝트 지원하기
-                                                    </div>
-                                                </a>
+                                                echo '<script>';
+                                                echo '$("#pro_app_big_btn").click(function(){';
+                                                if (!Auth::check()) {
+                                                    echo '$("#loginModal").modal("show");';
+                                                } else if (Auth::user()->PorC == "C") {
+                                                    echo 'alert("파트너가 아닙니다")';
+                                                } else if (App\Application::where('u_id', '=', Auth::user()->id, 'and', 'p_id', '=', $project['id'])->get()->isEmpty() == false) {
+                                                    echo 'alert("이미 지원하셨습니다")';
+                                                } else {
+                                                    echo 'window.location = "' . url("/apply/" . $project['id']) . '";';
+                                                }
+                                                echo '});';
+                                                echo '</script>';
+
+                                                ?>
 
 
                                             </div>

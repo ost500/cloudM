@@ -59,13 +59,13 @@
                 </div>
                 <div class="col-lg-2">
                     <ul class="list-unstyled">
-                        <li>
-                            <div class="rating star-lg star-lg-4"></div>
-			<span class="rating-stats-body stats-body"><br>
-				<span class="average-rating-score">4.2</span>
-				<span class="rating-append-unit append-unit">/ 평가 20개</span>
-			</span>
-                        </li>
+                        {{--<li>--}}
+                            {{--<div class="rating star-lg star-lg-4"></div>--}}
+			{{--<span class="rating-stats-body stats-body"><br>--}}
+				{{--<span class="average-rating-score">4.2</span>--}}
+				{{--<span class="rating-append-unit append-unit">/ 평가 20개</span>--}}
+			{{--</span>--}}
+                        {{--</li>--}}
                         <li class="partners-authentication la_line02">
                                         <span class="partners-authorized"><i
                                                     class="fa fa-check-circle-o"></i>신원인증</span><br>
