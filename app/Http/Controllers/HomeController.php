@@ -75,5 +75,11 @@ class HomeController extends Controller
         $step_change->save();
         return redirect()->back();
     }
+    
+    public function gnuboard()
+    {
+        include(app_path()."/gnuboard5.1.18/index.php");
+
+    }
 
 }
