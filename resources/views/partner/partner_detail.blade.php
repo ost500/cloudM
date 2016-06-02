@@ -18,7 +18,7 @@
                             <h5 class="side-tittle">파트너스</h5>
                             <div>
                                 <img class="partner_profile02" src="/images/p_img02.png"><br>
-                                <h6>{{ $partner[0]->name }}</h6>
+                                <h6>{{ $partner->user->name }}</h6>
                             </div>
                         </div>
 
@@ -44,14 +44,14 @@
                                             <div class="job-tittle02">
 
                                                 <div class="media-body02">
-                                                    <h3 class="margin-bottom-0">{{ $partner[0]['user']->name }}</h3>
+                                                    <h3 class="margin-bottom-0">{{ $partner['user']->name }}</h3>
                                                 </div>
                                             <span class="media-body-sm"><i
                                                         class="fa fa-align-left"></i> 직종 <span>디자이너</span></span>
                                                 <span class="media-body-sm"><i class="fa fa-user"></i> 개인</span>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-check-circle-o"></i> 신원미인증</span>
-                                                <span class="media-body-sm la-line"><i class="fa fa-check-circle-o"></i> 연락처미등록</span>
+                                                        class="fa fa-check-circle-o"></i> 신원인증</span>
+                                                <span class="media-body-sm la-line"><i class="fa fa-check-circle-o"></i> 연락처등록</span>
                                                 <div class="tags_bg02 margin-top-20 padding-top-5">
                                                     <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
 
@@ -94,14 +94,7 @@
                                                 <a href="#." class="more_btn margin-top-20">더보기 ></a>
 
 
-                                                안녕하세요
-                                                13년차 프리랜서팀 입니다.<br>
-                                                원하시는 디자인 퀄리티와 개발이 가능하고 서로 만족스러운 프로젝트가 되도록 노력하겠습니다.<br><br>
-
-                                                개발 이슈가 큰 프로젝트는<br>
-
-                                                카드 https://www.dfgdxfhb.co.kr/<br>
-                                                캐피탈 http://www.fbzxf.co.kr/
+                                                {{ $partner->intro }}
 
                                             </div>
 
@@ -152,35 +145,7 @@
                                             </div>
 
 
-                                            <div class="job-tittle02">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">분야</h6>
-                                                <div class="panel02 panel-default02 margin-top-20">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-3"><strong>회사명</strong></span>
-                                                            <span class="col-xs-3"><strong>근무부서</strong></span>
-                                                            <span class="col-xs-3"><strong>직위</strong></span>
-                                                            <span class="col-xs-3"><strong>근무기간</strong></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            <li class="row">
-                                                                <span class="col-xs-3">경력 회사명</span>
-                                                                <span class="col-xs-3">경력 근무부서</span>
-                                                                <span class="col-xs-3">경력 직위</span>
-                                                                <span class="col-xs-3">2010년 12월 15일 ~ 2016년 01월 30일</span>
-                                                            </li>
-                                                            <li class="row">
-                                                                <span class="col-xs-3">경력 회사명</span>
-                                                                <span class="col-xs-3">경력 근무부서</span>
-                                                                <span class="col-xs-3">경력 직위</span>
-                                                                <span class="col-xs-3">2010년 12월 15일 ~ 2016년 01월 30일</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+
 
 
                                             {{--<div class="job-tittle02">--}}
@@ -212,29 +177,7 @@
                                             {{--</div>--}}
 
 
-                                            <div class="job-tittle02">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">업종</h6>
-                                                <div class="panel02 panel-default02 margin-top-20">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-3"><strong>구분</strong></span>
-                                                            <span class="col-xs-3"><strong>자격증번호</strong></span>
-                                                            <span class="col-xs-3"><strong>발행처</strong></span>
-                                                            <span class="col-xs-3"><strong>발행일자</strong></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            <li class="row">
-                                                                <span class="col-xs-3">자격증 구분</span>
-                                                                <span class="col-xs-3">자격증 번호</span>
-                                                                <span class="col-xs-3">자격증 발행처</span>
-                                                                <span class="col-xs-3">2016년 12월 30일</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
+
 
 
                                             <div class="job-tittle02">

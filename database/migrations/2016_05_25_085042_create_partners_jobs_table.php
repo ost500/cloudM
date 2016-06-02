@@ -21,7 +21,7 @@ class CreatePartnersJobsTable extends Migration
                 ->onDelete('cascade');
 
             $table->enum('job', array('광고의뢰', '운영대행', 'Viral',
-                '1회성프로젝트', '의료', '법률', '스타트업', '프랜차이즈', '교육/대학교', '쇼핑몰'));
+                '1회성프로젝트'));
 
             $table->timestamps();
         });

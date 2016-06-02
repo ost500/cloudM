@@ -14,9 +14,11 @@
 Route::get('/', 'MainController@index');
 
 //프로젝트 등록
+Route::post('/p_add', 'CreateController@indextest');
 Route::get('/p_add/complete', 'CreateController@complete');
 Route::post('/p_add/{step}', 'CreateController@postCreate');
 Route::get('/p_add/{step}', 'CreateController@index');
+
 
 
 //프로젝트
@@ -39,7 +41,7 @@ Route::get('/partner', 'PartnerController@partner');
 Route::get('/partner/{id}','PartnerController@detail')
     ->where(['id' => '[0-9]+']);
 //파트너 list
-Route::get('/partner/{page}/{option}/{keyword?}', 'PartnerController@partner_list')
+Route::get('/partner/{page}/{option}/{option2}/{keyword?}', 'PartnerController@partner_list')
     ->where(['page' => '[0-9]+']);
 //프로젝트 pagination
 Route::get('/p_search/pagination/{start}/{end}','SearchController@pagination');
