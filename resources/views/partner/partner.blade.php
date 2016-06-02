@@ -44,6 +44,11 @@
                                             <option value="운영대행">운영대행</option>
                                             <option value="Viral">Viral</option>
                                             <option value="1회성프로젝트">1회성프로젝트</option>
+
+                                        </select>
+                                        <select id="job_option2" name="job" class="form-control02">
+                                            <option selected="selected" value="">업종</option>
+                                            <option value="all">모두</option>
                                             <option value="의료">의료</option>
                                             <option value="법률">법률</option>
                                             <option value="스타트업">스타트업</option>

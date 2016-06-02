@@ -25,7 +25,7 @@ class PartnerSeeder extends Seeder
 
             $partnerCreation = Partners::create([
                 'user_id' => $userCreation['id'],
-                'intro' => "믿음이 가는 마케팅 업체! 믿고 맡겨 주세요".$i
+                'intro' => "믿음이 가는 마케팅 업체! 믿고 맡겨 주세요" . $i
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
@@ -49,7 +49,7 @@ class PartnerSeeder extends Seeder
             ]);
             $partnerCreation = Partners::create([
                 'user_id' => $userCreation['id'],
-                'intro' => "믿음이 가는 마케팅 업체! 믿고 맡겨 주세요".$i
+                'intro' => "믿음이 가는 마케팅 업체! 믿고 맡겨 주세요" . $i
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
@@ -57,7 +57,7 @@ class PartnerSeeder extends Seeder
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
-                'job' => '광고의뢰'
+                'job' => '광고의뢰',
             ]);
 
 
