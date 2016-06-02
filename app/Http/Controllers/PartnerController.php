@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Partners;
 use App\Partners_job;
 use App\User;
+use DB;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -80,18 +81,26 @@ class PartnerController extends Controller
             }
 
             $has_partner_list = Partners::whereHas('job',
-                function ($q) use ($job_name, $job_name2) {
+                function ($q) use ($job_name, $job_name2, $keyword) {
                     if ($job_name == "") {
-                        $q->where('job', '=', $job_name2);
+                        $q->where('area', '=', $job_name2);
                     } else if ($job_name2 == "") {
                         $q->where('job', '=', $job_name);
                     } else {
                         $q->where('job', '=', $job_name)->where('area', '=', $job_name2);
                     }
-                })->get();
-            if($keyword != "%"){
-                $has_partner_list = $has_partner_list->where('name','LIKE', $keyword);
-            }
+                })->whereHas('user', function ($q) use ($keyword) {
+                $q->where('name', 'like', "%" . $keyword . "%");
+            })->get();
+
+//->whereExists(function ($query) use($keyword){
+//                $query->from('users')
+//                    ->where('name','like', "%".$keyword."%");
+//            })->get();
+
+
+//                ->from('users')->whereRaw('users.name like '. $keyword)->get();
+
 
             foreach ($has_partner_list as $each_partner) {
                 $partners = $partners->push($each_partner->user);
