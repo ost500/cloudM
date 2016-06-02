@@ -52,34 +52,34 @@
     <header>
 
         <!-- Top bar -->
-        <div class="top-bar">
-            <div class="top-info">
-                <div class="container">
-                    <ul class="personal-info">
+        {{--<div class="top-bar">--}}
+            {{--<div class="top-info">--}}
+                {{--<div class="container">--}}
+                    {{--<ul class="personal-info">--}}
 
-                        <li class="notice-li"><p><i class="fa fa-bell"></i></p></li>
-                        <li class="notice-li notice-li-txt "><p id="noti">dsdf</p></li>
-                        <li class="notice-li">
-                            <a class="white-text" href=""><i class="fa fa-chevron-left"></i></a>
-                            <a class="white-text" href=""><i class="fa fa-chevron-right"></i></a>
-                        </li>
+                        {{--<li class="notice-li"><p><i class="fa fa-bell"></i></p></li>--}}
+                        {{--<li class="notice-li notice-li-txt "><p id="noti">dsdf</p></li>--}}
+                        {{--<li class="notice-li">--}}
+                            {{--<a class="white-text" href=""><i class="fa fa-chevron-left"></i></a>--}}
+                            {{--<a class="white-text" href=""><i class="fa fa-chevron-right"></i></a>--}}
+                        {{--</li>--}}
 
 
-                    </ul>
+                    {{--</ul>--}}
 
-                    <!-- Right Sec -->
-                    <div class="right-sec">
-                        <!-- social -->
-                        <ul class="social">
-                            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#."><i class="fa fa-google"></i></a></li>
-                            <li><a href="#."><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    {{--<!-- Right Sec -->--}}
+                    {{--<div class="right-sec">--}}
+                        {{--<!-- social -->--}}
+                        {{--<ul class="social">--}}
+                            {{--<li><a href="#."><i class="fa fa-facebook"></i></a></li>--}}
+                            {{--<li><a href="#."><i class="fa fa-twitter"></i></a></li>--}}
+                            {{--<li><a href="#."><i class="fa fa-google"></i></a></li>--}}
+                            {{--<li><a href="#."><i class="fa fa-linkedin"></i></a></li>--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
 
         <!-- Navigation -->
@@ -115,7 +115,7 @@
                     <div class="search-icon">
                         <?php
                         if (Auth::check()) {
-                            echo "<a href=" . url("/mypage") . " class=\"button signin\">내 정보</a>";
+                            echo "<a href=" . url("/setting") . " class=\"button signin\">내 정보</a>";
                             echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃</a>";
 
                         } else {
@@ -132,8 +132,8 @@
         @if(Auth::check())
             <div class="my_bar">
                 <ul>
-                    <li><a href="{{ url("/dashboard") }}">대시보드</a></li>
-                    <li><a href="{{ url("/mypage") }}">마이페이지</a></li>
+                    <li><a href="{{ url("/dashboard") }}">마이클라우드엠</a></li>
+                    <li><a href="{{ url("/mypage") }}">프로필</a></li>
                     <li><a href="{{ url("/setting") }}">기본정보</a></li>
                 </ul>
             </div>

@@ -3,6 +3,7 @@
  */
 
 var option = 0;
+var option2 = 0;
 var page = 1;
 var countofprojects = 0;
 var maxpage = 0;
@@ -18,9 +19,9 @@ function viewLoad() {
     display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
-        url: "partner" + "/" + page + "/" + option + "/" + keyword,
+        url: "partner" + "/" + page + "/" + option + "/" + option2 + "/" + keyword,
         success: function (result) {
-            console.log("partner" + "/" + page + "/" + option + "/" + keyword);
+            console.log("partner" + "/" + page + "/" + option + "/" + option2 + "/" + keyword);
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
@@ -106,58 +107,68 @@ $("#literal_search_button").click(function () {
 });
 
 // 분야 검색-------------------------------------------
-$("#job_option").change(function(){
-    if( $("#job_option").val() == "all"){
+$("#job_option").change(function () {
+    if ($("#job_option").val() == "all") {
         console.log("all checked");
         option = 0;
     }
-    if( $("#job_option").val() == "광고의뢰"){
+    if ($("#job_option").val() == "광고의뢰") {
 
         option = 1;
         console.log(option);
     }
-    if( $("#job_option").val() == "운영대행"){
+    if ($("#job_option").val() == "운영대행") {
         console.log("2 checked");
         option = 2;
     }
-    if( $("#job_option").val() == "Viral"){
+    if ($("#job_option").val() == "Viral") {
         console.log("3 checked");
         option = 3;
     }
-    if( $("#job_option").val() == "1회성프로젝트"){
+    if ($("#job_option").val() == "1회성프로젝트") {
         console.log("4 checked");
         option = 4;
     }
-    if( $("#job_option").val() == "의료"){
-        console.log("5 checked");
-        option = 5;
-    }
-    if( $("#job_option").val() == "법률"){
-        console.log("6 checked");
-        option = 6;
-    }
-    if( $("#job_option").val() == "스타트업"){
-        console.log("7 checked");
-        option = 7;
-    }
-    if( $("#job_option").val() == "프랜차이즈"){
-        console.log("8 checked");
-        option = 8;
-    }
-    if( $("#job_option").val() == "대학교"){
-        console.log("9 checked");
-        option = 9;
-    }
-    if( $("#job_option").val() == "쇼핑몰"){
-        console.log("10 checked");
-        option = 10;
-    }
-    page=1;
-    
+
+    page = 1;
+    keyword = $("#literal_search_text").val();
+
     viewLoad();
 });
+$("#job_option2").change(function () {
+    if ($("#job_option2").val() == "all") {
+        console.log("all checked");
+        option2 = 0;
+    }
+    if ($("#job_option2").val() == "의료") {
+        console.log("5 checked");
+        option2 = 5;
+    }
+    if ($("#job_option2").val() == "법률") {
+        console.log("6 checked");
+        option2 = 6;
+    }
+    if ($("#job_option2").val() == "스타트업") {
+        console.log("7 checked");
+        option2 = 7;
+    }
+    if ($("#job_option2").val() == "프랜차이즈") {
+        console.log("8 checked");
+        option2 = 8;
+    }
+    if ($("#job_option2").val() == "대학교") {
+        console.log("9 checked");
+        option2 = 9;
+    }
+    if ($("#job_option2").val() == "쇼핑몰") {
+        console.log("10 checked");
+        option2 = 10;
+    }
+    page = 1;
+    keyword = $("#literal_search_text").val();
 
-
+    viewLoad();
+});
 
 
 // 페이지 이전-------------------------------------------

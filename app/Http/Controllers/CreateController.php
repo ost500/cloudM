@@ -65,4 +65,9 @@ class CreateController extends Controller
     {
         return view('p_add3');
     }
+
+    public function indextest($request)
+    {
+        return dd($request);
+    }
 }

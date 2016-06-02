@@ -32,7 +32,7 @@
                                 <div class="panel-group">
                                     <div class="panel panel-default">
 
-                                        <form action="#" role="form" class="smart-wizard" id="form"
+                                        <form action="{{ url("/p_add") }}" role="form" class="smart-wizard" id="form"
                                               novalidate="novalidate">
                                             <div id="wizard" class="swMain">
                                                 <!-- start: WIZARD SEPS -->
@@ -524,7 +524,7 @@
 
                                                         <div class="loader">Loading</div>
 
-                                                        <a href="#" class="buttonFinish buttonDisabled">Finish</a>
+                                                        <a href="#" class="buttonFinish ">Finish</a>
 
                                                         <a href="#" class="buttonNext">Next</a>
 
