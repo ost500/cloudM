@@ -16,9 +16,9 @@ class AddProjectsDetail extends Migration
             $table->enum('plan_status', array('아이디어 단계', '필요기능 정리', '기획 작성 중', '상세 기획서 보유'));
             $table->enum('managing_experience', array('있음', '없음'));
             $table->date('expected_start_date');
-            $table->enum('meeting_way',array('온라인 미팅','오프라인 미팅','온/오프라인 미팅'));
-            $table->string('address_sido',45);
-            $table->string('address_gungu',45);
+            $table->enum('meeting_way', array('온라인 미팅', '오프라인 미팅', '온/오프라인 미팅'));
+            $table->string('address_sido', 45);
+            $table->string('address_gungu', 45);
             $table->text('project_way');
             $table->text('now_status');
             $table->text('detail_content');
@@ -33,22 +33,18 @@ class AddProjectsDetail extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumns('projects', ['plan_status', 'managing_experience', 'expected_start_date',
-            'meeting_way', 'address_sido', 'address_gungu', 'project_way',
-            'now_status', 'detail_content', 'reference_caution'])
-        ) {
-            Schema::table('projects', function ($table) {
-                $table->dropColumn('plan_status');
-                $table->dropColumn('managing_experience');
-                $table->dropColumn('expected_start_date');
-                $table->dropColumn('meeting_way');
-                $table->dropColumn('address_sido');
-                $table->dropColumn('address_gungu');
-                $table->dropColumn('project_way');
-                $table->dropColumn('now_status');
-                $table->dropColumn('detail_content');
-                $table->dropColumn('reference_caution');
-            });
-        };
+
+        Schema::table('projects', function ($table) {
+            $table->dropColumn('plan_status');
+            $table->dropColumn('managing_experience');
+            $table->dropColumn('expected_start_date');
+            $table->dropColumn('meeting_way');
+            $table->dropColumn('address_sido');
+            $table->dropColumn('address_gungu');
+            $table->dropColumn('project_way');
+            $table->dropColumn('now_status');
+            $table->dropColumn('detail_content');
+            $table->dropColumn('reference_caution');
+        });
     }
 }

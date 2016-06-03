@@ -30,16 +30,16 @@
 
                                 </div>
 
-                                <span class="media-body-sm">예상금액 <span>{{ number_format($project['budget']) }}</span>원</span>
+                                <span class="media-body-sm">예상금액 <span>{{ $project['budget'] }}</span>원</span>
                                 <span class="media-body-sm">예상기간 <span>{{ $project['estimated_duration'] }}</span>일</span>
-                                <span class="media-body-sm la-line">등록일자 <span>{{ $project['updated_at'] }}</span></span>
+                                <span class="media-body-sm la-line">등록일자 <span>{{ $project['created_at'] }}</span></span>
                             </div>
                         </div>
                         <!-- Content -->
                         <div id="job1" class="panel-collapse collapse in">
                             <div class="panel-body">
 
-                                <p> {{ $project['intro'] }}</p>
+                                <p> {{ substr($project['detail_content'], 0, 500) }}</p>
                                 <!-- Additional Requirements -->
                                 <div>
 

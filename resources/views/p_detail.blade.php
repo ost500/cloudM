@@ -29,7 +29,7 @@
                                     <img class="partner_profile02" src="/images/p_img02.png"><br>
                                 </div>
                                 <h5 class="text-center">{{ $project->client->name }}</h5>
-                                <span class="side-tittle_txt01">{{ $project->client->partners->intro }}</span>
+                                <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
                             </div>
 
                         </div>
@@ -68,7 +68,7 @@
 
                                                         <div class="panel-heading03">
                                                             <div class="row">
-                                                                <span class="col-xs-2"><strong>기획상태</strong></span>
+                                                                <span class="col-xs-2"><strong>목적</strong></span>
                                                                 <span class="col-xs-2"><strong>매니징경험</strong></span>
                                                                 <span class="col-xs-2"><strong>등록일자</strong></span>
                                                                 <span class="col-xs-2"><strong>예상시작일</strong></span>
@@ -80,12 +80,12 @@
                                                         <div class="panel-body03">
                                                             <ul>
                                                                 <li class="row">
-                                                                    <span class="col-xs-2">{{ $project['plan_status'] }}</span>
+                                                                    <span class="col-xs-2">{{ $project['purpose'] }}</span>
                                                                     <span class="col-xs-2">{{ $project['managing_experience'] }}</span>
                                                                     <span class="col-xs-2">{{ $project['created_at'] }}</span>
                                                                     <span class="col-xs-2">{{ $project['expected_start_date'] }}</span>
                                                                     <span class="col-xs-2">{{ $project['meeting_way'] }}</span>
-                                                                    <span class="col-xs-2">{{ $project['address_sido'] }}>{{$project['address_gungu']}}</span>
+                                                                    <span class="col-xs-2">{{ $project['address_sido'] }}</span>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -119,30 +119,12 @@
                                                 <div style="clear:both;"></div>
                                                 <div class="p_search02_txt margin-top-20">
                                                     <h5>프로젝트 내용</h5>
-                                                    <strong>
-                                                        < 프로젝트 진행 방식 >
-                                                    </strong><br>
 
-                                                    {{ $project['project_way'] }}<br><br>
-
-
-                                                    <strong>
-                                                        < 프로젝트의 현재 상황 >
-                                                    </strong><br>
-                                                    {{ $project['now_status'] }}<br><br>
-
-
-                                                    <strong>
-                                                        < 상세 업무 내용 >
-                                                    </strong><br>
-                                                    {{ $project['detail_content'] }}<br><br>
+                                                    <?php echo nl2br($project['detail_content']); ?><br><br>
 
 
 
-                                                    <strong>
-                                                        < 참고 자료
-                                                        /유의 사항></strong><br>
-                                                    {{ $project['reference_caution'] }}
+
 
 
                                                     <div class="margin-top-10">

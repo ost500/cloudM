@@ -66,8 +66,41 @@ class CreateController extends Controller
         return view('p_add3');
     }
 
-    public function indextest($request)
+    public function indextesta(Request $request)
     {
-        return dd($request);
+        $input = new Project();
+        $input->area = $request->area;
+        $input->category = $request->category;
+        $input->title = $request->project_name;
+        $input->estimated_duration = $request->duration;
+        $input->budget = $request->money;
+        $input->purpose = $request->purpose;
+        $input->detail_content = $request->content_detail;
+        $input->deadline = $request->deadline;
+        $input->expected_start_date = $request->expecting_start;
+        $input->meeting_way = $request->pre_meeting;
+        $input->managing_experience = $request->experience;
+        $input->reason = $request->reason;
+        $input->Client_id = Auth::user()->id;
+        $input->save();
+
+        echo $request->name."<br>";//
+        echo $request->phone."<br>";//phone_num
+        echo $request->company_type."<br>";//
+        echo $request->company_intro."<br>";//
+        echo $request->area."<br>";//area
+        echo $request->category."<br>";//category
+        echo $request->project_name."<br>";//title
+        echo $request->duration."<br>";//estimated_duration
+        echo $request->money."<br>";//budget
+        echo $request->purpose."<br>";//plan_status
+        echo nl2br($request->content_detail)."<br>";//detail_content
+        echo $request->deadline."<br>";//
+        echo $request->expecting_start."<br>";//expected_start_date
+        echo $request->pre_meeting."<br>";//meeting_way
+        echo $request->experience."<br>";//managing_experience
+        echo $request->reason."<br>";//
+
+        
     }
 }

@@ -122,14 +122,12 @@ class PartnerController extends Controller
         return view('partner/partnerList', compact('partners'));
     }
 
-    public
-    function pagination($start, $end)
+    public function pagination($start, $end)
     {
         return view('pagination', ['start' => $start, 'end' => $end]);
     }
 
-    public
-    function detail($id)
+    public function detail($id)
     {
         $partner = Partners::with('user')->where('id', '=', $id)->first();
         return view('partner/partner_detail', compact('partner'));
