@@ -69,9 +69,9 @@ class SearchController extends Controller
 
             //sort
             if ($sort == "3") {
-                $projects = $projects->sortBy('updated_at');
+                $projects = $projects->sortByDesc('updated_at');
             } else {
-                $projects = $projects->sortBy('updated_at');
+                $projects = $projects->sortByDesc('updated_at');
             }
 
             $projects = $projects->forPage($page, 10);

@@ -14,9 +14,9 @@
 Route::get('/', 'MainController@index');
 
 //프로젝트 등록
-Route::post('/p_add', 'CreateController@indextest');
-Route::get('/p_add/complete', 'CreateController@complete');
-Route::post('/p_add/{step}', 'CreateController@postCreate');
+Route::post('/p_add', 'CreateController@indextesta');
+//Route::get('/p_add/complete', 'CreateController@complete');
+//Route::post('/p_add/{step}', 'CreateController@postCreate');
 Route::get('/p_add/{step}', 'CreateController@index');
 
 

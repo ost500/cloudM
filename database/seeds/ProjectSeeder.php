@@ -19,17 +19,18 @@ class ProjectSeeder extends Seeder
                 'title' => "GMLAB" . $i,
                 'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+                'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'step' => '검수',
                 'Client_id' => $i,
-                'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
+
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
 
                 'detail_content' => "< 프로젝트 진행 방식 >
@@ -43,6 +44,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
 
             ]);
@@ -57,12 +59,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
 
                 'detail_content' => "< 프로젝트 진행 방식 >
@@ -76,6 +78,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -89,12 +92,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -107,6 +110,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -120,12 +124,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -138,6 +142,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -151,12 +156,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -169,6 +174,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -182,12 +188,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -200,6 +206,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -213,12 +220,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -231,6 +238,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -244,12 +252,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -262,6 +270,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -275,12 +284,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' => "< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
@@ -293,6 +302,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
             DB::table('projects')->insert([
@@ -306,12 +316,12 @@ class ProjectSeeder extends Seeder
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
                 'estimated_duration' => "2016-12-25",
-                'plan_status' => "기획 작성 중",
+
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
                 'meeting_way' => "온라인 미팅",
                 'address_sido' => "서울특별시",
-                'address_gungu' => "금천구",
+
 
                 'detail_content' =>
                     "< 프로젝트 진행 방식 >
@@ -325,6 +335,7 @@ class ProjectSeeder extends Seeder
 
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
+                'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
         }

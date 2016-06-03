@@ -27,14 +27,20 @@ var FormWizard = function () {
             ignore: ':hidden',
             rules: {
                 name: {
-                    minlength: 2,
-                    required: true
+                    // minlength: 2,
+                    // required: true
                 },
                 phone: {
-                    minlength: 10,
-                    required: true
+                    // minlength: 10,
+                    // required: true
                 },
                 companyType: {
+                    required: true
+                },
+                area: {
+                    required: true
+                },
+                category: {
                     required: true
                 },
                 email: {
@@ -54,7 +60,8 @@ var FormWizard = function () {
             messages: {
                 name: "이름을 입력해 주세요.",
                 phone: "연락처를 입력해 주세요.",
-                companyType: "회사형태를 선택해 주세요."
+                companyType: "회사형태를 선택해 주세요.",
+                area:"선택해 주세요"
             },
             highlight: function (element) {
                 $(element).closest('.help-block').removeClass('valid');
@@ -89,7 +96,7 @@ var FormWizard = function () {
         });
     };
     var onShowStep = function (obj, context) {
-        if(context.toStep == numberOfSteps){
+        if (context.toStep == numberOfSteps) {
             $('.anchor').children("li:nth-child(" + context.toStep + ")").children("a").removeClass('wait');
             displayConfirm();
         }
@@ -116,10 +123,25 @@ var FormWizard = function () {
     };
     var onFinish = function (obj, context) {
         if (validateAllSteps()) {
-            alert('form submit function');
-            $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
-            //wizardForm.submit();
+            if (confirm('프로젝트를 등록 하시겠습니까?')) {
+                $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
+
+                // wizardForm.submit();
+                $.ajax({
+                    type: 'POST',
+                    url:'/p_add',
+                    data: wizardForm.serialize(),
+                    success: function(data){
+                        alert(data);
+                    }
+                });
+                wizardContent.smartWizard("goForward");
+
+            }
         }
+        // $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
+        //
+        // wizardForm.submit();
     };
     var validateSteps = function (stepnumber, nextstep) {
         var isStepValid = false;
@@ -130,15 +152,16 @@ var FormWizard = function () {
             // cache the form element selector
             if (wizardForm.valid()) { // validate the form
                 wizardForm.validate().focusInvalid();
-                for (var i=stepnumber; i<=nextstep; i++){
+                for (var i = stepnumber; i <= nextstep; i++) {
                     $('.anchor').children("li:nth-child(" + i + ")").not("li:nth-child(" + nextstep + ")").children("a").removeClass('wait').addClass('done').children('.stepNumber').addClass('animated tada');
                 }
                 //focus the invalid fields
                 isStepValid = true;
                 return true;
-            };
+            }
+            ;
         } else if (nextstep < stepnumber) {
-            for (i=nextstep; i<=stepnumber; i++){
+            for (i = nextstep; i <= stepnumber; i++) {
                 $('.anchor').children("li:nth-child(" + i + ")").children("a").addClass('wait').children('.stepNumber').removeClass('animated tada');
             }
 
