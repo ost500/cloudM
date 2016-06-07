@@ -33,5 +33,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Partners','user_id','id');
     }
+    public function clients()
+    {
+        return $this->hasOne('App\Client','user_id','id');
+    }
 
 }

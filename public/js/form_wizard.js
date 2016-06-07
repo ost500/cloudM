@@ -27,14 +27,18 @@ var FormWizard = function () {
             ignore: ':hidden',
             rules: {
                 name: {
-                    // minlength: 2,
-                    // required: true
+                    minlength: 2,
+                    required: true
                 },
                 phone: {
-                    // minlength: 10,
-                    // required: true
+                    minlength: 10,
+                    required: true
                 },
                 companyType: {
+                    required: true
+                },
+                company_intro: {
+                    maxlength: 255,
                     required: true
                 },
                 area: {
@@ -43,25 +47,59 @@ var FormWizard = function () {
                 category: {
                     required: true
                 },
-                email: {
-                    required: true,
-                    email: true
-                },
-                password: {
-                    minlength: 6,
+                project_name: {
                     required: true
                 },
-                password2: {
-                    required: true,
-                    minlength: 5,
-                    equalTo: "#password"
+                duration: {
+                    required: true
+                }, money: {
+                    required: true
+                }, purpose: {
+                    required: true
+                }, content_detail: {
+                    required: true
+                }, deadline: {
+                    required: true
+                }, expecting_start: {
+                    required: true
+                }, pre_meeting: {
+                    required: true
+                }, experience: {
+                    required: true
+                }, reason: {
+                    required: true
                 }
+
+                // email: {
+                //     required: true,
+                //     email: true
+                // },
+                // password: {
+                //     minlength: 6,
+                //     required: true
+                // },
+                // password2: {
+                //     required: true,
+                //     minlength: 5,
+                //     equalTo: "#password"
+                // }
             },
             messages: {
                 name: "이름을 입력해 주세요.",
                 phone: "연락처를 입력해 주세요.",
                 companyType: "회사형태를 선택해 주세요.",
-                area:"선택해 주세요"
+                area: "선택해 주세요",
+                category: "선택해 주세요",
+                project_name: "입력해 주세요",
+                duration: "입력해 주세요",
+                money: "입력해 주세요",
+                purpose: "선택해 주세요",
+                content_detail: "입력해 주세요",
+                deadline: "입력해 주세요",
+                expecting_start: "입력해 주세요",
+                pre_meeting: "선택해 주세요",
+                experience: "선택해 주세요",
+                reason: "선택해 주세요"
             },
             highlight: function (element) {
                 $(element).closest('.help-block').removeClass('valid');
@@ -122,23 +160,25 @@ var FormWizard = function () {
         // return false to stay on step and true to continue navigation
     };
     var onFinish = function (obj, context) {
-        if (validateAllSteps()) {
+        if (leaveAStepCallback(obj, context)) {
+
             if (confirm('프로젝트를 등록 하시겠습니까?')) {
                 $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
-
                 // wizardForm.submit();
                 $.ajax({
                     type: 'POST',
-                    url:'/p_add',
+                    url: '/p_add',
                     data: wizardForm.serialize(),
-                    success: function(data){
-                        alert(data);
+                    success: function (data) {
+                        
                     }
                 });
-                wizardContent.smartWizard("goForward");
 
             }
         }
+        wizardContent.smartWizard("goForward");
+
+
         // $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
         //
         // wizardForm.submit();
@@ -170,6 +210,13 @@ var FormWizard = function () {
     };
     var validateAllSteps = function () {
         var isStepValid = true;
+
+        wizardForm.validate({
+            invalidHandler: function () {
+                isStepValid = false;
+            }
+
+        });
         // all step validation logic
         return isStepValid;
     };
