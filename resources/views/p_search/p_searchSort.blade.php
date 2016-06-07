@@ -33,6 +33,7 @@
                                 <span class="media-body-sm">예상금액 <span>{{ number_format($project['budget']) }}</span>원</span>
                                 <span class="media-body-sm">예상기간 <span>{{ $project['estimated_duration'] }}</span>일</span>
                                 <span class="media-body-sm la-line">등록일자 <span>{{ $project['created_at'] }}</span></span>
+                                <span class="media-body-sm la-line">마감 <span>{{ $project['deadline'] }}</span></span>
                             </div>
                         </div>
                         <!-- Content -->

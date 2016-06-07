@@ -101,8 +101,8 @@ $(function () {
 $("#literal_button").click(function () {
     var search_text = $("#literal_text").val();
     literal_search = search_text;
-    page=1;
-    sort=3;
+    page = 1;
+    sort = 3;
     viewLoad();
 
 });
@@ -314,8 +314,23 @@ $('#dev-26').change(function () {
 });
 
 //----------------SORT----------------
+$('#moneyhigh').click(function () {
+    page = 1;
+    sort = 1;
+    viewLoad();
+});
+$('#moneylow').click(function () {
+    page = 1;
+    sort = 2;
+    viewLoad();
+});
 $('#latestcreate').click(function () {
     page = 1;
     sort = 3;
+    viewLoad();
+});
+$('#deadline').click(function () {
+    page = 1;
+    sort = 4;
     viewLoad();
 });
