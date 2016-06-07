@@ -11,7 +11,7 @@ class ProjectSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 15; $i++) {
+        for ($i = 1; $i < 2; $i++) {
 
             DB::table('projects')->insert([
                 'area' => "광고 의뢰",

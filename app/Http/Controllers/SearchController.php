@@ -94,7 +94,7 @@ class SearchController extends Controller
 
         if (($SearchOption & 1) == true) {
 
-            $query = Project::where('area', '=', '광고 의뢰')->get();
+            $query = Project::where('area', '=', '광고 의뢰')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -102,7 +102,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 2) == true) {
 
-            $query = Project::where('area', '=', '운영 대행')->get();
+            $query = Project::where('area', '=', '운영 대행')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -110,7 +110,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 4) == true) {
 
-            $query = Project::where('area', '=', 'Viral')->get();
+            $query = Project::where('area', '=', 'Viral')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -118,7 +118,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 8) == true) {
 
-            $query = Project::where('area', '=', '1회성 프로젝트')->get();
+            $query = Project::where('area', '=', '1회성 프로젝트')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -126,7 +126,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 16) == true) {
 
-            $query = Project::where('category', '=', '의료')->get();
+            $query = Project::where('category', '=', '의료')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -134,7 +134,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 32) == true) {
 
-            $query = Project::where('category', '=', '법률')->get();
+            $query = Project::where('category', '=', '법률')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -142,7 +142,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 64) == true) {
 
-            $query = Project::where('category', '=', '스타트업')->get();
+            $query = Project::where('category', '=', '스타트업')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -150,7 +150,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 128) == true) {
 
-            $query = Project::where('category', '=', '프랜차이즈')->get();
+            $query = Project::where('category', '=', '프랜차이즈')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -158,7 +158,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 256) == true) {
 
-            $query = Project::where('category', '=', '교육/대학교')->get();
+            $query = Project::where('category', '=', '교육/대학교')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -166,13 +166,14 @@ class SearchController extends Controller
         }
         if (($SearchOption & 512) == true) {
 
-            $query = Project::where('category', '=', '쇼핑몰')->get();
+            $query = Project::where('category', '=', '쇼핑몰')->where('step','!=','검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
 
+        $projects = $projects->unique('id');
 
 //        for ($i = 0; $i < count($optionArr); $i++) {
 //            if ($i == 0) {
