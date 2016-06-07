@@ -38,7 +38,7 @@
                                 <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="{{ url("/admin/step_change/".$pro->id."/미팅") }}">미팅</a></li>
                                 <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="{{ url("/admin/step_change/".$pro->id."/계약") }}">계약</a></li>
                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url("/admin/step_change/".$pro->id."/대금지급") }}">대금지급</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url("/admin/step_change/".$pro->id."/전체완료") }}">전체완료</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ url("/admin/step_change/".$pro->id."/완료") }}">완료</a></li>
                             </ul>
                         </div>
                     </td>

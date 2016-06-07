@@ -105,7 +105,7 @@
                                                     echo '$("#loginModal").modal("show");';
                                                 } else if (Auth::user()->PorC == "C") {
                                                     echo 'alert("파트너가 아닙니다")';
-                                                } else if (App\Application::where('u_id', '=', Auth::user()->id, 'and', 'p_id', '=', $project['id'])->get()->isEmpty() == false) {
+                                                } else if (App\Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $project['id'])->get()->isEmpty() == false) {
                                                     echo 'alert("이미 지원하셨습니다")';
                                                 } else {
                                                     echo 'window.location = "' . url("/apply/" . $project['id']) . '";';
