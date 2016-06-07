@@ -27,7 +27,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function admin_index($id)
     {
         if (Auth::user()->PorC != 'A') {
             return redirect()->action('MainController@index');
@@ -76,10 +76,6 @@ class HomeController extends Controller
         return redirect()->back();
     }
     
-    public function gnuboard()
-    {
-        include(app_path()."/gnuboard5.1.18/index.php");
 
-    }
 
 }
