@@ -49,27 +49,36 @@ class SearchController extends Controller
 //        $keyword2 = "";
         $keyword3 = "";
 
-        if($keyword != "%"){
+        if ($keyword != "%") {
 //            $keyword1 = $keyword."%";
 //            $keyword2 = "%".$keyword;
-            $keyword3 = "%".$keyword."%";
+            $keyword3 = "%" . $keyword . "%";
         }
 
         if ($SearchOption == 0) {
 
 //            $projects = Project::all();
             $projects = Project::where("step", "!=", "검수")
-                ->where('title','LIKE', $keyword)
+                ->where('title', 'LIKE', $keyword)
 //                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword1))
 //                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword2))
-                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword3))
+                ->union(Project::where("step", "!=", "검수")->where('title', 'LIKE', $keyword3))
                 ->get();
 
             $count = $projects->count();
 
             //sort
-            if ($sort == "3") {
+            if ($sort == "1") {
+                $projects = $projects->sortByDesc('budget');
+            }
+            else if ($sort == "2") {
+                $projects = $projects->sortBy('budget');
+            }
+            else if ($sort == "3") {
                 $projects = $projects->sortByDesc('updated_at');
+            }
+            else if ($sort == "4") {
+                $projects = $projects->sortBy('deadline');
             } else {
                 $projects = $projects->sortByDesc('updated_at');
             }
@@ -81,90 +90,88 @@ class SearchController extends Controller
         }
 
 
-
         $projects = new Collection();
 
         if (($SearchOption & 1) == true) {
 
-            $query = Project::where('area','=','광고 의뢰')->get();
+            $query = Project::where('area', '=', '광고 의뢰')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 2) == true) {
 
-            $query = Project::where('area','=','운영 대행')->get();
+            $query = Project::where('area', '=', '운영 대행')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 4) == true) {
 
-            $query = Project::where('area','=','Viral')->get();
+            $query = Project::where('area', '=', 'Viral')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 8) == true) {
 
-            $query = Project::where('area','=','1회성 프로젝트')->get();
+            $query = Project::where('area', '=', '1회성 프로젝트')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 16) == true) {
 
-            $query = Project::where('category','=','의료')->get();
+            $query = Project::where('category', '=', '의료')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 32) == true) {
 
-            $query = Project::where('category','=','법률')->get();
+            $query = Project::where('category', '=', '법률')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 64) == true) {
 
-            $query = Project::where('category','=','스타트업')->get();
+            $query = Project::where('category', '=', '스타트업')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 128) == true) {
 
-            $query = Project::where('category','=','프랜차이즈')->get();
+            $query = Project::where('category', '=', '프랜차이즈')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 256) == true) {
 
-            $query = Project::where('category','=','교육/대학교')->get();
+            $query = Project::where('category', '=', '교육/대학교')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
         if (($SearchOption & 512) == true) {
 
-            $query = Project::where('category','=','쇼핑몰')->get();
+            $query = Project::where('category', '=', '쇼핑몰')->get();
 
-            foreach ($query as $q){
+            foreach ($query as $q) {
                 $projects = $projects->push($q);
             }
         }
-
 
 
 //        for ($i = 0; $i < count($optionArr); $i++) {
@@ -179,7 +186,18 @@ class SearchController extends Controller
 //        $projects = $query->get();
 
 
-        if ($sort == 3) {
+        if ($sort == "1") {
+            $projects = $projects->sortByDesc('budget');
+        }
+        else if ($sort == "2") {
+            $projects = $projects->sortBy('budget');
+        }
+        else if ($sort == "3") {
+            $projects = $projects->sortByDesc('updated_at');
+        }
+        else if ($sort == "4") {
+            $projects = $projects->sortBy('deadline');
+        } else {
             $projects = $projects->sortByDesc('updated_at');
         }
         $count = $projects->count();
