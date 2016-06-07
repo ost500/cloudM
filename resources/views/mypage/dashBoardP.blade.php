@@ -151,7 +151,8 @@
                                                             @foreach($app as $appItem)
 
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $appItem->project->title }}</span>
+                                                                    <span class="col-xs-4"><a
+                                                                                href="{{ url("detail/".$appItem->project->id) }}">{{ $appItem->project->title }}</a></span>
                                                                     <span class="col-xs-2">{{ number_format($appItem->project->budget) }}</span>
                                                                     <span class="col-xs-2">{{ $appItem->project->estimated_duration }}</span>
                                                                     <span class="col-xs-2">{{ $appItem->project->deadline }}</span>
@@ -164,7 +165,8 @@
                                                                         <input name="id" hidden
                                                                                value="{{$appItem->id}}">
                                                                         <span class="col-xs-1">
-                                                                            <i style="cursor: pointer" id="{{ $appItem->id }}button"
+                                                                            <i style="cursor: pointer"
+                                                                               id="{{ $appItem->id }}button"
                                                                                class="fa fa-times fa-lg"></i>
                                                                         </span>
                                                                     </form>
@@ -191,8 +193,8 @@
                                                             <span class="col-xs-2"><strong>클라이언트</strong></span>
                                                             <span class="col-xs-2"><strong>비용</strong></span>
                                                             <span class="col-xs-2"><strong>마감일자</strong></span>
-                                                            <span class="col-xs-1"><strong>상태</strong></span>
-                                                            <span class="col-xs-1"><strong>취소</strong></span>
+                                                            <span class="col-xs-2"><strong>상태</strong></span>
+
                                                         </div>
                                                     </div>
                                                     <div class="panel-body03">
@@ -200,9 +202,10 @@
                                                             @foreach($carryon as $carryonItem)
 
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $carryonItem->title }}</span>
+                                                                    <span class="col-xs-4"><a
+                                                                                href="{{url("/detail/".$carryonItem->id)}}">{{ $carryonItem->title }}</a></span>
                                                                     <span class="col-xs-2">{{ $carryonItem->client->name }}</span>
-                                                                    <span class="col-xs-2">{{ $carryonItem->budget }}</span>
+                                                                    <span class="col-xs-2">{{ number_format($carryonItem->budget) }}</span>
                                                                     <span class="col-xs-2">{{ $carryonItem->deadline }}</span>
                                                                     <span class="col-xs-1">{{ $carryonItem->step }}</span>
                                                                 </li>
@@ -229,11 +232,11 @@
                                                         <div class="panel-body03">
                                                             <ul>
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $done->title }}</span>
-                                                                    <span class="col-xs-2">5,000,000원</span>
-                                                                    <span class="col-xs-2">30일</span>
-                                                                    <span class="col-xs-2">2016.01.21</span>
-                                                                    <span class="col-xs-2">2016.01.21</span>
+                                                                    <span class="col-xs-4"><a href="{{ url("/detail/".$done->id) }}">{{ $done->title }}</a></span>
+                                                                    <span class="col-xs-2">{{ $done->client->name }}</span>
+                                                                    <span class="col-xs-2">{{ number_format($done->budget) }}</span>
+                                                                    <span class="col-xs-2">{{ $done->deadline }}</span>
+                                                                    <span class="col-xs-2">{{ $done->step }}</span>
                                                                 </li>
                                                             </ul>
                                                         </div>

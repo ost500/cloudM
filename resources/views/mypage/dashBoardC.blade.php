@@ -122,7 +122,8 @@
                                                         <ul>
                                                             @foreach($checking as $checkItem)
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $checkItem->title }}</span>
+                                                                    <span class="col-xs-4"><a
+                                                                                href="{{ url("/detail/".$checkItem->id) }}">{{ $checkItem->title }}</a></span>
                                                                     <span class="col-xs-2">{{ number_format($checkItem->budget) }}</span>
                                                                     <span class="col-xs-2">{{ $checkItem->estimated_duration }}</span>
                                                                     <span class="col-xs-2">{{ $checkItem->deadline }}</span>
@@ -135,14 +136,16 @@
                                                                         <input name="id" hidden
                                                                                value="{{$checkItem->id}}">
                                                                         <span class="col-xs-1">
-                                                                            <i style="cursor: pointer" id="{{$checkItem->id}}button" class="fa fa-times fa-lg"></i>
+                                                                            <i style="cursor: pointer"
+                                                                               id="{{$checkItem->id}}button"
+                                                                               class="fa fa-times fa-lg"></i>
                                                                         </span>
                                                                     </form>
 
                                                                 </li>
                                                                 <script>
                                                                     $("#{{$checkItem->id}}button").click(function () {
-                                                                       $("#del_form{{ $checkItem->id }}").submit();
+                                                                        $("#del_form{{ $checkItem->id }}").submit();
                                                                     });
                                                                 </script>
 
@@ -169,9 +172,12 @@
                                                         <ul>
                                                             @foreach($registered as $registeredItem)
                                                                 <li class="row">
-                                                                    <span class="col-xs-4"><a
-                                                                                href="{{ url('/applist/'.$registeredItem->id) }}">{{ $registeredItem->title }}
-                                                                            ({{ $registeredItem->application->count() }})
+                                                                    <span class="col-xs-4">
+                                                                        <a href="{{url("/detail/".$registeredItem->id)}}">{{ $registeredItem->title }}</a>
+                                                                        <a href="{{ url('/applist/'.$registeredItem->id) }}">
+                                                                            (
+                                                                            {{ $registeredItem->application->count() }}
+                                                                            )
                                                                             </a></span>
                                                                     <span class="col-xs-2">{{ number_format($registeredItem->budget) }}</span>
                                                                     <span class="col-xs-2">{{ $registeredItem->estimated_duration }}</span>
@@ -201,7 +207,7 @@
                                                         <ul>
                                                             @foreach($proceeding as $proceedingItem)
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $proceedingItem->title }}</span>
+                                                                    <span class="col-xs-4"><a href="{{ url("/detail/".$proceedingItem->id) }}">{{ $proceedingItem->title }}</a></span>
                                                                     <span class="col-xs-2">{{ number_format($proceedingItem->budget) }}</span>
                                                                     <span class="col-xs-2">{{ $proceedingItem->estimated_duration }}</span>
                                                                     <span class="col-xs-2">{{ $proceedingItem->deadline }}</span>
@@ -231,7 +237,7 @@
                                                         <ul>
                                                             @foreach($done as $doneItem)
                                                                 <li class="row">
-                                                                    <span class="col-xs-4">{{ $doneItem->title }}</span>
+                                                                    <span class="col-xs-4"><a href="{{ url("/detail/".$doneItem->id) }}">{{ $doneItem->title }}</a></span>
                                                                     <span class="col-xs-2">{{ number_format($doneItem->budget) }}</span>
                                                                     <span class="col-xs-2">{{ $doneItem->estimated_duration }}</span>
                                                                     <span class="col-xs-2">{{ $doneItem->deadline }}</span>
