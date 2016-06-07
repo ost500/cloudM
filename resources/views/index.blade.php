@@ -93,101 +93,25 @@
                 <!-- Row -->
                 <div class="container">
                     <ul class="row list">
-                        <li class="col-md-4">
-                            <article class="thumb">
-                                <a href="#"><h5>현대글로비스 공식 블로그 관리</h5></a>
-                                <p class="price">\ 48,000,000 | 1년 | 21명 지원</p>
+                        @foreach($projects as $project)
+                            <li class="col-md-4">
+                                <article class="thumb">
+                                    <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
+                                    <p class="price"><i style="font-size: 1.3em;" class="fa fa-krw fa-lg"></i> {{ number_format($project->budget) }} | {{ $project->estimated_duration }} | {{ $project->application->count() }}명 지원</p>
 
-                                <p>현대글로비스 공식 블로그 연간 관리 대행사를 찾습니다. 연간 기획 및 운영 기획안을 포함한 제안서를 제출 하시면 내부검토후 1차 합격자만...</p>
+                                    <p>{{ substr($project['detail_content'], 0, 450) }}</p>
 
-                                <div id="tag">
-                                    <div class="button">blog</div>
-                                    <div class="button">페이스북</div>
-                                    <div class="button">홈페이지</div>
-                                </div>
-                                </a>
-                            </article>
-                        </li>
+                                    <div id="tag">
 
-                        <li class="col-md-4">
-                            <article class="thumb">
-                                <a href="#"><h5>현대글로비스 공식 블로그 관리</h5></a>
-                                <p class="price">\ 48,000,000 | 1년 | 21명 지원</p>
+                                        <div class="button">{{ $project->area }}</div>
+                                        <div class="button">{{ $project->category }}</div>
+                                    </div>
+                                    </a>
+                                </article>
+                            </li>
+                        @endforeach
 
-                                <p>현대글로비스 공식 블로그 연간 관리 대행사를 찾습니다. 연간 기획 및 운영 기획안을 포함한 제안서를 제출 하시면 내부검토후 1차 합격자만...</p>
 
-                                <div id="tag">
-                                    <div class="button">blog</div>
-                                    <div class="button">페이스북</div>
-                                    <div class="button">홈페이지</div>
-                                </div>
-                                </a>
-                            </article>
-                        </li>
-
-                        <li class="col-md-4">
-                            <article class="thumb">
-                                <a href="#"><h5>현대글로비스 공식 블로그 관리</h5></a>
-                                <p class="price">\ 48,000,000 | 1년 | 21명 지원</p>
-
-                                <p>현대글로비스 공식 블로그 연간 관리 대행사를 찾습니다. 연간 기획 및 운영 기획안을 포함한 제안서를 제출 하시면 내부검토후 1차 합격자만...</p>
-
-                                <div id="tag">
-                                    <div class="button">blog</div>
-                                    <div class="button">페이스북</div>
-                                    <div class="button">홈페이지</div>
-                                </div>
-                                </a>
-                            </article>
-                        </li>
-
-                        <li class="col-md-4">
-                            <article class="thumb">
-                                <a href="#"><h5>현대글로비스 공식 블로그 관리</h5></a>
-                                <p class="price">\ 48,000,000 | 1년 | 21명 지원</p>
-
-                                <p>현대글로비스 공식 블로그 연간 관리 대행사를 찾습니다. 연간 기획 및 운영 기획안을 포함한 제안서를 제출 하시면 내부검토후 1차 합격자만...</p>
-
-                                <div id="tag">
-                                    <div class="button">blog</div>
-                                    <div class="button">페이스북</div>
-                                    <div class="button">홈페이지</div>
-                                </div>
-                                </a>
-                            </article>
-                        </li>
-
-                        <li class="col-md-4">
-                            <article class="thumb">
-                                <a href="#"><h5>현대글로비스 공식 블로그 관리</h5></a>
-                                <p class="price">\ 48,000,000 | 1년 | 21명 지원</p>
-
-                                <p>현대글로비스 공식 블로그 연간 관리 대행사를 찾습니다. 연간 기획 및 운영 기획안을 포함한 제안서를 제출 하시면 내부검토후 1차 합격자만...</p>
-
-                                <div id="tag">
-                                    <div class="button">blog</div>
-                                    <div class="button">페이스북</div>
-                                    <div class="button">홈페이지</div>
-                                </div>
-                                </a>
-                            </article>
-                        </li>
-
-                        <li class="col-md-4">
-                            <article class="thumb">
-                                <a href="#"><h5>현대글로비스 공식 블로그 관리</h5></a>
-                                <p class="price">\ 48,000,000 | 1년 | 21명 지원</p>
-
-                                <p>현대글로비스 공식 블로그 연간 관리 대행사를 찾습니다. 연간 기획 및 운영 기획안을 포함한 제안서를 제출 하시면 내부검토후 1차 합격자만...</p>
-
-                                <div id="tag">
-                                    <div class="button">blog</div>
-                                    <div class="button">페이스북</div>
-                                    <div class="button">홈페이지</div>
-                                </div>
-                                </a>
-                            </article>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -212,14 +136,14 @@
         <section class="light-gray-bg padding-top-30 padding-bottom-20">
             <div class="container">
 
-                    <div class="col-md-1"></div>
-                    <div class="col-md-8" style="text-align:center;">
-                        <p>광고 캠페인/영상/홈페이지/콘텐츠 제작 등 프로젝트를 찾고 있는 대행사/프리랜서인가요?</p>
-                    </div>
-                    <div class="col-md-3" >
-                        <a href="#." class="btn_main btn_main-1" >회원가입하기<i
-                                    class="fa fa-caret-right"></i></a>
-                    </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-8" style="text-align:center;">
+                    <p>광고 캠페인/영상/홈페이지/콘텐츠 제작 등 프로젝트를 찾고 있는 대행사/프리랜서인가요?</p>
+                </div>
+                <div class="col-md-3">
+                    <a href="#." class="btn_main btn_main-1">회원가입하기<i
+                                class="fa fa-caret-right"></i></a>
+                </div>
 
             </div>
         </section>
@@ -332,8 +256,8 @@
                 <div class="col-md-8" style="text-align:center;">
                     <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
                 </div>
-                <div class="col-md-3" >
-                    <a href="#." class="btn_main btn_main-1" >프로젝트 등록하기<i
+                <div class="col-md-3">
+                    <a href="#." class="btn_main btn_main-1">프로젝트 등록하기<i
                                 class="fa fa-caret-right"></i></a>
                 </div>
             </div>

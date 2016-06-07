@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use App\Notification;
 use Illuminate\Http\Request;
 
+
 use App\Http\Requests;
 use App\Project;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $projects = new Project();
+        $projects = $projects->get()->sortByDesc('updated_at');
+        $projects = $projects->forPage(1,6);
+        return view('index', compact('projects'));
     }
 
     public function notificationShow($id)
