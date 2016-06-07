@@ -11,7 +11,7 @@ class ProjectSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 2; $i++) {
+        for ($i = 1; $i < 15; $i++) {
 
             DB::table('projects')->insert([
                 'area' => "광고 의뢰",
@@ -24,7 +24,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
 
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "8개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -58,7 +58,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "9개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -91,7 +91,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "10개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -123,7 +123,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "11개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -155,7 +155,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "12개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -187,7 +187,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "3개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -219,7 +219,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "4개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -251,7 +251,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "5개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -283,7 +283,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "6개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",
@@ -315,7 +315,7 @@ class ProjectSeeder extends Seeder
                 'Client_id' => $i,
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'budget' => 10000000,
-                'estimated_duration' => "2016-12-25",
+                'estimated_duration' => "7개월",
 
                 'managing_experience' => "있음",
                 'expected_start_date' => "2016-12-25",

@@ -81,6 +81,11 @@ Route::post('/applist/contract','MypageController@contract');
 Route::get('/mypage', 'MypageController@mypage');
 
 Route::get('/setting', 'MypageController@setting');
+// delete project
+Route::post('/rm_project','DeleteController@delete_project');
+// delete Application
+Route::post('/rm_app','DeleteController@delete_application');
+
 
 
 // mypage post
