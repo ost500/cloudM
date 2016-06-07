@@ -62,6 +62,10 @@ trait RegistersUsers
 
         Auth::guard($this->getGuard())->login($this->create($request->all()));
 
+        if($request->ajax()){
+            return ['try' => "Success"];
+        }
+
         return redirect($this->redirectPath());
     }
 

@@ -214,11 +214,11 @@
                     <div class="form-group{{ $errors->has('ClientPartners') ? ' has-error' : '' }}">
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary active">
-                                <input type="radio" name="paymentMethod" id="option1" autocomplete="off" value="ccc">
+                                <input type="radio" name="PorC" id="option1" autocomplete="off" value="ccc" checked>
                                 <i class="fa fa-cc-visa"></i> 클라이언트 </label>
 
                             <label class="btn btn-primary">
-                                <input type="radio" name="paymentMethod" id="option2" autocomplete="off" value="ppp">
+                                <input type="radio" name="PorC" id="option2" autocomplete="off" value="ppp">
                                 <i class="fa fa-cc-paypal"></i> 파트너스 </label>
                         </div>
                         <div id="PorCError"></div>

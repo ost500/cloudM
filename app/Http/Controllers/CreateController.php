@@ -27,7 +27,9 @@ class CreateController extends Controller
         {
             return redirect()->action('MainController@index');
         }
-        return view('p_add' . $step);
+        $user = Auth::user();
+
+        return view('p_add' . $step, compact('user'));
 //        return phpinfo();
     }
 
@@ -68,6 +70,17 @@ class CreateController extends Controller
 
     public function indextesta(Request $request)
     {
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->phone_num = $request->phone;
+        $user->save();
+
+        $client = $user->clients;
+        $client->company_type = $request->company_type;
+        $client->intro = $request->company_intro;
+        $client->save();
+
+
         $input = new Project();
         $input->area = $request->area;
         $input->category = $request->category;
