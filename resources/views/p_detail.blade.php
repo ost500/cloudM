@@ -4,7 +4,7 @@
     @foreach($detailProject as $project)
 
         <!-- Content -->
-        <div id="content" xmlns="http://www.w3.org/1999/html">
+        <div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
             <!-- Job -->
             <section class="job padding-top-15 padding-bottom-70">
@@ -17,9 +17,6 @@
                     <!-- Side Bar -->
                     <div class="row">
                         <div class="col-md-3">
-
-
-
 
 
                             <div class="job-sider-bar003">
@@ -123,10 +120,6 @@
                                                     <?php echo nl2br($project['detail_content']); ?><br><br>
 
 
-
-
-
-
                                                     <div class="margin-top-10">
                                                         <span class="media-body-sm margin-top-23">관련기술</span>
                                                         <ul class="tags dall margin-top-20 margin-bottom-10">
@@ -166,7 +159,6 @@
                                             </div>
 
 
-
                                         </div>
                                     </div>
                                 </div>
@@ -180,8 +172,34 @@
                                     <div class="inquiry_01">
                                         <span><img class="partner_profile03" src="/images/p_img02.png"></span>
                                         <div>
-                                            <span><strong>dkdlel123</strong></span><br>
-                                            <span>{{ $comments['comment'] }}</span>
+                                            <span><strong>{{ $comments->user->name }}</strong></span>
+                                            @if($comments->u_id == Auth::user()->id)
+                                                <form style="display: inline;"
+                                                      id="del_form{{ $comments->id }}"
+                                                      method="POST"
+                                                      action="{{ url("/commentdel") }}"
+                                                      onsubmit="return confirm('삭제하시겠습니까?');">
+                                                    {!! csrf_field() !!}
+                                                    <input name="id" hidden
+                                                           value="{{$comments->id}}">
+                                                    <i style="cursor: pointer"
+                                                       id="{{$comments->id}}button"
+                                                       class="fa fa-times fa-lg"></i>
+                                                </form>
+                                                <script>
+                                                    $("#{{$comments->id}}button").click(function () {
+                                                        $("#del_form{{ $comments->id }}").submit();
+                                                    });
+                                                </script>
+                                            @endif
+                                            <br>
+                                            @if($comments->secret != true)
+                                                <span>{{ $comments['comment'] }}</span>
+                                            @else
+                                                <span> 비공개 댓글입니다 </span>
+                                            @endif
+
+
                                         </div>
                                     </div>
                                 @endforeach
@@ -192,6 +210,14 @@
                                         <img class="partner_profile03" src="/images/p_img02.png">
                                         <div class="media-body">
                                             <div class="col-md-9 ">
+                                                <label for="comment">
+                                                    @if(Auth::check())
+                                                        {{Auth::user()->name}}
+                                                    @else
+                                                        <a style="cursor : pointer" data-toggle="modal"
+                                                           data-target="#loginModal" class="button signin">로그인 하세요</a>
+                                                    @endif
+                                                </label>
                                     <textarea name="comment" type="text" class="form-control06" id="id_body" required=""
                                               rows="10"
                                               cols="40" resize="none"></textarea>
@@ -202,8 +228,13 @@
                                                                                style="margin-right: 4px;"></i>비공개
                                                     설정</label>
                                                 <input type="hidden" name="project_id" value="{{ $project['id'] }}">
-                                                <button type="submit" class="button007" id="id_submit" type="button"
-                                                        value="작성하기"/>
+                                                @if(Auth::check())
+                                                    <button type="submit" class="button007" id="id_submit" type="button"
+                                                            value="작성하기">작성하기
+                                                    </button>
+                                                @else
+                                                    <button class="button007" disabled>작성하기</button>
+                                                @endif
 
                                             </div>
                                             <br>

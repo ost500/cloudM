@@ -34,6 +34,8 @@ Route::get('/detail/{id}', 'SearchController@detail')
 
 // 댓글
 Route::post('/commentadd', 'SearchController@postcomment');
+// 댓글 삭제
+Route::post('/commentdel', 'SearchController@delete_comment');
 
 
 //파트너
