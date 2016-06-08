@@ -170,7 +170,7 @@ var FormWizard = function () {
                     url: '/p_add',
                     data: wizardForm.serialize(),
                     success: function (data) {
-                        
+
                     }
                 });
 

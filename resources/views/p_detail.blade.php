@@ -58,7 +58,7 @@
                                             <span class="media-body-sm"><i
                                                         class="fa fa-clock-o"></i> 예상기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i
-                                                                class="fa fa-calendar-minus-o"></i> 모집마감 <span>2016년 3월 31일 </span></span>
+                                                                class="fa fa-calendar-minus-o"></i> 모집마감 <span>{{ $project['deadline'] }} </span></span>
                                                     <div style="clear:both;"></div>
 
                                                     <div class="panel02 panel-default02 margin-top-20">
@@ -162,6 +162,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if($project->client->id == Auth::user()->id)
+                                    <button onclick="update_form_load()" class="button004"><i
+                                                class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정
+                                    </button>
+                                @endif
                             </div>
 
 
@@ -254,9 +259,41 @@
             </section>
         </div>
 
+        <script>
+            function update_form_load() {
+                var form_display_location = $("#accordion");
+                $.ajax({
+                    url: "/p_update/" + "{{ $project->id }}",
+                    success: function (result) {
+                        form_display_location.html(result);
+                    }
+                });
+            }
+        </script>
+
 
     @endforeach
 
+    <!-- form-wizard start -->
+    <script src="/js/js.cookie.js"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="/js/jquery.validate.js"></script>
+    <script src="/js/jquery.smartWizard.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+    <script src="/js/form_wizard_main.js"></script>
+    <!-- end: Packet JAVASCRIPTS -->
+    <script src="/js/form_wizard.js"></script>
+
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            FormWizard.init();
+
+        });
+    </script>
 
     @include('include.footer')
 @endsection
