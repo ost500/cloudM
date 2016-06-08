@@ -99,7 +99,7 @@
                                     <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
                                     <p class="price"><i style="font-size: 1.3em;" class="fa fa-krw fa-lg"></i> {{ number_format($project->budget) }} | {{ $project->estimated_duration }} | {{ $project->application->count() }}명 지원</p>
 
-                                    <p>{{ substr($project['detail_content'], 0, 450) }}</p>
+                                    <p><?php echo mb_strcut($project['detail_content'], 0, 200)."..."; ?></p>
 
                                     <div id="tag">
 

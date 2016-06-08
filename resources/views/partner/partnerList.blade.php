@@ -18,20 +18,18 @@
                             <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
                             <!-- PANEL HEADING -->
                             <div class="panel-heading">
-                                <div class="job-tittle">
+
                                     <div class="media-left">
                                         <div class="partner_icon"> 활동가능 <!--<span>MAY</span>--> </div>
                                     </div>
                                     <div class="media-body">
-                                        <a href="{{ url('partner/'.$partner['id']) }}"><h5>{{ $partner['name'] }}</h5>
-                                        </a>
+                                        <span class="media-body-sm">{{ $partner['name'] }}</span>
+
+                                        <span class="media-body-sm la-line">개인 </span>
+
+                                        {{--<span class="media-body-sm la-line">{{ $partner['created_at'] }}</span>--}}
                                     </div>
 
-                                    <span class="media-body-sm">가입일 </span>
-
-                                    <span class="media-body-sm la-line">{{ $partner['created_at'] }}</span>
-
-                                </div>
                             </div>
                             <!-- Content -->
                             <div id="job1" class="panel-collapse collapse in">
@@ -60,11 +58,11 @@
                 <div class="col-lg-2">
                     <ul class="list-unstyled">
                         {{--<li>--}}
-                            {{--<div class="rating star-lg star-lg-4"></div>--}}
-			{{--<span class="rating-stats-body stats-body"><br>--}}
-				{{--<span class="average-rating-score">4.2</span>--}}
-				{{--<span class="rating-append-unit append-unit">/ 평가 20개</span>--}}
-			{{--</span>--}}
+                        {{--<div class="rating star-lg star-lg-4"></div>--}}
+                        {{--<span class="rating-stats-body stats-body"><br>--}}
+                        {{--<span class="average-rating-score">4.2</span>--}}
+                        {{--<span class="rating-append-unit append-unit">/ 평가 20개</span>--}}
+                        {{--</span>--}}
                         {{--</li>--}}
                         <li class="partners-authentication la_line02">
                                         <span class="partners-authorized"><i

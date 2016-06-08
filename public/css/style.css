@@ -3475,6 +3475,7 @@ p.redirect01 strong:hover{
 #accordion .panel-default > .panel-heading {
 	background: none;
 	padding: 0px;
+	margin-bottom: -15px;
 	color: #333333;
 	border-radius: 0px;
 	overflow: hidden;
@@ -4457,20 +4458,27 @@ h6.my_h6{ font-size:18px; font-weight:600; margin-bottom:0px;}
 	font-size:12px;
 	background-color:#f9f9f9;
 	border-color:#ddd;
-	padding:10px 15px;
+	padding:0px 15px;
 	border-bottom:1px solid #ddd;
 	border-top-left-radius:3px;
 	border-top-right-radius:3px;
 }
+.panel-heading03 div span{ border-right:solid 1px #ddd; line-height:30px; padding:5px 15px;}
+.panel-heading03 div span:last-child{border-right:none;}
 #accordion .panel-body03 {
-	padding: 10px 20px 10px 20px;
-	background:#fff;
-	margin-bottom:10px;
+/padding: 10px 20px 10px 20px;/
+background:#fff;
+	padding:0px 15px;
 	color:#666 !important;
 	font-size:12px;
 }
+
+#accordion .panel-body03 ul{position:relative; display:block;}
+#accordion .panel-body03 ul li span{ border-right:solid 1px #ddd; line-height:30px; padding:5px 15px;}
+#accordion .panel-body03 ul li span:last-child{ border-right:none;}
+
 .job-tittle03{ position:relative; padding-bottom: 15px; clear:both; float:left; width:100%;}
-#accordion .panel-body03 ul li{ margin-bottom:7px;}
+#accordion .panel-body03 ul li{ margin-bottom:7px; clear:both;}
 #accordion .panel-body03 ul li:last-child{ margin-bottom:0px;}
 .mypage_link{ float:right; text-align:right; color:#229af6; font-weight:bold !important; font-size:14px !important; letter-spacing:-1px; transition:none; -ms-transition:none; -o-transition:none; -moz-transition:none; -webkit-transition:none; }
 .mypage_link:hover { color:#229af6; font-weight:bold !important; text-decoration:underline !important; }
