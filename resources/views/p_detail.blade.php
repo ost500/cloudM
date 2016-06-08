@@ -162,10 +162,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if($project->client->id == Auth::user()->id)
-                                    <button onclick="update_form_load()" class="button004"><i
-                                                class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정
-                                    </button>
+                                @if(Auth::check())
+                                    @if($project->client->id == Auth::user()->id)
+                                        <button onclick="update_form_load()" class="button004"><i
+                                                    class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정
+                                        </button>
+                                    @endif
                                 @endif
                             </div>
 
@@ -178,24 +180,26 @@
                                         <span><img class="partner_profile03" src="/images/p_img02.png"></span>
                                         <div>
                                             <span><strong>{{ $comments->user->name }}</strong></span>
-                                            @if($comments->u_id == Auth::user()->id)
-                                                <form style="display: inline;"
-                                                      id="del_form{{ $comments->id }}"
-                                                      method="POST"
-                                                      action="{{ url("/commentdel") }}"
-                                                      onsubmit="return confirm('삭제하시겠습니까?');">
-                                                    {!! csrf_field() !!}
-                                                    <input name="id" hidden
-                                                           value="{{$comments->id}}">
-                                                    <i style="cursor: pointer"
-                                                       id="{{$comments->id}}button"
-                                                       class="fa fa-times fa-lg"></i>
-                                                </form>
-                                                <script>
-                                                    $("#{{$comments->id}}button").click(function () {
-                                                        $("#del_form{{ $comments->id }}").submit();
-                                                    });
-                                                </script>
+                                            @if(Auth::check())
+                                                @if($comments->u_id == Auth::user()->id)
+                                                    <form style="display: inline;"
+                                                          id="del_form{{ $comments->id }}"
+                                                          method="POST"
+                                                          action="{{ url("/commentdel") }}"
+                                                          onsubmit="return confirm('삭제하시겠습니까?');">
+                                                        {!! csrf_field() !!}
+                                                        <input name="id" hidden
+                                                               value="{{$comments->id}}">
+                                                        <i style="cursor: pointer"
+                                                           id="{{$comments->id}}button"
+                                                           class="fa fa-times fa-lg"></i>
+                                                    </form>
+                                                    <script>
+                                                        $("#{{$comments->id}}button").click(function () {
+                                                            $("#del_form{{ $comments->id }}").submit();
+                                                        });
+                                                    </script>
+                                                @endif
                                             @endif
                                             <br>
                                             @if($comments->secret != true)
@@ -223,9 +227,11 @@
                                                            data-target="#loginModal" class="button signin">로그인 하세요</a>
                                                     @endif
                                                 </label>
+                                                <a style="cursor : pointer" data-toggle="modal"
+                                                   data-target="#loginModal" class="button signin">
                                     <textarea name="comment" type="text" class="form-control06" id="id_body" required=""
                                               rows="10"
-                                              cols="40" resize="none"></textarea>
+                                              cols="40" resize="none"></textarea></a>
                                             </div>
                                             <div class="col-md-3 ">
                                                 <input name="comment_status" id="comment_status" type="checkbox">
@@ -238,7 +244,10 @@
                                                             value="작성하기">작성하기
                                                     </button>
                                                 @else
-                                                    <button class="button007" disabled>작성하기</button>
+                                                    <a style="cursor : pointer" data-toggle="modal"
+                                                       data-target="#loginModal" class="button signin">
+                                                        <button class="button007">작성하기</button>
+                                                    </a>
                                                 @endif
 
                                             </div>
