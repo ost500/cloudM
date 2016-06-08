@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 
 class SearchController extends Controller
@@ -70,14 +71,11 @@ class SearchController extends Controller
             //sort
             if ($sort == "1") {
                 $projects = $projects->sortByDesc('budget');
-            }
-            else if ($sort == "2") {
+            } else if ($sort == "2") {
                 $projects = $projects->sortBy('budget');
-            }
-            else if ($sort == "3") {
+            } else if ($sort == "3") {
                 $projects = $projects->sortByDesc('updated_at');
-            }
-            else if ($sort == "4") {
+            } else if ($sort == "4") {
                 $projects = $projects->sortBy('deadline');
             } else {
                 $projects = $projects->sortByDesc('updated_at');
@@ -94,7 +92,7 @@ class SearchController extends Controller
 
         if (($SearchOption & 1) == true) {
 
-            $query = Project::where('area', '=', '광고 의뢰')->where('step','!=','검수')->get();
+            $query = Project::where('area', '=', '광고 의뢰')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -102,7 +100,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 2) == true) {
 
-            $query = Project::where('area', '=', '운영 대행')->where('step','!=','검수')->get();
+            $query = Project::where('area', '=', '운영 대행')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -110,7 +108,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 4) == true) {
 
-            $query = Project::where('area', '=', 'Viral')->where('step','!=','검수')->get();
+            $query = Project::where('area', '=', 'Viral')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -118,7 +116,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 8) == true) {
 
-            $query = Project::where('area', '=', '1회성 프로젝트')->where('step','!=','검수')->get();
+            $query = Project::where('area', '=', '1회성 프로젝트')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -126,7 +124,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 16) == true) {
 
-            $query = Project::where('category', '=', '의료')->where('step','!=','검수')->get();
+            $query = Project::where('category', '=', '의료')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -134,7 +132,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 32) == true) {
 
-            $query = Project::where('category', '=', '법률')->where('step','!=','검수')->get();
+            $query = Project::where('category', '=', '법률')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -142,7 +140,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 64) == true) {
 
-            $query = Project::where('category', '=', '스타트업')->where('step','!=','검수')->get();
+            $query = Project::where('category', '=', '스타트업')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -150,7 +148,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 128) == true) {
 
-            $query = Project::where('category', '=', '프랜차이즈')->where('step','!=','검수')->get();
+            $query = Project::where('category', '=', '프랜차이즈')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -158,7 +156,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 256) == true) {
 
-            $query = Project::where('category', '=', '교육/대학교')->where('step','!=','검수')->get();
+            $query = Project::where('category', '=', '교육/대학교')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -166,7 +164,7 @@ class SearchController extends Controller
         }
         if (($SearchOption & 512) == true) {
 
-            $query = Project::where('category', '=', '쇼핑몰')->where('step','!=','검수')->get();
+            $query = Project::where('category', '=', '쇼핑몰')->where('step', '!=', '검수')->get();
 
             foreach ($query as $q) {
                 $projects = $projects->push($q);
@@ -189,14 +187,11 @@ class SearchController extends Controller
 
         if ($sort == "1") {
             $projects = $projects->sortByDesc('budget');
-        }
-        else if ($sort == "2") {
+        } else if ($sort == "2") {
             $projects = $projects->sortBy('budget');
-        }
-        else if ($sort == "3") {
+        } else if ($sort == "3") {
             $projects = $projects->sortByDesc('updated_at');
-        }
-        else if ($sort == "4") {
+        } else if ($sort == "4") {
             $projects = $projects->sortBy('deadline');
         } else {
             $projects = $projects->sortByDesc('updated_at');
@@ -235,7 +230,17 @@ class SearchController extends Controller
         $input = new Comments();
         $input->project_id = $request->input('project_id');
         $input->comment = $request->input('comment');
+        $input->u_id = Auth::user()->id;
+        if ($request->input('comment_status') != null) {
+            $input->secret = true;
+        }
         $input->save();
         return back();
+    }
+    public function delete_comment(Request $request)
+    {
+        $del_commnet = Comments::find($request->input('id'));
+        $del_commnet->delete();
+        return redirect()->back();
     }
 }
