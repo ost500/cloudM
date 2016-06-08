@@ -444,9 +444,9 @@
                                                                                           aria-required="true"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
-                                                                                        name="companyType"
+                                                                                        name="address_sido"
                                                                                         aria-required="true"
-                                                                                        aria-describedby="companyType-error">
+                                                                                        aria-describedby="address_sido-error">
                                                                                     <option value="">선택</option>
                                                                                     <option value="서울특별시">서울특별시</option>
                                                                                     <option value="부산광역시">부산광역시</option>
@@ -467,7 +467,7 @@
                                                                                     <option value="경상남도">경상남도</option>
                                                                                     <option value="제주특별자치도">제주특별자치도
                                                                                     </option>
-                                                                                </select><span id="companyType-error"
+                                                                                </select><span id="address_sido-error"
                                                                                                class="help-block valid"
                                                                                                style="display: none;"></span>
                                                                             </div>

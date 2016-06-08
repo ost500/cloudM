@@ -19,6 +19,11 @@ Route::post('/p_add', 'CreateController@indextesta');
 //Route::post('/p_add/{step}', 'CreateController@postCreate');
 Route::get('/p_add/{step}', 'CreateController@index');
 
+//프로젝트 수정
+Route::get('/p_update/{id}', 'CreateController@update_project_form')
+    ->where(['id' => '[0-9]+']);
+Route::post('/p_update', 'CreateController@update_project');
+
 
 
 //프로젝트

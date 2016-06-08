@@ -23,8 +23,7 @@ class CreateController extends Controller
 
     public function index($step)
     {
-        if(Auth::user()->PorC == "P")
-        {
+        if (Auth::user()->PorC == "P") {
             return redirect()->action('MainController@index');
         }
         $user = Auth::user();
@@ -38,13 +37,13 @@ class CreateController extends Controller
         switch ($step) {
             case 1:
                 Session::put('title', $request->input('title'));
-                if(!Session::has('title'))
+                if (!Session::has('title'))
                     abort(503);
                 break;
 
             case 2:
                 Session::put('category', $request->input('category'));
-                if(!Session::has('category'))
+                if (!Session::has('category'))
                     abort(503);
                 break;
 
@@ -59,7 +58,7 @@ class CreateController extends Controller
             return redirect()->action('CreateController@complete');
 
         }
-        return redirect()->action('CreateController@index', ['step' => $step+1]);
+        return redirect()->action('CreateController@index', ['step' => $step + 1]);
     }
 
 
@@ -92,28 +91,39 @@ class CreateController extends Controller
         $input->deadline = $request->deadline;
         $input->expected_start_date = $request->expecting_start;
         $input->meeting_way = $request->pre_meeting;
+        $input->address_sido = $request->address_sido;
         $input->managing_experience = $request->experience;
         $input->reason = $request->reason;
         $input->Client_id = Auth::user()->id;
         $input->save();
 
-        echo $request->name."<br>";//
-        echo $request->phone."<br>";//phone_num
-        echo $request->company_type."<br>";//
-        echo $request->company_intro."<br>";//
-        echo $request->area."<br>";//area
-        echo $request->category."<br>";//category
-        echo $request->project_name."<br>";//title
-        echo $request->duration."<br>";//estimated_duration
-        echo $request->money."<br>";//budget
-        echo $request->purpose."<br>";//plan_status
-        echo nl2br($request->content_detail)."<br>";//detail_content
-        echo $request->deadline."<br>";//
-        echo $request->expecting_start."<br>";//expected_start_date
-        echo $request->pre_meeting."<br>";//meeting_way
-        echo $request->experience."<br>";//managing_experience
-        echo $request->reason."<br>";//
 
-        
+    }
+
+    public function update_project_form($id)
+    {
+        $update_project = Project::find($id);
+//        return view('p_detail_update', compact('update_project'));
+        return view('p_detail_update', compact('update_project'));
+    }
+
+    public function update_project(Request $request)
+    {
+        $update_project = Project::find($request->id);
+        $update_project->title = $request->project_name;
+        $update_project->budget = $request->money;
+        $update_project->estimated_duration = $request->duration;
+        $update_project->deadline = $request->deadline;
+        $update_project->purpose = $request->purpose;
+        $update_project->managing_experience = $request->experience;
+        $update_project->expected_start_date = $request->expecting_start;
+        $update_project->meeting_way = $request->pre_meeting;
+        $update_project->address_sido = $request->address_sido;
+        $update_project->detail_content = $request->content_detail;
+        $update_project->area = $request->area;
+        $update_project->category = $request->category;
+        $update_project->save();
+
+        return redirect()->back();
     }
 }
