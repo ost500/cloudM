@@ -63,13 +63,13 @@
                     <img src="/images/logo001.png" class="img-responsive">
                 </div>
                 <div class="col-sm-3">
-                    <img src="/images/logo001.png" class="img-responsive">
+                    <img src="/images/logo002.png" class="img-responsive">
                 </div>
                 <div class="col-sm-3">
-                    <img src="/images/logo001.png" class="img-responsive">
+                    <img src="/images/logo003.png" class="img-responsive">
                 </div>
                 <div class="col-sm-3">
-                    <img src="/images/logo001.png" class="img-responsive">
+                    <img src="/images/logo004.png" class="img-responsive">
                 </div>
             </div>
 

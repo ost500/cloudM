@@ -28,6 +28,7 @@ class AddCommentsColumns extends Migration
     public function down()
     {
         Schema::table('comments', function ($table){
+            $table->dropForeign('comments_u_id_foreign');
             $table->dropcolumn('u_id');
             $table->dropcolumn('secret');
         });

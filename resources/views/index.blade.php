@@ -9,19 +9,22 @@
                 <div class="position-center-center">
 
 
-                    <p class="main_banner_2">마케팅 중계 플랫폼, 클라우드엠에 오신 것을 환영합니다.</p>
-                    <p class="main_banner_3"></p>
+                    <div class="mainv_cir"></div>
+                    <p class="main_banner_2">마케팅 중개 플랫폼, 클라우드엠에 오신 것을 환영합니다.</p>
                     <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다. 지금 프로젝트를 등록하세요.</p>
 
 
-                    <?php
+
+
+
+                <?php
                     if (!Auth::check()) {
-                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"btn_main\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
 
                     } else if (Auth::user()->PorC == "C") {
-                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn_main\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
                     } else {
-                        echo "<a style = \"cursor : pointer\" class=\"btn_main\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
                     }
                     ?>
                 </div>
@@ -97,7 +100,7 @@
                             <li class="col-md-4">
                                 <article class="thumb">
                                     <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
-                                    <p class="price"><i style="font-size: 1.3em;" class="fa fa-krw fa-lg"></i> {{ number_format($project->budget) }} | {{ $project->estimated_duration }} | {{ $project->application->count() }}명 지원</p>
+                                    <p class="price">{{ number_format($project->budget) }}   <span>|</span>   {{ $project->estimated_duration }}   <span>|</span>   {{ $project->application->count() }}명 지원</p>
 
                                     <p><?php echo mb_strcut($project['detail_content'], 0, 200)."..."; ?></p>
 
@@ -268,49 +271,50 @@
             <div class="container">
                 <!-- Heading -->
                 <div class="heading text-center">
-                    <h4>광고주들이 얘기하는 클라우드엠</h4>
+                    <h4 class="margin-bottom-30">광고주들이 얘기하는 클라우드엠</h4>
                 </div>
                 <!-- Blog Row -->
                 <div class="row">
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article><img class="img-responsive" src="images/m_pho01.png" alt="">
+                        <article> <img class="img-responsive post_img00" src="images/m_pho01.png" alt="" >
 
 
                             <!-- Detail -->
-                            <div class="post-detail"><a href="#." class="post-tittle">April stats Details</a> <span>By Admin  /  2 Comments</span>
-                                <p>Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed
-                                    posuere
-                                    libero dui id orci. Nam congue, pede vitae dapibus aliquet.</p>
+                            <div class="post-detail"> <h8 class="post-tittle">비즈팜 김남형 부장님</h8> <span><img src="images/m_pho01_txt.png"></span>
+                                <p>급하게 진행할 마케팅 프로젝트에서 대행사를 찾고 있었는데,<br>
+                                    프로젝트 등록 후  빠르게 적합한 대행사를 찾아<br>
+                                    프로젝트를 진행할 수 있었습니다.</p>
                             </div>
                         </article>
                     </div>
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article><img class="img-responsive" src="images/m_pho02.png" alt="">
+                        <article> <img class="img-responsive post_img00" src="images/m_pho02.png" alt="" >
                             <!-- Detail -->
-                            <div class="post-detail"><a href="#." class="post-tittle">EU LAWs vs US Laws</a> <span>By Admin  /  2 Comments</span>
-                                <p>Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed
-                                    posuere
-                                    libero dui id orci. Nam congue, pede vitae dapibus aliquet.</p>
+                            <div class="post-detail"> <h8 class="post-tittle">펠리체 송영종 대표님</h8> <span><img src="images/m_pho02_txt.png"></span>
+                                <p>업종/분야별 전문 대행사들이 실제로 진행한<br>
+                                    프로젝트 포트폴리오와 객관적인 고객들의 평가를 통해서<br>
+                                    실력있는 대행사를 찾을 수 있어 너무 좋았습니다.</p>
                             </div>
                         </article>
                     </div>
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article><img class="img-responsive" src="images/m_pho03.png" alt="">
+                        <article> <img class="img-responsive post_img00" src="images/m_pho03.png" alt="" >
 
                             <!-- Detail -->
-                            <div class="post-detail"><a href="#." class="post-tittle">Team Expanded</a> <span>By Admin  /  2 Comments</span>
-                                <p>Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed
-                                    posuere
-                                    libero dui id orci. Nam congue, pede vitae dapibus aliquet.</p>
+                            <div class="post-detail"> <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8> <span><img src="images/m_pho03_txt.png"></span>
+                                <p>프로젝트 계약부터 대금보호, 분쟁조정, 대금지금까지<br>
+                                    클라우드엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
+                                    프로젝트에만 집중해서 좋은 결과를 낼 수 있었습니다.</p>
                             </div>
                         </article>
                     </div>
 
                 </div>
             </div>
+
         </section>
 
 
@@ -320,7 +324,7 @@
 
                 <!-- Heading -->
                 <div class="heading text-center">
-                    <h4>클라우드엠 협력업체</h4>
+                    <h4>협력업체</h4>
                     <span>법률조언, 분쟁중재 등 광고 프로젝트을 진행하며 발생 할 수 있는 수많은 변수들을 대비했습니다.</span>
                 </div>
 
@@ -330,55 +334,51 @@
                         <ul class="row col-4">
                             <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
                             <li><img class="img-responsive" src="images/client/family2.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/family3.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/family4.jpg" alt=""></li>
                         </ul>
                     </div>
                 </div>
 
-
                 <!-- Heading -->
                 <div class="heading text-center padding-top-70">
-                    <h4>클라우드엠 클라이언트</h4>
+                    <h4>클라이언트</h4>
                 </div>
 
                 <!-- Clients -->
                 <div>
                     <div class="item">
                         <ul class="row col-6">
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family2.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f1.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f2.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f3.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f4.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f5.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f6.jpg" alt=""></li>
                         </ul>
-
                         <ul class="row col-6">
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family2.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f7.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f8.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f9.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f10.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f11.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f12.jpg" alt=""></li>
                         </ul>
-
                         <ul class="row col-6">
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family2.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f13.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f14.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f15.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f16.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f17.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f18.jpg" alt=""></li>
                         </ul>
-
                         <ul class="row col-6">
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family2.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
-                            <li><img class="img-responsive" src="images/client/family1.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f19.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f20.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f21.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f22.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f23.jpg" alt=""></li>
+                            <li><img class="img-responsive" src="images/client/f24.jpg" alt=""></li>
                         </ul>
                     </div>
                 </div>
