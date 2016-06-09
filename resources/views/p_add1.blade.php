@@ -157,8 +157,10 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <div class="form-group">
-                                                                                <label> 광고주소개 </label>
+                                                                            <div class="form-group has-success">
+                                                                                <label> 광고주소개  <span
+                                                                                            class="symbol ok"
+                                                                                            aria-required="true"></span></label>
                                                                                 <textarea name="company_intro"
                                                                                           class="form-control"
                                                                                           rows=10 value="">{{ $user->clients->intro }}</textarea>
@@ -256,7 +258,7 @@
                                                                                     <option value="">선택</option>
                                                                                     <option value="광고 의뢰">광고 의뢰</option>
                                                                                     <option value="운영 대행">운영 대행</option>
-                                                                                    <option value="Viral">Viral</option>
+                                                                                    <option value="Viral">바이럴</option>
                                                                                     <option value="1회성 프로젝트">1회성 프로젝트
                                                                                     </option>
                                                                                     <option value="기타">기타</option>
@@ -361,8 +363,7 @@
                                                                                     aria-required="true"></span>
                                                                         </label>
                                                                         <div class="form-group">
-								<textarea name="content_detail" class="form-control" rows=20>
-                                    < 프로젝트 진행 방식 >
+								<textarea name="content_detail" class="form-control" rows=20>< 프로젝트 진행 방식 >
 예시) 시작시점에 미팅, 주 1회 미팅 등
 
 < 프로젝트의 현재 상황 >

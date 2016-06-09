@@ -10,7 +10,7 @@
 
 
                 <div class="coupen">
-                    <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
+                    <p><span>프로젝트</span>를 검색해보세요.</p>
                 </div>
 
                 <!-- Grid Layout -->
