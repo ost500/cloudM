@@ -2447,7 +2447,7 @@ span.s_icon02{ background: url(/images/box_icon02.png) no-repeat; padding-left:1
 ========================================================*/
 footer {
 	background: #33353a;
-	padding: 50px 0;
+	padding: 50px 0 30px 0;
 }
 footer .about-foot {
 	margin-top: 20px;

@@ -8,7 +8,7 @@
                 <div class="about-foot">
                     <ul>
                         <li>
-                            <p><i class="fa fa-phone"></i> (02) 1661-8863</p>
+                            <p><i class="fa fa-phone"></i> 1544-2329</p>
                         </li>
                         <li>
                             <p><i class="fa fa-envelope"></i> help@gmlab.kr</p>
@@ -58,16 +58,16 @@
 </footer>
 
 <!-- RIGHTS -->
-<div class="rights">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p> © All Rights Reserved <span class="primary-color">Crowd m </span></p>
-            </div>
-            <div class="col-md-6 text-right"><a href="#.">Privacy Policy</a> <a href="#.">Terms & Conditions</a></div>
-        </div>
-    </div>
-</div>
+{{--<div class="rights">--}}
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<div class="col-md-6">--}}
+                {{--<p> © All Rights Reserved <span class="primary-color">Crowd m </span></p>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-6 text-right"><a href="#.">Privacy Policy</a> <a href="#.">Terms & Conditions</a></div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 </div>
 
 <script src="/js/bootstrap.min.js"></script>
