@@ -23,7 +23,8 @@
                                 <h5 class="side-tittle">광고주</h5>
                                 <div>
                                     @if($project->client->profileImage != null)
-                                        <img class="partner_profile02" src="{{ URL::asset($project->client->profileImage) }}"><br>
+                                        <img class="partner_profile02"
+                                             src="{{ URL::asset($project->client->profileImage) }}"><br>
                                     @else
                                         <img class="partner_profile02" src="/images/p_img02.png"><br>
                                     @endif
@@ -68,12 +69,12 @@
                                                     <div class="panel02 panel-default02 margin-top-20">
 
                                                         <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                            <col style="width:16.6%;" />
-                                                            <col style="width:16.6%;" />
-                                                            <col style="width:16.6%;" />
-                                                            <col style="width:16.6%;" />
-                                                            <col style="width:16.6%;" />
-                                                            <col style="width:16.6%;" />
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
                                                             <tr>
                                                                 <th>기획상태</th>
                                                                 <th>마케팅 경험</th>
@@ -93,27 +94,27 @@
                                                         </table>
 
                                                         {{--<div class="panel-heading03">--}}
-                                                            {{--<div class="row">--}}
-                                                                {{--<span class="col-xs-2"><strong>목적</strong></span>--}}
-                                                                {{--<span class="col-xs-2"><strong>매니징경험</strong></span>--}}
-                                                                {{--<span class="col-xs-2"><strong>등록일자</strong></span>--}}
-                                                                {{--<span class="col-xs-2"><strong>예상시작일</strong></span>--}}
-                                                                {{--<span class="col-xs-2"><strong>미팅방식</strong></span>--}}
-                                                                {{--<span class="col-xs-2"><strong>진행지역</strong></span>--}}
+                                                        {{--<div class="row">--}}
+                                                        {{--<span class="col-xs-2"><strong>목적</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>매니징경험</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>등록일자</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>예상시작일</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>미팅방식</strong></span>--}}
+                                                        {{--<span class="col-xs-2"><strong>진행지역</strong></span>--}}
 
-                                                            {{--</div>--}}
+                                                        {{--</div>--}}
                                                         {{--</div>--}}
                                                         {{--<div class="panel-body03">--}}
-                                                            {{--<ul>--}}
-                                                                {{--<li class="row">--}}
-                                                                    {{--<span class="col-xs-2">{{ $project['purpose'] }}</span>--}}
-                                                                    {{--<span class="col-xs-2">{{ $project['managing_experience'] }}</span>--}}
-                                                                    {{--<span class="col-xs-2">{{ $project['created_at'] }}</span>--}}
-                                                                    {{--<span class="col-xs-2">{{ $project['expected_start_date'] }}</span>--}}
-                                                                    {{--<span class="col-xs-2">{{ $project['meeting_way'] }}</span>--}}
-                                                                    {{--<span class="col-xs-2">{{ $project['address_sido'] }}</span>--}}
-                                                                {{--</li>--}}
-                                                            {{--</ul>--}}
+                                                        {{--<ul>--}}
+                                                        {{--<li class="row">--}}
+                                                        {{--<span class="col-xs-2">{{ $project['purpose'] }}</span>--}}
+                                                        {{--<span class="col-xs-2">{{ $project['managing_experience'] }}</span>--}}
+                                                        {{--<span class="col-xs-2">{{ $project['created_at'] }}</span>--}}
+                                                        {{--<span class="col-xs-2">{{ $project['expected_start_date'] }}</span>--}}
+                                                        {{--<span class="col-xs-2">{{ $project['meeting_way'] }}</span>--}}
+                                                        {{--<span class="col-xs-2">{{ $project['address_sido'] }}</span>--}}
+                                                        {{--</li>--}}
+                                                        {{--</ul>--}}
                                                         {{--</div>--}}
                                                     </div>
                                                 </div>
@@ -256,11 +257,19 @@
                                                            data-target="#loginModal" class="button signin">로그인 하세요</a>
                                                     @endif
                                                 </label>
-                                                <a style="cursor : pointer" data-toggle="modal"
-                                                   data-target="#loginModal" class="button signin">
-                                    <textarea name="comment" type="text" class="form-control06" id="id_body" required=""
-                                              rows="10"
-                                              cols="40" resize="none"></textarea></a>
+                                                @if(Auth::check())
+                                                    <textarea name="comment" type="text" class="form-control06"
+                                                              id="id_body" required=""
+                                                              rows="10"
+                                                              cols="40" resize="none"></textarea>
+                                                @else
+                                                    <a style="cursor : pointer" data-toggle="modal"
+                                                       data-target="#loginModal" class="button signin">
+                                                    <textarea name="comment" type="text" class="form-control06" id="id_body" required=""
+                                                              rows="10"
+                                                              cols="40" resize="none"></textarea></a>
+                                                @endif
+
                                             </div>
                                             <div class="col-md-3 ">
                                                 <input name="comment_status" id="comment_status" type="checkbox">
