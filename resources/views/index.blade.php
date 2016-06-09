@@ -19,12 +19,12 @@
 
                 <?php
                     if (!Auth::check()) {
-                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
 
                     } else if (Auth::user()->PorC == "C") {
-                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
                     } else {
-                        echo "<a style = \"cursor : pointer\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
                     }
                     ?>
                 </div>
@@ -100,7 +100,7 @@
                             <li class="col-md-4">
                                 <article class="thumb">
                                     <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
-                                    <p class="price">{{ number_format($project->budget) }}   <span>|</span>   {{ $project->estimated_duration }}   <span>|</span>   {{ $project->application->count() }}명 지원</p>
+                                    <p class="price">월 예산 {{ number_format($project->budget) }}원   <span>|</span>   {{ $project->estimated_duration }}   <span>|</span>   {{ $project->application->count() }}명 지원</p>
 
                                     <p><?php echo mb_strcut($project['detail_content'], 0, 200)."..."; ?></p>
 
