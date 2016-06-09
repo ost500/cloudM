@@ -22,8 +22,12 @@
                         <div class="job-sider-bar003">
                             <h5 class="side-tittle">파트너</h5>
                             <div>
+                                @if($loginUser->profileImage != null)
+                                    <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
+                                @else
+                                    <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                @endif
 
-                                <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
                                 <h6>{{ $loginUser->name }}</h6>
                                 <a href="{{ url("/setting") }}">
                                     <div id="tag02">
@@ -152,12 +156,12 @@
                                                             <th>취소</th>
                                                         </tr>
                                                         @if($app == null)
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
                                                         @endif
                                                         @foreach($app as $appItem)
 
@@ -215,11 +219,11 @@
 
                                                         </tr>
                                                         @if($app == null)
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
-                                                            <td> </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
 
                                                         @endif
                                                         @foreach($carryon as $carryonItem)
@@ -259,11 +263,11 @@
 
                                                             </tr>
                                                             @if($app == null)
-                                                                <td> </td>
-                                                                <td> </td>
-                                                                <td> </td>
-                                                                <td> </td>
-                                                                <td> </td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
 
                                                             @endif
                                                             @foreach($compeleted as $done)
@@ -307,6 +311,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 
