@@ -52,34 +52,34 @@
     <header>
 
         <!-- Top bar -->
-        {{--<div class="top-bar">--}}
-            {{--<div class="top-info">--}}
-                {{--<div class="container">--}}
-                    {{--<ul class="personal-info">--}}
+        <div class="top-bar">
+            <div class="top-info">
+                <div class="container">
+                    <ul class="personal-info">
 
-                        {{--<li class="notice-li"><p><i class="fa fa-bell"></i></p></li>--}}
-                        {{--<li class="notice-li notice-li-txt "><p id="noti">dsdf</p></li>--}}
-                        {{--<li class="notice-li">--}}
-                            {{--<a class="white-text" href=""><i class="fa fa-chevron-left"></i></a>--}}
-                            {{--<a class="white-text" href=""><i class="fa fa-chevron-right"></i></a>--}}
-                        {{--</li>--}}
+                        <li class="notice-li"><p><i class="fa fa-bell"></i></p></li>
+                        <li class="notice-li notice-li-txt "><p id="noti">dsdf</p></li>
+                        <li class="notice-li">
+                            <a class="white-text" href=""><i class="fa fa-chevron-left"></i></a>
+                            <a class="white-text" href=""><i class="fa fa-chevron-right"></i></a>
+                        </li>
 
 
-                    {{--</ul>--}}
+                    </ul>
 
-                    {{--<!-- Right Sec -->--}}
-                    {{--<div class="right-sec">--}}
-                        {{--<!-- social -->--}}
-                        {{--<ul class="social">--}}
-                            {{--<li><a href="#."><i class="fa fa-facebook"></i></a></li>--}}
-                            {{--<li><a href="#."><i class="fa fa-twitter"></i></a></li>--}}
-                            {{--<li><a href="#."><i class="fa fa-google"></i></a></li>--}}
-                            {{--<li><a href="#."><i class="fa fa-linkedin"></i></a></li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
+                    <!-- Right Sec -->
+                    <div class="right-sec">
+                        <!-- social -->
+                        <ul class="social">
+                            <li><a href="#."><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#."><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#."><i class="fa fa-google"></i></a></li>
+                            <li><a href="#."><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Navigation -->
