@@ -8,7 +8,12 @@
             <div class="job-content job-post-page margin-top-20">
                 <!-- Job Tittle -->
                 <div class="col-lg-2">
-                    <img class="partner_profile" src="/images/p_img02.png">
+                    @if($partner->profileImage != null)
+                        <img class="partner_profile" src="{{ URL::asset($partner->profileImage) }}">
+                    @else
+                        <img class="partner_profile" src="/images/p_img02.png"><br>
+                    @endif
+
                 </div>
                 <div class="col-lg-8">
 

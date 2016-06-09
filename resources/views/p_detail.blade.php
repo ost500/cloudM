@@ -22,8 +22,12 @@
                             <div class="job-sider-bar003">
                                 <h5 class="side-tittle">광고주</h5>
                                 <div>
+                                    @if($project->client->profileImage != null)
+                                        <img class="partner_profile02" src="{{ URL::asset($project->client->profileImage) }}"><br>
+                                    @else
+                                        <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                    @endif
 
-                                    <img class="partner_profile02" src="/images/p_img02.png"><br>
                                 </div>
                                 <h5 class="text-center">{{ $project->client->name }}</h5>
                                 <span class="side-tittle_txt01">{{ $project->client->intro }}</span>

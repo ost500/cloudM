@@ -22,7 +22,12 @@
                     <div class="job-sider-bar003">
                         <h5 class="side-tittle">파트너스</h5>
                         <div>
-                            <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
+                            @if($loginUser->profileImage != null)
+                                <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
+                            @else
+                                <img class="partner_profile02" src="/images/p_img02.png"><br>
+                            @endif
+
                             <h6>{{ $loginUser->name }}</h6>
                             <a href="#.">
                                 <div id="tag02">

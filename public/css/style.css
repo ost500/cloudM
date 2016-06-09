@@ -2073,7 +2073,7 @@ header .navbar li.active a {
 }
 
 
-.partner_profile{ margin-bottom:15px; text-align:center; border-radius:10px; }
+.partner_profile{ width:160px; height:180px; margin-bottom:15px; text-align:center; border-radius:10px; }
 .partner_icon{ position:relative; top:0px; left:0px; width:65px; color:#fff; font-size:12px; background:#1193d4; float:left; text-align:center; font-weight:bold; line-height:28px; margin-top:5px;}
 
 

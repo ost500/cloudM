@@ -20,7 +20,8 @@ class PartnerSeeder extends Seeder
                 'name' => '박한울' . $i,
                 'email' => 'foo' . $i . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
-                'PorC' => 'P'
+                'PorC' => 'P',
+                'profileImage' => "/files/userImage/3"
             ]);
 
             $partnerCreation = Partners::create([
@@ -45,7 +46,8 @@ class PartnerSeeder extends Seeder
                 'name' => '심현보' . $i,
                 'email' => 'foo' . ($i + 1) . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
-                'PorC' => 'P'
+                'PorC' => 'P',
+                'profileImage' => '/files/userImage/1'
             ]);
             $partnerCreation = Partners::create([
                 'user_id' => $userCreation['id'],
