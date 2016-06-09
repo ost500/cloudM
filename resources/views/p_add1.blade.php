@@ -295,17 +295,27 @@
                                                                     </div>
 
                                                                     <div class="form-group has-success">
-                                                                        <label class="control-label"> 프로젝트 제목 <span
+                                                                        <label class="control-label"> 마케팅진행 목적 <span
                                                                                     class="symbol ok"
                                                                                     aria-required="true"></span>
                                                                         </label>
-                                                                        <input type="text" class="form-control"
-                                                                               name="project_name" aria-required="true"
-                                                                               aria-describedby="project_name-error"><span
-                                                                                id="project_name-error"
-                                                                                class="help-block valid"
-                                                                                style="display: none;"></span>
+                                                                        <select class="form-control" name="purpose"
+                                                                                aria-required="true"
+                                                                                aria-describedby="purpose-error">
+                                                                            <option value="">선택</option>
+                                                                            <option value="단기 매출증대">단기 매출증대</option>
+                                                                            <option value="웹사이트 유입증가">웹사이트 유입증가</option>
+                                                                            <option value="상담 DB확보">상담 DB확보</option>
+                                                                            <option value="이벤트 참여">이벤트 참여</option>
+                                                                            <option value="상품인지">상품인지</option>
+                                                                            <option value="장기 브랜딩">장기 브랜딩</option>
+                                                                            <option value="기타">기타</option>
+                                                                        </select><span id="purpose-error"
+                                                                                       class="help-block valid"
+                                                                                       style="display: none;"></span>
                                                                     </div>
+
+
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group has-success">
@@ -336,26 +346,22 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
+
+
                                                                     <div class="form-group has-success">
-                                                                        <label class="control-label"> 마케팅진행 목적 <span
+                                                                        <label class="control-label"> 프로젝트 제목 <span
                                                                                     class="symbol ok"
                                                                                     aria-required="true"></span>
                                                                         </label>
-                                                                        <select class="form-control" name="purpose"
-                                                                                aria-required="true"
-                                                                                aria-describedby="purpose-error">
-                                                                            <option value="">선택</option>
-                                                                            <option value="단기 매출증대">단기 매출증대</option>
-                                                                            <option value="웹사이트 유입증가">웹사이트 유입증가</option>
-                                                                            <option value="상담 DB확보">상담 DB확보</option>
-                                                                            <option value="이벤트 참여">이벤트 참여</option>
-                                                                            <option value="상품인지">상품인지</option>
-                                                                            <option value="장기 브랜딩">장기 브랜딩</option>
-                                                                            <option value="기타">기타</option>
-                                                                        </select><span id="purpose-error"
-                                                                                       class="help-block valid"
-                                                                                       style="display: none;"></span>
+                                                                        <input type="text" class="form-control"
+                                                                               name="project_name" aria-required="true"
+                                                                               aria-describedby="project_name-error"><span
+                                                                                id="project_name-error"
+                                                                                class="help-block valid"
+                                                                                style="display: none;"></span>
                                                                     </div>
+
 
                                                                     <div class="form-group has-success">
                                                                         <label class="control-label"> 프로젝트 내용 <span
