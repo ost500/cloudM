@@ -39,7 +39,12 @@
                             <!-- Content -->
                             <div id="job1" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    <p> {{ $partner->partners->intro }}</p>
+                                    <p style="cursor:pointer" id="partner_intro_click{{$partner['id']}}"> {{ $partner->partners->intro }}</p>
+                                    <script>
+                                        $("#partner_intro_click"+"{{$partner['id']}}").click(function () {
+                                            window.location.assign("{{url('partner/'.$partner->id)}}")
+                                        })
+                                    </script>
                                     <!-- Additional Requirements -->
                                     <div>
                                         <span class="media-body-sm margin-top-23">기술</span>
