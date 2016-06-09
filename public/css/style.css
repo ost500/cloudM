@@ -4488,7 +4488,7 @@ background:#fff;
 .mypage_link:hover { color:#229af6; font-weight:bold !important; text-decoration:underline !important; }
 .history_table{ width:100%; }
 .history_table th{ padding:3px 3px 3px 0px; font-weight:normal; line-height:26px; color:#666; }
-.history_table td{ padding:3px 3px 3px 0px; font-weight:bold; line-height:26px; text-align:right !important; color:#ff7915; }
+.history_table td{ padding:3px 3px 3px 0px; font-weight:bold; line-height:26px; text-align:right !important; color:#ff7915; border-bottom: solid 1px #ddd;}
 
 
 

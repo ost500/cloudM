@@ -108,85 +108,111 @@
                                             <div class="job-tittle03">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">검수중 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                            <span class="col-xs-2"><strong>예상금액</strong></span>
-                                                            <span class="col-xs-2"><strong>예상기간</strong></span>
-                                                            <span class="col-xs-2"><strong>마감일자</strong></span>
-                                                            <span class="col-xs-1"><strong>상태</strong></span>
-                                                            <span class="col-xs-1"><strong>삭제</strong></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            @foreach($checking as $checkItem)
-                                                                <li class="row">
-                                                                    <span class="col-xs-4"><a
-                                                                                href="{{ url("/detail/".$checkItem->id) }}">{{ $checkItem->title }}</a></span>
-                                                                    <span class="col-xs-2">{{ number_format($checkItem->budget) }}</span>
-                                                                    <span class="col-xs-2">{{ $checkItem->estimated_duration }}</span>
-                                                                    <span class="col-xs-2">{{ $checkItem->deadline }}</span>
-                                                                    <span class="col-xs-1">{{ $checkItem->step }}</span>
-                                                                    <form id="del_form{{ $checkItem->id }}"
-                                                                          method="POST"
-                                                                          action="{{ url("/rm_project/") }}"
-                                                                          onsubmit="return confirm('삭제하시겠습니까?');">
-                                                                        {!! csrf_field() !!}
-                                                                        <input name="id" hidden
-                                                                               value="{{$checkItem->id}}">
-                                                                        <span class="col-xs-1">
-                                                                            <i style="cursor: pointer"
-                                                                               id="{{$checkItem->id}}button"
-                                                                               class="fa fa-times fa-lg"></i>
-                                                                        </span>
-                                                                    </form>
-
-                                                                </li>
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:25.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:8.6%;"/>
+                                                        <tr>
+                                                            <th>프로젝트 제목</th>
+                                                            <th>예상금액</th>
+                                                            <th>예상기간</th>
+                                                            <th>마감일자</th>
+                                                            <th>상태</th>
+                                                            <th>삭제</th>
+                                                        </tr>
+                                                        @if(count($checking) == 0)
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        @endif
+                                                        @foreach($checking as $checkItem)
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{{ url("/detail/".$checkItem->id) }}">{{ $checkItem->title }}</a>
+                                                                </td>
+                                                                <td>{{ number_format($checkItem->budget) }}</td>
+                                                                <td>{{ $checkItem->estimated_duration }}</td>
+                                                                <td>{{ $checkItem->deadline }}</td>
+                                                                <td>{{ $checkItem->step }}</td>
+                                                                <form id="del_form{{ $checkItem->id }}"
+                                                                      method="POST"
+                                                                      action="{{ url("/rm_project/") }}"
+                                                                      onsubmit="return confirm('삭제하시겠습니까?');">
+                                                                    {!! csrf_field() !!}
+                                                                    <input name="id" hidden
+                                                                           value="{{$checkItem->id}}">
+                                                                    <td>
+                                                                        <i style="cursor: pointer"
+                                                                           id="{{$checkItem->id}}button"
+                                                                           class="fa fa-times fa-lg"></i>
+                                                                    </td>
+                                                                </form>
                                                                 <script>
                                                                     $("#{{$checkItem->id}}button").click(function () {
                                                                         $("#del_form{{ $checkItem->id }}").submit();
                                                                     });
                                                                 </script>
 
-                                                            @endforeach
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
 
-                                                        </ul>
-                                                    </div>
                                                 </div>
                                             </div>
 
                                             <div class="job-tittle03">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">등록 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                            <span class="col-xs-2"><strong>예상금액</strong></span>
-                                                            <span class="col-xs-2"><strong>예상기간</strong></span>
-                                                            <span class="col-xs-2"><strong>마감일자</strong></span>
-                                                            <span class="col-xs-2"><strong>상태</strong></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            @foreach($registered as $registeredItem)
-                                                                <li class="row">
-                                                                    <span class="col-xs-4">
-                                                                        <a href="{{url("/detail/".$registeredItem->id)}}">{{ $registeredItem->title }}</a>
-                                                                        <a href="{{ url('/applist/'.$registeredItem->id) }}">
-                                                                            (
-                                                                            {{ $registeredItem->application->count() }}
-                                                                            )
-                                                                            </a></span>
-                                                                    <span class="col-xs-2">{{ number_format($registeredItem->budget) }}</span>
-                                                                    <span class="col-xs-2">{{ $registeredItem->estimated_duration }}</span>
-                                                                    <span class="col-xs-2">{{ $registeredItem->deadline }}</span>
-                                                                    <span class="col-xs-2">{{ $registeredItem->step }}</span>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:25.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <tr>
+                                                            <th>프로젝트 제목</th>
+                                                            <th>예상금액</th>
+                                                            <th>예상기간</th>
+                                                            <th>마감일자</th>
+                                                            <th>상태</th>
+                                                        </tr>
+                                                        @if(count($registered) == 0)
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        @endif
+                                                        @foreach($registered as $registeredItem)
+                                                            <tr>
+
+                                                                <td>
+                                                                    <a href="{{url("/detail/".$registeredItem->id)}}">{{ $registeredItem->title }}</a>
+                                                                    <a href="{{ url('/applist/'.$registeredItem->id) }}">
+                                                                        (
+                                                                        {{ $registeredItem->application->count() }}
+                                                                        )
+                                                                    </a></td>
+                                                                <td>{{ number_format($registeredItem->budget) }}</td>
+                                                                <td>{{ $registeredItem->estimated_duration }}</td>
+                                                                <td>{{ $registeredItem->deadline }}</td>
+                                                                <td>{{ $registeredItem->step }}</td>
+
+                                                            </tr>
+                                                        @endforeach
+
+                                                    </table>
                                                 </div>
                                             </div>
 
@@ -194,28 +220,45 @@
                                             <div class="job-tittle03">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">진행중 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                            <span class="col-xs-2"><strong>지원비용</strong></span>
-                                                            <span class="col-xs-2"><strong>기간</strong></span>
-                                                            <span class="col-xs-2"><strong>제출일자</strong></span>
-                                                            <span class="col-xs-2"><strong>상태</strong></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            @foreach($proceeding as $proceedingItem)
-                                                                <li class="row">
-                                                                    <span class="col-xs-4"><a href="{{ url("/detail/".$proceedingItem->id) }}">{{ $proceedingItem->title }}</a></span>
-                                                                    <span class="col-xs-2">{{ number_format($proceedingItem->budget) }}</span>
-                                                                    <span class="col-xs-2">{{ $proceedingItem->estimated_duration }}</span>
-                                                                    <span class="col-xs-2">{{ $proceedingItem->deadline }}</span>
-                                                                    <span class="col-xs-2">{{ $proceedingItem->step }}</span>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
+
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:25.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <tr>
+                                                            <th>프로젝트 제목</th>
+                                                            <th>지원비용</th>
+                                                            <th>기간</th>
+                                                            <th>제출일자</th>
+                                                            <th>상태</th>
+
+                                                        </tr>
+                                                        @if(count($proceeding) == 0)
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        @endif
+                                                        @foreach($proceeding as $proceedingItem)
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{{ url("/detail/".$proceedingItem->id) }}">{{ $proceedingItem->title }}</a>
+                                                                </td>
+                                                                <td>{{ number_format($proceedingItem->budget) }}</td>
+                                                                <td>{{ $proceedingItem->estimated_duration }}</td>
+                                                                <td>{{ $proceedingItem->deadline }}</td>
+                                                                <td>{{ $proceedingItem->step }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
+
+
                                                 </div>
                                             </div>
 
@@ -223,31 +266,44 @@
                                             <div class="job-tittle03 margin-bottom-10">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">완료된 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-4"><strong>프로젝트 제목</strong></span>
-                                                            <span class="col-xs-2"><strong>비용</strong></span>
-                                                            <span class="col-xs-2"><strong>기간</strong></span>
-                                                            <span class="col-xs-2"><strong>마감일자</strong></span>
-                                                            <span class="col-xs-2">상태</span>
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:25.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <tr>
+                                                            <th>프로젝트 제목</th>
+                                                            <th>비용</th>
+                                                            <th>기간</th>
+                                                            <th>마감일자</th>
+                                                            <th>상태</th>
 
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            @foreach($done as $doneItem)
-                                                                <li class="row">
-                                                                    <span class="col-xs-4"><a href="{{ url("/detail/".$doneItem->id) }}">{{ $doneItem->title }}</a></span>
-                                                                    <span class="col-xs-2">{{ number_format($doneItem->budget) }}</span>
-                                                                    <span class="col-xs-2">{{ $doneItem->estimated_duration }}</span>
-                                                                    <span class="col-xs-2">{{ $doneItem->deadline }}</span>
-                                                                    <span class="col-xs-2">{{ $doneItem->step }}</span>
+                                                        </tr>
+                                                        @if(count($done) == 0)
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        @endif
+                                                        @foreach($done as $doneItem)
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="{{ url("/detail/".$doneItem->id) }}">{{ $doneItem->title }}</a>
+                                                                </td>
+                                                                <td>{{ number_format($doneItem->budget) }}</td>
+                                                                <td>{{ $doneItem->estimated_duration }}</td>
+                                                                <td>{{ $doneItem->deadline }}</td>
+                                                                <td>{{ $doneItem->step }}</td>
 
 
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
+                                                            </tr>
+                                                        @endforeach
+                                                    </table>
                                                 </div>
                                             </div>
 
