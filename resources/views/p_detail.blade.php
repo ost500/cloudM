@@ -63,29 +63,54 @@
 
                                                     <div class="panel02 panel-default02 margin-top-20">
 
-                                                        <div class="panel-heading03">
-                                                            <div class="row">
-                                                                <span class="col-xs-2"><strong>목적</strong></span>
-                                                                <span class="col-xs-2"><strong>매니징경험</strong></span>
-                                                                <span class="col-xs-2"><strong>등록일자</strong></span>
-                                                                <span class="col-xs-2"><strong>예상시작일</strong></span>
-                                                                <span class="col-xs-2"><strong>미팅방식</strong></span>
-                                                                <span class="col-xs-2"><strong>진행지역</strong></span>
+                                                        <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                            <col style="width:16.6%;" />
+                                                            <col style="width:16.6%;" />
+                                                            <col style="width:16.6%;" />
+                                                            <col style="width:16.6%;" />
+                                                            <col style="width:16.6%;" />
+                                                            <col style="width:16.6%;" />
+                                                            <tr>
+                                                                <th>기획상태</th>
+                                                                <th>매니징경험</th>
+                                                                <th>등록일자</th>
+                                                                <th>예상시작일</th>
+                                                                <th>미팅방식</th>
+                                                                <th>진행지역</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>{{ $project['purpose'] }}</td>
+                                                                <td>{{ $project['managing_experience'] }}</td>
+                                                                <td>{{ date_format($project['created_at'],'Y-m-d') }}</td>
+                                                                <td>{{ $project['expected_start_date'] }}</td>
+                                                                <td>{{ $project['meeting_way'] }}</td>
+                                                                <td>{{ $project['address_sido'] }}</td>
+                                                            </tr>
+                                                        </table>
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="panel-body03">
-                                                            <ul>
-                                                                <li class="row">
-                                                                    <span class="col-xs-2">{{ $project['purpose'] }}</span>
-                                                                    <span class="col-xs-2">{{ $project['managing_experience'] }}</span>
-                                                                    <span class="col-xs-2">{{ $project['created_at'] }}</span>
-                                                                    <span class="col-xs-2">{{ $project['expected_start_date'] }}</span>
-                                                                    <span class="col-xs-2">{{ $project['meeting_way'] }}</span>
-                                                                    <span class="col-xs-2">{{ $project['address_sido'] }}</span>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                        {{--<div class="panel-heading03">--}}
+                                                            {{--<div class="row">--}}
+                                                                {{--<span class="col-xs-2"><strong>목적</strong></span>--}}
+                                                                {{--<span class="col-xs-2"><strong>매니징경험</strong></span>--}}
+                                                                {{--<span class="col-xs-2"><strong>등록일자</strong></span>--}}
+                                                                {{--<span class="col-xs-2"><strong>예상시작일</strong></span>--}}
+                                                                {{--<span class="col-xs-2"><strong>미팅방식</strong></span>--}}
+                                                                {{--<span class="col-xs-2"><strong>진행지역</strong></span>--}}
+
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="panel-body03">--}}
+                                                            {{--<ul>--}}
+                                                                {{--<li class="row">--}}
+                                                                    {{--<span class="col-xs-2">{{ $project['purpose'] }}</span>--}}
+                                                                    {{--<span class="col-xs-2">{{ $project['managing_experience'] }}</span>--}}
+                                                                    {{--<span class="col-xs-2">{{ $project['created_at'] }}</span>--}}
+                                                                    {{--<span class="col-xs-2">{{ $project['expected_start_date'] }}</span>--}}
+                                                                    {{--<span class="col-xs-2">{{ $project['meeting_way'] }}</span>--}}
+                                                                    {{--<span class="col-xs-2">{{ $project['address_sido'] }}</span>--}}
+                                                                {{--</li>--}}
+                                                            {{--</ul>--}}
+                                                        {{--</div>--}}
                                                     </div>
                                                 </div>
                                                 @if(App\Project::find($project['id'])->step == "게시" || App\Project::find($project['id'])->step == "미팅")

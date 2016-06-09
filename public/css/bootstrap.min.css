@@ -3951,7 +3951,8 @@ tbody.collapse.in {
 .btn-group, .btn-group-vertical {
     position: relative;
     display: inline-block;
-    vertical-align: middle
+    vertical-align: middle;
+    width:100%;
 }
 
 .btn-group-vertical > .btn, .btn-group > .btn {
@@ -3989,16 +3990,19 @@ tbody.collapse.in {
 
 .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0
+    border-bottom-right-radius: 0;
+    width:50%;
 }
 
 .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0
+    border-bottom-left-radius: 0;
+    width:50%;
 }
 
 .btn-group > .btn-group {
-    float: left
+    float: left;
+    width:100%;
 }
 
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
