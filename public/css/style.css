@@ -2094,8 +2094,10 @@ header .navbar li.active a {
 .tags_bg span span{ color:#1193d4 !important; }
 
 
-.media-body-sm{ height:20px; float:left; font-size:14px !important; font-weight: 600 !important; color:#666 !important; float:left; margin-top:15px; margin-bottom: 15px;  padding-right:10px; margin-right:10px; border-right:1px dotted #333;  }
+.media-body-sm{ height:20px; float:left; font-size:14px !important; font-weight: 600 !important; color:#666 !important; float:left; margin-top:7px;  padding-right:10px; margin-right:10px; border-right:1px dotted #333;  }
+.media-body-sm-Plist{ height:20px; float:left; font-size:14px !important; font-weight: 600 !important; color:#666 !important; float:left; margin-top:15px; margin-bottom: 15px; padding-right:10px; margin-right:10px; border-right:1px dotted #333;  }
 .media-body-sm span{ color:#1193d4 !important; font-size:14px !important; }
+.media-body-sm-Plist span{ color:#1193d4 !important; font-size:14px !important; }
 .la-line{ border-right:none; }
 
 .tags_bg{ widtg:100%; padding:8px; background:#f4f5f6; clear:both; }
