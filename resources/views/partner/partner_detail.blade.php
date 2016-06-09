@@ -47,7 +47,11 @@
                                                     <h3 class="margin-bottom-0">{{ $partner['user']->name }}</h3>
                                                 </div>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-align-left"></i> 직종 <span>디자이너</span></span>
+                                                        class="fa fa-align-left"></i> 직종
+                                                @foreach($partner->job()->get() as $jobs)
+                                                    <span>{{ $jobs->job }}</span>
+                                                @endforeach
+                                            </span>
                                                 <span class="media-body-sm"><i class="fa fa-user"></i> 개인</span>
                                             <span class="media-body-sm"><i
                                                         class="fa fa-check-circle-o"></i> 신원인증</span>
@@ -145,9 +149,6 @@
                                             </div>
 
 
-
-
-
                                             {{--<div class="job-tittle02">--}}
                                             {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">학력</h6>--}}
                                             {{--<div class="panel02 panel-default02 margin-top-20">--}}
@@ -175,9 +176,6 @@
                                             {{--</div>--}}
                                             {{--</div>--}}
                                             {{--</div>--}}
-
-
-
 
 
                                             <div class="job-tittle02">

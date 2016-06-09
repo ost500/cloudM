@@ -8,21 +8,21 @@
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
-body 
+body
  + WRAP
  + HEADER
  + NAVIGATION
  + BANNER
  + SERVICES
  + OUR FEATURED FOUNDERS
- + BLOG UPDATES 
+ + BLOG UPDATES
  + APPOINMENT
  + NEWS FROM BLOG
  + PARTNERS / CLIENTS
  + FOOTER
  + SOCIAL ICONS
  + MEGA MENU
- + 3 MENU LEVEL 
+ + 3 MENU LEVEL
 -------------------------------------------------------------------*/
 /*=======================================================
       IMPORT FILE
@@ -606,7 +606,7 @@ header .navbar li.active a {
 	border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .ownmenu ul.dropdown li a:hover{
-	
+
 }
 .sticky-wrapper {
 	height: auto !important;
@@ -713,7 +713,7 @@ header .navbar li.active a {
 	font-size: 60px;
 	font-family: 'montserratlight';
 	letter-spacing:5px;
-	
+
 }
 .home-slide li h5 {
 	font-size: 18px;
@@ -897,7 +897,7 @@ header .navbar li.active a {
 	-o-transition: 0.4s ease-in-out;
 	transition: 0.4s ease-in-out;
 }
-.services li:hover article a {	
+.services li:hover article a {
 	background: #1193d4;
 	color: #fff;
 }
@@ -1639,7 +1639,7 @@ header .navbar li.active a {
 	display: inline-block;
 	width: 100%;
 	padding-top: 15px;
-} 
+}
 .blog .owl-nav{
 	display:none;
 }
@@ -2334,10 +2334,10 @@ span.s_icon02{ background: url(/images/box_icon02.png) no-repeat; padding-left:1
       CLIENTS
 ========================================================*/
 .clients {
-	
+
 	background: url(../images/bg/client-bg.jpg) fixed no-repeat;
 	background-size: cover;
-	
+
 }
 
 .clients .col-4 li {
@@ -3071,7 +3071,7 @@ a.sm-tags:hover {
 	letter-spacing: 0px;
 }
 .side-bar-revenues {
-	
+
 }
 .head a {
 	color: #666666;
@@ -3254,6 +3254,8 @@ a.sm-tags:hover {
 	background:#3b5998;
 	border-color:#344e86;
 }
+
+.facebook_btn{ background:#3b5998 !important; border-color:#344e86 !important;}
 .btn-facebook:hover{
 	color:#fff;
 	background:#406ac1;
@@ -3513,7 +3515,7 @@ p.redirect01 strong:hover{
 	border:1px dotted #999 !important;
 	margin-bottom:10px;
 }
-#accordion .panel-body02 p{ 
+#accordion .panel-body02 p{
 	font-size:14px;
 	color:#999;
 	line-height:18px;
@@ -3694,7 +3696,7 @@ ul.p_align02{ background:url('/images/category_select.png') no-repeat; }
 }
 /* timeline ù��° ���׶�� */
 .history #timeline #dates:after {
-/*	
+/*
 	position: absolute;
 	top: 30px;
 	left: 0px;
@@ -4613,7 +4615,7 @@ input#comment_status{ vertical-align:middle; margin-top:-4px; }
 }
 .text-warning02{ font-size:12px; margin:0px 0px 0px 15px; margin-bottom:15px; float:left; color:#999; }
 
-.more_btn, .more_btn:hover{ 
+.more_btn, .more_btn:hover{
 	color:#30adf7;
 	font-weight:bold !important;
 	position:absolute;
@@ -4693,3 +4695,8 @@ div.main_process_small{display:none; margin-bottom:26px;}
 .clear{ clear:both; }
 h2.p_add_header{ width:100%; float:left; background:#f2f2f3; padding:10px 20px 10px 20px; border-radius:30px; font-size:20px; font-weight:500; letter-spacing:-1px; margin-bottom:30px; line-height:26px;}
 h2.p_add_header i{margin-right:5px;}
+
+.table_01 tr th{color:#444 !important; font-size:12px; background:#f9f9f9; border-bottom:solid 1px #ddd; border-right:solid 1px #ddd; padding:12px 15px; text-align: center;}
+.table_01 tr th:last-child{ border-right:none;}
+.table_01 tr td{color:#666 !important; font-size:12px; border-right:solid 1px #ddd; padding:12px 15px; text-align: center; }
+.table_01 tr td:last-child{ border-right:none;}

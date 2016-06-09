@@ -22,13 +22,18 @@
                                     <div class="media-left">
                                         <div class="partner_icon"> 활동가능 <!--<span>MAY</span>--> </div>
                                     </div>
-                                    <div class="media-body">
+                                    <div style="cursor:pointer" id="partner_detail_click{{$partner['id']}}" class="media-body">
                                         <span class="media-body-sm">{{ $partner['name'] }}</span>
 
                                         <span class="media-body-sm la-line">개인 </span>
 
                                         {{--<span class="media-body-sm la-line">{{ $partner['created_at'] }}</span>--}}
                                     </div>
+                                <script>
+                                    $("#partner_detail_click"+"{{$partner['id']}}").click(function () {
+                                        window.location.assign("{{url('partner/'.$partner->id)}}")
+                                    })
+                                </script>
 
                             </div>
                             <!-- Content -->

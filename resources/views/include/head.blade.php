@@ -215,11 +215,11 @@
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary active">
                                 <input type="radio" name="PorC" id="option1" autocomplete="off" value="ccc" checked>
-                                <i class="fa fa-cc-visa"></i> 클라이언트 </label>
+                                 클라이언트 </label>
 
                             <label class="btn btn-primary">
                                 <input type="radio" name="PorC" id="option2" autocomplete="off" value="ppp">
-                                <i class="fa fa-cc-paypal"></i> 파트너스 </label>
+                                 파트너스 </label>
                         </div>
                         <div id="PorCError"></div>
                     </div>
@@ -253,11 +253,14 @@
                             가입하기
                         </button>
                     </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-red btn-block facebook_btn">
+                            가입하기
+                        </button>
+                    </div>
 
                 </form>
-                <div class="form-actions">
-                    <img src="/images/btn_login_fb.png" width="250">
-                </div>
+
             </div>
 
 
