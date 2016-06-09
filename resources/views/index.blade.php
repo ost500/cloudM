@@ -19,12 +19,12 @@
 
                 <?php
                     if (!Auth::check()) {
-                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#login-modal\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
 
                     } else if (Auth::user()->PorC == "C") {
-                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
                     } else {
-                        echo "<a style = \"cursor : pointer\" class=\"main_top_btn\">무료로 프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
                     }
                     ?>
                 </div>
