@@ -11321,3 +11321,8 @@
 .color-switcher.position .theme-colours {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+div.post-detail h8.post-tittle{font-size:28px; font-weight:400; letter-spacing:-3px; /*border-bottom:solid 1px #d5d5d5;*/ padding-bottom:3px; margin-bottom:12px; margin-top:-15px; width:290px;}
+div.post-detail p{ font-size:14.2px; color:#828282; line-height:19.5px; margin-top:8px; letter-spacing:-0.5px; margin-bottom:32px !important; }
+img.post_img00{text-align:center !important; width:300px; margin:0px auto !important; display:inherit !important;}
+.margin-bottom-30{margin-bottom:53px !important; margin-top:38px;}

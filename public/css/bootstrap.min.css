@@ -3020,7 +3020,7 @@ input[type=search] {
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
     position: absolute;
     margin-top: 4px \9;
-    
+
 }
 
 .checkbox + .checkbox, .radio + .radio {
@@ -3952,7 +3952,7 @@ tbody.collapse.in {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    width:100%;
+    width: 100%;
 }
 
 .btn-group-vertical > .btn, .btn-group > .btn {
@@ -3991,18 +3991,18 @@ tbody.collapse.in {
 .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    width:50%;
+    width: 50%;
 }
 
 .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width:50%;
+    width: 50%;
 }
 
 .btn-group > .btn-group {
     float: left;
-    width:100%;
+    width: 100%;
 }
 
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
@@ -6256,7 +6256,6 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-
     z-index: 1050;
     display: none;
     overflow: hidden;

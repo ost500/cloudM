@@ -4,43 +4,88 @@ COLOR:	DEFAULT BLANK CSS (NO ANY CODE)
 
 -------------------------------------------------------------------*/
 .main_banner_1 {
-	font-size:18px;
-	color: #454545;
-	margin-bottom:5px;
-	padding:0px;
+    font-size: 18px;
+    color: #454545;
+    margin-bottom: 5px;
+    padding: 0px;
 }
 
 .main_banner_2 {
-	font-size:24px;
-	font-weight:bold;
-	color: #fff;
-	padding:15px 0 0 0;
-	line-height:25px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 34px;
+    letter-spacing: -1px;
+    margin-top: -12px;
 }
 
 .main_banner_3 {
-	font-family: NanumGothic;
-	font-size:18px;
-	color: #454545;
-	margin-right: auto;
-	margin-left: auto;
-	width: 594px;
-	border-top: 1px solid #5e6870;
+    font-family: NanumGothic;
+    font-size: 18px;
+    color: #454545;
+    margin-right: auto;
+    margin-left: auto;
+    width: 594px;
+    border-top: 1px solid #5e6870;
 }
 
-p.b_txt01{
-	clear:both;
-	font-family: NanumGothic;
-	font-size:15px;
-	color: #c8cacc;
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom:30px;
-	font-weight:600;
+p.b_txt01 {
+    clear: both;
+    font-family: NanumGothic;
+    font-size: 15px;
+    color: #c8cacc;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 42px;
+    font-weight: 600;
+    opacity: 0.7;
 
 }
 
 .b {
-	font-weight:bold;
-	color:#333;
+    font-weight: bold;
+    color: #333;
+}
+
+@media screen and (max-width: 690px) {
+    .main_banner_2 {
+        line-height: 38px;
+        margin-bottom: 18px;
+        padding: 0px 25px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    p.b_txt01 {
+        padding: 0px 25px;
+    }
+}
+
+.main_top_btn {
+    border: solid 2px #fff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    letter-spacing: -1px;
+    transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+}
+
+.main_top_btn:hover {
+    border: solid 2px #1dc2ff;
+    color: #1dc2ff;
+    font-weight: 600;
+}
+
+div.mainv_cir {
+    position: relative;
+    top: -40px;
+    width: 40px;
+    height: 3px;
+    background: #fff;
+    margin: 0px auto;
+    border-radius: 30px;
 }

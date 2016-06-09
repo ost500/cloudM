@@ -863,6 +863,7 @@ header .navbar li.active a {
 	font-weight:600;
 	padding-bottom:8px;
 }
+.services li article p.price span{font-weight:400;margin-left:5px;margin-right:5px;color:#d5d5d5;}
 
 .services li article p.tag {
 	padding-top:10px;
@@ -4702,3 +4703,16 @@ h2.p_add_header i{margin-right:5px;}
 .table_01 tr th:last-child{ border-right:none;}
 .table_01 tr td{color:#666 !important; font-size:12px; border-right:solid 1px #ddd; padding:12px 15px; text-align: center; }
 .table_01 tr td:last-child{ border-right:none;}
+
+.p_add_banntitle{ font-size:32px; font-weight:300; letter-spacing:-2px; color:#000; line-height:40px; }
+.margin-top_-30{margin-top:-20px; margin-bottom:20px;}
+.p_add_ul{ border-top:solid 1px #e3e3e3; border-bottom:solid 1px #e3e3e3; padding:18px 0px; margin-top:38px; margin-bottom:50px !important; }
+.p_add_ul_num01{background:url('/images/p_add_numIMG01.png') 0px 4px no-repeat; padding-left:24px; letter-spacing:-1px; line-height:23px;}
+.p_add_ul_num02{background:url('/images/p_add_numIMG02.png') 0px 4px no-repeat; padding-left:24px; letter-spacing:-1px; line-height:23px;}
+.p_add_ul_num03{background:url('/images/p_add_numIMG03.png') 0px 4px no-repeat; padding-left:24px; letter-spacing:-1px; line-height:23px;}
+.p_add_ul_num04{background:url('/images/p_add_numIMG04.png') 0px 4px no-repeat; padding-left:24px; letter-spacing:-1px; line-height:23px;}
+@media screen and (max-width:990px){
+	div.add_center{text-align:center;}}
+@media screen and (max-width:990px){
+	.p_add_ul li{text-align:left;}
+	.p_add_ul{border-bottom:solid 2px #58748b !important;}}

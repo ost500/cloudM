@@ -72,15 +72,23 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <div class="padding-30">
-                                                                    <h6 class="StepTitle">정확한 광고주 기본정보를 입력해 주세요.</h6>
-                                                                    <p>
-                                                                        This is an added measure against fraud and to
-                                                                        help with billing issues.
-                                                                    </p>
-                                                                    <p class="text-small">
-                                                                        Enter security questions in case you lose access
-                                                                        to your account.
-                                                                    </p>
+                                                                    {{--<h6 class="StepTitle">정확한 광고주 기본정보를 입력해 주세요.</h6>--}}
+                                                                    {{--<p>--}}
+                                                                        {{--This is an added measure against fraud and to--}}
+                                                                        {{--help with billing issues.--}}
+                                                                    {{--</p>--}}
+                                                                    {{--<p class="text-small">--}}
+                                                                        {{--Enter security questions in case you lose access--}}
+                                                                        {{--to your account.--}}
+                                                                    {{--</p>--}}
+                                                                    <img src="/images/p_add_bannIMG.png" class="margin-top_-30">
+                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과 함께 하세요!</h6>
+                                                                    <ul class="p_add_ul">
+                                                                        <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고 선택할 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지 편리하게 프로젝트를 진행할 수 있습니다.</li>
+                                                                    </ul>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7">
@@ -157,14 +165,14 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <p class="text-small">
-                                                                        <a href="javascript:void(0)"
-                                                                           data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial"
-                                                                           data-title="Don't worry!"
-                                                                           data-placement="top" data-toggle="popover"
-                                                                           data-original-title="" title=""> 왜 개인정보가
-                                                                            필요한가요? </a>
-                                                                    </p>
+                                                                    {{--<p class="text-small">--}}
+                                                                        {{--<a href="javascript:void(0)"--}}
+                                                                           {{--data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial"--}}
+                                                                           {{--data-title="Don't worry!"--}}
+                                                                           {{--data-placement="top" data-toggle="popover"--}}
+                                                                           {{--data-original-title="" title=""> 왜 개인정보가--}}
+                                                                            {{--필요한가요? </a>--}}
+                                                                    {{--</p>--}}
                                                                 </fieldset>
 
 
@@ -182,25 +190,33 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <div class="padding-30">
-                                                                    <h2 class="StepTitle">Create an account <span
-                                                                                class="text-large block">to manage everything you do with Clip-Two</span>
-                                                                    </h2>
-                                                                    <p>
-                                                                        You’ll enjoy personal services and great
-                                                                        benefits including:
-                                                                    </p>
-                                                                    <p class="text-small">
-                                                                    </p>
-                                                                    <ul class="no-margin">
-                                                                        <li>
-                                                                            Access to exclusive releases and limited
-                                                                            products.
-                                                                        </li>
-                                                                        <li>
-                                                                            ng-Clip services, benefits and promotions.
-                                                                        </li>
+                                                                    {{--<h2 class="StepTitle">Create an account <span--}}
+                                                                                {{--class="text-large block">to manage everything you do with Clip-Two</span>--}}
+                                                                    {{--</h2>--}}
+                                                                    {{--<p>--}}
+                                                                        {{--You’ll enjoy personal services and great--}}
+                                                                        {{--benefits including:--}}
+                                                                    {{--</p>--}}
+                                                                    {{--<p class="text-small">--}}
+                                                                    {{--</p>--}}
+                                                                    {{--<ul class="no-margin">--}}
+                                                                        {{--<li>--}}
+                                                                            {{--Access to exclusive releases and limited--}}
+                                                                            {{--products.--}}
+                                                                        {{--</li>--}}
+                                                                        {{--<li>--}}
+                                                                            {{--ng-Clip services, benefits and promotions.--}}
+                                                                        {{--</li>--}}
+                                                                    {{--</ul>--}}
+                                                                    {{--<p></p>--}}
+                                                                    <img src="/images/p_add_bannIMG.png" class="margin-top_-30">
+                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과 함께 하세요!</h6>
+                                                                    <ul class="p_add_ul">
+                                                                        <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고 선택할 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지 편리하게 프로젝트를 진행할 수 있습니다.</li>
                                                                     </ul>
-                                                                    <p></p>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7">
