@@ -162,7 +162,7 @@ $colspan = 16;
         if ($is_admin == 'group') {
             $s_mod = '';
         } else {
-            $s_mod = '<a href="./member_form.php?'.$qstr.'&amp;w=u&amp;mb_id='.$row['mb_id'].'">수정</a>';
+            $s_mod = '<a href="./member_form.php?'.$qstr.'&amp;w=u&amp;mb_id='.$row['email'].'">수정</a>';
         }
         $s_grp = '<a href="./boardgroupmember_form.php?mb_id='.$row['mb_id'].'">그룹</a>';
 

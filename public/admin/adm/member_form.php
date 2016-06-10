@@ -18,7 +18,7 @@ if ($w == '')
 }
 else if ($w == 'u')
 {
-    $mb = get_member($mb_id);
+    $mb = get_member_email($mb_id);
     if (!$mb['mb_id'])
         alert('존재하지 않는 회원자료입니다.');
 
