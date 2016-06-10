@@ -51,7 +51,7 @@ class MypagePostController extends Controller
     {
         $validator = Validator::make(
             ['name' => $request->name],
-            ['name' => ['required', 'max:255', 'unique']],
+            ['name' => ['required', 'max:255', 'unique:users,name']],
             ['required' => '이름은 필수 입니다',
                 'max:255' => '255자 까지 입력할 수 있습니다 ',
                 'unique' => '이미 있는 이름입니다']
