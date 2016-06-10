@@ -59,7 +59,7 @@
                                                         <h3 class="margin-bottom-20">{{ $project['title'] }}</h3>
                                                     </div>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-krw"></i> 예상금액 <span>{{ number_format($project['budget']) }}</span></span>
+                                                        class="fa fa-krw"></i> 월 예산 <span>{{ number_format($project['budget']) }}</span></span>
                                             <span class="media-body-sm"><i
                                                         class="fa fa-clock-o"></i> 예상기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i
