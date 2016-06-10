@@ -80,7 +80,7 @@
                                         <!-- PANEL HEADING -->
                                         <div class="panel-heading">
 
-                                            <a class="mypage_link" href="/partners-use.html">처음 오셨나요? 이용방법을 확인하세요 > </a>
+                                            <a class="mypage_link" href="{{url('/services')}}">처음 오셨나요? 이용방법을 확인하세요 > </a>
                                             <!--<div class="job-tittle02">
 
 

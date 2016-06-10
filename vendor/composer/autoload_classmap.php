@@ -14,6 +14,7 @@ return array(
     'AddPartnersIntro' => $baseDir . '/database/migrations/2016_05_27_082145_add_partners_intro.php',
     'AddProjectsColumns' => $baseDir . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
     'AddProjectsDetail' => $baseDir . '/database/migrations/2016_05_30_064654_add_projects_detail.php',
+    'AddUsersColumns' => $baseDir . '/database/migrations/2016_06_10_013459_add_users_columns.php',
     'AddUsersPhonenum' => $baseDir . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',
     'ChangeProjectsCategory' => $baseDir . '/database/migrations/2016_05_27_053851_change_projects_category.php',
     'CommentSeeder' => $baseDir . '/database/seeds/CommentSeeder.php',
