@@ -93,10 +93,14 @@ Route::post('/rm_project','DeleteController@delete_project');
 // delete Application
 Route::post('/rm_app','DeleteController@delete_application');
 
-
-
 // mypage post
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
+// User info
+Route::post('/mypage/info','MypagePostController@set_profile_info');
+// User phone and fax number
+Route::post('/mypage/numbers','MypagePostController@set_numbers');
+
+
 
 // application
 Route::get('/apply/{pid}', 'AppController@application_post');
