@@ -119,7 +119,7 @@ $colspan = 16;
 
                         <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
                     </td>
-                    <td headers="project_list_name" rowspan="2" class="td_id"><?php echo $row[title] ?></td>
+                    <td headers="project_list_name" rowspan="2" class="td_id"><a href="project_form.php?id=<?=$row[id]?>&w=u&<?=$qrst?>"> <?php echo $row[title] ?></a></td>
                     <td headers="project_list_name" class="td_mbname"><?php echo $row[area] ?></td>
                     <td headers="project_list_intro" rowspan="2" class="td_intro"><?php echo $row[intro] ?></td>
                     <td headers="project_list_mobile" class="td_tel"><?php echo $row[name] ?></td>
