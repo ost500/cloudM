@@ -85,7 +85,7 @@ Route::post('/applist/meetingCancel','MypageController@meetingCancel');
 // contract
 Route::post('/applist/contract','MypageController@contract');
 
-Route::get('/mypage', 'MypageController@mypage');
+
 
 Route::get('/setting', 'MypageController@setting');
 // delete project
@@ -99,6 +99,13 @@ Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 Route::post('/mypage/info','MypagePostController@set_profile_info');
 // User phone and fax number
 Route::post('/mypage/numbers','MypagePostController@set_numbers');
+
+//프로필
+Route::get('/mypage', 'MypageController@mypage');
+//프로필 edit intro
+Route::get('/mypage/intro_edit','MypageController@mypage_intro_edit');
+
+Route::post('/mypage/intro_edit','MypageController@mypage_intro_edit_post');
 
 
 

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Array_;
+use Validator;
 
 class MypageController extends Controller
 {
@@ -150,6 +151,32 @@ class MypageController extends Controller
             return view('mypage/mypage', compact('loginUser'));
         }
 
+    }
+    
+    public function mypage_intro_edit()
+    {
+        return view('mypage/profile_edit/intro_edit');
+    }
+    public function mypage_intro_edit_post(Request $request)
+    {
+        //validate
+        $validator = Validator::make(
+            ['intro' => $request->intro],
+            ['intro' => ['required','max:5000']],
+            ['required' => '자기소개는 필수 입니다', 
+                'max' => '5000자 까지 입력할 수 있습니다']
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }
+
+        //save
+
+        Auth::user()->partners->intro = $request->intro;
+        Auth::user()->partners->save();
+
+        return redirect()->back();
     }
 
 
