@@ -49,7 +49,7 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 $g5['title'] = '프로젝트관리';
 include_once('./admin.head.php');
 
-$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+$sql = " select *, a.id as project_id, b.id as user_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
 $colspan = 16;
@@ -96,6 +96,7 @@ $colspan = 16;
                     <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
                 </th>
                 <th scope="col" rowspan="2" id="project_list_title"><?php echo subject_sort_link('title') ?>프로젝트명</a></th>
+				<th scope="col" rowspan="2" id="project_list_mng"><?php echo subject_sort_link('step') ?>상태</a></th>
                 <th scope="col" id="project_list_name"><?php echo subject_sort_link('mb_name') ?>지역</a></th>
                 <th scope="col" rowspan="2" id="project_list_mng">설명</th>
                 <th scope="col" id="project_list_mobile">이름</th>
@@ -111,24 +112,41 @@ $colspan = 16;
             <tbody>
             <?php
             for ($i=0; $row=sql_fetch_array($result); $i++) {
-                ?>
+            ?>
 
                 <tr class="<?php echo $bg; ?>">
                     <td headers="project_list_chk" class="td_chk" rowspan="2">
-                        <input type="hidden" name="project_id[<?php echo $i ?>]" value="<?php echo $row['id'] ?>" id="project_id_<?php echo $i ?>">
+                        <input type="hidden" name="project_id[<?php echo $i ?>]" value="<?php echo $row['project_id'] ?>" id="project_id_<?php echo $i ?>">
 
                         <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
                     </td>
-                    <td headers="project_list_name" rowspan="2" class="td_id"><a href="project_form.php?id=<?=$row[id]?>&w=u&<?=$qrst?>"> <?php echo $row[title] ?></a></td>
-                    <td headers="project_list_name" class="td_mbname"><?php echo $row[area] ?></td>
-                    <td headers="project_list_intro" rowspan="2" class="td_intro"><?php echo $row[intro] ?></td>
+                    <td headers="project_list_name" rowspan="2" class="td_id"><a href="project_form.php?id=<?=$row[project_id]?>&w=u&<?=$qrst?>"> <?php echo $row[title] ?></a></td>
+					<td rowspan="2" class="td_40">
+					<select name="step[<?php echo $i ?>]" id="step<?=$i?>" required class="required frm_input">
+						<option value="">선택</option>
+						<option value="검수">검수</option>
+						<option value="게시">게시</option>
+						<option value="미팅">미팅</option>
+						<option value="계약">계약</option>
+						<option value="대금지급">대금지급</option>
+						<option value="환불">환불</option>
+						<option value="취소">취소</option>
+					</select>
+<script type="text/javascript">
+$(function(){
+    $("#step<?=$i?>").val("<?=$row[step]?>");
+});
+</script>
+					</td>
+                    <td headers="project_list_name" class="td_60"><?php echo $row[area] ?></td>
+                    <td headers="project_list_intro" rowspan="2" class="td_intro"><?php echo cut_str($row[detail_content], 140); ?></td>
                     <td headers="project_list_mobile" class="td_tel"><?php echo $row[name] ?></td>
 
                     <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
                     <td headers="project_list_mng" rowspan="2" class="td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
                 </tr>
                 <tr class="<?php echo $bg; ?>">
-                    <td headers="project_list_nick" class="td_name sv_use"><div><?php echo $row[category] ?></div></td>
+                    <td headers="project_list_nick" class="td_60"><div><?php echo $row[category] ?></div></td>
                     <td headers="project_list_tel" class="td_tel"><?php echo get_text($row['phone_num']); ?></td>
                     <td headers="project_list_join" class="td_date"><?php echo substr($row['mb_datetime'],2,8); ?></td>
                 </tr>
@@ -150,6 +168,7 @@ $colspan = 16;
 </form>
 
 <?php echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, '?'.$qstr.'&amp;page='); ?>
+
 
 <script>
     function fmemberlist_submit(f)
