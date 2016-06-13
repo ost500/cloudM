@@ -109,10 +109,11 @@
 
                                             <div class="job-tittle02 txt_color_g">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
-                                                <div style="cursor:pointer" id="intro_edit_button" class="button002 signup002 margin-top-12">
+                                                <div style="cursor:pointer" id="intro_edit_button"
+                                                     class="button002 signup002 margin-top-12">
                                                     수정하기
                                                 </div>
-                                                <div id="textarea_location">{{ $loginUser->partners['intro'] }}</div>
+                                                <div id="textarea_location"><?php echo nl2br($loginUser->partners['intro']); ?> </div>
                                                 {{$errors->first('intro')}}
                                             </div>
                                             <script>
@@ -151,8 +152,9 @@
 
 
                                             <div class="job-tittle02">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">보유기술</h6>
-                                                <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
+                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">전문기술</h6>
+                                                <a id="edit_skill_button"
+                                                   class="button002 signup002 margin-top-12">수정하기</a>
 
                                                 <div class="panel02 panel-default02 margin-top-20">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
@@ -162,24 +164,115 @@
 
                                                         <tr>
                                                             <th>종류</th>
-                                                            <th>숙련도</th>
+                                                            <th>진행 건수</th>
                                                             <th>경험</th>
 
                                                         </tr>
-                                                        <tr>
-                                                            <td>보유기술 종류 입력</td>
-                                                            <td>최상</td>
-                                                            <td>10년 이상</td>
+                                                        <tbody id="skill_list">
+                                                        @if($loginUser->partners->skill->isEmpty())
+                                                            <tr>
+                                                                <td colspan="3">전문기술이 없습니다</td>
+                                                            </tr>
+                                                        @endif
+                                                        @foreach($loginUser->partners->skill as $skill)
+                                                            <tr>
+                                                                <td>{{ $skill->title }}</td>
+                                                                <td>{{ $skill->number }}</td>
+                                                                <td>{{ $skill->experience }}</td>
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td>보유기술 종류 입력</td>
-                                                            <td>최상</td>
-                                                            <td>10년 이상</td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
 
-                                                        </tr>
                                                     </table>
                                                 </div>
+                                                <div id="skill_input_form" hidden
+                                                     class="panel02 panel-default02 margin-top-20">
+                                                    <form id="skill_form">
+                                                        {!! csrf_field() !!}
+                                                        <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:16.6%;"/>
+
+                                                            <tr>
+
+                                                                <td><input id="title" name="title"><br>
+                                                                    <div id="title_error"></div>
+                                                                </td>
+                                                                <td><input id="number" name="number"
+                                                                           placeholder="10">건<br>
+                                                                    <div id="number_error"></div>
+                                                                </td>
+                                                                <td><input id="experience" name="experience"
+                                                                           placeholder="10년 이상"><br>
+                                                                    <div id="experience_error"></div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+
+                                                    </form>
+                                                    <button id="skill_input_button" class="button004">입력</button>
+                                                </div>
+
+                                                <script>
+                                                    $("#edit_skill_button").click(function () {
+                                                        $.ajax({
+                                                            type:'GET',
+                                                            url: '/mypage/skill_list',
+                                                            success: function(data){
+                                                                $("#skill_list").html(data);
+                                                            }
+                                                        });
+                                                        $("#skill_input_form").show();
+                                                    });
+                                                    $("#skill_input_button").click(function () {
+                                                        $.ajax({
+                                                            type: 'POST',
+                                                            url: '/mypage/skill_edit',
+                                                            data: $("#skill_form").serialize(),
+                                                            success: function (data) {
+                                                                $("#skill_list").html(data);
+                                                                $("#title").val("");
+                                                                $("#experience").val("");
+                                                                $("#number").val("");
+                                                                $("#title_error").html("");
+                                                                $("#number_error").html("");
+                                                                $("#experience_error").html("");
+                                                                $.ajax({
+                                                                    type:'GET',
+                                                                    url: '/mypage/skill_list',
+                                                                    success: function(data){
+                                                                        $("#skill_list").html(data);
+                                                                    }
+                                                                });
+                                                            },
+                                                            error: function (data) {
+
+                                                                try {
+                                                                    $("#title_error").html(data.responseJSON.title[0]);
+
+                                                                } catch (ex) {
+                                                                    $("#title_error").html("");
+                                                                }
+                                                                try {
+                                                                    $("#number_error").html(data.responseJSON.number[0]);
+
+                                                                } catch (ex) {
+                                                                    $("#number_error").html("");
+                                                                }
+                                                                try {
+                                                                    $("#experience_error").html(data.responseJSON.experience[0]);
+
+                                                                } catch (ex) {
+                                                                    $("#experience_error").html("");
+                                                                }
+                                                            }
+                                                        });
+                                                    });
+
+
+                                                </script>
 
 
                                             </div>

@@ -12,8 +12,13 @@ class CreatePortfoliosTable extends Migration
      */
     public function up()
     {
+
         Schema::create('portfolios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('partner_id')->unsigned()->index();
+            $table->foreign('partner_id')
+                ->references('id')->on('partners')
+                ->onDelete('cascade');
             $table->timestamps();
             $table->string('title', 255);
             $table->enum('area', ['광고 의뢰', '운영 대행', 'Viral', '1회성 프로젝트']);
@@ -28,8 +33,10 @@ class CreatePortfoliosTable extends Migration
             $table->string('participation_rate', 45);
             $table->date('from_date');
             $table->date('to_date');
-
+//            $table->enum('keyword', array('a', 'b', 'c'));
         });
+//        $table_prefix = DB::getTablePrefix();
+//        DB::statement("ALTER TABLE `" . $table_prefix . "portfolios` CHANGE `keyword` `keyword` SET('a', 'b', 'c');");
     }
 
     /**

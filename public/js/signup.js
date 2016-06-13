@@ -40,7 +40,7 @@ $("#signupForm").submit(function (event) {
         type: 'POST',
         data: data,
         success: function (data) {
-            console.log(data);
+
             if (data["try"] == "Success") {
                 alert("회원가입에 성공했습니다");
                 document.location = "/dashboard";
@@ -51,9 +51,9 @@ $("#signupForm").submit(function (event) {
             
         },
         error: function (data) {
-            console.log(data.responseJSON);
+
             try {
-                console.log(data.responseJSON.PorC[0]);
+
                 $("#PorCError").html("둘 중 하나를 선택해 주세요");
 
             } catch (ex) {
@@ -62,18 +62,18 @@ $("#signupForm").submit(function (event) {
 
 
             try {
-                console.log(data.responseJSON.name[0]);
+
                 $("#nameError").html(data.responseJSON.name[0]);
 
             } catch (ex) {$("#nameError").html("");}
 
             try {
-                console.log(data.responseJSON.email[0])
+
                 $("#emailError").html(data.responseJSON.email[0]);
             } catch (ex) {$("#emailError").html("");}
 
             try {
-                console.log(data.responseJSON.password[0])
+
                 $("#passwordError").html(data.responseJSON.password[0]);
             } catch (ex) {$("#passwordError").html("");}
 

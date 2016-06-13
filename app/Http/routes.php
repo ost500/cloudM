@@ -104,8 +104,12 @@ Route::post('/mypage/numbers','MypagePostController@set_numbers');
 Route::get('/mypage', 'MypageController@mypage');
 //프로필 edit intro
 Route::get('/mypage/intro_edit','MypageController@mypage_intro_edit');
-
 Route::post('/mypage/intro_edit','MypageController@mypage_intro_edit_post');
+//프로필 edit skill
+Route::post('/mypage/skill_edit','MypageController@mypage_skill_edit_post');
+Route::post('/mypage/skill_delete','MypageController@mypage_skill_del_post');
+//프로필 skill list
+Route::get("/mypage/skill_list",'MypageController@skills_list');
 
 
 
