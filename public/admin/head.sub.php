@@ -63,6 +63,7 @@ if (defined('G5_IS_ADMIN')) {
 <!--[if lte IE 8]>
 <script src="<?php echo G5_JS_URL ?>/html5.js"></script>
 <![endif]-->
+
 <script>
 // 자바스크립트에서 사용하는 전역변수 선언
 var g5_url       = "<?php echo G5_URL ?>";
@@ -82,6 +83,7 @@ var g5_admin_url = "<?php echo G5_ADMIN_URL; ?>";
 <script src="<?php echo G5_JS_URL ?>/jquery.menu.js"></script>
 <script src="<?php echo G5_JS_URL ?>/common.js"></script>
 <script src="<?php echo G5_JS_URL ?>/wrest.js"></script>
+
 <?php
 if(G5_IS_MOBILE) {
     echo '<script src="'.G5_JS_URL.'/modernizr.custom.70111.js"></script>'.PHP_EOL; // overflow scroll 감지

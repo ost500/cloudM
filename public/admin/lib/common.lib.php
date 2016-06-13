@@ -717,6 +717,7 @@ function get_member_email($mb_email, $fields='*')
 	$row[mb_id] = $row[id];
 	$row[mb_name] = $row[name];
 	$row[mb_email] = $row[email];
+	$row[mb_level] = $row[level];
 
 	return $row;
 }

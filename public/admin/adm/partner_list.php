@@ -1,12 +1,12 @@
 <?php
-$sub_menu = "200110";
+$sub_menu = "200120";
 include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
 
 $sql_common = " from {$g5['member_table']} ";
 
-$sql_search = " where (1) and PorC = 'C'";
+$sql_search = " where (1) and PorC = 'P'";
 if ($stx) {
     $sql_search .= " and ( ";
     switch ($sfl) {
@@ -50,7 +50,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
 
-$g5['title'] = '클라이언트 관리';
+$g5['title'] = '파트너 관리';
 include_once('./admin.head.php');
 
 $sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
