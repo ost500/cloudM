@@ -298,6 +298,11 @@ tfoot td {font-weight:bold;text-align:center}
 .grid_17 {width:850px}
 .grid_18 {width:900px}
 
+.c {text-align:center}
+.l {text-align:left}
+.r {text-align:right}
+
+
 /* 목록 홀짝 배경색 */
 .bg0 {background:#fff}
 .bg1 {background:#f2f5f9}
