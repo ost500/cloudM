@@ -41,4 +41,7 @@ $g5['new_win_table'] = G5_TABLE_PREFIX.'new_win'; // 새창 테이블
 $g5['menu_table'] = G5_TABLE_PREFIX.'menu'; // 메뉴관리 테이블
 
 $g5['project_table'] = 'projects'; // 프로젝트 테이블
+$g5['application_table'] = 'applications'; // 지원 목록 테이블
+$g5['contract_table'] = 'contracts'; // 지원자 선정 테이블
+
 ?>
