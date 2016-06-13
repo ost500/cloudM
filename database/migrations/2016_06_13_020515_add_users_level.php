@@ -13,7 +13,7 @@ class AddUsersLevel extends Migration
     public function up()
     {
         Schema::table('users', function ($table) {
-            $table->enum('level', array('개인', '팀', '개인 사업자', '법인 사업자'));
+            $table->integer('level');
         });
     }
 
