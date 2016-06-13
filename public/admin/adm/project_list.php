@@ -101,13 +101,12 @@ $colspan = 16;
                 <th scope="col" rowspan="2" id="project_list_mng">설명</th>
                 <th scope="col" id="project_list_mobile">이름</th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>등록시간</a></th>
-                <th scope="col" id="project_list_mng">지원자</th>
+                <th scope="col" rowspan="2" id="project_list_mng">지원자</th>
             </tr>
             <tr>
                 <th scope="col" id="project_list_nick"><?php echo subject_sort_link('mb_nick') ?>카테고리</a></th>
                 <th scope="col" id="project_list_tel">연락처</th>
                 <th scope="col" id="project_list_join"><?php echo subject_sort_link('mb_datetime', '', 'desc') ?>승인시간</a></th>
-				<th scope="col" id="project_list_mng">제안서</th>
             </tr>
             </thead>
             <tbody>
@@ -144,13 +143,12 @@ $(function(){
                     <td class="td_tel"><?php echo $row[name] ?></td>
 
                     <td class="td_date"><?php echo $row['created_at'] ?></td>
-                    <td class="td_mngsmall"><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>">지원자</a> <?php echo $s_grp ?></td>
+                    <td class="td_mngsmall" rowspan=2><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>">지원자</a> <?php echo $s_grp ?></td>
                 </tr>
                 <tr class="<?php echo $bg; ?>">
                     <td class="td_60"><div><?php echo $row[category] ?></div></td>
                     <td class="td_tel"><?php echo get_text($row['phone_num']); ?></td>
                     <td class="td_date"><?php echo substr($row['mb_datetime'],2,8); ?></td>
-					<td class="td_mngsmall"><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>">제안서</a> <?php echo $s_grp ?></td>
                 </tr>
 
                 <?php
