@@ -1,8 +1,8 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
-define('G5_MYSQL_HOST', 'localhost');
-define('G5_MYSQL_USER', 'homestead');
-define('G5_MYSQL_PASSWORD', 'secret');
+define('G5_MYSQL_HOST', 'exampledbinstance.cidnqdbj34y7.ap-northeast-2.rds.amazonaws.com');
+define('G5_MYSQL_USER', 'ost');
+define('G5_MYSQL_PASSWORD', 'dpffhd12');
 define('G5_MYSQL_DB', 'homestead');
 define('G5_MYSQL_SET_MODE', true);
 
