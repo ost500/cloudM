@@ -139,11 +139,7 @@ $colspan = 16;
 						<option value="환불">환불</option>
 						<option value="취소">취소</option>
 					</select>
-<script type="text/javascript">
-$(function(){
-    $("#step<?=$i?>").val("<?=$row[step]?>");
-});
-</script>
+<script> $(function() { $("#step<?=$i?>").val("<?=$row[step]?>"); }); </script>
 					</td>
                     <td class="td_60"><?php echo $row[area] ?></td>
                     <td rowspan="2" class="td_intro"><?php echo cut_str($row[detail_content], 140); ?></td>
