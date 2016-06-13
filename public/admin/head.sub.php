@@ -54,8 +54,10 @@ if($config['cf_add_meta'])
 <title><?php echo $g5_head_title; ?></title>
 <?php
 if (defined('G5_IS_ADMIN')) {
-    if(!defined('_THEME_PREVIEW_'))
+    if(!defined('_THEME_PREVIEW_')) {
         echo '<link rel="stylesheet" href="'.G5_ADMIN_URL.'/css/admin.css">'.PHP_EOL;
+		echo '<link rel="stylesheet" href="'.G5_ADMIN_URL.'/css/admin_bootstrap.css">'.PHP_EOL;
+	}
 } else {
     echo '<link rel="stylesheet" href="'.G5_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').'.css">'.PHP_EOL;
 }
@@ -63,7 +65,6 @@ if (defined('G5_IS_ADMIN')) {
 <!--[if lte IE 8]>
 <script src="<?php echo G5_JS_URL ?>/html5.js"></script>
 <![endif]-->
-
 <script>
 // 자바스크립트에서 사용하는 전역변수 선언
 var g5_url       = "<?php echo G5_URL ?>";
@@ -84,6 +85,9 @@ var g5_admin_url = "<?php echo G5_ADMIN_URL; ?>";
 <script src="<?php echo G5_JS_URL ?>/common.js"></script>
 <script src="<?php echo G5_JS_URL ?>/wrest.js"></script>
 
+
+<script src="http://cloudm.app/js/jquery-1.11.0.min.js"></script>
+<script src="http://cloudm.app/js/bootstrap.min.js"></script>
 <?php
 if(G5_IS_MOBILE) {
     echo '<script src="'.G5_JS_URL.'/modernizr.custom.70111.js"></script>'.PHP_EOL; // overflow scroll 감지
