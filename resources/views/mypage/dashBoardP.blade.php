@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="job-sider-bar003">
-                            <h5 class="side-tittle">파트너</h5>
+                            <h5 class="side-tittle">파트너스</h5>
                             <div>
                                 @if($loginUser->profileImage != null)
                                     <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
@@ -156,12 +156,7 @@
                                                             <th>취소</th>
                                                         </tr>
                                                         @if($app == null)
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td colspan="6">지원한 프로젝트가 없습니다</td>
                                                         @endif
                                                         @foreach($app as $appItem)
 
@@ -219,11 +214,8 @@
 
                                                         </tr>
                                                         @if($app == null)
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td colspan="6">진행 중인 프로젝트가 없습니다</td>
+
 
                                                         @endif
                                                         @foreach($carryon as $carryonItem)
@@ -263,11 +255,10 @@
 
                                                             </tr>
                                                             @if($app == null)
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
+                                                                <tr>
+                                                                    <td colspan="6">완료 프로젝트가 없습니다</td>
+                                                                </tr>
+
 
                                                             @endif
                                                             @foreach($compeleted as $done)

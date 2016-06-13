@@ -18,5 +18,9 @@ class Partners extends Model
     {
         return $this->hasMany('App\Partners_job', 'partner_id', 'id');
     }
+    public function skill()
+    {
+        return $this->hasMany('App\Skill', 'partner_id', 'id');
+    }
     
 }

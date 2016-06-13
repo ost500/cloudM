@@ -133,7 +133,9 @@
             <div class="my_bar">
                 <ul>
                     <li><a href="{{ url("/dashboard") }}">마이클라우드엠</a></li>
-                    <li><a href="{{ url("/mypage") }}">프로필</a></li>
+                    @if(Auth::user()->PorC == "P")
+                        <li><a href="{{ url("/mypage") }}">프로필</a></li>
+                    @endif
                     <li><a href="{{ url("/setting") }}">기본정보</a></li>
                 </ul>
             </div>
@@ -215,11 +217,11 @@
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary active">
                                 <input type="radio" name="PorC" id="option1" autocomplete="off" value="ccc" checked>
-                                 클라이언트 </label>
+                                클라이언트 </label>
 
                             <label class="btn btn-primary">
                                 <input type="radio" name="PorC" id="option2" autocomplete="off" value="ppp">
-                                 파트너스 </label>
+                                파트너스 </label>
                         </div>
                         <div id="PorCError"></div>
                     </div>

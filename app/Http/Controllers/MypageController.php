@@ -7,6 +7,7 @@ use App\Application;
 use App\Contract;
 use App\Partners;
 use App\Project;
+use App\Skill;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -49,7 +50,7 @@ class MypageController extends Controller
                 if ($contractList[$i]->project->step == "계약" || $contractList[$i]->project->step == "대금지급")
                     $carryon[] = $contractList[$i]->project;
                 // 완료 프로젝트
-                else if ($contractList[$i]->project->step == "완료" )
+                else if ($contractList[$i]->project->step == "완료")
                     $compeleted[] = $contractList[$i]->project;
             }
 
@@ -152,18 +153,19 @@ class MypageController extends Controller
         }
 
     }
-    
+
     public function mypage_intro_edit()
     {
         return view('mypage/profile_edit/intro_edit');
     }
+
     public function mypage_intro_edit_post(Request $request)
     {
         //validate
         $validator = Validator::make(
             ['intro' => $request->intro],
-            ['intro' => ['required','max:5000']],
-            ['required' => '자기소개는 필수 입니다', 
+            ['intro' => ['required', 'max:5000']],
+            ['required' => '자기소개는 필수 입니다',
                 'max' => '5000자 까지 입력할 수 있습니다']
         );
 
@@ -177,6 +179,95 @@ class MypageController extends Controller
         Auth::user()->partners->save();
 
         return redirect()->back();
+    }
+
+    public function mypage_skill_edit_post(Request $request)
+    {
+        $validator = Validator::make(
+            ['title' => $request->title,
+                'number' => $request->number,
+                'experience' => $request->experience],
+            ['title' => ['required', 'max:255'],
+                'number' => ['required', 'integer', 'max:255'],
+                'experience' => ['required', 'max:255']],
+            ['required' => '필수 입력 입니다',
+                'integer' => '숫자만 입력 가능합니다',
+                'max' => '너무 많이 입력하셨습니다']
+        );
+
+        if ($validator->fails()) {
+            if ($request->ajax()) {
+                return $this->throwValidationException($request, $validator);
+            }
+            return redirect()->back()->withErrors($validator->errors());
+        }
+
+        $skill = new Skill();
+        $skill->partner_id = Auth::user()->partners->id;
+        $skill->title = $request->title;
+        $skill->number = $request->number;
+        $skill->experience = $request->experience;
+        $skill->save();
+
+        foreach (Auth::user()->partners->skill as $skill) {
+            echo "<tr>";
+            echo "<td>" . $skill->title . "</td>";
+            echo "<td>" . $skill->number . "</td>";
+            echo "<td>" . $skill->experience . "</td>";
+            echo "<tr>";
+        }
+
+
+    }
+
+    public function mypage_skill_del_post(Request $request)
+    {
+        $del_skill = Skill::find($request->id);
+        $del_skill->delete();
+    }
+
+    public function skills_list()
+    {
+        foreach (Auth::user()->partners->skill as $skill) {
+            echo "<tr>";
+            echo "<td>" . $skill->title .
+                "<form style=\"display: inline;\"
+                      id=\"del_form".$skill->id."\"
+                      method=\"POST\"
+                      
+                      onsubmit=\"return confirm('삭제하시겠습니까?');\">".
+                     csrf_field()."
+                    <input name=\"id\" hidden
+                           value=\"".$skill->id."\">
+                    <i style=\"cursor: pointer\"
+                       id=\"".$skill->id."button\"
+                       class=\"fa fa-times fa-lg\"></i>
+                </form>
+                <script>
+                    $(\"#".$skill->id."button\").click(function () {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/mypage/skill_delete',
+                            data: $(\"#del_form".$skill->id."\").serialize(),
+                            success: function (data) {
+                                $.ajax({
+                                        type:'GET',
+                                        url: '/mypage/skill_list',
+                                        success: function(data){
+                                            $(\"#skill_list\").html(data);
+                                        }
+                                    })
+                                
+                                }
+                            });
+                        
+                    });
+                </script>"
+                . "</td>";
+            echo "<td>" . $skill->number . "</td>";
+            echo "<td>" . $skill->experience . "</td>";
+            echo "<tr>";
+        }
     }
 
 
