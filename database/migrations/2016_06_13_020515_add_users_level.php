@@ -13,7 +13,7 @@ class AddUsersLevel extends Migration
     public function up()
     {
         Schema::table('users', function ($table) {
-            $table->integer('level');
+            $table->integer('level')->default("2");
         });
     }
 
