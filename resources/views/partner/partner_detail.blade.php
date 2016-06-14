@@ -18,7 +18,8 @@
                             <h5 class="side-tittle">파트너스</h5>
                             <div>
                                 @if($partner['user']->profileImage != null)
-                                    <img class="partner_profile02" src="{{ URL::asset($partner['user']->profileImage) }}"><br>
+                                    <img class="partner_profile02"
+                                         src="{{ URL::asset($partner['user']->profileImage) }}"><br>
                                 @else
                                     <img class="partner_profile02" src="/images/p_img02.png"><br>
                                 @endif
@@ -112,44 +113,49 @@
                                                 <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
                                                 <a href="#." class="more_btn margin-top-20">더보기 ></a>
                                                 <div class="row">
-                                                    <div class="col-lg-4 port-img-d"><img
-                                                                class="img-responsive port-img"
-                                                                src="/images/port.jpg"></div>
-                                                    <div class="col-lg-4 port-img-d"><img
-                                                                class="img-responsive port-img"
-                                                                src="/images/port.jpg"></div>
-                                                    <div class="col-lg-4 port-img-d"><img
-                                                                class="img-responsive port-img"
-                                                                src="/images/port.jpg"></div>
+                                                    @if($partner->portfolio->isEmpty())
+                                                        포트폴리오가 없습니다
+                                                    @endif
+                                                    @foreach($portfolios as $port)
+                                                        <div class="col-lg-4 port-img-d"><img
+                                                                    class="img-responsive port-img"
+                                                                    src="{{ $port->image1 }}"></div>
+                                                    @endforeach
                                                 </div>
                                             </div>
 
 
                                             <div class="job-tittle02">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">보유기술</h6>
+                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">전문기술</h6>
                                                 <div class="panel02 panel-default02 margin-top-20">
-                                                    <div class="panel-heading03">
-                                                        <div class="row">
-                                                            <span class="col-xs-7"><strong>종류</strong></span>
-                                                            <span class="col-xs-2"><strong>숙련도</strong></span>
-                                                            <span class="col-xs-3"><strong>경험</strong></span>
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:16.6%;"/>
 
-                                                        </div>
-                                                    </div>
-                                                    <div class="panel-body03">
-                                                        <ul>
-                                                            <li class="row">
-                                                                <span class="col-xs-7">보유기술 종류 입력</span>
-                                                                <span class="col-xs-2">최상</span>
-                                                                <span class="col-xs-3">10년 이상</span>
-                                                            </li>
-                                                            <li class="row">
-                                                                <span class="col-xs-7">보유기술 종류 입력</span>
-                                                                <span class="col-xs-2">최상</span>
-                                                                <span class="col-xs-3">10년 이상</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                        <tr>
+                                                            <th>종류</th>
+                                                            <th>진행 건수</th>
+                                                            <th>경험</th>
+
+                                                        </tr>
+                                                        <tbody id="skill_list">
+                                                        @if($partner->skill->isEmpty())
+                                                            <tr>
+                                                                <td colspan="3">전문기술이 없습니다</td>
+                                                            </tr>
+                                                        @endif
+                                                        @foreach($partner->skill as $skill)
+                                                            <tr>
+                                                                <td>{{ $skill->title }}</td>
+                                                                <td>{{ $skill->number }}</td>
+                                                                <td>{{ $skill->experience }}</td>
+
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
+
+                                                    </table>
                                                 </div>
                                             </div>
 

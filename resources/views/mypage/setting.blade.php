@@ -81,6 +81,7 @@
                                                             <button class="input_width02" type="submit"><i
                                                                         class="fa fa-plus"></i> 이미지 변경
                                                             </button>
+
                                                             {{ $errors->first('Image') }}
                                                         </label>
                                                     </form>

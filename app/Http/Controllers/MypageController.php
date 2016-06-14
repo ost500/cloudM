@@ -6,6 +6,7 @@ use App\Application;
 
 use App\Contract;
 use App\Partners;
+use App\Portfolio;
 use App\Project;
 use App\Skill;
 use Illuminate\Http\Request;
@@ -146,7 +147,8 @@ class MypageController extends Controller
     {
         if (Auth::user()->PorC == "P") {
             $loginUser = Auth::user();
-            return view('mypage/mypage', compact('loginUser'));
+            $portfolios = $loginUser->partners->portfolio->take(3);
+            return view('mypage/mypage', compact('loginUser','portfolios'));
         } else {
             $loginUser = Auth::user();
             return view('mypage/mypage', compact('loginUser'));
@@ -269,6 +271,66 @@ class MypageController extends Controller
             echo "<tr>";
         }
     }
+    
+    public function portfolio()
+    {
+        $loginUser = Auth::user();
+        $portfolios = $loginUser->partners->portfolio;
+
+        return view('mypage/portfolio/portfolio_list', compact('loginUser','portfolios'));
+    }
+    
+    public function portfolio_detail($id)
+    {
+        if(Portfolio::find($id)->partner != Auth::user()->partners)
+            return redirect()->back();
+
+        $loginUser = Auth::user();
+        $portfolios = $loginUser->partners->portfolio;
+
+        return view('mypage/portfolio/portfolio_list', compact('loginUser','portfolios'));
+    }
+
+    public function portfolio_create()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/portfolio/portfolio_create', compact('loginUser'));
+    }
+
+    public function portfolio_create_post(Request $request)
+    {
+        $new_port = new Portfolio();
+        $new_port->title = $request->title;
+        $new_port->iscloudm = $request->checkbox1;
+        $new_port->area = $request->area;
+        $new_port->category = $request->category;
+        $new_port->description = $request->description;
+        $new_port->from_date = $request->from_date;
+        $new_port->to_date = $request->to_date;
+        $new_port->participation_rate = $request->participation_rate;
+        $new_port->iscloudm = $request->checkbox1;
+        $new_port->partner_id = Auth::user()->partners->id;
+        $new_port->save();
+
+//
+//
+//        echo $request->image123;
+//            $file = $request->file('image123');
+//
+//
+//
+//        $tmpFilePath = '/files/portfolio/';
+//        $tmpFileName = "abc";
+////            $ext = $file->guessExtension();
+//        $file->move(public_path() . $tmpFilePath, $tmpFileName);
+
+//        $path = $tmpFilePath . $tmpFileName;
+//        $user = Auth::user();
+//        $user->update(['profileImage' => $path]);
+
+    }
+
 
 
     public function setting()
