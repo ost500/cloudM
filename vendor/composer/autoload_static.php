@@ -298,6 +298,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddContractStep' => __DIR__ . '/../..' . '/database/migrations/2016_05_20_040220_add_contract_step.php',
         'AddPartnersArea' => __DIR__ . '/../..' . '/database/migrations/2016_06_01_040735_add_partners_area.php',
         'AddPartnersIntro' => __DIR__ . '/../..' . '/database/migrations/2016_05_27_082145_add_partners_intro.php',
+        'AddProjectsCharger' => __DIR__ . '/../..' . '/database/migrations/2016_06_15_023542_add_projects_charger.php',
         'AddProjectsColumns' => __DIR__ . '/../..' . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
         'AddProjectsDetail' => __DIR__ . '/../..' . '/database/migrations/2016_05_30_064654_add_projects_detail.php',
         'AddUsersColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_10_013459_add_users_columns.php',

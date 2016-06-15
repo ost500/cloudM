@@ -217,14 +217,14 @@ function get_member_id_select($name, $level, $selected="", $event="")
 {
     global $g5;
 
-    $sql = " select mb_id from {$g5['member_table']} where mb_level >= '{$level}' ";
+    $sql = " select email from {$g5['member_table']} where level >= '{$level}' ";
     $result = sql_query($sql);
     $str = '<select id="'.$name.'" name="'.$name.'" '.$event.'><option value="">선택안함</option>';
     for ($i=0; $row=sql_fetch_array($result); $i++)
     {
-        $str .= '<option value="'.$row['mb_id'].'"';
-        if ($row['mb_id'] == $selected) $str .= ' selected';
-        $str .= '>'.$row['mb_id'].'</option>';
+        $str .= '<option value="'.$row['email'].'"';
+        if ($row['email'] == $selected) $str .= ' selected';
+        $str .= '>'.$row['email'].'</option>';
     }
     $str .= '</select>';
     return $str;

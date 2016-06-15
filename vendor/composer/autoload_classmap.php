@@ -12,6 +12,7 @@ return array(
     'AddContractStep' => $baseDir . '/database/migrations/2016_05_20_040220_add_contract_step.php',
     'AddPartnersArea' => $baseDir . '/database/migrations/2016_06_01_040735_add_partners_area.php',
     'AddPartnersIntro' => $baseDir . '/database/migrations/2016_05_27_082145_add_partners_intro.php',
+    'AddProjectsCharger' => $baseDir . '/database/migrations/2016_06_15_023542_add_projects_charger.php',
     'AddProjectsColumns' => $baseDir . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
     'AddProjectsDetail' => $baseDir . '/database/migrations/2016_05_30_064654_add_projects_detail.php',
     'AddUsersColumns' => $baseDir . '/database/migrations/2016_06_10_013459_add_users_columns.php',
