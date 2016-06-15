@@ -109,10 +109,10 @@
 
                                             <div class="job-tittle02 txt_color_g">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
-                                                <div style="cursor:pointer" id="intro_edit_button"
-                                                     class="button002 signup002 margin-top-12">
+                                                <a style="cursor:pointer" id="intro_edit_button"
+                                                   class="button002 signup002 margin-top-12">
                                                     수정하기
-                                                </div>
+                                                </a>
                                                 <div id="textarea_location"><?php echo nl2br($loginUser->partners['intro']); ?> </div>
                                                 {{$errors->first('intro')}}
                                             </div>
@@ -133,27 +133,25 @@
 
                                             <div class="job-tittle02 txt_color_g">
                                                 <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
-                                                <a href="#." class="button002 signup002 margin-top-12">수정하기</a>
+                                                <a href="{{ url('mypage/portfolio_list') }}" class="button002 signup002 margin-top-12">더보기</a>
+
                                                 <div class="row">
-                                                    <div class="col-lg-4 port-img-d"><img
-                                                                class="img-responsive port-img"
-                                                                src="../../../public/images/port.jpg">
-                                                    </div>
-                                                    <div class="col-lg-4 port-img-d"><img
-                                                                class="img-responsive port-img"
-                                                                src="../../../public/images/port.jpg">
-                                                    </div>
-                                                    <div class="col-lg-4 port-img-d"><img
-                                                                class="img-responsive port-img"
-                                                                src="../../../public/images/port.jpg">
-                                                    </div>
+
+                                                    @foreach($portfolios as $portfolio)
+                                                        <div class="col-lg-4 port-img-d"><img
+                                                                    class="img-responsive port-img"
+                                                                    src="{{ $portfolio->image1 }}">
+                                                        </div>
+
+                                                    @endforeach
+
                                                 </div>
                                             </div>
 
 
                                             <div class="job-tittle02">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">전문기술</h6>
-                                                <a id="edit_skill_button"
+                                                <a style="cursor:pointer" id="edit_skill_button"
                                                    class="button002 signup002 margin-top-12">수정하기</a>
 
                                                 <div class="panel02 panel-default02 margin-top-20">
@@ -218,9 +216,9 @@
                                                 <script>
                                                     $("#edit_skill_button").click(function () {
                                                         $.ajax({
-                                                            type:'GET',
+                                                            type: 'GET',
                                                             url: '/mypage/skill_list',
-                                                            success: function(data){
+                                                            success: function (data) {
                                                                 $("#skill_list").html(data);
                                                             }
                                                         });
@@ -240,9 +238,9 @@
                                                                 $("#number_error").html("");
                                                                 $("#experience_error").html("");
                                                                 $.ajax({
-                                                                    type:'GET',
+                                                                    type: 'GET',
                                                                     url: '/mypage/skill_list',
-                                                                    success: function(data){
+                                                                    success: function (data) {
                                                                         $("#skill_list").html(data);
                                                                     }
                                                                 });

@@ -129,7 +129,8 @@ class PartnerController extends Controller
 
     public function detail($id)
     {
-        $partner = Partners::with('user')->where('id', '=', $id)->first();
-        return view('partner/partner_detail', compact('partner'));
+        $partner = Partners::find($id);
+        $portfolios = $partner->portfolio->take(3);
+        return view('partner/partner_detail', compact('partner','portfolios'));
     }
 }
