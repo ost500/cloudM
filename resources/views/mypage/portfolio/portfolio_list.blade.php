@@ -64,7 +64,9 @@
                                             <div class="job-tittle02 txt_color_g">
                                                 <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
 
-
+                                                <a href="{{ url('portfolio/create') }}" style="cursor:pointer" id="intro_edit_button" class="button002 signup002 margin-top-12">
+                                                    추가하기
+                                                </a>
                                                 <div class="row">
 
                                                     @foreach($portfolios as $portfolio)
@@ -74,21 +76,21 @@
                                                         {{--</div>--}}
 
 
-                                                        <div class="col-sm-6 col-md-4">
+
+
+                                                        <div class="col-md-4">
                                                             <div class="thumbnail">
-                                                                <img class="img-responsive port-img"
-                                                                     src="{{ $portfolio->image1 }}" alt="...">
+                                                                <div class="thum_imgbox">
+                                                                    <img src="{{ $portfolio->image1 }}" alt="" class="img-responsive">
+                                                                </div>
                                                                 <div class="caption">
-                                                                    <h3>Thumbnail label</h3>
-                                                                    <p>...</p>
-                                                                    <p><a href="#" class="btn btn-primary"
-                                                                          role="button">Button</a> <a href="#"
-                                                                                                      class="btn btn-default"
-                                                                                                      role="button">Button</a>
-                                                                    </p>
+                                                                    <h3 class="thum_title">{{ $portfolio->title }}</h3>
+                                                                    <p class="thum_category">{{ $portfolio->area }} > {{ $portfolio->category }}</p>
+                                                                    <p><a href="#" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>
                                                                 </div>
                                                             </div>
                                                         </div>
+
 
 
                                                     @endforeach

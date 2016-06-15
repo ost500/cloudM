@@ -148,7 +148,7 @@ class MypageController extends Controller
         if (Auth::user()->PorC == "P") {
             $loginUser = Auth::user();
             $portfolios = $loginUser->partners->portfolio->take(3);
-            return view('mypage/mypage', compact('loginUser','portfolios'));
+            return view('mypage/mypage', compact('loginUser', 'portfolios'));
         } else {
             $loginUser = Auth::user();
             return view('mypage/mypage', compact('loginUser'));
@@ -234,23 +234,23 @@ class MypageController extends Controller
             echo "<tr>";
             echo "<td>" . $skill->title .
                 "<form style=\"display: inline;\"
-                      id=\"del_form".$skill->id."\"
+                      id=\"del_form" . $skill->id . "\"
                       method=\"POST\"
                       
-                      onsubmit=\"return confirm('삭제하시겠습니까?');\">".
-                     csrf_field()."
+                      onsubmit=\"return confirm('삭제하시겠습니까?');\">" .
+                csrf_field() . "
                     <input name=\"id\" hidden
-                           value=\"".$skill->id."\">
+                           value=\"" . $skill->id . "\">
                     <i style=\"cursor: pointer\"
-                       id=\"".$skill->id."button\"
+                       id=\"" . $skill->id . "button\"
                        class=\"fa fa-times fa-lg\"></i>
                 </form>
                 <script>
-                    $(\"#".$skill->id."button\").click(function () {
+                    $(\"#" . $skill->id . "button\").click(function () {
                         $.ajax({
                             type: 'POST',
                             url: '/mypage/skill_delete',
-                            data: $(\"#del_form".$skill->id."\").serialize(),
+                            data: $(\"#del_form" . $skill->id . "\").serialize(),
                             success: function (data) {
                                 $.ajax({
                                         type:'GET',
@@ -271,24 +271,24 @@ class MypageController extends Controller
             echo "<tr>";
         }
     }
-    
+
     public function portfolio()
     {
         $loginUser = Auth::user();
         $portfolios = $loginUser->partners->portfolio;
 
-        return view('mypage/portfolio/portfolio_list', compact('loginUser','portfolios'));
+        return view('mypage/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
     }
-    
+
     public function portfolio_detail($id)
     {
-        if(Portfolio::find($id)->partner != Auth::user()->partners)
+        if (Portfolio::find($id)->partner != Auth::user()->partners)
             return redirect()->back();
 
         $loginUser = Auth::user();
         $portfolios = $loginUser->partners->portfolio;
 
-        return view('mypage/portfolio/portfolio_list', compact('loginUser','portfolios'));
+        return view('mypage/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
     }
 
     public function portfolio_create()
@@ -309,28 +309,42 @@ class MypageController extends Controller
         $new_port->from_date = $request->from_date;
         $new_port->to_date = $request->to_date;
         $new_port->participation_rate = $request->participation_rate;
-        $new_port->iscloudm = $request->checkbox1;
+        if($request->checkbox1 == null){ $new_port->iscloudm = false; }
+        else { $new_port->iscloudm = $request->checkbox1; }
+        
         $new_port->partner_id = Auth::user()->partners->id;
         $new_port->save();
 
 //
 //
 //        echo $request->image123;
-//            $file = $request->file('image123');
-//
-//
-//
-//        $tmpFilePath = '/files/portfolio/';
-//        $tmpFileName = "abc";
-////            $ext = $file->guessExtension();
-//        $file->move(public_path() . $tmpFilePath, $tmpFileName);
+        $file = $request->file('image1');
 
-//        $path = $tmpFilePath . $tmpFileName;
-//        $user = Auth::user();
-//        $user->update(['profileImage' => $path]);
+        $tmpFilePath = '/files/portfolio/';
+        $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_1";
+        $file->move(public_path() . $tmpFilePath, $tmpFileName);
+        $path = $tmpFilePath . $tmpFileName;
+        $new_port->image1 = $path;
 
+        if ($request->hasFile('image2')) {
+            $file = $request->file('image2');
+            $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_2";
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+            $path = $tmpFilePath . $tmpFileName;
+            $new_port->image2 = $path;
+        }
+        if ($request->hasFile('image3')) {
+            $file = $request->file('image3');
+            $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_3";
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+            $path = $tmpFilePath . $tmpFileName;
+            $new_port->image3 = $path;
+        }
+
+        $new_port->save();
+
+        return redirect()->action('MypageController@portfolio');
     }
-
 
 
     public function setting()

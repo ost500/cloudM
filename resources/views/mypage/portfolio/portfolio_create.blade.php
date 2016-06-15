@@ -106,11 +106,11 @@
                                                                                     aria-required="true"
                                                                                     aria-describedby="area-error">
                                                                                 <option value="">선택</option>
-                                                                                <option value="1">광고 의뢰</option>
-                                                                                <option value="2">운영 대행</option>
-                                                                                <option value="3">Viral</option>
-                                                                                <option value="4">1회성 프로젝트</option>
-                                                                                <option value="5">기타</option>
+                                                                                <option value="광고 의뢰">광고 의뢰</option>
+                                                                                <option value="운영 대행">운영 대행</option>
+                                                                                <option value="Viral">Viral</option>
+                                                                                <option value="1회성 프로젝트">1회성 프로젝트</option>
+                                                                                <option value="기타">기타</option>
                                                                             </select><span id="area-error"
                                                                                            class="help-block valid"
                                                                                            style="display: none;"></span>
@@ -127,13 +127,13 @@
                                                                                     aria-required="true"
                                                                                     aria-describedby="category-error">
                                                                                 <option value="">선택</option>
-                                                                                <option value="1">의료</option>
-                                                                                <option value="2">법률</option>
-                                                                                <option value="3">스타트업</option>
-                                                                                <option value="4">프랜차이즈</option>
-                                                                                <option value="5">교육/대학교</option>
-                                                                                <option value="6">쇼핑몰</option>
-                                                                                <option value="7">기타</option>
+                                                                                <option value="의료">의료</option>
+                                                                                <option value="법률">법률</option>
+                                                                                <option value="스타트업">스타트업</option>
+                                                                                <option value="프랜차이즈">프랜차이즈</option>
+                                                                                <option value="교육/대학교">교육/대학교</option>
+                                                                                <option value="쇼핑몰">쇼핑몰</option>
+                                                                                <option value="기타">기타</option>
                                                                             </select><span id="category-error"
                                                                                            class="help-block valid"
                                                                                            style="display: none;"></span>
@@ -148,9 +148,7 @@
                                                                     <textarea name="description" class="form-control"
                                                                               rows=10 aria-required="true"
                                                                               aria-describedby="description-error"
-                                                                              aria-invalid="false">
-
-                                                                    </textarea>
+                                                                              aria-invalid="false"></textarea>
                                                                             <span class="gry">한글 기준 5000자 이내로 작성해주세요.</span>
                                                                             <span id="description-error"
                                                                                   class="help-block valid"></span>
@@ -227,17 +225,22 @@
                                                                             </label>
                                                                             <div class="filebox">
                                                                                 <input
-                                                                                        id="image1_name"
+                                                                                        id="image1"
                                                                                        class="upload-name"
                                                                                        value="이미지를 등록해주세요"
-                                                                                       disabled="disabled">
-                                                                                <label for="ex_filename">이미지 업로드</label>
-                                                                                <input name="image123" type="file"
-                                                                                       id="ex_filename">
+                                                                                       disabled="disabled" aria-required="true"
+                                                                                        aria-describedby="image1-error">
+                                                                                <label class="upload_button" for="ex_filename" >이미지 업로드</label>
+                                                                                <input name="image1" type="file"
+                                                                                       id="ex_filename" accept="jpg,jpeg,png,gif">
+                                                                                <span
+                                                                                id="image1-error"
+                                                                                class="help-block valid"
+                                                                                style="display: none;"></span>
                                                                                 <script>
                                                                                     $("#ex_filename").change(function (ev) {
-                                                                                        alert(this.value);
-                                                                                        $("#image1_name").val(this.value);
+
+                                                                                        $("#image1").val(this.value);
                                                                                     });
                                                                                 </script>
                                                                             </div>
@@ -256,12 +259,12 @@
                                                                                         class="upload-name"
                                                                                        value="두번째 이미지를 등록해주세요"
                                                                                        disabled="disabled">
-                                                                                <label for="ex_filename2">이미지 업로드</label>
-                                                                                <input type="file" id="ex_filename2"
-                                                                                       class="upload-hidden">
+                                                                                <label class="upload_button" for="ex_filename2">이미지 업로드</label>
+                                                                                <input name="image2" type="file" id="ex_filename2"
+                                                                                       class="upload-hidden" accept="jpg,jpeg,png,gif">
                                                                                 <script>
                                                                                     $("#ex_filename2").change(function (ev) {
-                                                                                        alert(this.value);
+
                                                                                         $("#image2_name").val(this.value);
                                                                                     });
                                                                                 </script>
@@ -279,9 +282,9 @@
                                                                                 <input id="image3_name"
                                                                                         class="upload-name"
                                                                                        value="세번째 이미지를 등록해주세요"
-                                                                                       disabled="disabled">
-                                                                                <label for="ex_filename3">이미지 업로드</label>
-                                                                                <input type="file" id="ex_filename3"
+                                                                                       disabled="disabled" accept="jpg,jpeg,png,gif">
+                                                                                <label class="upload_button" for="ex_filename3">이미지 업로드</label>
+                                                                                <input name="image3" type="file" id="ex_filename3"
                                                                                        class="upload-hidden">
                                                                                 <script>
                                                                                     $("#ex_filename3").change(function (ev) {
@@ -423,14 +426,36 @@
 
     <script src="/js/form_wizard_main.js"></script>
     <!-- end: Packet JAVASCRIPTS -->
-
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
 
     <script>
 
 
         $("#form").validate({
             rules: {
-                title: "required"
+                title: "required",
+                area:"required",
+                category:"required",
+                description: {required:true, maxlength:10000},
+                from_date: {required:true,date: true},
+                to_date: {required:true,date: true},
+                participation_rate: {required:true,
+                                        range:[0,100]},
+                image1: {required:true,extension: "jpg|jpeg|png|gif"},
+                image2: {extension: "jpg|jpeg|png|gif"},
+                image3: {extension: "jpg|jpeg|png|gif"},
+
+            },
+            messages: {
+                title: "제목을 입력해 주세요",
+                area: "분야를 선택해 주세요",
+                category: "업종을 선택해 주세요",
+                description: "입력해 주세요",
+                from_date: "참여 시작일을 입력해 주세요",
+                to_date: "참여 종료일을 입력해 주세요",
+                participation_rate: "참여율을 입력해 주세요",
+                image1: {required:"업로드해 주세요",
+                    extension:"이미지 파일을 확인해 주세요"},
             },
             highlight: function (element) {
                 $(element).closest('.help-block').removeClass('valid');
@@ -447,8 +472,12 @@
                 // mark the current input as valid and display OK icon
                 $(element).closest('.form-group').removeClass('has-error').addClass('has-success').find('.symbol').removeClass('required').addClass('ok');
             }
-        });
 
+
+        })
+        jQuery.extend(jQuery.validator.messages, {
+            extension:"이미지 파일을 확인해 주세요"
+        });
 
     </script>
 

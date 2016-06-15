@@ -6328,7 +6328,7 @@ span.gry {
     width: 100%;
 }
 
-.filebox label {
+.filebox > label.upload_button {
     width: 120px;
     display: inline-block;
     padding: .5em .75em .55em;
@@ -6386,4 +6386,22 @@ span.gry {
 .checkbox_css02 input {
     vertical-align: middle;
     margin-top: 3px;
+}
+
+.thum_title {
+    font-size: 18px;
+    margin-top: 7px;
+    margin-bottom: 2px;
+}
+
+.thum_category {
+    font-size: 12px;
+    color: #777;
+}
+
+.thum_imgbox {
+    height: 200px;
+    margin: 0px auto;
+    text-align: center;
+    overflow: hidden;
 }
