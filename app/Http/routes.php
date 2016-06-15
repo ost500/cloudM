@@ -119,6 +119,10 @@ Route::get("/portfolio/{id}", 'MypageController@portfolio_detail')
     ->where(['id' => '[1-9]+']);
 Route::post("/portfolio/delete/{id}", 'MypageController@portfolio_delete')
     ->where(['id' => '[1-9]+']);
+Route::get("/portfolio/update/{id}",'MypageController@portfolio_update')
+    ->where(['id' => '[1-9]+']);
+Route::post("/portfolio/update/{id}",'MypageController@portfolio_update_post')
+    ->where(['id' => '[1-9]+']);
 
 
 

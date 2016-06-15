@@ -293,7 +293,7 @@ class MypageController extends Controller
 
     public function portfolio_create()
     {
-        if (Auth::user()->partners->user->PorC != "P"){
+        if (Auth::user()->PorC != "P"){
             return redirect()->back();
         }
         $loginUser = Auth::user();
@@ -356,8 +356,73 @@ class MypageController extends Controller
     {
         $del_portfolio = Portfolio::find($request->id);
         $del_portfolio->delete();
-        
+
     }
+    public function portfolio_update($id)
+    {
+        if (Portfolio::find($id)->partner->user->id != Auth::user()->id){
+            return response()->view('errors.503');
+        }
+        $loginUser = Auth::user();
+        $portfolio = Portfolio::find($id);
+
+        return view('mypage/portfolio/portfolio_update', compact('loginUser','portfolio'));
+
+    }
+
+    public function portfolio_update_post(Request $request, $id)
+    {
+        $new_port = Portfolio::find($id);
+        $new_port->title = $request->title;
+        $new_port->iscloudm = $request->checkbox1;
+        $new_port->area = $request->area;
+        $new_port->category = $request->category;
+        $new_port->description = $request->description;
+        $new_port->from_date = $request->from_date;
+        $new_port->to_date = $request->to_date;
+        $new_port->participation_rate = $request->participation_rate;
+        if ($request->checkbox1 == null) {
+            $new_port->iscloudm = false;
+        } else {
+            $new_port->iscloudm = $request->checkbox1;
+        }
+
+        $new_port->partner_id = Auth::user()->partners->id;
+        $new_port->save();
+
+        if ($request->hasFile('image2') ) {
+//        echo $request->image123;
+            $file = $request->file('image1');
+
+            $tmpFilePath = '/files/portfolio/';
+            $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_1";
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+            $path = $tmpFilePath . $tmpFileName;
+            $new_port->image1 = $path;
+        }
+
+        if ($request->hasFile('image2') ) {
+            $file = $request->file('image2');
+            $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_2";
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+            $path = $tmpFilePath . $tmpFileName;
+            $new_port->image2 = $path;
+        }
+        if ($request->hasFile('image3')) {
+            $file = $request->file('image3');
+            $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_3";
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+            $path = $tmpFilePath . $tmpFileName;
+            $new_port->image3 = $path;
+        }
+
+        $new_port->save();
+
+        return redirect()->action('MypageController@portfolio_detail',[$new_port->id]);
+
+    }
+
+
 
 
     public function setting()
