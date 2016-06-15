@@ -58,8 +58,6 @@ if (defined('G5_IS_ADMIN')) {
         echo '<link rel="stylesheet" href="'.G5_ADMIN_URL.'/css/admin.css">'.PHP_EOL;
 		echo '<link rel="stylesheet" href="'.G5_ADMIN_URL.'/css/admin_bootstrap.css">'.PHP_EOL;
         echo '<link rel="stylesheet" href="/css/font-awesome.min.css">'.PHP_EOL;
-        echo '<link rel="stylesheet" href="/css/multiple-select.css">'.PHP_EOL;
-        echo '<link rel="stylesheet" href="/css/ionicons-2.0.1/css/ionicons.min.css">'.PHP_EOL;
 	}
 } else {
     echo '<link rel="stylesheet" href="'.G5_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').'.css">'.PHP_EOL;
@@ -90,9 +88,7 @@ var g5_admin_url = "<?php echo G5_ADMIN_URL; ?>";
 
 
 <script src="/js/jquery-1.11.0.min.js"></script>
-<script src="http://cdn.jsdelivr.net/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="/js/formValidation.min.js"></script>
-<script src="/js/formvalidation/framework/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <?php
 if(G5_IS_MOBILE) {

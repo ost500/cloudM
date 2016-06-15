@@ -1,0 +1,355 @@
+/**
+ * @author zhixin wen <wenzhixin2010@gmail.com>
+ */
+
+.ms-parent {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    padding:0;
+}
+
+.ms-choice {
+    display: block;
+    width: 100%;
+    height: 26px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+    text-align: left;
+    white-space: nowrap;
+    line-height: 26px;
+    color: #444;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #fff;
+    border-bottom-color: #3c763d !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: dotted;
+    border-color: #3c763d !important;
+    border-width: 1px !important;
+    border-style: dotted;
+}
+
+.ms-choice.disabled {
+    background-color: #f4f4f4;
+    background-image: none;
+    border: 1px solid #ddd;
+    cursor: default;
+}
+
+.ms-choice > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    padding-left: 8px;
+}
+
+.ms-choice > span.placeholder {
+    color: #999;
+}
+
+.ms-choice > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 25px;
+    background: url('/images/multiple-select.png') left top no-repeat;
+}
+
+.ms-choice > div.open {
+    background: url('/images/multiple-select.png') right top no-repeat;
+}
+
+.ms-drop {
+    width: 100%;
+    overflow: hidden;
+    display: none;
+    margin-top: -1px;
+    padding: 0;
+    position: absolute;
+    z-index: 1000;
+    background: #f8f8f8;
+    color: #000;
+    border-bottom-color: #3c763d !important;
+    border-bottom-width: 1px !important;
+    border-bottom-style: dotted;
+    border-color: #3c763d !important;
+    border-width: 1px !important;
+    border-style: dotted;
+}
+
+.ms-drop.bottom {
+    top: 100%;
+    -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
+}
+
+.ms-drop.top {
+    bottom: 100%;
+    -webkit-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+    box-shadow: 0 -4px 5px rgba(0, 0, 0, .15);
+}
+
+.ms-search {
+    display: inline-block;
+    margin: 0;
+    min-height: 26px;
+    padding: 4px;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 10000;
+}
+
+.ms-search input {
+    width: 100%;
+    height: auto !important;
+    min-height: 24px;
+    padding: 0 20px 0 5px;
+    margin: 0;
+    outline: 0;
+    font-family: sans-serif;
+    font-size: 1em;
+    border: 1px solid #aaa;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: #fff url('multiple-select.png') no-repeat 100% -22px;
+    background: url('multiple-select.png') no-repeat 100% -22px, -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
+    background: url('multiple-select.png') no-repeat 100% -22px, -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background: url('multiple-select.png') no-repeat 100% -22px, -moz-linear-gradient(center bottom, white 85%, #eeeeee 99%);
+    background: url('multiple-select.png') no-repeat 100% -22px, -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
+    background: url('multiple-select.png') no-repeat 100% -22px, -ms-linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+    background: url('multiple-select.png') no-repeat 100% -22px, linear-gradient(top, #ffffff 85%, #eeeeee 99%);
+}
+
+.ms-search, .ms-search input {
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ms-drop ul {
+    overflow: auto;
+    margin: 0;
+    padding: 5px 8px;
+}
+
+.ms-drop ul > li {
+    list-style: none;
+    display: list-item;
+    background-image: none;
+    position: static;
+}
+
+.ms-drop ul > li .disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+}
+
+.ms-drop ul > li.multiple {
+    display: block;
+    float: left;
+}
+
+.ms-drop ul > li.group {
+    clear: both;
+}
+
+.ms-drop ul > li.multiple label {
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ms-drop ul > li label {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+}
+
+.ms-drop ul > li label.optgroup {
+    font-weight: bold;
+}
+
+.ms-drop input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.ms-drop .ms-no-results {
+    display: none;
+}
+
+
+.ms-drop ul li label input[type="checkbox"]::before {
+    content: "\A";
+    font-family: "Ionicons";
+    color: rgba(27, 34, 44, 0.88);
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 2.5px;
+    background: #fff;
+    height: 16px;
+    width: 16px;
+    border: 1px solid rgba(27, 34, 44, 0.16);
+    margin-right: 0;
+    transition: all 0.05s ease-in-out;
+}
+.ms-drop ul li.selected label input[type="checkbox"]::before {
+    content: "\f121";
+    color: rgba(27, 34, 44, 0.88);
+    background: #fff;
+    transition: all 0.05s ease-in-out;
+    line-height: 14px;
+}
+.ms-drop ul li input[type="radio"],
+.ms-drop ul li input[type="checkbox"] {
+    line-height: 0!important;
+    margin: 0;
+}
+
+
+.ms-drop ul > li label {
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 8px;
+}
+.ms-drop ul > li label input[type="checkbox"] {
+  margin-right: 16px!important;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  color: #212121;
+  content: "\a ";
+  display: inline-block;
+  font-family: "Ionicons";
+  font-size: 10px;
+  position: relative;
+  text-align: center;
+  transition: all 0.05s ease-in-out 0s;
+  vertical-align: middle;
+  float: left;
+}
+
+
+.ms-choice {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.01) inset !important;
+  color: #424242;
+  height: 32px!important;
+  line-height: 32px!important;
+  padding: 6px 8px;
+  border-radius: 2px!important;
+  width: 100%;
+
+border-bottom-color: #3c763d !important;
+border-bottom-width: 1px !important;
+border-bottom-style: dotted;
+border-color: #3c763d !important;
+border-width: 1px !important;
+border-style: dotted;
+}
+.ms-choice > div {
+  height: 32px!important;
+  top: 4px!important;
+}
+.ms-choice:focus {
+  background: #fff none repeat scroll 0 0;
+  border: 1px solid #03a9f4;
+  box-shadow: 0 0 1px 0 #c5ecfe !important;
+}
+
+
+
+select[multiple] {
+    border-radius: 2.5px;
+    border: 1px solid #edeff0;
+}
+
+select[multiple], select[size] {
+    height: auto;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select  {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+
+
+
+/*  selectboxit  */
+select.form-control {
+    color: rgba(27, 34, 44, 0.72);
+    padding: 6px 6px;
+}
+.form-control {
+    border: 1px solid #edeff0;
+    padding: 6px 8px;
+    color: rgba(27, 34, 44, 0.72);
+    height: 32px;
+    background: #fff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.02) !important;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 33px;
+    padding: 6px 8px;
+    font-size: 12.5px;
+    line-height: 1.54;
+    color: rgba(27, 34, 44, 0.88);
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #edeff0;
+    border-radius: 2.5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+.selectboxit-container.selectboxit-container, .selectboxit-options {
+    width: 100%!important;
+}
+.selectboxit-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}

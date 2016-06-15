@@ -22,6 +22,8 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/ionicons-2.0.1/css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/multiple-select.css') }}" rel="stylesheet">
 
     <!-- Online Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,800,200,500' rel='stylesheet' type='text/css'>
