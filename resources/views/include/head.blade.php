@@ -33,7 +33,7 @@
           type='text/css'>
 
     <!-- COLORS -->
-    <link rel="stylesheet" id="color" href="../css/colors/default.css">
+    <link rel="stylesheet" id="color" href="{{ asset('css/colors/default.css') }}">
 
     <!-- JavaScripts -->
     <script src="{{ asset('js/modernizr.js') }}"></script>
