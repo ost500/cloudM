@@ -111,15 +111,32 @@
 
                                             <div class="job-tittle02 txt_color_g">
                                                 <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
-                                                <a href="#." class="more_btn margin-top-20">더보기 ></a>
+                                                <a href="{{ url('/portfolio_list/'.$partner->id) }}"
+                                                   class="more_btn margin-top-20">더보기 ></a>
                                                 <div class="row">
                                                     @if($partner->portfolio->isEmpty())
                                                         포트폴리오가 없습니다
                                                     @endif
-                                                    @foreach($portfolios as $port)
-                                                        <div class="col-lg-4 port-img-d"><img
-                                                                    class="img-responsive port-img"
-                                                                    src="{{ $port->image1 }}"></div>
+                                                    @foreach($portfolios as $portfolio)
+                                                        <div class="col-md-4">
+                                                            <div class="thumbnail">
+                                                                <div class="thum_imgbox">
+                                                                    <a href="{{ url('/portfolio/'.$portfolio->id) }}"><img
+                                                                                src="{{ $portfolio->image1 }}" alt=""
+                                                                                class="img-responsive"></a>
+                                                                </div>
+                                                                <div class="caption">
+                                                                    <a href="{{ url('/portfolio/'.$portfolio->id) }}">
+                                                                        <h3 class="thum_title">{{ $portfolio->title }}</h3>
+                                                                    </a>
+                                                                    <p class="thum_category">{{ $portfolio->area }}
+                                                                        > {{ $portfolio->category }}</p>
+                                                                    <p><a href="{{ url('/portfolio/'.$portfolio->id) }}"
+                                                                          class="btn btn-primary margin-top-10"
+                                                                          role="button">자세히보기</a></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     @endforeach
                                                 </div>
                                             </div>

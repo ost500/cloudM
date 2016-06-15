@@ -9,6 +9,7 @@ use App\Partners;
 use App\Portfolio;
 use App\Project;
 use App\Skill;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -272,9 +273,9 @@ class MypageController extends Controller
         }
     }
 
-    public function portfolio()
+    public function portfolio($id)
     {
-        $loginUser = Auth::user();
+        $loginUser = User::find($id);
         $portfolios = $loginUser->partners->portfolio;
 
         return view('mypage/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
@@ -282,17 +283,19 @@ class MypageController extends Controller
 
     public function portfolio_detail($id)
     {
-        if (Portfolio::find($id)->partner != Auth::user()->partners)
-            return redirect()->back();
 
         $loginUser = Auth::user();
-        $portfolios = $loginUser->partners->portfolio;
+        $portfolios = Portfolio::find($id);
 
-        return view('mypage/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
+
+        return view('mypage/portfolio/portfolio_detail', compact('loginUser', 'portfolios'));
     }
 
     public function portfolio_create()
     {
+        if (Auth::user()->partners->user->PorC != "P"){
+            return redirect()->back();
+        }
         $loginUser = Auth::user();
 
         return view('mypage/portfolio/portfolio_create', compact('loginUser'));
@@ -309,9 +312,12 @@ class MypageController extends Controller
         $new_port->from_date = $request->from_date;
         $new_port->to_date = $request->to_date;
         $new_port->participation_rate = $request->participation_rate;
-        if($request->checkbox1 == null){ $new_port->iscloudm = false; }
-        else { $new_port->iscloudm = $request->checkbox1; }
-        
+        if ($request->checkbox1 == null) {
+            $new_port->iscloudm = false;
+        } else {
+            $new_port->iscloudm = $request->checkbox1;
+        }
+
         $new_port->partner_id = Auth::user()->partners->id;
         $new_port->save();
 
@@ -343,7 +349,14 @@ class MypageController extends Controller
 
         $new_port->save();
 
-        return redirect()->action('MypageController@portfolio');
+        return redirect()->action('MypageController@portfolio',[Auth::user()->id]);
+    }
+
+    public function portfolio_delete(Request $request)
+    {
+        $del_portfolio = Portfolio::find($request->id);
+        $del_portfolio->delete();
+        
     }
 
 

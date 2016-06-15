@@ -81,12 +81,12 @@
                                                         <div class="col-md-4">
                                                             <div class="thumbnail">
                                                                 <div class="thum_imgbox">
-                                                                    <img src="{{ $portfolio->image1 }}" alt="" class="img-responsive">
+                                                                    <a href="{{ url('/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}" alt="" class="img-responsive"></a>
                                                                 </div>
                                                                 <div class="caption">
-                                                                    <h3 class="thum_title">{{ $portfolio->title }}</h3>
+                                                                    <a href="{{ url('/portfolio/'.$portfolio->id) }}"><h3 class="thum_title">{{ $portfolio->title }}</h3></a>
                                                                     <p class="thum_category">{{ $portfolio->area }} > {{ $portfolio->category }}</p>
-                                                                    <p><a href="#" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>
+                                                                    <p><a href="{{ url('/portfolio/'.$portfolio->id) }}" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>
                                                                 </div>
                                                             </div>
                                                         </div>

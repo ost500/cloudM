@@ -107,14 +107,18 @@ Route::post('/mypage/skill_edit', 'MypageController@mypage_skill_edit_post');
 Route::post('/mypage/skill_delete', 'MypageController@mypage_skill_del_post');
 //프로필 skill list
 Route::get("/mypage/skill_list", 'MypageController@skills_list');
-//프로필 포트폴리오 자세히 list
-Route::get("/mypage/portfolio_list", 'MypageController@portfolio');
+
 //프로필 포트폴리오 create
 Route::get("/portfolio/create", 'MypageController@portfolio_create');
 Route::post("/portfolio/create", 'MypageController@portfolio_create_post');
+//프로필 포트폴리오 자세히 list
+Route::get("/portfolio_list/{id}", 'MypageController@portfolio')
+    ->where(['id' => '[1-9]+']);
 //프로필 포트폴리오 detail
-Route::get("/mypage/portfolio_list/{id}", 'MypageController@portfolio_detail')
-    ->where(['id' => '[1-9]']);
+Route::get("/portfolio/{id}", 'MypageController@portfolio_detail')
+    ->where(['id' => '[1-9]+']);
+Route::post("/portfolio/delete/{id}", 'MypageController@portfolio_delete')
+    ->where(['id' => '[1-9]+']);
 
 
 

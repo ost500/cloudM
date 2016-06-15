@@ -12,16 +12,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
 
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/form.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="../css/ionicons.min.css" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
-    <link href="../css/modern-business.css" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
 
     <!-- Online Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,800,200,500' rel='stylesheet' type='text/css'>
@@ -34,8 +34,8 @@
     <link rel="stylesheet" id="color" href="../css/colors/default.css">
 
     <!-- JavaScripts -->
-    <script src="../js/modernizr.js"></script>
-    <script src="/js/jquery-1.11.0.min.js"></script>
+    <script src="{{ asset('js/modernizr.js') }}"></script>
+    <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -271,7 +271,7 @@
 </div>
 
 
-<script src="/js/signup.js"></script>
+<script src="{{ asset('js/signup.js') }}"></script>
 
 
 {{--<script>--}}
