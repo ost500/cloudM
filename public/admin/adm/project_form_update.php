@@ -14,19 +14,21 @@ check_admin_token();
 $id = trim($_POST['id']);
 
 
-$sql_common = "  area					= '{$_POST['area']}',
-                 category				= '{$_POST['category']}',
-                 title					= '{$_POST['title']}',
-                 budget					= '{$_POST['budget']}',
-                 managing_experience	= '{$_POST['managing_experience']}',
-                 expected_start_date	= '{$_POST['expected_start_date']}',
-                 meeting_way			= '{$_POST['meeting_way']}',
-                 address_sido			= '{$_POST['address_sido']}',
-                 detail_content			= '{$_POST['detail_content']}',
-				 deadline				= '{$_POST['deadline']}',
-				 reason					= '{$_POST['reason']}',
-				 purpose				= '{$_POST['purpose']}',
-				 estimated_duration		= '{$_POST['estimated_duration']}' ";
+$sql_common = " charger_name			= '{$_POST['charger_name']}',
+                charger_phone			= '{$_POST['charger_phone']}',
+                area					= '{$_POST['area']}',
+                category				= '{$_POST['category']}',
+                title					= '{$_POST['title']}',
+                budget					= '{$_POST['budget']}',
+                managing_experience	    = '{$_POST['managing_experience']}',
+                expected_start_date	    = '{$_POST['expected_start_date']}',
+                meeting_way			    = '{$_POST['meeting_way']}',
+                address_sido			= '{$_POST['address_sido']}',
+                detail_content			= '{$_POST['detail_content']}',
+				deadline				= '{$_POST['deadline']}',
+				reason					= '{$_POST['reason']}',
+				purpose				    = '{$_POST['purpose']}',
+				estimated_duration		= '{$_POST['estimated_duration']}' ";
 
 if ($w == '')
 {

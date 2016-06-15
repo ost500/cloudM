@@ -79,12 +79,12 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
         </td>
     </tr>
     <tr>
-        <th scope="row"><label for="name">광고주명<?php echo $sound_only ?></label></th>
+        <th scope="row"><label for="name">담당자<?php echo $sound_only ?></label></th>
         <td>
-            <input type="text" name="name" value="<?php echo $project['name'] ?>" id="name" required class="frm_input required" size="60" minlength="3" maxlength="20">
+            <input type="text" name="charger_name" value="<?php echo $project['charger_name'] ?>" id="name" required class="frm_input required" size="60" minlength="3" maxlength="20">
         </td>
         <th scope="row"><label for="phone">연락처<?php echo $sound_only ?></label></th>
-        <td><input type="text" name="phone" id="phone" required class="frm_input required" size="60" maxlength="20"></td>
+        <td><input type="text" name="charger_phone" value="<?php echo $project['charger_phone'] ?>" id="phone" required class="frm_input required" size="60" maxlength="20"></td>
     </tr>
     <tr>
         <th scope="row"><label for="company_type">회사형태<strong class="sound_only">필수</strong></label></th>
@@ -103,7 +103,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
         <th scope="row"><label for="mb_signature">광고주소개</label></th>
         <td colspan="3"><textarea  name="mb_signature" id="mb_signature"><?php echo $project['mb_signature'] ?></textarea></td>
     </tr>
-	<tr>
+	<!--tr>
 		<th scope="row"><label for="area">분야<strong class="sound_only">필수</strong></label></th>
 		<td colspan="3">
 			<select name="area" id="area" required class="required frm_input">
@@ -147,7 +147,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 
 		</td>
-	</tr>
+	</tr-->
     <tr>
         <th scope="row"><label for="area">분야<strong class="sound_only">필수</strong></label></th>
         <td colspan="3">
@@ -158,58 +158,17 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 <?php
 	for ($i = 0; $areas = sql_fetch_array($area_result); $i++)
 	{
-?>
-		<div class="form-group" data-area-index="<?=$i?>">
-			<div class="col-xs-3" style="padding-left:0px;">
-				<select id="optgroups<?=$i?>" name="areas[<?=$i?>][0]" class="form-control selectBoxIt">
-					<option value="">매체 선택</option>
-					<optgroup label="광고 의뢰">
-						<option value="네이버CPC">네이버CPC</option>
-						<option value="구글광고">구글광고</option>
-						<option value="페이스북 스폰서광고">페이스북 스폰서광고</option>
-						<option value="기타">기타</option>
-					</optgroup>
-					<optgroup label="바이럴">
-						<option value="네이버SEO">네이버SEO</option>
-						<option value="언론보도">언론보도</option>
-						<option value="컨텐츠배포">컨텐츠배포</option>
-						<option value="체험단모집">체험단모집</option>
-					</optgroup>
-					<optgroup label="운영대행">
-						<option value="블로그">블로그</option>
-						<option value="페이스북페이지">페이스북페이지</option>
-						<option value="기타SNS">기타SNS</option>
-						<option value="홈페이지">홈페이지</option>
-					</optgroup>
-					<optgroup label="1회성 프로젝트">
-						<option value="개발">개발</option>
-						<option value="디자인">디자인</option>
-						<option value="웹툰">웹툰</option>
-						<option value="영상">영상</option>
-					</optgroup>
-				</select>
-				<script> $(function() { $("#optgroups<?=$i?>").val("<?=$areas[area]?>"); }); </script>
-			</div>
+		include("./project_form_area.skin.php");
 
-			<div class="col-xs-3" style="padding-left:0px;">
-				<input type="text" class="form-control" name="areas[<?=$i?>][1]" value="<?php echo $areas['price']?>" placeholder="견적"/>
-			</div>
-			<div class="col-xs-3" style="padding-left:0px;">
-				<input type="text" class="form-control" name="areas[<?=$i?>][2]" value="<?php echo $areas['commission']?>" placeholder="수수료"/>
-			</div>
-			<div class="col-xs-1" style="padding-left:0px;">
-				<button type="button" class="btn btn-default <?=($i==0)?"addButton":"removeButton";?>"><i class="fa fa-<?=($i==0)?"plus":"minus";?>"></i>
-				</button>
-			</div>
-		</div>
-<?php
 		if ($areas_total > ($i+1)) $area_index++;
 	}
+
+	if ($i == 0) include("./project_form_area.skin.php");
 ?>
 							<!-- The template for adding new field -->
 							<div class="form-group hide" id="areaTemplate">
 								<div class="col-xs-3" style="padding-left:0px;">
-									<select id="optgroups" name="area" class="form-control selectBoxIt">
+									<select id="optgroups" name="area" class="frm_input">
 										<option value="">매체 선택</option>
 										<optgroup label="광고 의뢰">
 											<option value="네이버CPC">네이버CPC</option>
@@ -237,14 +196,14 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 										</optgroup>
 									</select>
 								</div>
-								<div class="col-xs-3" style="padding-left:0px;">
-									<input type="text" class="form-control" name="price" placeholder="견적" />
+								<div class="col-xs-3" style="padding-left:30px;">
+									<input type="text" class="frm_input" name="price" placeholder="견적" />
 								</div>
-								<div class="col-xs-3" style="padding-left:0px;">
-									<input type="text" class="form-control" name="commission" placeholder="수수료" />
+								<div class="col-xs-3" style="padding-left:40px;">
+									<input type="text" class="frm_input" name="commission" placeholder="수수료" />
 								</div>
-								<div class="col-xs-1" style="padding-left:0px;">
-									<button type="button" id="addButton" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+								<div class="col-xs-1" style="padding-left:40px;">
+									<button type="button" id="addButton" class="btn-xs btn-default removeButton"><i class="fa fa-minus"></i></button>
 								</div>
 							</div>
 						</div>

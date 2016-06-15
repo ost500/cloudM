@@ -412,9 +412,9 @@ if ($gr_id) {
 // 회원, 비회원 구분
 $is_member = $is_guest = false;
 $is_admin = '';
-if ($member['mb_id']) {
+if ($member['email']) {
     $is_member = true;
-    $is_admin = is_admin($member['mb_id']);
+    $is_admin = is_admin($member['email']);
     $member['mb_dir'] = substr($member['mb_id'],0,2);
 } else {
     $is_guest = true;
