@@ -28,6 +28,8 @@ return array(
     'CreatePartnersTable' => $baseDir . '/database/migrations/2016_04_28_044149_create_partners_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePortfoliosTable' => $baseDir . '/database/migrations/2016_06_13_021837_create_portfolios_table.php',
+    'CreateProjectAreasTable' => $baseDir . '/database/migrations/2016_06_14_063642_create_project_areas_table.php',
+    'CreateProjectProposalsTable' => $baseDir . '/database/migrations/2016_06_13_020108_create_project_proposals_table.php',
     'CreateSkillsTable' => $baseDir . '/database/migrations/2016_06_13_054423_create_skills_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
