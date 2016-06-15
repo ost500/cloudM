@@ -80,10 +80,19 @@ $colspan = 16;
 </form>
 
 <?php if ($is_admin == 'super') { ?>
-    <div class="btn_add01 btn_add">
-        <a href="./project_form.php" id="member_add">프로젝트 추가</a>
-    </div>
+
 <?php } ?>
+
+<div class="btn_add01 btn_add" style="position: absolute; right:0px;">
+    <a href="./project_form.php" id="member_add">프로젝트 추가</a>
+</div>
+
+<div class="btn_list01 btn_list">
+    <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
+    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+
+
+</div>
 
 <form name="fmemberlist" id="fmemberlist" action="./project_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
     <input type="hidden" name="sst" value="<?php echo $sst ?>">
@@ -98,60 +107,69 @@ $colspan = 16;
             <caption><?php echo $g5['title']; ?> 목록</caption>
             <thead>
             <tr>
-                <th scope="col" rowspan="2" id="project_list_chk">
+                <th scope="col" id="project_list_chk" rowspan="2">
                     <label for="chkall" class="sound_only">회원 전체</label>
                     <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
+
+                    <?php echo subject_sort_link('step') ?>상태</a>
                 </th>
                 <th scope="col" rowspan="2" id="project_list_title"><?php echo subject_sort_link('title') ?>프로젝트명</a></th>
-				<th scope="col" rowspan="2" id="project_list_mng"><?php echo subject_sort_link('step') ?>상태</a></th>
-                <th scope="col" id="project_list_name"><?php echo subject_sort_link('mb_name') ?>지역</a></th>
+                <th scope="col" id="project_list_mobile">담당자</th>
+                <th scope="col" id="project_list_name"><?php echo subject_sort_link('estimated_duration') ?>예상 기간</a></th>
+                <th scope="col" id="project_list_name"><?php echo subject_sort_link('purpose') ?>진행 목적</a></th>
                 <th scope="col" rowspan="2" id="project_list_mng">설명</th>
-                <th scope="col" id="project_list_mobile">이름</th>
+                <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('deadline', '', 'desc') ?>지원 마감일</a></th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>등록시간</a></th>
                 <th scope="col" rowspan="2" id="project_list_mng">지원자</th>
             </tr>
             <tr>
-                <th scope="col" id="project_list_nick"><?php echo subject_sort_link('mb_nick') ?>카테고리</a></th>
-                <th scope="col" id="project_list_tel">연락처</th>
+                <th scope="col" id="project_list_nick"><?php echo subject_sort_link('mb_nick') ?>연락처</a></th>
+                <th scope="col" id="project_list_tel">예상 예산</th>
+                <th scope="col" id="project_list_tel">등록 사유</th>
+                <th scope="col" id="project_list_join"><?php echo subject_sort_link('expected_start_date', '', 'desc') ?>예상 시작일</a></th>
                 <th scope="col" id="project_list_join"><?php echo subject_sort_link('mb_datetime', '', 'desc') ?>승인시간</a></th>
             </tr>
             </thead>
             <tbody>
             <?php
             for ($i=0; $row=sql_fetch_array($result); $i++) {
-            ?>
+                $bg = 'bg'.($i%2);
+                $updated_at = ($row['created_at']==$row['updated_at'])?"검수중":$row['updated_at'];
 
+            ?>
                 <tr class="<?php echo $bg; ?>">
-                    <td headers="project_list_chk" class="td_chk" rowspan="2">
+                    <td class="td_40" rowspan="2">
                         <input type="hidden" name="project_id[<?php echo $i ?>]" value="<?php echo $row['project_id'] ?>" id="project_id_<?php echo $i ?>">
 
                         <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
+
+                        <select name="step[<?php echo $i ?>]" id="step<?=$i?>" required class="required frm_input">
+                            <option value="">선택</option>
+                            <option value="검수">검수</option>
+                            <option value="게시">게시</option>
+                            <option value="미팅">미팅</option>
+                            <option value="계약">계약</option>
+                            <option value="대금지급">대금지급</option>
+                            <option value="환불">환불</option>
+                            <option value="취소">취소</option>
+                        </select>
+                        <script> $(function() { $("#step<?=$i?>").val("<?=$row[step]?>"); }); </script>
                     </td>
                     <td rowspan="2" class="td_id"><a href="project_form.php?id=<?=$row[project_id]?>&w=u&<?=$qrst?>"> <?php echo $row[title] ?></a></td>
-					<td rowspan="2" class="td_40">
-					<select name="step[<?php echo $i ?>]" id="step<?=$i?>" required class="required frm_input">
-						<option value="">선택</option>
-						<option value="검수">검수</option>
-						<option value="게시">게시</option>
-						<option value="미팅">미팅</option>
-						<option value="계약">계약</option>
-						<option value="대금지급">대금지급</option>
-						<option value="환불">환불</option>
-						<option value="취소">취소</option>
-					</select>
-                    <script> $(function() { $("#step<?=$i?>").val("<?=$row[step]?>"); }); </script>
-					</td>
-                    <td class="td_60"><?php echo $row[area] ?></td>
+                    <td class="td_60"><?php echo $row[charger_name] ?></td>
+                    <td class="td_60"><?php echo $row[estimated_duration] ?></td>
+                    <td class="td_60"><?php echo $row[purpose] ?></td>
                     <td rowspan="2" class="td_intro"><?php echo cut_str($row[detail_content], 140); ?></td>
-                    <td class="td_tel"><?php echo $row[name] ?></td>
-
+                    <td class="td_date"><?php echo $row['deadline'] ?></td>
                     <td class="td_date"><?php echo $row['created_at'] ?></td>
                     <td class="td_mngsmall" rowspan=2><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>">지원자</a> <?php echo $s_grp ?></td>
                 </tr>
                 <tr class="<?php echo $bg; ?>">
-                    <td class="td_60"><div><?php echo $row[category] ?></div></td>
-                    <td class="td_tel"><?php echo get_text($row['phone_num']); ?></td>
-                    <td class="td_date"><?php echo substr($row['mb_datetime'],2,8); ?></td>
+                    <td class="td_60"><?php echo get_text($row['charger_phone']); ?></td>
+                    <td class="td_60"><div><?php echo number_format($row[budget]); ?></div></td>
+                    <td class="td_date"><?php echo $row['reason']; ?></td>
+                    <td class="td_date"><?php echo $row['expected_start_date']; ?></td>
+                    <td class="td_date"><?php echo $row[updated_at]; ?></td>
                 </tr>
 
                 <?php

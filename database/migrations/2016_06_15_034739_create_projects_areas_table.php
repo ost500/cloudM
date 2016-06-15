@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectAreasTable extends Migration
+class CreateProjectsAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateProjectAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_areas', function (Blueprint $table) {
+        Schema::create('projects_areas', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('p_id')->unsigned()->index();
@@ -36,6 +36,6 @@ class CreateProjectAreasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('project_areas');
+        Schema::drop('projects_areas');
     }
 }
