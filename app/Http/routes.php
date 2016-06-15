@@ -25,14 +25,13 @@ Route::get('/p_update/{id}', 'CreateController@update_project_form')
 Route::post('/p_update', 'CreateController@update_project');
 
 
-
 //프로젝트
 Route::get('/p_search', 'SearchController@p_search');
 //프로젝트 list
 Route::get('/p_search/{SearchOption}/{page?}/{sort?}/{keyword?}', 'SearchController@get_p_list')
     ->where(['SearchOption' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '[1-4]']);
 //프로젝트 pagination
-Route::get('/p_search/pagination/{start}/{end}','SearchController@pagination');
+Route::get('/p_search/pagination/{start}/{end}', 'SearchController@pagination');
 //프로젝트 상세화면
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
@@ -45,14 +44,13 @@ Route::post('/commentdel', 'SearchController@delete_comment');
 
 //파트너
 Route::get('/partner', 'PartnerController@partner');
-Route::get('/partner/{id}','PartnerController@detail')
+Route::get('/partner/{id}', 'PartnerController@detail')
     ->where(['id' => '[0-9]+']);
 //파트너 list
 Route::get('/partner/{page}/{option}/{option2}/{keyword?}', 'PartnerController@partner_list')
     ->where(['page' => '[0-9]+']);
 //프로젝트 pagination
-Route::get('/p_search/pagination/{start}/{end}','SearchController@pagination');
-
+Route::get('/p_search/pagination/{start}/{end}', 'SearchController@pagination');
 
 
 //이용방법
@@ -74,42 +72,49 @@ Route::get('/notification/{id}', 'MainController@notificationShow')
     ->where(['id' => '[1-9]']);
 
 // mypage
-Route::get('/dashboard','MypageController@dashBoard');
+Route::get('/dashboard', 'MypageController@dashBoard');
 
-Route::get('/applist/{id}','MypageController@applicationList')
+Route::get('/applist/{id}', 'MypageController@applicationList')
     ->where(['id' => '[0-9]+']);
 // meeting proposal
-Route::post('/applist/meeting','MypageController@meetingProposal');
+Route::post('/applist/meeting', 'MypageController@meetingProposal');
 // meeting cancel
-Route::post('/applist/meetingCancel','MypageController@meetingCancel');
+Route::post('/applist/meetingCancel', 'MypageController@meetingCancel');
 // contract
-Route::post('/applist/contract','MypageController@contract');
-
+Route::post('/applist/contract', 'MypageController@contract');
 
 
 Route::get('/setting', 'MypageController@setting');
 // delete project
-Route::post('/rm_project','DeleteController@delete_project');
+Route::post('/rm_project', 'DeleteController@delete_project');
 // delete Application
-Route::post('/rm_app','DeleteController@delete_application');
+Route::post('/rm_app', 'DeleteController@delete_application');
 
 // mypage post
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 // User info
-Route::post('/mypage/info','MypagePostController@set_profile_info');
+Route::post('/mypage/info', 'MypagePostController@set_profile_info');
 // User phone and fax number
-Route::post('/mypage/numbers','MypagePostController@set_numbers');
+Route::post('/mypage/numbers', 'MypagePostController@set_numbers');
 
 //프로필
 Route::get('/mypage', 'MypageController@mypage');
 //프로필 edit intro
-Route::get('/mypage/intro_edit','MypageController@mypage_intro_edit');
-Route::post('/mypage/intro_edit','MypageController@mypage_intro_edit_post');
+Route::get('/mypage/intro_edit', 'MypageController@mypage_intro_edit');
+Route::post('/mypage/intro_edit', 'MypageController@mypage_intro_edit_post');
 //프로필 edit skill
-Route::post('/mypage/skill_edit','MypageController@mypage_skill_edit_post');
-Route::post('/mypage/skill_delete','MypageController@mypage_skill_del_post');
+Route::post('/mypage/skill_edit', 'MypageController@mypage_skill_edit_post');
+Route::post('/mypage/skill_delete', 'MypageController@mypage_skill_del_post');
 //프로필 skill list
-Route::get("/mypage/skill_list",'MypageController@skills_list');
+Route::get("/mypage/skill_list", 'MypageController@skills_list');
+//프로필 포트폴리오 자세히 list
+Route::get("/mypage/portfolio_list", 'MypageController@portfolio');
+//프로필 포트폴리오 create
+Route::get("/portfolio/create", 'MypageController@portfolio_create');
+Route::post("/portfolio/create", 'MypageController@portfolio_create_post');
+//프로필 포트폴리오 detail
+Route::get("/mypage/portfolio_list/{id}", 'MypageController@portfolio_detail')
+    ->where(['id' => '[1-9]']);
 
 
 
@@ -118,9 +123,9 @@ Route::get('/apply/{pid}', 'AppController@application_post');
 
 //Route::get('/admin', 'HomeController@gnuboard');
 //
-Route::get('/admin/{id}','HomeController@admin_index')
+Route::get('/admin/{id}', 'HomeController@admin_index')
     ->where(['id' => '[0-9]+']);
-Route::get('/admin/post/{id}','HomeController@post_project')
+Route::get('/admin/post/{id}', 'HomeController@post_project')
     ->where(['id' => '[0-9]+']);
-Route::get('/admin/step_change/{id}/{change}','HomeController@step_change')
+Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
     ->where(['id' => '[0-9]+']);

@@ -503,6 +503,7 @@ return array(
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PartnerSeeder' => $baseDir . '/database/seeds/PartnerSeeder.php',
+    'PortfolioSeeder' => $baseDir . '/database/seeds/PortfolioSeeder.php',
     'ProjectSeeder' => $baseDir . '/database/seeds/ProjectSeeder.php',
     'ProjectsCreate' => $baseDir . '/database/migrations/2016_04_07_012313_projects_create.php',
     'ProjectsFirstpage' => $baseDir . '/database/migrations/2016_04_07_075346_projects_firstpage.php',
