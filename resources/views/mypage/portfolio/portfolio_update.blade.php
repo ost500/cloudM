@@ -68,7 +68,8 @@
                                                 <div id="wizard" class="swMain">
                                                     <div class="stepContainer"
                                                          style="height: 558px; padding-top:30px;">
-                                                        <form action="{{ url("/portfolio/create") }}" method="post"
+                                                        <form action="{{ url("/portfolio/update/"."$portfolio->id") }}"
+                                                              method="post"
                                                               role="form" class="smart-wizard" id="form"
                                                               novalidate="novalidate" enctype="multipart/form-data">
                                                             {!! csrf_field() !!}
@@ -76,6 +77,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group has-success">
+
                                                                             <label class="control-label"> 제목 <span
                                                                                         class="symbol ok"
                                                                                         aria-required="true"></span>
@@ -83,10 +85,13 @@
                                                                             <input type="text" class="form-control"
                                                                                    name="title"
                                                                                    aria-required="true"
-                                                                                   aria-describedby="title-error"><span
+                                                                                   aria-describedby="title-error"
+                                                                                   value="{{ $portfolio->title }}"><span
                                                                                     id="title-error"
                                                                                     class="help-block valid"
-                                                                                    style="display: none;"></span>
+                                                                                    style="display: none;"
+
+                                                                            ></span>
                                                                             <div class="checkbox_css">
                                                                                 <input type="checkbox" name="checkbox1"
                                                                                        id="checkbox1" value="option1">
@@ -105,7 +110,7 @@
                                                                                     name="area"
                                                                                     aria-required="true"
                                                                                     aria-describedby="area-error">
-                                                                                <option value="">선택</option>
+                                                                                <option value="{{ $portfolio->area }}">{{ $portfolio->area }}</option>
                                                                                 <option value="광고 의뢰">광고 의뢰</option>
                                                                                 <option value="운영 대행">운영 대행</option>
                                                                                 <option value="Viral">Viral</option>
@@ -127,7 +132,7 @@
                                                                                     name="category"
                                                                                     aria-required="true"
                                                                                     aria-describedby="category-error">
-                                                                                <option value="">선택</option>
+                                                                                <option value="{{ $portfolio->category }}">{{ $portfolio->category }}</option>
                                                                                 <option value="의료">의료</option>
                                                                                 <option value="법률">법률</option>
                                                                                 <option value="스타트업">스타트업</option>
@@ -149,7 +154,7 @@
                                                                     <textarea name="description" class="form-control"
                                                                               rows=10 aria-required="true"
                                                                               aria-describedby="description-error"
-                                                                              aria-invalid="false"></textarea>
+                                                                              aria-invalid="false">{{ $portfolio->description }}</textarea>
                                                                             <span class="gry">한글 기준 5000자 이내로 작성해주세요.</span>
                                                                             <span id="description-error"
                                                                                   class="help-block valid"></span>
@@ -164,7 +169,8 @@
                                                                                         aria-required="true"></span>
                                                                             </label><br>
                                                                             <input type="date" class="form-control"
-                                                                                   name="from_date">
+                                                                                   name="from_date"
+                                                                                   value="{{ $portfolio->from_date }}">
                                                                             <span id="from_date-error"
                                                                                   class="help-block valid"
                                                                                   style="display: none;"></span>
@@ -178,17 +184,15 @@
                                                                                         aria-required="true"></span>
                                                                             </label><br>
                                                                             <input type="date" class="form-control"
-                                                                                   name="to_date">
+                                                                                   name="to_date"
+                                                                                   value="{{ $portfolio->to_date }}">
                                                                             <span id="to_date-error"
                                                                                   class="help-block valid"
                                                                                   style="display: none;"></span>
 
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-4">
                                                                         <div class="form-group has-success">
                                                                             <label class="control-label"> 참여율 <span
                                                                                         class="symbol ok"
@@ -198,7 +202,8 @@
                                                                                    name="participation_rate"
                                                                                    aria-required="true"
                                                                                    aria-describedby="name-error"
-                                                                                   style="width:30%"><span
+                                                                                   style="width:49.6%"
+                                                                                   value="{{ $portfolio->participation_rate }}"><span
                                                                                     class="percent">%</span><span
                                                                                     id="participation_rate-error"
                                                                                     class="help-block valid"
@@ -206,7 +211,7 @@
                                                                             <span class="gry">참여율은 1에서 100까지 정수로 입력할 수 있습니다.</span>
                                                                         </div>
                                                                     </div>
-
+                                                                    <div class="clear"></div>
                                                                     <div class="port_guide img_f">
                                                                         <img src="/images/i_icon.png"
                                                                              style="margin-top:2px;">
@@ -231,15 +236,14 @@
                                                                                 <input
                                                                                         id="image1"
                                                                                         class="upload-name"
-                                                                                        value="이미지를 등록해주세요"
+                                                                                        value="대표 이미지를 변경하시려면 아래 버튼을 눌러 주세요"
                                                                                         disabled="disabled"
                                                                                         aria-required="true"
                                                                                         aria-describedby="image1-error">
                                                                                 <label class="upload_button"
                                                                                        for="ex_filename">이미지 업로드</label>
                                                                                 <input name="image1" type="file"
-                                                                                       id="ex_filename"
-                                                                                       accept="jpg,jpeg,png,gif">
+                                                                                       id="ex_filename">
                                                                                 <span
                                                                                         id="image1-error"
                                                                                         class="help-block valid"
@@ -264,15 +268,18 @@
                                                                             <div class="filebox">
                                                                                 <input id="image2_name"
                                                                                        class="upload-name"
+                                                                                       @if($portfolio->image2 != null)
+                                                                                       value="{{ $portfolio->image2 }}"
+                                                                                       @else
                                                                                        value="두번째 이미지를 등록해주세요"
+                                                                                       @endif
                                                                                        disabled="disabled">
                                                                                 <label class="upload_button"
                                                                                        for="ex_filename2">이미지
                                                                                     업로드</label>
                                                                                 <input name="image2" type="file"
                                                                                        id="ex_filename2"
-                                                                                       class="upload-hidden"
-                                                                                       accept="jpg,jpeg,png,gif">
+                                                                                       class="upload-hidden">
                                                                                 <script>
                                                                                     $("#ex_filename2").change(function (ev) {
 
@@ -292,7 +299,11 @@
                                                                             <div class="filebox">
                                                                                 <input id="image3_name"
                                                                                        class="upload-name"
+                                                                                       @if($portfolio->image3 != null)
+                                                                                       value="{{ $portfolio->image3 }}"
+                                                                                       @else
                                                                                        value="세번째 이미지를 등록해주세요"
+                                                                                       @endif
                                                                                        disabled="disabled"
                                                                                        accept="jpg,jpeg,png,gif">
                                                                                 <label class="upload_button"
@@ -396,7 +407,7 @@
 
                                                                 <button type="submit"
                                                                         class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
-                                                                    Finish <i class="fa fa-arrow-circle-right"></i>
+                                                                    수정 <i class="fa fa-arrow-circle-right"></i>
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -459,16 +470,16 @@
                     range: [0, 100]
                 },
                 image1: {
-                    required: true,
-                    extension: "jpg|jpeg|png|gif",
+
+                    extension: "jpg|jpeg|png|gif"
 
                 },
                 image2: {
-                    extension: "jpg|jpeg|png|gif",
+                    extension: "jpg|jpeg|png|gif"
 
                 },
                 image3: {
-                    extension: "jpg|jpeg|png|gif",
+                    extension: "jpg|jpeg|png|gif"
 
                 },
 

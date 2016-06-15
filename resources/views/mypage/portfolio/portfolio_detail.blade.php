@@ -60,7 +60,7 @@
                                                     @if(Auth::user() == $portfolios->partner->user)
                                                         <a style="cursor:pointer" id="delete_port"
                                                            class="button004">삭제</a>
-                                                        <a class="button004 margin-top-3">수정</a>
+                                                        <a href="{{ url('/portfolio/update/'.$portfolios->id) }}" class="button004 margin-top-3">수정</a>
                                                         <form hidden id="delete_portfolio">
                                                             {!! csrf_field() !!}
                                                             <input hidden name="id" value="{{ $portfolios->id }}">
