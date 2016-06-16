@@ -3,7 +3,7 @@
     <div class="container">
 
         <div class="col-md-2">
-            <img src="images/logo-footer.png" alt="" class="margin-bottom-20" >
+            <img src="/images/logo-footer.png" alt="" class="margin-bottom-20" >
         </div>
         <div class="col-md-8">
             <ul class="footer_menu">
