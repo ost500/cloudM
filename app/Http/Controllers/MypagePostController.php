@@ -61,6 +61,7 @@ class MypagePostController extends Controller
             return redirect()->back()->withErrors($validator->errors());
         }
 
+
         Auth::user()->name = $request->name;
         Auth::user()->sex = $request->sex;
         Auth::user()->BOD = $request->BOD1 . $request->BOD2 . $request->BOD3;
