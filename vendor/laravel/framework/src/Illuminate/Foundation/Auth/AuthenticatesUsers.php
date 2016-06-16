@@ -82,6 +82,10 @@ trait AuthenticatesUsers
             $this->incrementLoginAttempts($request);
         }
 
+        if($request->ajax()) {
+            return $this->getFailedLoginMessage();
+        }
+
         return $this->sendFailedLoginResponse($request);
     }
 
@@ -113,6 +117,9 @@ trait AuthenticatesUsers
 
         if (method_exists($this, 'authenticated')) {
             return $this->authenticated($request, Auth::guard($this->getGuard())->user());
+        }
+        if($request->ajax()){
+            return ['try' => "Success"];
         }
 
         return redirect()->intended($this->redirectPath());
