@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectsProposalsTable extends Migration
+class CreateProjectsAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,22 +12,18 @@ class CreateProjectsProposalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects_proposals', function (Blueprint $table) {
-            $table->integer('u_id')->unsigned()->index();
-            $table->foreign('u_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+        Schema::create('projects_areas', function (Blueprint $table) {
+            $table->increments('id');
 
             $table->integer('p_id')->unsigned()->index();
             $table->foreign('p_id')
                 ->references('id')->on('projects')
                 ->onDelete('cascade');
 
-            $table->integer('f_id')->unsigned();
+            $table->string('area', 45);
 
-            $table->string('source_name', 255);
-            $table->string('file_name', 255);
-            $table->integer('file_size')->unsigned();
+            $table->integer('price')->unsigned();
+            $table->integer('commission')->unsigned();
 
             $table->timestamps();
         });
@@ -40,6 +36,6 @@ class CreateProjectsProposalsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('projects_proposals');
+        Schema::drop('projects_areas');
     }
 }

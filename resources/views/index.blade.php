@@ -129,147 +129,165 @@
                 <div class="heading text-center">
                     <h4>클라우드엠 프로세스</h4>
                 </div>
-                <div class="main_process_big"><img class="img-responsive" src="images/cloud_ex.png"></div>
-                <div class="main_process_small"><img class="img-responsive" src="images/cloud_ex_600px.png"></div>
+
+
+                <ul class="main_process">
+                    <div class="col-md-6 no-p">
+                        <li>
+                            <img src="images/proc_01.png">
+                            <p class="main_process_h">프로젝트 등록</p>
+                            <!--p class="main_process_t">마케팅 프로젝트를 등록하세요</p-->
+                        </li>
+                        <li>
+                            <img src="images/proc_02.png">
+                            <p class="main_process_h">지원자 비교</p>
+                            <!--p class="main_process_t">다양한 지원자를 비교해보고 선택하세요</p-->
+                        </li>
+                        <li>
+                            <img src="images/proc_03.png">
+                            <p class="main_process_h">미팅</p>
+                            <!--p class="main_process_t">지원자를 선택하면 미팅이 진행됩니다</p-->
+                        </li>
+                    </div>
+                    <div class="col-md-6 no-p">
+                        <li>
+                            <img src="images/proc_04.png">
+                            <p class="main_process_h">계약</p>
+                            <!--p class="main_process_t">미팅이 끝나고 파트너를 선정하여 계약합니다</p-->
+                        </li>
+                        <li>
+                            <img src="images/proc_05.png">
+                            <p class="main_process_h">프로젝트 진행</p>
+                            <!--p class="main_process_t">마케팅 프로젝트를 진행합니다</p-->
+                        </li>
+                        <li>
+                            <img src="images/proc_06.png">
+                            <p class="main_process_h">프로젝트 완료</p>
+                            <!--p class="main_process_t">마케팅 프로젝트를 완료합니다</p-->
+                        </li>
+                    </div>
+                </ul>
+
+
+
+
+                <!-- Start Timeline
+                <div id="timeline" class="col-lg-10 col-md-12 col-sm-12">
+                  <ul id="dates" class="custom-list">
+                    <li><a href="#date1"><span>프로젝트 등록</span></a></li>
+                    <li><a href="#date2"><span>지원자 비교</span></a></li>
+                    <li><a href="#date3"><span>선택 미팅 및 계약</span></a></li>
+                    <li><a href="#date4"><span>프로젝트 진행</span></a></li>
+                    <li><a href="#date5"><span>프로젝트 완료</span></a></li>
+                  </ul>
+                  <ul id="issues" class="custom-list">
+                    <li id="date1">
+                      <div class="row">
+                        <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt="" width="130"> </div>
+                        <div class="history-content col-lg-5 col-md-5 col-sm-5">
+                          <h5 class="title">프로젝트 등록</h5>
+                          <p>현재 준비중인 광고 캠페인 및 콘텐츠 제작 프로젝트를 등록하면, 클라우드엠에 등록된 수많은 광고대행사 및 프리랜서들이 광고 캠페인 및 프로젝트를 살펴 보고, 견적서/제안서를 제출합니다.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="date2">
+                      <div class="row">
+                        <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt=""> </div>
+                        <div class="history-content col-lg-5 col-md-5 col-sm-5">
+                          <h5 class="title">지원자 비교</h5>
+                          <p>지원자들의 포트폴리오와 다른 광고주들의 평판을 살펴 보십시요. 그리고 파트너가 제출한 견적서나 제안서를 살펴 보시고 마음에 드는 파트너를 선택하시면 됩니다.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="date3">
+                      <div class="row">
+                        <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt=""> </div>
+                        <div class="history-content col-lg-5 col-md-5 col-sm-5">
+                          <h5 class="title">선택 미팅 및 계약</h5>
+                          <p>마음에 드는 지원자를 선택하여 주시면 온라인/오프라인 미팅을 주선하여 드립니다. 미팅은 2회까지 가능합니다. 미팅 후 최종 선택을 하시면 클라우드엠에서 광고대행 계약서를 작성합니다.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="date4">
+                      <div class="row">
+                        <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt=""> </div>
+                        <div class="history-content col-lg-5 col-md-5 col-sm-5">
+                          <h5 class="title">프로젝트 진행</h5>
+                          <p>계약서 작성 후 결제를 하시면 프로젝트가 진행됩니다. 진행되는 동안 클라우드엠은 광고주와 약속한 스케쥴대로 프로젝트가 진행되고 있는지 체크하고, 프로젝트가 제대로 마무리 될 수 있도록 중재하기도 합니다.</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="date5">
+                      <div class="row">
+                        <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt=""> </div>
+                        <div class="history-content col-lg-5 col-md-5 col-sm-5">
+                          <h5 class="title">프로젝트 완료</h5>
+                          <p>프로젝트는 광고주와 파트너가 모두 승인하는 경우에만 완료가 됩니다. 프로젝트가 완료되면 파트너에게 대행료를 입금하고 마무리 됩니다.</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <a href="#" id="next"><i class="ion-ios-arrow-right"></i></a> <a href="#" id="prev"><i class="ion-ios-arrow-left"></i></a> </div>
+                End Timeline -->
 
             </div>
         </section>
 
-
-        <section class="light-gray-bg padding-top-30 padding-bottom-20">
-            <div class="container">
-
-                <div class="col-md-1"></div>
-                <div class="col-md-8" style="text-align:center;">
-                    <p>광고 캠페인/영상/홈페이지/콘텐츠 제작 등 프로젝트를 찾고 있는 대행사/프리랜서인가요?</p>
-                </div>
-                <div class="col-md-3">
-                    <a href="#." class="btn_main btn_main-1">회원가입하기<i
-                                class="fa fa-caret-right"></i></a>
-                </div>
-
-            </div>
-        </section>
 
 
         <!-- Features -->
-        <section class="features padding-top-30 padding-bottom-30">
+        <section class="area4">
             <div class="container">
-                <!-- Heading -->
-                <div class="heading text-center">
-                    <h4>빠르고 안정적인 클라우드엠</h4>
+                <div class="col-md-6 no-p">
+                    <ul class="area4_ul">
+                        <li class="col-sm-6 no-p">
+                            <div  class="center"><img src="/images/area4_01.png"></div>
+                            <p class="main_area4_h">빠른 프로젝트 진행</p>
+                            <p class="main_area4_t">마케팅 프로젝트를 대행사들에게 빠르게 알려 마케팅 프로젝트를 신속하게 진행할 수 있습니다.</p>
+                        </li>
+                        <li class="col-sm-6 no-p">
+                            <div  class="center"><img src="/images/area4_02.png"></div>
+                            <p class="main_area4_h">편리한 프로젝트 진행</p>
+                            <p class="main_area4_t">세금계산서 발행, 계약서 작성, 대금지급, 진행상황 체크, 분쟁조정까지 프로젝트를 편리하게 진행할 수 있도록 도와드립니다.</p>
+                        </li>
+                    </ul>
                 </div>
+                <div class="col-md-6 no-p">
+                    <ul class="area4_ul">
+                        <li class="col-sm-6 no-p">
+                            <div  class="center"><img src="/images/area4_03.png"></div>
+                            <p class="main_area4_h">믿을 수 있는 검증시스템</p>
+                            <p class="main_area4_t">다양한 전문 마케팅 대행사들의 실제 프로젝트 포트폴리오와 고객들의 평점/후기를 통해 대행사를 객관적으로 평가할 수 있습니다.</p>
+                        </li>
+                        <li class="col-sm-6 no-p">
+                            <div  class="center"><img src="/images/area4_04.png"></div>
+                            <p class="main_area4_h">안전한 프로젝트 관리</p>
+                            <p class="main_area4_t">에스크로 시스템으로 대금을 안전하게 보호하고 안심표준계약서로 분쟁을 객관적으로 조정합니다.</p>
+                        </li>
+                    </ul>
 
-                <!-- Features -->
-                <div class="list-style-featured">
-                    <div class="row no-margin">
-                        <!-- LIST LEFT -->
-                        <div class="col-md-4 no-padding">
-                            <ul class="text-right">
-                                <li>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h6>무료로 당신의 캠페인을 알리세요.</h6>
-                                            <p>원하는 광고 프로젝트를 빠르고 안정되게 진행할 수 있습니다. 클라우드엠과 함께하는 수많은 파트너들에게 당신의 광고 캠페인을
-                                                알려보세요.</p>
-                                        </div>
-                                        <div class="media-right">
-                                            <div class="m_icon01"> <!--<i class="fa fa-paint-brush"></i>--> </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h6>동영상/홈페이지/디자인/콘텐츠까지</h6>
-                                            <p>광고와 관련된 영상/디자인/홈페이지/콘텐츠 제작까지 클라우드엠을 통해 해결하세요. 고도로 숙련된 프로들이 함께합니다.</p>
-                                        </div>
-                                        <div class="media-right">
-                                            <div class="m_icon02"> <!--<i class="fa fa-tablet"></i>--> </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h6>실력있는 대행사를 빠르게 비교검색</h6>
-                                            <p>다양한 경험을 가진 지원자들의 포트폴리오와 제안서. 함께 일했던 광고주들의 평가까지 한눈에 살펴보고 비교할 수 있습니다.</p>
-                                        </div>
-                                        <div class="media-right">
-                                            <div class="m_icon03"> <!--<i class="fa fa-chrome"></i>--> </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- LIST IMAGE -->
-                        <div class="col-md-4 text-center no-padding"><img class="img-responsive" src="images/iphone.png"
-                                                                          alt=""></div>
-
-                        <!-- LIST ICON RIGHT -->
-                        <div class="col-md-4 no-padding">
-                            <ul>
-                                <li>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <div class="m_icon04"> <!--<i class="fa fa-gear"></i>--> </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6>안전한 대금보호와 정확한 비용처리</h6>
-                                            <p>에스크로 시스템을 통한 안전하게 대금을 보관하며, 진행하는 광고 캠페인 및 프로젝트가 정확히 마무리 되었을때만 비용을
-                                                지급합니다.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <div class="m_icon05"> <!--<i class="icon-layers"></i>--> </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6>안심 계약서 및 분쟁조정</h6>
-                                            <p>공증 받아 안심할 수 있는 계약서 작성 및 세금계산서 발행, 이후 혹시 모를 분쟁조정까지, 클라우드엠이 안전하고 꼼꼼하게 처리해
-                                                드립니다.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <div class="m_icon06"> <!--<i class="icon-bulb"></i>--> </div>
-                                        </div>
-                                        <div class="media-body">
-                                            <h6>프로젝트 일정관리 시스템</h6>
-                                            <p>클라우드엠 표준작업공정표를 이용하여 프로젝트의 일정을 관리하고 있으며, 이를 통해 작업 지연에 의한 손실을 최소화 합니다.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
 
-        <section class="light-gray-bg padding-top-30 padding-bottom-20">
-            <div class="container">
-                <div class="col-md-1"></div>
-                <div class="col-md-8" style="text-align:center;">
-                    <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
-                </div>
-                <div class="col-md-3">
-                    <a href="#." class="btn_main btn_main-1">프로젝트 등록하기<i
-                                class="fa fa-caret-right"></i></a>
-                </div>
-            </div>
-        </section>
+              <section class="light-gray-bg padding-top-30 padding-bottom-20">
+                  <div class="container">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-8" style="text-align:center;">
+                          <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
+                      </div>
+                      <div class="col-md-3">
+                          <a href="#." class="btn_main btn_main-1">프로젝트 등록하기<i
+                                      class="fa fa-caret-right"></i></a>
+                      </div>
+                  </div>
+              </section>
 
 
-        <section class="white-bg blog padding-top-30 padding-bottom-30">
-            <div class="container">
-                <!-- Heading -->
+              <section class="white-bg blog padding-top-30 padding-bottom-30">
+                  <div class="container">
+                      <!-- Heading -->
                 <div class="heading text-center">
                     <h4 class="margin-bottom-30">광고주들이 얘기하는 클라우드엠</h4>
                 </div>

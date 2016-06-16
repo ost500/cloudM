@@ -75,10 +75,8 @@
                                                             <div id="step-1" class="content" style="display: block;">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 제목 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 제목 <span class="symbol required"></span>
                                                                             </label>
                                                                             <input type="text" class="form-control"
                                                                                    name="title"
@@ -96,10 +94,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 분야 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 분야 <span class="symbol required"></span>
                                                                             </label>
                                                                             <select class="form-control"
                                                                                     name="area"
@@ -118,10 +114,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 업종 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 업종 <span class="symbol required"></span>
                                                                             </label>
                                                                             <select class="form-control"
                                                                                     name="category"
@@ -141,10 +135,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 설명 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 설명 <span class="symbol required"></span>
                                                                             </label>
                                                                     <textarea name="description" class="form-control"
                                                                               rows=10 aria-required="true"
@@ -157,11 +149,9 @@
                                                                     </div>
 
                                                                     <div class="col-md-6">
-                                                                        <div class="form-group has-success">
+                                                                        <div class="form-group">
 
-                                                                            <label class="control-label"> 참여 시작일 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                            <label class="control-label"> 참여 시작일 <span class="symbol required"></span>
                                                                             </label><br>
                                                                             <input type="date" class="form-control"
                                                                                    name="from_date">
@@ -172,10 +162,8 @@
                                                                     </div>
 
                                                                     <div class="col-md-6">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 참여 종료일 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 참여 종료일  <span class="symbol required"></span>
                                                                             </label><br>
                                                                             <input type="date" class="form-control"
                                                                                    name="to_date">
@@ -189,10 +177,8 @@
                                                                 <div class="row">
 
                                                                     <div class="col-md-6">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 참여율 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 참여율  <span class="symbol required"></span>
                                                                             </label><br>
                                                                             <input type="text" class="form-control"
                                                                                    name="participation_rate"
@@ -222,10 +208,8 @@
 
 
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 대표이미지 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 대표이미지  <span class="symbol required"></span>
                                                                             </label>
                                                                             <div class="filebox">
                                                                                 <input
@@ -256,10 +240,8 @@
 
 
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 이미지2 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 이미지2  <span class="symbol required"></span>
                                                                             </label>
                                                                             <div class="filebox">
                                                                                 <input id="image2_name"
@@ -284,10 +266,8 @@
                                                                     </div>
 
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group has-success">
-                                                                            <label class="control-label"> 이미지3 <span
-                                                                                        class="symbol ok"
-                                                                                        aria-required="true"></span>
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 이미지3  <span class="symbol required"></span>
                                                                             </label>
                                                                             <div class="filebox">
                                                                                 <input id="image3_name"
@@ -396,7 +376,7 @@
 
                                                                 <button type="submit"
                                                                         class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
-                                                                    Finish <i class="fa fa-arrow-circle-right"></i>
+                                                                    등록하기
                                                                 </button>
                                                             </div>
                                                         </form>

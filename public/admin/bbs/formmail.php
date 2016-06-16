@@ -13,7 +13,7 @@ if ($is_member && !$member['mb_open'] && $is_admin != "super" && $member['mb_id'
 
 if ($mb_id)
 {
-    $mb = get_member($mb_id);
+    $mb = get_member_email($mb_id);
     if (!$mb['mb_id'])
         alert_close('회원정보가 존재하지 않습니다.\\n\\n탈퇴한 회원일 수 있습니다.');
 
