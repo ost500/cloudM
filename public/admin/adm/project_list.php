@@ -114,6 +114,7 @@ $colspan = 16;
                     <?php echo subject_sort_link('step') ?>상태</a>
                 </th>
                 <th scope="col" rowspan="2" id="project_list_title"><?php echo subject_sort_link('title') ?>프로젝트명</a></th>
+                <th scope="col" id="project_list_mobile">업체명</th>
                 <th scope="col" id="project_list_mobile">담당자</th>
                 <th scope="col" id="project_list_name"><?php echo subject_sort_link('estimated_duration') ?>예상 기간</a></th>
                 <th scope="col" id="project_list_name"><?php echo subject_sort_link('purpose') ?>진행 목적</a></th>
@@ -123,7 +124,8 @@ $colspan = 16;
                 <th scope="col" rowspan="2" id="project_list_mng">지원자</th>
             </tr>
             <tr>
-                <th scope="col" id="project_list_nick"><?php echo subject_sort_link('mb_nick') ?>연락처</a></th>
+                <th scope="col" id="project_list_nick"><?php echo subject_sort_link('email') ?>이메일</a></th>
+                <th scope="col" id="project_list_nick"><?php echo subject_sort_link('charger_phone') ?>연락처</a></th>
                 <th scope="col" id="project_list_tel">예상 예산</th>
                 <th scope="col" id="project_list_tel">등록 사유</th>
                 <th scope="col" id="project_list_join"><?php echo subject_sort_link('expected_start_date', '', 'desc') ?>예상 시작일</a></th>
@@ -136,6 +138,7 @@ $colspan = 16;
                 $bg = 'bg'.($i%2);
                 $updated_at = ($row['created_at']==$row['updated_at'])?"검수중":$row['updated_at'];
 
+                $mb_nick = get_sideview($row['email'], get_text($row['name']), $row['email'], $row['mb_homepage']);
             ?>
                 <tr class="<?php echo $bg; ?>">
                     <td class="td_40" rowspan="2">
@@ -156,15 +159,17 @@ $colspan = 16;
                         <script> $(function() { $("#step<?=$i?>").val("<?=$row[step]?>"); }); </script>
                     </td>
                     <td rowspan="2" class="td_id"><a href="project_form.php?id=<?=$row[project_id]?>&w=u&<?=$qrst?>"> <?php echo $row[title] ?></a></td>
+                    <td class="td_80"><?php echo $mb_nick ?></td>
                     <td class="td_60"><?php echo $row[charger_name] ?></td>
                     <td class="td_60"><?php echo $row[estimated_duration] ?></td>
                     <td class="td_60"><?php echo $row[purpose] ?></td>
                     <td rowspan="2" class="td_intro"><?php echo cut_str($row[detail_content], 140); ?></td>
                     <td class="td_date"><?php echo $row['deadline'] ?></td>
                     <td class="td_date"><?php echo $row['created_at'] ?></td>
-                    <td class="td_mngsmall" rowspan=2><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>">지원자</a> <?php echo $s_grp ?></td>
+                    <td class="td_mngsmall" rowspan=2><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>"><?=number_format($row[applications_cnt])?>명</a> <?php echo $s_grp ?></td>
                 </tr>
                 <tr class="<?php echo $bg; ?>">
+                    <td class="td_80"><?php echo get_text($row['email']); ?></td>
                     <td class="td_60"><?php echo get_text($row['charger_phone']); ?></td>
                     <td class="td_60"><div><?php echo number_format($row[budget]); ?></div></td>
                     <td class="td_date"><?php echo $row['reason']; ?></td>
