@@ -34,7 +34,7 @@ var FormWizard = function () {
                     minlength: 10,
                     required: true
                 },
-                companyType: {
+                company_type: {
                     required: true
                 },
                 company_intro: {
@@ -87,7 +87,7 @@ var FormWizard = function () {
             messages: {
                 name: "이름을 입력해 주세요.",
                 phone: "연락처를 입력해 주세요.",
-                companyType: "회사형태를 선택해 주세요.",
+                company_type: "회사형태를 선택해 주세요.",
                 area: "선택해 주세요",
                 category: "선택해 주세요",
                 project_name: "입력해 주세요",
@@ -162,6 +162,16 @@ var FormWizard = function () {
     var onFinish = function (obj, context) {
         if (leaveAStepCallback(obj, context)) {
 
+            var areaCnt = 0;
+            $('#area :selected').each(function(i, sel){
+                areaCnt++;
+            });
+
+            if (areaCnt == 0) {
+                alert("진행하길 원하는 분야를 선택해 주세요.");
+                return;
+            }
+
             if (confirm('프로젝트를 등록 하시겠습니까?')) {
                 $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
                 // wizardForm.submit();
@@ -170,10 +180,12 @@ var FormWizard = function () {
                     url: '/p_add',
                     data: wizardForm.serialize(),
                     success: function (data) {
-
+                        //console.log(data);
+                       //alert(data);
                     }
                 });
-
+            } else {
+                return;
             }
         }
         wizardContent.smartWizard("goForward");

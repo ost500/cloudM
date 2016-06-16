@@ -69,7 +69,6 @@ class MypagePostController extends Controller
         Auth::user()->save();
 
         return redirect()->back();
-
     }
 
     public function set_numbers(Request $request)

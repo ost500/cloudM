@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\ProjectsArea;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
@@ -81,7 +82,7 @@ class CreateController extends Controller
 
 
         $input = new Project();
-        $input->area = $request->area;
+        //$input->area = $request->area;
         $input->category = $request->category;
         $input->title = $request->project_name;
         $input->estimated_duration = $request->duration;
@@ -98,6 +99,12 @@ class CreateController extends Controller
         $input->save();
 
 
+        for($i = 0; $i < sizeof($request->area); $i++) {
+            $areas = new ProjectsArea();
+            $areas->p_id = $input->id;
+            $areas->area = $request->area[$i];
+            $areas->save();
+        }
     }
 
     public function update_project_form($id)

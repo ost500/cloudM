@@ -153,7 +153,9 @@
                                                     <div class="margin-top-10">
                                                         <span class="media-body-sm margin-top-23">관련기술</span>
                                                         <ul class="tags dall margin-top-20 margin-bottom-10">
-                                                            <li><a href="#.">{{ $project['area'] }}</a></li>
+                                                            @foreach($project->projects_area as $areas)
+                                                                <li><a href="#.">{{ $areas->area }}</a></li>
+                                                            @endforeach
                                                             <li><a href="#.">{{ $project['category'] }}</a></li>
                                                         </ul>
                                                     </div>

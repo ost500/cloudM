@@ -246,9 +246,6 @@
                                                                     </button>
                                                                 </div>
                                                             </fieldset>
-
-
-
                                                         </form>
                                                     </div>
                                                 </div>
@@ -321,7 +318,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
 
-                                                        <form action="{{ url('/mypage/numbers') }}" method="POST" role="form">
+                                                        <form action="{{ url('/mypage/email') }}" method="POST" role="form">
                                                             {!! csrf_field() !!}
 
                                                             <fieldset>

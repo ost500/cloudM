@@ -45,7 +45,12 @@
                                 <div>
 
                                     <ul class="tags dall margin-top-20 margin-bottom-10">
-                                        <li><a href="#.">{{ $project['area'] }}</a></li>
+                                        <li>
+                                            @foreach($project->projects_area as $areas)
+                                                <a href="#.">{{ $areas->area }}</a>
+                                            @endforeach
+                                        </li>
+
                                         <li><a href="#.">{{ $project['category'] }}</a></li>
                                     </ul>
                                 </div>

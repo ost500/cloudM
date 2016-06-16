@@ -100,10 +100,8 @@
                                                                     </legend>
                                                                     <div class="row">
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 담당자 <span
-                                                                                            class="symbol ok"
-                                                                                            aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 담당자  <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text" class="form-control"
                                                                                        name="name" aria-required="true"
@@ -114,10 +112,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 연락처 <span
-                                                                                            class="symbol ok"
-                                                                                            aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 연락처 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text"
                                                                                        class="form-control input-mask-phone"
@@ -131,25 +127,20 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 회사형태 <span
-                                                                                            class="symbol ok"
-                                                                                            aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 회사형태 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="company_type"
                                                                                         aria-required="true"
-                                                                                        aria-describedby="companyType-error" >
+                                                                                        aria-describedby="company_type-error" >
                                                                                     <option value="">선택</option>
                                                                                     <option value="개인"@if($user->clients->company_type=="개인") selected @endif>개인</option>
                                                                                     <option value="팀"@if($user->clients->company_type=="팀") selected @endif>팀</option>
-                                                                                    <option value="개인 사업자"@if($user->clients->company_type=="개인 사업자") selected @endif>개인 사업자
-                                                                                    </option>
-                                                                                    <option value="법인 사업자"@if($user->clients->company_type=="법인 사업자") selected @endif>법인 사업자
-                                                                                    </option>
-                                                                                    <option value="기타@if($user->clients->company_type=="기타") selected @endif">기타
-                                                                                    </option>
-                                                                                </select><span id="companyType-error"
+                                                                                    <option value="개인 사업자"@if($user->clients->company_type=="개인 사업자") selected @endif>개인 사업자</option>
+                                                                                    <option value="법인 사업자"@if($user->clients->company_type=="법인 사업자") selected @endif>법인 사업자</option>
+                                                                                    <option value="기타@if($user->clients->company_type=="기타") selected @endif">기타</option>
+                                                                                </select> <span id="company_type-error"
                                                                                                class="help-block valid"
                                                                                                style="display: none;"></span>
                                                                             </div>
@@ -157,10 +148,8 @@
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
-                                                                            <div class="form-group has-success">
-                                                                                <label> 광고주소개  <span
-                                                                                            class="symbol ok"
-                                                                                            aria-required="true"></span></label>
+                                                                            <div class="form-group">
+                                                                                <label> 광고주소개  <span class="symbol required"></span></label>
                                                                                 <textarea name="company_intro"
                                                                                           class="form-control"
                                                                                           rows=10 value="">{{ $user->clients->intro }}</textarea>
@@ -226,7 +215,7 @@
                                                                     <legend>
                                                                         프로젝트 정보를 입력하세요
                                                                     </legend>
-                                                                    {{--<div class="form-group has-success">--}}
+                                                                    {{--<div class="form-group">--}}
                                                                     {{--<label class="control-label"> 카테고리 <span--}}
                                                                     {{--class="symbol ok"--}}
                                                                     {{--aria-required="true"></span>--}}
@@ -246,12 +235,10 @@
 
                                                                     <div class="row padding-top-15">
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 분야
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 분야 <span class="symbol required"></span>
                                                                                 </label>
-                                                                                <select name="area[]" multiple="multiple" id="filter" class="multiselect required" style="display: none;"
+                                                                                <select name="area[]" id="area" multiple="multiple" id="filter" class="multiselect" style="display: none;"
                                                                                         aria-required="true"
                                                                                         aria-describedby="area-error" required>
                                                                                     <optgroup label="광고 의뢰">
@@ -297,10 +284,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 업종
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 업종 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="category"
@@ -323,10 +308,8 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group has-success">
-                                                                        <label class="control-label"> 마케팅진행 목적 <span
-                                                                                    class="symbol ok"
-                                                                                    aria-required="true"></span>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label"> 마케팅진행 목적 <span class="symbol required"></span>
                                                                         </label>
                                                                         <select class="form-control" name="purpose"
                                                                                 aria-required="true"
@@ -347,10 +330,9 @@
 
                                                                     <div class="row">
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
+                                                                            <div class="form-group">
                                                                                 <label class="control-label"> 마케팅 진행 기간
-                                                                                    (개월/년) <span class="symbol ok"
-                                                                                                 aria-required="true"></span>
+                                                                                    (개월/년) <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text"
                                                                                        placeholder="(최대 3자리, 예 : 3개월)"
@@ -361,11 +343,10 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
+                                                                            <div class="form-group">
                                                                                 <label class="control-label"> 총 예산(혹은 월
                                                                                     예산)
-                                                                                    (원) <span class="symbol ok"
-                                                                                              aria-required="true"></span>
+                                                                                    (원) <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text"
                                                                                        placeholder="( VAT 별도, 예 : 100,000,000)"
@@ -378,10 +359,8 @@
 
 
 
-                                                                    <div class="form-group has-success">
-                                                                        <label class="control-label"> 프로젝트 제목 <span
-                                                                                    class="symbol ok"
-                                                                                    aria-required="true"></span>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label"> 프로젝트 제목 <span class="symbol required"></span>
                                                                         </label>
                                                                         <input type="text" class="form-control"
                                                                                name="project_name" aria-required="true"
@@ -392,10 +371,8 @@
                                                                     </div>
 
 
-                                                                    <div class="form-group has-success">
-                                                                        <label class="control-label"> 프로젝트 내용 <span
-                                                                                    class="symbol ok"
-                                                                                    aria-required="true"></span>
+                                                                    <div class="form-group">
+                                                                        <label class="control-label"> 프로젝트 내용 <span class="symbol required"></span>
                                                                         </label>
                                                                         <div class="form-group">
 								<textarea name="content_detail" class="form-control" rows=20>< 프로젝트 진행 방식 >
@@ -423,10 +400,8 @@
 
                                                                     <div class="row padding-top-15">
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 모집 마감일자
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 모집 마감일자 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 {{--<select class="form-control"--}}
                                                                                 {{--name="deadline"--}}
@@ -447,10 +422,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 프로젝트 예상
-                                                                                    시작일 <span class="symbol ok"
-                                                                                              aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 프로젝트 예상 시작일 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="date"
                                                                                        class="form-control"
@@ -465,35 +438,24 @@
 
                                                                     <div class="row">
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 사전미팅 <span
-                                                                                            class="symbol ok"
-                                                                                            aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 사전미팅 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="pre_meeting"
                                                                                         aria-required="true"
                                                                                         aria-describedby="pre_meeting-error">
                                                                                     <option value="">선택
-                                                                                    <option value="오프라인 미팅">오프라인 미팅
-                                                                                    </option>
-
-                                                                                    <option value="온라인 미팅">온라인 미팅 (카카오톡,
-                                                                                        skype, 행아웃
-                                                                                        등)
-                                                                                    <option value="온/오프라인 미팅">오프라인 미팅
-                                                                                    </option>
-                                                                                    </option>
+                                                                                    <option value="오프라인 미팅">오프라인 미팅</option>
+                                                                                    <option value="온라인 미팅">온라인 미팅 (카카오톡, skype, 행아웃 등)</option>
                                                                                 </select><span id="pre_meeting-error"
                                                                                                class="help-block valid"
                                                                                                style="display: none;"></span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 사전 미팅 지역
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 사전 미팅 지역 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="address_sido"
@@ -529,10 +491,9 @@
 
                                                                     <div class="row">
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
+                                                                            <div class="form-group">
                                                                                 <label class="control-label"> 마케팅 진행
-                                                                                    경험여부 <span class="symbol ok"
-                                                                                               aria-required="true"></span>
+                                                                                    경험여부 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="experience"
@@ -547,10 +508,8 @@
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <div class="form-group has-success">
-                                                                                <label class="control-label"> 프로젝트 등록 사유
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 프로젝트 등록 사유 <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="reason"
