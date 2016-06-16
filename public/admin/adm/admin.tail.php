@@ -35,53 +35,17 @@ if (!defined('_GNUBOARD_')) exit;
                         <input type="hidden" name="f_id" value="">
                         <input type="hidden" name="p_id" value="">
                         <input type="hidden" name="u_id" value="">
+
                         <div class="form-group">
-                            <input type="file" name="bf_file[]" class="required" required="required" style="width:100%;">
+                            삭제 : <input type="checkbox" name="file_name_del[]" style="margin: 0;"> (재업로드시 체크를 안해도 기존 파일은 삭제 됩니다.)
                         </div>
-                         <div class="form-group">
-                            <input type="file" name="bf_file[]" style="width:100%;">
-                        </div>
-                         <div class="form-group">
-                            <input type="file" name="bf_file[]" style="width:100%;">
+
+                        <div class="form-group">
+                            <input type="file" name="bf_file[]"  style="width:100%;">
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-red btn-block">
-                                업로드
-                            </button>
-                        </div>
-                </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal fade" id="fileModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">제안서 수정</h4>
-                </div>
-                <form role="form" method="POST" action="proposals_file_update.php" enctype="multipart/form-data">
-                <div class="modal-body" style="padding:30px 100px 50px 100px;">
-                        <input type="hidden" name="f_id" value="">
-                        <input type="hidden" name="p_id" value="">
-                        <input type="hidden" name="u_id" value="">
-                        <div class="form-group">
-                            <span id="source_name"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="file" name="bf_file[]" class="required" required="required" style="width:100%;">
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-red btn-block">
+                            <button type="submit" class="btn btn-blue btn-block">
                                 업로드
                             </button>
                         </div>
@@ -106,26 +70,6 @@ if (!defined('_GNUBOARD_')) exit;
 
         var modal = $(this)
         //modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find(".modal-body input[name$='f_id']").val(fid)
-        modal.find(".modal-body input[name$='p_id']").val(pid)
-        modal.find(".modal-body input[name$='u_id']").val(uid)
-    });
-
-
-    $('#fileModalEdit').on('show.bs.modal', function (event) {
-
-        var button = $(event.relatedTarget)
-        var source_name = button.data('source_name')
-        var file_name = button.data('file_name')
-        var fid = button.data('fid')
-        var pid = button.data('pid')
-        var uid = button.data('uid')
-
-        var new_source_name = "<a href='download.php?p_id="+pid+"&f_id="+fid+"'>"+source_name+"</a>";
-
-        var modal = $(this)
-        //modal.find('.modal-title').text('New message to ' + recipient)
-        modal.find(".modal-body span").html(new_source_name)
         modal.find(".modal-body input[name$='f_id']").val(fid)
         modal.find(".modal-body input[name$='p_id']").val(pid)
         modal.find(".modal-body input[name$='u_id']").val(uid)

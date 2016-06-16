@@ -141,22 +141,24 @@
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">지원한 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                        <col style="width:25.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:25%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:7%;"/>
+                                                        <col style="width:7%;"/>
+                                                        <col style="width:7%;"/>
                                                         <tr>
                                                             <th>프로젝트 제목</th>
-                                                            <th>지원비용</th>
+                                                            <th>월예산</th>
                                                             <th>기간</th>
                                                             <th>마감</th>
+                                                            <th>서류</th>
                                                             <th>상태</th>
                                                             <th>취소</th>
                                                         </tr>
-                                                        @if($app == null)
-                                                            <td colspan="6">지원한 프로젝트가 없습니다</td>
+                                                        @if(sizeof($app) == 0)
+                                                            <td colspan="7">지원한 프로젝트가 없습니다</td>
                                                         @endif
                                                         @foreach($app as $appItem)
 
@@ -167,6 +169,7 @@
                                                                 <td>{{ number_format($appItem->project->budget) }}</td>
                                                                 <td>{{ $appItem->project->estimated_duration }}</td>
                                                                 <td>{{ $appItem->project->deadline }}</td>
+                                                                <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="" data-pid="" data-uid="">관리</button></td>
                                                                 <td>{{ $appItem->choice }}</td>
 
                                                                 <form id="{{$appItem->id}}form" method="POST"
@@ -213,10 +216,8 @@
                                                             <th>상태</th>
 
                                                         </tr>
-                                                        @if($app == null)
-                                                            <td colspan="6">진행 중인 프로젝트가 없습니다</td>
-
-
+                                                        @if(sizeof($carryon) == 0)
+                                                            <td colspan="5">진행 중인 프로젝트가 없습니다</td>
                                                         @endif
                                                         @foreach($carryon as $carryonItem)
 
@@ -254,12 +255,10 @@
                                                                 <th>상태</th>
 
                                                             </tr>
-                                                            @if($app == null)
+                                                            @if(sizeof($compeleted) == 0)
                                                                 <tr>
-                                                                    <td colspan="6">완료 프로젝트가 없습니다</td>
+                                                                    <td colspan="5">완료 프로젝트가 없습니다</td>
                                                                 </tr>
-
-
                                                             @endif
                                                             @foreach($compeleted as $done)
 

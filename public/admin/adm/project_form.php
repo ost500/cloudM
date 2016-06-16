@@ -252,7 +252,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
     </tr>
     <tr>
         <th scope="row"><label for="detail_content">프로젝트내용</label></th>
-        <td colspan="3"><textarea  name="detail_content" id="detail_content"><?php echo $project['detail_content'] ?></textarea></td>
+        <td colspan="3"><textarea  name="detail_content" id="detail_content" style="height:300px;"><?php echo $project['detail_content'] ?></textarea></td>
     </tr>
 	<tr>
         <th scope="row"><label for="deadline">모집 마감일자</label></th>

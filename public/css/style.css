@@ -6451,3 +6451,38 @@ span.gry {
 .port_detail_img {
     width: 100%;
 }
+
+
+
+.footer_menu{}
+.footer_menu li a{ color:#f0f0f1; float:left; font-size:13px; margin-right:15px; letter-spacing:-1px; margin-bottom:4px;}
+.footer_menu li.bg_round a{ background:#1d1f23 !important; padding:1px 20px 3px 20px; color:#aeaeaf; border-radius:30px; font-weight:600;}
+p.footer_add{color:#808183; font-weight:normal; margin-top:10px; line-height:16px;}
+.foot_top a{ background:#1d1f23 !important; padding:4px 20px 4px 20px; color:#aeaeaf; border-radius:30px; font-weight:600; font-size:13px; letter-spacing:-1px; float:right;}
+@media screen and (max-width:990px){
+    .foot_top a{ float:left;}
+    .footer_menu li.bg_round a{ display:block; margin-top:4px;}}
+@media screen and (max-width:406px){
+    .footer_menu li.bg_round a:first-child{ clear:both;}}
+
+
+div.no-p{ padding-right:0px !important; padding-left:0px !important; }
+@media screen and (max-width:990px){
+    div.no-p{ clear:both;}}
+
+ul.main_process{ width:100%; }
+ul.main_process li{ float:left !important; width:33.33%; text-align:center !important; margin-top:36px; padding:0px 26px;}
+ul.main_process li p.main_process_h, p.main_process_t{ text-align:center !important;}
+ul.main_process li p.main_process_h{ font-size:17.5px; color:#333; line-height:19.5px; letter-spacing:-0.5px; font-weight:600; margin-top:32px;}
+ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-height:19.5px; letter-spacing:-0.5px; margin-bottom:42px;}
+
+.area4{ width:100%; height:100%;  float:left;display:block; position:relative; background:url(../images/bg/s_bg.jpg) center center no-repeat; background-size:cover; padding:50px 0px 50px 0px;}
+.area4_header{ color:#fff; text-align:center; font-size:22px; font-weight:600; text-decoration:underline; margin-bottom:88px; }
+.area4_ul li{ }
+.area4_ul li div.center{ text-align:center !important; margin-bottom:42px;}
+.area4_ul li p{ text-align:center; color:#fff;}
+.area4_ul li p.main_area4_h{ font-size:19px;  line-height:38px; font-weight:500; letter-spacing:-0.5px;}
+.area4_ul li p.main_area4_t{font-size:14.2px; line-height:19px; letter-spacing:-0.5px; opacity:0.73;}
+@media screen and (max-width:990px){
+    .lastmar{ padding-top:80px;}
+    .area4_header{ margin-bottom:50px;}}

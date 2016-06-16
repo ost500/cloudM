@@ -55,227 +55,315 @@
                                 <!-- Job Tittle -->
                                 <div class="panel-group">
                                     <div class="panel panel-default">
-                                        <!-- Save -->
-                                        <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                                        <!-- PANEL HEADING -->
 
 
-                                        <!-- Revenues Sidebar -->
-
-                                        <!-- Story -->
-
-                                        <article>
-                                            <div class="signup02">
 
 
-                                                <div class="job-tittle04 margin-bottom-30">
-                                                    <h6 class="my_h6 margin-bottom-20">기본 정보 입력</h6>
+                                        <div id="wizard" class="swMain">
+
+                                            <div class="stepContainer">
+                                                <div class="row">
+                                                    <div class="col-md-12">
 
                                                     <form action="{{ url('/mypage/img') }}" method="POST" role="form"
                                                           enctype="multipart/form-data" accept-charset="UTF-8">
                                                         {!! csrf_field() !!}
-                                                        <label>프로필사진<span class="set_st">*</span><br/>
-                                                            <input class="form-control03 input_width01" type="file"
-                                                                   name="Image" id="image_input"
-                                                                   value="{{ $loginUser->profileImage.".jpg" }}"/>
-                                                            <button class="input_width02" type="submit"><i
-                                                                        class="fa fa-plus"></i> 이미지 변경
-                                                            </button>
 
-                                                            {{ $errors->first('Image') }}
-                                                        </label>
+                                                        <fieldset>
+                                                            <legend>프로필 사진 관리</legend>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label class="control-label"> 프로필사진
+                                                                        </label>
+                                                                        <input class="form-control" type="file"
+                                                                               name="Image" id="image_input"
+                                                                               value="{{ $loginUser->profileImage.".jpg" }}" />
+                                                                        {{ $errors->first('Image') }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                    저장하기
+                                                                </button>
+                                                            </div>
+                                                        </fieldset>
                                                     </form>
-
-                                                    <br/>
-                                                    <form action="{{ url('/mypage/info') }}" method="POST" role="form">
-                                                        {!! csrf_field() !!}
-                                                        <label>파트너형태<span class="set_st">*</span>
-                                                            <select name="company_type" class="form-control03 "
-                                                                    id="form_of_business" required="required"
-                                                                    value="abc">
-
-                                                                <option value="개인" <?php if ($loginUser->company_type == "개인") {
-                                                                    echo "selected";
-                                                                }?>>개인
-                                                                </option>
-                                                                <option value="팀"<?php if ($loginUser->company_type == "팀") {
-                                                                    echo "selected";
-                                                                }?>>팀
-                                                                </option>
-                                                                <option value="개인 사업자"<?php if ($loginUser->company_type == "개인 사업자") {
-                                                                    echo "selected";
-                                                                }?>>개인 사업자
-                                                                </option>
-                                                                <option value="법인 사업자"<?php if ($loginUser->company_type == "법인 사업자") {
-                                                                    echo "selected";
-                                                                }?>>법인 사업자
-                                                                </option>
-                                                            </select>
-                                                        </label><br/>
-                                                        <label>이름<span class="set_st">*</span>
-                                                            <input class="form-control03" type="text" name="name"
-                                                                   placeholder=""
-                                                                   value="{{$loginUser->name}}">
-                                                        </label>
-                                                        {{ $errors->first('name') }}
-                                                        <br/>
-
-                                                        <label>성별<span class="set_st">*</span><br/>
-                                                            <label for="ccc" class="label_n02">
-                                                                <input name="sex" id="ccc"
-                                                                       type="radio"
-                                                                       @if($loginUser->sex =="남성"){{"checked"}}@endif
-                                                                       value="남성">남성</label>&nbsp;
-
-                                                            <label for="ppp" class="label_n02">
-                                                                <input name="gender" id="ppp"
-                                                                       type="radio"
-                                                                       @if($loginUser->sex =="여성"){{"checked"}}@endif
-                                                                       value="여성">여성</label>
-                                                        </label><br/><br/>
-                                                        <label for="birth001">생년월일<br/>
-                                                            <select name="BOD1" class="form-control03 form-width"
-                                                                    id="form_of_birth01">
-                                                                @for ($i = 1945; $i <= 2016; $i++)
-                                                                    <option {{"value=".$i}} @if(substr($loginUser->BOD,0,4) == $i){{"selected"}}@endif >{{ $i }}</option>
-                                                                @endfor
-
-                                                            </select>
-                                                            <select name="BOD2" class="form-control03 form-width"
-                                                                    id="form_of_birth02">
-                                                                @for ($i = 1; $i <= 12; $i++)
-                                                                    <option {{"value=".$i}} @if(substr($loginUser->BOD,5,2) == $i){{"selected"}}@endif >{{ $i }}</option>
-                                                                @endfor
-                                                            </select>
-                                                            <select name="BOD3" class="form-control03 form-width"
-                                                                    id="form_of_birth03">
-                                                                @for ($i = 1; $i <= 31; $i++)
-                                                                    <option {{"value=".$i}} @if(substr($loginUser->BOD,8,2) == $i){{"selected"}}@endif >{{ $i }}</option>
-                                                                @endfor
-                                                            </select>
-                                                        </label><br/>
-                                                        <label>지역-시,도<span class="set_st">*</span>
-                                                            <select name="address"
-                                                                    class="form-control03 ie-form-control"
-                                                                    id="address">
-                                                                <option value="">선택</option>
-                                                                <option value="서울특별시" @if($loginUser->address == "서울특별시"){{"selected"}}@endif>
-                                                                    서울특별시
-                                                                </option>
-                                                                <option value="부산광역시" @if($loginUser->address == "부산광역시"){{"selected"}}@endif>
-                                                                    부산광역시
-                                                                </option>
-                                                                <option value="대구광역시" @if($loginUser->address == "대구광역시"){{"selected"}}@endif>
-                                                                    대구광역시
-                                                                </option>
-                                                                <option value="인천광역시" @if($loginUser->address == "인천광역시"){{"selected"}}@endif>
-                                                                    인천광역시
-                                                                </option>
-                                                                <option value="광주광역시" @if($loginUser->address == "광주광역시"){{"selected"}}@endif>
-                                                                    광주광역시
-                                                                </option>
-                                                                <option value="대전광역시" @if($loginUser->address == "대전광역시"){{"selected"}}@endif>
-                                                                    대전광역시
-                                                                </option>
-                                                                <option value="울산광역시" @if($loginUser->address == "울산광역시"){{"selected"}}@endif>
-                                                                    울산광역시
-                                                                </option>
-                                                                <option value="세종특별자치시" @if($loginUser->address == "세종특별자치시"){{"selected"}}@endif>
-                                                                    세종특별자치시
-                                                                </option>
-                                                                <option value="경기도" @if($loginUser->address == "경기도"){{"selected"}}@endif>
-                                                                    경기도
-                                                                </option>
-                                                                <option value="강원도" @if($loginUser->address == "강원도"){{"selected"}}@endif>
-                                                                    강원도
-                                                                </option>
-                                                                <option value="충청북도" @if($loginUser->address == "충청북도"){{"selected"}}@endif>
-                                                                    충청북도
-                                                                </option>
-                                                                <option value="충청남도" @if($loginUser->address == "충청남도"){{"selected"}}@endif>
-                                                                    충청남도
-                                                                </option>
-                                                                <option value="전라북도" @if($loginUser->address == "전라북도"){{"selected"}}@endif>
-                                                                    전라북도
-                                                                </option>
-                                                                <option value="전라남도" @if($loginUser->address == "전라남도"){{"selected"}}@endif>
-                                                                    전라남도
-                                                                </option>
-                                                                <option value="경상북도" @if($loginUser->address == "경상북도"){{"selected"}}@endif>
-                                                                    경상북도
-                                                                </option>
-                                                                <option value="경상남도" @if($loginUser->address == "경상남도"){{"selected"}}@endif>
-                                                                    경상남도
-                                                                </option>
-                                                                <option value="제주특별자치도" @if($loginUser->address == "제주특별자치도"){{"selected"}}@endif>
-                                                                    제주특별자치도
-                                                                </option>
-                                                            </select>
-                                                        </label><br/>
-                                                        <!--<div class="checkbox">
-                                                          <input type="checkbox" name="checkbox1" id="checkbox1" value="option1" checked="">
-                                                          <label for="checkbox1"><a href="#">이용약관</a> 및 <a href="#">개인정보 보호방침</a>에 동의합니다.</label>
-                                                        </div>-->
-                                                        <button class="button003 signup003 margin-top-10" type="submit">
-                                                            등록하기
-                                                        </button>
-                                                    </form>
-                                                </div>
-
-
-                                                <div class="job-tittle04 margin-bottom-30">
-                                                    <h6 class="my_h6 margin-bottom-20">연락처 정보 입력</h6>
-                                                    <form action="{{ url('/mypage/numbers') }}" method="POST" role="form">
-                                                        {!! csrf_field() !!}
-                                                        <label>핸드폰번호<span class="set_st">*</span><br/>
-                                                            <select name="phone_num1" class="form-control03 phone_width"
-                                                                    id="form_of_business" required="required">
-                                                                <option>010</option>
-                                                                <option>011</option>
-                                                                <option>016</option>
-                                                                <option>017</option>
-                                                                <option>019</option>
-                                                            </select>
-                                                            <input class="form-control03 phone_width" type="text"
-                                                                   name="phone_num2"
-                                                                   placeholder=""
-                                                                   value="{{ substr($loginUser->phone_num,3,4) }}">
-                                                            <input class="form-control03 phone_width" type="text"
-                                                                   name="phone_num3"
-                                                                   placeholder=""
-                                                                   value="{{ substr($loginUser->phone_num,7,4) }}">
-                                                        </label>
-                                                        {{ $errors->first('phone_num1') }}
-                                                        {{ $errors->first('phone_num2') }}
-                                                        {{ $errors->first('phone_num3') }}
-                                                        <br/>
-
-                                                        <label>팩스번호
-                                                            <input class="form-control03" type="text" name="fax_num"
-                                                                   placeholder="" value="{{ $loginUser->fax_num }}">
-                                                        </label>
-                                                        {{ $errors->first('fax_num') }}
-                                                        <br/>
-                                                        <button class="button003 signup003 margin-top-10" >등록하기</button>
-                                                    </form>
-                                                </div>
-
-
-                                                <div class="job-tittle04-la margin-bottom-30">
-                                                    <h6 class="my_h6 margin-bottom-20">이메일 구독 설정</h6>
-                                                    <label>이메일 <strong>{{ $loginUser->email }}</strong>
-                                                    </label><br/>
-                                                    <div class="checkbox">
-                                                        <input type="checkbox" name="checkbox1" id="checkbox1"
-                                                               value="option1" checked="">
-                                                        <label for="checkbox1">크라우드엠의 프로젝트 소식을 구독합니다.</label>
                                                     </div>
-                                                    <button class="button003 signup003 margin-top-10" >등록하기</button>
                                                 </div>
+                                            </div>
 
+
+
+                                            <div class="stepContainer" style="padding-top:30px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <form action="{{ url('/mypage/info') }}" method="POST" role="form">
+                                                            {!! csrf_field() !!}
+
+                                                            <fieldset>
+                                                                <legend>
+                                                                    기본 정보
+                                                                </legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 파트너형태
+                                                                            </label>
+                                                                            <select name="company_type" class="form-control"
+                                                                                    id="form_of_business" required="required"
+                                                                                    value="abc">
+
+                                                                                <option value="개인" <?php if ($loginUser->company_type == "개인") {
+                                                                                    echo "selected";
+                                                                                }?>>개인
+                                                                                </option>
+                                                                                <option value="팀"<?php if ($loginUser->company_type == "팀") {
+                                                                                    echo "selected";
+                                                                                }?>>팀
+                                                                                </option>
+                                                                                <option value="개인 사업자"<?php if ($loginUser->company_type == "개인 사업자") {
+                                                                                    echo "selected";
+                                                                                }?>>개인 사업자
+                                                                                </option>
+                                                                                <option value="법인 사업자"<?php if ($loginUser->company_type == "법인 사업자") {
+                                                                                    echo "selected";
+                                                                                }?>>법인 사업자
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 이름 <span class="symbol required"></span>
+                                                                            </label>
+                                                                            <input class="form-control" required="required" type="text" name="name"
+                                                                                   placeholder=""
+                                                                                   value="{{$loginUser->name}}">
+
+                                                                            {{ $errors->first('name') }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 성별</label>
+                                                                            <select name="sex" class="form-control"
+                                                                                    id="form_of_sex" required="required">
+
+                                                                                <option value="남성" <?php if ($loginUser->sex == "남성") {
+                                                                                    echo "selected";
+                                                                                }?>>남성
+                                                                                </option>
+                                                                                <option value="여성"<?php if ($loginUser->sex == "여성") {
+                                                                                    echo "selected";
+                                                                                }?>>여성
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 생년월일</label>
+                                                                            <input type="date"
+                                                                                   class="form-control"
+                                                                                   name="BOD" value="{{ $loginUser->BOD }}">
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 지역</label>
+                                                                            <select name="address"
+                                                                                    class="form-control ie-form-control"
+                                                                                    id="address">
+                                                                                <option value="">선택</option>
+                                                                                <option value="서울" @if($loginUser->address == "서울"){{"selected"}}@endif>
+                                                                                    서울특별시
+                                                                                </option>
+                                                                                <option value="부산" @if($loginUser->address == "부산"){{"selected"}}@endif>
+                                                                                    부산
+                                                                                </option>
+                                                                                <option value="대구" @if($loginUser->address == "대구"){{"selected"}}@endif>
+                                                                                    대구
+                                                                                </option>
+                                                                                <option value="인천" @if($loginUser->address == "인천"){{"selected"}}@endif>
+                                                                                    인천
+                                                                                </option>
+                                                                                <option value="광주" @if($loginUser->address == "광주"){{"selected"}}@endif>
+                                                                                    광주
+                                                                                </option>
+                                                                                <option value="대전" @if($loginUser->address == "대전"){{"selected"}}@endif>
+                                                                                    대전
+                                                                                </option>
+                                                                                <option value="울산" @if($loginUser->address == "울산"){{"selected"}}@endif>
+                                                                                    울산
+                                                                                </option>
+                                                                                <option value="세종" @if($loginUser->address == "세종"){{"selected"}}@endif>
+                                                                                    세종특별자치시
+                                                                                </option>
+                                                                                <option value="경기" @if($loginUser->address == "경기"){{"selected"}}@endif>
+                                                                                    경기도
+                                                                                </option>
+                                                                                <option value="강원" @if($loginUser->address == "강원"){{"selected"}}@endif>
+                                                                                    강원도
+                                                                                </option>
+                                                                                <option value="충북" @if($loginUser->address == "충북"){{"selected"}}@endif>
+                                                                                    충청북도
+                                                                                </option>
+                                                                                <option value="충남" @if($loginUser->address == "충남"){{"selected"}}@endif>
+                                                                                    충청남도
+                                                                                </option>
+                                                                                <option value="전북" @if($loginUser->address == "전북"){{"selected"}}@endif>
+                                                                                    전라북도
+                                                                                </option>
+                                                                                <option value="전남" @if($loginUser->address == "전남"){{"selected"}}@endif>
+                                                                                    전라남도
+                                                                                </option>
+                                                                                <option value="경북" @if($loginUser->address == "경북"){{"selected"}}@endif>
+                                                                                    경상북도
+                                                                                </option>
+                                                                                <option value="경남" @if($loginUser->address == "경남"){{"selected"}}@endif>
+                                                                                    경상남도
+                                                                                </option>
+                                                                                <option value="제주" @if($loginUser->address == "제주"){{"selected"}}@endif>
+                                                                                    제주특별자치도
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                        저장하기
+                                                                    </button>
+                                                                </div>
+                                                            </fieldset>
+
+
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="stepContainer" style="padding-top:30px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <form action="{{ url('/mypage/numbers') }}" method="POST" role="form">
+                                                            {!! csrf_field() !!}
+
+                                                            <fieldset>
+                                                                <legend>
+                                                                    연락처 정보
+                                                                </legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 연락처 <span class="symbol required"></span>
+                                                                            </label>
+                                                                            <select name="phone_num1" class="form-control phone_width"
+                                                                                    id="form_of_business" required="required">
+                                                                                <option vlaue="010" @if($loginUser->phone_num_arr[0] == "010"){{"selected"}}@endif>010</option>
+                                                                                <option value="011" @if($loginUser->phone_num_arr[0] == "011"){{"selected"}}@endif>011</option>
+                                                                                <option value="016" @if($loginUser->phone_num_arr[0] == "016"){{"selected"}}@endif>016</option>
+                                                                                <option value="017" @if($loginUser->phone_num_arr[0] == "017"){{"selected"}}@endif>017</option>
+                                                                                <option value="019" @if($loginUser->phone_num_arr[0] == "019"){{"selected"}}@endif>019</option>
+                                                                            </select>
+                                                                            <input class="form-control phone_width number" type="text"
+                                                                                   name="phone_num2"
+                                                                                   placeholder=""
+                                                                                   value="{{ $loginUser->phone_num_arr[1] }}" required="required" minlength="3" maxlength="4">
+                                                                            <input class="form-control phone_width" type="text"
+                                                                                   name="phone_num3"
+                                                                                   placeholder=""
+                                                                                   value="{{ $loginUser->phone_num_arr[2] }}" required="required" minlength="3" maxlength="4">
+                                                                            {{ $errors->first('phone_num1') }}
+                                                                            {{ $errors->first('phone_num2') }}
+                                                                            {{ $errors->first('phone_num3') }}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 팩스 <span
+                                                                                        class="symbol ok"
+                                                                                        aria-required="true"></span>
+                                                                            </label>
+                                                                            <input class="form-control" type="text" name="fax_num"
+                                                                                   placeholder="" value="{{ $loginUser->fax_num }}">
+
+                                                                            {{ $errors->first('fax_num') }}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                        저장하기
+                                                                    </button>
+                                                                </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="stepContainer" style="padding-top:30px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <form action="{{ url('/mypage/numbers') }}" method="POST" role="form">
+                                                            {!! csrf_field() !!}
+
+                                                            <fieldset>
+                                                                <legend>
+                                                                    이메일 구독설정
+                                                                </legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 이메일
+                                                                            </label>
+                                                                            <strong>{{ $loginUser->email }}</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <div class="checkbox">
+                                                                                <input type="checkbox" name="checkbox1" id="checkbox1"
+                                                                                       value="option1" checked="">
+                                                                                <label for="checkbox1">크라우드엠의 프로젝트 소식을 구독합니다.</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                        저장하기
+                                                                    </button>
+                                                                </div>
+                                                            </fieldset>
+
+
+
+                                                        </form>
+                                                    </div>
+                                                </div>
 
                                             </div>
-                                        </article>
+                                        </div>
+
+
 
 
                                     </div>
