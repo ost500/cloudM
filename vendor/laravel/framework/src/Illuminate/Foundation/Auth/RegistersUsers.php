@@ -65,6 +65,7 @@ trait RegistersUsers
         if($request->ajax()){
             return ['try' => "Success"];
         }
+        //수정
 
         return redirect($this->redirectPath());
     }
