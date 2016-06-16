@@ -32,17 +32,31 @@ $chars_array = array_merge(range(0,9), range('a','z'), range('A','Z'));
 $file_upload_msg = "";
 $upload = array();
 
-for ($i=0; $i<count($_FILES['bf_file']['name']); $i++)
-{
+if ($_FILES['bf_file']['name'][0] == "") {
     // 삭제에 체크가 되어있다면 파일을 삭제합니다.
-    if (isset($_POST['file_name_del'][$i]) && $_POST['file_name_del'][$i]) {
+    if (isset($_POST['file_name_del'][0]) && $_POST['file_name_del'][0]) {
         $upload[$i]['del_check'] = true;
 
-        $row = sql_fetch(" select file_name from {$g5['file_table']} where p_id = '{$p_id}' and f_id = '{$i}' ");
-        @unlink(G5_DATA_PATH.'/proposals/'.$row['file_name']);
-    }
-    else
-        $upload[$i]['del_check'] = false;
+        $row = sql_fetch(" select file_name from {$g5['file_table']} where p_id = '{$p_id}' and f_id = '0' ");
+        @unlink(G5_DATA_PATH . '/proposals/' . $row['file_name']);
+
+        sql_query(" delete from $g5[file_table] where p_id = '$p_id' and f_id = '0' ");
+    } else
+        $upload[0]['del_check'] = false;
+}
+
+
+for ($i=0; $i<count($_FILES['bf_file']['name']); $i++)
+{
+    if ($_FILES['bf_file']['name'][$i] == "") continue;
+
+    // 기존 파일은 무조건 삭제
+    $upload[$i]['del_check'] = true;
+
+    $row = sql_fetch(" select file_name from {$g5['file_table']} where p_id = '{$p_id}' and f_id = '{$i}' ");
+    @unlink(G5_DATA_PATH . '/proposals/' . $row['file_name']);
+
+
 
     $tmp_file  = $_FILES['bf_file']['tmp_name'][$i];
     $filesize  = $_FILES['bf_file']['size'][$i];
@@ -83,6 +97,7 @@ for ($i=0; $i<count($_FILES['bf_file']['name']); $i++)
         //=================================================================
 
         $upload[$i][image] = $timg;
+
 
 
         // 4.00.11 - 글답변에서 파일 업로드시 원글의 파일이 삭제되는 오류를 수정
@@ -134,12 +149,12 @@ for ($i=0; $i<count($upload); $i++)
     {
         // 삭제에 체크가 있거나 파일이 있다면 업데이트를 합니다.
         // 그렇지 않다면 내용만 업데이트 합니다.
-        if ($upload[$i][del_check] || $upload[$i][file])
+        if ($upload[$i]['del_check'] || $upload[$i]['file'])
         {
-            $sql = " update $g5[file_table]
-                        set source_name = '{$upload[$i][source]}',
-                            file_name = '{$upload[$i][file]}',
-                            file_size = '{$upload[$i][filesize]}'
+            $sql = " update {$g5['file_table']}
+                        set source_name = '{$upload[$i]['source']}',
+                            file_name = '{$upload[$i]['file']}',
+                            file_size = '{$upload[$i]['filesize']}'
                       where p_id = '$p_id'
                         and f_id = '$i' ";
             sql_query($sql);
@@ -147,13 +162,13 @@ for ($i=0; $i<count($upload); $i++)
     }
     else
     {
-        $sql = " insert into $g5[file_table]
+        $sql = " insert into {$g5['file_table']}
                     set p_id = '$p_id',
                         f_id = '$i',
                         u_id = '$u_id',
-                        source_name = '{$upload[$i][source]}',
-                        file_name = '{$upload[$i][file]}',
-                        file_size = '{$upload[$i][filesize]}',
+                        source_name = '{$upload[$i]['source']}',
+                        file_name = '{$upload[$i]['file']}',
+                        file_size = '{$upload[$i]['filesize']}',
                         created_at = now(),
                         updated_at = now()";
         sql_query($sql);

@@ -101,13 +101,12 @@ $colspan = 16;
                 </th>
                 <th scope="col" id="project_list_mobile"><?php echo subject_sort_link('name') ?>업체명</a></th>
 				<th scope="col" id="project_list_mng"><?php echo subject_sort_link('type') ?>기업<br>형태</a></th>
-                <th scope="col" id="project_list_name">지역</th>
 				<th scope="col" id="project_list_mobile">연락처</th>
 				<th scope="col" id="project_list_mobile">지원</th>
 				<th scope="col" id="project_list_mobile">계약</th>
-				<th scope="col" id="project_list_mobile">완료</th>                
+				<th scope="col" id="project_list_mobile">완료</th>
+                <th scope="col" id="project_list_name">제안서</th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>지원일</a></th>
-                <th scope="col" id="project_list_mng">제안서</th>
             </tr>
             </thead>
             <tbody>
@@ -145,21 +144,29 @@ $colspan = 16;
                         <input type="hidden" name="project_id[<?php echo $i ?>]" value="<?php echo $row['project_id'] ?>" id="project_id_<?php echo $i ?>">
 
                         <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
+
+                        <select name="choice[<?php echo $i ?>]" id="choice<?=$i?>" required class="required frm_input">
+                            <option value="">선택</option>
+                            <option value="지원">지원</option>
+                            <option value="미팅">미팅</option>
+                            <option value="진행">진행</option>
+                        </select>
+                        <script> $(function() { $("#choice<?=$i?>").val("<?=$row[choice]?>"); }); </script>
                     </td>
                     <td class="td_date"><a href="member_form.php?mb_id=<?=$row[email]?>&w=u&<?=$qrst?>"> <?php echo $row[name] ?></a></td>
-					<td class="td_40"><?=$row[company_type]?></td>
-					<td class="td_date"></td>
-                    <td class="td_60"><?php echo $row[phone_num] ?></td>
-					<td class="td_40"><?=number_format($step1[cnt]);?></td>
-					<td class="td_40"><?=number_format($step2[cnt]);?></td>
-					<td class="td_40"><?=number_format($step3[cnt]);?></td>
+					<td class="td_40"><?=$row['company_type']?></td>
+                    <td class="td_60"><?php echo $row['phone_num'] ?></td>
+					<td class="td_40"><?=number_format($step1['cnt']);?></td>
+					<td class="td_40"><?=number_format($step2['cnt']);?></td>
+					<td class="td_40"><?=number_format($step3['cnt']);?></td>
+                    <td class="td_date bts">
+                        <? if ($files['file_name']) { ?>
+                            <a href="download.php?p_id=<?=$row['p_id']?>&f_id=0"><?=$files['source_name']?></a>
+                        <? } ?>
+
+                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">관리</button>
+                    </td>
                     <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
-                    <td headers="project_list_mng" class="bts td_mngsmall">
-					<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">등록</button>
-                    <? if ($files[file_name]) { ?>
-                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModalEdit" data-source_name="<?=$files[source_name]?>" data-file_name="<?=$files[file_name]?>" data-fid="<?=$files[f_id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">수정</button>
-                    <? } ?>
-					</td>
                 </tr>
 
                 <?php
