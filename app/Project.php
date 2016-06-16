@@ -26,4 +26,9 @@ class Project extends Model
     {
         return $this->hasOne('App\User', 'id', 'Client_id');
     }
+
+    public function projects_area()
+    {
+        return $this->hasMany('App\ProjectsArea', 'p_id', 'id');
+    }
 }

@@ -84,6 +84,9 @@ class SearchController extends Controller
             $projects = $projects->forPage($page, 10);
             $projects['count'] = $count;
 
+
+
+
             return view('p_search/p_searchSort', compact('projects'));
         }
 

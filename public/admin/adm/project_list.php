@@ -34,7 +34,7 @@ if ($is_admin != 'super')
 */
 
 if (!$sst) {
-    $sst = "a.created_at";
+    $sst = "a.id";
     $sod = "desc";
 }
 
