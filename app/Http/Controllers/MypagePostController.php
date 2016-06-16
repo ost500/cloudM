@@ -64,7 +64,7 @@ class MypagePostController extends Controller
 
         Auth::user()->name = $request->name;
         Auth::user()->sex = $request->sex;
-        Auth::user()->BOD = $request->BOD1 . $request->BOD2 . $request->BOD3;
+        Auth::user()->BOD = $request->BOD;
         Auth::user()->address = $request->address;
         Auth::user()->save();
 
@@ -89,7 +89,7 @@ class MypagePostController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
-        Auth::user()->phone_num = $request->phone_num1.$request->phone_num2.$request->phone_num3;
+        Auth::user()->phone_num = $request->phone_num1.'-'.$request->phone_num2.'-'.$request->phone_num3;
         Auth::user()->fax_num = $request->fax_num;
         Auth::user()->save();
 

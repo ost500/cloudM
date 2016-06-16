@@ -184,55 +184,55 @@
                                                                                     class="form-control ie-form-control"
                                                                                     id="address">
                                                                                 <option value="">선택</option>
-                                                                                <option value="서울특별시" @if($loginUser->address == "서울특별시"){{"selected"}}@endif>
+                                                                                <option value="서울" @if($loginUser->address == "서울"){{"selected"}}@endif>
                                                                                     서울특별시
                                                                                 </option>
-                                                                                <option value="부산광역시" @if($loginUser->address == "부산광역시"){{"selected"}}@endif>
-                                                                                    부산광역시
+                                                                                <option value="부산" @if($loginUser->address == "부산"){{"selected"}}@endif>
+                                                                                    부산
                                                                                 </option>
-                                                                                <option value="대구광역시" @if($loginUser->address == "대구광역시"){{"selected"}}@endif>
-                                                                                    대구광역시
+                                                                                <option value="대구" @if($loginUser->address == "대구"){{"selected"}}@endif>
+                                                                                    대구
                                                                                 </option>
-                                                                                <option value="인천광역시" @if($loginUser->address == "인천광역시"){{"selected"}}@endif>
-                                                                                    인천광역시
+                                                                                <option value="인천" @if($loginUser->address == "인천"){{"selected"}}@endif>
+                                                                                    인천
                                                                                 </option>
-                                                                                <option value="광주광역시" @if($loginUser->address == "광주광역시"){{"selected"}}@endif>
-                                                                                    광주광역시
+                                                                                <option value="광주" @if($loginUser->address == "광주"){{"selected"}}@endif>
+                                                                                    광주
                                                                                 </option>
-                                                                                <option value="대전광역시" @if($loginUser->address == "대전광역시"){{"selected"}}@endif>
-                                                                                    대전광역시
+                                                                                <option value="대전" @if($loginUser->address == "대전"){{"selected"}}@endif>
+                                                                                    대전
                                                                                 </option>
-                                                                                <option value="울산광역시" @if($loginUser->address == "울산광역시"){{"selected"}}@endif>
-                                                                                    울산광역시
+                                                                                <option value="울산" @if($loginUser->address == "울산"){{"selected"}}@endif>
+                                                                                    울산
                                                                                 </option>
-                                                                                <option value="세종특별자치시" @if($loginUser->address == "세종특별자치시"){{"selected"}}@endif>
+                                                                                <option value="세종" @if($loginUser->address == "세종"){{"selected"}}@endif>
                                                                                     세종특별자치시
                                                                                 </option>
-                                                                                <option value="경기도" @if($loginUser->address == "경기도"){{"selected"}}@endif>
+                                                                                <option value="경기" @if($loginUser->address == "경기"){{"selected"}}@endif>
                                                                                     경기도
                                                                                 </option>
-                                                                                <option value="강원도" @if($loginUser->address == "강원도"){{"selected"}}@endif>
+                                                                                <option value="강원" @if($loginUser->address == "강원"){{"selected"}}@endif>
                                                                                     강원도
                                                                                 </option>
-                                                                                <option value="충청북도" @if($loginUser->address == "충청북도"){{"selected"}}@endif>
+                                                                                <option value="충북" @if($loginUser->address == "충북"){{"selected"}}@endif>
                                                                                     충청북도
                                                                                 </option>
-                                                                                <option value="충청남도" @if($loginUser->address == "충청남도"){{"selected"}}@endif>
+                                                                                <option value="충남" @if($loginUser->address == "충남"){{"selected"}}@endif>
                                                                                     충청남도
                                                                                 </option>
-                                                                                <option value="전라북도" @if($loginUser->address == "전라북도"){{"selected"}}@endif>
+                                                                                <option value="전북" @if($loginUser->address == "전북"){{"selected"}}@endif>
                                                                                     전라북도
                                                                                 </option>
-                                                                                <option value="전라남도" @if($loginUser->address == "전라남도"){{"selected"}}@endif>
+                                                                                <option value="전남" @if($loginUser->address == "전남"){{"selected"}}@endif>
                                                                                     전라남도
                                                                                 </option>
-                                                                                <option value="경상북도" @if($loginUser->address == "경상북도"){{"selected"}}@endif>
+                                                                                <option value="경북" @if($loginUser->address == "경북"){{"selected"}}@endif>
                                                                                     경상북도
                                                                                 </option>
-                                                                                <option value="경상남도" @if($loginUser->address == "경상남도"){{"selected"}}@endif>
+                                                                                <option value="경남" @if($loginUser->address == "경남"){{"selected"}}@endif>
                                                                                     경상남도
                                                                                 </option>
-                                                                                <option value="제주특별자치도" @if($loginUser->address == "제주특별자치도"){{"selected"}}@endif>
+                                                                                <option value="제주" @if($loginUser->address == "제주"){{"selected"}}@endif>
                                                                                     제주특별자치도
                                                                                 </option>
                                                                             </select>
@@ -272,20 +272,20 @@
                                                                             </label>
                                                                             <select name="phone_num1" class="form-control phone_width"
                                                                                     id="form_of_business" required="required">
-                                                                                <option>010</option>
-                                                                                <option>011</option>
-                                                                                <option>016</option>
-                                                                                <option>017</option>
-                                                                                <option>019</option>
+                                                                                <option vlaue="010" @if($loginUser->phone_num_arr[0] == "010"){{"selected"}}@endif>010</option>
+                                                                                <option value="011" @if($loginUser->phone_num_arr[0] == "011"){{"selected"}}@endif>011</option>
+                                                                                <option value="016" @if($loginUser->phone_num_arr[0] == "016"){{"selected"}}@endif>016</option>
+                                                                                <option value="017" @if($loginUser->phone_num_arr[0] == "017"){{"selected"}}@endif>017</option>
+                                                                                <option value="019" @if($loginUser->phone_num_arr[0] == "019"){{"selected"}}@endif>019</option>
                                                                             </select>
-                                                                            <input class="form-control phone_width" type="text"
+                                                                            <input class="form-control phone_width number" type="text"
                                                                                    name="phone_num2"
                                                                                    placeholder=""
-                                                                                   value="{{ substr($loginUser->phone_num,3,4) }}" required="required">
+                                                                                   value="{{ $loginUser->phone_num_arr[1] }}" required="required" minlength="3" maxlength="4">
                                                                             <input class="form-control phone_width" type="text"
                                                                                    name="phone_num3"
                                                                                    placeholder=""
-                                                                                   value="{{ substr($loginUser->phone_num,7,4) }}" required="required">
+                                                                                   value="{{ $loginUser->phone_num_arr[2] }}" required="required" minlength="3" maxlength="4">
                                                                             {{ $errors->first('phone_num1') }}
                                                                             {{ $errors->first('phone_num2') }}
                                                                             {{ $errors->first('phone_num3') }}
