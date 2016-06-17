@@ -282,7 +282,7 @@
     var display_results = $("#noti");
 
     var Noti = [];
-    var index = 0;
+    var index = -1;
 
 
     function executeNoti() {
@@ -298,19 +298,18 @@
         });
     }
     function show_noti() {
+        index = index + 1;
         if (index >= Noti.length - 1) {
             index = 0;
         }
 
         display_results.html(Noti[index]);
-        index = index + 1;
-
 
     }
     $("#left_btn").click(function () {
         index = index - 1;
         if (index < 1) {
-            index = 0;
+            index = Noti.length-2;
         }
 
         display_results.html(Noti[index]);
@@ -318,7 +317,7 @@
     $("#right_btn").click(function () {
         index = index + 1;
         if (index >= Noti.length-1) {
-            index = Noti.length-2;
+            index = 0;
         }
 
         display_results.html(Noti[index]);
