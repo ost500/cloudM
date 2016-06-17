@@ -71,9 +71,7 @@ class CreateController extends Controller
     public function indextesta(Request $request)
     {
         $user = Auth::user();
-        $user->name = $request->name;
-        $user->phone_num = $request->phone;
-        $user->save();
+
 
         $client = $user->clients;
         $client->company_type = $request->company_type;
@@ -82,6 +80,11 @@ class CreateController extends Controller
 
 
         $input = new Project();
+
+        $input->charger_name = $request->name;
+        $input->charger_phone = $request->phone;
+
+
         //$input->area = $request->area;
         $input->category = $request->category;
         $input->title = $request->project_name;
@@ -99,7 +102,7 @@ class CreateController extends Controller
         $input->save();
 
 
-        for($i = 0; $i < sizeof($request->area); $i++) {
+        for ($i = 0; $i < sizeof($request->area); $i++) {
             $areas = new ProjectsArea();
             $areas->p_id = $input->id;
             $areas->area = $request->area[$i];
