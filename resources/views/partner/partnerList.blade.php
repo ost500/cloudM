@@ -9,10 +9,16 @@
                 <!-- Job Tittle -->
                 <div class="col-lg-2">
                     @if($partner->profileImage != null)
-                        <img class="partner_profile" src="{{ URL::asset($partner->profileImage) }}">
+                        <img id="profileImage{{$partner['id']}}" class="partner_profile" src="{{ URL::asset($partner->profileImage) }}" style="cursor: pointer;">
                     @else
-                        <img class="partner_profile" src="/images/p_img02.png"><br>
+                        <img id="profileImage{{$partner['id']}}" class="partner_profile" src="/images/p_img02.png"><br>
                     @endif
+
+                        <script>
+                            $("#profileImage"+"{{$partner['id']}}").click(function () {
+                                window.location.assign("{{url('partner/'.$partner->id)}}")
+                            })
+                        </script>
 
                 </div>
                 <div class="col-lg-8">

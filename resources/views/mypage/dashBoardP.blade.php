@@ -169,7 +169,7 @@
                                                                 <td>{{ number_format($appItem->project->budget) }}</td>
                                                                 <td>{{ $appItem->project->estimated_duration }}</td>
                                                                 <td>{{ $appItem->project->deadline }}</td>
-                                                                <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="" data-pid="" data-uid="">관리</button></td>
+                                                                <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-pid="{{$appItem->project->id}}">관리</button></td>
                                                                 <td>{{ $appItem->choice }}</td>
 
                                                                 <form id="{{$appItem->id}}form" method="POST"
@@ -307,6 +307,18 @@
 
 
     </div>
+
+    <script type="text/javascript">
+        <!--
+        $('#fileModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var pid = button.data('pid')
+
+            var modal = $(this)
+            modal.find(".modal-body input[name$='p_id']").val(pid)
+        });
+        //-->
+    </script>
 
     @include('include.footer')
 @endsection

@@ -8,6 +8,7 @@ use App\Contract;
 use App\Partners;
 use App\Portfolio;
 use App\Project;
+use App\ProjectsProposal;
 use App\Skill;
 use App\User;
 use Illuminate\Http\Request;
@@ -430,6 +431,39 @@ class MypageController extends Controller
         $loginUser = Auth::user();
         $loginUser->phone_num_arr = explode("-", $loginUser->phone_num);
         return view('mypage/setting', compact('loginUser'));
+    }
+
+
+
+
+    public function proposalFileUpload(Request $request)
+    {
+        if ($request->hasFile('proposal_file')) {
+            $proposal = new ProjectsProposal();
+            $loginUser = Auth::user();
+
+
+            $tmpFilePath = '/files/proposals/';
+
+            $file = $request->file('proposal_file');
+
+            $chars_array = array_merge(range(0,9), range('a','z'), range('A','Z'));
+            shuffle($chars_array);
+            $shuffle = implode('', $chars_array);
+
+            // 첨부파일 첨부시 첨부파일명에 공백이 포함되어 있으면 일부 PC에서 보이지 않거나 다운로드 되지 않는 현상이 있습니다.
+            $tmpFileName = abs(ip2long($_SERVER['REMOTE_ADDR'])).'_'.substr($shuffle,0,8).'_'.str_replace('%', '', urlencode(str_replace(' ', '_', $file->getClientOriginalName())));
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+
+            $proposal->u_id = $loginUser->id;
+            $proposal->p_id = $request->p_id;
+            $proposal->source_name = $file->getClientOriginalName();
+            $proposal->file_name = $tmpFileName;
+            $proposal->file_size = $file->getSize();
+            $proposal->save();
+        }
+
+        return redirect()->action('MypageController@dashBoard');
     }
 
 }

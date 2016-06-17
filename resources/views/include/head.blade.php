@@ -274,7 +274,40 @@
     </div>
 </div>
 
+<div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">제안서/견적서</h4>
+            </div>
+            <div class="modal-body" style="padding:30px 100px 50px 100px;">
 
+                <form role="form" method="POST" id="fileForm" action="/proposalFileUpload" enctype="multipart/form-data">
+                    {!! csrf_field() !!}
+                    <input type="hidden" name="p_id" value="">
+
+                    <div class="form-group">
+                        <input type="file" name="proposal_file" class="form-control" placeholder="첨부파일" required="required">
+                    </div>
+
+                    <div class="text-left"></div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-red btn-block">
+                            등록하기
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
 <script src="{{ asset('js/signup.js') }}"></script>
 
 

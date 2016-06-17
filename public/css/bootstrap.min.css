@@ -6224,10 +6224,10 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 
 .close {
     float: right;
-    font-size: 31px;
-    font-weight: 700;
+    font-size: 20px;
     line-height: 1;
     color: #fff;
+    padding-top: 3px;
 }
 
 .close:focus, .close:hover {
@@ -6339,7 +6339,8 @@ button.close {
     margin: 0;
     line-height: 1.42857143;
     color: #fff;
-    font-size: 20px !important;
+    font-size: 18px !important;
+    font-weight: normal !important;
 }
 
 .modal-body {
