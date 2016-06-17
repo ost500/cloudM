@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PartnerSeeder::class);
         $this->call(ProjectSeeder::class);
 //        $this->call(CommentSeeder::class);
-//        $this->call(NotificationSeeder::class);
+        $this->call(NotificationSeeder::class);
     }
 }

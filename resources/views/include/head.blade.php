@@ -60,10 +60,12 @@
                     <ul class="personal-info">
 
                         <li class="notice-li"><p><i class="fa fa-bell"></i></p></li>
-                        <li class="notice-li notice-li-txt "><p id="noti">dsdf</p></li>
+                        <li class="notice-li notice-li-txt "><p id="noti"></p></li>
                         <li class="notice-li">
-                            <a class="white-text" href=""><i class="fa fa-chevron-left"></i></a>
-                            <a class="white-text" href=""><i class="fa fa-chevron-right"></i></a>
+                            <a style="cursor:pointer;" id="left_btn" class="white-text"><i
+                                        class="fa fa-chevron-left"></i></a>
+                            <a style="cursor:pointer;" id="right_btn" class="white-text"><i
+                                        class="fa fa-chevron-right"></i></a>
                         </li>
 
 
@@ -276,34 +278,57 @@
 <script src="{{ asset('js/signup.js') }}"></script>
 
 
-{{--<script>--}}
-{{--var display_results = $("#noti");--}}
+<script>
+    var display_results = $("#noti");
 
-{{--var maxnumofNoti = Number(2);--}}
-{{--var numofNoti = maxnumofNoti;--}}
+    var Noti = [];
+    var index = -1;
 
-{{--function executeNoti() {--}}
-{{--$.ajax({--}}
-{{--url: "/notification/" + numofNoti,--}}
-{{--success: function (result) {--}}
-{{--display_results.html(result);--}}
 
-{{--numofNoti -= 1;--}}
-{{--if (numofNoti < 1) {--}}
-{{--numofNoti = maxnumofNoti;--}}
-{{--}--}}
-{{--}--}}
-{{--});--}}
-{{--}--}}
+    function executeNoti() {
+        $.ajax({
+            url: "/notification/",
+            success: function (result) {
+                Noti = result.split("/");
+                console.log(Noti);
+                show_noti();
 
-{{--$(document).ready(function () {--}}
-{{--executeNoti();--}}
+                setInterval(show_noti, 4000);
+            }
+        });
+    }
+    function show_noti() {
+        index = index + 1;
+        if (index >= Noti.length - 1) {
+            index = 0;
+        }
 
-{{--setInterval(executeNoti, 4000);--}}
+        display_results.html(Noti[index]);
 
-{{--});--}}
+    }
+    $("#left_btn").click(function () {
+        index = index - 1;
+        if (index < 1) {
+            index = Noti.length-2;
+        }
 
-{{--</script>--}}
+        display_results.html(Noti[index]);
+    });
+    $("#right_btn").click(function () {
+        index = index + 1;
+        if (index >= Noti.length-1) {
+            index = 0;
+        }
+
+        display_results.html(Noti[index]);
+    });
+
+    $(document).ready(function () {
+        executeNoti();
+
+    });
+
+</script>
 
 
 @yield('content')

@@ -20,9 +20,9 @@ class MainController extends Controller
         return view('index', compact('projects'));
     }
 
-    public function notificationShow($id)
+    public function notificationShow()
     {
-        $noti = Notification::where('id', '=', $id)->get();
+        $noti = Notification::all()->sortByDesc('updated_at');
         return view('include.notification', compact('noti'));
     }
 
