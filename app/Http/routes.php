@@ -68,8 +68,7 @@ Route::auth();
 
 Route::get('/loginModal', 'MainController@loginModal');
 
-Route::get('/notification/{id}', 'MainController@notificationShow')
-    ->where(['id' => '[1-9]']);
+Route::get('/notification', 'MainController@notificationShow');
 
 // mypage
 Route::get('/dashboard', 'MypageController@dashBoard');
