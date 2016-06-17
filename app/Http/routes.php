@@ -97,6 +97,9 @@ Route::post('/mypage/info', 'MypagePostController@set_profile_info');
 // User phone and fax number
 Route::post('/mypage/numbers', 'MypagePostController@set_numbers');
 
+// 제안서/견적서 업로드
+Route::post('/proposalFileUpload', 'MypageController@proposalFileUpload');
+
 //프로필
 Route::get('/mypage', 'MypageController@mypage');
 //프로필 edit intro

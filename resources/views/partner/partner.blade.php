@@ -9,7 +9,7 @@
 
 
                 <div class="coupen">
-                    <p>Crowd m에서 직접 <span>파트너</span>를 찾아보세요.</p>
+                    <p>직접 <span>파트너</span>를 찾아보세요.</p>
                 </div>
 
 

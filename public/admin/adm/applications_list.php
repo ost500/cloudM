@@ -29,7 +29,7 @@ if ($stx) {
 
 /*
 if ($is_admin != 'super')
-    $sql_search .= " and mb_level <= '{$member['mb_level']}' ";
+    $sql_search .= " and mb_level <= '{$application['mb_level']}' ";
 */
 
 if (!$sst) {
@@ -82,13 +82,14 @@ $colspan = 16;
 </div>
 
 
-<form name="fmemberlist" id="fmemberlist" action="./project_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
+<form name="fapplicationlist" id="fapplicationlist" action="./applications_list_update.php" onsubmit="return fapplicationlist_submit(this);" method="post">
     <input type="hidden" name="sst" value="<?php echo $sst ?>">
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
     <input type="hidden" name="stx" value="<?php echo $stx ?>">
     <input type="hidden" name="page" value="<?php echo $page ?>">
     <input type="hidden" name="token" value="">
+    <input type="hidden" name="p_id" value="<?php echo $p_id ?>">
 
     <div class="tbl_head02 tbl_wrap">
         <table>
@@ -141,7 +142,8 @@ $colspan = 16;
 
                 <tr class="<?php echo $bg; ?>">
                     <td class="td_40">
-                        <input type="hidden" name="project_id[<?php echo $i ?>]" value="<?php echo $row['project_id'] ?>" id="project_id_<?php echo $i ?>">
+                        <input type="hidden" name="ids[<?php echo $i ?>]" value="<?php echo $row['app_id'] ?>">
+                        <input type="hidden" name="p_ids[<?php echo $i ?>]" value="<?php echo $row['p_id'] ?>">
 
                         <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
 
@@ -153,7 +155,7 @@ $colspan = 16;
                         </select>
                         <script> $(function() { $("#choice<?=$i?>").val("<?=$row[choice]?>"); }); </script>
                     </td>
-                    <td class="td_date"><a href="member_form.php?mb_id=<?=$row[email]?>&w=u&<?=$qrst?>"> <?php echo $row[name] ?></a></td>
+                    <td class="td_date"><a href="application_form.php?mb_id=<?=$row[email]?>&w=u&<?=$qrst?>"> <?php echo $row[name] ?></a></td>
 					<td class="td_40"><?=$row['company_type']?></td>
                     <td class="td_60"><?php echo $row['phone_num'] ?></td>
 					<td class="td_40"><?=number_format($step1['cnt']);?></td>
@@ -192,7 +194,7 @@ $colspan = 16;
 
 
 <script>
-    function fmemberlist_submit(f)
+    function fapplicationlist_submit(f)
     {
         if (!is_checked("chk[]")) {
             alert(document.pressed+" 하실 항목을 하나 이상 선택하세요.");
