@@ -217,14 +217,14 @@ function get_member_id_select($name, $level, $selected="", $event="")
 {
     global $g5;
 
-    $sql = " select email from {$g5['member_table']} where level >= '{$level}' ";
+    $sql = " select * from {$g5['admin_table']} where mb_level >= '{$level}' ";
     $result = sql_query($sql);
     $str = '<select id="'.$name.'" name="'.$name.'" '.$event.'><option value="">선택안함</option>';
     for ($i=0; $row=sql_fetch_array($result); $i++)
     {
-        $str .= '<option value="'.$row['email'].'"';
-        if ($row['email'] == $selected) $str .= ' selected';
-        $str .= '>'.$row['email'].'</option>';
+        $str .= '<option value="'.$row['mb_id'].'"';
+        if ($row['mb_id'] == $selected) $str .= ' selected';
+        $str .= '>'.$row['mb_id'].'</option>';
     }
     $str .= '</select>';
     return $str;
@@ -395,7 +395,7 @@ function admin_referer_check($return=false)
 }
 
 // 접근 권한 검사
-if (!$member['id'])
+if (!$member['mb_id'])
 {
     alert('로그인 하십시오.', G5_BBS_URL.'/login.php?url=' . urlencode(G5_ADMIN_URL));
 }
@@ -416,7 +416,7 @@ else if ($is_admin != 'super')
 }
 
 // 관리자의 아이피, 브라우저와 다르다면 세션을 끊고 관리자에게 메일을 보낸다.
-$admin_key = md5($member['created_at'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+$admin_key = md5($member['mb_datetime'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
 if (get_session('ss_mb_key') !== $admin_key) {
 
     session_destroy();

