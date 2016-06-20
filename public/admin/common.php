@@ -338,7 +338,8 @@ if (isset($_REQUEST['gr_id'])) {
 
 // 자동로그인 부분에서 첫로그인에 포인트 부여하던것을 로그인중일때로 변경하면서 코드도 대폭 수정하였습니다.
 if ($_SESSION['ss_mb_id']) { // 로그인중이라면
-    $member = get_member_email($_SESSION['ss_mb_id']);
+    //$member = get_member_email($_SESSION['ss_mb_id']);
+    $member = get_member($_SESSION['ss_mb_id']);
 
     // 차단된 회원이면 ss_mb_id 초기화
     if($member['mb_intercept_date'] && $member['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) {
@@ -389,7 +390,6 @@ if ($_SESSION['ss_mb_id']) { // 로그인중이라면
     // 자동로그인 end ---------------------------------------
 }
 
-
 $write = array();
 $write_table = "";
 if ($bo_table) {
@@ -412,9 +412,9 @@ if ($gr_id) {
 // 회원, 비회원 구분
 $is_member = $is_guest = false;
 $is_admin = '';
-if ($member['email']) {
+if ($member['mb_id']) {
     $is_member = true;
-    $is_admin = is_admin($member['email']);
+    $is_admin = is_admin($member['mb_id']);
     $member['mb_dir'] = substr($member['mb_id'],0,2);
 } else {
     $is_guest = true;

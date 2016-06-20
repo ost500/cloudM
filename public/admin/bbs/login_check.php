@@ -1,7 +1,5 @@
 <?php
 include_once('./_common.php');
-//include_once('../lib/password.lib.php');
-//include_once('../lib/bcrypt.lib.php');
 
 $g5['title'] = "로그인 검사";
 
@@ -11,19 +9,15 @@ $mb_password = trim($_POST['mb_password']);
 if (!$mb_id || !$mb_password)
     alert('회원아이디나 비밀번호가 공백이면 안됩니다.');
 
-$mb = get_member_email($mb_id);
+$mb = get_member($mb_id);
 
 // 가입된 회원이 아니다. 비밀번호가 틀리다. 라는 메세지를 따로 보여주지 않는 이유는
 // 회원아이디를 입력해 보고 맞으면 또 비밀번호를 입력해보는 경우를 방지하기 위해서입니다.
 // 불법사용자의 경우 회원아이디가 틀린지, 비밀번호가 틀린지를 알기까지는 많은 시간이 소요되기 때문입니다.
-//if (!$mb['mb_id'] || !check_password($mb_password, $mb['mb_password'])) {
-//    alert('가입된 회원아이디가 아니거나 비밀번호가 틀립니다.\\n비밀번호는 대소문자를 구분합니다.');
-//}
-
-$hash = password_hash($_POST['mb_password'], PASSWORD_DEFAULT, ['cost' => 10]); 
-if (!$mb['id'] || !password_verify($_POST['mb_password'], $hash)) {
+if (!$mb['mb_id'] || !check_password($mb_password, $mb['mb_password'])) {
     alert('가입된 회원아이디가 아니거나 비밀번호가 틀립니다.\\n비밀번호는 대소문자를 구분합니다.');
 }
+
 
 // 차단된 아이디인가?
 if ($mb['mb_intercept_date'] && $mb['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) {
@@ -45,15 +39,10 @@ if ($config['cf_use_email_certify'] && !preg_match("/[1-9]/", $mb['mb_email_cert
 @include_once($member_skin_path.'/login_check.skin.php');
 
 // 회원아이디 세션 생성
-//set_session('ss_mb_id', $mb['mb_id']);
+set_session('ss_mb_id', $mb['mb_id']);
 // FLASH XSS 공격에 대응하기 위하여 회원의 고유키를 생성해 놓는다. 관리자에서 검사함 - 110106
-//set_session('ss_mb_key', md5($mb['mb_datetime'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']));
+set_session('ss_mb_key', md5($mb['mb_datetime'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']));
 
-
-// 회원아이디 세션 생성
-set_session('ss_mb_id', $mb['email']);
-// FLASH XSS 공격에 대응하기 위하여 회원의 고유키를 생성해 놓는다. 관리자에서 검사함 - 110106
-set_session('ss_mb_key', md5($mb['created_at'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']));
 
 
 

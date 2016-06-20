@@ -1,8 +1,8 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
-define('G5_MYSQL_HOST', 'exampledbinstance.cidnqdbj34y7.ap-northeast-2.rds.amazonaws.com');
-define('G5_MYSQL_USER', 'ost');
-define('G5_MYSQL_PASSWORD', 'dpffhd12');
+define('G5_MYSQL_HOST', 'localhost');
+define('G5_MYSQL_USER', 'homestead');
+define('G5_MYSQL_PASSWORD', 'secret');
 define('G5_MYSQL_DB', 'homestead');
 define('G5_MYSQL_SET_MODE', true);
 
@@ -40,9 +40,10 @@ $g5['faq_master_table'] = G5_TABLE_PREFIX.'faq_master'; // 자주하시는 질�
 $g5['new_win_table'] = G5_TABLE_PREFIX.'new_win'; // 새창 테이블
 $g5['menu_table'] = G5_TABLE_PREFIX.'menu'; // 메뉴관리 테이블
 
+$g5['admin_table'] = 'g5_member'; // 관리자 테이블
 $g5['project_table'] = 'projects'; // 프로젝트 테이블
 $g5['application_table'] = 'applications'; // 지원 목록 테이블
 $g5['contract_table'] = 'contracts'; // 지원자 선정 테이블
 $g5['file_table'] = 'projects_proposals'; // 제안서/견적서 테이블
-$g5['area_table'] = 'projects_areas'; // 제안서 테이블
+$g5['area_table'] = 'projects_areas'; // 분야 테이블
 ?>
