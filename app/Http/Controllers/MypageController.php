@@ -6,6 +6,7 @@ use App\Application;
 
 use App\Contract;
 use App\Partners;
+use App\Partners_job;
 use App\Portfolio;
 use App\Project;
 use App\ProjectsProposal;
@@ -206,18 +207,18 @@ class MypageController extends Controller
             return redirect()->back()->withErrors($validator->errors());
         }
 
-        $skill = new Skill();
-        $skill->partner_id = Auth::user()->partners->id;
-        $skill->title = $request->title;
-        $skill->number = $request->number;
-        $skill->experience = $request->experience;
-        $skill->save();
+        $job = new Partners_job();
+        $job->partner_id = Auth::user()->partners->id;
+        $job->job = $request->title;
+        $job->number = $request->number;
+        $job->experience = $request->experience;
+        $job->save();
 
-        foreach (Auth::user()->partners->skill as $skill) {
+        foreach (Auth::user()->partners->job()->get() as $job) {
             echo "<tr>";
-            echo "<td>" . $skill->title . "</td>";
-            echo "<td>" . $skill->number . "</td>";
-            echo "<td>" . $skill->experience . "</td>";
+            echo "<td>" . $job->job . "</td>";
+            echo "<td>" . $job->number . "</td>";
+            echo "<td>" . $job->experience . "</td>";
             echo "<tr>";
         }
 
@@ -226,33 +227,33 @@ class MypageController extends Controller
 
     public function mypage_skill_del_post(Request $request)
     {
-        $del_skill = Skill::find($request->id);
+        $del_skill = Partners_job::find($request->id);
         $del_skill->delete();
     }
 
     public function skills_list()
     {
-        foreach (Auth::user()->partners->skill as $skill) {
+        foreach (Auth::user()->partners->job()->get() as $job) {
             echo "<tr>";
-            echo "<td>" . $skill->title .
+            echo "<td>" . $job->job .
                 "<form style=\"display: inline;\"
-                      id=\"del_form" . $skill->id . "\"
+                      id=\"del_form" . $job->id . "\"
                       method=\"POST\"
                       
                       onsubmit=\"return confirm('삭제하시겠습니까?');\">" .
                 csrf_field() . "
                     <input name=\"id\" hidden
-                           value=\"" . $skill->id . "\">
+                           value=\"" . $job->id . "\">
                     <i style=\"cursor: pointer\"
-                       id=\"" . $skill->id . "button\"
+                       id=\"" . $job->id . "button\"
                        class=\"fa fa-times fa-lg\"></i>
                 </form>
                 <script>
-                    $(\"#" . $skill->id . "button\").click(function () {
+                    $(\"#" . $job->id . "button\").click(function () {
                         $.ajax({
                             type: 'POST',
                             url: '/mypage/skill_delete',
-                            data: $(\"#del_form" . $skill->id . "\").serialize(),
+                            data: $(\"#del_form" . $job->id . "\").serialize(),
                             success: function (data) {
                                 $.ajax({
                                         type:'GET',
@@ -268,8 +269,8 @@ class MypageController extends Controller
                     });
                 </script>"
                 . "</td>";
-            echo "<td>" . $skill->number . "</td>";
-            echo "<td>" . $skill->experience . "</td>";
+            echo "<td>" . $job->number . "</td>";
+            echo "<td>" . $job->experience . "</td>";
             echo "<tr>";
         }
     }
