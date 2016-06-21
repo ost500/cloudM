@@ -108,26 +108,73 @@ $("#literal_search_button").click(function () {
 
 // 분야 검색-------------------------------------------
 $("#job_option").change(function () {
+    console.log($("#job_option").val());
     if ($("#job_option").val() == "all") {
         console.log("all checked");
         option = 0;
     }
-    if ($("#job_option").val() == "광고의뢰") {
+    if ($("#job_option").val() == "네이버CPC") {
 
         option = 1;
         console.log(option);
     }
-    if ($("#job_option").val() == "운영대행") {
-        console.log("2 checked");
+    if ($("#job_option").val() == "언론보도") {
+        console.log("4 checked");
         option = 2;
     }
-    if ($("#job_option").val() == "Viral") {
-        console.log("3 checked");
+    if ($("#job_option").val() == "구글광고") {
+        console.log("2 checked");
         option = 3;
     }
-    if ($("#job_option").val() == "1회성프로젝트") {
-        console.log("4 checked");
+    if ($("#job_option").val() == "페이스북광고") {
+        console.log("3 checked");
         option = 4;
+    }if ($("#job_option").val() == "매체 기타") {
+        console.log("3 checked");
+        option = 5;
+    }
+    if ($("#job_option").val() == "네이버SEO") {
+        console.log("4 checked");
+        option = 6;
+    }if ($("#job_option").val() == "컨텐츠 배포") {
+        console.log("4 checked");
+        option = 7;
+    }if ($("#job_option").val() == "체험단 모집") {
+        console.log("4 checked");
+        option = 8;
+    }if ($("#job_option").val() == "바이럴 기타") {
+        console.log("4 checked");
+        option = 9;
+    }if ($("#job_option").val() == "블로그") {
+        console.log("4 checked");
+        option = 10;
+    }if ($("#job_option").val() == "페이스북페이지") {
+        console.log("4 checked");
+        option = 11;
+    }if ($("#job_option").val() == "기타SNS") {
+        console.log("4 checked");
+        option = 12;
+    }if ($("#job_option").val() == "홈페이지") {
+        console.log("4 checked");
+        option = 13;
+    }if ($("#job_option").val() == "운영대행 기타") {
+        console.log("4 checked");
+        option = 14;
+    }if ($("#job_option").val() == "개발") {
+        console.log("4 checked");
+        option = 15;
+    }if ($("#job_option").val() == "디자인") {
+        console.log("4 checked");
+        option = 16;
+    }if ($("#job_option").val() == "웹툰") {
+        console.log("4 checked");
+        option = 17;
+    }if ($("#job_option").val() == "영상") {
+        console.log("4 checked");
+        option = 18;
+    }if ($("#job_option").val() == "1회성 프로젝트 기타") {
+        console.log("4 checked");
+        option = 19;
     }
 
     page = 1;
