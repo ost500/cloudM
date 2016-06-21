@@ -12,7 +12,7 @@ class Application extends Model
 
     public function project()
     {
-        return $this->hasOne('App\Project', 'id', 'p_id');
+        return $this->belongsTo('App\Project', 'p_id', 'id');
     }
     public function projectStep($step)
     {
@@ -21,7 +21,7 @@ class Application extends Model
     public function projectArray($step)
     {
         $return = "";
-        foreach($step as $eachStep){
+            foreach($step as $eachStep){
             $return = $this->hasOne('App\Project', 'id', 'p_id')->orwhere('step','=',$eachStep);
         }
         return $return;

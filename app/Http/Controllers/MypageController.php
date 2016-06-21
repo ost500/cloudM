@@ -429,7 +429,12 @@ class MypageController extends Controller
     public function setting()
     {
         $loginUser = Auth::user();
+
         $loginUser->phone_num_arr = explode("-", $loginUser->phone_num);
+        if(!$loginUser->phone_num){
+            $loginUser->phone_num_arr = array("","","");
+        }
+
         return view('mypage/setting', compact('loginUser'));
     }
 

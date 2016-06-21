@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Comments;
 use App\Project;
 
+use App\ProjectsArea;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -85,94 +86,45 @@ class SearchController extends Controller
             $projects['count'] = $count;
 
 
-
-
             return view('p_search/p_searchSort', compact('projects'));
         }
 
 
         $projects = new Collection();
+        $area_menu_array = ['네이버CPC', '구글광고', '페이스북 스폰서광고', '매체 기타',
+            '네이버SEO', '언론보도', '컨텐츠 배포', '체험단 모집', ',바이럴 기타',
+            '블로그', '페이스북페이지', '기타SNS', '홈페이지', '운영대행 기타',
+            '개발', '디자인', '웹툰', '영상', '1회성 프로젝트 기타'];
 
-        if (($SearchOption & 1) == true) {
+        $category_menu_array = ['의료', '법률', '스타트업', '프랜차이즈', '교육/대학교', '쇼핑몰', '기타'];
 
-            $query = Project::where('area', '=', '광고 의뢰')->where('step', '!=', '검수')->get();
+        $multi_select_binary = 67108864;
+        for ($i = 0; $i < count($area_menu_array) + count($category_menu_array); $i++) {
+            if ($i < count($area_menu_array)) {
+                if (($SearchOption & ($multi_select_binary / pow(2, $i + 1))) == true) {
 
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
+                    $query = ProjectsArea::where('area', '=', $area_menu_array[$i])->get();
+
+                    foreach ($query as $q) {
+                        if($q->project->step !='검수'){
+                            $projects = $projects->push($q->project);
+                        }
+                    }
+                }
+            } else {
+                if (($SearchOption & ($multi_select_binary / pow(2, $i + 1))) == true) {
+
+                    $query = Project::where('category', '=', $category_menu_array[$i - count($area_menu_array)])->get();
+
+                    foreach ($query as $q) {
+                        if($q->step !='검수'){
+                            $projects = $projects->push($q->project);
+                        }
+                    }
+                }
             }
         }
-        if (($SearchOption & 2) == true) {
 
-            $query = Project::where('area', '=', '운영 대행')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 4) == true) {
-
-            $query = Project::where('area', '=', 'Viral')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 8) == true) {
-
-            $query = Project::where('area', '=', '1회성 프로젝트')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 16) == true) {
-
-            $query = Project::where('category', '=', '의료')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 32) == true) {
-
-            $query = Project::where('category', '=', '법률')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 64) == true) {
-
-            $query = Project::where('category', '=', '스타트업')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 128) == true) {
-
-            $query = Project::where('category', '=', '프랜차이즈')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 256) == true) {
-
-            $query = Project::where('category', '=', '교육/대학교')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
-        if (($SearchOption & 512) == true) {
-
-            $query = Project::where('category', '=', '쇼핑몰')->where('step', '!=', '검수')->get();
-
-            foreach ($query as $q) {
-                $projects = $projects->push($q);
-            }
-        }
 
         $projects = $projects->unique('id');
 
@@ -240,6 +192,7 @@ class SearchController extends Controller
         $input->save();
         return back();
     }
+
     public function delete_comment(Request $request)
     {
         $del_commnet = Comments::find($request->input('id'));
