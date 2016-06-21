@@ -1,12 +1,12 @@
 @extends('include.head')
 @section('content')
+    <link rel="stylesheet" href="/css/js_tree.css">
     <!-- Content -->
     <div id="content">
 
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
-
 
 
                 <div class="coupen">
@@ -19,8 +19,6 @@
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
-
-
 
 
                         <input id="literal_text" style="margin-top: 20px; margin-bottom: 10px" type="text"
@@ -43,68 +41,74 @@
 
                         <div class="job-sider-bar">
                             <h5 class="side-tittle">프로젝트 카테고리</h5>
-                            <ul class="p_align02">
-                                <li class="parent dev-category-list">
-                                    <div class="dev-skipper"></div>
-                                    <input name="dev" id="dev-1" type="checkbox"> </input>
-                                    <label for="dev" class="dev_txt">분야</label>
-                                    <ul class="child-list">
-                                        <li>
-                                            <input name="dev" id="dev-11" type="checkbox"> </input>
-                                            <label for="dev-11">광고 의뢰</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-12" type="checkbox"> </input>
-                                            <label for="dev-12">운영 대행</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-13" type="checkbox"> </input>
-                                            <label for="dev-13">Viral</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-14" type="checkbox"> </input>
-                                            <label for="dev-14">1회성 프로젝트</label>
-                                        </li>
-                                    </ul>
-
-                                </li>
 
 
-                                <li class="parent dev-category-list">
-                                    <div class="dev-skipper"></div>
-                                    <input name="dev" id="dev-2" type="checkbox"> </input>
-                                    <label for="dev" class="dev_txt">업종</label>
-                                    <ul class="child-list">
-                                        <li>
-                                            <input name="dev" id="dev-21" type="checkbox"> </input>
-                                            <label for="dev-15">의료</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-22" type="checkbox"> </input>
-                                            <label for="dev-16">법률</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-23" type="checkbox"> </input>
-                                            <label for="dev-17">스타트업</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-24" type="checkbox"> </input>
-                                            <label for="dev-18">프랜차이즈</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-25" type="checkbox"> </input>
-                                            <label for="dev-19">교육/대학교</label>
-                                        </li>
-                                        <li>
-                                            <input name="dev" id="dev-26" type="checkbox"> </input>
-                                            <label for="dev-20">쇼핑몰</label>
-                                        </li>
-                                    </ul>
-
-                                </li>
+                            <div id="tree_2"></div>
+                            <div id="tree_2_1"></div>
 
 
-                            </ul>
+                            {{--<ul class="p_align02">--}}
+                            {{--<li class="parent dev-category-list">--}}
+                            {{--<div class="dev-skipper"></div>--}}
+                            {{--<input name="dev" id="dev-1" type="checkbox"> </input>--}}
+                            {{--<label for="dev" class="dev_txt">분야</label>--}}
+                            {{--<ul class="child-list">--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-11" type="checkbox"> </input>--}}
+                            {{--<label for="dev-11">광고 의뢰</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-12" type="checkbox"> </input>--}}
+                            {{--<label for="dev-12">운영 대행</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-13" type="checkbox"> </input>--}}
+                            {{--<label for="dev-13">Viral</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-14" type="checkbox"> </input>--}}
+                            {{--<label for="dev-14">1회성 프로젝트</label>--}}
+                            {{--</li>--}}
+                            {{--</ul>--}}
+
+                            {{--</li>--}}
+
+
+                            {{--<li class="parent dev-category-list">--}}
+                            {{--<div class="dev-skipper"></div>--}}
+                            {{--<input name="dev" id="dev-2" type="checkbox"> </input>--}}
+                            {{--<label for="dev" class="dev_txt">업종</label>--}}
+                            {{--<ul class="child-list">--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-21" type="checkbox"> </input>--}}
+                            {{--<label for="dev-15">의료</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-22" type="checkbox"> </input>--}}
+                            {{--<label for="dev-16">법률</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-23" type="checkbox"> </input>--}}
+                            {{--<label for="dev-17">스타트업</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-24" type="checkbox"> </input>--}}
+                            {{--<label for="dev-18">프랜차이즈</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-25" type="checkbox"> </input>--}}
+                            {{--<label for="dev-19">교육/대학교</label>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
+                            {{--<input name="dev" id="dev-26" type="checkbox"> </input>--}}
+                            {{--<label for="dev-20">쇼핑몰</label>--}}
+                            {{--</li>--}}
+                            {{--</ul>--}}
+
+                            {{--</li>--}}
+
+
+                            {{--</ul>--}}
                         </div>
 
 
@@ -178,6 +182,21 @@
 
 
     </div>
+
+
+
+    <script src="/js/js.cookie.js"></script>
+    <script src="/js/jstree.min.js"></script>
+    <script src="/js/form_wizard_main.js"></script>
+
+    <script src="/js/ui-treeview.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            Main.init();
+            UITreeview.init();
+        });
+    </script>
     <script type="text/javascript" src="js/projectList.js"></script>
 
 

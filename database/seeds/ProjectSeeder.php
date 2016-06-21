@@ -1,5 +1,6 @@
 <?php
 
+use App\Project;
 use Illuminate\Database\Seeder;
 
 class ProjectSeeder extends Seeder
@@ -13,7 +14,7 @@ class ProjectSeeder extends Seeder
     {
         for ($i = 1; $i < 15; $i++) {
 
-            DB::table('projects')->insert([
+            $project_example1 = Project::create([
                 'area' => "광고 의뢰",
                 'category' => "의료",
                 'title' => "GMLAB" . $i,
@@ -45,10 +46,24 @@ class ProjectSeeder extends Seeder
 < 참고자료 / 유의사항 >
 예시) 참고사이트, 기타 유의사항 등 ",
                 'deadline' =>\Carbon\Carbon::now()->toDateString(),
-
-
             ]);
-            DB::table('projects')->insert([
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example1['id'],
+                'area' => '구글광고',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example1['id'],
+                'area' => '네이버CPC',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example1['id'],
+                'area' => '페이스북 스폰서광고',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example1['id'],
+                'area' => '매체 기타',
+            ]);
+            $project_example2 = Project::create([
                 'area' => "광고 의뢰",
                 'category' => "법률",
                 'title' => "GMLAB" . $i,
@@ -81,7 +96,27 @@ class ProjectSeeder extends Seeder
                 'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
-            DB::table('projects')->insert([
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example2['id'],
+                'area' => '네이버SEO',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example2['id'],
+                'area' => '언론보도',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example2['id'],
+                'area' => '컨텐츠 배포',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example2['id'],
+                'area' => '체험단 모집',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example2['id'],
+                'area' => '바이럴 기타',
+            ]);
+            $project_example3 = Project::create([
                 'area' => "광고 의뢰",
                 'category' => "스타트업",
                 'title' => "GMLAB" . $i,
@@ -113,7 +148,27 @@ class ProjectSeeder extends Seeder
                 'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
             ]);
-            DB::table('projects')->insert([
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example3['id'],
+                'area' => '블로그',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example3['id'],
+                'area' => '페이스북페이지',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example3['id'],
+                'area' => '기타SNS',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example3['id'],
+                'area' => '홈페이지',
+            ]);            
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example3['id'],
+                'area' => '운영대행 기타',
+            ]);
+            $project_example4 = Project::create([
                 'area' => "1회성 프로젝트",
                 'category' => "프랜차이즈",
                 'title' => "GMLAB" . $i,
@@ -144,6 +199,26 @@ class ProjectSeeder extends Seeder
 예시) 참고사이트, 기타 유의사항 등 ",
                 'deadline' =>\Carbon\Carbon::now()->toDateString(),
 
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example4['id'],
+                'area' => '개발',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example4['id'],
+                'area' => '디자인',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example4['id'],
+                'area' => '웹툰',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example4['id'],
+                'area' => '영상',
+            ]);
+            DB::table('projects_areas')->insert([
+                'p_id' => $project_example4['id'],
+                'area' => '1회성 프로젝트 기타',
             ]);
             DB::table('projects')->insert([
                 'area' => "1회성 프로젝트",

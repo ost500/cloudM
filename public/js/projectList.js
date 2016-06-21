@@ -3,8 +3,10 @@
  */
 
 var checked = 0;
+var checked_area = 67108863;
+var checked_category = 0;
 var page = 1;
-var pagemultiply = 1;
+// var pagemultiply = 1;
 var sort = 3;
 var countofprojects = 0;
 var maxpage = 0;
@@ -20,14 +22,17 @@ function viewLoad() {
     display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
-        url: "p_search/" + checked + "/" + page + "/" + sort + "/" + literal_search,
+        url: "p_search/" + checked_area + "/" + page + "/" + sort + "/" + literal_search,
 
         success: function (result) {
+            console.log("p_search/" + checked_area + "/" + page + "/" + sort + "/" + literal_search);
 
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
             pageLoad();
+
+
         }
     });
 }
@@ -127,191 +132,97 @@ $("#prevPblock").click(function () {
     }
 });
 
+$('#tree_2')
+// listen for event
+    .on('changed.jstree', function (e, data) {
+        var i, j, r = [];
+        for (i = 0, j = data.selected.length; i < j; i++) {
+            r.push($('#tree_2').jstree(true).get_selected()[i]);
+        }
+        var max_binary = 67108863;
+        checked_area = max_binary;
 
-// 카테고리 체크박스 -----------------------------------
-$('#dev-1').change(function () {
-    page = 1;
-    if ($('#dev-1').is(':checked')) {
-        $('#dev-11').prop("checked", true);
-        checked = checked | 1;
-        $('#dev-12').prop("checked", true);
-        checked = checked | 2;
-        $('#dev-13').prop("checked", true);
-        checked = checked | 4;
-        $('#dev-14').prop("checked", true);
-        checked = checked | 8;
-    }
-    else {
-        $('#dev-11').attr("checked", false);
-        $('#dev-12').attr("checked", false);
-        $('#dev-13').attr("checked", false);
-        $('#dev-14').attr("checked", false);
-        checked = checked & (2047 - 1);
-        checked = checked & (2047 - 2);
-        checked = checked & (2047 - 4);
-        checked = checked & (2047 - 8);
 
-    }
+        // -1 means unchecked
 
-    viewLoad();
-});
+        if (jQuery.inArray("area_1_1", r) == -1) {
+            checked_area = checked_area & (max_binary - 33554432);
+        }
 
-$('#dev-11').change(function () {
-    page = 1;
-    if ($('#dev-11').is(':checked')) {
-        checked = checked | 1;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 1);
-        $('#dev-1').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-12').change(function () {
-    page = 1;
-    if ($('#dev-12').is(':checked')) {
-        checked = checked | 2;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 2);
-        $('#dev-1').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-13').change(function () {
-    page = 1;
-    if ($('#dev-13').is(':checked')) {
-        checked = checked | 4;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 4);
-        $('#dev-1').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-14').change(function () {
-    page = 1;
-    if ($('#dev-14').is(':checked')) {
-        checked = checked | 8;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 8);
-        $('#dev-1').attr("checked", false);
-        viewLoad();
-    }
-});
-// 분야
-$('#dev-2').change(function () {
-    page = 1;
-    if ($('#dev-2').is(':checked')) {
-        $('#dev-21').prop("checked", true);
-        checked = checked | 16;
-        $('#dev-22').prop("checked", true);
-        checked = checked | 32;
-        $('#dev-23').prop("checked", true);
-        checked = checked | 64;
-        $('#dev-24').prop("checked", true);
-        checked = checked | 128;
-        $('#dev-25').prop("checked", true);
-        checked = checked | 256;
-        $('#dev-26').prop("checked", true);
-        checked = checked | 512;
-    }
-    else {
-        $('#dev-21').attr("checked", false);
-        $('#dev-22').attr("checked", false);
-        $('#dev-23').attr("checked", false);
-        $('#dev-24').attr("checked", false);
-        $('#dev-25').attr("checked", false);
-        $('#dev-26').attr("checked", false);
-        checked = checked & (2047 - 16);
-        checked = checked & (2047 - 32);
-        checked = checked & (2047 - 64);
-        checked = checked & (2047 - 128);
-        checked = checked & (2047 - 256);
-        checked = checked & (2047 - 512);
+        console.log("binary1_1 " + jQuery.inArray("area_1_1", r) + " " + checked_area);
 
-    }
+        if (jQuery.inArray("area_1_2", r) == -1) {
+            checked_area = checked_area & (max_binary - 16777216);
+        }
 
-    viewLoad();
-});
+        console.log("binary1_2 "+jQuery.inArray("area_1_2", r)+" " + checked_area);
 
-$('#dev-21').change(function () {
-    page = 1;
-    if ($('#dev-21').is(':checked')) {
-        checked = checked | 16;
+
+        if (jQuery.inArray("area_1_3", r) == -1){
+            checked_area = checked_area & (max_binary - 8388608);
+        }
+        console.log("binary1_2 "+jQuery.inArray("area_1_3", r)+" " + checked_area);
+        if (jQuery.inArray("area_1_4", r) == -1){
+            checked_area = checked_area & (max_binary - 4194304);
+        }
+        if (jQuery.inArray("area_2_1", r) == -1){
+            checked_area = checked_area & (max_binary - 2097152);
+        }
+        if (jQuery.inArray("area_2_2", r) == -1){
+            checked_area = checked_area & (max_binary - 1048576);
+        }if (jQuery.inArray("area_2_3", r) == -1){
+            checked_area = checked_area & (max_binary - 524288);
+        }if (jQuery.inArray("area_2_4", r) == -1){
+            checked_area = checked_area & (max_binary - 262144);
+        }if (jQuery.inArray("area_2_5", r) == -1){
+            checked_area = checked_area & (max_binary - 131072);
+        }if (jQuery.inArray("area_3_1", r) == -1){
+            checked_area = checked_area & (max_binary - 65536);
+        }if (jQuery.inArray("area_3_2", r) == -1){
+            checked_area = checked_area & (max_binary - 32768);
+        }if (jQuery.inArray("area_3_3", r) == -1){
+            checked_area = checked_area & (max_binary - 16384);
+        }if (jQuery.inArray("area_3_4", r) == -1){
+            checked_area = checked_area & (max_binary - 8192);
+        }if (jQuery.inArray("area_3_5", r) == -1){
+            checked_area = checked_area & (max_binary - 4096);
+        }if (jQuery.inArray("area_4_1", r) == -1){
+            checked_area = checked_area & (max_binary - 2048);
+        }if (jQuery.inArray("area_4_2", r) == -1){
+            checked_area = checked_area & (max_binary - 1024);
+        }if (jQuery.inArray("area_4_3", r) == -1){
+            checked_area = checked_area & (max_binary - 512);
+        }if (jQuery.inArray("area_4_4", r) == -1){
+            checked_area = checked_area & (max_binary - 256);
+        }if (jQuery.inArray("area_4_5", r) == -1){
+            checked_area = checked_area & (max_binary - 128);
+        }
+
+        // -1 means unchecked
+        if (jQuery.inArray("category_1", r) == -1){
+            checked_area = checked_area & (max_binary - 64);
+        }if (jQuery.inArray("category_2", r) == -1){
+            checked_area = checked_area & (max_binary - 32);
+        }if (jQuery.inArray("category_3", r) == -1){
+            checked_area = checked_area & (max_binary - 16);
+        }if (jQuery.inArray("category_4", r) == -1){
+            checked_area = checked_area & (max_binary - 8);
+        }if (jQuery.inArray("category_5", r) == -1){
+            checked_area = checked_area & (max_binary - 4);
+        }
+        if (jQuery.inArray("category_6", r) == -1) {
+            checked_area = checked_area & (max_binary - 2);
+        }
+        if (jQuery.inArray("category_7", r) == -1) {
+            checked_area = checked_area & (max_binary - 1);
+        }
+        console.log("result " + checked_area);
+
         viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 16);
-        $('#dev-2').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-22').change(function () {
-    page = 1;
-    if ($('#dev-22').is(':checked')) {
-        checked = checked | 32;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 32);
-        $('#dev-2').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-23').change(function () {
-    page = 1;
-    if ($('#dev-23').is(':checked')) {
-        checked = checked | 64;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 64);
-        $('#dev-2').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-24').change(function () {
-    page = 1;
-    if ($('#dev-24').is(':checked')) {
-        checked = checked | 128;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 128);
-        $('#dev-2').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-25').change(function () {
-    page = 1;
-    if ($('#dev-25').is(':checked')) {
-        checked = checked | 256;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 256);
-        $('#dev-2').attr("checked", false);
-        viewLoad();
-    }
-});
-$('#dev-26').change(function () {
-    page = 1;
-    if ($('#dev-26').is(':checked')) {
-        checked = checked | 512;
-        viewLoad();
-    }
-    else {
-        checked = checked & (2047 - 512);
-        $('#dev-2').attr("checked", false);
-        viewLoad();
-    }
-});
+    });
+// create the instance
+
+
 
 //----------------SORT----------------
 $('#moneyhigh').click(function () {

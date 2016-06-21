@@ -10,6 +10,6 @@ class ProjectsArea extends Model
 
     public function project()
     {
-        return $this->belongto('App\Project','id','p_id');
+        return $this->belongsTo('App\Project','p_id','id');
     }
 }
