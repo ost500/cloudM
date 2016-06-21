@@ -14,7 +14,7 @@ class AddPartnersJobsColumns extends Migration
     {
         Schema::table('partners_jobs', function (Blueprint $table) {
 
-            $table->integer('number')->default(10);
+            $table->string('number',255)->default("초급");
             $table->string('experience',255)->default("10년 이상");
         });
     }

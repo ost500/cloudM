@@ -165,13 +165,13 @@
 
                                                 <div class="panel02 panel-default02 margin-top-20">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:33.3%;"/>
+                                                        <col style="width:33.3%;"/>
+                                                        <col style="width:33.3%;"/>
 
                                                         <tr>
                                                             <th>종류</th>
-                                                            <th>진행 건수</th>
+                                                            <th>숙련도</th>
                                                             <th>경험</th>
 
                                                         </tr>
@@ -198,15 +198,15 @@
                                                     <form id="skill_form">
                                                         {!! csrf_field() !!}
                                                         <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
+                                                            <col style="width:33.3%;"/>
+                                                            <col style="width:33.3%;"/>
+                                                            <col style="width:33.3%;"/>
 
                                                             <tr>
 
                                                                 <td><select id="title" name="title" class="form-control02">
                                                                         <option selected="selected" value="">분야</option>
-                                                                        <option value="all">모두</option>
+
                                                                         <optgroup label="매체 광고">
                                                                             <option value="네이버CPC">네이버CPC</option>
                                                                             <option value="구글광고">구글광고</option>
@@ -241,12 +241,32 @@
                                                                     <br>
                                                                     <div id="title_error"></div>
                                                                 </td>
-                                                                <td><input id="number" name="number"
-                                                                           placeholder="10">건<br>
+                                                                <td><select id="job_option" name="number" class="form-control02">
+                                                                        <option selected="selected" value="">급</option>
+
+
+                                                                            <option value="초급">초급</option>
+                                                                            <option value="중급">중급</option>
+                                                                            <option value="고급">고급</option>
+                                                                            <option value="특급">특급</option>
+
+
+
+
+
+                                                                    </select><br>
                                                                     <div id="number_error"></div>
                                                                 </td>
-                                                                <td><input id="experience" name="experience"
-                                                                           placeholder="10년 이상"><br>
+                                                                <td><select id="job_option" name="experience" class="form-control02">
+                                                                        <option selected="selected" value="">경험</option>
+
+                                                                        <option value="1년 이하">1년 이하</option>
+                                                                        <option value="1년 이상 ~ 3년 이하">1년 이상 ~ 3년 이하</option>
+                                                                        <option value="3년 이상 ~ 5년 이하">3년 이상 ~ 5년 이하</option>
+                                                                        <option value="5년 이상 ~ 10년 이하">5년 이상 ~ 10년 이하</option>
+                                                                        <option value="10년 이상">10년 이상</option>
+
+                                                                    </select><br>
                                                                     <div id="experience_error"></div>
                                                                 </td>
                                                             </tr>
