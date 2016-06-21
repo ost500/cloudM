@@ -30,15 +30,15 @@ class PartnerSeeder extends Seeder
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
-                'job' => 'Viral'
+                'job' => '네이버CPC'
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
-                'job' => '1회성프로젝트'
+                'job' => '네이버SEO'
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
-                'job' => '광고의뢰'
+                'job' => '블로그'
             ]);
 /////////////////////////////////////////////////////
 
@@ -55,11 +55,11 @@ class PartnerSeeder extends Seeder
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
-                'job' => '1회성프로젝트'
+                'job' => '개발'
             ]);
             Partners_job::create([
                 'partner_id' => $partnerCreation['id'],
-                'job' => '광고의뢰',
+                'job' => '디자인',
             ]);
 
 

@@ -56,8 +56,9 @@ class SearchController extends Controller
 //            $keyword2 = "%".$keyword;
             $keyword3 = "%" . $keyword . "%";
         }
+        $multi_select_binary = 67108864;
 
-        if ($SearchOption == 0) {
+        if ($SearchOption == $multi_select_binary) {
 
 //            $projects = Project::all();
             $projects = Project::where("step", "!=", "검수")
@@ -98,7 +99,7 @@ class SearchController extends Controller
 
         $category_menu_array = ['의료', '법률', '스타트업', '프랜차이즈', '교육/대학교', '쇼핑몰', '기타'];
 
-        $multi_select_binary = 67108864;
+
         for ($i = 0; $i < count($area_menu_array) + count($category_menu_array); $i++) {
             if ($i < count($area_menu_array)) {
                 if (($SearchOption & ($multi_select_binary / pow(2, $i + 1))) == true) {

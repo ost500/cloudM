@@ -40,17 +40,64 @@ class PartnerController extends Controller
             $job_name = "";
             switch ($option) {
                 case 1:
-                    $job_name = "광고의뢰";
+                    $job_name = "네이버CPC";
                     break;
                 case 2:
-                    $job_name = "운영대행";
+                    $job_name = "언론보도";
                     break;
                 case 3:
-                    $job_name = "Viral";
+                    $job_name = "구글광고";
                     break;
                 case 4:
-                    $job_name = "1회성프로젝트";
+                    $job_name = "페이스북광고";
                     break;
+                case 5:
+                    $job_name = "매체 기타";
+                    break;
+                case 6:
+                    $job_name = "네이버SEO";
+                    break;
+                case 7:
+                    $job_name = "컨텐츠 배포";
+                    break;
+                case 8:
+                    $job_name = "체험단 모집";
+                    break;
+                case 9:
+                    $job_name = "바이럴 기타";
+                    break;
+                case 10:
+                    $job_name = "블로그";
+                    break;
+                case 11:
+                    $job_name = "페이스북페이지";
+                    break;
+                case 12:
+                    $job_name = "기타SNS";
+                    break;
+                case 13:
+                    $job_name = "홈페이지";
+                    break;
+                case 14:
+                    $job_name = "운영대행 기타";
+                    break;
+                case 15:
+                    $job_name = "개발";
+                    break;
+                case 16:
+                    $job_name = "디자인";
+                    break;
+                case 17:
+                    $job_name = "웹툰";
+                    break;
+                case 18:
+                    $job_name = "영상";
+                    break;
+                case 19:
+                    $job_name = "1회성 프로젝트 기타";
+                    break;
+
+               
 
 
             }
@@ -131,6 +178,6 @@ class PartnerController extends Controller
     {
         $partner = Partners::find($id);
         $portfolios = $partner->portfolio->take(3);
-        return view('partner/partner_detail', compact('partner','portfolios'));
+        return view('partner/partner_detail', compact('partner', 'portfolios'));
     }
 }
