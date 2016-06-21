@@ -159,7 +159,7 @@
 
 
                                             <div class="job-tittle02">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">전문기술</h6>
+                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
                                                 <a style="cursor:pointer" id="edit_skill_button"
                                                    class="button002 signup002 margin-top-12">수정하기</a>
 
@@ -176,16 +176,16 @@
 
                                                         </tr>
                                                         <tbody id="skill_list">
-                                                        @if($loginUser->partners->skill->isEmpty())
+                                                        @if($loginUser->partners->job()->get()->isEmpty())
                                                             <tr>
                                                                 <td colspan="3">전문기술이 없습니다</td>
                                                             </tr>
                                                         @endif
-                                                        @foreach($loginUser->partners->skill as $skill)
+                                                        @foreach($loginUser->partners->job()->get() as $job)
                                                             <tr>
-                                                                <td>{{ $skill->title }}</td>
-                                                                <td>{{ $skill->number }}</td>
-                                                                <td>{{ $skill->experience }}</td>
+                                                                <td>{{ $job->job }}</td>
+                                                                <td>{{ $job->number }}</td>
+                                                                <td>{{ $job->experience }}</td>
 
                                                             </tr>
                                                         @endforeach
@@ -204,7 +204,41 @@
 
                                                             <tr>
 
-                                                                <td><input id="title" name="title"><br>
+                                                                <td><select id="title" name="title" class="form-control02">
+                                                                        <option selected="selected" value="">분야</option>
+                                                                        <option value="all">모두</option>
+                                                                        <optgroup label="매체 광고">
+                                                                            <option value="네이버CPC">네이버CPC</option>
+                                                                            <option value="구글광고">구글광고</option>
+                                                                            <option value="페이스북광고">페이스북광고</option>
+                                                                            <option value="매체 기타">매체 기타</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="바이럴">
+                                                                            <option value="네이버SEO">네이버SEO</option>
+                                                                            <option value="언론보도">언론보도</option>
+                                                                            <option value="컨텐츠 배포">컨텐츠 배포</option>
+                                                                            <option value="체험단 모집">체험단 모집</option>
+                                                                            <option value="바이럴 기타">바이럴 기타</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="운영대행">
+                                                                            <option value="블로그">블로그</option>
+                                                                            <option value="페이스북페이지">페이스북페이지</option>
+                                                                            <option value="기타SNS">기타SNS</option>
+                                                                            <option value="홈페이지">홈페이지</option>
+                                                                            <option value="운영대행 기타">운영대행 기타</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="1회성 프로젝트">
+                                                                            <option value="개발">개발</option>
+                                                                            <option value="디자인">디자인</option>
+                                                                            <option value="웹툰">웹툰</option>
+                                                                            <option value="영상">영상</option>
+                                                                            <option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
+                                                                        </optgroup>
+
+
+
+                                                                    </select>
+                                                                    <br>
                                                                     <div id="title_error"></div>
                                                                 </td>
                                                                 <td><input id="number" name="number"

@@ -143,7 +143,7 @@
 
 
                                             <div class="job-tittle02">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">전문기술</h6>
+                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
                                                 <div class="panel02 panel-default02 margin-top-20">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                                         <col style="width:16.6%;"/>
@@ -157,16 +157,16 @@
 
                                                         </tr>
                                                         <tbody id="skill_list">
-                                                        @if($partner->skill->isEmpty())
+                                                        @if($partner->job()->get()->isEmpty())
                                                             <tr>
-                                                                <td colspan="3">전문기술이 없습니다</td>
+                                                                <td colspan="3">전문분야가 없습니다</td>
                                                             </tr>
                                                         @endif
-                                                        @foreach($partner->skill as $skill)
+                                                        @foreach($partner->job()->get() as $job)
                                                             <tr>
-                                                                <td>{{ $skill->title }}</td>
-                                                                <td>{{ $skill->number }}</td>
-                                                                <td>{{ $skill->experience }}</td>
+                                                                <td>{{ $job->job }}</td>
+                                                                <td>{{ $job->number }}</td>
+                                                                <td>{{ $job->experience }}</td>
 
                                                             </tr>
                                                         @endforeach
