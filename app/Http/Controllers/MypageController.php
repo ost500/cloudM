@@ -193,10 +193,10 @@ class MypageController extends Controller
                 'number' => $request->number,
                 'experience' => $request->experience],
             ['title' => ['required', 'max:255'],
-                'number' => ['required', 'integer', 'max:255'],
+                'number' => ['required', 'max:255'],
                 'experience' => ['required', 'max:255']],
             ['required' => '필수 입력 입니다',
-                'integer' => '숫자만 입력 가능합니다',
+
                 'max' => '너무 많이 입력하셨습니다']
         );
 
