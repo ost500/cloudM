@@ -62,7 +62,7 @@
 
                         <div id="check" class=" margin-top-15"></div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <ul class="pagination">
                                 <p></p>
                                 <li><a id="prevPblock" style="cursor: pointer"><i class="fa fa-angle-left"></i></a></li>
