@@ -644,7 +644,7 @@ header .navbar li {
 }
 
 header .navbar li a {
-    font-size: 15px;
+    font-size: 14px;
     color: #333333;
     font-weight: bold;
     padding: 6px 12px;
@@ -2104,7 +2104,7 @@ header .navbar li.active a {
 ========================================================*/
 .job-sider-bar {
     background: #f4f5f6;
-    padding: 30px 20px 30px 20px;
+    padding: 20px 20px 50px 20px;
     border: 1px solid #ddd;
     border-top: 2px solid #000;
     margin-top: 10px;
@@ -2205,7 +2205,7 @@ header .navbar li.active a {
 
 .job-content {
     background: #fff;
-    padding: 35px;
+    padding: 20px 35px 15px 35px;
     position: relative;
     border: 1px solid #dddddd;
     border-top: 2px solid #333;
@@ -3066,7 +3066,7 @@ footer .photo-steam li a:hover {
 }
 
 .tags li a {
-    display: inline-block;
+    /*display: inline-block;*/
     padding: 5px 8px;
     background: #1193d4;
     border: none !important;
@@ -4459,6 +4459,13 @@ ul.p_align02 {
     background: url('/images/category_select.png') no-repeat;
 }
 
+.category-align a {
+    font-size: 13px;
+    color: #666 !important;
+    margin: 0px;
+    padding: 0px;
+    cursor:pointer;
+}
 .category-selecter-list li {
     display: block;
 }
@@ -5880,7 +5887,7 @@ span.side-tittle_txt01 {
 }
 
 ul.tags li a {
-    padding: 5px !important;
+    padding: 2px 2px 2px 2px !important;
 }
 
 .inquiry_01 {

@@ -1,5 +1,5 @@
 <!-- Pagination -->
-<h5 id="count">{{ $projects['count'] }}개의 프로젝트</h5>
+<h5 id="count" class="padding-bottom-15">{{ $projects['count'] }}개의 프로젝트</h5>
 
 @foreach($projects as $project)
     @if($project['title'])
@@ -7,9 +7,9 @@
         <div id="accordion">
 
             <!-- Job Section -->
-            <div class="job-content job-post-page margin-top-20">
+            <div class="job-content job-post-page margin-top-0">
                 <!-- Job Tittle -->
-                <div class="panel-group">
+                <div class="panel-group margin-bottom-0">
                     <div class="panel panel-default">
                         <!-- Save -->
                         <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
@@ -32,32 +32,39 @@
 
                                 <span class="media-body-sm-Plist">월 예산 <span>{{ number_format($project['budget']) }}</span>원</span>
                                 <span class="media-body-sm-Plist">예상기간 <span>{{ $project['estimated_duration'] }}</span></span>
-                                <span class="media-body-sm-Plist">등록일자 <span>{{ $project['created_at'] }}</span></span>
+                                <span class="media-body-sm-Plist">등록일자 <span>{{ substr($project['created_at'], 0, 10) }}</span></span>
                                 <span class="media-body-sm-Plist la-line">마감 <span>{{ $project['deadline'] }}</span></span>
                             </div>
                         </div>
                         <!-- Content -->
                         <div id="job1" class="panel-collapse collapse in">
                             <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <p> {{ substr($project['detail_content'], 0, 380) }} {{ (strlen($project['detail_content'])>380)?"...":"" }}</p>
+                                        <!-- Additional Requirements -->
+                                        <div>
 
-                                <p> {{ substr($project['detail_content'], 0, 500) }}</p>
-                                <!-- Additional Requirements -->
-                                <div>
+                                            <ul class="tags dall margin-top-20">
+                                                <li>마케팅 분야
+                                                    @foreach($project->projects_area as $areas)
+                                                        <a href="#.">{{ $areas->area }}</a>
+                                                    @endforeach
+                                                </li>
 
-                                    <ul class="tags dall margin-top-20 margin-bottom-10">
-                                        <li>
-                                            @foreach($project->projects_area as $areas)
-                                                <a href="#.">{{ $areas->area }}</a>
-                                            @endforeach
-                                        </li>
+                                                <li><a href="#.">{{ $project['category'] }}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
 
-                                        <li><a href="#.">{{ $project['category'] }}</a></li>
-                                    </ul>
-                                </div>
-                                <div class="tags_bg">
-                                    <span class="s_icon01">{{ $project['step'] }} 중</span>
-                                    <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
-                                </div>
+                                    <div class="col-md-3">
+                                        <p>
+                                        <div class="tags_bg">
+                                            <span class="s_icon01">{{ $project['step'] }} 중</span><br>
+                                            <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
+                                        </div>
+                                        </p>
+                                    </div>
                             </div>
                         </div>
 
