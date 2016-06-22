@@ -120,7 +120,7 @@
                                                         </tr>
                                                         @if(count($checking) == 0)
                                                             <tr>
-                                                                <td colspan="8"></td>
+                                                                <td colspan="8">검수중 프로젝트가 없습니다.</td>
                                                             </tr>
                                                         @endif
                                                         @foreach($checking as $checkItem)
