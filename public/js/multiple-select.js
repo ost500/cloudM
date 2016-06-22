@@ -721,7 +721,7 @@
         placeholder: '선택',
         selectAll: false,
         selectAllDelimiter: ['[', ']'],
-        minimumCountSelected: 3,
+        minimumCountSelected: 5,
         ellipsis: false,
         multiple: false,
         multipleWidth: 80,
