@@ -41,7 +41,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <p> {{ substr($project['detail_content'], 0, 380) }} {{ (strlen($project['detail_content'])>380)?"...":"" }}</p>
+                                        <p> {{ str_limit($project['detail_content'], 250, '...') }}</p>
                                         <!-- Additional Requirements -->
                                         <div>
 
