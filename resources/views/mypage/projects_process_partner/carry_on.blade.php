@@ -41,18 +41,12 @@
                             <h5 class="side-tittle">파트너스 히스토리</h5>
                             <table class="history_table">
                                 <tbody>
-                                <tr>
-                                    <th>지원한 프로젝트</th>
-                                    <td>{{ count($app) }}건</td>
-                                </tr>
+
                                 <tr>
                                     <th>계약한 프로젝트</th>
                                     <td>{{ count($carryon) }}건</td>
                                 </tr>
-                                <tr>
-                                    <th>완료한 프로젝트</th>
-                                    <td>{{ count($compeleted) }}건</td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -137,65 +131,7 @@
                                             {{--</div>--}}
 
 
-                                            <div class="job-tittle03">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">지원한 프로젝트</h6>
-                                                <div class="panel02 panel-default02">
-                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                        <col style="width:25%;"/>
-                                                        <col style="width:12.5%;"/>
-                                                        <col style="width:12.5%;"/>
-                                                        <col style="width:12.5%;"/>
-                                                        <col style="width:7%;"/>
-                                                        <col style="width:7%;"/>
-                                                        <col style="width:7%;"/>
-                                                        <tr>
-                                                            <th>프로젝트 제목</th>
-                                                            <th>월예산</th>
-                                                            <th>기간</th>
-                                                            <th>마감</th>
-                                                            <th>서류</th>
-                                                            <th>상태</th>
-                                                            <th>취소</th>
-                                                        </tr>
-                                                        @if(sizeof($app) == 0)
-                                                            <td colspan="7">지원한 프로젝트가 없습니다</td>
-                                                        @endif
-                                                        @foreach($app as $appItem)
 
-                                                            <tr>
-                                                                <td><a
-                                                                            href="{{ url("detail/".$appItem->project->id) }}">{{ $appItem->project->title }}</a>
-                                                                </td>
-                                                                <td>{{ number_format($appItem->project->budget) }}</td>
-                                                                <td>{{ $appItem->project->estimated_duration }}</td>
-                                                                <td>{{ $appItem->project->deadline }}</td>
-                                                                <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-pid="{{$appItem->project->id}}">관리</button></td>
-                                                                <td>{{ $appItem->choice }}</td>
-
-                                                                <form id="{{$appItem->id}}form" method="POST"
-                                                                      action="{{ url("/rm_app/") }}"
-                                                                      onsubmit="return confirm('취소하시겠습니까?');">
-                                                                    {!! csrf_field() !!}
-                                                                    <input name="id" hidden
-                                                                           value="{{$appItem->id}}">
-                                                                    <td>
-                                                                        <i style="cursor: pointer"
-                                                                           id="{{ $appItem->id }}button"
-                                                                           class="fa fa-times fa-lg"></i>
-                                                                    </td>
-                                                                </form>
-                                                                <script>
-                                                                    $("#{{$appItem->id}}button").click(function () {
-                                                                        $("#{{$appItem->id}}form").submit();
-                                                                    });
-                                                                </script>
-                                                            </tr>
-
-                                                        @endforeach
-                                                    </table>
-
-                                                </div>
-                                            </div>
 
 
                                             <div class="job-tittle03 margin-bottom-10">
@@ -237,48 +173,7 @@
 
                                                 </div>
 
-                                                <div class="job-tittle03 margin-bottom-10">
-                                                    <h6 class="my_h6 margin-bottom-10 margin-top-20">완료 프로젝트</h6>
-                                                    <div class="panel02 panel-default02">
-                                                        <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
-                                                            <col style="width:16.6%;"/>
-                                                            <tr>
-                                                                <th>프로젝트 제목</th>
-                                                                <th>클라이언트</th>
-                                                                <th>비용</th>
-                                                                <th>마감일자</th>
-                                                                <th>상태</th>
 
-                                                            </tr>
-                                                            @if(sizeof($compeleted) == 0)
-                                                                <tr>
-                                                                    <td colspan="5">완료 프로젝트가 없습니다</td>
-                                                                </tr>
-                                                            @endif
-                                                            @foreach($compeleted as $done)
-
-                                                                <tr>
-
-                                                                    <td><a
-                                                                                href="{{ url("/detail/".$done->id) }}">{{ $done->title }}</a>
-                                                                    </td>
-                                                                    <td>{{ $done->client->name }}</td>
-                                                                    <td>{{ number_format($done->budget) }}</td>
-                                                                    <td>{{ $done->deadline }}</td>
-                                                                    <td>{{ $done->step }}</td>
-
-                                                                </tr>
-
-                                                            @endforeach
-                                                        </table>
-
-                                                    </div>
-                                                </div>
 
 
                                             </div>
