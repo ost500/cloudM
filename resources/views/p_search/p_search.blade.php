@@ -30,12 +30,21 @@
 
 
                             <h5 class="side-tittle">프로젝트 정렬</h5>
-                            <ul class="p_align">
-                                <li id="moneyhigh"><a style="cursor:pointer">- 금액 높은 순</a></li>
-                                <li id="moneylow"><a style="cursor:pointer">- 금액 낮은 순</a></li>
-                                <li id="latestcreate"><a style="cursor:pointer">- 최신 등록 순</a></li>
-                                <li id="deadline"><a style="cursor:pointer">- 마감 임박 순</a></li>
-                            </ul>
+                            <div class="col-md-12 padding-left-10 category-align">
+                                <div class="col-md-6 padding-0 ">
+                                    <a href="">- 금액 높은 순</a>
+                                </div>
+                                <div class="col-md-6 padding-0">
+                                    <a href="">- 최신 등록 순</a>
+                                </div>
+                                <div class="col-md-6 padding-0">
+                                    <a href="">- 최신 등록 순</a>
+                                </div>
+                                <div class="col-md-6 padding-0">
+                                    <a href="">- 마감 임박 순</a>
+                                </div>
+                            </div>
+
                         </div>
 
 
@@ -45,121 +54,16 @@
 
                             <div id="tree_2"></div>
                             <div id="tree_2_1"></div>
-
-
-                            {{--<ul class="p_align02">--}}
-                            {{--<li class="parent dev-category-list">--}}
-                            {{--<div class="dev-skipper"></div>--}}
-                            {{--<input name="dev" id="dev-1" type="checkbox"> </input>--}}
-                            {{--<label for="dev" class="dev_txt">분야</label>--}}
-                            {{--<ul class="child-list">--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-11" type="checkbox"> </input>--}}
-                            {{--<label for="dev-11">광고 의뢰</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-12" type="checkbox"> </input>--}}
-                            {{--<label for="dev-12">운영 대행</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-13" type="checkbox"> </input>--}}
-                            {{--<label for="dev-13">Viral</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-14" type="checkbox"> </input>--}}
-                            {{--<label for="dev-14">1회성 프로젝트</label>--}}
-                            {{--</li>--}}
-                            {{--</ul>--}}
-
-                            {{--</li>--}}
-
-
-                            {{--<li class="parent dev-category-list">--}}
-                            {{--<div class="dev-skipper"></div>--}}
-                            {{--<input name="dev" id="dev-2" type="checkbox"> </input>--}}
-                            {{--<label for="dev" class="dev_txt">업종</label>--}}
-                            {{--<ul class="child-list">--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-21" type="checkbox"> </input>--}}
-                            {{--<label for="dev-15">의료</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-22" type="checkbox"> </input>--}}
-                            {{--<label for="dev-16">법률</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-23" type="checkbox"> </input>--}}
-                            {{--<label for="dev-17">스타트업</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-24" type="checkbox"> </input>--}}
-                            {{--<label for="dev-18">프랜차이즈</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-25" type="checkbox"> </input>--}}
-                            {{--<label for="dev-19">교육/대학교</label>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                            {{--<input name="dev" id="dev-26" type="checkbox"> </input>--}}
-                            {{--<label for="dev-20">쇼핑몰</label>--}}
-                            {{--</li>--}}
-                            {{--</ul>--}}
-
-                            {{--</li>--}}
-
-
-                            {{--</ul>--}}
                         </div>
 
 
                     </div>
 
 
-                    <!--
-                    <div class="col-md-3">
-                              <div class="job-sider-bar">
-                                <h5 class="side-tittle">프로젝트 정렬</h5>
-                                    <ul class="p_align">
-                                        <li><a href="#">금액 높은 순</a></li>
-                                        <li><a href="#">금액 낮은 순</a></li>
-                                        <li><a href="#">최신 등록 순</a></li>
-                                        <li><a href="#">마감 임박 순</a></li>
-                                    </ul>
-                                <form>
-                                  <label>
-                                    <input type="text" class="form-control" placeholder="Location">
-                                  </label>
-                                  <label>
-                                    <input type="text" class="form-control" placeholder="Industry / Role">
-                                  </label>
-                                  <button type="submit" class="btn btn-1 btn-sm">Search <i class="fa fa-caret-right"></i></button>
-                                </form>
-
-                                <h5 class="side-tittle margin-top-30">Filter Results</h5>
-
-                                <h6>By Region:</h6>
-                                <ul class="cate result">
-                                  <li> <a href="#."> Australia and New Zealand (1)</a></li>
-                                  <li> <a href="#."> Eastern Africa (1)</a></li>
-                                  <li> <a href="#."> Melanesia (1)</a></li>
-                                  <li> <a href="#."> Northern America (1)</a></li>
-                                  <li> <a href="#."> Southern Asia (1)</a></li>
-                                  <li> <a href="#."> Southern Europe (1)</a> </li>
-                                </ul>
-
-                                <a href="#." class="btn btn-1 btn-sm margin-top-50">filter results <i class="fa fa-caret-right"></i></a> </div>
-                            </div>
-                    -->
-
-
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
 
-                        <!-- About Admin -->
-                        <!--<h4 class="font-normal margin-top-50 margin-bottom-20">available jobs</h4>-->
-
-
-                        <div id="check"></div>
+                        <div id="check" class=" margin-top-15"></div>
 
                         <div class="col-md-6">
                             <ul class="pagination">
