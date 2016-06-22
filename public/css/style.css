@@ -4464,6 +4464,7 @@ ul.p_align02 {
     color: #666 !important;
     margin: 0px;
     padding: 0px;
+    cursor:pointer;
 }
 .category-selecter-list li {
     display: block;

@@ -27,24 +27,21 @@
 
 
                         <div class="job-sider-bar">
-
-
                             <h5 class="side-tittle">프로젝트 정렬</h5>
-                            <div class="col-md-12 padding-left-10 category-align">
+                            <div class="col-md-12 padding-0 category-align">
                                 <div class="col-md-6 padding-0 ">
-                                    <a href="">- 금액 높은 순</a>
+                                    <a id="moneyhigh">- 금액 높은 순</a>
                                 </div>
                                 <div class="col-md-6 padding-0">
-                                    <a href="">- 최신 등록 순</a>
+                                    <a id="moneylow">- 금액 낮은 순</a>
                                 </div>
                                 <div class="col-md-6 padding-0">
-                                    <a href="">- 최신 등록 순</a>
+                                    <a id="latestcreate">- 최신 등록 순</a>
                                 </div>
                                 <div class="col-md-6 padding-0">
-                                    <a href="">- 마감 임박 순</a>
+                                    <a id="deadline">- 마감 임박 순</a>
                                 </div>
                             </div>
-
                         </div>
 
 
