@@ -173,22 +173,26 @@ var FormWizard = function () {
             }
 
             if (confirm('프로젝트를 등록 하시겠습니까?')) {
-                $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
+                // $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
                 // wizardForm.submit();
                 $.ajax({
                     type: 'POST',
                     url: '/p_add',
                     data: wizardForm.serialize(),
                     success: function (data) {
-                        //console.log(data);
-                       //alert(data);
+                        swal({
+                            title: "등록에 성공했습니다.",
+                            type: "success"
+                        }, function(){
+                            window.location.href="/dashboard";
+                        });
                     }
                 });
             } else {
                 return;
             }
         }
-        wizardContent.smartWizard("goForward");
+        //wizardContent.smartWizard("goForward");
 
 
         // $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
@@ -198,6 +202,8 @@ var FormWizard = function () {
     var validateSteps = function (stepnumber, nextstep) {
         var isStepValid = false;
 
+        //console.log(stepnumber);
+        //console.log(nextstep);
 
         if (numberOfSteps >= nextstep && nextstep > stepnumber) {
 
