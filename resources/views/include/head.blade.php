@@ -136,11 +136,18 @@
         @if(Auth::check())
             <div class="my_bar">
                 <ul>
-                    <li><a href="{{ url("/dashboard") }}">마이클라우드엠</a></li>
+                    <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
                     @if(Auth::user()->PorC == "P")
-                        <li><a href="{{ url("/mypage") }}">프로필</a></li>
+                        <li><a href="{{ url("/my_apply") }}">지원한 프로젝트</a></li>
+                        <li><a href="{{ url("/my_carry_on_p") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/my_done_p") }}">완료된 프로젝트</a></li>
+                    @else
+                        <li><a href="{{ url("/my_checking") }}">검수중 프로젝트</a></li>
+                        <li><a href="{{ url("/my_posted") }}">등록 프로젝트</a></li>
+                        <li><a href="{{ url("/my_carry_on") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/my_done") }}">완료된 프로젝트</a></li>
                     @endif
-                    <li><a href="{{ url("/setting") }}">기본정보</a></li>
+
                 </ul>
             </div>
 
@@ -286,12 +293,14 @@
             </div>
             <div class="modal-body" style="padding:30px 100px 50px 100px;">
 
-                <form role="form" method="POST" id="fileForm" action="/proposalFileUpload" enctype="multipart/form-data">
+                <form role="form" method="POST" id="fileForm" action="/proposalFileUpload"
+                      enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <input type="hidden" name="p_id" value="">
 
                     <div class="form-group">
-                        <input type="file" name="proposal_file" class="form-control" placeholder="첨부파일" required="required">
+                        <input type="file" name="proposal_file" class="form-control" placeholder="첨부파일"
+                               required="required">
                     </div>
 
                     <div class="text-left"></div>
@@ -342,14 +351,14 @@
     $("#left_btn").click(function () {
         index = index - 1;
         if (index < 1) {
-            index = Noti.length-2;
+            index = Noti.length - 2;
         }
 
         display_results.html(Noti[index]);
     });
     $("#right_btn").click(function () {
         index = index + 1;
-        if (index >= Noti.length-1) {
+        if (index >= Noti.length - 1) {
             index = 0;
         }
 
