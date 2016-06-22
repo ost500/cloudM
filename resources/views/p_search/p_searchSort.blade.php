@@ -46,13 +46,11 @@
                                         <div>
 
                                             <ul class="tags dall margin-top-20">
-                                                <li>마케팅 분야
+                                                <li>지역 > {{ str_limit($project->address_sido, 4, '') }} | 마케팅 분야
                                                     @foreach($project->projects_area as $areas)
                                                         <a href="#.">{{ $areas->area }}</a>
                                                     @endforeach
                                                 </li>
-
-                                                <li><a href="#.">{{ $project['category'] }}</a></li>
                                             </ul>
                                         </div>
                                     </div>
