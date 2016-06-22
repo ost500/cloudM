@@ -87,14 +87,15 @@ $colspan = 16;
     <a href="./project_form.php" id="member_add">프로젝트 추가</a>
 </div>
 
-<div class="btn_list01 btn_list">
-    <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
-    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
 
-
-</div>
 
 <form name="fmemberlist" id="fmemberlist" action="./project_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
+    <div class="btn_list01 btn_list">
+        <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
+        <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+
+
+    </div>
     <input type="hidden" name="sst" value="<?php echo $sst ?>">
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="sfl" value="<?php echo $sfl ?>">

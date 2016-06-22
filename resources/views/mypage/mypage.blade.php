@@ -209,13 +209,13 @@
 
                                                                         <optgroup label="매체 광고">
                                                                             <option value="네이버CPC">네이버CPC</option>
+                                                                            <option value="언론보도">언론보도</option>
                                                                             <option value="구글광고">구글광고</option>
                                                                             <option value="페이스북광고">페이스북광고</option>
                                                                             <option value="매체 기타">매체 기타</option>
                                                                         </optgroup>
                                                                         <optgroup label="바이럴">
                                                                             <option value="네이버SEO">네이버SEO</option>
-                                                                            <option value="언론보도">언론보도</option>
                                                                             <option value="컨텐츠 배포">컨텐츠 배포</option>
                                                                             <option value="체험단 모집">체험단 모집</option>
                                                                             <option value="바이럴 기타">바이럴 기타</option>
