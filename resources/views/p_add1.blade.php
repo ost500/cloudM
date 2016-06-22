@@ -479,11 +479,22 @@
                                                                                 {{--<option>등록 후 6일 날짜</option>--}}
                                                                                 {{--<option>등록 후 7일 날짜</option>--}}
                                                                                 {{--</select>--}}
+                                                                                <?php $tomorrow = new DateTime('+1 day')?>
                                                                                 <input type="date"
                                                                                        class="form-control"
-                                                                                       name="deadline">
+                                                                                       name="deadline"
+                                                                                       min="{{ $tomorrow->format('Y-m-d') }}"
+                                                                                       max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
+                                                                                >
 
                                                                             </div>
+                                                                            <p class="text-small">
+                                                                                <a href="javascript:void(0)"
+                                                                                   data-content="지원자를 모집하는 기간입니다. 최소 1일부터 최대 2주까지 가능합니다"
+                                                                                   data-title="주의사항!" data-placement="top"
+                                                                                   data-toggle="popover"
+                                                                                   data-original-title="" title="">최소 1일부터 14일까지 가능합니다</a>
+                                                                            </p>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
@@ -491,12 +502,23 @@
                                                                                     시작일 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
+                                                                                <?php $tomorrow = new DateTime('+1 day')?>
                                                                                 <input type="date"
                                                                                        class="form-control"
-                                                                                       name="expecting_start">
+                                                                                       name="expecting_start"
+                                                                                       min="{{ $tomorrow->format('Y-m-d') }}"
+                                                                                       max="{{ $tomorrow->modify('+28 day')->format('Y-m-d') }}"
+                                                                                >
 
 
                                                                             </div>
+                                                                            <p class="text-small">
+                                                                                <a href="javascript:void(0)"
+                                                                                   data-content="지원자를 모집하는 기간입니다. 최소 1일부터 최대 4주까지 가능합니다"
+                                                                                   data-title="주의사항!" data-placement="top"
+                                                                                   data-toggle="popover"
+                                                                                   data-original-title="" title="">최소 1일부터 4주까지 가능합니다</a>
+                                                                            </p>
                                                                         </div>
                                                                     </div>
 
@@ -521,6 +543,7 @@
                                                                                                class="help-block valid"
                                                                                                style="display: none;"></span>
                                                                             </div>
+
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
@@ -555,7 +578,13 @@
                                                                                                class="help-block valid"
                                                                                                style="display: none;"></span>
                                                                             </div>
+                                                                            <p class="text-small">
+                                                                                <a href="javascript:void(0)"
+
+                                                                                   data-original-title="" title="">사전 미팅을 진행할 지역을 선택해 주세요</a>
+                                                                            </p>
                                                                         </div>
+
                                                                     </div>
 
 
