@@ -58,7 +58,7 @@ class SearchController extends Controller
         }
         $multi_select_binary = 67108864;
 
-        if ($SearchOption == $multi_select_binary) {
+        if ($SearchOption == $multi_select_binary || $SearchOption == 0) {
 
 //            $projects = Project::all();
             $projects = Project::where("step", "!=", "검수")
