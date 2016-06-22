@@ -74,20 +74,30 @@
                                                                 <div class="padding-30">
                                                                     {{--<h6 class="StepTitle">정확한 광고주 기본정보를 입력해 주세요.</h6>--}}
                                                                     {{--<p>--}}
-                                                                        {{--This is an added measure against fraud and to--}}
-                                                                        {{--help with billing issues.--}}
+                                                                    {{--This is an added measure against fraud and to--}}
+                                                                    {{--help with billing issues.--}}
                                                                     {{--</p>--}}
                                                                     {{--<p class="text-small">--}}
-                                                                        {{--Enter security questions in case you lose access--}}
-                                                                        {{--to your account.--}}
+                                                                    {{--Enter security questions in case you lose access--}}
+                                                                    {{--to your account.--}}
                                                                     {{--</p>--}}
-                                                                    <img src="/images/p_add_bannIMG.png" class="margin-top_-30">
-                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과 함께 하세요!</h6>
+                                                                    <img src="/images/p_add_bannIMG.png"
+                                                                         class="margin-top_-30">
+                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과
+                                                                        함께 하세요!</h6>
                                                                     <ul class="p_add_ul">
-                                                                        <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수 있습니다.</li>
-                                                                        <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고 선택할 수 있습니다.</li>
-                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수 있습니다.</li>
-                                                                        <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지 편리하게 프로젝트를 진행할 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수
+                                                                            있습니다.
+                                                                        </li>
+                                                                        <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고
+                                                                            선택할 수 있습니다.
+                                                                        </li>
+                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수
+                                                                            있습니다.
+                                                                        </li>
+                                                                        <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지
+                                                                            편리하게 프로젝트를 진행할 수 있습니다.
+                                                                        </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -101,11 +111,13 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 담당자  <span class="symbol required"></span>
+                                                                                <label class="control-label"> 담당자 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text" class="form-control"
                                                                                        name="name" aria-required="true"
-                                                                                       aria-describedby="name-error" value="{{ $user->name }}"><span
+                                                                                       aria-describedby="name-error"
+                                                                                       value="{{ $user->name }}"><span
                                                                                         id="name-error"
                                                                                         class="help-block valid"
                                                                                         style="display: none;"></span>
@@ -113,12 +125,14 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 연락처 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 연락처 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text"
                                                                                        class="form-control input-mask-phone"
                                                                                        name="phone" aria-required="true"
-                                                                                       aria-describedby="phone-error" value="{{ $user->phone_num }}"><span
+                                                                                       aria-describedby="phone-error"
+                                                                                       value="{{ $user->phone_num }}"><span
                                                                                         id="phone-error"
                                                                                         class="help-block valid"
                                                                                         style="display: none;"></span>
@@ -128,41 +142,58 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 회사형태 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 회사형태 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="company_type"
                                                                                         aria-required="true"
-                                                                                        aria-describedby="company_type-error" >
+                                                                                        aria-describedby="company_type-error">
                                                                                     <option value="">선택</option>
-                                                                                    <option value="개인"@if($user->clients->company_type=="개인") selected @endif>개인</option>
-                                                                                    <option value="팀"@if($user->clients->company_type=="팀") selected @endif>팀</option>
-                                                                                    <option value="개인 사업자"@if($user->clients->company_type=="개인 사업자") selected @endif>개인 사업자</option>
-                                                                                    <option value="법인 사업자"@if($user->clients->company_type=="법인 사업자") selected @endif>법인 사업자</option>
-                                                                                    <option value="기타@if($user->clients->company_type=="기타") selected @endif">기타</option>
+                                                                                    <option value="개인"
+                                                                                            @if($user->clients->company_type=="개인") selected @endif>
+                                                                                        개인
+                                                                                    </option>
+                                                                                    <option value="팀"
+                                                                                            @if($user->clients->company_type=="팀") selected @endif>
+                                                                                        팀
+                                                                                    </option>
+                                                                                    <option value="개인 사업자"
+                                                                                            @if($user->clients->company_type=="개인 사업자") selected @endif>
+                                                                                        개인 사업자
+                                                                                    </option>
+                                                                                    <option value="법인 사업자"
+                                                                                            @if($user->clients->company_type=="법인 사업자") selected @endif>
+                                                                                        법인 사업자
+                                                                                    </option>
+                                                                                    <option value="기타@if($user->clients->company_type=="기타") selected @endif">
+                                                                                        기타
+                                                                                    </option>
                                                                                 </select> <span id="company_type-error"
-                                                                                               class="help-block valid"
-                                                                                               style="display: none;"></span>
+                                                                                                class="help-block valid"
+                                                                                                style="display: none;"></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label> 광고주소개  <span class="symbol required"></span></label>
+                                                                                <label> 광고주소개 <span
+                                                                                            class="symbol required"></span></label>
                                                                                 <textarea name="company_intro"
                                                                                           class="form-control"
-                                                                                          rows=10 value="">{{ $user->clients->intro }}</textarea>
+                                                                                          rows=10
+                                                                                          value="">{{ $user->clients->intro }}</textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     {{--<p class="text-small">--}}
-                                                                        {{--<a href="javascript:void(0)"--}}
-                                                                           {{--data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial"--}}
-                                                                           {{--data-title="Don't worry!"--}}
-                                                                           {{--data-placement="top" data-toggle="popover"--}}
-                                                                           {{--data-original-title="" title=""> 왜 개인정보가--}}
-                                                                            {{--필요한가요? </a>--}}
+                                                                    {{--<a href="javascript:void(0)"--}}
+                                                                    {{--data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial"--}}
+                                                                    {{--data-title="Don't worry!"--}}
+                                                                    {{--data-placement="top" data-toggle="popover"--}}
+                                                                    {{--data-original-title="" title=""> 왜 개인정보가--}}
+                                                                    {{--필요한가요? </a>--}}
                                                                     {{--</p>--}}
                                                                 </fieldset>
 
@@ -182,31 +213,41 @@
                                                             <div class="col-md-5">
                                                                 <div class="padding-30">
                                                                     {{--<h2 class="StepTitle">Create an account <span--}}
-                                                                                {{--class="text-large block">to manage everything you do with Clip-Two</span>--}}
+                                                                    {{--class="text-large block">to manage everything you do with Clip-Two</span>--}}
                                                                     {{--</h2>--}}
                                                                     {{--<p>--}}
-                                                                        {{--You’ll enjoy personal services and great--}}
-                                                                        {{--benefits including:--}}
+                                                                    {{--You’ll enjoy personal services and great--}}
+                                                                    {{--benefits including:--}}
                                                                     {{--</p>--}}
                                                                     {{--<p class="text-small">--}}
                                                                     {{--</p>--}}
                                                                     {{--<ul class="no-margin">--}}
-                                                                        {{--<li>--}}
-                                                                            {{--Access to exclusive releases and limited--}}
-                                                                            {{--products.--}}
-                                                                        {{--</li>--}}
-                                                                        {{--<li>--}}
-                                                                            {{--ng-Clip services, benefits and promotions.--}}
-                                                                        {{--</li>--}}
+                                                                    {{--<li>--}}
+                                                                    {{--Access to exclusive releases and limited--}}
+                                                                    {{--products.--}}
+                                                                    {{--</li>--}}
+                                                                    {{--<li>--}}
+                                                                    {{--ng-Clip services, benefits and promotions.--}}
+                                                                    {{--</li>--}}
                                                                     {{--</ul>--}}
                                                                     {{--<p></p>--}}
-                                                                    <img src="/images/p_add_bannIMG.png" class="margin-top_-30">
-                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과 함께 하세요!</h6>
+                                                                    <img src="/images/p_add_bannIMG.png"
+                                                                         class="margin-top_-30">
+                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과
+                                                                        함께 하세요!</h6>
                                                                     <ul class="p_add_ul">
-                                                                        <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수 있습니다.</li>
-                                                                        <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고 선택할 수 있습니다.</li>
-                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수 있습니다.</li>
-                                                                        <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지 편리하게 프로젝트를 진행할 수 있습니다.</li>
+                                                                        <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수
+                                                                            있습니다.
+                                                                        </li>
+                                                                        <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고
+                                                                            선택할 수 있습니다.
+                                                                        </li>
+                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수
+                                                                            있습니다.
+                                                                        </li>
+                                                                        <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지
+                                                                            편리하게 프로젝트를 진행할 수 있습니다.
+                                                                        </li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -236,34 +277,60 @@
                                                                     <div class="row padding-top-15">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 분야 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 분야 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
-                                                                                <select name="area[]" id="area" multiple="multiple" id="filter" class="multiselect" style="display: none;"
+                                                                                <select name="area[]" id="area"
+                                                                                        multiple="multiple" id="filter"
+                                                                                        class="multiselect"
+                                                                                        style="display: none;"
                                                                                         aria-required="true"
-                                                                                        aria-describedby="area-error" required>
+                                                                                        aria-describedby="area-error"
+                                                                                        required>
                                                                                     <optgroup label="광고 의뢰">
-                                                                                        <option value="네이버CPC">네이버CPC</option>
-                                                                                        <option value="구글광고">구글광고</option>
-                                                                                        <option value="페이스북 스폰서광고">페이스북 스폰서광고</option>
-                                                                                        <option value="기타">기타</option>
+                                                                                        <option value="네이버CPC">네이버CPC
+                                                                                        </option>
+                                                                                        <option value="언론보도">언론보도
+                                                                                        </option>
+                                                                                        <option value="구글광고">구글광고
+                                                                                        </option>
+                                                                                        <option value="페이스북 스폰서광고">페이스북
+                                                                                            광고
+                                                                                        </option>
+                                                                                        <option value="매체 기타">매체 기타
+                                                                                        </option>
                                                                                     </optgroup>
                                                                                     <optgroup label="바이럴">
-                                                                                        <option value="네이버SEO">네이버SEO</option>
-                                                                                        <option value="언론보도">언론보도</option>
-                                                                                        <option value="컨텐츠배포">컨텐츠배포</option>
-                                                                                        <option value="체험단모집">체험단모집</option>
+                                                                                        <option value="네이버SEO">네이버SEO
+                                                                                        </option>
+                                                                                        <option value="컨텐츠배포">컨텐츠배포
+                                                                                        </option>
+                                                                                        <option value="체험단모집">체험단모집
+                                                                                        </option>
+                                                                                        <option value="바이럴 기타">바이럴 기타
+                                                                                        </option>
                                                                                     </optgroup>
                                                                                     <optgroup label="운영대행">
                                                                                         <option value="블로그">블로그</option>
-                                                                                        <option value="페이스북페이지">페이스북페이지</option>
-                                                                                        <option value="기타SNS">기타SNS</option>
-                                                                                        <option value="홈페이지">홈페이지</option>
+                                                                                        <option value="페이스북페이지">
+                                                                                            페이스북페이지
+                                                                                        </option>
+                                                                                        <option value="기타SNS">기타SNS
+                                                                                        </option>
+                                                                                        <option value="홈페이지">홈페이지
+                                                                                        </option>
+                                                                                        <option value="운영대행 기타">운영대행
+                                                                                            기타
+                                                                                        </option>
                                                                                     </optgroup>
                                                                                     <optgroup label="1회성 프로젝트">
                                                                                         <option value="개발">개발</option>
                                                                                         <option value="디자인">디자인</option>
                                                                                         <option value="웹툰">웹툰</option>
                                                                                         <option value="영상">영상</option>
+                                                                                        <option value="1회성 프로젝트 기타">1회성
+                                                                                            프로젝트 기타
+                                                                                        </option>
                                                                                     </optgroup>
                                                                                 </select>
 
@@ -279,13 +346,14 @@
                                                                                     </option>
                                                                                     <option value="기타">기타</option>
                                                                                 </select--><span id="area-error"
-                                                                                               class="help-block valid"
-                                                                                               style="display: none;"></span>
+                                                                                                 class="help-block valid"
+                                                                                                 style="display: none;"></span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 업종 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 업종 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="category"
@@ -309,7 +377,8 @@
                                                                     </div>
 
                                                                     <div class="form-group">
-                                                                        <label class="control-label"> 마케팅진행 목적 <span class="symbol required"></span>
+                                                                        <label class="control-label"> 마케팅진행 목적 <span
+                                                                                    class="symbol required"></span>
                                                                         </label>
                                                                         <select class="form-control" name="purpose"
                                                                                 aria-required="true"
@@ -332,21 +401,23 @@
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label class="control-label"> 마케팅 진행 기간
-                                                                                    (개월/년) <span class="symbol required"></span>
+                                                                                    (개월/년) <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text"
                                                                                        placeholder="(최대 3자리, 예 : 3개월)"
                                                                                        class="form-control"
                                                                                        name="duration">
                                                                                 {{--<span id="duration-error"--}}
-                                                                                      {{--class="help-block valid"></span>--}}
+                                                                                {{--class="help-block valid"></span>--}}
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label class="control-label"> 총 예산(혹은 월
                                                                                     예산)
-                                                                                    (원) <span class="symbol required"></span>
+                                                                                    (원) <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="text"
                                                                                        placeholder="( VAT 별도, 예 : 100,000,000)"
@@ -358,9 +429,9 @@
                                                                     </div>
 
 
-
                                                                     <div class="form-group">
-                                                                        <label class="control-label"> 프로젝트 제목 <span class="symbol required"></span>
+                                                                        <label class="control-label"> 프로젝트 제목 <span
+                                                                                    class="symbol required"></span>
                                                                         </label>
                                                                         <input type="text" class="form-control"
                                                                                name="project_name" aria-required="true"
@@ -372,7 +443,8 @@
 
 
                                                                     <div class="form-group">
-                                                                        <label class="control-label"> 프로젝트 내용 <span class="symbol required"></span>
+                                                                        <label class="control-label"> 프로젝트 내용 <span
+                                                                                    class="symbol required"></span>
                                                                         </label>
                                                                         <div class="form-group">
 								<textarea name="content_detail" class="form-control" rows=20>< 프로젝트 진행 방식 >
@@ -401,7 +473,8 @@
                                                                     <div class="row padding-top-15">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 모집 마감일자 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 모집 마감일자
+                                                                                    <span class="symbol required"></span>
                                                                                 </label>
                                                                                 {{--<select class="form-control"--}}
                                                                                 {{--name="deadline"--}}
@@ -423,12 +496,13 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 프로젝트 예상 시작일 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 프로젝트 예상
+                                                                                    시작일 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <input type="date"
                                                                                        class="form-control"
                                                                                        name="expecting_start">
-
 
 
                                                                             </div>
@@ -439,15 +513,19 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 사전미팅 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 사전미팅 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="pre_meeting"
                                                                                         aria-required="true"
                                                                                         aria-describedby="pre_meeting-error">
                                                                                     <option value="">선택
-                                                                                    <option value="오프라인 미팅">오프라인 미팅</option>
-                                                                                    <option value="온라인 미팅">온라인 미팅 (카카오톡, skype, 행아웃 등)</option>
+                                                                                    <option value="오프라인 미팅">오프라인 미팅
+                                                                                    </option>
+                                                                                    <option value="온라인 미팅">온라인 미팅 (카카오톡,
+                                                                                        skype, 행아웃 등)
+                                                                                    </option>
                                                                                 </select><span id="pre_meeting-error"
                                                                                                class="help-block valid"
                                                                                                style="display: none;"></span>
@@ -455,7 +533,8 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 사전 미팅 지역 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 사전 미팅 지역
+                                                                                    <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="address_sido"
@@ -493,7 +572,8 @@
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label class="control-label"> 마케팅 진행
-                                                                                    경험여부 <span class="symbol required"></span>
+                                                                                    경험여부 <span
+                                                                                            class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="experience"
@@ -509,7 +589,8 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 프로젝트 등록 사유 <span class="symbol required"></span>
+                                                                                <label class="control-label"> 프로젝트 등록 사유
+                                                                                    <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="reason"
@@ -535,7 +616,7 @@
                                                                         <i class="fa fa-circle-arrow-left"></i> Back
                                                                     </button>
                                                                     {{--<button class="btn btn-1 btn-primary btn-o next-step btn-wide pull-right">--}}
-                                                                        {{--Next <i class="fa fa-arrow-circle-right"></i>--}}
+                                                                    {{--Next <i class="fa fa-arrow-circle-right"></i>--}}
                                                                     {{--</button>--}}
                                                                     <button type="submit"
                                                                             class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
@@ -651,7 +732,7 @@
     <script>
         // for all
         $(".multiselect").multipleSelect({
-            width:'100%'
+            width: '100%'
         });
     </script>
 
