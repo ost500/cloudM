@@ -217,7 +217,7 @@ $('#tree_2')
             checked_area = checked_area & (max_binary - 1);
         }
         console.log("result " + checked_area);
-
+        page = 1;
         viewLoad();
     });
 // create the instance

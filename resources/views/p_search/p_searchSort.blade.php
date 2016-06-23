@@ -58,7 +58,7 @@
                                     <div class="col-md-3">
                                         <p>
                                         <div class="tags_bg">
-                                            <span class="s_icon01">{{ $project['step'] }} 중</span><br>
+
                                             <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
                                         </div>
                                         </p>

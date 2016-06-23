@@ -258,7 +258,8 @@
                                                                     </legend>
                                                                     <div class="row padding-top-15">
 
-                                                                        <div class="form-group" style="padding:0 15px 0 15px;">
+                                                                        <div class="form-group"
+                                                                             style="padding:0 15px 0 15px;">
                                                                             <label class="control-label"> 분야 <span
                                                                                         class="symbol required"></span>
                                                                             </label>
@@ -321,19 +322,27 @@
 
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 마케팅진행 목적 <span
+                                                                                <label class="control-label"> 마케팅진행
+                                                                                    목적 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
-                                                                                <select class="form-control" name="purpose"
+                                                                                <select class="form-control"
+                                                                                        name="purpose"
                                                                                         aria-required="true"
                                                                                         aria-describedby="purpose-error">
                                                                                     <option value="">선택</option>
-                                                                                    <option value="단기 매출증대">단기 매출증대</option>
-                                                                                    <option value="웹사이트 유입증가">웹사이트 유입증가</option>
-                                                                                    <option value="상담 DB확보">상담 DB확보</option>
-                                                                                    <option value="이벤트 참여">이벤트 참여</option>
+                                                                                    <option value="단기 매출증대">단기 매출증대
+                                                                                    </option>
+                                                                                    <option value="웹사이트 유입증가">웹사이트
+                                                                                        유입증가
+                                                                                    </option>
+                                                                                    <option value="상담 DB확보">상담 DB확보
+                                                                                    </option>
+                                                                                    <option value="이벤트 참여">이벤트 참여
+                                                                                    </option>
                                                                                     <option value="상품인지">상품인지</option>
-                                                                                    <option value="장기 브랜딩">장기 브랜딩</option>
+                                                                                    <option value="장기 브랜딩">장기 브랜딩
+                                                                                    </option>
                                                                                     <option value="기타">기타</option>
                                                                                 </select><span id="purpose-error"
                                                                                                class="help-block valid"
@@ -366,8 +375,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
-
 
 
                                                                     <div class="row">
@@ -461,21 +468,23 @@
                                                                                 {{--<option>등록 후 6일 날짜</option>--}}
                                                                                 {{--<option>등록 후 7일 날짜</option>--}}
                                                                                 {{--</select>--}}
-                                                                                <?php $tomorrow = new DateTime('+1 day')?>
-                                                                                <input type="date"
+
+                                                                                <input id="deadline"
                                                                                        class="form-control"
                                                                                        name="deadline"
-                                                                                       min="{{ $tomorrow->format('Y-m-d') }}"
-                                                                                       max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
+
                                                                                 >
+
 
                                                                             </div>
                                                                             <p class="text-small">
                                                                                 <a href="javascript:void(0)"
                                                                                    data-content="지원자를 모집하는 기간입니다. 최소 1일부터 최대 2주까지 가능합니다"
-                                                                                   data-title="주의사항!" data-placement="top"
+                                                                                   data-title="주의사항!"
+                                                                                   data-placement="top"
                                                                                    data-toggle="popover"
-                                                                                   data-original-title="" title="">최소 1일부터 14일까지 가능합니다</a>
+                                                                                   data-original-title="" title="">최소
+                                                                                    1일부터 14일까지 가능합니다</a>
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-6">
@@ -484,12 +493,11 @@
                                                                                     시작일 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
-                                                                                <?php $tomorrow = new DateTime('+1 day')?>
-                                                                                <input type="date"
+
+                                                                                <input id="start_day"
                                                                                        class="form-control"
                                                                                        name="expecting_start"
-                                                                                       min="{{ $tomorrow->format('Y-m-d') }}"
-                                                                                       max="{{ $tomorrow->modify('+28 day')->format('Y-m-d') }}"
+
                                                                                 >
 
 
@@ -497,9 +505,11 @@
                                                                             <p class="text-small">
                                                                                 <a href="javascript:void(0)"
                                                                                    data-content="지원자를 모집하는 기간입니다. 최소 1일부터 최대 4주까지 가능합니다"
-                                                                                   data-title="주의사항!" data-placement="top"
+                                                                                   data-title="주의사항!"
+                                                                                   data-placement="top"
                                                                                    data-toggle="popover"
-                                                                                   data-original-title="" title="">최소 1일부터 4주까지 가능합니다</a>
+                                                                                   data-original-title="" title="">최소
+                                                                                    1일부터 4주까지 가능합니다</a>
                                                                             </p>
                                                                         </div>
                                                                     </div>
@@ -563,7 +573,8 @@
                                                                             <p class="text-small">
                                                                                 <a href="javascript:void(0)"
 
-                                                                                   data-original-title="" title="">사전 미팅을 진행할 지역을 선택해 주세요</a>
+                                                                                   data-original-title="" title="">사전
+                                                                                    미팅을 진행할 지역을 선택해 주세요</a>
                                                                             </p>
                                                                         </div>
 
@@ -706,72 +717,80 @@
         </section>
     </div>
 
-<button class="btn btn-info waves-effect waves-light btn-sm" id="sa-success">Click me</button>
+    <button class="btn btn-info waves-effect waves-light btn-sm" id="sa-success">Click me</button>
 
-<link href="http://coderthemes.com/ubold_1.5/light/assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
-<script src="http://coderthemes.com/ubold_1.5/light/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
-<script src="/js/jquery.sweet-alert.init.js"></script>
+    <link href="http://coderthemes.com/ubold_1.5/light/assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet"
+          type="text/css">
+    <script src="http://coderthemes.com/ubold_1.5/light/assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/js/jquery.sweet-alert.init.js"></script>
 
-<div class="sweet-overlay" tabindex="-1" style="opacity: -0.04; display: none;"></div>
-<div class="sweet-alert hideSweetAlert" data-custom-class="" data-has-cancel-button="false" data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false" data-animation="pop" data-timer="null" style="display: none; margin-top: -192px; opacity: -0.04;">
+    <div class="sweet-overlay" tabindex="-1" style="opacity: -0.04; display: none;"></div>
+    <div class="sweet-alert hideSweetAlert" data-custom-class="" data-has-cancel-button="false"
+         data-has-confirm-button="true" data-allow-outside-click="false" data-has-done-function="false"
+         data-animation="pop" data-timer="null" style="display: none; margin-top: -192px; opacity: -0.04;">
 
-    <div class="sa-icon sa-error" style="display: none;">
+        <div class="sa-icon sa-error" style="display: none;">
       <span class="sa-x-mark">
         <span class="sa-line sa-left"></span>
         <span class="sa-line sa-right"></span>
       </span>
-    </div>
+        </div>
 
-    <div class="sa-icon sa-warning" style="display: none;">
-        <span class="sa-body"></span>
-        <span class="sa-dot"></span>
-    </div>
+        <div class="sa-icon sa-warning" style="display: none;">
+            <span class="sa-body"></span>
+            <span class="sa-dot"></span>
+        </div>
 
-    <div class="sa-icon sa-info" style="display: none;"></div>
+        <div class="sa-icon sa-info" style="display: none;"></div>
 
-    <div class="sa-icon sa-success" style="display: block;">
-        <span class="sa-line sa-tip"></span>
-        <span class="sa-line sa-long"></span>
+        <div class="sa-icon sa-success" style="display: block;">
+            <span class="sa-line sa-tip"></span>
+            <span class="sa-line sa-long"></span>
 
-        <div class="sa-placeholder"></div>
-        <div class="sa-fix"></div>
-    </div>
+            <div class="sa-placeholder"></div>
+            <div class="sa-fix"></div>
+        </div>
 
-    <div class="sa-icon sa-custom" style="display: none; width: 80px; height: 80px; background-image: url(&quot;assets/plugins/sweetalert/thumbs-up.jpg&quot;);"></div>
-    <h2>등록되었습니다.</h2>
-    <p style="display: block;"></p>
-    <p class="text-small">
-        패스트엠 내부 검수 후에 지원자 모집이 시작됩니다.<br><br>
-        검수에는 <strong>최대 24시간</strong>이 소요되며,<br>
-        정확한 검수를 위해 유선 또는 이메일 연락을 할 수 있습니다.<br><br>
+        <div class="sa-icon sa-custom"
+             style="display: none; width: 80px; height: 80px; background-image: url(&quot;assets/plugins/sweetalert/thumbs-up.jpg&quot;);"></div>
+        <h2>등록되었습니다.</h2>
+        <p style="display: block;"></p>
+        <p class="text-small">
+            패스트엠 내부 검수 후에 지원자 모집이 시작됩니다.<br><br>
+            검수에는 <strong>최대 24시간</strong>이 소요되며,<br>
+            정확한 검수를 위해 유선 또는 이메일 연락을 할 수 있습니다.<br><br>
 
-        검수 결과는 <strong>이메일과 SMS</strong>를 통해
-        발송해 드립니다.<br><br>
-        검수에 대한 문의는 <strong>고객센터(1544-2329)</strong>를
-        이용해주세요.
-    </p>
-    <fieldset style="margin:0 !important;">
-        <input type="text" tabindex="3" placeholder="">
-        <div class="sa-input-error"></div>
-    </fieldset>
+            검수 결과는 <strong>이메일과 SMS</strong>를 통해
+            발송해 드립니다.<br><br>
+            검수에 대한 문의는 <strong>고객센터(1544-2329)</strong>를
+            이용해주세요.
+        </p>
+        <fieldset style="margin:0 !important;">
+            <input type="text" tabindex="3" placeholder="">
+            <div class="sa-input-error"></div>
+        </fieldset>
 
-    <div class="sa-error-container">
-        <div class="icon">!</div>
-        <p>Not valid!</p>
-    </div>
+        <div class="sa-error-container">
+            <div class="icon">!</div>
+            <p>Not valid!</p>
+        </div>
 
-    <div class="sa-button-container">
-        <button class="cancel" tabindex="2" style="display: none; box-shadow: none;">Cancel</button>
-        <div class="sa-confirm-button-container">
-            <button class="confirm" tabindex="1" style="display: inline-block; box-shadow: rgba(140, 212, 245, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset; background-color: rgb(140, 212, 245);">OK</button><div class="la-ball-fall">
-                <div></div>
-                <div></div>
-                <div></div>
+        <div class="sa-button-container">
+            <button class="cancel" tabindex="2" style="display: none; box-shadow: none;">Cancel</button>
+            <div class="sa-confirm-button-container">
+                <button class="confirm" tabindex="1"
+                        style="display: inline-block; box-shadow: rgba(140, 212, 245, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.0470588) 0px 0px 0px 1px inset; background-color: rgb(140, 212, 245);">
+                    OK
+                </button>
+                <div class="la-ball-fall">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 
 
     <!-- form-wizard start -->
@@ -787,13 +806,51 @@
     <script src="/js/form_wizard.js"></script>
 
 
+
+
     <script>
         jQuery(document).ready(function () {
             Main.init();
             FormWizard.init();
 
         });
+
     </script>
+
+
+
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js">
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+    <?php $tomorrow = new DateTime('+1 day')?>
+    <script type="text/javascript">
+
+        $.datepicker.setDefaults($.datepicker.regional['ko']);
+        $('#deadline').datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: +1,
+            maxDate: +14,
+
+
+        });
+        $('#start_day').datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: +1,
+            maxDate: +28,
+
+
+        });
+        $(function () {
+            var localTime = new Date();
+            var ptTime = new Date();
+            ptTime.setMinutes(ptTime.getMinutes() + localTime.getTimezoneOffset() - 420);
+
+        });
+
+
+    </script>
+
 
 
     <script src="/js/multiple-select.js"></script>
