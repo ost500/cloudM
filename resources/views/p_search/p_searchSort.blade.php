@@ -32,8 +32,8 @@
 
                                 <span class="media-body-sm-Plist">월 예산 <span>{{ number_format($project['budget']) }}</span>원</span>
                                 <span class="media-body-sm-Plist">예상기간 <span>{{ $project['estimated_duration'] }}</span></span>
-                                <span class="media-body-sm-Plist">등록일자 <span>{{ substr($project['created_at'], 0, 10) }}</span></span>
-                                <span class="media-body-sm-Plist la-line">마감 <span>{{ $project['deadline'] }}</span></span>
+                                <span class="media-body-sm-Plist la-line">등록일자 <span>{{ substr($project['created_at'], 0, 10) }}</span></span>
+                                <!--span class="media-body-sm-Plist la-line">마감 <span>{{ $project['deadline'] }}</span></span-->
                             </div>
                         </div>
                         <!-- Content -->
@@ -56,15 +56,23 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <p>
-                                        <div class="tags_bg">
-                                            @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
-                                                <?php $today = new DateTime('-1 day'); $d_day = new DateTime($project->deadline);?>
-                                                <span class="s_icon01">모집마감 {{ $today->diff($d_day)->days}}일 남음</span>
-                                                <br>
-                                            @endif
-                                            <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
-                                        </div>
+
+                                        <ul class="list-unstyled">
+                                            <li class="padding-top-5"></li>
+
+                                            <li class="partners-authentication ">
+                                                @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
+                                                    <?php $today = new DateTime('-1 day'); $d_day = new DateTime($project->deadline);?>
+                                                    <span class="s_icon01">모집마감 {{ $today->diff($d_day)->days}}일 남음</span>
+                                                @else
+                                                    <span class="s_icon01">모집마감</span>
+                                                @endif
+                                            </li>
+
+                                            <li class="partners-authentication ">
+                                                <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
+                                            </li>
+                                        </ul>
                                         </p>
                                     </div>
                                 </div>

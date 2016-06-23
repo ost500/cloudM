@@ -93,7 +93,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 padding-top-15">
                                                                         <div class="form-group">
                                                                             <label class="control-label"> 분야 <span class="symbol required"></span>
                                                                             </label>
@@ -140,7 +140,7 @@
                                                                                            style="display: none;"></span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 padding-top-15">
                                                                         <div class="form-group">
                                                                             <label class="control-label"> 업종 <span class="symbol required"></span>
                                                                             </label>
@@ -161,9 +161,9 @@
                                                                                            style="display: none;"></span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12 padding-top-15">
                                                                         <div class="form-group">
-                                                                            <label class="control-label"> 설명 <span class="symbol required"></span>
+                                                                            <label class="control-label"> 프로젝트 설명 <span class="symbol required"></span>
                                                                             </label>
                                                                     <textarea name="description" class="form-control"
                                                                               rows=10 aria-required="true"
@@ -175,10 +175,10 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 padding-top-15">
                                                                         <div class="form-group">
 
-                                                                            <label class="control-label"> 참여 시작일 <span class="symbol required"></span>
+                                                                            <label class="control-label"> 진행 시작일 <span class="symbol required"></span>
                                                                             </label><br>
                                                                             <input type="date" class="form-control"
                                                                                    name="from_date">
@@ -188,9 +188,9 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 padding-top-15">
                                                                         <div class="form-group">
-                                                                            <label class="control-label"> 참여 종료일  <span class="symbol required"></span>
+                                                                            <label class="control-label"> 진행 종료일  <span class="symbol required"></span>
                                                                             </label><br>
                                                                             <input type="date" class="form-control"
                                                                                    name="to_date">
@@ -201,24 +201,10 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="row">
 
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="control-label"> 참여율  <span class="symbol required"></span>
-                                                                            </label><br>
-                                                                            <input type="text" class="form-control"
-                                                                                   name="participation_rate"
-                                                                                   aria-required="true"
-                                                                                   aria-describedby="name-error"
-                                                                                   style="width:30%"><span
-                                                                                    class="percent">%</span><span
-                                                                                    id="participation_rate-error"
-                                                                                    class="help-block valid"
-                                                                                    style="display: none;"></span><br>
-                                                                            <span class="gry">참여율은 1에서 100까지 정수로 입력할 수 있습니다.</span>
-                                                                        </div>
-                                                                    </div>
+
+
+                                                                <div class="row">
 
                                                                     <div class="port_guide img_f">
                                                                         <img src="/images/i_icon.png"
@@ -234,7 +220,7 @@
                                                                     </div>
 
 
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12 padding-top-15">
                                                                         <div class="form-group">
                                                                             <label class="control-label"> 대표이미지  <span class="symbol required"></span>
                                                                             </label>
@@ -266,9 +252,9 @@
                                                                     </div>
 
 
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12 padding-top-15">
                                                                         <div class="form-group">
-                                                                            <label class="control-label"> 이미지2  <span class="symbol required"></span>
+                                                                            <label class="control-label"> 이미지2  <span class="symbol"></span>
                                                                             </label>
                                                                             <div class="filebox">
                                                                                 <input id="image2_name"
@@ -284,7 +270,6 @@
                                                                                        accept="jpg,jpeg,png,gif">
                                                                                 <script>
                                                                                     $("#ex_filename2").change(function (ev) {
-
                                                                                         $("#image2_name").val(this.value);
                                                                                     });
                                                                                 </script>
@@ -292,9 +277,9 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12 padding-top-15">
                                                                         <div class="form-group">
-                                                                            <label class="control-label"> 이미지3  <span class="symbol required"></span>
+                                                                            <label class="control-label"> 이미지3  <span class="symbol"></span>
                                                                             </label>
                                                                             <div class="filebox">
                                                                                 <input id="image3_name"
@@ -310,101 +295,20 @@
                                                                                        class="upload-hidden">
                                                                                 <script>
                                                                                     $("#ex_filename3").change(function (ev) {
-                                                                                        alert(this.value);
                                                                                         $("#image3_name").val(this.value);
                                                                                     });
                                                                                 </script>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    {{--<div class="col-md-12">--}}
-                                                                    {{--<div class="form-group has-success">--}}
-                                                                    {{--<label class="control-label"> 한줄설명 <span--}}
-                                                                    {{--class="symbol ok"--}}
-                                                                    {{--aria-required="true"></span>--}}
-                                                                    {{--</label>--}}
-                                                                    {{--<input type="text" class="form-control"--}}
-                                                                    {{--name="name"--}}
-                                                                    {{--aria-required="true"--}}
-                                                                    {{--aria-describedby="name-error"><span--}}
-                                                                    {{--id="name-error"--}}
-                                                                    {{--class="help-block valid"--}}
-                                                                    {{--style="display: none;"></span>--}}
-                                                                    {{--<span class="gry">한글 기준 120자 미만</span>--}}
-                                                                    {{--</div>--}}
-                                                                    {{--</div>--}}
-                                                                    {{--<div class="col-md-12">--}}
-                                                                    {{--<div class="form-group has-success">--}}
-                                                                    {{--<label class="control-label"> 태그 <span--}}
-                                                                    {{--class="symbol ok"--}}
-                                                                    {{--aria-required="true"></span>--}}
-                                                                    {{--</label>--}}
-                                                                    {{--<ul class="checkbox_css02">--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0001"--}}
-                                                                    {{--id="checkbox0001"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0001">Photoshop</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0002"--}}
-                                                                    {{--id="checkbox0002"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0002">Android</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0003"--}}
-                                                                    {{--id="checkbox0003"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0003">HTML5</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0004"--}}
-                                                                    {{--id="checkbox0004"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0004">Python</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0005"--}}
-                                                                    {{--id="checkbox0005"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0005">Photoshop</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0006"--}}
-                                                                    {{--id="checkbox0006"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0006">Android</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--<input type="checkbox"--}}
-                                                                    {{--name="checkbox0007"--}}
-                                                                    {{--id="checkbox0007"--}}
-                                                                    {{--value="option1">--}}
-                                                                    {{--<label for="checkbox0007">HTML5</label>--}}
-                                                                    {{--</li>--}}
-                                                                    {{--</ul>--}}
-                                                                    {{--<div class="clear"></div>--}}
-                                                                    {{--<span class="gry">최대 5개까지 입력 가능합니다.</span>--}}
-                                                                    {{--</div>--}}
-                                                                    {{--</div>--}}
-
                                                                 </div>
-                                                                <!--<p class="text-small">
-                                                                 <a href="javascript:void(0)" data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial" data-title="Don't worry!" data-placement="top" data-toggle="popover" data-original-title="" title=""> 왜 개인정보가 필요한가요? </a>
-                                                                </p>-->
 
-
+                                                                <p class="text-center padding-top-25">
                                                                 <button type="submit"
-                                                                        class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
+                                                                        class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-">
                                                                     등록하기
                                                                 </button>
+                                                                </p>
                                                             </div>
                                                         </form>
 
@@ -461,10 +365,6 @@
                 description: {required: true, maxlength: 10000},
                 from_date: {required: true, date: true},
                 to_date: {required: true, date: true},
-                participation_rate: {
-                    required: true,
-                    range: [0, 100]
-                },
                 image1: {
                     required: true,
                     extension: "jpg|jpeg|png|gif",
@@ -485,9 +385,8 @@
                 area: "분야를 선택해 주세요",
                 category: "업종을 선택해 주세요",
                 description: "입력해 주세요",
-                from_date: "참여 시작일을 입력해 주세요",
-                to_date: "참여 종료일을 입력해 주세요",
-                participation_rate: "참여율을 입력해 주세요",
+                from_date: "진행 시작일을 입력해 주세요",
+                to_date: "진행 종료일을 입력해 주세요",
                 image1: {
                     required: "업로드해 주세요",
                     extension: "이미지 파일을 확인해 주세요"
