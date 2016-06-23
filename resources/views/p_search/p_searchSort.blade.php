@@ -7,7 +7,7 @@
         <div id="accordion">
 
             <!-- Job Section -->
-            <div class="job-content job-post-page margin-top-0">
+            <div class="job-content job-post-page margin-bottom-10">
                 <!-- Job Tittle -->
                 <div class="panel-group margin-bottom-0">
                     <div class="panel panel-default">
@@ -58,7 +58,11 @@
                                     <div class="col-md-3">
                                         <p>
                                         <div class="tags_bg">
-
+                                            @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
+                                                <?php $today = new DateTime('-1 day'); $d_day = new DateTime($project->deadline);?>
+                                                <span class="s_icon01">모집마감 {{ $today->diff($d_day)->days}}일 남음</span>
+                                                <br>
+                                            @endif
                                             <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
                                         </div>
                                         </p>

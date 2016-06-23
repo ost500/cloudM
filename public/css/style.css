@@ -2558,22 +2558,26 @@ header .navbar li.active a {
 }
 
 .tags_bg {
-    widtg: 100%;
+    width: 100%;
     padding: 8px;
     background: #f4f5f6;
     clear: both;
+    float: left;
 }
 
 .tags_bg span {
     font-size: 14px !important;
     font-weight: 600 !important;
     color: #666 !important;
+    margin:5px !important;
+    float: left;
 }
 
 span.s_icon01 {
     background: url(/images/box_icon01.png) no-repeat;
     padding-left: 20px;
     margin-right: 7px;
+
 }
 
 span.s_icon02 {
