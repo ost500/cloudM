@@ -19,78 +19,71 @@
 
                             <div class="media-body02">
                                 <div class="form-group">
-                                    <label class="control-label"> 프로젝트 제목 <span
+                                    <label class="control-label"> 분야 <span
                                                 class="symbol required"></span>
                                     </label>
-                                    <input type="text" class="form-control"
-                                           name="project_name" aria-required="true"
-                                           aria-describedby="project_name-error"
-                                           value="{{ $update_project['title'] }}"><span
-                                            id="project_name-error"
-                                            class="help-block valid"
-                                            style="display: none;"></span>
+                                    <select name="area[]" id="area"
+                                            multiple="multiple" id="filter"
+                                            class="multiselect"
+                                            style="display: none;"
+                                            aria-required="true"
+                                            aria-describedby="area-error"
+                                            required>
+                                        <optgroup label="광고 의뢰">
+                                            <option value="네이버CPC">네이버CPC
+                                            </option>
+                                            <option value="언론보도">언론보도
+                                            </option>
+                                            <option value="구글광고">구글광고
+                                            </option>
+                                            <option value="페이스북 스폰서광고">페이스북
+                                                광고
+                                            </option>
+                                            <option value="매체 기타">매체 기타
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="바이럴">
+                                            <option value="네이버SEO">네이버SEO
+                                            </option>
+                                            <option value="컨텐츠배포">컨텐츠배포
+                                            </option>
+                                            <option value="체험단모집">체험단모집
+                                            </option>
+                                            <option value="바이럴 기타">바이럴 기타
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="운영대행">
+                                            <option value="블로그">블로그</option>
+                                            <option value="페이스북페이지">
+                                                페이스북페이지
+                                            </option>
+                                            <option value="기타SNS">기타SNS
+                                            </option>
+                                            <option value="홈페이지">홈페이지
+                                            </option>
+                                            <option value="운영대행 기타">운영대행
+                                                기타
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="1회성 프로젝트">
+                                            <option value="개발">개발</option>
+                                            <option value="디자인">디자인</option>
+                                            <option value="웹툰">웹툰</option>
+                                            <option value="영상">영상</option>
+                                            <option value="1회성 프로젝트 기타">1회성
+                                                프로젝트 기타
+                                            </option>
+                                        </optgroup>
+                                    </select><span id="area-error"
+                                                   class="help-block valid"
+                                                   style="display: none;"></span>
                                 </div>
                             </div>
 
                             <div class="row padding-top-10">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"> 총 예산(혹은 월
-                                            예산)
-                                            (원) <span
-                                                    class="symbol required"></span>
-                                        </label>
-                                        <input size="10"
-                                               type="text"
-                                               placeholder="( VAT 별도, 예 : 100,000,000)"
-                                               class="form-control"
-                                               name="money" value="{{ number_format($update_project['budget']) }}"><span
-                                                id="money"
-                                                class="help-block valid"></span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label"> 마케팅 진행 기간
-                                            (개월/년) <span
-                                                    class="symbol required"></span>
-                                        </label>
-                                        </label>
-                                        <input type="text"
-                                               placeholder="(최대 3자리, 예 : 3개월)"
-                                               class="form-control"
-                                               name="duration"
-                                               value="{{ $update_project['estimated_duration'] }}">
-                                        {{--<span id="duration-error"--}}
-                                        {{--class="help-block valid"></span>--}}
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label"> 모집 마감일자
-                                            <span class="symbol required"></span>
-                                        </label>
-
-                                        <?php $tomorrow = new DateTime('+1 day')?>
-                                        <input type="date"
-                                               class="form-control"
-                                               name="deadline"
-                                               min="{{ $tomorrow->format('Y-m-d') }}"
-                                               max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
-                                               value="{{ $update_project['deadline'] }}">
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                            <div class="row padding-top-10">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="control-label"> 목적 <span
+                                        <label class="control-label"> 마케팅진행 목적 <span
                                                     class="symbol required"></span>
                                         </label>
                                         <select class="form-control" name="purpose"
@@ -107,41 +100,127 @@
                                         </select><span id="purpose-error"
                                                        class="help-block valid"
                                                        style="display: none;"></span>
+
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"> 매니징경험 <span class="symbol required"></span>
+                                        <label class="control-label"> 업종 <span
+                                                    class="symbol required"></span>
+                                        </label>
                                         </label>
                                         <select class="form-control"
-                                                name="experience"
+                                                name="category"
                                                 aria-required="true"
-                                                aria-describedby="experience-error">
-                                            <option value="{{ $update_project['managing_experience'] }}">{{ $update_project['managing_experience'] }}</option>
-                                            <option value="있음">있습니다</option>
-                                            <option value="없음">없습니다</option>
-                                        </select><span id="experience-error"
+                                                aria-describedby="category-error">
+                                            <option value="{{ $update_project['category'] }}">{{ $update_project['category'] }}</option>
+                                            <option value="의료">의료</option>
+                                            <option value="법률">법률</option>
+                                            <option value="스타트업">스타트업</option>
+                                            <option value="프랜차이즈">프랜차이즈</option>
+                                            <option value="교육/대학교">교육/대학교</option>
+                                            <option value="쇼핑몰">쇼핑몰</option>
+                                            <option value="기타">기타</option>
+
+                                        </select><span id="category-error"
                                                        class="help-block valid"
                                                        style="display: none;"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                            </div>
+
+                            <div class="row padding-top-10">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label"> 등록일자 <span class="symbol required"></span>
+                                        <label class="control-label"> 마케팅 진행 기간
+                                            (개월/년) <span
+                                                    class="symbol required"></span>
                                         </label>
-                                        <input type="date"
+                                        </label>
+                                        <input type="text"
+                                               placeholder="(최대 3자리, 예 : 3개월)"
                                                class="form-control"
-                                               name="expecting_start"
-                                               value="{{ date_format($update_project['created_at'],'Y-m-d') }}">
+                                               name="duration"
+                                               value="{{ $update_project['estimated_duration'] }}">
+                                        {{--<span id="duration-error"--}}
+                                        {{--class="help-block valid"></span>--}}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> 총 예산(혹은 월
+                                            예산)
+                                            (원) <span
+                                                    class="symbol required"></span>
+                                        </label>
+                                        <input size="10"
+                                               type="text"
+                                               placeholder="( VAT 별도, 예 : 100,000,000)"
+                                               class="form-control"
+                                               name="money" value="{{ number_format($update_project['budget']) }}"><span
+                                                id="money"
+                                                class="help-block valid"></span>
 
                                     </div>
                                 </div>
                             </div>
 
+                            <div class="media-body02 padding-top-10">
+                                <div class="form-group">
+                                    <label class="control-label"> 프로젝트 제목 <span
+                                                class="symbol required"></span>
+                                    </label>
+                                    <input type="text" class="form-control"
+                                           name="project_name" aria-required="true"
+                                           aria-describedby="project_name-error"
+                                           value="{{ $update_project['title'] }}"><span
+                                            id="project_name-error"
+                                            class="help-block valid"
+                                            style="display: none;"></span>
+                                </div>
+                            </div>
+
+                            <div class="p_search02_txt margin-top-20">
+                                <div class="form-group">
+                                    <label class="control-label"> 프로젝트 내용 <span
+                                                class="symbol required"></span>
+                                    </label>
+                                    <div class="form-group">
+								<textarea name="content_detail" class="form-control" rows=20>{{ $update_project['detail_content'] }}</textarea>
+
+                                    </div>
+                                    <p class="text-small">
+                                        <a href="javascript:void(0)"
+                                           data-content="이메일, 전화번호 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다."
+                                           data-title="주의사항!" data-placement="top"
+                                           data-toggle="popover"
+                                           data-original-title="" title="">※이메일,
+                                            전화번호 등 게시금지.</a>
+                                    </p>
+                                </div>
+
 
 
                             <div class="row padding-top-10">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> 모집 마감일자
+                                            <span class="symbol required"></span>
+                                        </label>
+
+                                        <?php $tomorrow = new DateTime('+1 day')?>
+                                        <input type="date"
+                                               class="form-control"
+                                               name="deadline"
+                                               min="{{ $tomorrow->format('Y-m-d') }}"
+                                               max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
+                                               value="{{ $update_project['deadline'] }}">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label"> 프로젝트 예상
                                             시작일 <span class="symbol required"></span>
@@ -154,7 +233,46 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                            </div>
+
+
+                            <div class="row padding-top-10">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> 모집 마감일자
+                                            <span class="symbol required"></span>
+                                        </label>
+
+                                        <?php $tomorrow = new DateTime('+1 day')?>
+                                        <input type="date"
+                                               class="form-control"
+                                               name="deadline"
+                                               min="{{ $tomorrow->format('Y-m-d') }}"
+                                               max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
+                                               value="{{ $update_project['deadline'] }}">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> 프로젝트 예상
+                                            시작일 <span class="symbol required"></span>
+                                        </label>
+                                        <input type="date"
+                                               class="form-control"
+                                               name="expecting_start"
+                                               value="{{ $update_project['expected_start_date'] }}">
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row padding-top-10">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label"> 사전미팅 <span
                                                     class="symbol required"></span>
@@ -178,10 +296,10 @@
                                                        style="display: none;"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label"> 사전 미팅 지역
-                                                                            <span class="symbol required"></span>
+                                            <span class="symbol required"></span>
                                         </label>
                                         <select class="form-control"
                                                 name="address_sido"
@@ -213,98 +331,48 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                        <div style="clear:both;"></div>
-                        <div class="p_search02_txt margin-top-20">
-                            <div class="form-group">
-                                <label class="control-label"> 프로젝트 내용 <span
-                                            class="symbol required"></span>
-                                </label>
-                                <div class="form-group">
-								<textarea name="content_detail" class="form-control" rows=20>
-                                    < 프로젝트 진행 방식 >
-예시) 시작시점에 미팅, 주 1회 미팅 등
-
-< 프로젝트의 현재 상황 >
-예시) 기획 여부, 컨텐츠 준비 여부, 타겟 고객, 진행 계획 등
-
-< 상세한 업무 내용 >
-예시) 사이트의 용도, 페이지 수, 레이아웃(비슷한 페이지) 수 등
-
-< 참고자료 / 유의사항 >
-예시) 참고사이트, 기타 유의사항 등 </textarea>
-
-                                </div>
-                                <p class="text-small">
-                                    <a href="javascript:void(0)"
-                                       data-content="이메일, 전화번호 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다."
-                                       data-title="주의사항!" data-placement="top"
-                                       data-toggle="popover"
-                                       data-original-title="" title="">※이메일,
-                                        전화번호 등 게시금지.</a>
-                                </p>
-                            </div>
-
-
-                            <div class="margin-top-10">
-
-                                <ul class="tags dall margin-top-20 margin-bottom-10">
-                                    <div class="row padding-top-15">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label"> 분야
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
-                                                </label>
-                                                <select class="form-control"
-                                                        name="area"
-                                                        aria-required="true"
-                                                        aria-describedby="area-error">
-                                                    <option value="{{ $update_project['area'] }}">{{ $update_project['area'] }}</option>
-                                                    <option value="광고 의뢰">광고 의뢰</option>
-                                                    <option value="운영 대행">운영 대행</option>
-                                                    <option value="Viral">Viral</option>
-                                                    <option value="1회성 프로젝트">1회성 프로젝트
-                                                    </option>
-                                                    <option value="기타">기타</option>
-                                                </select><span id="area-error"
-                                                               class="help-block valid"
-                                                               style="display: none;"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label"> 업종
-                                                                                    <span class="symbol ok"
-                                                                                          aria-required="true"></span>
-                                                </label>
-                                                <select class="form-control"
-                                                        name="category"
-                                                        aria-required="true"
-                                                        aria-describedby="category-error">
-                                                    <option value="{{ $update_project['category'] }}">{{ $update_project['category'] }}</option>
-                                                    <option value="의료">의료</option>
-                                                    <option value="법률">법률</option>
-                                                    <option value="스타트업">스타트업</option>
-                                                    <option value="프랜차이즈">프랜차이즈</option>
-                                                    <option value="교육/대학교">교육/대학교
-                                                    </option>
-                                                    <option value="쇼핑몰">쇼핑몰</option>
-                                                    <option value="기타">기타</option>
-
-                                                </select><span id="category-error"
-                                                               class="help-block valid"
-                                                               style="display: none;"></span>
-                                            </div>
-                                        </div>
-
+                            <div class="row padding-top-10">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> 마케팅 진행 경험여부 <span
+                                                    class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control"
+                                                name="experience"
+                                                aria-required="true"
+                                                aria-describedby="experience-error">
+                                            <option value="{{ $update_project['managing_experience'] }}">{{ $update_project['managing_experience'] }}</option>
+                                            <option value="있음">있습니다</option>
+                                            <option value="없음">없습니다</option>
+                                        </select><span id="experience-error"
+                                                       class="help-block valid"
+                                                       style="display: none;"></span>
                                     </div>
-
-
-                                </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> 프로젝트 등록 사유
+                                            <span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control"
+                                                name="reason"
+                                                aria-required="true"
+                                                aria-describedby="reason-error">
+                                            <option value="{{ $update_project['reason'] }}">{{ $update_project['reason'] }}</option>
+                                            <option value="견적문의">견적문의</option>
+                                            <option value="시장조사">시장조사</option>
+                                            <option value="실제진행">실제진행</option>
+                                        </select><span id="reason-error"
+                                                       class="help-block valid"
+                                                       style="display: none;"></span>
+                                    </div>
+                                </div>
                             </div>
+
+
+
 
 
                         </div>
@@ -335,6 +403,20 @@
         jQuery(document).ready(function () {
             Main.init();
             FormWizard.init();
+        });
+    </script>
+
+
+    <script src="/js/multiple-select.js"></script>
+
+    <script>
+        // for all
+        $(".multiselect").multipleSelect({
+            width: '100%'
+        });
+
+        $(".multiselect").click(function() {
+            $(".multiselect").multipleSelect("setSelects", [1, 3]);
         });
     </script>
 </div>
