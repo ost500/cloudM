@@ -99,6 +99,31 @@ class CreateController extends Controller
         $input->managing_experience = $request->experience;
         $input->reason = $request->reason;
         $input->Client_id = Auth::user()->id;
+
+        if ($request->hasFile('project_attach')) {
+            $projectFile = new ProjectsFile();
+
+            $tmpFilePath = '/files/project/';
+
+            $file = $request->file('project_attach');
+
+            $chars_array = array_merge(range(0,9), range('a','z'), range('A','Z'));
+            shuffle($chars_array);
+            $shuffle = implode('', $chars_array);
+
+            // 첨부파일 첨부시 첨부파일명에 공백이 포함되어 있으면 일부 PC에서 보이지 않거나 다운로드 되지 않는 현상이 있습니다.
+            $tmpFileName = abs(ip2long($_SERVER['REMOTE_ADDR'])).'_'.substr($shuffle,0,8).'_'.str_replace('%', '', urlencode(str_replace(' ', '_', $file->getClientOriginalName())));
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+
+            $projectFile->u_id = Auth::user()->id;
+            $projectFile->p_id = $input->id;
+            $projectFile->source_name = $file->getClientOriginalName();
+            $projectFile->file_name = $tmpFileName;
+            $projectFile->file_size = $file->getSize();
+            $projectFile->save();
+        }
+
+
         $input->save();
 
 
