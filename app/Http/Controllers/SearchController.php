@@ -56,7 +56,7 @@ class SearchController extends Controller
 //            $keyword2 = "%".$keyword;
             $keyword3 = "%" . $keyword . "%";
         }
-        $multi_select_binary = 67108864;
+        $multi_select_binary = 67108863;
 
         if ($SearchOption == $multi_select_binary || $SearchOption == 0) {
 
@@ -83,6 +83,29 @@ class SearchController extends Controller
                 $projects = $projects->sortByDesc('updated_at');
             }
 
+            $filtered = $projects;
+
+
+            $projects1 = $filtered->filter(function ($value){
+               if(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d')){
+                   return $value;
+               }
+            });
+            $projects2 = $filtered->filter(function ($value){
+                if(!(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d'))){
+                    return $value;
+                }
+            });
+
+            $projects = new Collection();
+            foreach($projects1 as $p){
+                $projects->push($p);
+            }
+            foreach($projects2 as $p){
+                $projects->push($p);
+            }
+
+
             $projects = $projects->forPage($page, 10);
             $projects['count'] = $count;
 
@@ -92,8 +115,8 @@ class SearchController extends Controller
 
 
         $projects = new Collection();
-        $area_menu_array = ['네이버CPC', '구글광고', '페이스북 스폰서광고', '매체 기타',
-            '네이버SEO', '언론보도', '컨텐츠 배포', '체험단 모집', '바이럴 기타',
+        $area_menu_array = ['네이버CPC', '언론보도','구글광고', '페이스북광고', '매체 기타',
+            '네이버SEO', '컨텐츠 배포', '체험단 모집', '바이럴 기타',
             '블로그', '페이스북페이지', '기타SNS', '홈페이지', '운영대행 기타',
             '개발', '디자인', '웹툰', '영상', '1회성 프로젝트 기타'];
 
@@ -102,23 +125,23 @@ class SearchController extends Controller
 
         for ($i = 0; $i < count($area_menu_array) + count($category_menu_array); $i++) {
             if ($i < count($area_menu_array)) {
-                if (($SearchOption & ($multi_select_binary / pow(2, $i + 1))) == true) {
+                if (($SearchOption & (67108864 >> ($i+1))) == true) {
 
                     $query = ProjectsArea::where('area', '=', $area_menu_array[$i])->get();
 
                     foreach ($query as $q) {
-                        if($q->project->step !='검수'){
+                        if ($q->project->step != '검수') {
                             $projects = $projects->push($q->project);
                         }
                     }
                 }
             } else {
-                if (($SearchOption & ($multi_select_binary / pow(2, $i + 1))) == true) {
+                if (($SearchOption & (67108864 >> ($i+1))) == true) {
 
                     $query = Project::where('category', '=', $category_menu_array[$i - count($area_menu_array)])->get();
 
                     foreach ($query as $q) {
-                        if($q->step !='검수'){
+                        if ($q->step != '검수') {
                             $projects = $projects->push($q);
                         }
                     }
@@ -148,10 +171,35 @@ class SearchController extends Controller
         } else if ($sort == "3") {
             $projects = $projects->sortByDesc('updated_at');
         } else if ($sort == "4") {
+
+
             $projects = $projects->sortBy('deadline');
         } else {
             $projects = $projects->sortByDesc('updated_at');
         }
+
+        $filtered = $projects;
+
+
+        $projects1 = $filtered->filter(function ($value){
+            if(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d')){
+                return $value;
+            }
+        });
+        $projects2 = $filtered->filter(function ($value){
+            if(!(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d'))){
+                return $value;
+            }
+        });
+
+        $projects = new Collection();
+        foreach($projects1 as $p){
+            $projects->push($p);
+        }
+        foreach($projects2 as $p){
+            $projects->push($p);
+        }
+
         $count = $projects->count();
         $projects = $projects->forPage($page, 10);
         $projects['count'] = $count;

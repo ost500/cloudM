@@ -17,7 +17,7 @@
                         <div class="panel-heading">
                             <div class="job-tittle">
                                 <div class="media-left">
-                                    @if($project['step'] == "게시" || $project['step'] == "미팅")
+                                    @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
                                         <div class="date_on"> 모집중 <!--<span>MAY</span>--> </div>
                                     @else
                                         <div class="date_off"> 모집마감 <!--<span>MAY</span>--> </div>
@@ -63,10 +63,11 @@
                                         </div>
                                         </p>
                                     </div>
+                                </div>
                             </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
             </div>

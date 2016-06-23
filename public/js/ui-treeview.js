@@ -37,10 +37,10 @@ var UITreeview = function () {
                                         "icon": "fa fa-folder text-primary",
                                         "text": "네이버CPC"
                                     },
-                                    {"id": "area_2_2", "icon": "fa fa-folder text-primary", "text": "언론보도"},
-                                    {"id": "area_1_2", "icon": "fa fa-folder text-primary", "text": "구글광고"},
-                                    {"id": "area_1_3", "icon": "fa fa-folder text-primary", "text": "페이스북광고"},
-                                    {"id": "area_1_4", "icon": "fa fa-folder text-primary", "text": "매체 기타"},
+                                    {"id": "area_1_2", "icon": "fa fa-folder text-primary", "text": "언론보도"},
+                                    {"id": "area_1_3", "icon": "fa fa-folder text-primary", "text": "구글광고"},
+                                    {"id": "area_1_4", "icon": "fa fa-folder text-primary", "text": "페이스북광고"},
+                                    {"id": "area_1_5", "icon": "fa fa-folder text-primary", "text": "매체 기타"},
                                 ]
 
                             }, {
@@ -53,9 +53,9 @@ var UITreeview = function () {
                                 "children": [
                                     {"id": "area_2_1", "icon": "fa fa-folder text-primary", "text": "네이버SEO"},
 
-                                    {"id": "area_2_3", "icon": "fa fa-folder text-primary", "text": "컨텐츠 배포"},
-                                    {"id": "area_2_4", "icon": "fa fa-folder text-primary", "text": "체험단 모집"},
-                                    {"id": "area_2_5", "icon": "fa fa-folder text-primary", "text": "바이럴 기타"},
+                                    {"id": "area_2_2", "icon": "fa fa-folder text-primary", "text": "컨텐츠 배포"},
+                                    {"id": "area_2_3", "icon": "fa fa-folder text-primary", "text": "체험단 모집"},
+                                    {"id": "area_2_4", "icon": "fa fa-folder text-primary", "text": "바이럴 기타"},
                                 ]
 
                             }, {
