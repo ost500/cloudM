@@ -15,8 +15,10 @@ class MainController extends Controller
     public function index()
     {
         $projects = new Project();
-        $projects = $projects->get()->sortByDesc('updated_at');
-        $projects = $projects->forPage(1,6);
+
+        $projects = $projects->where('step', '!=', '검수')->get();
+        $projects = $projects->sortByDesc('updated_at');
+        $projects = $projects->forPage(1, 6);
         return view('index', compact('projects'));
     }
 

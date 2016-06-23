@@ -20,39 +20,26 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="job-sider-bar003">
-                            <h5 class="side-tittle">클라이언트</h5>
+                            @if($loginUser->PorC == "P")
+                                <h5 class="side-tittle">파트너스</h5>
+                            @else
+                                <h5 class="side-tittle">클라이언트</h5>
+                            @endif
                             <div>
+                                @if($loginUser->profileImage != null)
+                                    <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
+                                @else
+                                    <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                @endif
 
-                                <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
                                 <h6>{{ $loginUser->name }}</h6>
-                                <a href="{{ url("/setting") }}">
+                                <a href="#.">
                                     <div id="tag02">
                                         <div class="button">기본정보수정</div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-
-                        <div class="job-sider-bar02">
-                            <h5 class="side-tittle">클라이언트 히스토리</h5>
-                            <table class="history_table">
-                                <tbody>
-                                <tr>
-                                    <th>지원한 프로젝트</th>
-                                    <td>1건</td>
-                                </tr>
-                                <tr>
-                                    <th>계약한 프로젝트</th>
-                                    <td>0건</td>
-                                </tr>
-                                <tr>
-                                    <th>완료한 프로젝트</th>
-                                    <td>2건</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
                     </div>
 
 
@@ -122,14 +109,14 @@
                                                             <th>마감일자</th>
                                                             <th>미팅신청</th>
                                                         </tr>
+                                                        @if($applist->count() == 0)
+                                                            <tr>
+                                                                <td colspan="5">지원자가 없습니다</td>
+                                                            </tr>
+                                                        @else
 
+                                                            @foreach($applist as $app_list)
 
-                                                        @foreach($applist as $app_list)
-                                                            @if(count($app_list->projectStep('게시')->get()) == 0)
-                                                                <tr>
-                                                                    <td colspan="5">지원자가 없습니다</td>
-                                                                </tr>
-                                                            @else
                                                                 @foreach($app_list->projectStep('게시')->get() as $pro)
 
                                                                     <tr>
@@ -152,8 +139,9 @@
                                                                     </tr>
 
                                                                 @endforeach
-                                                            @endif
-                                                        @endforeach
+
+                                                            @endforeach
+                                                        @endif
                                                     </table>
                                                 </div>
                                             </div>
@@ -183,13 +171,14 @@
                                                         <th>계약</th>
                                                     </tr>
 
+                                                    @if($applist->count() == 0)
+                                                        <tr>
+                                                            <td colspan="5">미팅신청자가 없습니다</td>
+                                                        </tr>
+                                                    @else
 
-                                                    @foreach($applist as $app_list)
-                                                        @if(count($app_list->projectStep('미팅')->get()) == 0)
-                                                            <tr>
-                                                                <td colspan="5">미팅신청자가 없습니다</td>
-                                                            </tr>
-                                                        @else
+                                                        @foreach($applist as $app_list)
+
                                                             @foreach($app_list->projectStep('미팅')->get() as $pro)
 
                                                                 <tr>
@@ -222,8 +211,9 @@
                                                                 </tr>
 
                                                             @endforeach
-                                                        @endif
-                                                    @endforeach
+
+                                                        @endforeach
+                                                    @endif
                                                 </table>
 
                                             </div>
@@ -251,9 +241,9 @@
 
 
             </div>
-    </div>
-    </div>
-    </section>
+
+
+        </section>
     </div>
 
 

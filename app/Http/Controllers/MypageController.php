@@ -86,7 +86,8 @@ class MypageController extends Controller
     //Client DashBoard
     public function applicationList($id)
     {
-        if(Application::find($id)->project->client->id != Auth::user()->id){
+        
+        if(Project::find($id)->client->id != Auth::user()->id){
             return response()->view('errors.503');
         }
 
