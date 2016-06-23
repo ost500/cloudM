@@ -22,10 +22,10 @@ function viewLoad() {
     display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
-        url: "p_search/" + checked_area + "/" + page + "/" + sort + "/" + literal_search,
+        url: "project/" + checked_area + "/" + page + "/" + sort + "/" + literal_search,
 
         success: function (result) {
-            console.log("p_search/" + checked_area + "/" + page + "/" + sort + "/" + literal_search);
+            console.log("project/" + checked_area + "/" + page + "/" + sort + "/" + literal_search);
 
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
@@ -56,7 +56,7 @@ function pageLoad() {
     // startpage 계산
     var page_results = $("#pagination");
     $.ajax({
-        url: "p_search/pagination/" + currentpageStartnum + "/" + currentpageEndnum,
+        url: "project/pagination/" + currentpageStartnum + "/" + currentpageEndnum,
         success: function (result) {
             page_results.html(result);
         },

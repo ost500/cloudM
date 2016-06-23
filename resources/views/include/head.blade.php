@@ -107,7 +107,7 @@
                             echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
                         }
                         ?>
-                        <li><a href="{{ url('p_search') }}">프로젝트 검색</a></li>
+                        <li><a href="{{ url('project') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
                         <li><a href="{{ url('services') }}">이용방법</a></li>
 
@@ -136,12 +136,15 @@
         @if(Auth::check())
             <div class="my_bar">
                 <ul>
-                    <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
+
                     @if(Auth::user()->PorC == "P")
+                        <li><a href="{{ url("/mypage") }}">프로필</a></li>
+                        <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
                         <li><a href="{{ url("/my_apply") }}">지원한 프로젝트</a></li>
                         <li><a href="{{ url("/my_carry_on_p") }}">진행중 프로젝트</a></li>
                         <li><a href="{{ url("/my_done_p") }}">완료된 프로젝트</a></li>
                     @else
+                        <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
                         <li><a href="{{ url("/my_checking") }}">검수중 프로젝트</a></li>
                         <li><a href="{{ url("/my_posted") }}">등록 프로젝트</a></li>
                         <li><a href="{{ url("/my_carry_on") }}">진행중 프로젝트</a></li>
