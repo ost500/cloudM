@@ -165,14 +165,14 @@ $('#tree_2')
         if (jQuery.inArray("area_1_4", r) == -1){
             checked_area = checked_area & (max_binary - 4194304);
         }
-        if (jQuery.inArray("area_2_1", r) == -1){
+        if (jQuery.inArray("area_1_5", r) == -1){
             checked_area = checked_area & (max_binary - 2097152);
         }
-        if (jQuery.inArray("area_2_2", r) == -1){
+        if (jQuery.inArray("area_2_1", r) == -1){
             checked_area = checked_area & (max_binary - 1048576);
-        }if (jQuery.inArray("area_2_3", r) == -1){
+        }if (jQuery.inArray("area_2_2", r) == -1){
             checked_area = checked_area & (max_binary - 524288);
-        }if (jQuery.inArray("area_2_4", r) == -1){
+        }if (jQuery.inArray("area_2_3", r) == -1){
             checked_area = checked_area & (max_binary - 262144);
         }if (jQuery.inArray("area_2_5", r) == -1){
             checked_area = checked_area & (max_binary - 131072);
