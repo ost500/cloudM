@@ -172,6 +172,14 @@ var FormWizard = function () {
                 return;
             }
 
+
+            swal({
+                title: "등록에 성공했습니다.",
+                type: "success"
+            }, function(){
+                window.location.href="/dashboard";
+            });
+
             if (confirm('프로젝트를 등록 하시겠습니까?')) {
                 // $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
                 // wizardForm.submit();
@@ -180,6 +188,8 @@ var FormWizard = function () {
                     url: '/p_add',
                     data: wizardForm.serialize(),
                     success: function (data) {
+                        //console.log(data);
+
                         swal({
                             title: "등록에 성공했습니다.",
                             type: "success"

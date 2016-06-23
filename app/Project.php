@@ -36,4 +36,9 @@ class Project extends Model
     {
         return $this->hasMany('App\projectsProposal', 'p_id', 'id');
     }
+
+    public function projects_file()
+    {
+        return $this->hasMany('App\projectsFile', 'p_id', 'id');
+    }
 }

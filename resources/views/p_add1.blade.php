@@ -34,7 +34,7 @@
 
                                         <form action="{{ url("/p_add") }}" method="post" role="form"
                                               class="smart-wizard" id="form"
-                                              novalidate="novalidate">
+                                              novalidate="novalidate" enctype="multipart/form-data" accept-charset="UTF-8">
                                             {!! csrf_field() !!}
                                             <div id="wizard" class="swMain">
                                                 <!-- start: WIZARD SEPS -->
@@ -387,7 +387,7 @@
                                                                                 <input type="text"
                                                                                        placeholder="(최대 3자리, 예 : 3개월)"
                                                                                        class="form-control"
-                                                                                       name="duration">
+                                                                                       name="duration" maxlength="3">
                                                                                 {{--<span id="duration-error"--}}
                                                                                 {{--class="help-block valid"></span>--}}
                                                                             </div>
@@ -402,7 +402,7 @@
                                                                                 <input type="text"
                                                                                        placeholder="( VAT 별도, 예 : 100,000,000)"
                                                                                        class="form-control"
-                                                                                       name="money"><span id="money"
+                                                                                       name="money" maxlength="10"><span id="money"
                                                                                                           class="help-block valid"></span>
                                                                             </div>
                                                                         </div>
@@ -448,6 +448,17 @@
                                                                                data-original-title="" title="">※이메일,
                                                                                 전화번호 등 게시금지.</a>
                                                                         </p>
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <label class="control-label"> 첨부파일 <span
+                                                                                    class="symbol"></span>
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <input class="form-control" type="file"
+                                                                                   name="project_attach" id="image_input" />
+
+                                                                        </div>
                                                                     </div>
 
                                                                     <div class="row padding-top-15">
@@ -540,7 +551,7 @@
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label class="control-label"> 사전 미팅 지역
-                                                                                    <span class="symbol required"></span>
+                                                                                    <span class="symbol"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
                                                                                         name="address_sido"
@@ -572,7 +583,10 @@
                                                                             </div>
                                                                             <p class="text-small">
                                                                                 <a href="javascript:void(0)"
-
+                                                                                   data-content="오프라인 미팅을 희망하는 경우에만 선택하시면 됩니다."
+                                                                                   data-title="안내!"
+                                                                                   data-placement="top"
+                                                                                   data-toggle="popover"
                                                                                    data-original-title="" title="">사전
                                                                                     미팅을 진행할 지역을 선택해 주세요</a>
                                                                             </p>
