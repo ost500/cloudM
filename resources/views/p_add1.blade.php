@@ -717,7 +717,7 @@
         </section>
     </div>
 
-    <button class="btn btn-info waves-effect waves-light btn-sm" id="sa-success">Click me</button>
+
 
     <link href="http://coderthemes.com/ubold_1.5/light/assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet"
           type="text/css">
