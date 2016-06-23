@@ -118,7 +118,8 @@
                                                         {{--</div>--}}
                                                     </div>
                                                 </div>
-                                                @if(App\Project::find($project['id'])->step == "게시" || App\Project::find($project['id'])->step == "미팅")
+                                                @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
+
                                                     <a style="cursor:pointer" id="pro_app_btn">
                                                         <div class="button006 margin-top-10 margin-bottom-20">프로젝트 지원하기
                                                         </div>
@@ -163,7 +164,7 @@
 
                                                 </div>
 
-                                                @if(App\Project::find($project['id'])->step == "게시" || App\Project::find($project['id'])->step == "미팅")
+                                                @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
                                                     <a style="cursor:pointer" id="pro_app_big_btn">
                                                         <div class="button006 margin-top-10 margin-bottom-20">프로젝트 지원하기
                                                         </div>

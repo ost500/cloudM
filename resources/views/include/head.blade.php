@@ -107,7 +107,7 @@
                             echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
                         }
                         ?>
-                        <li><a href="{{ url('p_search') }}">프로젝트 검색</a></li>
+                        <li><a href="{{ url('project') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
                         <li><a href="{{ url('services') }}">이용방법</a></li>
 
