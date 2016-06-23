@@ -578,8 +578,11 @@
 
         setSelects: function (values) {
             var that = this;
-            this.$selectItems.prop('checked', false);
-            this.$disableItems.prop('checked', false);
+            console.log(this);
+            console.log(values);
+
+            this.$selectItems.attr('checked');
+            this.$disableItems.attr('checked');
             $.each(values, function (i, value) {
                 that.$selectItems.filter(sprintf('[value="%s"]', value)).prop('checked', true);
                 that.$disableItems.filter(sprintf('[value="%s"]', value)).prop('checked', true);

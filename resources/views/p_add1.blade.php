@@ -256,24 +256,6 @@
                                                                     <legend>
                                                                         프로젝트 정보를 입력하세요
                                                                     </legend>
-                                                                    {{--<div class="form-group">--}}
-                                                                    {{--<label class="control-label"> 카테고리 <span--}}
-                                                                    {{--class="symbol ok"--}}
-                                                                    {{--aria-required="true"></span>--}}
-                                                                    {{--</label>--}}
-                                                                    {{--<select name="category" class="form-control03">--}}
-                                                                    {{--<option name="카테고리">카테고리</option>--}}
-                                                                    {{--<option name="키워드">광고 의뢰</option>--}}
-                                                                    {{--<option>바이럴</option>--}}
-                                                                    {{--<option>SNS</option>--}}
-                                                                    {{--<option>언론</option>--}}
-                                                                    {{--<option>영상</option>--}}
-                                                                    {{--<option>디자인</option>--}}
-                                                                    {{--<option>콘텐츠 제작</option>--}}
-                                                                    {{--<option>기타</option>--}}
-                                                                    {{--</select>--}}
-                                                                    {{--</div>--}}
-
                                                                     <div class="row padding-top-15">
 
                                                                         <div class="form-group"
