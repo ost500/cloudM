@@ -7,7 +7,7 @@
             <!-- Job Section -->
             <div class="job-content job-post-page margin-top-20">
                 <!-- Job Tittle -->
-                <div class="col-lg-2">
+                <div class="col-lg-2 padding-top-5">
                     @if($partner->profileImage != null)
                         <img id="profileImage{{$partner['id']}}" class="partner_profile" src="{{ URL::asset($partner->profileImage) }}" style="cursor: pointer;">
                     @else
@@ -21,7 +21,7 @@
                         </script>
 
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7 padding-top-5">
 
                     <div class="panel-group">
                         <div class="panel panel-default">
@@ -29,7 +29,6 @@
                             <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
                             <!-- PANEL HEADING -->
                             <div class="panel-heading">
-
                                     <div class="media-left">
                                         <div class="partner_icon"> 활동가능 <!--<span>MAY</span>--> </div>
                                     </div>
@@ -50,7 +49,7 @@
                             <!-- Content -->
                             <div id="job1" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    <p style="cursor:pointer" id="partner_intro_click{{$partner['id']}}"> {{ $partner->partners->intro }}</p>
+                                    <p style="cursor:pointer" id="partner_intro_click{{$partner['id']}}"> {{ str_limit($partner->partners->intro, 250, '...') }}</p>
                                     <script>
                                         $("#partner_intro_click"+"{{$partner['id']}}").click(function () {
                                             window.location.assign("{{url('partner/'.$partner->id)}}")
@@ -72,30 +71,30 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3">
+                <div class="col-lg-3 padding-top-5">
                     <ul class="list-unstyled">
-                        <li>
+                        <li class="padding-top-5">
                             <div class="rating star-lg star-lg-4"></div>
 
                             <span class="rating-stats-body stats-body">
                                 <span class="average-rating-score padding-left-10">4.2</span>
-                                <span class="rating-append-unit append-unit">/ 평가 20개</span>
+                                <span class="rating-append-unit append-unit pull-right">/ 평가 20개</span>
                             </span>
                         </li>
 
-                        <li class="partners-authentication">
-                            <span class="s_icon01">계약한 프로젝트 <span>{{ $partner->contract->count() }}</span>건</span>
-
+                        <li class="partners-authentication ">
+                            <span class="s_icon01">계약한 프로젝트</span> <span class="pull-right">{{ $partner->contract->count() }}건</span>
                         </li>
 
-                        <li class="partners-authentication">
-                            <span class="s_icon02">포트폴리오 <span>14</span>개</span>
+                        <li class="partners-authentication ">
+                            <span class="s_icon02">포트폴리오</span> <span class="pull-right">{{ $partner->partners->portfolio()->count() }}개</span>
                         </li>
 
                         <li class="partners-authentication la_line02">
                             <span class="partners-authorized"><i
                                         class="fa fa-check-circle-o"></i>신원인증</span>
-                            <span class="partners-authorized padding-left-20"><i
+
+                            <span class="partners-authorized padding-left-30"><i
                                         class="fa fa-check-circle-o"></i>연락처 등록</span>
                         </li>
                     </ul>

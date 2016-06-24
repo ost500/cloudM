@@ -335,7 +335,7 @@ class MypageController extends Controller
         $new_port->description = $request->description;
         $new_port->from_date = $request->from_date;
         $new_port->to_date = $request->to_date;
-        $new_port->participation_rate = $request->participation_rate;
+
         if ($request->checkbox1 == null) {
             $new_port->iscloudm = false;
         } else {

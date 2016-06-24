@@ -861,8 +861,6 @@
             ptTime.setMinutes(ptTime.getMinutes() + localTime.getTimezoneOffset() - 420);
 
         });
-
-
     </script>
 
 
