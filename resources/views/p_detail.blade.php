@@ -76,7 +76,7 @@
                                                             <col style="width:16.6%;"/>
                                                             <col style="width:16.6%;"/>
                                                             <tr>
-                                                                <th>기획상태</th>
+                                                                <th>마케팅 목적</th>
                                                                 <th>마케팅 경험</th>
                                                                 <th>등록일자</th>
                                                                 <th>예상시작일</th>
@@ -93,29 +93,7 @@
                                                             </tr>
                                                         </table>
 
-                                                        {{--<div class="panel-heading03">--}}
-                                                        {{--<div class="row">--}}
-                                                        {{--<span class="col-xs-2"><strong>목적</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>매니징경험</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>등록일자</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>예상시작일</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>미팅방식</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>진행지역</strong></span>--}}
 
-                                                        {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="panel-body03">--}}
-                                                        {{--<ul>--}}
-                                                        {{--<li class="row">--}}
-                                                        {{--<span class="col-xs-2">{{ $project['purpose'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['managing_experience'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['created_at'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['expected_start_date'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['meeting_way'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['address_sido'] }}</span>--}}
-                                                        {{--</li>--}}
-                                                        {{--</ul>--}}
-                                                        {{--</div>--}}
                                                     </div>
                                                 </div>
                                                 @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
@@ -136,7 +114,7 @@
                                                 } else if (App\Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $project['id'])->get()->isEmpty() == false) {
                                                     echo 'alert("이미 지원하셨습니다")';
                                                 } else {
-                                                    echo 'window.location = "' . url("/apply/" . $project['id']) . '";';
+                                                    echo 'window.location = "' . url("/apply/" . $project['id'] . "/application") . '";';
                                                 }
                                                 echo '});';
                                                 echo '</script>';
@@ -181,7 +159,7 @@
                                                 } else if (App\Application::where('u_id', '=', Auth::user()->id, 'and', 'p_id', '=', $project['id'])->get()->isEmpty() == false) {
                                                     echo 'alert("이미 지원하셨습니다")';
                                                 } else {
-                                                    echo 'window.location = "' . url("/apply/" . $project['id']) . '";';
+                                                    echo 'window.location = "' . url("/apply/" . $project['id'] . "/application") . '";';
                                                 }
                                                 echo '});';
                                                 echo '</script>';
@@ -268,7 +246,8 @@
                                                 @else
                                                     <a style="cursor : pointer" data-toggle="modal"
                                                        data-target="#loginModal" class="button signin">
-                                                    <textarea name="comment" type="text" class="form-control06" id="id_body" required=""
+                                                    <textarea name="comment" type="text" class="form-control06"
+                                                              id="id_body" required=""
                                                               rows="10"
                                                               cols="40" resize="none"></textarea></a>
                                                 @endif

@@ -36,6 +36,7 @@ Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
 
+
 // 댓글
 Route::post('/commentadd', 'SearchController@postcomment');
 // 댓글 삭제
@@ -129,10 +130,13 @@ Route::post("/portfolio/update/{id}",'MypageController@portfolio_update_post')
 
 
 // application
-Route::get('/apply/{pid}', 'AppController@application_post');
+Route::get('/apply/{id}/application', 'AppController@application_form')
+    ->where(['id' => '[0-9]+']);
+Route::post('/apply/{pid}', 'AppController@application_post');
 
 //Route::get('/admin', 'HomeController@gnuboard');
-//
+
+//admin
 Route::get('/admin/{id}', 'HomeController@admin_index')
     ->where(['id' => '[0-9]+']);
 Route::get('/admin/post/{id}', 'HomeController@post_project')

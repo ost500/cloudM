@@ -12,6 +12,7 @@ use App\Project;
 use App\ProjectsProposal;
 use App\Skill;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -66,6 +67,7 @@ class MypageController extends Controller
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $checking = $projects->where('step', '=', '검수')->get();
 
+
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $registered = $projects->where('step', '=', '게시')
                 ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '미팅'))
@@ -86,13 +88,26 @@ class MypageController extends Controller
     //Client DashBoard
     public function applicationList($id)
     {
-        
-        if(Project::find($id)->client->id != Auth::user()->id){
+
+        if (Project::find($id)->client->id != Auth::user()->id) {
             return response()->view('errors.503');
         }
 
-        $applist = Application::where('p_id', '=', $id)->get();
+        $app = Application::where('p_id', '=', $id);
+        $applist = $app->get();
 
+        $app_count = 0;
+        $app_meeting_count = 0;
+        foreach ($applist as $item) {
+            if ($item->choice == "지원") {
+                $app_count = $app_count + 1;
+            }
+            else if($item->choice == "미팅"){
+                $app_meeting_count = $app_meeting_count + 1;
+            }
+        }
+
+        $count = ['app_count' => $app_count, 'app_meeting_count' => $app_meeting_count];
 
 
 //        $result_false="";
@@ -103,7 +118,7 @@ class MypageController extends Controller
 //        }
         $project = Project::where('id', '=', $id)->get();
         $loginUser = Auth::user();
-        return view('mypage/applicant', compact('applist', 'loginUser', 'project'));
+        return view('mypage/applicant', compact('applist', 'loginUser', 'project', 'count'));
     }
 
 
@@ -302,7 +317,7 @@ class MypageController extends Controller
 
     public function portfolio_create()
     {
-        if (Auth::user()->PorC != "P"){
+        if (Auth::user()->PorC != "P") {
             return redirect()->back();
         }
         $loginUser = Auth::user();
@@ -358,7 +373,7 @@ class MypageController extends Controller
 
         $new_port->save();
 
-        return redirect()->action('MypageController@portfolio',[Auth::user()->id]);
+        return redirect()->action('MypageController@portfolio', [Auth::user()->id]);
     }
 
     public function portfolio_delete(Request $request)
@@ -367,15 +382,16 @@ class MypageController extends Controller
         $del_portfolio->delete();
 
     }
+
     public function portfolio_update($id)
     {
-        if (Portfolio::find($id)->partner->user->id != Auth::user()->id){
+        if (Portfolio::find($id)->partner->user->id != Auth::user()->id) {
             return response()->view('errors.503');
         }
         $loginUser = Auth::user();
         $portfolio = Portfolio::find($id);
 
-        return view('mypage/portfolio/portfolio_update', compact('loginUser','portfolio'));
+        return view('mypage/portfolio/portfolio_update', compact('loginUser', 'portfolio'));
 
     }
 
@@ -399,7 +415,7 @@ class MypageController extends Controller
         $new_port->partner_id = Auth::user()->partners->id;
         $new_port->save();
 
-        if ($request->hasFile('image2') ) {
+        if ($request->hasFile('image2')) {
 //        echo $request->image123;
             $file = $request->file('image1');
 
@@ -410,7 +426,7 @@ class MypageController extends Controller
             $new_port->image1 = $path;
         }
 
-        if ($request->hasFile('image2') ) {
+        if ($request->hasFile('image2')) {
             $file = $request->file('image2');
             $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_2";
             $file->move(public_path() . $tmpFilePath, $tmpFileName);
@@ -427,11 +443,9 @@ class MypageController extends Controller
 
         $new_port->save();
 
-        return redirect()->action('MypageController@portfolio_detail',[$new_port->id]);
+        return redirect()->action('MypageController@portfolio_detail', [$new_port->id]);
 
     }
-
-
 
 
     public function setting()
@@ -439,14 +453,12 @@ class MypageController extends Controller
         $loginUser = Auth::user();
 
         $loginUser->phone_num_arr = explode("-", $loginUser->phone_num);
-        if(!$loginUser->phone_num){
-            $loginUser->phone_num_arr = array("","","");
+        if (!$loginUser->phone_num) {
+            $loginUser->phone_num_arr = array("", "", "");
         }
 
         return view('mypage/setting', compact('loginUser'));
     }
-
-
 
 
     public function proposalFileUpload(Request $request)
@@ -460,12 +472,12 @@ class MypageController extends Controller
 
             $file = $request->file('proposal_file');
 
-            $chars_array = array_merge(range(0,9), range('a','z'), range('A','Z'));
+            $chars_array = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
             shuffle($chars_array);
             $shuffle = implode('', $chars_array);
 
             // 첨부파일 첨부시 첨부파일명에 공백이 포함되어 있으면 일부 PC에서 보이지 않거나 다운로드 되지 않는 현상이 있습니다.
-            $tmpFileName = abs(ip2long($_SERVER['REMOTE_ADDR'])).'_'.substr($shuffle,0,8).'_'.str_replace('%', '', urlencode(str_replace(' ', '_', $file->getClientOriginalName())));
+            $tmpFileName = abs(ip2long($_SERVER['REMOTE_ADDR'])) . '_' . substr($shuffle, 0, 8) . '_' . str_replace('%', '', urlencode(str_replace(' ', '_', $file->getClientOriginalName())));
             $file->move(public_path() . $tmpFilePath, $tmpFileName);
 
             $proposal->u_id = $loginUser->id;

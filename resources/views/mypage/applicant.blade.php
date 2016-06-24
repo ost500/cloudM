@@ -109,7 +109,8 @@
                                                             <th>마감일자</th>
                                                             <th>미팅신청</th>
                                                         </tr>
-                                                        @if($applist->count() == 0)
+
+                                                        @if($count['app_count'] == 0)
                                                             <tr>
                                                                 <td colspan="5">지원자가 없습니다</td>
                                                             </tr>
@@ -171,7 +172,7 @@
                                                         <th>계약</th>
                                                     </tr>
 
-                                                    @if($applist->count() == 0)
+                                                    @if($count['app_meeting_count'] == 0)
                                                         <tr>
                                                             <td colspan="5">미팅신청자가 없습니다</td>
                                                         </tr>

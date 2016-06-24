@@ -311,6 +311,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
 
     public static $classMap = array (
         'AddApplicationChoice' => __DIR__ . '/../..' . '/database/migrations/2016_05_18_042713_add_application_choice.php',
+        'AddApplicationsColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_24_114818_add_applications_columns.php',
         'AddClientsIntro' => __DIR__ . '/../..' . '/database/migrations/2016_06_07_034332_add_clients_intro.php',
         'AddCommentsColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_08_005356_add_comments_columns.php',
         'AddContractStep' => __DIR__ . '/../..' . '/database/migrations/2016_05_20_040220_add_contract_step.php',
