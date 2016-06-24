@@ -187,7 +187,8 @@
                                                 class="symbol required"></span>
                                     </label>
                                     <div class="form-group">
-								<textarea name="content_detail" class="form-control" rows=20>{{ $update_project['detail_content'] }}</textarea>
+                                        <textarea name="content_detail" class="form-control"
+                                                  rows=20>{{ $update_project['detail_content'] }}</textarea>
 
                                     </div>
                                     <p class="text-small">
@@ -201,188 +202,184 @@
                                 </div>
 
 
+                                <div class="row padding-top-10">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 모집 마감일자
+                                                <span class="symbol required"></span>
+                                            </label>
 
-                            <div class="row padding-top-10">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 모집 마감일자
-                                            <span class="symbol required"></span>
-                                        </label>
+                                            <?php $tomorrow = new DateTime('+1 day')?>
+                                            <input type="date"
+                                                   class="form-control"
+                                                   name="deadline"
+                                                   min="{{ $tomorrow->format('Y-m-d') }}"
+                                                   max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
+                                                   value="{{ $update_project['deadline'] }}">
 
-                                        <?php $tomorrow = new DateTime('+1 day')?>
-                                        <input type="date"
-                                               class="form-control"
-                                               name="deadline"
-                                               min="{{ $tomorrow->format('Y-m-d') }}"
-                                               max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
-                                               value="{{ $update_project['deadline'] }}">
+                                        </div>
+                                    </div>
 
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 프로젝트 예상
+                                                시작일 <span class="symbol required"></span>
+                                            </label>
+                                            <input type="date"
+                                                   class="form-control"
+                                                   name="expecting_start"
+                                                   value="{{ $update_project['expected_start_date'] }}">
+
+
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 프로젝트 예상
-                                            시작일 <span class="symbol required"></span>
-                                        </label>
-                                        <input type="date"
-                                               class="form-control"
-                                               name="expecting_start"
-                                               value="{{ $update_project['expected_start_date'] }}">
+
+                                <div class="row padding-top-10">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 모집 마감일자
+                                                <span class="symbol required"></span>
+                                            </label>
+
+                                            <?php $tomorrow = new DateTime('+1 day')?>
+                                            <input type="date"
+                                                   class="form-control"
+                                                   name="deadline"
+                                                   min="{{ $tomorrow->format('Y-m-d') }}"
+                                                   max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
+                                                   value="{{ $update_project['deadline'] }}">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 프로젝트 예상
+                                                시작일 <span class="symbol required"></span>
+                                            </label>
+                                            <input type="date"
+                                                   class="form-control"
+                                                   name="expecting_start"
+                                                   value="{{ $update_project['expected_start_date'] }}">
 
 
+                                        </div>
                                     </div>
                                 </div>
+
+
+                                <div class="row padding-top-10">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 사전미팅 <span
+                                                        class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control"
+                                                    name="pre_meeting"
+                                                    aria-required="true"
+                                                    aria-describedby="pre_meeting-error">
+                                                <option value="{{ $update_project['meeting_way'] }}">{{ $update_project['meeting_way'] }}
+                                                <option value="오프라인 미팅">오프라인 미팅
+                                                </option>
+
+                                                <option value="온라인 미팅">온라인 미팅 (카카오톡,
+                                                    skype, 행아웃
+                                                    등)
+                                                <option value="온/오프라인 미팅">오프라인 미팅
+                                                </option>
+                                                </option>
+                                            </select><span id="pre_meeting-error"
+                                                           class="help-block valid"
+                                                           style="display: none;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 사전 미팅 지역
+                                                <span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control"
+                                                    name="address_sido"
+                                                    aria-required="true"
+                                                    aria-describedby="address_sido-error">
+                                                <option value="{{ $update_project['address_sido'] }}">{{ $update_project['address_sido'] }}</option>
+                                                <option value="서울특별시">서울특별시</option>
+                                                <option value="부산광역시">부산광역시</option>
+                                                <option value="대구광역시">대구광역시</option>
+                                                <option value="인천광역시">인천광역시</option>
+                                                <option value="광주광역시">광주광역시</option>
+                                                <option value="대전광역시">대전광역시</option>
+                                                <option value="울산광역시">울산광역시</option>
+                                                <option value="세종특별자치시">세종특별자치시
+                                                </option>
+                                                <option value="경기도">경기도</option>
+                                                <option value="강원도">강원도</option>
+                                                <option value="충청북도">충청북도</option>
+                                                <option value="충청남도">충청남도</option>
+                                                <option value="전라북도">전라북도</option>
+                                                <option value="전라남도">전라남도</option>
+                                                <option value="경상북도">경상북도</option>
+                                                <option value="경상남도">경상남도</option>
+                                                <option value="제주특별자치도">제주특별자치도
+                                                </option>
+                                            </select><span id="address_sido-error"
+                                                           class="help-block valid"
+                                                           style="display: none;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row padding-top-10">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 마케팅 진행 경험여부 <span
+                                                        class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control"
+                                                    name="experience"
+                                                    aria-required="true"
+                                                    aria-describedby="experience-error">
+                                                <option value="{{ $update_project['managing_experience'] }}">{{ $update_project['managing_experience'] }}</option>
+                                                <option value="있음">있습니다</option>
+                                                <option value="없음">없습니다</option>
+                                            </select><span id="experience-error"
+                                                           class="help-block valid"
+                                                           style="display: none;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> 프로젝트 등록 사유
+                                                <span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control"
+                                                    name="reason"
+                                                    aria-required="true"
+                                                    aria-describedby="reason-error">
+                                                <option value="{{ $update_project['reason'] }}">{{ $update_project['reason'] }}</option>
+                                                <option value="견적문의">견적문의</option>
+                                                <option value="시장조사">시장조사</option>
+                                                <option value="실제진행">실제진행</option>
+                                            </select><span id="reason-error"
+                                                           class="help-block valid"
+                                                           style="display: none;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
 
-
-                            <div class="row padding-top-10">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 모집 마감일자
-                                            <span class="symbol required"></span>
-                                        </label>
-
-                                        <?php $tomorrow = new DateTime('+1 day')?>
-                                        <input type="date"
-                                               class="form-control"
-                                               name="deadline"
-                                               min="{{ $tomorrow->format('Y-m-d') }}"
-                                               max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
-                                               value="{{ $update_project['deadline'] }}">
-
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 프로젝트 예상
-                                            시작일 <span class="symbol required"></span>
-                                        </label>
-                                        <input type="date"
-                                               class="form-control"
-                                               name="expecting_start"
-                                               value="{{ $update_project['expected_start_date'] }}">
-
-
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <button type="submit"
+                                        class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정 완료 <i
+                                            class="fa fa-arrow-circle-right"></i>
+                                </button>
                             </div>
-
-
-
-                            <div class="row padding-top-10">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 사전미팅 <span
-                                                    class="symbol required"></span>
-                                        </label>
-                                        <select class="form-control"
-                                                name="pre_meeting"
-                                                aria-required="true"
-                                                aria-describedby="pre_meeting-error">
-                                            <option value="{{ $update_project['meeting_way'] }}">{{ $update_project['meeting_way'] }}
-                                            <option value="오프라인 미팅">오프라인 미팅
-                                            </option>
-
-                                            <option value="온라인 미팅">온라인 미팅 (카카오톡,
-                                                skype, 행아웃
-                                                등)
-                                            <option value="온/오프라인 미팅">오프라인 미팅
-                                            </option>
-                                            </option>
-                                        </select><span id="pre_meeting-error"
-                                                       class="help-block valid"
-                                                       style="display: none;"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 사전 미팅 지역
-                                            <span class="symbol required"></span>
-                                        </label>
-                                        <select class="form-control"
-                                                name="address_sido"
-                                                aria-required="true"
-                                                aria-describedby="address_sido-error">
-                                            <option value="{{ $update_project['address_sido'] }}">{{ $update_project['address_sido'] }}</option>
-                                            <option value="서울특별시">서울특별시</option>
-                                            <option value="부산광역시">부산광역시</option>
-                                            <option value="대구광역시">대구광역시</option>
-                                            <option value="인천광역시">인천광역시</option>
-                                            <option value="광주광역시">광주광역시</option>
-                                            <option value="대전광역시">대전광역시</option>
-                                            <option value="울산광역시">울산광역시</option>
-                                            <option value="세종특별자치시">세종특별자치시
-                                            </option>
-                                            <option value="경기도">경기도</option>
-                                            <option value="강원도">강원도</option>
-                                            <option value="충청북도">충청북도</option>
-                                            <option value="충청남도">충청남도</option>
-                                            <option value="전라북도">전라북도</option>
-                                            <option value="전라남도">전라남도</option>
-                                            <option value="경상북도">경상북도</option>
-                                            <option value="경상남도">경상남도</option>
-                                            <option value="제주특별자치도">제주특별자치도
-                                            </option>
-                                        </select><span id="address_sido-error"
-                                                       class="help-block valid"
-                                                       style="display: none;"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row padding-top-10">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 마케팅 진행 경험여부 <span
-                                                    class="symbol required"></span>
-                                        </label>
-                                        <select class="form-control"
-                                                name="experience"
-                                                aria-required="true"
-                                                aria-describedby="experience-error">
-                                            <option value="{{ $update_project['managing_experience'] }}">{{ $update_project['managing_experience'] }}</option>
-                                            <option value="있음">있습니다</option>
-                                            <option value="없음">없습니다</option>
-                                        </select><span id="experience-error"
-                                                       class="help-block valid"
-                                                       style="display: none;"></span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label"> 프로젝트 등록 사유
-                                            <span class="symbol required"></span>
-                                        </label>
-                                        <select class="form-control"
-                                                name="reason"
-                                                aria-required="true"
-                                                aria-describedby="reason-error">
-                                            <option value="{{ $update_project['reason'] }}">{{ $update_project['reason'] }}</option>
-                                            <option value="견적문의">견적문의</option>
-                                            <option value="시장조사">시장조사</option>
-                                            <option value="실제진행">실제진행</option>
-                                        </select><span id="reason-error"
-                                                       class="help-block valid"
-                                                       style="display: none;"></span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit"
-                                    class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정 완료 <i
-                                        class="fa fa-arrow-circle-right"></i>
-                            </button>
                         </div>
                     </div>
                 </form>
@@ -415,7 +412,7 @@
             width: '100%'
         });
 
-        $(".multiselect").click(function() {
+        $(".multiselect").click(function () {
             $(".multiselect").multipleSelect("setSelects", [1, 3]);
         });
     </script>
