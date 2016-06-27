@@ -17,7 +17,8 @@ class DeleteController extends Controller
     public function delete_project(Request $request)
     {
         $del_project = Project::find($request->id);
-        $del_project->delete();
+        $del_project->step = "취소";
+        $del_project->save();
         
         return redirect()->back();
     }

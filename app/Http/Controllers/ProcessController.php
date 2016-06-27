@@ -28,7 +28,42 @@ class ProcessController extends Controller
         $loginUser = Auth::user();
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $checking = $projects->where('step', '=', '검수')->get();
-        return view('mypage.projects_process_client.checking', compact('loginUser', 'checking'));
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $temp = $projects->where('step', '=', '임시 저장')->get();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $fail = $projects->where('step', '=', '등록 실패')->get();
+
+        return view('mypage.projects_process_client.checking', compact('loginUser', 'checking', 'temp', 'fail'));
+    }
+
+    public function temp_client()
+    {
+        if (Auth::user()->PorC != "C") {
+            return response()->view('errors.503');
+        }
+        $loginUser = Auth::user();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $checking = $projects->where('step', '=', '검수')->get();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $temp = $projects->where('step', '=', '임시 저장')->get();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $fail = $projects->where('step', '=', '등록 실패')->get();
+        return view('mypage.projects_process_client.checking_temp', compact('loginUser', 'checking', 'temp', 'fail'));
+    }
+
+    public function fail_client()
+    {
+        if (Auth::user()->PorC != "C") {
+            return response()->view('errors.503');
+        }
+        $loginUser = Auth::user();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $checking = $projects->where('step', '=', '검수')->get();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $temp = $projects->where('step', '=', '임시 저장')->get();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $fail = $projects->where('step', '=', '등록 실패')->get();
+        return view('mypage.projects_process_client.checking_fail', compact('loginUser', 'checking', 'temp', 'fail'));
     }
 
     public function posted_client()
@@ -57,7 +92,18 @@ class ProcessController extends Controller
         $loginUser = Auth::user();
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $done = $projects->where('step', '=', '완료')->get();
-        return view('mypage.projects_process_client.done', compact('loginUser', 'done'));
+        $cancel = $projects->where('step', '=', '취소')->get();
+        return view('mypage.projects_process_client.done', compact('loginUser', 'done', 'cancel'));
+    }
+
+    public function cancel_client()
+    {
+        $loginUser = Auth::user();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $done = $projects->where('step', '=', '완료')->get();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $cancel = $projects->where('step', '=', '취소')->get();
+        return view('mypage.projects_process_client.done_cancel', compact('loginUser', 'done', 'cancel'));
     }
 
 
