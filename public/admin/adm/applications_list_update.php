@@ -19,7 +19,8 @@ if ($_POST['act_button'] == "선택수정") {
 
         $sql = " update {$g5['application_table']}
                     set
-                        choice = '{$_POST['choice'][$k]}'
+                        choice = '{$_POST['choice'][$k]}',
+                        step = '{$_POST['step'][$k]}'
                     where id = '{$_POST['ids'][$k]}' and p_id = '{$_POST['p_ids'][$k]}'";
         sql_query($sql);
     }

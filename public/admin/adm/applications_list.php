@@ -108,6 +108,8 @@ $colspan = 16;
 				<th scope="col" id="project_list_mobile">완료</th>
                 <th scope="col" id="project_list_name">제안서</th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>지원일</a></th>
+
+                <th scope="col" id="project_list_mobile">공개</th>
             </tr>
             </thead>
             <tbody>
@@ -169,6 +171,16 @@ $colspan = 16;
                         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">관리</button>
                     </td>
                     <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
+                    <td class="td_40">
+
+                        <select name="step[<?php echo $i ?>]" id="step<?=$i?>" required class="required frm_input">
+                            <option value="">선택</option>
+                            <option value="대기">대기</option>
+                            <option value="승인">승인</option>
+                            <option value="취소">취소</option>
+                        </select>
+                        <script> $(function() { $("#step<?=$i?>").val("<?=$row[step]?>"); }); </script>
+                    </td>
                 </tr>
 
                 <?php

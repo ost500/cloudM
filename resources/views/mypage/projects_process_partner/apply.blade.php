@@ -55,6 +55,10 @@
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
 
+                        <div class="coupen margin-bottom-10">
+                            <p><span>지원중</span>인 프로젝트를 확인할 수 있습니다.</p>
+                        </div>
+
 
                         <!-- Job Content -->
                         <div id="accordion">
@@ -85,45 +89,47 @@
                                                     <col style="width:12.5%;"/>
                                                     <col style="width:12.5%;"/>
                                                     <col style="width:7%;"/>
+                                                    <col style="width:7%;"/>
                                                     <tr>
                                                         <th>월예산</th>
                                                         <th>기간</th>
                                                         <th>마감</th>
                                                         <th>서류</th>
-                                                        {{--<th>취소</th>--}}
+                                                        <th>지원 상태</th>
                                                     </tr>
 
 
-                                                        <tr>
-                                                            </td>
-                                                            <td>{{ number_format($appItem->project->budget) }}</td>
-                                                            <td>{{ $appItem->project->estimated_duration }}</td>
-                                                            <td>{{ $appItem->project->deadline }}</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-danger btn-xs"
-                                                                        data-toggle="modal" data-target="#fileModal"
-                                                                        data-pid="{{$appItem->project->id}}">관리
-                                                                </button>
-                                                            </td>
+                                                    <tr>
+                                                        </td>
+                                                        <td>{{ number_format($appItem->project->budget) }}</td>
+                                                        <td>{{ $appItem->project->estimated_duration }}</td>
+                                                        <td>{{ $appItem->project->deadline }}</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-danger btn-xs"
+                                                                    data-toggle="modal" data-target="#fileModal"
+                                                                    data-pid="{{$appItem->project->id}}">등록
+                                                            </button>
+                                                        </td>
+                                                        <td>{{ $appItem->step }}</td>
 
-                                                            {{--<form id="{{$appItem->id}}form" method="POST"--}}
-                                                                  {{--action="{{ url("/rm_app/") }}"--}}
-                                                                  {{--onsubmit="return confirm('취소하시겠습니까?');">--}}
-                                                                {{--{!! csrf_field() !!}--}}
-                                                                {{--<input name="id" hidden--}}
-                                                                       {{--value="{{$appItem->id}}">--}}
-                                                                {{--<td>--}}
-                                                                    {{--<i style="cursor: pointer"--}}
-                                                                       {{--id="{{ $appItem->id }}button"--}}
-                                                                       {{--class="fa fa-times fa-lg"></i>--}}
-                                                                {{--</td>--}}
-                                                            {{--</form>--}}
-                                                            {{--<script>--}}
-                                                                {{--$("#{{$appItem->id}}button").click(function () {--}}
-                                                                    {{--$("#{{$appItem->id}}form").submit();--}}
-                                                                {{--});--}}
-                                                            {{--</script>--}}
-                                                        </tr>
+                                                        {{--<form id="{{$appItem->id}}form" method="POST"--}}
+                                                              {{--action="{{ url("/rm_app/") }}"--}}
+                                                              {{--onsubmit="return confirm('취소하시겠습니까?');">--}}
+                                                            {{--{!! csrf_field() !!}--}}
+                                                            {{--<input name="id" hidden--}}
+                                                                   {{--value="{{$appItem->id}}">--}}
+                                                            {{--<td>--}}
+                                                                {{--<i style="cursor: pointer"--}}
+                                                                   {{--id="{{ $appItem->id }}button"--}}
+                                                                   {{--class="fa fa-times fa-lg"></i>--}}
+                                                            {{--</td>--}}
+                                                        {{--</form>--}}
+                                                        {{--<script>--}}
+                                                            {{--$("#{{$appItem->id}}button").click(function () {--}}
+                                                                {{--$("#{{$appItem->id}}form").submit();--}}
+                                                            {{--});--}}
+                                                        {{--</script>--}}
+                                                    </tr>
                                                 </table>
                                             </div>
 
