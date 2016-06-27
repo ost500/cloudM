@@ -37,19 +37,19 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">클라이언트 히스토리</h5>
+                            <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
 
                                 <tr>
-                                    <th>완료된 프로젝트</th>
+                                    <th><a href="{{ url("/my_done") }}">완료된 프로젝트</a></th>
                                     <td>{{ count($done) }}건</td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        취소한 프로젝트
+                                        <a href="{{ url("/my_cancel") }}">취소한 프로젝트</a>
                                     </th>
-                                    <td>5건</td>
+                                    <td>{{ count($cancel) }}건</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -105,7 +105,7 @@
                                             </div>-->
 
                                             <div class="job-tittle03 margin-bottom-10">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">완료된 프로젝트</h6>
+                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">취소한 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                                         <col style="width:25.6%;"/>
@@ -122,12 +122,12 @@
                                                             <th>상태</th>
 
                                                         </tr>
-                                                        @if(count($done) == 0)
+                                                        @if(count($cancel) == 0)
                                                             <tr>
-                                                                <td colspan="5">완료된 프로젝트가 없습니다.</td>
+                                                                <td colspan="5">취소한 프로젝트가 없습니다.</td>
                                                             </tr>
                                                         @endif
-                                                        @foreach($done as $doneItem)
+                                                        @foreach($cancel as $doneItem)
                                                             <tr>
                                                                 <td>
                                                                     <a href="{{ url("/detail/".$doneItem->id) }}">{{ $doneItem->title }}</a>

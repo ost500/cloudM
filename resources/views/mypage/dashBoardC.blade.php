@@ -41,19 +41,19 @@
                             <table class="history_table">
                                 <tbody>
                                 <tr>
-                                    <th>검수중 프로젝트</th>
+                                    <th><a href="{{ url('/my_checking') }}">검수중 프로젝트</a></th>
                                     <td>{{ count($checking) }}건</td>
                                 </tr>
                                 <tr>
-                                    <th>등록 프로젝트</th>
+                                    <th><a href="{{ url('/my_posted') }}">등록 프로젝트</a></th>
                                     <td>{{ count($registered) }}건</td>
                                 </tr>
                                 <tr>
-                                    <th>진행중 프로젝트</th>
+                                    <th><a href="{{ url('/my_carry_on') }}">진행중 프로젝트</a></th>
                                     <td>{{ count($proceeding) }}건</td>
                                 </tr>
                                 <tr>
-                                    <th>완료된 프로젝트</th>
+                                    <th><a href="{{ url('/my_done') }}">완료된 프로젝트</a></th>
                                     <td>{{ count($done) }}건</td>
                                 </tr>
                                 </tbody>

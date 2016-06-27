@@ -42,20 +42,20 @@
                                 <tbody>
                                 <tr>
                                     <th>
-                                        검수중 프로젝트
+                                        <a href="{{ url('/my_checking') }}">검수중 프로젝트</a>
                                     <td>{{ count($checking) }}건</td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        임시 저장
+                                        <a href="{{ url('/my_temp') }}">임시 저장</a>
                                     </th>
-                                    <td>5건</td>
+                                    <td>{{ count($temp) }}건</td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        등록 실패
+                                        <a href="{{ url('/my_fail') }}">등록 실패</a>
                                     </th>
-                                    <td>5건</td>
+                                    <td>{{ count($fail) }}건</td>
                                 </tr>
 
 
@@ -113,7 +113,7 @@
                                             </div>-->
 
                                             <div class="job-tittle03">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">검수중 프로젝트</h6>
+                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">임시 저장 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                                         <col style="width:28%;"/>
@@ -132,12 +132,12 @@
                                                             <th>상태</th>
                                                             <th>취소</th>
                                                         </tr>
-                                                        @if(count($checking) == 0)
+                                                        @if(count($temp) == 0)
                                                             <tr>
-                                                                <td colspan="8">검수중 프로젝트가 없습니다.</td>
+                                                                <td colspan="8">임시저장 프로젝트가 없습니다.</td>
                                                             </tr>
                                                         @endif
-                                                        @foreach($checking as $checkItem)
+                                                        @foreach($temp as $checkItem)
                                                             <tr>
                                                                 <td style="text-align:left;">
                                                                     <a href="{{ url("/detail/".$checkItem->id) }}">{{ $checkItem->title }}</a>

@@ -37,13 +37,19 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">클라이언트 히스토리</h5>
+                            <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
 
                                 <tr>
-                                    <th>완료된 프로젝트</th>
+                                    <th><a href="{{ url("/my_done") }}">완료된 프로젝트</a></th>
                                     <td>{{ count($done) }}건</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="{{ url("/my_cancel") }}">취소한 프로젝트</a>
+                                    </th>
+                                    <td>{{ count($cancel) }}건</td>
                                 </tr>
                                 </tbody>
                             </table>
