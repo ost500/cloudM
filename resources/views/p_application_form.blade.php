@@ -169,7 +169,7 @@
                                                             <label class="control-label"> 지원 금액 <span
                                                                         class="symbol required"></span>
                                                             </label>
-                                                            <input type="text" class="form-control"
+                                                            <input autofocus type="text" class="form-control"
                                                                    name="money" aria-required="true"
                                                                    aria-describedby="money-error"
                                                                    value=""><span
