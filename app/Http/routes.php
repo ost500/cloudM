@@ -132,7 +132,15 @@ Route::post("/portfolio/update/{id}",'MypageController@portfolio_update_post')
 // application
 Route::get('/apply/{id}/application', 'AppController@application_form')
     ->where(['id' => '[0-9]+']);
-Route::post('/apply/{pid}', 'AppController@application_post');
+
+Route::post('/apply/attach_update', 'AppController@application_attach_update_post');
+
+Route::post('/apply/{pid}', 'AppController@application_post')
+    ->where(['pid' => '[0-9]+']);
+
+Route::get('/apply/application_attach/{id}', 'AppController@application_attach_download')
+    ->where(['id' => '[1-9]+']);
+
 
 //Route::get('/admin', 'HomeController@gnuboard');
 

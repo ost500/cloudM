@@ -12,4 +12,9 @@ class ProjectsProposal extends Model
     {
         return $this->belongto('App\Project','id','p_id');
     }
+
+    public function application()
+    {
+        return $this->belongto('App\Project','id','p_id');
+    }
 }

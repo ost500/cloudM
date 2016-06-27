@@ -89,7 +89,7 @@
                                                     <col style="width:12.5%;"/>
                                                     <col style="width:12.5%;"/>
                                                     <col style="width:7%;"/>
-                                                    <col style="width:7%;"/>
+                                                    <col style="width:10%;"/>
                                                     <tr>
                                                         <th>월예산</th>
                                                         <th>기간</th>
@@ -105,12 +105,16 @@
                                                         <td>{{ $appItem->project->estimated_duration }}</td>
                                                         <td>{{ $appItem->project->deadline }}</td>
                                                         <td>
-                                                            <button type="button" class="btn btn-danger btn-xs"
-                                                                    data-toggle="modal" data-target="#fileModal"
-                                                                    data-pid="{{$appItem->project->id}}">등록
-                                                            </button>
+                                                            @if($appItem->file_name != "")
+                                                                <a href='/apply/application_attach/{{$appItem->id}}'>저장</a>
+                                                            @else
+                                                                <button type="button" class="btn btn-danger btn-xs"
+                                                                        data-toggle="modal" data-target="#fileModal"
+                                                                        data-app_id="{{$appItem->id}}">등록
+                                                                </button>
+                                                            @endif
                                                         </td>
-                                                        <td>{{ $appItem->step }}</td>
+                                                        <td>{{ $appItem->choice }}</td>
 
                                                         {{--<form id="{{$appItem->id}}form" method="POST"--}}
                                                               {{--action="{{ url("/rm_app/") }}"--}}
@@ -148,7 +152,17 @@
         </section>
     </div>
 
+    <script type="text/javascript">
+    <!--
+    $('#fileModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var app_id = button.data('app_id')
 
+        var modal = $(this)
+        modal.find(".modal-body input[name$='app_id']").val(app_id)
+    });
+    //-->
+</script>
 
 
     @include('include.footer')
