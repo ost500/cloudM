@@ -34,7 +34,8 @@
 
                                         <form action="{{ url("/p_add") }}" method="post" role="form"
                                               class="smart-wizard" id="form"
-                                              novalidate="novalidate" enctype="multipart/form-data" accept-charset="UTF-8">
+                                              novalidate="novalidate" enctype="multipart/form-data"
+                                              accept-charset="UTF-8">
                                             {!! csrf_field() !!}
                                             <div id="wizard" class="swMain">
                                                 <!-- start: WIZARD SEPS -->
@@ -402,8 +403,9 @@
                                                                                 <input type="text"
                                                                                        placeholder="( VAT 별도, 예 : 100,000,000)"
                                                                                        class="form-control"
-                                                                                       name="money" maxlength="10"><span id="money"
-                                                                                                          class="help-block valid"></span>
+                                                                                       name="money" maxlength="10"><span
+                                                                                        id="money"
+                                                                                        class="help-block valid"></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -449,36 +451,29 @@
                                                                                 전화번호 등 게시금지.</a>
                                                                         </p>
                                                                     </div>
+                                                                    <div class="row padding-top-15">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label"> 첨부파일 <span
+                                                                                            class="symbol"></span>
+                                                                                </label>
+                                                                                <div class="form-group">
+                                                                                    <input class="form-control"
+                                                                                           type="file"
+                                                                                           name="project_attach"
+                                                                                           id="project_attach"/>
 
-                                                                    <div class="form-group">
-                                                                        <label class="control-label"> 첨부파일 <span
-                                                                                    class="symbol"></span>
-                                                                        </label>
-                                                                        <div class="form-group">
-                                                                            <input class="form-control" type="file"
-                                                                                   name="project_attach" id="image_input" />
-
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="row padding-top-15">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label class="control-label"> 모집 마감일자
                                                                                     <span class="symbol required"></span>
                                                                                 </label>
-                                                                                {{--<select class="form-control"--}}
-                                                                                {{--name="deadline"--}}
-                                                                                {{--aria-required="true"--}}
-                                                                                {{--aria-describedby="companyType-error">--}}
-                                                                                {{--<option>2016년 2월 29일</option>--}}
-                                                                                {{--<option>등록 후 2일 날짜</option>--}}
-                                                                                {{--<option>등록 후 3일 날짜</option>--}}
-                                                                                {{--<option>등록 후 4일 날짜</option>--}}
-                                                                                {{--<option>등록 후 5일 날짜</option>--}}
-                                                                                {{--<option>등록 후 6일 날짜</option>--}}
-                                                                                {{--<option>등록 후 7일 날짜</option>--}}
-                                                                                {{--</select>--}}
+
 
                                                                                 <input id="deadline"
                                                                                        class="form-control"
