@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddApplicationChoice' => $baseDir . '/database/migrations/2016_05_18_042713_add_application_choice.php',
+    'AddApplicationsChoiceItem' => $baseDir . '/database/migrations/2016_06_27_140938_add_applications_choice_item.php',
     'AddApplicationsColumns' => $baseDir . '/database/migrations/2016_06_24_114818_add_applications_columns.php',
     'AddClientsIntro' => $baseDir . '/database/migrations/2016_06_07_034332_add_clients_intro.php',
     'AddCommentsColumns' => $baseDir . '/database/migrations/2016_06_08_005356_add_comments_columns.php',
@@ -19,6 +20,7 @@ return array(
     'AddProjectsCharger' => $baseDir . '/database/migrations/2016_06_15_023542_add_projects_charger.php',
     'AddProjectsColumns' => $baseDir . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
     'AddProjectsDetail' => $baseDir . '/database/migrations/2016_05_30_064654_add_projects_detail.php',
+    'AddProjectsStepItem' => $baseDir . '/database/migrations/2016_06_27_111325_add_projects_step_item.php',
     'AddUsersColumns' => $baseDir . '/database/migrations/2016_06_10_013459_add_users_columns.php',
     'AddUsersLevel' => $baseDir . '/database/migrations/2016_06_13_020515_add_users_level.php',
     'AddUsersPhonenum' => $baseDir . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',

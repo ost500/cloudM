@@ -37,13 +37,27 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">클라이언트 히스토리</h5>
+                            <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
                                 <tr>
-                                    <th>검수중 프로젝트</th>
+                                    <th>
+                                        <a href="{{ url('/my_checking') }}">검수중 프로젝트</a>
                                     <td>{{ count($checking) }}건</td>
                                 </tr>
+                                <tr>
+                                    <th>
+                                        <a href="{{ url('/my_temp') }}">임시 저장</a>
+                                    </th>
+                                    <td>{{ count($temp) }}건</td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <a href="{{ url('/my_fail') }}">등록 실패</a>
+                                    </th>
+                                    <td>{{ count($fail) }}건</td>
+                                </tr>
+
 
                                 </tbody>
                             </table>
@@ -158,14 +172,6 @@
 
                                                 </div>
                                             </div>
-
-
-
-
-
-
-
-
 
 
                                         </div>

@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">클라이언트 히스토리</h5>
+                            <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
 

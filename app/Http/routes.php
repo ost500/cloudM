@@ -148,12 +148,18 @@ Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
 //내 프로젝트 단계별
 //검수중 프로젝트
 Route::get('/my_checking', 'ProcessController@checking_client');
+//검수_임시저장
+Route::get('/my_temp', 'ProcessController@temp_client');
+//검수_등록실패
+Route::get('/my_fail', 'ProcessController@fail_client');
 //등록 프로젝트
 Route::get('/my_posted', 'ProcessController@posted_client');
 //진행 중 프로젝트
 Route::get('/my_carry_on', 'ProcessController@carry_on_client');
 //완료된 프로젝트
 Route::get('/my_done', 'ProcessController@done_client');
+//취소한 프로젝트
+Route::get('/my_cancel', 'ProcessController@cancel_client');
 //지원 프로젝트
 Route::get('/my_apply', 'ProcessController@apply_partner');
 //진행 중 프로젝트

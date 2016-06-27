@@ -14,14 +14,10 @@ class AddApplicationsChoiceItem extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
 
-            $table->dropColumn('choice');
+            $table->enum('step', array('승인','대기','취소'));
 
         });
-        Schema::table('applications', function (Blueprint $table) {
-
-            $table->enum('choice', array('승인','취소','대기'));
-
-        });
+    
     }
 
     /**
@@ -31,6 +27,10 @@ class AddApplicationsChoiceItem extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('applications', function (Blueprint $table) {
+
+            $table->dropColumn('step');
+
+        });
     }
 }

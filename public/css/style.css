@@ -5961,6 +5961,24 @@ input#comment_status {
     color: #fff;
     margin-top: 3px;
 }
+.button008 {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    height: 40px !important;
+    width: 160px !important;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #30adf7;
+    border-radius: 3px;
+    border: none;
+    display: inline-block;
+    letter-spacing: -1px;
+    clear: both;
+
+    margin-top: 3px;
+}
 
 .text-warning02 {
     font-size: 12px;
