@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddApplicationsChoiceItem extends Migration
+class ChangeApplicationsChoice extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,15 @@ class AddApplicationsChoiceItem extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
 
-            $table->enum('step', array('승인','대기','취소'))->default('대기');
+            $table->dropColumn('step');
 
         });
-    
+        Schema::table('applications', function (Blueprint $table) {
+            $table->dropColumn('choice');
+        });
+        Schema::table('applications', function (Blueprint $table) {
+            $table->enum('choice', array('관리자 검수중', '광고주 검수중', '미팅'));
+        });
     }
 
     /**
@@ -29,7 +34,7 @@ class AddApplicationsChoiceItem extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
 
-            $table->dropColumn('step');
+            $table->enum('step', array('승인', '대기', '취소'))->default('대기');
 
         });
     }

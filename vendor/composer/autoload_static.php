@@ -328,6 +328,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddUsersColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_10_013459_add_users_columns.php',
         'AddUsersLevel' => __DIR__ . '/../..' . '/database/migrations/2016_06_13_020515_add_users_level.php',
         'AddUsersPhonenum' => __DIR__ . '/../..' . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',
+        'ChangeApplicationsChoice' => __DIR__ . '/../..' . '/database/migrations/2016_06_27_145020_change_applications_choice.php',
         'ChangeProjectsCategory' => __DIR__ . '/../..' . '/database/migrations/2016_05_27_053851_change_projects_category.php',
         'CommentSeeder' => __DIR__ . '/../..' . '/database/seeds/CommentSeeder.php',
         'CommentsTable' => __DIR__ . '/../..' . '/database/migrations/2016_04_15_023613_comments_table.php',
