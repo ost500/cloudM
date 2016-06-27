@@ -42,11 +42,11 @@
                                 <tbody>
                                 <tr>
                                     <th><a href="{{ url('/my_apply') }}">지원한 프로젝트</a></th>
-                                    <td>{{ count($app) }}건</td>
+                                    <td>{{ count($app_finished) }}건</td>
                                 </tr>
                                 <tr>
                                     <th><a href="{{ url('/my_apply_finished') }}">지원 종료 프로젝트</a></th>
-                                    <td>{{ count($app_finished) }}건</td>
+                                    <td>{{ count($app) }}건</td>
                                 </tr>
                                 </tbody>
                             </table>

@@ -38,12 +38,12 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">파트너스 히스토리</h5>
+                            <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
 
                                 <tr>
-                                    <th>계약한 프로젝트</th>
+                                    <th>진행중 프로젝트</th>
                                     <td>{{ count($carryon) }}건</td>
                                 </tr>
 
