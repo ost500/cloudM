@@ -163,43 +163,43 @@
 
                                             <fieldset>
 
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label"> 지원 금액 <span
-                                                                        class="symbol required"></span>
-                                                            </label>
-                                                            <input autofocus type="text" class="form-control"
-                                                                   name="money" aria-required="true"
-                                                                   aria-describedby="money-error"
-                                                                   value=""><span
-                                                                    id="money-error"
-                                                                    class="help-block valid"
-                                                                    style="display: none;"></span>
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-md-6">--}}
+                                                        {{--<div class="form-group">--}}
+                                                            {{--<label class="control-label"> 지원 금액 <span--}}
+                                                                        {{--class="symbol required"></span>--}}
+                                                            {{--</label>--}}
+                                                            {{--<input type="text" class="form-control"--}}
+                                                                   {{--name="money" aria-required="true"--}}
+                                                                   {{--aria-describedby="money-error"--}}
+                                                                   {{--value=""><span--}}
+                                                                    {{--id="money-error"--}}
+                                                                    {{--class="help-block valid"--}}
+                                                                    {{--style="display: none;"></span>--}}
 
-                                                        </div>
-                                                        <p class="text-small">
-                                                            <a data-original-title="" title="">※ 수수료 10%를 포함한 가격입니다</a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="control-label"> 지원 기간 <span
-                                                                        class="symbol required"></span>
-                                                            </label>
-                                                            <input id="duration" type="text" name="duration"
-                                                                   class="form-control" placeholder="3개월"
+                                                        {{--</div>--}}
+                                                        {{--<p class="text-small">--}}
+                                                            {{--<a data-original-title="" title="">※ 수수료 10%를 포함한 가격입니다</a>--}}
+                                                        {{--</p>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-md-6">--}}
+                                                        {{--<div class="form-group">--}}
+                                                            {{--<label class="control-label"> 지원 기간 <span--}}
+                                                                        {{--class="symbol required"></span>--}}
+                                                            {{--</label>--}}
+                                                            {{--<input id="duration" type="text" name="duration"--}}
+                                                                   {{--class="form-control" placeholder="3개월"--}}
 
-                                                            ><span
-                                                                    id="phone-error"
-                                                                    class="help-block valid"
-                                                                    style="display: none;"></span>
-                                                        </div>
-                                                        <p class="text-small">
-                                                            <a data-original-title="" title="">※ 월 단위로 입력해 주세요</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                            {{--><span--}}
+                                                                    {{--id="phone-error"--}}
+                                                                    {{--class="help-block valid"--}}
+                                                                    {{--style="display: none;"></span>--}}
+                                                        {{--</div>--}}
+                                                        {{--<p class="text-small">--}}
+                                                            {{--<a data-original-title="" title="">※ 월 단위로 입력해 주세요</a>--}}
+                                                        {{--</p>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
                                                 <div class="row">
                                                     <div class="col-md-12">
@@ -209,6 +209,7 @@
                                                     <textarea name="contents"
                                                               class="form-control"
                                                               rows=10 aria-required="true"
+                                                              placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요.지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
                                                     ></textarea>
                                                         </div>
                                                         <p class="text-small">
@@ -217,7 +218,7 @@
                                                                data-title="주의사항!" data-placement="top"
                                                                data-toggle="popover"
                                                                data-original-title="" title="">※이메일,
-                                                                전화번호 등 게시금지</a>
+                                                                전화번호 등 게시금지.</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -250,7 +251,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label class="control-label"> 첨부파일 <span
+                                                            <label class="control-label"> 제안서, 견적서 (.zip 파일만 업로드 가능) <span
                                                                         class="symbol"></span>
                                                             </label>
                                                             <div class="form-group">
