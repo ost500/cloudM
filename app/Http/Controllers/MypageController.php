@@ -73,6 +73,15 @@ class MypageController extends Controller
                 ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '미팅'))
                 ->get();
 
+            foreach ($registered as $regi) {
+                $regi->cnt = 0;
+                foreach ($regi->application as $regi_app) {
+                    if ($regi_app->choice != "관리자 검수중") {
+                        $regi->cnt = $regi->cnt + 1;
+                    }
+                }
+            }
+
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $proceeding = $projects->where('step', '=', '계약')
                 ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
@@ -93,16 +102,15 @@ class MypageController extends Controller
             return response()->view('errors.503');
         }
 
-        $app = Application::where('p_id', '=', $id);
+        $app = Application::where('p_id', '=', $id)->where('choice','!=','관리자 검수중');
         $applist = $app->get();
 
         $app_count = 0;
         $app_meeting_count = 0;
         foreach ($applist as $item) {
-            if ($item->choice == "지원") {
+            if ($item->choice == "광고주 검수중") {
                 $app_count = $app_count + 1;
-            }
-            else if($item->choice == "미팅"){
+            } else if ($item->choice == "미팅") {
                 $app_meeting_count = $app_meeting_count + 1;
             }
         }
@@ -140,7 +148,7 @@ class MypageController extends Controller
         $meeting_proposal->project->step = "게시";
         $meeting_proposal->project->save();
 
-        $meeting_proposal->choice = "지원";
+        $meeting_proposal->choice = "광고주 검수중";
         $meeting_proposal->save();
 
 
