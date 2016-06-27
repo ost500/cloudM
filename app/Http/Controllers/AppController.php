@@ -30,8 +30,6 @@ class AppController extends Controller
         $newApp = new Application();
         $newApp->u_id = Auth::user()->id;
         $newApp->p_id = $pid;
-//        $newApp->money = $request->money;
-//        $newApp->duration = $request->duration;
         $newApp->content = $request->contents;
         if ($request->has_portfolio)
             $newApp->has_portfolio = 1;

@@ -149,8 +149,8 @@ $colspan = 16;
 
                         <select name="choice[<?php echo $i ?>]" id="choice<?=$i?>" required class="required frm_input">
                             <option value="">선택</option>
-                            <option value="관리자 검수중'">관리자 검수중'</option>
-                            <option value="광고주 검수중'">광고주 검수중'</option>
+                            <option value="관리자 검수중">관리자 검수중</option>
+                            <option value="광고주 검수중">광고주 검수중</option>
                             <option value="미팅">미팅</option>
                         </select>
                         <script> $(function() { $("#choice<?=$i?>").val("<?=$row[choice]?>"); }); </script>
