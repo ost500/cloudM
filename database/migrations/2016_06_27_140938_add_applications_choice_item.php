@@ -14,7 +14,7 @@ class AddApplicationsChoiceItem extends Migration
     {
         Schema::table('applications', function (Blueprint $table) {
 
-            $table->enum('step', array('승인','대기','취소'));
+            $table->enum('step', array('승인','대기','취소'))->default('대기');
 
         });
     
