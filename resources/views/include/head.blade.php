@@ -296,13 +296,13 @@
             </div>
             <div class="modal-body" style="padding:30px 100px 50px 100px;">
 
-                <form role="form" method="POST" id="fileForm" action="/proposalFileUpload"
+                <form role="form" method="POST" id="fileForm" action="/apply/attach_update"
                       enctype="multipart/form-data">
                     {!! csrf_field() !!}
-                    <input type="hidden" name="p_id" value="">
+                    <input type="hidden" name="app_id" value="">
 
                     <div class="form-group">
-                        <input type="file" name="proposal_file" class="form-control" placeholder="첨부파일"
+                        <input type="file" name="application_attach" class="form-control" placeholder="첨부파일"
                                required="required">
                     </div>
 
@@ -310,7 +310,7 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-red btn-block">
-                            등록하기
+                            제출하기
                         </button>
                     </div>
 
