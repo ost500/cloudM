@@ -56,7 +56,10 @@
 
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
-
+                        <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
+                            <span class="h3 text-bold">진행 중</span>
+                            <p class="padding-top-5">진행중인 프로젝트를 확인할 수 있습니다.</p>
+                        </div>
 
                         <!-- Job Content -->
                         <div id="accordion">
@@ -70,70 +73,6 @@
                                         <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
                                         <!-- PANEL HEADING -->
                                         <div class="panel-heading">
-
-                                            <a class="mypage_link" href="{{ url('/services') }}">처음 오셨나요? 이용방법을 확인하세요 > </a>
-                                            <!--<div class="job-tittle02">
-
-
-
-
-                                                <div class="tags_bg02 margin-top-20 padding-top-5">
-                                                    <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
-
-
-                                                    <div class="row">
-                                                    <ul>
-                                                        <div class="col-md-2"><li><div class="rating star-lg star-lg-4"></div></li></div>
-                                                        <div class="col-md-3"><li><span class="rating-stats-body stats-body">
-                                                                <span class="average-rating-score">4.2</span>
-                                                                <span class="rating-append-unit append-unit">/ 평가 20개</span>
-                                                            </span></li></div>
-
-                                                        <div class="col-md-4"><li><span class="partners-authorized"><i class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span></li></div>
-                                                        <div class="col-md-3"><li><span class="partners-authorized"><i class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span></li></div>
-
-
-
-                                                    </ul>
-                                                    </div>
-                                                </div>
-                                            </div>-->
-
-
-                                            {{--<div class="job-tittle03">--}}
-                                            {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">관심 프로젝트</h6>--}}
-                                            {{--<div class="panel02 panel-default02">--}}
-                                            {{--<div class="panel-heading03">--}}
-                                            {{--<div class="row">--}}
-                                            {{--<span class="col-xs-4"><strong>프로젝트 제목</strong></span>--}}
-                                            {{--<span class="col-xs-3"><strong>예상금액</strong></span>--}}
-                                            {{--<span class="col-xs-2"><strong>예상기간</strong></span>--}}
-                                            {{--<span class="col-xs-3"><strong>마감일자</strong></span>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="panel-body03">--}}
-                                            {{--<ul>--}}
-                                            {{--<li class="row">--}}
-                                            {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
-                                            {{--<span class="col-xs-3">5,000,000원</span>--}}
-                                            {{--<span class="col-xs-2">30일</span>--}}
-                                            {{--<span class="col-xs-3">2016.01.21</span>--}}
-                                            {{--</li>--}}
-                                            {{--<li class="row">--}}
-                                            {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
-                                            {{--<span class="col-xs-3">5,000,000원</span>--}}
-                                            {{--<span class="col-xs-2">30일</span>--}}
-                                            {{--<span class="col-xs-3">2016.01.21</span>--}}
-                                            {{--</li>--}}
-                                            {{--</ul>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-
-
-
-
-
                                             <div class="job-tittle03 margin-bottom-10">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">진행 중인 프로젝트</h6>
                                                 <div class="panel02 panel-default02">

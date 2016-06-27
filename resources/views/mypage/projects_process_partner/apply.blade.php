@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="job-sider-bar003">
-                            <h5 class="side-tittle">클라이언트</h5>
+                            <h5 class="side-tittle">파트너스</h5>
                             <div>
                                 @if($loginUser->profileImage != null)
                                     <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">세부 메뉴</h5>
+                            <h5 class="side-tittle">파트너스 히스토리</h5>
                             <table class="history_table">
                                 <tbody>
                                 <tr>
@@ -58,8 +58,9 @@
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
 
-                        <div class="coupen margin-bottom-10">
-                            <p><span>지원중</span>인 프로젝트를 확인할 수 있습니다.</p>
+                        <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
+                            <span class="h3 text-bold">지원 중</span>
+                            <p class="padding-top-5">지원한 프로젝트를 확인할 수 있습니다.</p>
                         </div>
 
 
@@ -72,7 +73,7 @@
                             @endif
                             @foreach($app as $appItem)
                             <div class="job-content job-post-page margin-bottom-10">
-                                <div class="panel-group">
+                                <div class="form-group">
                                     <div class="panel">
                                         <div class="margin-bottom-10">
                                             <a href="{{ url("detail/".$appItem->project->id) }}"><h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $appItem->project->title }}</h6></a>
@@ -118,29 +119,11 @@
                                                             @endif
                                                         </td>
                                                         <td>{{ $appItem->choice }}</td>
-
-                                                        {{--<form id="{{$appItem->id}}form" method="POST"--}}
-                                                              {{--action="{{ url("/rm_app/") }}"--}}
-                                                              {{--onsubmit="return confirm('취소하시겠습니까?');">--}}
-                                                            {{--{!! csrf_field() !!}--}}
-                                                            {{--<input name="id" hidden--}}
-                                                                   {{--value="{{$appItem->id}}">--}}
-                                                            {{--<td>--}}
-                                                                {{--<i style="cursor: pointer"--}}
-                                                                   {{--id="{{ $appItem->id }}button"--}}
-                                                                   {{--class="fa fa-times fa-lg"></i>--}}
-                                                            {{--</td>--}}
-                                                        {{--</form>--}}
-                                                        {{--<script>--}}
-                                                            {{--$("#{{$appItem->id}}button").click(function () {--}}
-                                                                {{--$("#{{$appItem->id}}form").submit();--}}
-                                                            {{--});--}}
-                                                        {{--</script>--}}
                                                     </tr>
                                                 </table>
                                             </div>
 
-                                            <p class="padding-top-10">{{ $appItem->content }}</p>
+                                            <p class="padding-top-10 text-small"><?php echo nl2br($appItem->content) ?></p>
 
                                         </div>
                                     </div>

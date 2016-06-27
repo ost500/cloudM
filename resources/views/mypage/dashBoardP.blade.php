@@ -63,6 +63,10 @@
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
 
+                        <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
+                            <span class="h3 text-bold">마이 패스트엠</span>
+                            <a class="mypage_link" href="{{ url('/services') }}">처음 오셨나요? 이용방법을 확인하세요 > </a>
+                        </div>
 
                         <!-- Job Content -->
                         <div id="accordion">
@@ -77,85 +81,24 @@
                                         <!-- PANEL HEADING -->
                                         <div class="panel-heading">
 
-                                            <a class="mypage_link" href="{{ url('/services') }}">처음 오셨나요? 이용방법을 확인하세요 > </a>
-                                            <!--<div class="job-tittle02">
 
-
-
-
-                                                <div class="tags_bg02 margin-top-20 padding-top-5">
-                                                    <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
-
-
-                                                    <div class="row">
-                                                    <ul>
-                                                        <div class="col-md-2"><li><div class="rating star-lg star-lg-4"></div></li></div>
-                                                        <div class="col-md-3"><li><span class="rating-stats-body stats-body">
-                                                                <span class="average-rating-score">4.2</span>
-                                                                <span class="rating-append-unit append-unit">/ 평가 20개</span>
-                                                            </span></li></div>
-
-                                                        <div class="col-md-4"><li><span class="partners-authorized"><i class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span></li></div>
-                                                        <div class="col-md-3"><li><span class="partners-authorized"><i class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span></li></div>
-
-
-
-                                                    </ul>
-                                                    </div>
-                                                </div>
-                                            </div>-->
-
-
-                                            {{--<div class="job-tittle03">--}}
-                                            {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">관심 프로젝트</h6>--}}
-                                            {{--<div class="panel02 panel-default02">--}}
-                                            {{--<div class="panel-heading03">--}}
-                                            {{--<div class="row">--}}
-                                            {{--<span class="col-xs-4"><strong>프로젝트 제목</strong></span>--}}
-                                            {{--<span class="col-xs-3"><strong>예상금액</strong></span>--}}
-                                            {{--<span class="col-xs-2"><strong>예상기간</strong></span>--}}
-                                            {{--<span class="col-xs-3"><strong>마감일자</strong></span>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="panel-body03">--}}
-                                            {{--<ul>--}}
-                                            {{--<li class="row">--}}
-                                            {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
-                                            {{--<span class="col-xs-3">5,000,000원</span>--}}
-                                            {{--<span class="col-xs-2">30일</span>--}}
-                                            {{--<span class="col-xs-3">2016.01.21</span>--}}
-                                            {{--</li>--}}
-                                            {{--<li class="row">--}}
-                                            {{--<span class="col-xs-4">반응형 회사 홈페이지 구축</span>--}}
-                                            {{--<span class="col-xs-3">5,000,000원</span>--}}
-                                            {{--<span class="col-xs-2">30일</span>--}}
-                                            {{--<span class="col-xs-3">2016.01.21</span>--}}
-                                            {{--</li>--}}
-                                            {{--</ul>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
-                                            {{--</div>--}}
 
 
                                             <div class="job-tittle03">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">지원한 프로젝트</h6>
                                                 <div class="panel02 panel-default02">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                        <col style="width:25%;"/>
+                                                        <col style="width:45%;"/>
+                                                        <col style="width:15%;"/>
                                                         <col style="width:12.5%;"/>
                                                         <col style="width:12.5%;"/>
-                                                        <col style="width:12.5%;"/>
-                                                        <col style="width:7%;"/>
-                                                        <col style="width:7%;"/>
-                                                        <col style="width:7%;"/>
+                                                        <col style="width:15%;"/>
                                                         <tr>
                                                             <th>프로젝트 제목</th>
                                                             <th>월예산</th>
                                                             <th>기간</th>
                                                             <th>마감</th>
-                                                            <th>서류</th>
                                                             <th>상태</th>
-                                                            <th>취소</th>
                                                         </tr>
                                                         @if(sizeof($app) == 0)
                                                             <td colspan="7">지원한 프로젝트가 없습니다</td>
@@ -164,31 +107,12 @@
 
                                                             <tr>
                                                                 <td><a
-                                                                            href="{{ url("detail/".$appItem->project->id) }}">{{ $appItem->project->title }}</a>
+                                                                            href="{{ url("detail/".$appItem->project->id) }}"  class="text-left">{{ $appItem->project->title }}</a>
                                                                 </td>
-                                                                <td>{{ number_format($appItem->project->budget) }}</td>
+                                                                <td>{{ number_format($appItem->project->budget) }}원</td>
                                                                 <td>{{ $appItem->project->estimated_duration }}</td>
                                                                 <td>{{ $appItem->project->deadline }}</td>
-                                                                <td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-pid="{{$appItem->project->id}}">관리</button></td>
                                                                 <td>{{ $appItem->choice }}</td>
-
-                                                                <form id="{{$appItem->id}}form" method="POST"
-                                                                      action="{{ url("/rm_app/") }}"
-                                                                      onsubmit="return confirm('취소하시겠습니까?');">
-                                                                    {!! csrf_field() !!}
-                                                                    <input name="id" hidden
-                                                                           value="{{$appItem->id}}">
-                                                                    <td>
-                                                                        <i style="cursor: pointer"
-                                                                           id="{{ $appItem->id }}button"
-                                                                           class="fa fa-times fa-lg"></i>
-                                                                    </td>
-                                                                </form>
-                                                                <script>
-                                                                    $("#{{$appItem->id}}button").click(function () {
-                                                                        $("#{{$appItem->id}}form").submit();
-                                                                    });
-                                                                </script>
                                                             </tr>
 
                                                         @endforeach

@@ -191,7 +191,7 @@
                                                                 <td style="text-align:left;"><a href="{{url("/detail/".$registeredItem->id)}}">{{ $registeredItem->title }}</a></td>
                                                                 <td>{{ substr($registeredItem->created_at, 0, 10) }}</td>
                                                                 <td>{{ $registeredItem->deadline}}</td>
-                                                                <td><a href="{{ url('/applist/'.$registeredItem->id) }}">{{ $registeredItem->application->count()}}명</a></td>
+                                                                <td><a href="{{ url('/applist/'.$registeredItem->id) }}">{{ $registeredItem->cnt }}명</a></td>
                                                                 <td>{{ $registeredItem->step }}</td>
                                                             </tr>
                                                         @endforeach

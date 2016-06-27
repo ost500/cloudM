@@ -98,13 +98,13 @@
 
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                                         <col style="width:40%;"/>
-                                                        <col style="width:15%;"/>
+
                                                         <col style="width:15%;"/>
                                                         <col style="width:15%;"/>
                                                         <col style="width:15%;"/>
                                                         <tr>
                                                             <th>지원자</th>
-                                                            <th>예상금액</th>
+
                                                             <th>예상기간</th>
                                                             <th>마감일자</th>
                                                             <th>미팅신청</th>
@@ -118,11 +118,11 @@
 
                                                             @foreach($applist as $app_list)
 
-                                                                @foreach($app_list->projectStep('게시')->get() as $pro)
+                                                                @if($app_list->choice == '광고주 검수중')
 
                                                                     <tr>
                                                                         <td>{{ $app_list->user['name'] }}</td>
-                                                                        <td></td>
+
                                                                         <td>30일</td>
                                                                         <td>2016.01.21</td>
                                                                         <form action="{{ url('/applist/meeting') }}"
@@ -139,7 +139,7 @@
                                                                         </form>
                                                                     </tr>
 
-                                                                @endforeach
+                                                                @endif
 
                                                             @endforeach
                                                         @endif
@@ -180,7 +180,7 @@
 
                                                         @foreach($applist as $app_list)
 
-                                                            @foreach($app_list->projectStep('미팅')->get() as $pro)
+                                                            @if($app_list->choice == '미팅')
 
                                                                 <tr>
                                                                     <td>{{ $app_list->user->name }}</td>
@@ -211,7 +211,7 @@
                                                                     </form>
                                                                 </tr>
 
-                                                            @endforeach
+                                                            @endif
 
                                                         @endforeach
                                                     @endif
