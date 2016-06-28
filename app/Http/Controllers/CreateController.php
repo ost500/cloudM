@@ -125,7 +125,7 @@ class CreateController extends Controller
             $areas->save();
         }
     }
-    
+
     public function update_project_form($id)
     {
         $update_project = Project::find($id);
@@ -147,9 +147,18 @@ class CreateController extends Controller
         $update_project->meeting_way = $request->pre_meeting;
         $update_project->address_sido = $request->address_sido;
         $update_project->detail_content = $request->content_detail;
-        $update_project->area = $request->area;
+
         $update_project->category = $request->category;
         $update_project->save();
+
+        ProjectsArea::where('p_id',$request->id)->delete();
+
+        for ($i = 0; $i < sizeof($request->area); $i++) {
+            $areas = new ProjectsArea();
+            $areas->p_id = $update_project->id;
+            $areas->area = $request->area[$i];
+            $areas->save();
+        }
 
         return redirect()->back();
     }
