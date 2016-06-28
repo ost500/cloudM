@@ -34,6 +34,8 @@ class ProcessController extends Controller
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $fail = $projects->where('step', '=', '등록 실패')->get();
 
+        $checking = $checking->sortByDesc('created_at');
+
         return view('mypage.projects_process_client.checking', compact('loginUser', 'checking', 'temp', 'fail'));
     }
 
@@ -49,6 +51,8 @@ class ProcessController extends Controller
         $temp = $projects->where('step', '=', '임시 저장')->get();
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $fail = $projects->where('step', '=', '등록 실패')->get();
+
+        $temp = $temp->sortByDesc('created_at');
         return view('mypage.projects_process_client.checking_temp', compact('loginUser', 'checking', 'temp', 'fail'));
     }
 
@@ -64,6 +68,8 @@ class ProcessController extends Controller
         $temp = $projects->where('step', '=', '임시 저장')->get();
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $fail = $projects->where('step', '=', '등록 실패')->get();
+
+        $fail = $fail->sortByDesc('created_at');
         return view('mypage.projects_process_client.checking_fail', compact('loginUser', 'checking', 'temp', 'fail'));
     }
 
@@ -75,6 +81,8 @@ class ProcessController extends Controller
             ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '미팅'))
             ->get();
 
+        $registered = $registered->sortByDesc('created_at');
+
         return view('mypage.projects_process_client.posted', compact('registered', 'loginUser'));
     }
 
@@ -85,6 +93,7 @@ class ProcessController extends Controller
         $proceeding = $projects->where('step', '=', '계약')
             ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
             ->get();
+        $proceeding = $proceeding->sortByDesc('created_at');
         return view('mypage.projects_process_client.carry_on', compact('loginUser', 'proceeding'));
     }
 
@@ -94,6 +103,8 @@ class ProcessController extends Controller
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $done = $projects->where('step', '=', '완료')->get();
         $cancel = $projects->where('step', '=', '취소')->get();
+
+        $done = $done->sortByDesc('created_at');
         return view('mypage.projects_process_client.done', compact('loginUser', 'done', 'cancel'));
     }
 
@@ -104,6 +115,8 @@ class ProcessController extends Controller
         $done = $projects->where('step', '=', '완료')->get();
         $projects = Project::where('Client_id', '=', Auth::user()->id);
         $cancel = $projects->where('step', '=', '취소')->get();
+
+        $cancel = $cancel->sortByDesc('created_at');
         return view('mypage.projects_process_client.done_cancel', compact('loginUser', 'done', 'cancel'));
     }
 

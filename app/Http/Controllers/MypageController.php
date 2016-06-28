@@ -13,6 +13,7 @@ use App\ProjectsProposal;
 use App\Skill;
 use App\User;
 use DB;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,7 +41,7 @@ class MypageController extends Controller
             // 지원한 프로젝트
 
             $appList = Application::where('u_id', '=', Auth::user()->id)->get();
-            $app = array();
+            $app = new Collection();
             for ($i = 0; $i < $appList->count(); $i++) {
                 if ($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
                     $app[] = $appList[$i];
@@ -49,8 +50,8 @@ class MypageController extends Controller
 
             //진행 중인 프로젝트
             $contractList = Contract::where('u_id', '=', Auth::user()->id)->get();
-            $carryon = array();
-            $compeleted = array();
+            $carryon = new Collection();
+            $compeleted = new Collection();
             for ($i = 0; $i < $contractList->count(); $i++) {
                 if ($contractList[$i]->project->step == "계약" || $contractList[$i]->project->step == "대금지급")
                     $carryon[] = $contractList[$i]->project;
@@ -58,6 +59,10 @@ class MypageController extends Controller
                 else if ($contractList[$i]->project->step == "완료")
                     $compeleted[] = $contractList[$i]->project;
             }
+            $app = $app->sortByDesc('created_at');
+            $carryon = $carryon->sortByDesc('created_at');
+            $compeleted = $compeleted->sortByDesc('created_at');
+
 
             //완료 프로젝트
             return view('mypage/dashBoardP', compact('loginUser', 'app', 'carryon', 'compeleted'));
@@ -89,6 +94,11 @@ class MypageController extends Controller
 
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $done = $projects->where('step', '=', '완료')->get();
+
+            $checking = $checking->sortByDesc('created_at');
+            $registered = $registered->sortByDesc('created_at');
+            $proceeding = $proceeding->sortByDesc('created_at');
+            $done = $done->sortByDesc('created_at');
             return view('mypage/dashBoardC',
                 compact('loginUser', 'checking', 'registered', 'proceeding', 'done'));
         }
@@ -158,8 +168,8 @@ class MypageController extends Controller
     public function contract(Request $request)
     {
         $app_carryon = Application::find($request->id);
-        $app_carryon->choice = "진행";
-        $app_carryon->save();
+//        $app_carryon->choice = "진행";
+//        $app_carryon->save();
 
         $contract = new Contract();
         $contract->u_id = $app_carryon->u_id;
