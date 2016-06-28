@@ -20,14 +20,13 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="job-sider-bar003">
-                            <h5 class="side-tittle">파트너스</h5>
+                            <h5 class="side-tittle">클라이언트</h5>
                             <div>
                                 @if($loginUser->profileImage != null)
                                     <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
                                 @else
                                     <img class="partner_profile02" src="/images/p_img02.png"><br>
                                 @endif
-
                                 <h6>{{ $loginUser->name }}</h6>
                                 <a href="{{ url("/setting") }}">
                                     <div id="tag02">
@@ -41,12 +40,14 @@
                             <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
-
                                 <tr>
-                                    <th>진행중 프로젝트</th>
-                                    <td>{{ count($carryon) }}건</td>
+                                    <th><a href="{{ url('/my_apply') }}">지원한 프로젝트</a></th>
+                                    <td>{{ count($app_finished) }}건</td>
                                 </tr>
-
+                                <tr>
+                                    <th><a href="{{ url('/my_apply_finished') }}">지원 종료 프로젝트</a></th>
+                                    <td>{{ count($app) }}건</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -56,28 +57,33 @@
 
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
-                        <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-                            <span class="h3 text-bold">진행 중</span>
-                            <p class="padding-top-5">진행중인 프로젝트를 확인할 수 있습니다.</p>
+
+                        <div class="coupen margin-bottom-10">
+                            <p><span>지원중</span>인 프로젝트를 확인할 수 있습니다.</p>
                         </div>
+
 
                         <!-- Job Content -->
                         <div id="accordion">
+
                             <!-- Job Section -->
-                            @if(sizeof($carryon) == 0)
+                            @if(sizeof($app) == 0)
                                 <td colspan="7">지원한 프로젝트가 없습니다</td>
                             @endif
-                            @foreach($carryon as $carryonItem)
+                            @foreach($app as $appItem)
                                 <div class="job-content job-post-page margin-bottom-10">
-                                    <div class="form-group">
+                                    <div class="panel-group">
                                         <div class="panel">
                                             <div class="margin-bottom-10">
-                                                <a href="{{ url("detail/".$carryonItem->id) }}"><h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $carryonItem->title }}</h6></a>
+                                                <a href="{{ url("detail/".$appItem->project->id) }}"><h6
+                                                            class="my_h6 margin-bottom-10 margin-top-20">{{ $appItem->project->title }}</h6>
+                                                </a>
 
                                                 <div>
                                                     <ul class="tags dall margin-top-10">
-                                                        <li>지역 > {{ str_limit($carryonItem->address_sido, 4, '') }} | 마케팅 분야
-                                                            @foreach($carryonItem->projects_area as $areas)
+                                                        <li>지역 > {{ str_limit($appItem->project->address_sido, 4, '') }}
+                                                            | 마케팅 분야
+                                                            @foreach($appItem->project->projects_area as $areas)
                                                                 <a href="#.">{{ $areas->area }}</a>
                                                             @endforeach
                                                         </li>
@@ -88,14 +94,12 @@
                                                         <col style="width:12.5%;"/>
                                                         <col style="width:12.5%;"/>
                                                         <col style="width:12.5%;"/>
-                                                        <col style="width:12.5%;"/>
                                                         <col style="width:7%;"/>
-                                                        <col style="width:10%;"/>
+                                                        <col style="width:7%;"/>
                                                         <tr>
                                                             <th>월예산</th>
                                                             <th>기간</th>
-                                                            <th>마감일자</th>
-                                                            <th>지원일자</th>
+                                                            <th>마감</th>
                                                             <th>서류</th>
                                                             <th>지원 상태</th>
                                                         </tr>
@@ -103,26 +107,39 @@
 
                                                         <tr>
                                                             </td>
-                                                            <td>{{ number_format($carryonItem->budget) }}</td>
-                                                            <td>{{ $carryonItem->estimated_duration }}</td>
-                                                            <td>{{ $carryonItem->deadline }}</td>
-                                                            <td>{{ substr($carryonItem->created_at, 0, 10) }}</td>
+                                                            <td>{{ number_format($appItem->project->budget) }}</td>
+                                                            <td>{{ $appItem->project->estimated_duration }}</td>
+                                                            <td>{{ $appItem->project->deadline }}</td>
                                                             <td>
-                                                                @if($carryonItem->app->file_name != "")
-                                                                    <a href='/apply/application_attach/{{$carryonItem->app->id}}'>저장</a>
-                                                                @else
-                                                                    <button type="button" class="btn btn-danger btn-xs"
-                                                                            data-toggle="modal" data-target="#fileModal"
-                                                                            data-app_id="{{$carryonItem->app->id}}">등록
-                                                                    </button>
-                                                                @endif
+                                                                <button type="button" class="btn btn-danger btn-xs"
+                                                                        data-toggle="modal" data-target="#fileModal"
+                                                                        data-pid="{{$appItem->project->id}}">등록
+                                                                </button>
                                                             </td>
-                                                            <td>{{ $carryonItem->step }}</td>
+                                                            <td>{{ $appItem->choice }}</td>
+
+                                                            {{--<form id="{{$appItem->id}}form" method="POST"--}}
+                                                            {{--action="{{ url("/rm_app/") }}"--}}
+                                                            {{--onsubmit="return confirm('취소하시겠습니까?');">--}}
+                                                            {{--{!! csrf_field() !!}--}}
+                                                            {{--<input name="id" hidden--}}
+                                                            {{--value="{{$appItem->id}}">--}}
+                                                            {{--<td>--}}
+                                                            {{--<i style="cursor: pointer"--}}
+                                                            {{--id="{{ $appItem->id }}button"--}}
+                                                            {{--class="fa fa-times fa-lg"></i>--}}
+                                                            {{--</td>--}}
+                                                            {{--</form>--}}
+                                                            {{--<script>--}}
+                                                            {{--$("#{{$appItem->id}}button").click(function () {--}}
+                                                            {{--$("#{{$appItem->id}}form").submit();--}}
+                                                            {{--});--}}
+                                                            {{--</script>--}}
                                                         </tr>
                                                     </table>
                                                 </div>
 
-                                                <p class="padding-top-10 text-small"><?php echo nl2br($carryonItem->app->content) ?></p>
+                                                <p class="padding-top-10">{{ $appItem->content }}</p>
 
                                             </div>
                                         </div>
@@ -131,9 +148,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        
-
-
                     </div>
                 </div>
             </div>
@@ -141,20 +155,9 @@
     </div>
 
 
-    </div>
 
-    <script type="text/javascript">
-        <!--
-        $('#fileModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var pid = button.data('pid')
-
-            var modal = $(this)
-            modal.find(".modal-body input[name$='p_id']").val(pid)
-        });
-        //-->
-    </script>
 
     @include('include.footer')
 @endsection
+
 

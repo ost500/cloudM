@@ -30,26 +30,45 @@
                                             aria-describedby="area-error"
                                             required>
                                         <optgroup label="광고 의뢰">
-                                            <option value="네이버CPC">네이버CPC
+
+                                            <option value="네이버CPC"
+                                                    @if($update_project_area->has("네이버CPC")) selected @endif
+                                            >네이버CPC
                                             </option>
-                                            <option value="언론보도">언론보도
+                                            <option value="언론보도"
+                                                    @if($update_project_area->has("언론보도")) selected @endif
+                                            >언론보도
                                             </option>
-                                            <option value="구글광고">구글광고
+                                            <option value="구글광고"
+                                                    @if($update_project_area->has("구글광고")) selected @endif
+                                            >구글광고
                                             </option>
-                                            <option value="페이스북 스폰서광고">페이스북
+                                            <option value="페이스북 스폰서광고"
+                                                    @if($update_project_area->has("페이스북 스폰서광고")) selected @endif
+                                            >페이스북
                                                 광고
                                             </option>
-                                            <option value="매체 기타">매체 기타
+                                            <option value="매체 기타"
+                                                    @if($update_project_area->has("매체 기타")) selected @endif
+                                            >매체 기타
                                             </option>
                                         </optgroup>
                                         <optgroup label="바이럴">
-                                            <option value="네이버SEO">네이버SEO
+                                            <option value="네이버SEO"
+                                                    @if($update_project_area->has("네이버SEO")) selected @endif
+                                            >네이버SEO
                                             </option>
-                                            <option value="컨텐츠배포">컨텐츠배포
+                                            <option value="컨텐츠배포"
+                                                    @if($update_project_area->has("컨텐츠배포")) selected @endif
+                                            >컨텐츠배포
                                             </option>
-                                            <option value="체험단모집">체험단모집
+                                            <option value="체험단모집"
+                                                    @if($update_project_area->has("체험단모집")) selected @endif
+                                            >체험단모집
                                             </option>
-                                            <option value="바이럴 기타">바이럴 기타
+                                            <option value="바이럴 기타"
+                                                    @if($update_project_area->has("바이럴 기타")) selected @endif
+                                            >바이럴 기타
                                             </option>
                                         </optgroup>
                                         <optgroup label="운영대행">
@@ -57,20 +76,40 @@
                                             <option value="페이스북페이지">
                                                 페이스북페이지
                                             </option>
-                                            <option value="기타SNS">기타SNS
+                                            <option value="기타SNS"
+                                                    @if($update_project_area->has("기타SNS")) selected @endif
+                                            >기타SNS
                                             </option>
-                                            <option value="홈페이지">홈페이지
+                                            <option value="홈페이지"
+                                                    @if($update_project_area->has("홈페이지")) selected @endif
+                                            >홈페이지
                                             </option>
-                                            <option value="운영대행 기타">운영대행
+                                            <option value="운영대행 기타"
+                                                    @if($update_project_area->has("운영대행 기타")) selected @endif
+                                            >운영대행
                                                 기타
                                             </option>
                                         </optgroup>
                                         <optgroup label="1회성 프로젝트">
-                                            <option value="개발">개발</option>
-                                            <option value="디자인">디자인</option>
-                                            <option value="웹툰">웹툰</option>
-                                            <option value="영상">영상</option>
-                                            <option value="1회성 프로젝트 기타">1회성
+                                            <option value="개발"
+                                                    @if($update_project_area->has("개발")) selected @endif
+                                            >개발
+                                            </option>
+                                            <option value="디자인"
+                                                    @if($update_project_area->has("디자인")) selected @endif
+                                            >디자인
+                                            </option>
+                                            <option value="웹툰"
+                                                    @if($update_project_area->has("웹툰")) selected @endif
+                                            >웹툰
+                                            </option>
+                                            <option value="영상"
+                                                    @if($update_project_area->has("영상")) selected @endif
+                                            >영상
+                                            </option>
+                                            <option value="1회성 프로젝트 기타"
+                                                    @if($update_project_area->has("1회성 프로젝트 기타")) selected @endif
+                                            >1회성
                                                 프로젝트 기타
                                             </option>
                                         </optgroup>
@@ -210,12 +249,11 @@
                                             </label>
 
                                             <?php $tomorrow = new DateTime('+1 day')?>
-                                            <input type="date"
-                                                   class="form-control"
-                                                   name="deadline"
-                                                   min="{{ $tomorrow->format('Y-m-d') }}"
-                                                   max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
-                                                   value="{{ $update_project['deadline'] }}">
+                                            <input
+                                                    class="form-control"
+                                                    name="deadline"
+                                                    id="deadline"
+                                                    value="{{ $update_project['deadline'] }}">
 
                                         </div>
                                     </div>
@@ -225,44 +263,11 @@
                                             <label class="control-label"> 프로젝트 예상
                                                 시작일 <span class="symbol required"></span>
                                             </label>
-                                            <input type="date"
-                                                   class="form-control"
-                                                   name="expecting_start"
-                                                   value="{{ $update_project['expected_start_date'] }}">
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="row padding-top-10">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label"> 모집 마감일자
-                                                <span class="symbol required"></span>
-                                            </label>
-
-                                            <?php $tomorrow = new DateTime('+1 day')?>
-                                            <input type="date"
-                                                   class="form-control"
-                                                   name="deadline"
-                                                   min="{{ $tomorrow->format('Y-m-d') }}"
-                                                   max="{{ $tomorrow->modify('+14 day')->format('Y-m-d') }}"
-                                                   value="{{ $update_project['deadline'] }}">
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label"> 프로젝트 예상
-                                                시작일 <span class="symbol required"></span>
-                                            </label>
-                                            <input type="date"
-                                                   class="form-control"
-                                                   name="expecting_start"
-                                                   value="{{ $update_project['expected_start_date'] }}">
+                                            <input
+                                                    class="form-control"
+                                                    name="expecting_start"
+                                                    id="start_day"
+                                                    value="{{ $update_project['expected_start_date'] }}">
 
 
                                         </div>
@@ -396,6 +401,33 @@
     </div>
 
 
+    {{--달력--}}
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui-i18n.js') }}">
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+
+    <script type="text/javascript">
+
+        $.datepicker.setDefaults($.datepicker.regional['ko']);
+        $('#deadline').datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 'today',
+            maxDate: "{{ $update_project['created_at']->modify('+14 day')->format('Y-m-d')  }}",
+
+
+        });
+        $('#start_day').datepicker({
+            dateFormat: "yy-mm-dd",
+            minDate: 'today',
+            maxDate: "{{ $update_project['created_at']->modify('+28 day')->format('Y-m-d')  }}",
+
+
+        });
+
+    </script>
+
+
     <script>
         jQuery(document).ready(function () {
             Main.init();
@@ -412,10 +444,111 @@
             width: '100%'
         });
 
-        $(".multiselect").click(function () {
-            $(".multiselect").multipleSelect("setSelects", [1, 3]);
-        });
+
     </script>
+
+    <!-- form-wizard start -->
+    <script src="/js/js.cookie.js"></script>
+    <!-- end: MAIN JAVASCRIPTS -->
+    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+    <script src="/js/jquery.validate.js"></script>
+    <script src="/js/jquery.smartWizard.js"></script>
+    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+
+    <script src="/js/form_wizard_main.js"></script>
+    <!-- end: Packet JAVASCRIPTS -->
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+
+    <script>
+
+        $("#form").validate({
+            rules: {
+                name: {
+                    minlength: 2,
+                    required: true
+                },
+                phone: {
+                    minlength: 10,
+                    required: true
+                },
+                company_type: {
+                    required: true
+                },
+                company_intro: {
+                    maxlength: 255,
+                    required: true
+                },
+                area: {
+                    required: true
+                },
+                category: {
+                    required: true
+                },
+                project_name: {
+                    required: true
+                },
+                duration: {
+                    required: true
+                }, money: {
+                    required: true
+                }, purpose: {
+                    required: true
+                }, content_detail: {
+                    required: true
+                }, deadline: {
+                    required: true
+                }, expecting_start: {
+                    required: true
+                }, pre_meeting: {
+                    required: true
+                }, experience: {
+                    required: true
+                }, reason: {
+                    required: true
+                }
+            },
+            messages: {
+                name: "이름을 입력해 주세요.",
+                phone: "연락처를 입력해 주세요.",
+                company_type: "회사형태를 선택해 주세요.",
+                area: "선택해 주세요",
+                category: "선택해 주세요",
+                project_name: "입력해 주세요",
+                duration: "입력해 주세요",
+                money: "입력해 주세요",
+                purpose: "선택해 주세요",
+                content_detail: "입력해 주세요",
+                deadline: "입력해 주세요",
+                expecting_start: "입력해 주세요",
+                pre_meeting: "선택해 주세요",
+                experience: "선택해 주세요",
+                reason: "선택해 주세요"
+            },
+            highlight: function (element) {
+                $(element).closest('.help-block').removeClass('valid');
+                // display OK icon
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error').find('.symbol').removeClass('ok').addClass('required');
+                // add the Bootstrap error class to the control group
+            },
+            unhighlight: function (element) { // revert the change done by hightlight
+                $(element).closest('.form-group').removeClass('has-error');
+                // set error class to the control group
+            },
+            success: function (label, element) {
+                label.addClass('help-block valid');
+                // mark the current input as valid and display OK icon
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success').find('.symbol').removeClass('required').addClass('ok');
+            }
+
+
+        })
+        jQuery.extend(jQuery.validator.messages, {
+            extension: "이미지 파일을 확인해 주세요"
+        });
+
+    </script>
+
+
 </div>
 <button onclick="location.reload()" class="button004 hover">취소
 </button>

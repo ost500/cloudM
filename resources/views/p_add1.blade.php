@@ -760,8 +760,7 @@
             <div class="sa-fix"></div>
         </div>
 
-        <div class="sa-icon sa-custom"
-             style="display: none; width: 80px; height: 80px; background-image: url(&quot;assets/plugins/sweetalert/thumbs-up.jpg&quot;);"></div>
+
         <h2>등록되었습니다.</h2>
         <p style="display: block;"></p>
         <p class="text-small">
@@ -828,8 +827,8 @@
 
 
 
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js">
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui-i18n.js') }}">
     </script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
     <?php $tomorrow = new DateTime('+1 day')?>

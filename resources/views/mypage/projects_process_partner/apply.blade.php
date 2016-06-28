@@ -6,6 +6,16 @@
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
+
+                <!--
+                        <div class="heading text-left margin-bottom-20">
+                          <h4>프로젝트 검색</h4>
+                        </div>
+                        <div class="coupen">
+                          <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
+                        </div>
+                -->
+
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
@@ -31,10 +41,13 @@
                             <table class="history_table">
                                 <tbody>
                                 <tr>
-                                    <th>지원한 프로젝트</th>
+                                    <th><a href="{{ url('/my_apply') }}">지원한 프로젝트</a></th>
                                     <td>{{ count($app) }}건</td>
                                 </tr>
-
+                                <tr>
+                                    <th><a href="{{ url('/my_apply_finished') }}">지원 종료 프로젝트</a></th>
+                                    <td>{{ count($app_finished) }}건</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>

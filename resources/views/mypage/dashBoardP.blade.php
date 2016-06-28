@@ -42,15 +42,15 @@
                             <table class="history_table">
                                 <tbody>
                                 <tr>
-                                    <th>지원한 프로젝트</th>
+                                    <th><a href="{{ url('/my_apply') }}">지원한 프로젝트</a></th>
                                     <td>{{ count($app) }}건</td>
                                 </tr>
                                 <tr>
-                                    <th>계약한 프로젝트</th>
+                                    <th><a href="{{ url('/my_carry_on_p') }}">진행중 프로젝트</a></th>
                                     <td>{{ count($carryon) }}건</td>
                                 </tr>
                                 <tr>
-                                    <th>완료한 프로젝트</th>
+                                    <th><a href="{{ url('/my_done_p') }}">완료한 프로젝트</a></th>
                                     <td>{{ count($compeleted) }}건</td>
                                 </tr>
                                 </tbody>
