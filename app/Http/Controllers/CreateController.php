@@ -125,12 +125,13 @@ class CreateController extends Controller
             $areas->save();
         }
     }
-
+    
     public function update_project_form($id)
     {
         $update_project = Project::find($id);
 //        return view('p_detail_update', compact('update_project'));
-        return view('p_detail_update', compact('update_project'));
+        $update_project_area = $update_project->projects_area->keyBy('area');
+        return view('p_detail_update', compact('update_project','update_project_area'));
     }
 
     public function update_project(Request $request)
