@@ -7,12 +7,12 @@ ob_end_clean();
 $f_id = (int)$f_id;
 
 
-$sql = " select source_name, file_name from {$g5['file_table']} where p_id = '$p_id' and f_id = '$f_id' ";
+$sql = " select * from {$g5['application_table']} where id = '$id'";
 $file = sql_fetch($sql);
 if (!$file['file_name'])
     alert_close('파일 정보가 존재하지 않습니다.');
 
-$filepath = G5_DATA_PATH.'/proposals/'.$file['file_name'];
+$filepath = $_SERVER['DOCUMENT_ROOT'].$file['file_name'];
 $filepath = addslashes($filepath);
 if (!is_file($filepath) || !file_exists($filepath))
     alert('파일이 존재하지 않습니다.');
@@ -21,8 +21,7 @@ if (!is_file($filepath) || !file_exists($filepath))
 $g5['title'] = '다운로드';
 
 //$original = urlencode($file['bf_source']);
-$original = iconv('utf-8', 'euc-kr', $file['source_name']);
-
+$original = $file['origin_name'];
 
 if(preg_match("/msie/i", $_SERVER['HTTP_USER_AGENT']) && preg_match("/5\.5/", $_SERVER['HTTP_USER_AGENT'])) {
     header("content-type: doesn/matter");

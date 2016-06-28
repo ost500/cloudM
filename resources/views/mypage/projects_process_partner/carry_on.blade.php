@@ -63,76 +63,77 @@
 
                         <!-- Job Content -->
                         <div id="accordion">
-
                             <!-- Job Section -->
-                            <div class="job-content job-post-page">
-                                <!-- Job Tittle -->
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <!-- Save -->
-                                        <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                                        <!-- PANEL HEADING -->
-                                        <div class="panel-heading">
-                                            <div class="job-tittle03 margin-bottom-10">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">진행 중인 프로젝트</h6>
+                            @if(sizeof($carryon) == 0)
+                                <td colspan="7">지원한 프로젝트가 없습니다</td>
+                            @endif
+                            @foreach($carryon as $carryonItem)
+                                <div class="job-content job-post-page margin-bottom-10">
+                                    <div class="form-group">
+                                        <div class="panel">
+                                            <div class="margin-bottom-10">
+                                                <a href="{{ url("detail/".$carryonItem->id) }}"><h6 class="my_h6 margin-bottom-10 margin-top-20">{{ $carryonItem->title }}</h6></a>
+
+                                                <div>
+                                                    <ul class="tags dall margin-top-10">
+                                                        <li>지역 > {{ str_limit($carryonItem->address_sido, 4, '') }} | 마케팅 분야
+                                                            @foreach($carryonItem->projects_area as $areas)
+                                                                <a href="#.">{{ $areas->area }}</a>
+                                                            @endforeach
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                                 <div class="panel02 panel-default02">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:12.5%;"/>
+                                                        <col style="width:7%;"/>
+                                                        <col style="width:10%;"/>
                                                         <tr>
-                                                            <th>프로젝트 제목</th>
-                                                            <th>클라이언트</th>
-                                                            <th>비용</th>
+                                                            <th>월예산</th>
+                                                            <th>기간</th>
                                                             <th>마감일자</th>
-                                                            <th>상태</th>
-
+                                                            <th>지원일자</th>
+                                                            <th>서류</th>
+                                                            <th>지원 상태</th>
                                                         </tr>
-                                                        @if(sizeof($carryon) == 0)
-                                                            <td colspan="5">진행 중인 프로젝트가 없습니다</td>
-                                                        @endif
-                                                        @foreach($carryon as $carryonItem)
 
-                                                            <tr>
-                                                                <td><a
-                                                                            href="{{url("/detail/".$carryonItem->id)}}">{{ $carryonItem->title }}</a>
-                                                                </td>
-                                                                <td>{{ $carryonItem->client->name }}</td>
-                                                                <td>{{ number_format($carryonItem->budget) }}</td>
-                                                                <td>{{ $carryonItem->deadline }}</td>
-                                                                <td>{{ $carryonItem->step }}</td>
-                                                            </tr>
 
-                                                        @endforeach
+                                                        <tr>
+                                                            </td>
+                                                            <td>{{ number_format($carryonItem->budget) }}</td>
+                                                            <td>{{ $carryonItem->estimated_duration }}</td>
+                                                            <td>{{ $carryonItem->deadline }}</td>
+                                                            <td>{{ substr($carryonItem->created_at, 0, 10) }}</td>
+                                                            <td>
+                                                                @if($carryonItem->app->file_name != "")
+                                                                    <a href='/apply/application_attach/{{$carryonItem->app->id}}'>저장</a>
+                                                                @else
+                                                                    <button type="button" class="btn btn-danger btn-xs"
+                                                                            data-toggle="modal" data-target="#fileModal"
+                                                                            data-app_id="{{$carryonItem->app->id}}">등록
+                                                                    </button>
+                                                                @endif
+                                                            </td>
+                                                            <td>{{ $carryonItem->step }}</td>
+                                                        </tr>
                                                     </table>
-
-
                                                 </div>
 
-
-
+                                                <p class="padding-top-10 text-small"><?php echo nl2br($carryonItem->app->content) ?></p>
 
                                             </div>
-                                            <!-- Content -->
-                                            <!--<div id="job1" class="panel-collapse collapse in">
-                                              <div class="panel-body">
-                                                <p> [프로젝트 진행 방식] 시작시점에 미팅, 주 1회 미팅 등 [프로젝트의 현재 상황] 리뉴얼 기획 제안서만 있음 [상세한 업무 내용] 반응형 웹 제작 [참고자료 / 유의사항] http://www.skhynix.com/kor/index.jsp 와 같은 톤앤매너 구상</p>
-
-
-                                                </div>
-                                              </div>-->
-
-
                                         </div>
+
                                     </div>
                                 </div>
-                            </div>
-
-
+                            @endforeach
                         </div>
+                        
+
+
                     </div>
                 </div>
             </div>

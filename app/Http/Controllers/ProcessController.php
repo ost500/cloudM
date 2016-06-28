@@ -130,8 +130,16 @@ class ProcessController extends Controller
         $carryon = array();
 
         for ($i = 0; $i < $contractList->count(); $i++) {
-            if ($contractList[$i]->project->step == "계약" || $contractList[$i]->project->step == "대금지급")
+            if ($contractList[$i]->project->step == "계약" || $contractList[$i]->project->step == "대금지급") {
+
+                $appList = Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $contractList[$i]->project->id)->get();
+
+                $contractList[$i]->project->app = $appList[0];
+
                 $carryon[] = $contractList[$i]->project;
+
+
+            }
         }
 
         return view('mypage.projects_process_partner.carry_on', compact('loginUser', 'carryon'));

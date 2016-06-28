@@ -31,9 +31,4 @@ class Application extends Model
     {
         return $this->belongsTo('App\User', 'u_id', 'id');
     }
-
-    public function proposal()
-    {
-        return $this->hasMany('App\projectsProposal', 'p_id', 'id');
-    }
 }
