@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Comments;
+use App\Interesting;
 use App\Project;
 
 use App\ProjectsArea;
@@ -86,22 +87,22 @@ class SearchController extends Controller
             $filtered = $projects;
 
 
-            $projects1 = $filtered->filter(function ($value){
-               if(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d')){
-                   return $value;
-               }
+            $projects1 = $filtered->filter(function ($value) {
+                if (($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d')) {
+                    return $value;
+                }
             });
-            $projects2 = $filtered->filter(function ($value){
-                if(!(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d'))){
+            $projects2 = $filtered->filter(function ($value) {
+                if (!(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d'))) {
                     return $value;
                 }
             });
 
             $projects = new Collection();
-            foreach($projects1 as $p){
+            foreach ($projects1 as $p) {
                 $projects->push($p);
             }
-            foreach($projects2 as $p){
+            foreach ($projects2 as $p) {
                 $projects->push($p);
             }
 
@@ -115,7 +116,7 @@ class SearchController extends Controller
 
 
         $projects = new Collection();
-        $area_menu_array = ['네이버CPC', '언론보도','구글광고', '페이스북광고', '매체 기타',
+        $area_menu_array = ['네이버CPC', '언론보도', '구글광고', '페이스북광고', '매체 기타',
             '네이버SEO', '컨텐츠 배포', '체험단 모집', '바이럴 기타',
             '블로그', '페이스북페이지', '기타SNS', '홈페이지', '운영대행 기타',
             '개발', '디자인', '웹툰', '영상', '1회성 프로젝트 기타'];
@@ -125,7 +126,7 @@ class SearchController extends Controller
 
         for ($i = 0; $i < count($area_menu_array) + count($category_menu_array); $i++) {
             if ($i < count($area_menu_array)) {
-                if (($SearchOption & (67108864 >> ($i+1))) == true) {
+                if (($SearchOption & (67108864 >> ($i + 1))) == true) {
 
                     $query = ProjectsArea::where('area', '=', $area_menu_array[$i])->get();
 
@@ -136,7 +137,7 @@ class SearchController extends Controller
                     }
                 }
             } else {
-                if (($SearchOption & (67108864 >> ($i+1))) == true) {
+                if (($SearchOption & (67108864 >> ($i + 1))) == true) {
 
                     $query = Project::where('category', '=', $category_menu_array[$i - count($area_menu_array)])->get();
 
@@ -181,22 +182,22 @@ class SearchController extends Controller
         $filtered = $projects;
 
 
-        $projects1 = $filtered->filter(function ($value){
-            if(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d')){
+        $projects1 = $filtered->filter(function ($value) {
+            if (($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d')) {
                 return $value;
             }
         });
-        $projects2 = $filtered->filter(function ($value){
-            if(!(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d'))){
+        $projects2 = $filtered->filter(function ($value) {
+            if (!(($value->step == "게시" || $value->step == "미팅") && $value->deadline >= date('Y-m-d'))) {
                 return $value;
             }
         });
 
         $projects = new Collection();
-        foreach($projects1 as $p){
+        foreach ($projects1 as $p) {
             $projects->push($p);
         }
-        foreach($projects2 as $p){
+        foreach ($projects2 as $p) {
             $projects->push($p);
         }
 
@@ -248,4 +249,20 @@ class SearchController extends Controller
         $del_commnet->delete();
         return redirect()->back();
     }
+
+    public function interesting($id)
+    {
+        if (Auth::user()->PorC == "C" ||
+            Interesting::where('u_id', Auth::user()->id)->where('p_id', $id)->get()->isEmpty() != false) {
+            echo Interesting::where('u_id', Auth::user()->id)->where('p_id', $id)->get()->isEmpty();
+//            return response()->view('errors.503');
+        }
+
+        $new_inter = new Interesting();
+        $new_inter->p_id = $id;
+        $new_inter->u_id = Auth::user()->id;
+        $new_inter->save();
+        return redirect()->back();
+    }
+
 }

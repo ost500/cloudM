@@ -24,7 +24,7 @@ class MainController extends Controller
         $projects = $projects->sortByDesc('updated_at');
         $projects = $projects->forPage(1, 6);
 
-        Event::fire(new VisitorTracker($request->getClientIp()));
+        
 
 
         return view('index', compact('projects'));

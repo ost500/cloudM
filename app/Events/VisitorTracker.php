@@ -13,14 +13,16 @@ class VisitorTracker extends Event
     use SerializesModels;
 
     protected $ipAddress;
+    protected $url;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($ipAddress)
+    public function __construct($url, $ipAddress)
     {
+        $this->url = $url;
         $this->ipAddress = $ipAddress;
     }
 
@@ -31,7 +33,9 @@ class VisitorTracker extends Event
      */
     public function broadcastOn()
     {
+        Log::useDailyFiles(storage_path().'/logs/visitor_tracker.log');
 
-        return [$this->ipAddress];
+        Log::info($this->url."\n".$this->ipAddress);
+
     }
 }
