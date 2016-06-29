@@ -2,23 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Notification;
-use Illuminate\Http\Request;
 
+use App\Notification;
+
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Project;
 use Illuminate\Support\Facades\DB;
+use App\Events\VisitorTracker;
+use Illuminate\Support\Facades\Event;
+
 
 class MainController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $projects = new Project();
 
         $projects = $projects->where('step', '!=', '검수')->get();
         $projects = $projects->sortByDesc('updated_at');
         $projects = $projects->forPage(1, 6);
+
+        Event::fire(new VisitorTracker($request->getClientIp()));
+
+
         return view('index', compact('projects'));
     }
 
