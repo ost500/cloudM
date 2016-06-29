@@ -31,6 +31,7 @@ return array(
     'CreateApplicationsTable' => $baseDir . '/database/migrations/2016_05_16_093652_create_applications_table.php',
     'CreateClientsTable' => $baseDir . '/database/migrations/2016_04_28_060814_create_clients_table.php',
     'CreateContractsTable' => $baseDir . '/database/migrations/2016_05_17_083534_create_contracts_table.php',
+    'CreateInterestingsTable' => $baseDir . '/database/migrations/2016_06_28_170338_create_interestings_table.php',
     'CreateNotificationsTable' => $baseDir . '/database/migrations/2016_05_10_062713_create_notifications_table.php',
     'CreatePartnersJobsTable' => $baseDir . '/database/migrations/2016_05_25_085042_create_partners_jobs_table.php',
     'CreatePartnersTable' => $baseDir . '/database/migrations/2016_04_28_044149_create_partners_table.php',

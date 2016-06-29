@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="job-sider-bar02">
-                            <h5 class="side-tittle">파트너스 히스토리</h5>
+                            <h5 class="side-tittle">세부 메뉴</h5>
                             <table class="history_table">
                                 <tbody>
                                 <tr>
@@ -47,6 +47,10 @@
                                 <tr>
                                     <th><a href="{{ url('/my_apply_finished') }}">지원 종료 프로젝트</a></th>
                                     <td>{{ count($app_finished) }}건</td>
+                                </tr>
+                                <tr>
+                                    <th><a href="{{ url('/my_interesting') }}">관심 프로젝트</a></th>
+                                    <td>{{ count($interesting) }}건</td>
                                 </tr>
                                 </tbody>
                             </table>

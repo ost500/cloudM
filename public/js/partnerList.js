@@ -49,7 +49,7 @@ function pageLoad() {
     // startpage 계산
     var page_results = $("#pagination");
     $.ajax({
-        url: "p_search/pagination/" + currentpageStartnum + "/" + currentpageEndnum,
+        url: "project/pagination/" + currentpageStartnum + "/" + currentpageEndnum,
         success: function (result) {
             page_results.html(result);
         },

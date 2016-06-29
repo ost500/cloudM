@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Application;
 use App\Contract;
+use App\Interesting;
 use App\Project;
 use Auth;
 use Illuminate\Database\Eloquent\Collection;
@@ -126,6 +127,8 @@ class ProcessController extends Controller
         $loginUser = Auth::user();
         // 지원한 프로젝트
 
+        $interesting = Interesting::where('u_id', Auth::user()->id)->get();
+
         $appList = Application::where('u_id', '=', Auth::user()->id)->get();
         $app = new Collection();
         $app_finished = new Collection();
@@ -134,8 +137,7 @@ class ProcessController extends Controller
                 ($appList[$i]->choice == "광고주 검수중" || $appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
             ) {
                 $app[] = $appList[$i];
-            }
-            else{
+            } else {
                 $app_finished[] = $appList[$i];
             }
         }
@@ -144,13 +146,21 @@ class ProcessController extends Controller
         $app_finished = $app_finished->sortBy('created_at');
 
 
-        return view('mypage.projects_process_partner.apply', compact('loginUser', 'app', 'app_finished'));
+        return view('mypage.projects_process_partner.apply', compact('loginUser', 'app', 'app_finished','interesting'));
     }
 
-    public function apply_finished_partner()
+    public function interesting_partner()
     {
         $loginUser = Auth::user();
-        // 지원한 프로젝트
+        //진행 중인 프로젝트
+
+        $interestingList = Interesting::where('u_id', Auth::user()->id)->get();
+
+        $interesting = new Collection();
+
+        foreach($interestingList as $item){
+            $interesting->push($item->project);
+        }
 
         $appList = Application::where('u_id', '=', Auth::user()->id)->get();
         $app = array();
@@ -160,8 +170,33 @@ class ProcessController extends Controller
                 ($appList[$i]->choice == "광고주 검수중" || $appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
             ) {
                 $app_finished[] = $appList[$i];
+            } else {
+                $app[] = $appList[$i];
             }
-            else{
+        }
+
+        $interesting = $interesting->sortByDesc('created_at');
+
+
+        return view('mypage.projects_process_partner.interesting', compact('loginUser','app','app_finished','interesting'));
+    }
+
+    public function apply_finished_partner()
+    {
+        $loginUser = Auth::user();
+        // 지원한 프로젝트
+
+        $interesting = Interesting::where('u_id', Auth::user()->id)->get();
+
+        $appList = Application::where('u_id', '=', Auth::user()->id)->get();
+        $app = new Collection();
+        $app_finished = new Collection();
+        for ($i = 0; $i < $appList->count(); $i++) {
+            if ($appList[$i]->project->deadline <= date('Y-m-d') &&
+                ($appList[$i]->choice == "광고주 검수중" || $appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
+            ) {
+                $app_finished[] = $appList[$i];
+            } else {
                 $app[] = $appList[$i];
             }
         }
@@ -169,7 +204,7 @@ class ProcessController extends Controller
         $app = $app->sortByDesc('created_at');
         $app_finished = $app_finished->sortBy('created_at');
 
-        return view('mypage.projects_process_partner.apply_finished', compact('loginUser', 'app', 'app_finished'));
+        return view('mypage.projects_process_partner.apply_finished', compact('loginUser', 'app', 'app_finished','interesting'));
     }
 
     public function carry_on_partner()
@@ -191,7 +226,7 @@ class ProcessController extends Controller
 
             }
         }
-        
+
         $carryon = $carryon->sortByDesc('created_at');
 
         return view('mypage.projects_process_partner.carry_on', compact('loginUser', 'carryon'));

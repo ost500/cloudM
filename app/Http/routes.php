@@ -35,6 +35,9 @@ Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 //프로젝트 상세화면
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
+//관심 프로젝트
+Route::post('/detail/{id}/interesting','SearchController@interesting')
+    ->where(['id' => '[0-9]+']);
 
 
 // 댓글
@@ -153,6 +156,7 @@ Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
     ->where(['id' => '[0-9]+']);
 
 
+
 //내 프로젝트 단계별
 //검수중 프로젝트
 Route::get('/my_checking', 'ProcessController@checking_client');
@@ -168,11 +172,17 @@ Route::get('/my_carry_on', 'ProcessController@carry_on_client');
 Route::get('/my_done', 'ProcessController@done_client');
 //취소한 프로젝트
 Route::get('/my_cancel', 'ProcessController@cancel_client');
+
 //지원 프로젝트
 Route::get('/my_apply', 'ProcessController@apply_partner');
+//관심 프로젝트
+Route::get('/my_interesting','ProcessController@interesting_partner');
+
 //지원 종료 프로젝트
 Route::get('/my_apply_finished', 'ProcessController@apply_finished_partner');
+
 //진행 중 프로젝트
 Route::get('/my_carry_on_p', 'ProcessController@carry_on_partner');
+
 //완료된 프로젝트
 Route::get('/my_done_p', 'ProcessController@done_partner');

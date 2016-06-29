@@ -41,4 +41,8 @@ class Project extends Model
     {
         return $this->hasMany('App\projectsFile', 'p_id', 'id');
     }
+    public function interesting()
+    {
+        return $this->hasMany('App\Interesting', 'p_id', 'id');
+    }
 }
