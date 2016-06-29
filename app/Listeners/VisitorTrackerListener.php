@@ -8,8 +8,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Log;
 
-class VisitorTrackerListener
+class VisitorTrackerListener implements ShouldQueue
 {
+    use InteractsWithQueue;
     /**
      * Create the event listener.
      *
@@ -28,6 +29,7 @@ class VisitorTrackerListener
      */
     public function handle(VisitorTracker $event)
     {
-        Log::info($event->broadcastOn());
+
+        $event->broadcastOn();
     }
 }

@@ -335,6 +335,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'CreateApplicationsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_16_093652_create_applications_table.php',
         'CreateClientsTable' => __DIR__ . '/../..' . '/database/migrations/2016_04_28_060814_create_clients_table.php',
         'CreateContractsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_17_083534_create_contracts_table.php',
+        'CreateInterestingsTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_28_170338_create_interestings_table.php',
         'CreateNotificationsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_10_062713_create_notifications_table.php',
         'CreatePartnersJobsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_25_085042_create_partners_jobs_table.php',
         'CreatePartnersTable' => __DIR__ . '/../..' . '/database/migrations/2016_04_28_044149_create_partners_table.php',
