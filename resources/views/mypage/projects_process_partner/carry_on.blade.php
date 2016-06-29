@@ -6,16 +6,6 @@
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
-
-                <!--
-                        <div class="heading text-left margin-bottom-20">
-                          <h4>프로젝트 검색</h4>
-                        </div>
-                        <div class="coupen">
-                          <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
-                        </div>
-                -->
-
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
@@ -63,76 +53,152 @@
 
                         <!-- Job Content -->
                         <div id="accordion">
-
                             <!-- Job Section -->
-                            <div class="job-content job-post-page">
-                                <!-- Job Tittle -->
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <!-- Save -->
-                                        <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                                        <!-- PANEL HEADING -->
-                                        <div class="panel-heading">
-                                            <div class="job-tittle03 margin-bottom-10">
-                                                <h6 class="my_h6 margin-bottom-10 margin-top-20">진행 중인 프로젝트</h6>
-                                                <div class="panel02 panel-default02">
+                            @if(sizeof($carryon) == 0)
+                                <td colspan="7">지원한 프로젝트가 없습니다</td>
+                            @endif
+                            @foreach($carryon as $carryonItem)
+                                <div class="job-content job-post-page margin-bottom-10">
+                                    <div class="form-group">
+                                        <div class="panel">
+                                            <div class="margin-bottom-10">
+                                                <div class="panel02 panel-default02 margin-bottom-30">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
-                                                        <col style="width:16.6%;"/>
+                                                        <col style="width:60%;"/>
+                                                        <col style="width:15%;"/>
+                                                        <col style="width:15%;"/>
+                                                        <col style="width:10%;"/>
                                                         <tr>
-                                                            <th>프로젝트 제목</th>
-                                                            <th>클라이언트</th>
-                                                            <th>비용</th>
-                                                            <th>마감일자</th>
+                                                            <th>프로젝트명</th>
+                                                            <th>지원일자</th>
+                                                            <th>지원서류</th>
                                                             <th>상태</th>
-
                                                         </tr>
-                                                        @if(sizeof($carryon) == 0)
-                                                            <td colspan="5">진행 중인 프로젝트가 없습니다</td>
-                                                        @endif
-                                                        @foreach($carryon as $carryonItem)
+
+
+                                                        <tr>
+                                                            <td class="text-left"><a href="{{ url("detail/".$carryonItem->id) }}">{{ $carryonItem->title }}</a></td>
+                                                            <td>{{ substr($carryonItem->created_at, 0, 10) }}</td>
+                                                            <td>
+                                                                @if($carryonItem->app->file_name != "")
+                                                                    <a href='/apply/application_attach/{{$carryonItem->app->id}}'>저장</a>
+                                                                @else
+                                                                    <button type="button" class="btn btn-danger btn-xs"
+                                                                            data-toggle="modal" data-target="#fileModal"
+                                                                            data-app_id="{{$carryonItem->app->id}}">등록
+                                                                    </button>
+                                                                @endif
+                                                            </td>
+                                                            <td>{{ $carryonItem->step }}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+
+
+
+
+                                                <h6 class="my_h6">클라이언트 정보</h6>
+                                                <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+
+
+                                                        <tr>
+                                                            <th>업체명</th>
+                                                            <th>담당자</th>
+                                                            <th>연락처</th>
+                                                            <th>이메일</th>
+                                                            <th>작업가이드</th>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <td>{{ $carryonItem->client->name }}</td>
+                                                            <td>{{ $carryonItem->charger_name }}</td>
+                                                            <td>{{ $carryonItem->charger_phone }}</td>
+                                                            <td>{{ $carryonItem->deadline }}</td>
+                                                            <td>
+                                                                @if($carryonItem->file_name != "")
+                                                                    <a href='/apply/application_attach/{{$carryonItem->app->id}}'>저장</a>
+                                                                @else
+                                                                    없음
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+
+
+                                                <h6 class="my_h6">계약 정보</h6>
+                                                <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+                                                        <col style="width:20%;"/>
+
+                                                        <tr>
+                                                            <th>계약일</th>
+                                                            <th>계약금액</th>
+                                                            <th>결제여부</th>
+                                                            <th>결제일</th>
+                                                            <th>대금지급형태</th>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <td>{{ $carryonItem->contract->contract_date }}</td>
+                                                            <td></td>
+                                                            <td>{{ ($carryonItem->contract->charge_check)?"결제완료":"결제전" }}</td>
+                                                            <td>{{ $carryonItem->contract->charge_date}}</td>
+                                                            <td>{{ $carryonItem->contract->charge_type}}</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+
+                                                <h6 class="my_h6">계약 매체</h6>
+                                                <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
+                                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                                        <col style="width:30%;"/>
+                                                        <col style="width:35%;"/>
+                                                        <col style="width:35%;"/>
+
+                                                        <tr>
+                                                            <th>매체명</th>
+                                                            <th>계약금액</th>
+                                                            <th>수수료</th>
+                                                        </tr>
+
+                                                        @foreach($carryonItem->projects_area as $areas)
 
                                                             <tr>
-                                                                <td><a
-                                                                            href="{{url("/detail/".$carryonItem->id)}}">{{ $carryonItem->title }}</a>
-                                                                </td>
-                                                                <td>{{ $carryonItem->client->name }}</td>
-                                                                <td>{{ number_format($carryonItem->budget) }}</td>
-                                                                <td>{{ $carryonItem->deadline }}</td>
-                                                                <td>{{ $carryonItem->step }}</td>
+                                                                <td>{{ $areas->area }}</td>
+                                                                <td>{{ number_format($areas->price) }}원</td>
+                                                                <td>{{ $areas->commission }}%</td>
                                                             </tr>
-
                                                         @endforeach
+
                                                     </table>
-
-
                                                 </div>
-
-
-
 
                                             </div>
-                                            <!-- Content -->
-                                            <!--<div id="job1" class="panel-collapse collapse in">
-                                              <div class="panel-body">
-                                                <p> [프로젝트 진행 방식] 시작시점에 미팅, 주 1회 미팅 등 [프로젝트의 현재 상황] 리뉴얼 기획 제안서만 있음 [상세한 업무 내용] 반응형 웹 제작 [참고자료 / 유의사항] http://www.skhynix.com/kor/index.jsp 와 같은 톤앤매너 구상</p>
-
-
-                                                </div>
-                                              </div>-->
-
-
                                         </div>
+
                                     </div>
                                 </div>
-                            </div>
-
-
+                            @endforeach
                         </div>
+                        
+
+
                     </div>
                 </div>
             </div>

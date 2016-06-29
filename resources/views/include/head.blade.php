@@ -92,8 +92,8 @@
                 <div class="container">
 
                     <!-- LOGO -->
-                    <div class="logo"><a href="{{ url("/") }}"><img class="img-responsive"
-                                                                    src="{{ URL::asset('images/logo02.png') }}"></a>
+                    <div class="logo" style="top:12px;"><a href="{{ url("/") }}"><img class="img-responsive"
+                                                                    src="{{ URL::asset('images/logo02.png') }}" width="124"></a>
                     </div>
 
                     <!-- Nav -->

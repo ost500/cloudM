@@ -108,6 +108,7 @@ $colspan = 16;
 				<th scope="col" id="project_list_mobile">완료</th>
                 <th scope="col" id="project_list_name">제안서</th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>지원일</a></th>
+                <th scope="col" id="project_list_name">계약처리</th>
             </tr>
             </thead>
             <tbody>
@@ -115,11 +116,10 @@ $colspan = 16;
             for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 				$sql = "select count(*) as cnt
-						from {$g5['contract_table']}
-						where u_id = '$row[user_id]'
-						where step = '지원'";
+						from {$g5['application_table']}
+						where u_id = '$row[user_id]'";
 				$step1 = sql_fetch($sql);
-				
+
 				$sql = "select count(*) as cnt
 						from {$g5['contract_table']}
 						where u_id = '$row[user_id]'
@@ -131,13 +131,6 @@ $colspan = 16;
 						where u_id = '$row[user_id]'
 						where step = '대금지급'";
 				$step3 = sql_fetch($sql);
-
-
-                $sql = "select *
-                        from {$g5['file_table']}
-                        where p_id = '$p_id' and
-                          u_id = '$row[u_id]'";
-                $files = sql_fetch($sql);
             ?>
 
                 <tr class="<?php echo $bg; ?>">
@@ -162,13 +155,18 @@ $colspan = 16;
 					<td class="td_40"><?=number_format($step2['cnt']);?></td>
 					<td class="td_40"><?=number_format($step3['cnt']);?></td>
                     <td class="td_date bts">
-                        <? if ($files['file_name']) { ?>
-                            <a href="download.php?p_id=<?=$row['p_id']?>&f_id=0"><?=$files['source_name']?></a>
+                        <? if ($row['file_name']) { ?>
+                            <a href="download.php?id=<?=$row['id']?>"><?=$row['origin_name']?></a>
                         <? } ?>
 
                         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">관리</button>
                     </td>
                     <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
+                    <td class="td_40 bts">
+                        <?php if ($row['choice']=="미팅") {?>
+                        <button type="button" class="btn btn-danger btn-xs" onclick="set_setp('<?=$row[u_id]?>');">계약</button>
+                        <?php } ?>
+                    </td>
                 </tr>
 
                 <?php
@@ -188,7 +186,12 @@ $colspan = 16;
 </form>
 
 
-
+<form name="fapp" method="post">
+    <input type="hidden" name="act_button" value="계약">
+    <input type="hidden" name="p_id" value="<?=$_GET['p_id']?>">
+    <input type="hidden" name="u_id">
+    <input type="hidden" name="chk[]">
+</form>
 
 <?php echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, '?'.$qstr.'&amp;page='); ?>
 
@@ -208,6 +211,14 @@ $colspan = 16;
         }
 
         return true;
+    }
+
+    function set_setp(u_id) {
+        var f = document.fapp;
+
+        f.u_id.value = u_id;
+        f.action = "applications_list_update.php";
+        f.submit();
     }
 </script>
 

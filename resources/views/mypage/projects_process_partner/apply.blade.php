@@ -96,12 +96,14 @@
                                                     <col style="width:12.5%;"/>
                                                     <col style="width:12.5%;"/>
                                                     <col style="width:12.5%;"/>
+                                                    <col style="width:12.5%;"/>
                                                     <col style="width:7%;"/>
                                                     <col style="width:10%;"/>
                                                     <tr>
                                                         <th>월예산</th>
                                                         <th>기간</th>
-                                                        <th>마감</th>
+                                                        <th>마감일자</th>
+                                                        <th>지원일자</th>
                                                         <th>서류</th>
                                                         <th>지원 상태</th>
                                                     </tr>
@@ -112,6 +114,7 @@
                                                         <td>{{ number_format($appItem->project->budget) }}</td>
                                                         <td>{{ $appItem->project->estimated_duration }}</td>
                                                         <td>{{ $appItem->project->deadline }}</td>
+                                                        <td>{{ substr($appItem->project->created_at, 0, 10) }}</td>
                                                         <td>
                                                             @if($appItem->file_name != "")
                                                                 <a href='/apply/application_attach/{{$appItem->id}}'>저장</a>

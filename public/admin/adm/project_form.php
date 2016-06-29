@@ -4,6 +4,9 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'w');
 
+$id = $_GET['id'];
+
+
 if ($w == '')
 {
     $required_mb_id = 'required';
@@ -18,9 +21,10 @@ if ($w == '')
 }
 else if ($w == 'u')
 {
-    $sql = "select *
-			from {$g5['project_table']}
-			where id = '$id' ";
+    $sql = "select *, a.id as p_id, b.id as c_id
+			from {$g5['project_table']} as a, {$g5['contract_table']} as b
+			where a.id = '$id' and
+				a.id = b.p_id";
     $project = sql_fetch($sql);
 
 
@@ -72,84 +76,109 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
         <col>
     </colgroup>
     <tbody>
-	
-    <tr>
-        <th scope="row"><label for="title">프로젝트명<?php echo $sound_only ?></label></th>
-        <td colspan="3"><input type="text" name="title" value="<?php echo $project['title'] ?>" id="project_name" class="frm_input" style="width:90%;">
-        </td>
-    </tr>
-    <tr>
-        <th scope="row"><label for="name">담당자<?php echo $sound_only ?></label></th>
-        <td>
-            <input type="text" name="charger_name" value="<?php echo $project['charger_name'] ?>" id="name" required class="frm_input required" size="60" minlength="3" maxlength="20">
-        </td>
-        <th scope="row"><label for="phone">연락처<?php echo $sound_only ?></label></th>
-        <td><input type="text" name="charger_phone" value="<?php echo $project['charger_phone'] ?>" id="phone" required class="frm_input required" size="60" maxlength="20"></td>
-    </tr>
-    <tr>
-        <th scope="row"><label for="company_type">회사형태<strong class="sound_only">필수</strong></label></th>
-        <td colspan="3">
-		<select name="company_type" id="company_type" required class="required frm_input">
-				<option value="">선택</option>
-				<option value="개인" selected="">개인</option>
-				<option value="팀">팀</option>
-				<option value="개인 사업자">개인 사업자</option>
-				<option value="법인 사업자">법인 사업자</option>
-				<option value="기타">기타</option>
-			</select>
-		</td>
-    </tr>
+
 	<tr>
-        <th scope="row"><label for="mb_signature">광고주소개</label></th>
-        <td colspan="3"><textarea  name="mb_signature" id="mb_signature"><?php echo $project['mb_signature'] ?></textarea></td>
-    </tr>
-	<!--tr>
-		<th scope="row"><label for="area">분야<strong class="sound_only">필수</strong></label></th>
-		<td colspan="3">
-			<select name="area" id="area" required class="required frm_input">
-				<option value="">선택</option>
-				<option value="광고 의뢰">광고 의뢰</option>
-				<option value="운영 대행">운영 대행</option>
-				<option value="Viral">바이럴</option>
-				<option value="1회성 프로젝트">1회성 프로젝트</option>
-				<option value="기타">기타</option>
-			</select>
+		<td width="50%" colspan="2">
+			<p style="font-size: 18px; font-weight: bold;">업체관리</p>
+			<table width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<th scope="row"><label for="title">프로젝트명<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="title" value="<?php echo $project['title'] ?>" id="project_name" class="frm_input" style="width:90%;">
+					</td>
+				</tr>
 
+				<tr>
+					<th scope="row"><label for="name">담당자<?php echo $sound_only ?></label></th>
+					<td>
+						<input type="text" name="charger_name" value="<?php echo $project['charger_name'] ?>" id="name" required class="frm_input required" style="width:90%;" minlength="3" maxlength="20">
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="phone">연락처<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="charger_phone" value="<?php echo $project['charger_phone'] ?>" id="phone" required class="frm_input required" style="width:90%;" maxlength="20"></td>
+				</tr>
 
-			<select name="area_multi[]" multiple="multiple" id="filter" class="multiselect" style="display: none;">
-				<optgroup label="광고 의뢰">
-					<option value="네이버CPC">네이버CPC</option>
-					<option value="구글광고">구글광고</option>
-					<option value="페이스북 스폰서광고">페이스북 스폰서광고</option>
-					<option value="기타">기타</option>
-				</optgroup>
-				<optgroup label="바이럴">
-					<option value="네이버SEO">네이버SEO</option>
-					<option value="언론보도">언론보도</option>
-					<option value="컨텐츠배포">컨텐츠배포</option>
-					<option value="체험단모집">체험단모집</option>
-				</optgroup>
-				<optgroup label="운영대행">
-					<option value="블로그">블로그</option>
-					<option value="페이스북페이지">페이스북페이지</option>
-					<option value="기타SNS">기타SNS</option>
-					<option value="홈페이지">홈페이지</option>
-				</optgroup>
-				<optgroup label="1회성 프로젝트">
-					<option value="개발">개발</option>
-					<option value="디자인">디자인</option>
-					<option value="웹툰">웹툰</option>
-					<option value="영상">영상</option>
-				</optgroup>
-			</select>
-
-
-
-
+				<tr>
+					<th scope="row"><label for="company_type">회사형태<strong class="sound_only">필수</strong></label></th>
+					<td>
+						<select name="company_type" id="company_type" required class="required frm_input">
+							<option value="">선택</option>
+							<option value="개인" selected="">개인</option>
+							<option value="팀">팀</option>
+							<option value="개인 사업자">개인 사업자</option>
+							<option value="법인 사업자">법인 사업자</option>
+							<option value="기타">기타</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="mb_signature">광고주소개</label></th>
+					<td><textarea  name="mb_signature" id="mb_signature"><?php echo $project['mb_signature'] ?></textarea></td>
+				</tr>
+			</table>
 		</td>
-	</tr-->
+		<td width="50%" width="50%" colspan="2" valign="top">
+			<p style="font-size: 18px; font-weight: bold;">계약관리</p>
+			<table width="100%" cellpadding="0" cellspacing="0">
+				<tr>
+					<th scope="row"><label for="title">계약일<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="contract_date" value="<?php echo $project['contract_date'] ?>" id="contract_date" class="frm_input" style="width:20%;">
+					</td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="name">계약금액<?php echo $sound_only ?></label></th>
+					<td>
+						<input type="text" name="charge_pay" value="<?php echo $project['charge_pay'] ?>" id="charge_pay" class="frm_input" style="width:20%;" minlength="3" maxlength="20">
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="phone">결제여부<?php echo $sound_only ?></label></th>
+					<td>
+						<select name="charge_check" id="charge_check" class="frm_input">
+							<option value="">선택</option>
+							<option value="1">결제</option>
+							<option value="0">결제전</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="phone">결제일<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="charge_date" value="<?php echo $project['charge_date'] ?>" id="charge_date" class="frm_input" style="width:20%;" maxlength="20"></td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="phone">입금형태<?php echo $sound_only ?></label></th>
+					<td>
+						<select name="charge_type" id="charge_type" class="frm_input">
+							<option value="">선택</option>
+							<option value="선불">선불</option>
+							<option value="후불">후불</option>
+							<option value="분납">분납</option>
+						</select>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="phone">지급형태<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="type_pay" value="<?php echo $project['type_pay'] ?>" id="type_pay" class="frm_input" style="width:20%;" maxlength="20"></td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="phone">시작일<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="start_work_date" value="<?php echo $project['start_work_date'] ?>" id="start_work_date" class="frm_input" style="width:20%;" maxlength="20"></td>
+				</tr>
+
+				<tr>
+					<th scope="row"><label for="phone">종료일<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="finish_work_date" value="<?php echo $project['finish_work_date'] ?>" id="finish_work_date" class="frm_input" style="width:20%;" maxlength="20"></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
     <tr>
-        <th scope="row"><label for="area">분야<strong class="sound_only">필수</strong></label></th>
+        <th scope="row"><label for="area">매체<strong class="sound_only">필수</strong></label></th>
         <td colspan="3">
 			<div class="bts">
 				<div class="container-fluid pull-left">
@@ -170,29 +199,32 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 								<div class="col-xs-3" style="padding-left:0px;">
 									<select id="optgroups" name="area" class="frm_input">
 										<option value="">매체 선택</option>
-										<optgroup label="광고 의뢰">
+										<optgroup label="매체 광고">
 											<option value="네이버CPC">네이버CPC</option>
+											<option value="언론보도">언론보도</option>
 											<option value="구글광고">구글광고</option>
-											<option value="페이스북 스폰서광고">페이스북 스폰서광고</option>
-											<option value="기타">기타</option>
+											<option value="페이스북광고">페이스북광고</option>
+											<option value="매체 기타">매체 기타</option>
 										</optgroup>
 										<optgroup label="바이럴">
 											<option value="네이버SEO">네이버SEO</option>
-											<option value="언론보도">언론보도</option>
 											<option value="컨텐츠배포">컨텐츠배포</option>
 											<option value="체험단모집">체험단모집</option>
+											<option value="바이럴 기타">바이럴 기타</option>
 										</optgroup>
 										<optgroup label="운영대행">
 											<option value="블로그">블로그</option>
 											<option value="페이스북페이지">페이스북페이지</option>
 											<option value="기타SNS">기타SNS</option>
 											<option value="홈페이지">홈페이지</option>
+											<option value="운영대행 기타">운영대행 기타</option>
 										</optgroup>
 										<optgroup label="1회성 프로젝트">
 											<option value="개발">개발</option>
 											<option value="디자인">디자인</option>
 											<option value="웹툰">웹툰</option>
 											<option value="영상">영상</option>
+											<option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
 										</optgroup>
 									</select>
 								</div>
@@ -328,8 +360,9 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 <script type="text/javascript">
 $(function(){
-    $("#deadline").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+365d" });
-	
+    $("#deadline", "#contract_date", "#charge_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+365d" });
+	$("#start_work_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+365d" });
+	$("#finish_work_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+365d" });
 	$("#expected_start_date").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", maxDate: "+365d" });
 });
 </script>
@@ -343,6 +376,8 @@ $(function(){
 	$("#address_sido").val("<?=$project[address_sido]?>");
 	$("#managing_experience").val("<?=$project[managing_experience]?>");
 	$("#reason").val("<?=$project[reason]?>");
+	$("#charge_type").val("<?=$project[charge_type]?>");
+	$("#charge_check").val("<?=$project[charge_check]?>");
 });
 </script>
 

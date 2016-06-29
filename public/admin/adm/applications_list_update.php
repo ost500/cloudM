@@ -47,6 +47,22 @@ if ($_POST['act_button'] == "선택수정") {
                         applications_cnt = '{$row['cnt']}'
                     where id = '{$_POST['p_id']}'";
     sql_query($sql);
+}  else if ($_POST['act_button'] == "계약") {
+
+    $sql = "update {$g5['project_table']}
+            set
+                step = '계약'
+            where id = '{$_POST['p_id']}'";
+    sql_query($sql);
+
+    $sql = "insert into {$g5['contract_table']}
+              SET
+              created_at  = now(),
+              updated_at  = now(),
+              u_id        = '{$_POST['u_id']}',
+              p_id        = '{$_POST['p_id']}',
+              step        = '계약'";
+    sql_query($sql);
 }
 
 if ($msg)
