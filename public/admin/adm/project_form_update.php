@@ -14,7 +14,7 @@ check_admin_token();
 $id = trim($_POST['id']);
 
 
-$sql_common = " charger_name			= '{$_POST['charger_name']}',
+$sql_common = "  charger_name			= '{$_POST['charger_name']}',
                 charger_phone			= '{$_POST['charger_phone']}',
                 area					= '{$_POST['area']}',
                 category				= '{$_POST['category']}',
@@ -25,10 +25,10 @@ $sql_common = " charger_name			= '{$_POST['charger_name']}',
                 meeting_way			    = '{$_POST['meeting_way']}',
                 address_sido			= '{$_POST['address_sido']}',
                 detail_content			= '{$_POST['detail_content']}',
-				deadline				= '{$_POST['deadline']}',
-				reason					= '{$_POST['reason']}',
-				purpose				    = '{$_POST['purpose']}',
-				estimated_duration		= '{$_POST['estimated_duration']}' ";
+                deadline				= '{$_POST['deadline']}',
+                reason					= '{$_POST['reason']}',
+                purpose				    = '{$_POST['purpose']}',
+                estimated_duration		= '{$_POST['estimated_duration']}' ";
 
 if ($w == '')
 {
@@ -67,6 +67,19 @@ else if ($w == 'u')
 				updated_at = now(), 
 				{$sql_common}
             where id = '{$id}' ";
+    sql_query($sql);
+
+
+    $sql = "update {$g5['contract_table']}
+            set
+                charge_check      = '{$_POST['charge_check']}',
+                charge_date       = '{$_POST['charge_date']}',
+                charge_type       = '{$_POST['charge_type']}',
+                contract_date     = '{$_POST['contract_date']}',
+                start_work_date   = '{$_POST['start_work_date']}',
+                finish_work_date  = '{$_POST['finish_work_date']}',
+				updated_at        = now()
+            where p_id = '{$id}'";
     sql_query($sql);
 }
 else

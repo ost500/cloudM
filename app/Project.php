@@ -19,7 +19,7 @@ class Project extends Model
 
     public function contract()
     {
-        return $this->hasMany('App\Contract', 'p_id', 'id');
+        return $this->hasOne('App\Contract', 'p_id', 'id');
     }
 
     public function client()
