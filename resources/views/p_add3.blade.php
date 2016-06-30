@@ -52,8 +52,8 @@
                                                 <div class="margin-bottom-40 padding-bottom-40">
 
                                                     <h4 class="p_add_h4">프로젝트를 등록해주셔서 감사합니다.</h4>
-					<span class="p_add_span">크라우드엠 내부 검수 후에 지원자 모집이 시작됩니다.<br>
-					검수에는 <strong>최대 24시간</strong>이 소요되며, 크라우드엠 매니저가 정확한 검수를 위해 유선 또는 이메일 연락을 할 수 있습니다.</span>
+					<span class="p_add_span">패스트엠 내부 검수 후에 지원자 모집이 시작됩니다.<br>
+					검수에는 <strong>최대 24시간</strong>이 소요되며, 패스트엠 매니저가 정확한 검수를 위해 유선 또는 이메일 연락을 할 수 있습니다.</span>
 
                                                     <div class="margin-top-30 padding-top-30 img_f">
                                                         <img src="/images/i_icon.png">
