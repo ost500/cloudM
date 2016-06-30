@@ -84,7 +84,7 @@
                                                                     {{--</p>--}}
                                                                     <img src="/images/p_add_bannIMG.png"
                                                                          class="margin-top_-30">
-                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과
+                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>패스트엠과
                                                                         함께 하세요!</h6>
                                                                     <ul class="p_add_ul">
                                                                         <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수
@@ -234,7 +234,7 @@
                                                                     {{--<p></p>--}}
                                                                     <img src="/images/p_add_bannIMG.png"
                                                                          class="margin-top_-30">
-                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>클라우드엠과
+                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>패스트엠과
                                                                         함께 하세요!</h6>
                                                                     <ul class="p_add_ul">
                                                                         <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수

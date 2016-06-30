@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="M_Adnan">
-    <title>클라우드엠</title>
+    <title>패스트엠</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
@@ -92,8 +92,8 @@
                 <div class="container">
 
                     <!-- LOGO -->
-                    <div class="logo" style="top:12px;"><a href="{{ url("/") }}"><img class="img-responsive"
-                                                                    src="{{ URL::asset('images/logo02.png') }}" width="124"></a>
+                    <div class="logo"><a href="{{ url("/") }}"><img class="img-responsive"
+                                                                    src="{{ URL::asset('images/logo02.png') }}" width="144"></a>
                     </div>
 
                     <!-- Nav -->

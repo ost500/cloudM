@@ -13,12 +13,12 @@
 
             </div>
 
-            <h4 class="ser_s_title">크라우드엠이란?</h4>
+            <h4 class="ser_s_title">패스트엠이란?</h4>
             <br>
             <div class="row ser_group">
-                <div class="col-md-5 ser_txt"><br><strong>크라우드엠</strong>은 기업의 프로젝트와 회사&프리랜서를 이어주는 마케팅
+                <div class="col-md-5 ser_txt"><br><strong>패스트엠</strong>은 기업의 프로젝트와 회사&프리랜서를 이어주는 마케팅
                     아웃소싱 플랫폼입니다.<br>
-                    키워드/바이럴/SNS/언론/영상/디자인/홈페이지제작/콘텐츠제작 의뢰까지! 크라우드엠을 통해 높은 성과를 만들어보세요.
+                    키워드/바이럴/SNS/언론/영상/디자인/홈페이지제작/콘텐츠제작 의뢰까지! 패스트엠을 통해 높은 성과를 만들어보세요.
                 </div>
                 <div class="col-md-7">
                     <img src="/images/ser_img01.png" class="img-responsive ser_img001">
@@ -26,7 +26,7 @@
             </div>
 
 
-            <h4 class="ser_s_title">빠르고 안정적인 크라우드엠</h4>
+            <h4 class="ser_s_title">빠르고 안정적인 패스트엠</h4>
             <br>
             <br>
             <div class="ser01_group ser_group">
@@ -55,7 +55,7 @@
             </div>
 
 
-            <h4 class="ser_s_title">크라우드엠 협력업체</h4>
+            <h4 class="ser_s_title">패스트엠 협력업체</h4>
             <br>
             <br>
             <div class="ser01_group01 margin-bottom-50 row">

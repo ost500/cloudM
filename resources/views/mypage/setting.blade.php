@@ -338,7 +338,7 @@
                                                                             <div class="checkbox">
                                                                                 <input type="checkbox" name="checkbox1" id="checkbox1"
                                                                                        value="option1" checked="">
-                                                                                <label for="checkbox1">크라우드엠의 프로젝트 소식을 구독합니다.</label>
+                                                                                <label for="checkbox1">패스트엠의 프로젝트 소식을 구독합니다.</label>
                                                                             </div>
                                                                         </div>
                                                                     </div>

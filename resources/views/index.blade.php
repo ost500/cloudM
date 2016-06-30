@@ -10,7 +10,7 @@
 
 
                     <div class="mainv_cir"></div>
-                    <p class="main_banner_2">마케팅 중개 플랫폼, 클라우드엠에 오신 것을 환영합니다.</p>
+                    <p class="main_banner_2">마케팅 중개 플랫폼, 패스트엠에 오신 것을 환영합니다.</p>
                     <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다. 지금 프로젝트를 등록하세요.</p>
 
 
@@ -127,7 +127,7 @@
 
                 <!-- Heading -->
                 <div class="heading text-center">
-                    <h4>클라우드엠 프로세스</h4>
+                    <h4>패스트엠 프로세스</h4>
                 </div>
 
 
@@ -186,7 +186,7 @@
                         <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt="" width="130"> </div>
                         <div class="history-content col-lg-5 col-md-5 col-sm-5">
                           <h5 class="title">프로젝트 등록</h5>
-                          <p>현재 준비중인 광고 캠페인 및 콘텐츠 제작 프로젝트를 등록하면, 클라우드엠에 등록된 수많은 광고대행사 및 프리랜서들이 광고 캠페인 및 프로젝트를 살펴 보고, 견적서/제안서를 제출합니다.</p>
+                          <p>현재 준비중인 광고 캠페인 및 콘텐츠 제작 프로젝트를 등록하면, 패스트엠에 등록된 수많은 광고대행사 및 프리랜서들이 광고 캠페인 및 프로젝트를 살펴 보고, 견적서/제안서를 제출합니다.</p>
                         </div>
                       </div>
                     </li>
@@ -204,7 +204,7 @@
                         <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt=""> </div>
                         <div class="history-content col-lg-5 col-md-5 col-sm-5">
                           <h5 class="title">선택 미팅 및 계약</h5>
-                          <p>마음에 드는 지원자를 선택하여 주시면 온라인/오프라인 미팅을 주선하여 드립니다. 미팅은 2회까지 가능합니다. 미팅 후 최종 선택을 하시면 클라우드엠에서 광고대행 계약서를 작성합니다.</p>
+                          <p>마음에 드는 지원자를 선택하여 주시면 온라인/오프라인 미팅을 주선하여 드립니다. 미팅은 2회까지 가능합니다. 미팅 후 최종 선택을 하시면 패스트엠에서 광고대행 계약서를 작성합니다.</p>
                         </div>
                       </div>
                     </li>
@@ -213,7 +213,7 @@
                         <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt=""> </div>
                         <div class="history-content col-lg-5 col-md-5 col-sm-5">
                           <h5 class="title">프로젝트 진행</h5>
-                          <p>계약서 작성 후 결제를 하시면 프로젝트가 진행됩니다. 진행되는 동안 클라우드엠은 광고주와 약속한 스케쥴대로 프로젝트가 진행되고 있는지 체크하고, 프로젝트가 제대로 마무리 될 수 있도록 중재하기도 합니다.</p>
+                          <p>계약서 작성 후 결제를 하시면 프로젝트가 진행됩니다. 진행되는 동안 패스트엠은 광고주와 약속한 스케쥴대로 프로젝트가 진행되고 있는지 체크하고, 프로젝트가 제대로 마무리 될 수 있도록 중재하기도 합니다.</p>
                         </div>
                       </div>
                     </li>
@@ -289,7 +289,7 @@
                   <div class="container">
                       <!-- Heading -->
                 <div class="heading text-center">
-                    <h4 class="margin-bottom-30">광고주들이 얘기하는 클라우드엠</h4>
+                    <h4 class="margin-bottom-30">광고주들이 얘기하는 패스트엠</h4>
                 </div>
                 <!-- Blog Row -->
                 <div class="row">
@@ -324,7 +324,7 @@
                             <!-- Detail -->
                             <div class="post-detail"> <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8> <span><img src="images/m_pho03_txt.png"></span>
                                 <p>프로젝트 계약부터 대금보호, 분쟁조정, 대금지금까지<br>
-                                    클라우드엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
+                                    패스트엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
                                     프로젝트에만 집중해서 좋은 결과를 낼 수 있었습니다.</p>
                             </div>
                         </article>
