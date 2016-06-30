@@ -144,7 +144,7 @@
                                                                 <option>온라인 미팅 (카카오톡, skype, 행아웃 등)</option>
                                                             </select>
                                                         </label><br/><span class="gry">사전 미팅 방식을 선택해주세요.<br/>
-                                                        마음에 드는 지원자와의 미팅을 크라우드엠에서 주선해드립니다.</span><br/><br/>
+                                                        마음에 드는 지원자와의 미팅을 패스트엠에서 주선해드립니다.</span><br/><br/>
                                                         <label for="ca004">사전 미팅 지역<span class="set_st">*</span><br/>
                                                             <select name="ca004" class="form-control03"
                                                                     id="form_of_birth01">

@@ -11,7 +11,7 @@
 
             <!-- coupen -->
             <div class="coupen">
-                <p> 마케팅 아웃소싱 플랫폼 <span>Crowd m 이용방법</span>을 안내해드립니다.</p>
+                <p> 마케팅 중개 플랫폼 <span>패스트엠 이용방법</span>을 안내해드립니다.</p>
             </div>
 
             <div class="row">
