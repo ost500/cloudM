@@ -47,6 +47,36 @@ class MypagePostController extends Controller
         return redirect()->action('MypageController@setting');
     }
 
+    public function setProfileAuthimg(Request $request)
+    {
+        if ($request->hasFile('auth_image')) {
+
+            $validator = Validator::make(
+                ['auth_image' => $request->file('auth_image')],
+                ['auth_image' => ['image', 'max:500']]
+            );
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator->errors());
+            }
+
+
+            $file = $request->file('auth_image');
+            $tmpFilePath = '/files/auth_image/';
+            $tmpFileName = Auth::user()->id.".".$file->getClientOriginalExtension();
+//            $ext = $file->guessExtension();
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+
+            $path = $tmpFilePath . $tmpFileName;
+            $user = Auth::user();
+            $user->auth_image = $path;
+            $user->auth_check = "인증요청";
+            $user->save();
+        }
+
+
+        return redirect()->action('MypageController@setting');
+    }
+
     public function set_profile_info(Request $request)
     {
         $validator = Validator::make(

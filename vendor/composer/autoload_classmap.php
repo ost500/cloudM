@@ -22,6 +22,7 @@ return array(
     'AddProjectsColumns' => $baseDir . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
     'AddProjectsDetail' => $baseDir . '/database/migrations/2016_05_30_064654_add_projects_detail.php',
     'AddProjectsStepItem' => $baseDir . '/database/migrations/2016_06_27_111325_add_projects_step_item.php',
+    'AddUsersAuth' => $baseDir . '/database/migrations/2016_07_01_132415_add_users_auth.php',
     'AddUsersColumns' => $baseDir . '/database/migrations/2016_06_10_013459_add_users_columns.php',
     'AddUsersLevel' => $baseDir . '/database/migrations/2016_06_13_020515_add_users_level.php',
     'AddUsersPhonenum' => $baseDir . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',
