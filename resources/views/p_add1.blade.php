@@ -462,10 +462,19 @@
                                                                                            type="file"
                                                                                            name="project_attach"
                                                                                            id="project_attach"/>
+                                                                                    <span
+                                                                                            id="project_attach-error"
+                                                                                            class="help-block valid"
+                                                                                            style="display: none;"></span>
 
                                                                                 </div>
                                                                             </div>
+                                                                            <p class="text-small">
+                                                                                <a href="javascript:void(0)"
+                                                                                   data-original-title="" title="">zip 파일만 등록 가능</a>
+                                                                            </p>
                                                                         </div>
+
                                                                     </div>
                                                                     <div class="row padding-top-15">
                                                                         <div class="col-md-6">
@@ -812,7 +821,7 @@
     <script src="/js/form_wizard_main.js"></script>
     <!-- end: Packet JAVASCRIPTS -->
     <script src="/js/form_wizard.js"></script>
-
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
 
 
 

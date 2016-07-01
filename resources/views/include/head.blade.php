@@ -196,8 +196,8 @@
                     </div>
 
                     <div class="text-left">
-                        <a href="login_forgot.html"> 비밀번호를 잃어버리셨나요? </a><br>
-                        <a href="login_registration.html"> 간단 회원가입하기 </a>
+                        <a href="{{ url('/password/reset') }}"> 비밀번호를 잃어버리셨나요? </a><br>
+                        <a style = "cursor : pointer" data-toggle="modal" data-target="#signinModal"> 간단 회원가입하기 </a>
                     </div>
 
                     <div class="form-actions">

@@ -68,6 +68,8 @@ var FormWizard = function () {
                     required: true
                 }, reason: {
                     required: true
+                }, project_attach: {
+                    extension: "zip"
                 }
 
                 // email: {
@@ -99,7 +101,8 @@ var FormWizard = function () {
                 expecting_start: "입력해 주세요",
                 pre_meeting: "선택해 주세요",
                 experience: "선택해 주세요",
-                reason: "선택해 주세요"
+                reason: "선택해 주세요",
+                project_attach: "이미지 파일을 확인해 주세요"
             },
             highlight: function (element) {
                 $(element).closest('.help-block').removeClass('valid');
@@ -116,6 +119,9 @@ var FormWizard = function () {
                 // mark the current input as valid and display OK icon
                 $(element).closest('.form-group').removeClass('has-error').addClass('has-success').find('.symbol').removeClass('required').addClass('ok');
             }
+        });
+        jQuery.extend(jQuery.validator.messages, {
+            extension: "이미지 파일을 확인해 주세요"
         });
     };
     var displayConfirm = function () {
@@ -163,7 +169,7 @@ var FormWizard = function () {
         if (leaveAStepCallback(obj, context)) {
 
             var areaCnt = 0;
-            $('#area :selected').each(function(i, sel){
+            $('#area :selected').each(function (i, sel) {
                 areaCnt++;
             });
 
@@ -173,13 +179,13 @@ var FormWizard = function () {
             }
 
             /*
-            swal({
-                title: "등록에 성공했습니다.",
-                type: "success"
-            }, function(){
-                window.location.href="/dashboard";
-            });
-            */
+             swal({
+             title: "등록에 성공했습니다.",
+             type: "success"
+             }, function(){
+             window.location.href="/dashboard";
+             });
+             */
 
             if (confirm('프로젝트를 등록 하시겠습니까?')) {
                 // $('.anchor').children("li").last().children("a").removeClass('wait').removeClass('selected').addClass('done').children('.stepNumber').addClass('animated tada');
@@ -197,8 +203,8 @@ var FormWizard = function () {
                         swal({
                             title: "등록에 성공했습니다.",
                             type: "success"
-                        }, function(){
-                            window.location.href="/dashboard";
+                        }, function () {
+                            window.location.href = "/dashboard";
                         });
                     },
                     error: function (data2) {
