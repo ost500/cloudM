@@ -59,8 +59,10 @@ var FormWizard = function () {
                 }, content_detail: {
                     required: true
                 }, deadline: {
+                    date:true,
                     required: true
                 }, expecting_start: {
+                    date:true,
                     required: true
                 }, pre_meeting: {
                     required: true
