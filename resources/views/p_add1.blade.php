@@ -826,6 +826,7 @@
 
 
     <script>
+>
         jQuery(document).ready(function () {
             Main.init();
             FormWizard.init();
@@ -833,39 +834,6 @@
         });
 
     </script>
-
-
-
-    <script src="{{ asset('js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui-i18n.js') }}">
-    </script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
-    <?php $tomorrow = new DateTime('+1 day')?>
-    <script type="text/javascript">
-
-        $.datepicker.setDefaults($.datepicker.regional['ko']);
-        $('#deadline').datepicker({
-            dateFormat: "yy-mm-dd",
-            minDate: +1,
-            maxDate: +14,
-
-
-        });
-        $('#start_day').datepicker({
-            dateFormat: "yy-mm-dd",
-            minDate: +1,
-            maxDate: +28,
-
-
-        });
-        $(function () {
-            var localTime = new Date();
-            var ptTime = new Date();
-            ptTime.setMinutes(ptTime.getMinutes() + localTime.getTimezoneOffset() - 420);
-
-        });
-    </script>
-
 
 
     <script src="/js/multiple-select.js"></script>

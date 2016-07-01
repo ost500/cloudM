@@ -6,13 +6,24 @@ ob_end_clean();
 
 $f_id = (int)$f_id;
 
+if ($t == "app") {
+    $table = $g5['application_table'];
+    $file_name = "file_name";
+    $origin_name = "origin_name";
+} else if ($t == "user") {
+    $table = $g5['member_table'];
+    $file_name = "auth_image";
+    $origin_name = "auth_image";
+}
 
-$sql = " select * from {$g5['application_table']} where id = '$id'";
+
+$sql = " select * from $table where id = '$id'";
 $file = sql_fetch($sql);
-if (!$file['file_name'])
+
+if (!$file[$file_name])
     alert_close('파일 정보가 존재하지 않습니다.');
 
-$filepath = $_SERVER['DOCUMENT_ROOT'].$file['file_name'];
+$filepath = $_SERVER['DOCUMENT_ROOT'].$file[$file_name];
 $filepath = addslashes($filepath);
 if (!is_file($filepath) || !file_exists($filepath))
     alert('파일이 존재하지 않습니다.');
@@ -20,8 +31,15 @@ if (!is_file($filepath) || !file_exists($filepath))
 
 $g5['title'] = '다운로드';
 
-//$original = urlencode($file['bf_source']);
-$original = $file['origin_name'];
+if ($t == "app") {
+    $original = $file['origin_name'];
+} else if ($t == "user") {
+    $size = sizeof(explode("/", $file[$file_name]));
+    $original_ = explode("/", $file[$file_name]);
+    $original = $original_[$size-1];
+}
+
+
 
 if(preg_match("/msie/i", $_SERVER['HTTP_USER_AGENT']) && preg_match("/5\.5/", $_SERVER['HTTP_USER_AGENT'])) {
     header("content-type: doesn/matter");

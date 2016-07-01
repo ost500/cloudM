@@ -367,6 +367,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddProjectsColumns' => __DIR__ . '/../..' . '/database/migrations/2016_05_27_005900_add_projects_columns.php',
         'AddProjectsDetail' => __DIR__ . '/../..' . '/database/migrations/2016_05_30_064654_add_projects_detail.php',
         'AddProjectsStepItem' => __DIR__ . '/../..' . '/database/migrations/2016_06_27_111325_add_projects_step_item.php',
+        'AddUsersAuth' => __DIR__ . '/../..' . '/database/migrations/2016_07_01_132415_add_users_auth.php',
         'AddUsersColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_10_013459_add_users_columns.php',
         'AddUsersLevel' => __DIR__ . '/../..' . '/database/migrations/2016_06_13_020515_add_users_level.php',
         'AddUsersPhonenum' => __DIR__ . '/../..' . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',

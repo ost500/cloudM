@@ -74,8 +74,6 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label class="control-label"> 프로필사진
-                                                                        </label>
                                                                         <input class="form-control" type="file"
                                                                                name="Image" id="image_input"
                                                                                value="{{ $loginUser->profileImage.".jpg" }}" />
@@ -111,6 +109,21 @@
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
+                                                                            <label class="control-label"> 이름 <span class="symbol required"></span>
+                                                                            </label>
+                                                                            <input class="form-control" required="required" type="text" name="name"
+                                                                                   placeholder=""
+                                                                                   value="{{$loginUser->name}}">
+
+                                                                            {{ $errors->first('name') }}
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
                                                                             <label class="control-label"> 파트너형태
                                                                             </label>
                                                                             <select name="company_type" class="form-control"
@@ -136,19 +149,8 @@
                                                                             </select>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <label class="control-label"> 이름 <span class="symbol required"></span>
-                                                                            </label>
-                                                                            <input class="form-control" required="required" type="text" name="name"
-                                                                                   placeholder=""
-                                                                                   value="{{$loginUser->name}}">
 
-                                                                            {{ $errors->first('name') }}
-                                                                        </div>
-                                                                    </div>
+
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="control-label"> 성별</label>
@@ -171,9 +173,9 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="control-label"> 생년월일</label>
-                                                                            <input type="date"
+                                                                            <input type="text"
                                                                                    class="form-control"
-                                                                                   name="BOD" value="{{ $loginUser->BOD }}">
+                                                                                   name="BOD" id="bod" value="{{ $loginUser->BOD }}" maxlength="10">
 
                                                                         </div>
                                                                     </div>
@@ -266,8 +268,8 @@
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
                                                                             <label class="control-label"> 연락처 <span class="symbol required"></span>
-                                                                            </label>
-                                                                            <select name="phone_num1" class="form-control phone_width"
+                                                                            </label><br>
+                                                                            <select name="phone_num1" class="phone_width"
                                                                                     id="form_of_business" required="required">
                                                                                 <option vlaue="010" @if($loginUser->phone_num_arr[0] == "010"){{"selected"}}@endif>010</option>
                                                                                 <option value="011" @if($loginUser->phone_num_arr[0] == "011"){{"selected"}}@endif>011</option>
@@ -275,11 +277,11 @@
                                                                                 <option value="017" @if($loginUser->phone_num_arr[0] == "017"){{"selected"}}@endif>017</option>
                                                                                 <option value="019" @if($loginUser->phone_num_arr[0] == "019"){{"selected"}}@endif>019</option>
                                                                             </select>
-                                                                            <input class="form-control phone_width number" type="text"
+                                                                            <input class="phone_width number" type="text"
                                                                                    name="phone_num2"
                                                                                    placeholder=""
                                                                                    value="{{ $loginUser->phone_num_arr[1] }}" required="required" minlength="3" maxlength="4">
-                                                                            <input class="form-control phone_width" type="text"
+                                                                            <input class="phone_width" type="text"
                                                                                    name="phone_num3"
                                                                                    placeholder=""
                                                                                    value="{{ $loginUser->phone_num_arr[2] }}" required="required" minlength="3" maxlength="4">
@@ -307,6 +309,51 @@
                                                                         저장하기
                                                                     </button>
                                                                 </div>
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="stepContainer" style="padding-top:30px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <form action="{{ url('/mypage/auth_img') }}" method="POST" role="form"
+                                                              enctype="multipart/form-data" accept-charset="UTF-8">
+                                                            {!! csrf_field() !!}
+
+                                                            <fieldset>
+                                                                <legend>인증 관리</legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 사업자  : 사업자등록증 / 개인 : 신분증사본 업로드 해 주세요.
+                                                                            </label></br></br>
+
+
+                                                                            @if ($loginUser->auth_check == "인증완료")
+                                                                                인증완료
+                                                                            @elseif ($loginUser->auth_image && $loginUser->auth_check == "인증요청")
+                                                                                자료 제출 후 인증 대기중
+                                                                            @else
+                                                                                <input class="form-control" type="file"
+                                                                                       name="auth_image" id="auth_file_input"
+                                                                                       value="{{ $loginUser->auth_image.".jpg" }}" />
+                                                                                {{ $errors->first('auth_image') }}
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                @if ($loginUser->auth_check == "인증전")
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                        제출하기
+                                                                    </button>
+                                                                </div>
+                                                                @endif
                                                             </fieldset>
                                                         </form>
                                                     </div>

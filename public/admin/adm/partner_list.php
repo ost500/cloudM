@@ -88,13 +88,20 @@ $colspan = 16;
 </div>
 <?php } ?>
 
-<form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
+<form name="fmemberlist" id="fmemberlist" action="./partner_list_update.php" onsubmit="return fpartnerlist_submit(this);" method="post">
 <input type="hidden" name="sst" value="<?php echo $sst ?>">
 <input type="hidden" name="sod" value="<?php echo $sod ?>">
 <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
 <input type="hidden" name="stx" value="<?php echo $stx ?>">
 <input type="hidden" name="page" value="<?php echo $page ?>">
 <input type="hidden" name="token" value="">
+
+
+<div class="btn_list01 btn_list">
+    <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
+    <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+</div>
+
 
 <div class="tbl_head01 tbl_wrap">
     <table>
@@ -105,11 +112,12 @@ $colspan = 16;
             <label for="chkall" class="sound_only">회원 전체</label>
             <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
         </th>
+        <th scope="col" id="mb_list_id"><?php echo subject_sort_link('id') ?>번호</a></th>
         <th scope="col" id="mb_list_id"><?php echo subject_sort_link('email') ?>아이디</a></th>
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
-        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('level', '', 'desc') ?>권한</a></th>
+        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>인증</a></th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
         <th scope="col" id="mb_list_mng">관리</th>
     </tr>
@@ -125,19 +133,36 @@ $colspan = 16;
         $address = $row['mb_zip1'] ? print_address($row['mb_addr1'], $row['mb_addr2'], $row['mb_addr3'], $row['mb_addr_jibeon']) : '';
 
         $bg = 'bg'.($i%2);
+
+        $auth = "";
+        if ($row[auth_check] != "인증전") {
+            $auth = " <a href='download.php?t=user&id={$row['id']}'><font color='red'>다운</font></a>";
+        }
     ?>
 
     <tr class="<?php echo $bg; ?>">
         <td headers="mb_list_chk" class="td_chk">
-            <input type="hidden" name="mb_id[<?php echo $i ?>]" value="<?php echo $row['mb_id'] ?>" id="mb_id_<?php echo $i ?>">
+            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['id'] ?>" id="mb_id_<?php echo $i ?>">
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
         </td>
-        <td class="grid_3 c"><?php echo $mb_id ?></td>
-        <td class="grid_3 c"><?php echo get_text($row['name']); ?></td>
-        <td class="grid_3 c"><?php echo get_text($row['company_type']); ?></td>
-        <td headers="mb_list_mobile" class="td_tel"><?php echo $row[phone_num]; ?></td>
-        <td headers="mb_list_mobile" class="td_tel"><?php echo $row[level]; ?></td>
+        <td headers="mb_list_chk" class="td_chk"><?php echo $row[id] ?></td>
+        <td class="c td_100"><?php echo $mb_id ?></td>
+        <td class="c td_50"><?php echo get_text($row['name']); ?></td>
+        <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
+        <td headers="mb_list_mobile" class="c td_100"><?php echo $row[phone_num]; ?></td>
+        <td headers="mb_list_mobile" class="td_tel">
+            <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
+                <option value="">선택</option>
+                <option value="인증전">인증전</option>
+                <option value="인증요청">인증요청</option>
+                <option value="인증완료">인증완료</option>
+            </select>
+
+            <?=$auth?>
+
+            <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
+        </td>
         <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
         <td headers="mb_list_mng" class="td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
     </tr>
@@ -161,7 +186,7 @@ $colspan = 16;
 <?php echo get_paging(G5_IS_MOBILE ? $config['cf_mobile_pages'] : $config['cf_write_pages'], $page, $total_page, '?'.$qstr.'&amp;page='); ?>
 
 <script>
-function fmemberlist_submit(f)
+function fpartnerlist_submit(f)
 {
     if (!is_checked("chk[]")) {
         alert(document.pressed+" 하실 항목을 하나 이상 선택하세요.");
@@ -173,10 +198,11 @@ function fmemberlist_submit(f)
             return false;
         }
     }
-
     return true;
 }
 </script>
+
+
 
 <?php
 include_once ('./admin.tail.php');

@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="M_Adnan">
-    <title>패스트엠</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="패스트엠 (Fastm)">
+    <meta property="og:image" content="http://fastm.app/images/preview.png">
+    <meta property="og:description" content="마케팅 중개 플랫폼, 패스트엠에 오신 것을 환영합니다. 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
+
+    <title>패스트엠::마케팅 중개 플랫폼</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">

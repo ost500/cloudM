@@ -243,12 +243,12 @@
                         <li class="col-sm-6 no-p">
                             <div  class="center"><img src="/images/area4_01.png"></div>
                             <p class="main_area4_h">빠른 프로젝트 진행</p>
-                            <p class="main_area4_t">마케팅 프로젝트를 대행사들에게 빠르게 알려 마케팅 프로젝트를 신속하게 진행할 수 있습니다.</p>
+                            <p class="main_area4_t">대행사들에게 개별 연락/설명 할 필요 없이, 제안서/견적서를 빠르게 받아 볼 수 있어, 신속한 프로젝트 진행이 가능 합니다.</p>
                         </li>
                         <li class="col-sm-6 no-p">
                             <div  class="center"><img src="/images/area4_02.png"></div>
                             <p class="main_area4_h">편리한 프로젝트 진행</p>
-                            <p class="main_area4_t">세금계산서 발행, 계약서 작성, 대금지급, 진행상황 체크, 분쟁조정까지 프로젝트를 편리하게 진행할 수 있도록 도와드립니다.</p>
+                            <p class="main_area4_t">계산서 발행, 계약서, 대금정산, 진행상황 체크, 분쟁조정까지 관리함으로써 업무에만 집중할 수 있도록 도와드립니다.</p>
                         </li>
                     </ul>
                 </div>
@@ -257,12 +257,12 @@
                         <li class="col-sm-6 no-p">
                             <div  class="center"><img src="/images/area4_03.png"></div>
                             <p class="main_area4_h">믿을 수 있는 검증시스템</p>
-                            <p class="main_area4_t">다양한 전문 마케팅 대행사들의 실제 프로젝트 포트폴리오와 고객들의 평점/후기를 통해 대행사를 객관적으로 평가할 수 있습니다.</p>
+                            <p class="main_area4_t">업종별 전문 마케팅 대행사들의 실제 진행 사례와 고객들의 평점/후기를 통해 대행사를 객관적으로 평가할 수 있습니다.</p>
                         </li>
                         <li class="col-sm-6 no-p">
                             <div  class="center"><img src="/images/area4_04.png"></div>
                             <p class="main_area4_h">안전한 프로젝트 관리</p>
-                            <p class="main_area4_t">에스크로 시스템으로 대금을 안전하게 보호하고 안심표준계약서로 분쟁을 객관적으로 조정합니다.</p>
+                            <p class="main_area4_t">에스크로 시스템으로 대금을 안전하게 보호하고, 업무 진척도에 따라 중간 정산까지 알아서 척척. 분쟁을 사전에 예방합니다.</p>
                         </li>
                     </ul>
 

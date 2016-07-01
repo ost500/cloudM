@@ -109,7 +109,7 @@ $colspan = 16;
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
-        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('level', '', 'desc') ?>권한</a></th>
+        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>인증</a></th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
         <th scope="col" id="mb_list_mng">관리</th>
     </tr>
@@ -137,7 +137,7 @@ $colspan = 16;
         <td class="grid_3 c"><?php echo get_text($row['name']); ?></td>
         <td class="grid_3 c"><?php echo get_text($row['company_type']); ?></td>
         <td headers="mb_list_mobile" class="td_tel"><?php echo $row[phone_num]; ?></td>
-        <td headers="mb_list_mobile" class="td_tel"><?php echo $row[level]; ?></td>
+        <td headers="mb_list_mobile" class="td_tel"><?php echo $row[auth_chceck]; ?></td>
         <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
         <td headers="mb_list_mng" class="td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
     </tr>

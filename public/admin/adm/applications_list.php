@@ -156,7 +156,7 @@ $colspan = 16;
 					<td class="td_40"><?=number_format($step3['cnt']);?></td>
                     <td class="td_date bts">
                         <? if ($row['file_name']) { ?>
-                            <a href="download.php?id=<?=$row['id']?>"><?=$row['origin_name']?></a>
+                            <a href="download.php?t=app&id=<?=$row['id']?>"><?=$row['origin_name']?></a>
                         <? } ?>
 
                         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">관리</button>
