@@ -60,8 +60,19 @@
 
     $(function () {
 
-
-
+            currentbutton = "{{ $number }}";
+            if ("{{$number}}" == "1") {
+                currentpage = "client-use";
+            } else if ("{{$number}}" == "2") {
+                currentpage = "client-use";
+            } else if ("{{$number}}" == "3") {
+                currentpage = "partner-use";
+            } else if ("{{$number}}" == "4") {
+                currentpage = "charge";
+            } else if ("{{$number}}" == "5") {
+                currentpage = "faq";
+            }
+        
         viewLoad();
         clickfocus();
     });
