@@ -1290,6 +1290,7 @@
             }
         },
 
+
         // http://jqueryvalidation.org/jQuery.validator.methods/
         methods: {
 
