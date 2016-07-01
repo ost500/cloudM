@@ -5740,7 +5740,8 @@ h6.my_h6 {
 }
 
 .phone_width {
-    width: 32.8% !important;
+    width: 31.8% !important;
+    height: 33px;
 }
 
 .set_st {

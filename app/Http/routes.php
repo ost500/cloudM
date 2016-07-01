@@ -95,6 +95,10 @@ Route::post('/rm_app', 'DeleteController@delete_application');
 
 // mypage post
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
+
+// mypage post
+Route::post('/mypage/auth_img', 'MypagePostController@setProfileAuthimg');
+
 // User info
 Route::post('/mypage/info', 'MypagePostController@set_profile_info');
 // User phone and fax number
