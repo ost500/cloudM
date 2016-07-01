@@ -471,7 +471,7 @@
                                                                             </div>
                                                                             <p class="text-small">
                                                                                 <a href="javascript:void(0)"
-                                                                                   data-original-title="" title="">zip 파일만 등록 가능</a>
+                                                                                   data-original-title="" title="">10MB 까지 업로드 가능</a>
                                                                             </p>
                                                                         </div>
 
@@ -826,7 +826,7 @@
 
 
     <script>
->
+
         jQuery(document).ready(function () {
             Main.init();
             FormWizard.init();

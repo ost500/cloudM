@@ -99,7 +99,8 @@
 
                     <!-- LOGO -->
                     <div class="logo"><a href="{{ url("/") }}"><img class="img-responsive"
-                                                                    src="{{ URL::asset('images/logo02.png') }}" width="144"></a>
+                                                                    src="{{ URL::asset('images/logo02.png') }}"
+                                                                    width="144"></a>
                     </div>
 
                     <!-- Nav -->
@@ -197,7 +198,7 @@
 
                     <div class="text-left">
                         <a href="{{ url('/password/reset') }}"> 비밀번호를 잃어버리셨나요? </a><br>
-                        <a style = "cursor : pointer" data-toggle="modal" data-target="#signinModal"> 간단 회원가입하기 </a>
+                        <a style="cursor : pointer" data-toggle="modal" data-target="#signinModal"> 간단 회원가입하기 </a>
                     </div>
 
                     <div class="form-actions">
@@ -312,7 +313,9 @@
                                required="required">
                     </div>
 
-                    <div class="text-left"></div>
+                    
+
+                    <div class="text-left">10MB까지 zip파일만 업로드 가능합니다</div>
 
                     <div class="form-actions">
                         <button type="submit" class="btn btn-red btn-block">
@@ -326,6 +329,9 @@
         </div>
     </div>
 </div>
+
+
+
 <script src="{{ asset('js/signup.js') }}"></script>
 
 

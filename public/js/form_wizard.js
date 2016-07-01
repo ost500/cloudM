@@ -59,8 +59,10 @@ var FormWizard = function () {
                 }, content_detail: {
                     required: true
                 }, deadline: {
+                    date:true,
                     required: true
                 }, expecting_start: {
+                    date:true,
                     required: true
                 }, pre_meeting: {
                     required: true
@@ -69,7 +71,7 @@ var FormWizard = function () {
                 }, reason: {
                     required: true
                 }, project_attach: {
-                    extension: "zip"
+                    filesize:10485760
                 }
 
                 // email: {
@@ -102,7 +104,7 @@ var FormWizard = function () {
                 pre_meeting: "선택해 주세요",
                 experience: "선택해 주세요",
                 reason: "선택해 주세요",
-                project_attach: "이미지 파일을 확인해 주세요"
+                project_attach: "파일 크기를 확인해 주세요"
             },
             highlight: function (element) {
                 $(element).closest('.help-block').removeClass('valid');
@@ -269,3 +271,9 @@ var FormWizard = function () {
         }
     };
 }();
+$.validator.addMethod('filesize', function(value, element, param) {
+    // param = size (en bytes)
+    // element = element to validate (<input>)
+    // value = value of the element (file name)
+    return this.optional(element) || (element.files[0].size <= param)
+});

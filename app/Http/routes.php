@@ -58,7 +58,9 @@ Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 
 
 //이용방법
-Route::get('/services', 'HowtouseController@services');
+Route::get('/services/', 'HowtouseController@services');
+Route::get('/services/{id}', 'HowtouseController@service_num')
+    ->where(['id' => '[1-5]']);
 
 Route::get('/serviceintro', 'HowtouseController@serviceintro');
 Route::get('/client-use', 'HowtouseController@client_use');

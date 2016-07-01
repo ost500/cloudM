@@ -278,8 +278,17 @@
                           <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
                       </div>
                       <div class="col-md-3">
-                          <a href="#." class="btn_main btn_main-1">프로젝트 등록하기<i
-                                      class="fa fa-caret-right"></i></a>
+                          <?php
+                          if (!Auth::check()) {
+                              echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+
+                          } else if (Auth::user()->PorC == "C") {
+                              echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                          } else {
+                              echo "<a style = \"cursor : pointer\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                          }
+                          ?>
+
                       </div>
                   </div>
               </section>
