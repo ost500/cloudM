@@ -20,6 +20,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Array_;
 use Validator;
+use Session;
 
 class MypageController extends Controller
 {
@@ -476,6 +477,47 @@ class MypageController extends Controller
         }
 
         return view('mypage/setting', compact('loginUser'));
+    }
+
+    public function settingAuth()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/setting_auth', compact('loginUser'));
+    }
+
+    public function settingBank()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/setting_bank', compact('loginUser'));
+    }
+
+    public function settingPassword()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/setting_password', compact('loginUser'));
+    }
+
+    public function settingPasswordChange(Request $request)
+    {
+        $loginUser = Auth::user();
+
+        if (Session::token() == $request['_token']) {
+            return view('mypage/setting_password_change', compact('loginUser'));
+        } else {
+            return view('mypage/setting_password', compact('loginUser'));
+        }
+    }
+
+
+
+    public function settingNotification()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/setting_notification', compact('loginUser'));
     }
 
 

@@ -4283,8 +4283,7 @@ div.media-body h5.faq_f {
 .side-tittle {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 15px;
-    margin-top: 0px;
+    margin: 5px 0 15px 13px;
     text-transform: none;
     border-bottom: 1px dotted #cccccc;
     padding-bottom: 10px;
@@ -4300,6 +4299,14 @@ div.media-body h5.faq_f {
     text-transform: none;
     border-bottom: 1px dotted #999;
     padding-bottom: 20px;
+    letter-spacing: 0px;
+}
+
+.side-title-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    text-transform: none;
     letter-spacing: 0px;
 }
 
@@ -5419,22 +5426,20 @@ ul.p_align02 {
 
 .job-sider-bar003 {
     background: #f4f5f6;
-    padding: 30px;
+    padding: 10px;
     border: 1px solid #ddd;
     border-top: 2px solid #000;
     margin-top: 10px;
 }
 
 .partner_profile02 {
-    width: 160px;
-    height: 180px;
-    margin-bottom: 10px;
-    text-align: center;
+    width: 50px;
+    height: 50px;
     border-radius: 10px;
 }
 
 .job-sider-bar003 div {
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .job-sider-bar003 div h6 {
