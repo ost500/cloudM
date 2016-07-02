@@ -201,7 +201,7 @@
 
                                                                 <div class="form-group">
                                                                     <button class="btn btn-1 btn-primary btn-o next-step btn-wide pull-right">
-                                                                        Next <i class="fa fa-arrow-circle-right"></i>
+                                                                        다음단계  <i class="fa fa-arrow-circle-right"></i>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -697,7 +697,7 @@
 
                                                         <a href="#" class="buttonFinish buttonDisabled">Finish</a>
 
-                                                        <a href="#" class="buttonNext">Next</a>
+                                                        <a href="#" class="buttonNext">다음 단계</a>
 
                                                         <a href="#" class="buttonPrevious buttonDisabled">Previous</a>
                                                     </div>
