@@ -35,7 +35,7 @@
                                     <div style="cursor:pointer" id="partner_detail_click{{$partner['id']}}" class="media-body">
                                         <span class="media-body-sm">{{ $partner['name'] }}</span>
 
-                                        <span class="media-body-sm la-line">개인 </span>
+                                        <span class="media-body-sm la-line">{{ $partner['company_type'] }}</span>
 
                                         {{--<span class="media-body-sm la-line">{{ $partner['created_at'] }}</span>--}}
                                     </div>
@@ -74,7 +74,7 @@
                 <div class="col-lg-3 padding-top-5">
                     <ul class="list-unstyled">
                         <li class="padding-top-5">
-                            <div class="rating star-lg star-lg-4"></div>
+                            <div class="rating star-lg star-lg-0"></div>
 
                             <span class="rating-stats-body stats-body">
                                 <span class="average-rating-score padding-left-10">4.2</span>
@@ -91,11 +91,21 @@
                         </li>
 
                         <li class="partners-authentication la_line02">
-                            <span class="partners-authorized"><i
-                                        class="fa fa-check-circle-o"></i>신원인증</span>
+                            <span class="partners-authorized">
+                                 @if($partner['auth_check'] == "인증완료")
+                                    <i class="fa fa-check-circle-o"></i> {{ $partner['auth_check'] }}
+                                @else
+                                    <i class="fa fa-times "></i> 신원미인증
+                                @endif
+                            </span>
 
-                            <span class="partners-authorized padding-left-30"><i
-                                        class="fa fa-check-circle-o"></i>연락처 등록</span>
+                            <span class="partners-authorized padding-left-30">
+                                @if(strlen($partner['phone_num']) > 8)
+                                    <i class="fa fa-check-circle-o"></i> 연락처등록
+                                @else
+                                    <i class="fa fa-times "></i> 연락처미등록
+                                @endif
+                            </span>
                         </li>
                     </ul>
                 </div>
