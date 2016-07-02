@@ -57,7 +57,7 @@
                                                         <span>{{ $jobs->job }}</span>
                                                     @endforeach
                                                 </span>
-                                                    <span class="media-body-sm"><i class="fa fa-user"></i> 개인</span>
+                                                    <span class="media-body-sm"><i class="fa fa-user"></i> {{ $partner['user']->company_type }}</span>
                                                 <span class="media-body-sm">
                                                     @if($partner['user']->auth_check == "인증완료")
                                                         <i class="fa fa-check-circle-o"></i> {{ $partner['user']->auth_check }}

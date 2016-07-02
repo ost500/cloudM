@@ -197,15 +197,15 @@ Route::get('/my_done', 'ProcessController@done_client');
 Route::get('/my_cancel', 'ProcessController@cancel_client');
 
 //지원 프로젝트
-Route::get('/my_apply', 'ProcessController@apply_partner');
+Route::get('/myProject/apply', 'ProcessController@apply_partner');
 //관심 프로젝트
-Route::get('/my_interesting','ProcessController@interesting_partner');
+Route::get('/myProject/interesting','ProcessController@interesting_partner');
 
 //지원 종료 프로젝트
-Route::get('/my_apply_finished', 'ProcessController@apply_finished_partner');
+Route::get('/myProject/apply/finished', 'ProcessController@apply_finished_partner');
 
 //진행 중 프로젝트
-Route::get('/my_carry_on_p', 'ProcessController@carry_on_partner');
+Route::get('/myProject/carryOn/partner', 'ProcessController@carry_on_partner');
 
 //완료된 프로젝트
-Route::get('/my_done_p', 'ProcessController@done_partner');
+Route::get('/myProject/done/partner', 'ProcessController@done_partner');
