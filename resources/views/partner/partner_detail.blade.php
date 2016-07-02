@@ -1,7 +1,7 @@
 @extends('include.head')
 @section('content')
     <!-- Content -->
-    <div id="content">
+<div id="content" xmlns="http://www.w3.org/1999/html">
 
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
@@ -16,20 +16,19 @@
                     <div class="col-md-3">
                         <div class="job-sider-bar003">
                             <h5 class="side-tittle">파트너스</h5>
-                            <div>
+                            <div class="col-md-3">
                                 @if($partner['user']->profileImage != null)
                                     <img class="partner_profile02"
                                          src="{{ URL::asset($partner['user']->profileImage) }}"><br>
                                 @else
                                     <img class="partner_profile02" src="/images/p_img02.png"><br>
                                 @endif
-
-                                <h6>{{ $partner->user->name }}</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <p class="side-title-name"><h5 class="text-center">{{ $partner->user->name }}</h5></p>
                             </div>
                         </div>
-
                     </div>
-
 
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
@@ -52,16 +51,28 @@
                                                 <div class="media-body02">
                                                     <h3 class="margin-bottom-0">{{ $partner['user']->name }}</h3>
                                                 </div>
-                                            <span class="media-body-sm"><i
-                                                        class="fa fa-align-left"></i> 직종
-                                                @foreach($partner->job()->get() as $jobs)
-                                                    <span>{{ $jobs->job }}</span>
-                                                @endforeach
-                                            </span>
-                                                <span class="media-body-sm"><i class="fa fa-user"></i> 개인</span>
-                                            <span class="media-body-sm"><i
-                                                        class="fa fa-check-circle-o"></i> 신원인증</span>
-                                                <span class="media-body-sm la-line"><i class="fa fa-check-circle-o"></i> 연락처등록</span>
+                                                <span class="media-body-sm"><i
+                                                            class="fa fa-align-left"></i> 전문분야
+                                                    @foreach($partner->job()->get() as $jobs)
+                                                        <span>{{ $jobs->job }}</span>
+                                                    @endforeach
+                                                </span>
+                                                    <span class="media-body-sm"><i class="fa fa-user"></i> 개인</span>
+                                                <span class="media-body-sm">
+                                                    @if($partner['user']->auth_check == "인증완료")
+                                                        <i class="fa fa-check-circle-o"></i> {{ $partner['user']->auth_check }}
+                                                    @else
+                                                        <i class="fa fa-times "></i> 신원미인증
+                                                    @endif
+                                                </span>
+
+                                                <span class="media-body-sm la-line">
+                                                    @if(strlen($partner['user']->phone_num) > 8)
+                                                        <i class="fa fa-check-circle-o"></i> 연락처등록
+                                                    @else
+                                                        <i class="fa fa-times "></i> 연락처미등록
+                                                    @endif
+                                                </span>
                                                 <div class="tags_bg02 margin-top-20 padding-top-5">
                                                     <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
 
