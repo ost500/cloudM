@@ -46,7 +46,13 @@
                                         <div>
 
                                             <ul class="tags dall margin-top-20">
-                                                <li>지역 > {{ str_limit($project->address_sido, 4, '') }} | 마케팅 분야
+                                                <li>미팅 >
+                                                    @if($project->meeting_way == "온라인 미팅")
+                                                        온라인
+                                                    @else
+                                                        {{ str_limit($project->address_sido, 4, '') }}
+                                                    @endif
+                                                    | 마케팅 분야
                                                     @foreach($project->projects_area as $areas)
                                                         <a href="#.">{{ $areas->area }}</a>
                                                     @endforeach

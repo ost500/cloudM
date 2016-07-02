@@ -67,58 +67,39 @@
 
                         <!-- Job Content -->
                         <div id="accordion">
+                            <div class="job-content job-post-page ">
 
-                            <!-- Job Section -->
-                            <div class="job-content job-post-page">
-                                <!-- Job Tittle -->
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">인증 서류</h5>
+                                </div>
+                                <div class="panel-body padding-right-30">
+                                    <form action="{{ url('/mypage/auth_img') }}" method="POST" role="form" class="form-horizontal"
+                                          enctype="multipart/form-data" accept-charset="UTF-8">
+                                        {!! csrf_field() !!}
 
-                                        <div class="stepContainer" style="padding-top:30px;">
-                                            <div class="row">
-                                                <div class="col-md-12">
-
-                                                    <form action="{{ url('/mypage/auth_img') }}" method="POST" role="form"
-                                                          enctype="multipart/form-data" accept-charset="UTF-8">
-                                                        {!! csrf_field() !!}
-
-                                                        <fieldset>
-                                                            <legend>인증 관리</legend>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label class="control-label"> 사업자  : 사업자등록증 / 개인 : 신분증사본 업로드 해 주세요.
-                                                                        </label></br></br>
-
-
-                                                                        @if ($loginUser->auth_check == "인증완료")
-                                                                            인증완료
-                                                                        @elseif ($loginUser->auth_image && $loginUser->auth_check == "인증요청")
-                                                                            자료 제출 후 인증 대기중
-                                                                        @else
-                                                                            <input class="form-control" type="file"
-                                                                                   name="auth_image" id="auth_file_input"
-                                                                                   value="{{ $loginUser->auth_image.".jpg" }}" />
-                                                                            {{ $errors->first('auth_image') }}
-                                                                        @endif
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            @if ($loginUser->auth_check == "인증전")
-                                                            <div class="form-group">
-                                                                <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
-                                                                    제출하기
-                                                                </button>
-                                                            </div>
-                                                            @endif
-                                                        </fieldset>
-                                                    </form>
-                                                </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 사진 </label>
+                                            <div class="col-sm-8">
+                                                @if ($loginUser->auth_check == "인증완료")
+                                                    인증완료
+                                                @elseif ($loginUser->auth_image && $loginUser->auth_check == "인증요청")
+                                                    자료 제출 후 인증 대기중
+                                                @else
+                                                    <input class="form-control" type="file"
+                                                           name="auth_image" id="auth_file_input"  required="required"
+                                                           value="{{ $loginUser->auth_image.".jpg" }}" />
+                                                    <p class="validation-error">{{ $errors->first('auth_image') }}</p>
+                                                @endif
                                             </div>
                                         </div>
+                                        <div class="form-group margin-top-20 padding-right-50">
+                                            <div class="col-sm-offset-10 col-sm-10">
+                                                <button class="btn btn-o btn-primary" type="submit">
+                                                    저장하기
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
 

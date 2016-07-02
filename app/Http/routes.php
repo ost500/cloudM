@@ -111,8 +111,6 @@ Route::post('/mypage/auth_img', 'MypagePostController@setProfileAuthimg');
 
 // User info
 Route::post('/mypage/info', 'MypagePostController@set_profile_info');
-// User phone and fax number
-Route::post('/mypage/numbers', 'MypagePostController@set_numbers');
 
 // User bank
 Route::post('/setting/bankEdit', 'MypagePostController@set_bank');

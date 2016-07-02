@@ -82,25 +82,13 @@ class MypagePostController extends Controller
             ['name' => ['required', 'max:255', 'unique:users,name']],
             ['required' => '이름은 필수 입니다',
                 'max:255' => '255자 까지 입력할 수 있습니다 ',
-                'unique' => '이미 있는 이름입니다']
+                'unique' => '이미 사용중인 이름입니다']
         );
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
 
-
-        Auth::user()->name = $request->name;
-        Auth::user()->sex = $request->sex;
-        Auth::user()->BOD = $request->BOD;
-        Auth::user()->address = $request->address;
-        Auth::user()->save();
-
-        return redirect()->back();
-    }
-
-    public function set_numbers(Request $request)
-    {
         $validator = Validator::make(
             ['phone_num1' => $request->phone_num1,
                 'phone_num2' => $request->phone_num2,
@@ -118,11 +106,16 @@ class MypagePostController extends Controller
         }
         Auth::user()->phone_num = $request->phone_num1.'-'.$request->phone_num2.'-'.$request->phone_num3;
         Auth::user()->fax_num = $request->fax_num;
+
+
+        Auth::user()->name = $request->name;
+        Auth::user()->sex = $request->sex;
+        Auth::user()->BOD = $request->BOD;
+        Auth::user()->address = $request->address;
         Auth::user()->save();
 
         return redirect()->back();
     }
-
 
     public function set_bank(Request $request)
     {
