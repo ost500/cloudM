@@ -14,10 +14,7 @@
                     <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다. 지금 프로젝트를 등록하세요.</p>
 
 
-
-
-
-                <?php
+                    <?php
                     if (!Auth::check()) {
                         echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
 
@@ -99,10 +96,16 @@
                         @foreach($projects as $project)
                             <li class="col-md-4">
                                 <article class="thumb">
-                                    <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
-                                    <p class="price">월 예산 {{ number_format($project->budget) }}원   <span>|</span>   {{ $project->estimated_duration }}   <span>|</span>   {{ $project->application->count() }}명 지원</p>
+                                    @if(Auth::check())
+                                        <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
+                                    @else
+                                        <a style = "cursor : pointer" data-toggle="modal" data-target="#loginModal"><h5>{{ $project->title }}</h5></a>
+                                    @endif
+                                    <p class="price">월 예산 {{ number_format($project->budget) }}원
+                                        <span>|</span> {{ $project->estimated_duration }}
+                                        <span>|</span> {{ $project->application->count() }}명 지원</p>
 
-                                    <p><?php echo mb_strcut($project['detail_content'], 0, 200)."..."; ?></p>
+                                    <p><?php echo mb_strcut($project['detail_content'], 0, 200) . "..."; ?></p>
 
                                     <div id="tag">
 
@@ -169,8 +172,6 @@
                 </ul>
 
 
-
-
                 <!-- Start Timeline
                 <div id="timeline" class="col-lg-10 col-md-12 col-sm-12">
                   <ul id="dates" class="custom-list">
@@ -234,19 +235,19 @@
         </section>
 
 
-
         <!-- Features -->
         <section class="area4">
             <div class="container">
                 <div class="col-md-6 no-p">
                     <ul class="area4_ul">
                         <li class="col-sm-6 no-p">
-                            <div  class="center"><img src="/images/area4_01.png"></div>
+                            <div class="center"><img src="/images/area4_01.png"></div>
                             <p class="main_area4_h">빠른 프로젝트 진행</p>
-                            <p class="main_area4_t">대행사들에게 개별 연락/설명 할 필요 없이, 제안서/견적서를 빠르게 받아 볼 수 있어, 신속한 프로젝트 진행이 가능 합니다.</p>
+                            <p class="main_area4_t">대행사들에게 개별 연락/설명 할 필요 없이, 제안서/견적서를 빠르게 받아 볼 수 있어, 신속한 프로젝트 진행이 가능
+                                합니다.</p>
                         </li>
                         <li class="col-sm-6 no-p">
-                            <div  class="center"><img src="/images/area4_02.png"></div>
+                            <div class="center"><img src="/images/area4_02.png"></div>
                             <p class="main_area4_h">편리한 프로젝트 진행</p>
                             <p class="main_area4_t">계산서 발행, 계약서, 대금정산, 진행상황 체크, 분쟁조정까지 관리함으로써 업무에만 집중할 수 있도록 도와드립니다.</p>
                         </li>
@@ -255,14 +256,15 @@
                 <div class="col-md-6 no-p">
                     <ul class="area4_ul">
                         <li class="col-sm-6 no-p">
-                            <div  class="center"><img src="/images/area4_03.png"></div>
+                            <div class="center"><img src="/images/area4_03.png"></div>
                             <p class="main_area4_h">믿을 수 있는 검증시스템</p>
                             <p class="main_area4_t">업종별 전문 마케팅 대행사들의 실제 진행 사례와 고객들의 평점/후기를 통해 대행사를 객관적으로 평가할 수 있습니다.</p>
                         </li>
                         <li class="col-sm-6 no-p">
-                            <div  class="center"><img src="/images/area4_04.png"></div>
+                            <div class="center"><img src="/images/area4_04.png"></div>
                             <p class="main_area4_h">안전한 프로젝트 관리</p>
-                            <p class="main_area4_t">에스크로 시스템으로 대금을 안전하게 보호하고, 업무 진척도에 따라 중간 정산까지 알아서 척척. 분쟁을 사전에 예방합니다.</p>
+                            <p class="main_area4_t">에스크로 시스템으로 대금을 안전하게 보호하고, 업무 진척도에 따라 중간 정산까지 알아서 척척. 분쟁을 사전에
+                                예방합니다.</p>
                         </li>
                     </ul>
 
@@ -271,32 +273,32 @@
         </section>
 
 
-              <section class="light-gray-bg padding-top-30 padding-bottom-20">
-                  <div class="container">
-                      <div class="col-md-1"></div>
-                      <div class="col-md-8" style="text-align:center;">
-                          <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
-                      </div>
-                      <div class="col-md-3">
-                          <?php
-                          if (!Auth::check()) {
-                              echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+        <section class="light-gray-bg padding-top-30 padding-bottom-20">
+            <div class="container">
+                <div class="col-md-1"></div>
+                <div class="col-md-8" style="text-align:center;">
+                    <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
+                </div>
+                <div class="col-md-3">
+                    <?php
+                    if (!Auth::check()) {
+                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
 
-                          } else if (Auth::user()->PorC == "C") {
-                              echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
-                          } else {
-                              echo "<a style = \"cursor : pointer\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
-                          }
-                          ?>
+                    } else if (Auth::user()->PorC == "C") {
+                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                    } else {
+                        echo "<a style = \"cursor : pointer\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                    }
+                    ?>
 
-                      </div>
-                  </div>
-              </section>
+                </div>
+            </div>
+        </section>
 
 
-              <section class="white-bg blog padding-top-30 padding-bottom-30">
-                  <div class="container">
-                      <!-- Heading -->
+        <section class="white-bg blog padding-top-30 padding-bottom-30">
+            <div class="container">
+                <!-- Heading -->
                 <div class="heading text-center">
                     <h4 class="margin-bottom-30">광고주들이 얘기하는 패스트엠</h4>
                 </div>
@@ -304,22 +306,26 @@
                 <div class="row">
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article> <img class="img-responsive post_img00" src="images/m_pho01.png" alt="" >
+                        <article><img class="img-responsive post_img00" src="images/m_pho01.png" alt="">
 
 
                             <!-- Detail -->
-                            <div class="post-detail"> <h8 class="post-tittle">비즈팜 김남형 부장님</h8> <span><img src="images/m_pho01_txt.png"></span>
+                            <div class="post-detail">
+                                <h8 class="post-tittle">비즈팜 김남형 부장님</h8>
+                                <span><img src="images/m_pho01_txt.png"></span>
                                 <p>급하게 진행할 마케팅 프로젝트에서 대행사를 찾고 있었는데,<br>
-                                    프로젝트 등록 후  빠르게 적합한 대행사를 찾아<br>
+                                    프로젝트 등록 후 빠르게 적합한 대행사를 찾아<br>
                                     프로젝트를 진행할 수 있었습니다.</p>
                             </div>
                         </article>
                     </div>
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article> <img class="img-responsive post_img00" src="images/m_pho02.png" alt="" >
+                        <article><img class="img-responsive post_img00" src="images/m_pho02.png" alt="">
                             <!-- Detail -->
-                            <div class="post-detail"> <h8 class="post-tittle">펠리체 송영종 대표님</h8> <span><img src="images/m_pho02_txt.png"></span>
+                            <div class="post-detail">
+                                <h8 class="post-tittle">펠리체 송영종 대표님</h8>
+                                <span><img src="images/m_pho02_txt.png"></span>
                                 <p>업종/분야별 전문 대행사들이 실제로 진행한<br>
                                     프로젝트 포트폴리오와 객관적인 고객들의 평가를 통해서<br>
                                     실력있는 대행사를 찾을 수 있어 너무 좋았습니다.</p>
@@ -328,10 +334,12 @@
                     </div>
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article> <img class="img-responsive post_img00" src="images/m_pho03.png" alt="" >
+                        <article><img class="img-responsive post_img00" src="images/m_pho03.png" alt="">
 
                             <!-- Detail -->
-                            <div class="post-detail"> <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8> <span><img src="images/m_pho03_txt.png"></span>
+                            <div class="post-detail">
+                                <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8>
+                                <span><img src="images/m_pho03_txt.png"></span>
                                 <p>프로젝트 계약부터 대금보호, 분쟁조정, 대금지금까지<br>
                                     패스트엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
                                     프로젝트에만 집중해서 좋은 결과를 낼 수 있었습니다.</p>

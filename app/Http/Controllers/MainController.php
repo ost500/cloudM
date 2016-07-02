@@ -24,9 +24,6 @@ class MainController extends Controller
         $projects = $projects->sortByDesc('updated_at');
         $projects = $projects->forPage(1, 6);
 
-        
-
-
         return view('index', compact('projects'));
     }
 
