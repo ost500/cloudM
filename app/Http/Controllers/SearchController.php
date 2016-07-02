@@ -33,6 +33,9 @@ class SearchController extends Controller
 
     public function detail($id)
     {
+        if(!Auth::check()){
+            return redirect()->action('MainController@index');
+        }
         $detailProject = Project::where('id', '=', $id)->get();
         $comment = Comments::where('project_id', '=', $id)->get();
         return view('p_detail', compact('detailProject', 'comment'));

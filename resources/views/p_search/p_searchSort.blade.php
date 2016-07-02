@@ -25,25 +25,33 @@
 
                                 </div>
                                 <div class="media-body">
-                                    <a href="{{ url('detail/'.$project['id']) }}">
-                                        <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
+                                    @if(Auth::check())
+                                        <a href="{{ url('detail/'.$project['id']) }}">
+                                            <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
+                                    @else
+                                        <a style="cursor : pointer" data-toggle="modal"
+                                           data-target="#loginModal">
+                                            <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
+                                    @endif
+
 
                                 </div>
-
-                                <span class="media-body-sm-Plist">월 예산 <span>{{ number_format($project['budget']) }}</span>원</span>
-                                <span class="media-body-sm-Plist">예상기간 <span>{{ $project['estimated_duration'] }}</span></span>
-                                <span class="media-body-sm-Plist la-line">등록일자 <span>{{ substr($project['created_at'], 0, 10) }}</span></span>
-                                <!--span class="media-body-sm-Plist la-line">마감 <span>{{ $project['deadline'] }}</span></span-->
                             </div>
+
+                            <span class="media-body-sm-Plist">월 예산 <span>{{ number_format($project['budget']) }}</span>원</span>
+                            <span class="media-body-sm-Plist">예상기간 <span>{{ $project['estimated_duration'] }}</span></span>
+                            <span class="media-body-sm-Plist la-line">등록일자 <span>{{ substr($project['created_at'], 0, 10) }}</span></span>
+                        <!--span class="media-body-sm-Plist la-line">마감 <span>{{ $project['deadline'] }}</span></span-->
                         </div>
-                        <!-- Content -->
-                        <div id="job1" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <p> {{ str_limit($project['detail_content'], 250, '...') }}</p>
-                                        <!-- Additional Requirements -->
-                                        <div>
+                    </div>
+                    <!-- Content -->
+                    <div id="job1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <p> {{ str_limit($project['detail_content'], 250, '...') }}</p>
+                                    <!-- Additional Requirements -->
+                                    <div>
 
                                             <ul class="tags dall margin-top-20">
                                                 <li>미팅 >
@@ -61,34 +69,35 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                <div class="col-md-3">
 
-                                        <ul class="list-unstyled">
-                                            <li class="padding-top-5"></li>
+                                    <ul class="list-unstyled">
+                                        <li class="padding-top-5"></li>
 
-                                            <li class="partners-authentication ">
-                                                @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
-                                                    <?php $today = new DateTime('-1 day'); $d_day = new DateTime($project->deadline);?>
-                                                    <span class="s_icon01">모집마감 {{ $today->diff($d_day)->days}}일 남음</span>
-                                                @else
-                                                    <span class="s_icon01">모집마감</span>
-                                                @endif
-                                            </li>
+                                        <li class="partners-authentication ">
+                                            @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
+                                                <?php $today = new DateTime('-1 day'); $d_day = new DateTime($project->deadline);?>
+                                                <span class="s_icon01">모집마감 {{ $today->diff($d_day)->days}}
+                                                    일 남음</span>
+                                            @else
+                                                <span class="s_icon01">모집마감</span>
+                                            @endif
+                                        </li>
 
-                                            <li class="partners-authentication ">
-                                                <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
-                                            </li>
-                                        </ul>
-                                        </p>
-                                    </div>
+                                        <li class="partners-authentication ">
+                                            <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
+                                        </li>
+                                    </ul>
+                                    </p>
                                 </div>
                             </div>
-
-
                         </div>
+
+
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     @else
     @endif
