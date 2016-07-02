@@ -9,23 +9,26 @@
             <div class="container">
 
 
-                <div class="coupen">
-                    <p><span>프로젝트</span>를 검색해보세요.</p>
-                </div>
+                <div class="coupen  padding-bottom-70">
+                    <div class="col-md-4">
+                        <p class="h4 text-bold"><span>프로젝트</span>를 검색해보세요.</p>
+                        <p class="padding-top-15" id="title_count">총 {{ $projects->count() }}개의 프로젝트가 등록 되었습니다.</p>
+                    </div>
 
+                    <div class="col-md-8">
+                        <div class="pull-right">
+                        <input id="literal_text" type="text"
+                               class="form-control01" placeholder="검색어를 입력하세요" value=""><a
+                                id="literal_button" class="sea_button" href="#">검색</a>
+                        </div>
+                    </div>
+                </div>
                 <!-- Grid Layout -->
 
 
                 <!-- Side Bar -->
                 <div class="row">
-                    <div class="col-md-3">
-
-
-                        <input id="literal_text" style="margin-top: 20px; margin-bottom: 10px" type="text"
-                               class="form-control02 form-control01" placeholder="검색어를 입력하세요" value=""><a
-                                id="literal_button" class="sea_button" href="#">검색</a>
-
-
+                    <div class="col-md-3 margin-top-10">
                         <div class="job-sider-bar">
                             <h5 class="side-tittle">프로젝트 정렬</h5>
                             <div class="col-md-12 padding-0 category-align">
@@ -60,7 +63,7 @@
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
 
-                        <div id="check" class=" margin-top-15"></div>
+                        <div id="check" class=" margin-top-10"></div>
 
                         <div class="col-md-12">
                             <ul class="pagination">

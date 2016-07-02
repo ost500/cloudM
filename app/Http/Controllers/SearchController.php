@@ -20,12 +20,12 @@ class SearchController extends Controller
 
     public function p_search()
     {
-//        $projects = Project::all();
+        $projects = Project::where('step', '<>', '검수')->get();
 //        $test = new Builder(DB::table('projects'));
 //        $test2 = $test->paginate(5);
 //        $projects = DB::table('projects')->paginate(5);
 
-        return view('p_search/p_search');
+        return view('p_search/p_search', compact('projects'));
 //        return view('p_search', compact('projects'));
 //        return view('p_search', ['todos'=> $todos]);
 

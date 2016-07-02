@@ -5,7 +5,7 @@
         <div id="accordion">
 
             <!-- Job Section -->
-            <div class="job-content job-post-page margin-top-20">
+            <div class="job-content job-post-page margin-top-10">
                 <!-- Job Tittle -->
                 <div class="col-lg-2 padding-top-5">
                     @if($partner->profileImage != null)

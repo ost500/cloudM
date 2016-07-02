@@ -1,6 +1,4 @@
 <!-- Pagination -->
-<h5 id="count" class="padding-bottom-15">{{ $projects['count'] }}개의 프로젝트</h5>
-
 @foreach($projects as $project)
     @if($project['title'])
         <!-- Job Content -->
