@@ -90,6 +90,14 @@ Route::post('/applist/contract', 'MypageController@contract');
 
 
 Route::get('/setting', 'MypageController@setting');
+
+Route::get('/setting/profile', 'MypageController@setting');
+Route::get('/setting/auth', 'MypageController@settingAuth');
+Route::get('/setting/bank', 'MypageController@settingBank');
+Route::get('/setting/password', 'MypageController@settingPassword');
+Route::get('/setting/notification', 'MypageController@settingNotification');
+Route::get('/setting/passwordChange', 'MypageController@settingPasswordChange');
+
 // delete project
 Route::post('/rm_project', 'DeleteController@delete_project');
 // delete Application
@@ -105,6 +113,17 @@ Route::post('/mypage/auth_img', 'MypagePostController@setProfileAuthimg');
 Route::post('/mypage/info', 'MypagePostController@set_profile_info');
 // User phone and fax number
 Route::post('/mypage/numbers', 'MypagePostController@set_numbers');
+
+// User bank
+Route::post('/setting/bankEdit', 'MypagePostController@set_bank');
+
+// User password check
+Route::post('/setting/passwordCheck', 'MypagePostController@password_check');
+
+// User password update
+Route::post('/setting/passwordUpdate', 'MypagePostController@password_update');
+
+
 
 // 제안서/견적서 업로드
 Route::post('/proposalFileUpload', 'MypageController@proposalFileUpload');

@@ -6,6 +6,16 @@
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
+
+                <!--
+                        <div class="heading text-left margin-bottom-20">
+                          <h4>프로젝트 검색</h4>
+                        </div>
+                        <div class="coupen">
+                          <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
+                        </div>
+                -->
+
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
@@ -60,11 +70,6 @@
 
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
-
-                        <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-                            <span class="h3 text-bold">기본 정보 수정</span>
-                            <p class="padding-top-5">기본적인 개인 정보를 수정 할 수 있습니다.</p>
-                        </div>
 
 
                         <!-- Job Content -->
@@ -331,6 +336,99 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+                                            <div class="stepContainer" style="padding-top:30px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <form action="{{ url('/mypage/auth_img') }}" method="POST" role="form"
+                                                              enctype="multipart/form-data" accept-charset="UTF-8">
+                                                            {!! csrf_field() !!}
+
+                                                            <fieldset>
+                                                                <legend>인증 관리</legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 사업자  : 사업자등록증 / 개인 : 신분증사본 업로드 해 주세요.
+                                                                            </label></br></br>
+
+
+                                                                            @if ($loginUser->auth_check == "인증완료")
+                                                                                인증완료
+                                                                            @elseif ($loginUser->auth_image && $loginUser->auth_check == "인증요청")
+                                                                                자료 제출 후 인증 대기중
+                                                                            @else
+                                                                                <input class="form-control" type="file"
+                                                                                       name="auth_image" id="auth_file_input"
+                                                                                       value="{{ $loginUser->auth_image.".jpg" }}" />
+                                                                                {{ $errors->first('auth_image') }}
+                                                                            @endif
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                @if ($loginUser->auth_check == "인증전")
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                        제출하기
+                                                                    </button>
+                                                                </div>
+                                                                @endif
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="stepContainer" style="padding-top:30px;">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+                                                        <form action="{{ url('/mypage/email') }}" method="POST" role="form">
+                                                            {!! csrf_field() !!}
+
+                                                            <fieldset>
+                                                                <legend>
+                                                                    이메일 구독설정
+                                                                </legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label class="control-label"> 이메일
+                                                                            </label>
+                                                                            <strong>{{ $loginUser->email }}</strong>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <div class="checkbox">
+                                                                                <input type="checkbox" name="checkbox1" id="checkbox1"
+                                                                                       value="option1" checked="">
+                                                                                <label for="checkbox1">패스트엠의 프로젝트 소식을 구독합니다.</label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-sm btn-primary btn-o next-step pull-right">
+                                                                        저장하기
+                                                                    </button>
+                                                                </div>
+                                                            </fieldset>
+
+
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
 
 
 

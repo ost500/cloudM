@@ -6,11 +6,9 @@ use App\Http\Requests\UserRequest;
 use App\User;
 use Validator;
 use Illuminate\Http\Request;
-
-
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Hash;
 
 class MypagePostController extends Controller
 {
@@ -124,5 +122,45 @@ class MypagePostController extends Controller
 
         return redirect()->back();
     }
+
+
+    public function set_bank(Request $request)
+    {
+        Auth::user()->bank = $request->bank;
+        Auth::user()->account_holder = $request->account_holder;
+        Auth::user()->account_number = $request->account_number;
+        Auth::user()->save();
+
+        return redirect()->back();
+    }
+
+
+
+    public function password_check(Request $request)
+    {
+        if (Auth::user()->email == $request['email'] && Hash::check($request['password'], Auth::user()->password)) {
+            return redirect()->action('MypageController@settingPasswordChange', ['_token'=>$request['_token']]);
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function password_update(Request $request)
+    {
+        if ($request['password'] != $request['password_re']) {
+            return redirect()->back();
+        }
+
+        if (Auth::user()->email == $request['email']) {
+            Auth::user()->password = Hash::make($request['password']);
+            Auth::user()->save();
+
+            return redirect()->action('MypageController@settingPassword', ['isChnage'=>true]);
+        } else {
+            return redirect()->back();
+        }
+    }
+
+
 
 }
