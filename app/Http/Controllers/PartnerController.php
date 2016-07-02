@@ -16,7 +16,9 @@ class PartnerController extends Controller
 {
     public function partner()
     {
-        return view('partner/partner');
+        $partners = Partners::with('user');
+
+        return view('partner/partner', compact('partners'));
     }
 
     public function partner_list($page, $option = "0", $option2 = "0", $keyword = "%")

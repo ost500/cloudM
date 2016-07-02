@@ -6,34 +6,35 @@
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
-
-                <!--
-                        <div class="heading text-left margin-bottom-20">
-                          <h4>프로젝트 검색</h4>
-                        </div>
-                        <div class="coupen">
-                          <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
-                        </div>
-                -->
-
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="job-sider-bar003">
-                            <h5 class="side-tittle">클라이언트</h5>
-                            <div>
-                                @if($loginUser->profileImage != null)
-                                    <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
+                        <div class="col-md-3">
+                            <div class="job-sider-bar003">
+                                @if($loginUser->PorC == "P")
+                                    <h5 class="side-tittle">파트너스</h5>
                                 @else
-                                    <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                    <h5 class="side-tittle">클라이언트</h5>
                                 @endif
-                                <h6>{{ $loginUser->name }}</h6>
-                                <a href="{{ url("/setting") }}">
-                                    <div id="tag02">
-                                        <div class="button">기본정보수정</div>
+                                <div>
+                                    <div class="col-md-3">
+                                        @if($loginUser->profileImage != null)
+                                            <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}">
+                                        @else
+                                            <img class="partner_profile02" src="/images/p_img02.png">
+                                        @endif
                                     </div>
-                                </a>
+                                    <div class="col-md-9">
+                                        <p class="side-title-name">{{ $loginUser->name }}</p>
+                                        <a href="/setting">
+                                            <div id="tag02">
+                                                <div class="button">기본정보수정</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="job-sider-bar02">
@@ -81,32 +82,6 @@
                                         <div class="panel-heading">
 
                                             <a class="mypage_link" href="{{url('/services')}}">처음 오셨나요? 이용방법을 확인하세요 > </a>
-                                            <!--<div class="job-tittle02">
-
-
-
-
-                                                <div class="tags_bg02 margin-top-20 padding-top-5">
-                                                    <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
-
-
-                                                    <div class="row">
-                                                    <ul>
-                                                        <div class="col-md-2"><li><div class="rating star-lg star-lg-4"></div></li></div>
-                                                        <div class="col-md-3"><li><span class="rating-stats-body stats-body">
-                                                                <span class="average-rating-score">4.2</span>
-                                                                <span class="rating-append-unit append-unit">/ 평가 20개</span>
-                                                            </span></li></div>
-
-                                                        <div class="col-md-4"><li><span class="partners-authorized"><i class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span></li></div>
-                                                        <div class="col-md-3"><li><span class="partners-authorized"><i class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span></li></div>
-
-
-
-                                                    </ul>
-                                                    </div>
-                                                </div>
-                                            </div>-->
 
                                             <div class="job-tittle03">
                                                 <h6 class="my_h6 margin-bottom-10 margin-top-20">검수중 프로젝트</h6>
