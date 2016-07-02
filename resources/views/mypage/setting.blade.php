@@ -77,16 +77,17 @@
                                     <h5 class="panel-title">프로필 사진</h5>
                                 </div>
                                 <div class="panel-body padding-right-30">
-                                    <form action="{{ url('/mypage/img') }}" method="POST" role="form" class="form-horizontal"
-                                              enctype="multipart/form-data" accept-charset="UTF-8">
-                                            {!! csrf_field() !!}
+                                    <form action="{{ url('/mypage/img') }}" method="POST" role="form"
+                                          class="form-horizontal"
+                                          enctype="multipart/form-data" accept-charset="UTF-8">
+                                        {!! csrf_field() !!}
 
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="inputEmail3"> 사진 </label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" type="file"
                                                        name="Image" id="image_input"
-                                                       value="{{ $loginUser->profileImage.".jpg" }}" />
+                                                       value="{{ $loginUser->profileImage.".jpg" }}"/>
                                                 {{ $errors->first('Image') }}
                                             </div>
                                         </div>
@@ -105,10 +106,12 @@
                                     <h5 class="panel-title">기본정보</h5>
                                 </div>
                                 <div class="panel-body padding-right-30">
-                                    <form action="{{ url('/mypage/info') }}" method="POST" role="form" class="form-horizontal">
+                                    <form action="{{ url('/mypage/info') }}" method="POST" role="form"
+                                          class="form-horizontal">
                                         {!! csrf_field() !!}
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 이름</label>
+                                            <label class="col-sm-3 control-label" for="inputEmail3"><span
+                                                        class="symbol required"></span> 이름</label>
                                             <div class="col-sm-8">
                                                 <input class="form-control" required="required" type="text" name="name"
                                                        placeholder=""
@@ -119,27 +122,40 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 연락처</label>
+                                            <label class="col-sm-3 control-label" for="inputEmail3"><span
+                                                        class="symbol required"></span> 연락처</label>
                                             <div class="col-sm-8">
                                                 <select name="phone_num1" class="phone_width"
                                                         id="form_of_business" required="required">
-                                                    <option vlaue="010" @if($loginUser->phone_num_arr[0] == "010"){{"selected"}}@endif>010</option>
-                                                    <option value="011" @if($loginUser->phone_num_arr[0] == "011"){{"selected"}}@endif>011</option>
-                                                    <option value="016" @if($loginUser->phone_num_arr[0] == "016"){{"selected"}}@endif>016</option>
-                                                    <option value="017" @if($loginUser->phone_num_arr[0] == "017"){{"selected"}}@endif>017</option>
-                                                    <option value="019" @if($loginUser->phone_num_arr[0] == "019"){{"selected"}}@endif>019</option>
+                                                    <option vlaue="010" @if($loginUser->phone_num_arr[0] == "010"){{"selected"}}@endif>
+                                                        010
+                                                    </option>
+                                                    <option value="011" @if($loginUser->phone_num_arr[0] == "011"){{"selected"}}@endif>
+                                                        011
+                                                    </option>
+                                                    <option value="016" @if($loginUser->phone_num_arr[0] == "016"){{"selected"}}@endif>
+                                                        016
+                                                    </option>
+                                                    <option value="017" @if($loginUser->phone_num_arr[0] == "017"){{"selected"}}@endif>
+                                                        017
+                                                    </option>
+                                                    <option value="019" @if($loginUser->phone_num_arr[0] == "019"){{"selected"}}@endif>
+                                                        019
+                                                    </option>
                                                 </select>
                                                 <input class="phone_width number" type="text"
                                                        name="phone_num2"
                                                        placeholder=""
-                                                       value="{{ $loginUser->phone_num_arr[1] }}" required="required" minlength="3" maxlength="4">
+                                                       value="{{ $loginUser->phone_num_arr[1] }}" required="required"
+                                                       minlength="3" maxlength="4">
                                                 <input class="phone_width" type="text"
                                                        name="phone_num3"
                                                        placeholder=""
-                                                       value="{{ $loginUser->phone_num_arr[2] }}" required="required" minlength="3" maxlength="4">
+                                                       value="{{ $loginUser->phone_num_arr[2] }}" required="required"
+                                                       minlength="3" maxlength="4">
                                                 <p class="validation-error">{{ $errors->first('phone_num1') }}
-                                                {{ $errors->first('phone_num2') }}
-                                                {{ $errors->first('phone_num3') }}</p>
+                                                    {{ $errors->first('phone_num2') }}
+                                                    {{ $errors->first('phone_num3') }}</p>
                                             </div>
                                         </div>
 
@@ -185,8 +201,8 @@
                                             <label class="col-sm-3 control-label" for="inputPassword3"> 생년월일 </label>
                                             <div class="col-sm-8">
                                                 <input type="text"
-                                                             class="form-control"
-                                                             name="BOD" id="bod" value="{{ $loginUser->BOD }}" maxlength="10">
+                                                       class="form-control"
+                                                       name="BOD" id="bod" value="{{ $loginUser->BOD }}" maxlength="10">
 
                                                 <p class="validation-error"></p>
                                             </div>
@@ -281,13 +297,15 @@
                                         </div>
                                     </form>
                                 </div>
+                            </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </section>
+
     </div>
 
 
