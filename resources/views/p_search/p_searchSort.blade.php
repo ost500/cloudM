@@ -5,7 +5,7 @@
         <div id="accordion">
 
             <!-- Job Section -->
-            <div class="job-content job-post-page margin-bottom-10">
+            <div class="job-content02 job-post-page margin-bottom-10">
                 <!-- Job Tittle -->
                 <div class="panel-group margin-bottom-0">
                     <div class="panel panel-default">

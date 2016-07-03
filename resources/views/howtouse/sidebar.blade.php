@@ -1,10 +1,10 @@
 @extends('include.head')
-@section('content')
+@section('main_content')
         <!-- Content -->
 <div id="content">
 
     <!-- Revenues -->
-    <section class="revenues padding-top-15 padding-bottom-70">
+    <section class="revenues padding-top-15 padding-bottom-30">
         <div class="container">
 
 

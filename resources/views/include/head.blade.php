@@ -147,15 +147,15 @@
                     @if(Auth::user()->PorC == "P")
                         <li><a href="{{ url("/mypage") }}">프로필</a></li>
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
-                        <li><a href="{{ url("/myProject/apply") }}">지원한 프로젝트</a></li>
-                        <li><a href="{{ url("/myProject/carryOn/partner") }}">진행중 프로젝트</a></li>
-                        <li><a href="{{ url("/myProject/done/partner") }}">완료된 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/apply") }}">지원한 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/carryn") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/done") }}">완료된 프로젝트</a></li>
                     @else
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
-                        <li><a href="{{ url("/my_checking") }}">검수중 프로젝트</a></li>
-                        <li><a href="{{ url("/my_posted") }}">등록 프로젝트</a></li>
-                        <li><a href="{{ url("/my_carry_on") }}">진행중 프로젝트</a></li>
-                        <li><a href="{{ url("/my_done") }}">완료된 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/checking") }}">검수중 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/posted") }}">등록 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/carryon") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/done") }}">완료된 프로젝트</a></li>
                     @endif
 
                 </ul>
@@ -313,7 +313,7 @@
                                required="required">
                     </div>
 
-                    
+
 
                     <div class="text-left">10MB까지 zip파일만 업로드 가능합니다</div>
 

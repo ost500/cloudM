@@ -4,7 +4,7 @@
     @foreach($detailProject as $project)
 
         <!-- Content -->
-        <div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+        <div id="content">
 
             <!-- Job -->
             <section class="job padding-top-15 padding-bottom-70">
@@ -33,6 +33,51 @@
                                         <div id="tag02">
                                             <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
                                         </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
+                                        <a style="cursor:pointer" id="pro_app_btn"><div class="btn btn-app margin-top-10 margin-bottom-5">프로젝트 지원하기</div></a>
+                                    @else
+                                        <div class="btn btn-app-not margin-top-10 margin-bottom-5">프로젝트 지원불가</div>
+                                    @endif
+                                    <?php
+
+                                    echo '<script>';
+                                    echo '$("#pro_app_btn").click(function(){';
+                                    if (!Auth::check()) {
+                                        echo '$("#loginModal").modal("show");';
+                                    } else if (Auth::user()->PorC == "C") {
+                                        echo 'alert("파트너가 아닙니다")';
+                                    } else if (App\Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $project['id'])->get()->isEmpty() == false) {
+                                        echo 'alert("이미 지원하셨습니다")';
+                                    } else {
+                                        echo 'window.location = "' . url("/apply/" . $project['id'] . "/application") . '";';
+                                    }
+                                    echo '});';
+                                    echo '</script>';
+
+                                    ?>
+                                </div>
+                                <div class="col-md-12">
+                                    <a style="cursor:pointer" id="pro_app_btn">
+                                        <form method="POST"
+                                              action="{{ url('/detail/'.$project->id.'/interesting') }}">
+                                            {{ csrf_field() }}
+                                            @if(!Auth::check())
+
+                                            @else
+                                                @if(Auth::user()->PorC == "P")
+                                                    <div class="btn btn-interesting margin-top-5">관심 프로젝트 추가</div>
+                                                @elseif(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
+                                                    <div onclick="javascript:alert('이미 추가하셨습니다');" class="btn btn-interesting margin-top-5">관심 프로젝트</div>
+                                                @else
+                                                @endif
+                                            @endif
+                                        </form>
                                     </a>
                                 </div>
                             </div>
@@ -98,64 +143,7 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
 
-                                                            <a style="cursor:pointer" id="pro_app_btn">
-                                                                <div class="button006 margin-top-10 margin-bottom-20">
-                                                                    프로젝트
-                                                                    지원하기
-                                                                </div>
-                                                            </a>
-                                                        @endif
-                                                        <?php
-
-                                                        echo '<script>';
-                                                        echo '$("#pro_app_btn").click(function(){';
-                                                        if (!Auth::check()) {
-                                                            echo '$("#loginModal").modal("show");';
-                                                        } else if (Auth::user()->PorC == "C") {
-                                                            echo 'alert("파트너가 아닙니다")';
-                                                        } else if (App\Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $project['id'])->get()->isEmpty() == false) {
-                                                            echo 'alert("이미 지원하셨습니다")';
-                                                        } else {
-                                                            echo 'window.location = "' . url("/apply/" . $project['id'] . "/application") . '";';
-                                                        }
-                                                        echo '});';
-                                                        echo '</script>';
-
-                                                        ?>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <a style="cursor:pointer" id="pro_app_btn">
-                                                            <form method="POST"
-                                                                  action="{{ url('/detail/'.$project->id.'/interesting') }}">
-                                                                {{ csrf_field() }}
-                                                                @if(!Auth::check())
-
-                                                                @else
-                                                                    @if(Auth::user()->PorC != "P")
-                                                                        <div onclick="javascript:alert('파트너가 아닙니다');"
-                                                                             class="hover margin-top-10 margin-bottom-20">
-                                                                            관심 프로젝트 추가
-                                                                        </div>
-
-                                                                    @elseif(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
-                                                                        <div onclick="javascript:alert('이미 추가하셨습니다');"
-                                                                             class="hover margin-top-10 margin-bottom-20">
-                                                                            관심 프로젝트
-                                                                        </div>
-                                                                    @else
-
-                                                                    @endif
-                                                                @endif
-
-
-                                                            </form>
-                                                        </a>
-                                                    </div>
-                                                </div>
 
                                                 <div style="clear:both;"></div>
                                                 <div class="p_search02_txt margin-top-20">
@@ -194,7 +182,7 @@
                             </div>
 
 
-                            <div class="job-content job-post-page margin-top-20 padding-bottom-20">
+                            <div class="job-content02 job-post-page margin-top-20 padding-bottom-20">
                                 <h5>프로젝트 문의</h5>
 
                                 @foreach($comment as $comments)

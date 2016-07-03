@@ -10,12 +10,12 @@
 
 
                 <div class="coupen  padding-bottom-70">
-                    <div class="col-md-4">
+                    <div class="col-md-4 padding-top-15">
                         <p class="h4 text-bold"><span>프로젝트</span>를 검색해보세요.</p>
                         <p class="padding-top-15" id="title_count">총 {{ $projects->count() }}개의 프로젝트가 등록 되었습니다.</p>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-8 padding-top-25">
                         <div class="pull-right">
                         <input id="literal_text" type="text"
                                class="form-control01" placeholder="검색어를 입력하세요" value=""><a

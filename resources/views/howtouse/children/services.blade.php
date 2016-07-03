@@ -1,5 +1,5 @@
 <!-- Stories -->
-<div class="col-md-9">
+<div class="col-md-9  job-right">
 
     <div class="job-content job-post-page margin-top-10">
         <div class="heading">
