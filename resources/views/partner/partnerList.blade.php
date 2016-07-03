@@ -25,8 +25,6 @@
 
                     <div class="panel-group">
                         <div class="panel panel-default">
-                            <!-- Save -->
-                            <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
                             <!-- PANEL HEADING -->
                             <div class="panel-heading">
                                     <div class="media-left">
@@ -77,8 +75,8 @@
                             <div class="rating star-lg star-lg-0"></div>
 
                             <span class="rating-stats-body stats-body">
-                                <span class="average-rating-score padding-left-10">4.2</span>
-                                <span class="rating-append-unit append-unit pull-right">/ 평가 20개</span>
+                                <span class="average-rating-score padding-left-10">0</span>
+                                <span class="rating-append-unit append-unit pull-right">/ 평가 0개</span>
                             </span>
                         </li>
 
