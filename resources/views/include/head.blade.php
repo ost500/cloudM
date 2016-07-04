@@ -148,7 +148,7 @@
                         <li><a href="{{ url("/mypage") }}">프로필</a></li>
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
                         <li><a href="{{ url("/partner/project/apply") }}">지원한 프로젝트</a></li>
-                        <li><a href="{{ url("/partner/project/carryn") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/carryon") }}">진행중 프로젝트</a></li>
                         <li><a href="{{ url("/partner/project/done") }}">완료된 프로젝트</a></li>
                     @else
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>

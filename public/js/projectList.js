@@ -26,13 +26,11 @@ function viewLoad() {
 
         success: function (result) {
             console.log("project/" + checked_area + "/" + page + "/" + sort + "/" + literal_search);
-
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
+
             pageLoad();
-
-
         }
     });
 }
