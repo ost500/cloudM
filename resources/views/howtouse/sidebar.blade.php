@@ -1,5 +1,5 @@
 @extends('include.head')
-@section('main_content')
+@section('content')
         <!-- Content -->
 <div id="content">
 

@@ -206,7 +206,7 @@
                                                         <div class="form-group">
                                                             <label class="control-label"> 지원 내용 <span
                                                                         class="symbol required"></span></label>
-                                                    <textarea name="contents"
+                                                    <textarea autofocus name="contents"
                                                               class="form-control"
                                                               rows=10 aria-required="true"
                                                               placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요.지원서는 관리자 검수 후에 광고주에게 노출 됩니다."

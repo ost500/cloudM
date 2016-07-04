@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Project;
-use Illuminate\Support\Facades\DB;
-use App\Events\VisitorTracker;
-use Illuminate\Support\Facades\Event;
+
 
 
 class MainController extends Controller

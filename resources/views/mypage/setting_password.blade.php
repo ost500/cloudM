@@ -13,6 +13,7 @@
             <div class="panel-heading">
                 <h5 class="panel-title">비밀번호 확인</h5>
             </div>
+
             <div class="panel-body padding-right-30">
                 <form action="{{ url('/setting/passwordCheck') }}" method="POST" role="form" class="form-horizontal"
                       accept-charset="UTF-8">
