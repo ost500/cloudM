@@ -941,6 +941,7 @@
   background-color: #386976 !important;
   border-color: #386976;
 }
+
 .btn-blue:focus {
   background-color: #60a2b4;
   border-color: #60a2b4;
@@ -1769,6 +1770,11 @@
 .btn-purple {
   background-color: #9A89B5;
   border-color: #9A89B5;
+  color: #ffffff;
+}
+.btn-fastm {
+  background-color: #337ab7;
+  border-color: #337ab7;
   color: #ffffff;
 }
 .open .btn-purple.dropdown-toggle {
