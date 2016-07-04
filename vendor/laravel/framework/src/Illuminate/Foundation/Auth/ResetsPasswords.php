@@ -119,7 +119,6 @@ trait ResetsPasswords
     protected function resetEmailBuilder()
     {
         return function (Message $message) {
-            $message->from('FastM@FastM.io','FastM');
             $message->subject($this->getEmailSubject());
         };
     }

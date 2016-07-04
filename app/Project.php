@@ -45,4 +45,9 @@ class Project extends Model
     {
         return $this->hasMany('App\Interesting', 'p_id', 'id');
     }
+    public function comment()
+    {
+        return $this->hasMany('App\Comments', 'project_id', 'id');
+    }
+
 }
