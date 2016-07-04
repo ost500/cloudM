@@ -4,16 +4,16 @@
     <div id="content">
 
         <!-- Job -->
-        <section class="job padding-top-15 padding-bottom-70">
+        <section class="job padding-top-15 padding-bottom-30">
             <div class="container">
 
                 <div class="coupen  padding-bottom-70">
-                    <div class="col-md-4">
+                    <div class="col-md-4 padding-top-15">
                         <p class="h4 text-bold"><span>파트너</span>를 검색해보세요.</p>
                         <p class="padding-top-15" id="title_count">총 {{ $partners->count() }}명의 파트너가 등록 되었습니다.</p>
                     </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-8 padding-top-25">
                         <div class="pull-right">
                             <div class="short-by">
                                 <label>
@@ -79,8 +79,8 @@
 
                         <div id="list"></div>
 
-                        <div style="padding: 40px;" class="col-md-7">
-                            <ul class="pagination">
+                        <div class="col-md-7 pull-right padding-top-30">
+                            <ul class="pagination" >
                                 <li><a id="prevPblock" style="cursor: pointer"><i class="fa fa-angle-left"></i></a>
                                 </li>
                                 <li id="pagination"></li>

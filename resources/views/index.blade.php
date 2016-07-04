@@ -21,7 +21,7 @@
                     } else if (Auth::user()->PorC == "C") {
                         echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
                     } else {
-                        echo "<a style = \"cursor : pointer\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
+                        echo "<a href='/project' class=\"main_top_btn\">무료로 프로젝트 검색하기</a>";
                     }
                     ?>
                 </div>
