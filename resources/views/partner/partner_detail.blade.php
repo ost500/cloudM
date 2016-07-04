@@ -6,33 +6,49 @@
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
-
-                <div class="coupen">
-                    <p><span>파트너 상세정보</span> - 원하는 파트너를 직접 찾아보세요.</p>
-                </div>
-
                 <!-- Side Bar -->
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-3">
                         <div class="job-sider-bar003">
                             <h5 class="side-tittle">파트너스</h5>
-                            <div class="col-md-3">
+                            <div class="col-md-12 text-center">
                                 @if($partner['user']->profileImage != null)
-                                    <img class="partner_profile02"
+                                    <img class="partner_profile_150"
                                          src="{{ URL::asset($partner['user']->profileImage) }}"><br>
                                 @else
-                                    <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                    <img class="partner_profile_150" src="/images/p_img02.png"><br>
                                 @endif
                             </div>
-                            <div class="col-md-9">
-                                <p class="side-title-name"><h5 class="text-center">{{ $partner->user->name }}</h5></p>
+                            <div class="col-md-12 padding-top-15">
+                                <p class="side-title-name big"><h5 class="text-center">{{ $partner->user->name }}</h5></p>
+                            </div>
+                        </div>
+
+                        <div class="job-sider-bar02">
+                            <div class="side-bar-revenues">
+                                <a href="{{ url('/partner/1') }}" class="head on"><i
+                                                class="fa fa-angle-double-right"></i> 전체보기</a>
+
+                                <a href="{{ url('/partner/auth') }}" class="head"><i
+                                            class="fa fa-angle-double-right "></i> 자기소개</a>
+
+                                <a href="{{ url('/partner/portfolio') }}" class="head"><i
+                                            class="fa fa-angle-double-right "></i> 포트폴리오</a>
+
+                                <a href="{{ url('/partner/1') }}" class="head"><i
+                                            class="fa fa-angle-double-right "></i> 전문분야</a>
+
+                                <a href="{{ url('/partner/1') }}" class="head"><i
+                                            class="fa fa-angle-double-right "></i> 클라이언트 평가</a>
                             </div>
                         </div>
                     </div>
 
+
+
+
                     <!-- Job  Content -->
                     <div class="col-md-9 job-right">
-
 
                         <!-- Job Content -->
                         <div id="accordion">

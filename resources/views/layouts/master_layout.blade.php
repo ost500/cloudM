@@ -6,7 +6,7 @@
             <div class="container">
                 <!-- Side Bar -->
                 <div class="row">
-                    <div class="col-md-3">{{ Route::getCurrentRoute()->getPath }}
+                    <div class="col-md-3">
                         @if (starts_with(Route::getCurrentRoute()->getPath(), 'setting'))
                             @include('include.setting_left')
                         @elseif(Request::is('dashboard') || starts_with(Route::getCurrentRoute()->getPath(), 'client') || starts_with(Route::getCurrentRoute()->getPath(), 'partner'))

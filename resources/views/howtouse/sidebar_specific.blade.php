@@ -1,18 +1,11 @@
 @extends('include.head')
-@section('main_content')
+@section('content')
         <!-- Content -->
 <div id="content">
 
     <!-- Revenues -->
     <section class="revenues padding-top-15 padding-bottom-70">
         <div class="container">
-
-
-
-            <!-- coupen -->
-            <div class="coupen">
-                <p> 마케팅 중개 플랫폼 <span>패스트엠 이용방법</span>을 안내해드립니다.</p>
-            </div>
 
             <div class="row">
                 <!-- Revenues Sidebar -->
