@@ -1,7 +1,7 @@
 @extends('layouts.master_layout')
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-        <span class="h3 text-bold">포트폴리오 관리</span>
+        <span class="h3 text-bold">포트폴리오</span>
         <p class="padding-top-5">체계적인 포트폴리오 관리를 통해 광고주의 선택을 받을 수 있습니다.</p>
     </div>
 

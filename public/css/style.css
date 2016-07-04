@@ -6367,6 +6367,32 @@ h2.p_add_header i {
     border-right: none;
 }
 
+
+.table_03 tr th {
+    color: #444 !important;
+    font-size: 14px;
+    background: #f9f9f9;
+    border-bottom: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    padding: 15px 17px;
+}
+
+.table_03 tr th:last-child {
+    border-right: none;
+}
+
+.table_03 tr td {
+    color: #666 !important;
+    font-size: 14px;
+    border-bottom: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    padding: 16px 17px;
+}
+
+.table_03 tr td:last-child {
+    border-right: none;
+}
+
 .p_add_banntitle {
     font-size: 32px;
     font-weight: 300;

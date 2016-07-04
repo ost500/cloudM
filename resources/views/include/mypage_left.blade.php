@@ -3,15 +3,13 @@
 </div>
 
 <div class="job-sider-bar02">
-    <h5 class="side-tittle">프로필 관리</h5>
-    <table class="sub_menu">
-        <tbody>
-        <tr>
-            <td><a href="{{ url('/mypage') }}">프로필관리</a></td>
-        </tr>
-        <tr>
-            <td><a href="{{ url('/portfolio_list/1') }}">포트폴리오</a></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="side-bar-revenues">
+
+        <a href="/mypage" class="head {{ (Request::is('mypage'))?"on":"" }}"><i
+                    class="fa fa-angle-double-right "></i> &nbsp;프로필관리</a>
+
+        <a href="/portfolio_list/1" class="head {{ (starts_with(Route::getCurrentRoute()->getPath(), 'portfolio'))?"on":"" }}"><i
+                    class="fa fa-angle-double-right "></i> &nbsp;포트폴리오</a>
+
+    </div>
 </div>

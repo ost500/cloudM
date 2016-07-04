@@ -27,9 +27,9 @@ class AddUsersBank extends Migration
     public function down()
     {
         Schema::table('users', function(Blueprint $table){
-            $table->dropColumn('bank', 45);
-            $table->dropColumn('account_holder', 45);
-            $table->dropColumn('account_number', 45);
+            $table->dropColumn('bank');
+            $table->dropColumn('account_holder');
+            $table->dropColumn('account_number');
         });
     }
 }
