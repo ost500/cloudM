@@ -110,7 +110,7 @@
 
 
                         if (!Auth::check()) {
-                            echo "<li><a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" >프로젝트 등록</a></li>";
+                            echo "<li><a href=".url('/login')." >프로젝트 등록</a></li>";
                         } else if (Auth::user()->PorC == "C") {
                             echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
                         }
@@ -133,8 +133,8 @@
                             echo "<a href=" . url("/logout") . " class=\"button signup\">로그아웃</a>";
 
                         } else {
-                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"button signin\">로그인</a>";
-                            echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#signinModal\" class=\"button signup\">회원가입</a>";
+                            echo "<a href=" . url("/login") . " class=\"button signin\">로그인</a>";
+                            echo "<a href=\"".url("/register")." \" class=\"button signup\">회원가입</a>";
                         }
 
                         ?>
