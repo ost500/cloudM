@@ -209,3 +209,9 @@ Route::get('/partner/project/carryon', 'ProcessController@carry_on_partner');
 
 //완료된 프로젝트
 Route::get('/partner/project/done', 'ProcessController@done_partner');
+
+
+//고객센터
+Route::get('/customer_centre/notification','CustomerCentreController@notification');
+Route::get('/customer_centre/notification/{id}','CustomerCentreController@notification_detail')
+    ->where(['id' => '[0-9]+']);
