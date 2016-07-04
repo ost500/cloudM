@@ -26,7 +26,7 @@
                             <span class="media-body-sm"><i class="fa fa-user"></i> {{ $loginUser->company_type }}</span>
                             <span class="media-body-sm">
                                  @if($loginUser->auth_check == "인증완료")
-                                    <i class="fa fa-check-circle-o"></i> {{ $partner->auth_check }}
+                                    <i class="fa fa-check-circle-o"></i> 신원인증
                                 @else
                                     <i class="fa fa-times "></i> 신원미인증
                                 @endif

@@ -20,7 +20,7 @@
 
 
                     <!-- Job  Content -->
-                    <div class="col-md-12 job-right">
+                    <div class="col-md-12">
 
 
                         <!-- Job Content -->
@@ -708,10 +708,10 @@
 
 
                                         <!-- Revenues Sidebar -->
-                                        <div class="col-lg-4 job-right margin-bottom-40">
+                                        <div class="col-lg-4 margin-bottom-40">
                                         </div>
                                         <!-- Story -->
-                                        <div class="col-lg-8 job-right">
+                                        <div class="col-lg-8 ">
                                             <article>
                                                 <div class="signup02">
 

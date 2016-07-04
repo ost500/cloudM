@@ -5923,6 +5923,7 @@ span.rd span.rd_box {
 .p_add_span {
     color: #777;
     font-size: 13px;
+    padding-left:69px;
 }
 
 div.img_f {
@@ -6448,8 +6449,8 @@ span.gry {
 .port_guide {
     clear: both;
     border: dashed 1px #c8c8c8;
-    margin: 20px 15px;
     background: #f5f6f7;
+    margin:20px 0 10px 0;
     padding: 15px 20px;
 }
 
@@ -6505,7 +6506,7 @@ span.gry {
 }
 
 .filebox .upload-name {
-    width: 83%;
+    width: 75%;
     display: inline-block;
     padding: .5em .75em;
     font-size: inherit;
@@ -6515,7 +6516,7 @@ span.gry {
     border-bottom-color: #3c763d !important;
     border-color: #96959c !important;
     border-width: 1px !important;
-    border-style: dotted;
+    border-style: solid;
     color: #999 !important;
     background-color: #f7f7f8 !important;
     height: 34px;
