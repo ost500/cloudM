@@ -154,6 +154,25 @@ class MypagePostController extends Controller
         }
     }
 
+    public function notification_email_update(Request $request)
+    {
+        Auth::user()->project_email = $request->project_email;
+        Auth::user()->contract_email = $request->contract_email;
+        Auth::user()->fastm_email = $request->fastm_email;
+        Auth::user()->marketing_email = $request->marketing_email;
+        Auth::user()->news_email = $request->news_email;
+        Auth::user()->save();
 
+        return redirect()->action('MypageController@settingNotification');
+    }
+
+    public function notification_sms_update(Request $request)
+    {
+        Auth::user()->project_sms = $request->project_sms;
+        Auth::user()->contract_sms = $request->contract_sms;
+        Auth::user()->save();
+
+        return redirect()->action('MypageController@settingNotification');
+    }
 
 }

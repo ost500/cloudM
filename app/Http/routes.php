@@ -121,6 +121,10 @@ Route::post('/setting/passwordCheck', 'MypagePostController@password_check');
 // User password update
 Route::post('/setting/passwordUpdate', 'MypagePostController@password_update');
 
+// User notification update
+Route::post('/setting/notification/email/save', 'MypagePostController@notification_email_update');
+Route::post('/setting/notification/sms/save', 'MypagePostController@notification_sms_update');
+
 
 
 // 제안서/견적서 업로드

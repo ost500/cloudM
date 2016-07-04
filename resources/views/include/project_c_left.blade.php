@@ -3,75 +3,47 @@
 </div>
 
 <div class="job-sider-bar02">
-    <h5 class="side-tittle">세부 메뉴</h5>
-    <table class="history_table">
-        <tbody>
-
-
+    <div class="side-bar-revenues">
 
         @if(Request::is('dashboard'))
-            <tr>
-                <th><a href="{{ url('/client/project/checking') }}">검수중 프로젝트</a></th>
-                <td>{{ count($checking) }}건</td>
-            </tr>
-            <tr>
-                <th><a href="{{ url('/client/project/posted') }}">등록 프로젝트</a></th>
-                <td>{{ count($registered) }}건</td>
-            </tr>
-            <tr>
-                <th><a href="{{ url('/client/project/carryon') }}">진행중 프로젝트</a></th>
-                <td>{{ count($proceeding) }}건</td>
-            </tr>
-            <tr>
-                <th><a href="{{ url('/client/project/done') }}">완료된 프로젝트</a></th>
-                <td>{{ count($done) }}건</td>
-            </tr>
+            <a href="{{ url('/dashboard') }}" class="head {{ (Request::is('dashboard'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;전체 프로젝트</a>
+
+            <a href="{{ url('/client/project/checking') }}" class="head {{ (Request::is('client/project/checking'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;검수중 프로젝트 {{ count($checking) }}건</a>
+
+            <a href="{{ url('/client/project/posted') }}" class="head {{ (Request::is('client/project/posted'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;등록 프로젝트 {{ count($registered) }}건</a>
+
+            <a href="{{ url('/client/project/carryon') }}" class="head {{ (Request::is('client/project/carryon'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;진행중 프로젝트 {{ count($proceeding) }}건</a>
+
+            <a href="{{ url('/client/project/done') }}" class="head {{ (Request::is('client/project/done'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;완료된 프로젝트 {{ count($done) }}건</a>
+
         @elseif(Request::is('client/project/checking') || Request::is('client/project/temp') || Request::is('client/project/fail'))
-            <tr>
-                <th>
-                    <a href="{{ url('/client/project/checking') }}">검수중 프로젝트</a>
-                <td>{{ count($checking) }}건</td>
-            </tr>
-            <tr>
-                <th>
-                    <a href="{{ url('/client/project/temp') }}">임시 저장</a>
-                </th>
-                <td>{{ count($temp) }}건</td>
-            </tr>
-            <tr>
-                <th>
-                    <a href="{{ url('/client/project/fail') }}">등록 실패</a>
-                </th>
-                <td>{{ count($fail) }}건</td>
-            </tr>
+            <a href="{{ url('/client/project/checking') }}" class="head {{ (Request::is('client/project/checking'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;검수중 프로젝트 {{ count($checking) }}건</a>
+
+            <a href="{{ url('/client/project/temp') }}" class="head {{ (Request::is('client/project/temp'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;임시 저장 {{ count($checking) }}건</a>
+
+            <a href="{{ url('/client/project/fail') }}" class="head {{ (Request::is('client/project/fail'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;등록 실패 {{ count($checking) }}건</a>
         @elseif(Request::is('client/project/posted'))
-            <tr>
-                <th>등록 프로젝트</th>
-                <td>{{ count($registered) }}건</td>
-            </tr>
+            <a href="{{ url('/client/project/posted') }}" class="head {{ (Request::is('client/project/posted'))?"on":"" }}"><i
+                    class="fa fa-angle-double-right "></i> &nbsp;등록 프로젝트 {{ count($registered) }}건</a>
+
         @elseif(Request::is('client/project/carryon'))
-            <tr>
-                <th>진행중 프로젝트</th>
-                <td>{{ count($proceeding) }}건</td>
-            </tr>
+            <a href="{{ url('/client/project/carryon') }}" class="head {{ (Request::is('client/project/carryon'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;진행중 프로젝트 {{ count($proceeding) }}건</a>
         @elseif(Request::is('client/project/done') || Request::is('client/project/cancel'))
-            <tr>
-                <th><a href="{{ url("/client/project/done") }}">완료된 프로젝트</a></th>
-                <td>{{ count($done) }}건</td>
-            </tr>
-            <tr>
-                <th>
-                    <a href="{{ url("/client/project/cancel") }}">취소한 프로젝트</a>
-                </th>
-                <td>{{ count($cancel) }}건</td>
-            </tr>
+            <a href="{{ url('/client/project/done') }}" class="head {{ (Request::is('client/project/done'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;완료된 프로젝트 {{ count($done) }}건</a>
+            <a href="{{ url('/client/project/cancel') }}" class="head {{ (Request::is('client/project/cancel'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;취소한 프로젝트 {{ count($cancel) }}건</a>
         @endif
-
-
-
-
-        </tbody>
-    </table>
+    </div>
 </div>
 
 

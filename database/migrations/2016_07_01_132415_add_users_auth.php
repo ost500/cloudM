@@ -27,7 +27,7 @@ class AddUsersAuth extends Migration
     {
         Schema::table('users', function(Blueprint $table){
             $table->dropColumn('auth_check');
-            $table->dropColumn('auth_image', 45);
+            $table->dropColumn('auth_image');
         });
     }
 }
