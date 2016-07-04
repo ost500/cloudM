@@ -147,15 +147,15 @@
                     @if(Auth::user()->PorC == "P")
                         <li><a href="{{ url("/mypage") }}">프로필</a></li>
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
-                        <li><a href="{{ url("/my_apply") }}">지원한 프로젝트</a></li>
-                        <li><a href="{{ url("/my_carry_on_p") }}">진행중 프로젝트</a></li>
-                        <li><a href="{{ url("/my_done_p") }}">완료된 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/apply") }}">지원한 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/carryn") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/partner/project/done") }}">완료된 프로젝트</a></li>
                     @else
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
-                        <li><a href="{{ url("/my_checking") }}">검수중 프로젝트</a></li>
-                        <li><a href="{{ url("/my_posted") }}">등록 프로젝트</a></li>
-                        <li><a href="{{ url("/my_carry_on") }}">진행중 프로젝트</a></li>
-                        <li><a href="{{ url("/my_done") }}">완료된 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/checking") }}">검수중 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/posted") }}">등록 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/carryon") }}">진행중 프로젝트</a></li>
+                        <li><a href="{{ url("/client/project/done") }}">완료된 프로젝트</a></li>
                     @endif
 
                 </ul>
@@ -186,11 +186,11 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}" required="required">
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <input type="password" name="password" placeholder="비밀번호">
+                        <input type="password" name="password" placeholder="비밀번호" required="required">
 					<span id="passError" class="help-block">
 						<strong id="error"></strong>
 					</span>
@@ -238,36 +238,36 @@
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-primary active">
                                 <input type="radio" name="PorC" id="option1" autocomplete="off" value="ccc" checked>
-                                클라이언트 </label>
+                                광고주 </label>
 
                             <label class="btn btn-primary">
                                 <input type="radio" name="PorC" id="option2" autocomplete="off" value="ppp">
-                                파트너스 </label>
+                                대행사 </label>
                         </div>
                         <div id="PorCError"></div>
                     </div>
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}">
+                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}" required="required">
                         <div id="emailError"></div>
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <input type="password" name="password" placeholder="비밀번호">
+                        <input type="password" name="password" placeholder="비밀번호" required="required">
                         <div id="passwordError"></div>
                     </div>
                     <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                        <input type="password" name="password_confirmation" placeholder="비밀번호 재입력">
+                        <input type="password" name="password_confirmation" placeholder="비밀번호 재입력" required="required">
                         <div id="passwordconfirmError"></div>
                     </div>
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <input type="text" name="name" placeholder="이름" value="{{ old('name') }}">
+                        <input type="text" name="name" placeholder="이름" value="{{ old('name') }}" required="required">
                         <div id="nameError"></div>
                     </div>
 
                     <div class="checkbox clip-check check-primary">
-                        <input type="checkbox" id="agree1" value="1">
+                        <input type="checkbox" id="agree1" value="1" required="required">
                         <label for="agree1"> 이용약관 동의 </label><br>
-                        <input type="checkbox" id="agree2" value="1">
+                        <input type="checkbox" id="agree2" value="1" required="required">
                         <label for="agree2"> 개인정보수집 및 이용에 대한 안내 동의</label>
                     </div>
 
@@ -313,7 +313,7 @@
                                required="required">
                     </div>
 
-                    
+
 
                     <div class="text-left">10MB까지 zip파일만 업로드 가능합니다</div>
 

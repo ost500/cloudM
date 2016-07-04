@@ -182,30 +182,30 @@ Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
 
 //내 프로젝트 단계별
 //검수중 프로젝트
-Route::get('/my_checking', 'ProcessController@checking_client');
+Route::get('/client/project/checking', 'ProcessController@checking_client');
 //검수_임시저장
-Route::get('/my_temp', 'ProcessController@temp_client');
+Route::get('/client/project/temp', 'ProcessController@temp_client');
 //검수_등록실패
-Route::get('/my_fail', 'ProcessController@fail_client');
+Route::get('/client/project/fail', 'ProcessController@fail_client');
 //등록 프로젝트
-Route::get('/my_posted', 'ProcessController@posted_client');
+Route::get('/client/project/posted', 'ProcessController@posted_client');
 //진행 중 프로젝트
-Route::get('/my_carry_on', 'ProcessController@carry_on_client');
+Route::get('/client/project/carryon', 'ProcessController@carry_on_client');
 //완료된 프로젝트
-Route::get('/my_done', 'ProcessController@done_client');
+Route::get('/client/project/done', 'ProcessController@done_client');
 //취소한 프로젝트
-Route::get('/my_cancel', 'ProcessController@cancel_client');
+Route::get('/client/project/cancel', 'ProcessController@cancel_client');
 
 //지원 프로젝트
-Route::get('/my_apply', 'ProcessController@apply_partner');
+Route::get('/partner/project/apply', 'ProcessController@apply_partner');
 //관심 프로젝트
-Route::get('/my_interesting','ProcessController@interesting_partner');
+Route::get('/partner/project/interesting','ProcessController@interesting_partner');
 
 //지원 종료 프로젝트
-Route::get('/my_apply_finished', 'ProcessController@apply_finished_partner');
+Route::get('/partner/project/apply/finished', 'ProcessController@apply_finished_partner');
 
 //진행 중 프로젝트
-Route::get('/my_carry_on_p', 'ProcessController@carry_on_partner');
+Route::get('/partner/project/carryon', 'ProcessController@carry_on_partner');
 
 //완료된 프로젝트
-Route::get('/my_done_p', 'ProcessController@done_partner');
+Route::get('/partner/project/done', 'ProcessController@done_partner');
