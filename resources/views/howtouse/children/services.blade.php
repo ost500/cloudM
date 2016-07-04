@@ -1,7 +1,7 @@
 <!-- Stories -->
 <div class="col-md-9  job-right">
 
-    <div class="job-content job-post-page margin-top-10">
+    <div class="job-content job-post-page">
         <div class="heading">
 
             <h5 class="side-tittle02">서비스소개</h5>

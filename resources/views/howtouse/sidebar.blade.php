@@ -7,39 +7,26 @@
     <section class="revenues padding-top-15 padding-bottom-30">
         <div class="container">
 
-
-
-            <!-- coupen -->
-            <div class="coupen">
-                <p> 마케팅 중개 플랫폼 <span>패스트엠 이용방법</span>을 안내해드립니다.</p>
-            </div>
-
             <div class="row">
                 <!-- Revenues Sidebar -->
                 <div class="col-md-3">
                     <div class="job-sider-bar02">
                         <div class="side-bar-revenues">
 
-                            <!-- Key Financials -->
-                            <h6 id="first"style="cursor:pointer" class="head"><a aria-expanded="false"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;서비스소개</a></h6>
+                            <a aria-expanded="false" id="first" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;서비스소개</a>
 
-                            <!-- Key Financials -->
-                            <h6 id="second"style="cursor:pointer" class="head"><a aria-expanded="false"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;광고주 이용방법</a></h6>
-                            {{--AJAX 사용할 때 href를 넣으면 안된다--}}
-                                    <!-- Media Relations -->
-                            <h6 id="third"style="cursor:pointer" class="head"><a aria-expanded="false"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;파트너 이용방법</a></h6>
+                            <a aria-expanded="false" id="second" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;광고주 이용방법</a>
 
-                            <!-- Key Financials -->
-                            <h6 id="fourth" style="cursor:pointer"class="head"><a aria-expanded="false"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;이용요금</a></h6>
+                            <a aria-expanded="false" id="third" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;파트너 이용방법</a>
 
+                            <a aria-expanded="false" id="fourth" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;이용요금</a>
 
-                            <!-- Key Financials -->
-                            <h6 id="fifth"style="cursor:pointer" class="head la_line"><a aria-expanded="false"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;자주 묻는 질문</a></h6>
+                            <a aria-expanded="false" id="fifth" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;자주 묻는 질문</a>
 
 
                         </div>
@@ -67,31 +54,31 @@
     });
 
     function clickfocus() {
-        if ($("#first").hasClass('head_on'))
-            $("#first").removeClass('head_on').addClass('head');
-        if ($("#second").hasClass('head_on'))
-            $("#second").removeClass('head_on').addClass('head');
-        if ($("#third").hasClass('head_on'))
-            $("#third").removeClass('head_on').addClass('head');
-        if ($("#fourth").hasClass('head_on'))
-            $("#fourth").removeClass('head_on').addClass('head');
-        if ($("#fifth").hasClass('head_on'))
-            $("#fifth").removeClass('head_on').addClass('head');
+        if ($("#first").hasClass('on'))
+            $("#first").removeClass('on');
+        if ($("#second").hasClass('on'))
+            $("#second").removeClass('on');
+        if ($("#third").hasClass('on'))
+            $("#third").removeClass('on');
+        if ($("#fourth").hasClass('on'))
+            $("#fourth").removeClass('on');
+        if ($("#fifth").hasClass('on'))
+            $("#fifth").removeClass('on');
 
         if (currentbutton == 1) {
-            $("#first").removeClass('head').addClass('head_on');
+            $("#first").addClass('on');
         }
         else if (currentbutton == 2) {
-            $("#second").removeClass('head').addClass('head_on');
+            $("#second").addClass('on');
         }
         else if (currentbutton == 3){
-            $("#third").removeClass('head').addClass('head_on');
+            $("#third").addClass('on');
         }
         else if (currentbutton == 4){
-            $("#fourth").removeClass('head').addClass('head_on');
+            $("#fourth").addClass('on');
         }
         else if (currentbutton == 5){
-            $("#fifth").removeClass('head').addClass('head_on');
+            $("#fifth").addClass('on');
         }
     }
 

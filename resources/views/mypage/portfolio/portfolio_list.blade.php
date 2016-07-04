@@ -1,5 +1,10 @@
 @extends('layouts.master_layout')
 @section('right_content')
+    <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
+        <span class="h3 text-bold">포트폴리오 관리</span>
+        <p class="padding-top-5">체계적인 포트폴리오 관리를 통해 광고주의 선택을 받을 수 있습니다.</p>
+    </div>
+
     <!-- Job Content -->
     <div id="accordion">
 
@@ -8,8 +13,6 @@
             <!-- Job Tittle -->
             <div class="panel-group">
                 <div class="panel panel-default">
-                    <!-- Save -->
-                    <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
                     <!-- PANEL HEADING -->
                     <div class="panel-heading">
 
@@ -23,14 +26,6 @@
                             <div class="row">
 
                                 @foreach($portfolios as $portfolio)
-                                    {{--<div class="col-lg-4 port-img-d"><img--}}
-                                    {{--class="img-responsive port-img"--}}
-                                    {{--src="{{ $portfolio->image1 }}">--}}
-                                    {{--</div>--}}
-
-
-
-
                                     <div class="col-md-4">
                                         <div class="thumbnail">
                                             <div class="thum_imgbox">

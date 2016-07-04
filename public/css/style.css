@@ -2201,6 +2201,9 @@ header .navbar li.active a {
 	border-bottom: 2px solid #e6e6e6;
 }*/
 
+.content.container {
+    min-height: 530px !important;
+}
 .job-content {
     background: #fff;
     padding: 20px 35px 15px 35px;
@@ -2209,7 +2212,7 @@ header .navbar li.active a {
     border-top: 2px solid #333;
     float: left;
     width: 100%;
-    min-height: 515px;
+
 }
 
 .job-content02 {
@@ -3733,7 +3736,8 @@ a.sm-tags:hover {
 
 }
 
-.head a {
+
+.side-bar-revenues a.head {
     color: #666666;
     display: inline-block;
     width: 100%;
@@ -3750,7 +3754,7 @@ a.sm-tags:hover {
 	margin-top: 5px;
 }*/
 
-.head {
+.side-bar-revenues a.head {
     padding: 12px 0px 12px 20px;
     text-transform: none;
     color: #666666;
@@ -3762,23 +3766,21 @@ a.sm-tags:hover {
     letter-spacing: -1px;
 }
 
-.head_on {
+.side-bar-revenues a.head {
+    cursor: pointer;
+}
+
+.side-bar-revenues a.head.on {
     background: #1193d4;
-    padding: 12px 0px 12px 20px;
-    color: #fff;
-    font-weight: normal;
-    margin: 0px;
-    margin-top: 0px;
-    border-bottom: none;
-    font-size: 15px;
-    letter-spacing: -1px;
-}
-
-.head_on a {
     color: #fff;
 }
 
-.head:hover {
+.side-bar-revenues a:hover.head.on {
+    background: #1193d4;
+    color: #fff;
+}
+
+.side-bar-revenues a.head:hover {
 
     background: #f4f5f6;
     font-weight: normal;
@@ -4361,13 +4363,17 @@ div.media-body h5.faq_f {
     padding-bottom: 20px;
     letter-spacing: 0px;
 }
-
 .side-title-name {
     font-size: 18px;
     margin-bottom: 5px;
     margin-top: 0px;
     text-transform: none;
     letter-spacing: 0px;
+}
+
+.side-title-name.big {
+    border-top: 1px dotted #cccccc;
+    padding-top:15px;
 }
 
 .ser_group {
@@ -5498,6 +5504,12 @@ ul.p_align02 {
     border-radius: 10px;
 }
 
+.partner_profile_150 {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
 .job-sider-bar003 div {
     /*text-align: center;*/
 }
@@ -5923,6 +5935,7 @@ span.rd span.rd_box {
 .p_add_span {
     color: #777;
     font-size: 13px;
+    padding-left:69px;
 }
 
 div.img_f {
@@ -6448,8 +6461,8 @@ span.gry {
 .port_guide {
     clear: both;
     border: dashed 1px #c8c8c8;
-    margin: 20px 15px;
     background: #f5f6f7;
+    margin:20px 0 10px 0;
     padding: 15px 20px;
 }
 
@@ -6505,7 +6518,7 @@ span.gry {
 }
 
 .filebox .upload-name {
-    width: 83%;
+    width: 75%;
     display: inline-block;
     padding: .5em .75em;
     font-size: inherit;
@@ -6515,7 +6528,7 @@ span.gry {
     border-bottom-color: #3c763d !important;
     border-color: #96959c !important;
     border-width: 1px !important;
-    border-style: dotted;
+    border-style: solid;
     color: #999 !important;
     background-color: #f7f7f8 !important;
     height: 34px;
