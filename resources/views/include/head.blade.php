@@ -78,15 +78,16 @@
                     </ul>
 
                     <!-- Right Sec -->
-                    {{--<div class="right-sec">--}}
-                        {{--<!-- social -->--}}
-                        {{--<ul class="social">--}}
+                    <div class="right-sec">
+                        <!-- social -->
+                        <ul class="social">
                             {{--<li><a href="#."><i class="fa fa-facebook"></i></a></li>--}}
                             {{--<li><a href="#."><i class="fa fa-twitter"></i></a></li>--}}
                             {{--<li><a href="#."><i class="fa fa-google"></i></a></li>--}}
                             {{--<li><a href="#."><i class="fa fa-linkedin"></i></a></li>--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
+                            <li><a href="http://fastm.tistory.com/"><i class="fa fa-bold"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,7 +117,9 @@
                         ?>
                         <li><a href="{{ url('project') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
-                        <li><a href="{{ url('services') }}">이용방법</a></li>
+
+                        <li><a href="{{ url('customer_centre/notification') }}">고객센터</a></li>
+                        <li><a href="{{ url('services') }}"><i class="fa fa-question-circle fa-lg"></i></a></li>
 
 
                     </ul>
@@ -186,7 +189,8 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}" required="required">
+                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}"
+                               required="required">
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -247,7 +251,8 @@
                         <div id="PorCError"></div>
                     </div>
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}" required="required">
+                        <input type="email" name="email" placeholder="이메일" value="{{ old('email') }}"
+                               required="required">
                         <div id="emailError"></div>
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -314,7 +319,6 @@
                     </div>
 
 
-
                     <div class="text-left">10MB까지 zip파일만 업로드 가능합니다</div>
 
                     <div class="form-actions">
@@ -329,7 +333,6 @@
         </div>
     </div>
 </div>
-
 
 
 <script src="{{ asset('js/signup.js') }}"></script>
