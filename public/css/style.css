@@ -1397,6 +1397,8 @@ header .navbar li.active a {
     padding: 20px 20px;
     border: 1px solid #ddd;
     margin-bottom: 3px;
+    border-top: 2px solid #333;
+    height: 123px;
 }
 
 .coupen p {
@@ -1408,10 +1410,6 @@ header .navbar li.active a {
     font-weight: bold;
 }
 
-.coupen a {
-    color: #ff6600;
-    font-weight: bold;
-}
 
 .coupen img {
     margin-right: 10px;
@@ -2211,6 +2209,17 @@ header .navbar li.active a {
     border-top: 2px solid #333;
     float: left;
     width: 100%;
+    min-height: 515px;
+}
+
+.job-content02 {
+    background: #fff;
+    padding: 20px 35px 15px 35px;
+    position: relative;
+    border: 1px solid #dddddd;
+    border-top: 2px solid #333;
+    float: left;
+    width: 100%;
 }
 
 .job-content03 {
@@ -2273,6 +2282,7 @@ header .navbar li.active a {
 
 .job-right {
     margin-top: 10px;
+    min-height: 650px;
 }
 
 .short-by {
@@ -2445,7 +2455,7 @@ header .navbar li.active a {
     color: #666;
     font-weight: normal !important;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding-bottom: 5px;
 }
 
@@ -2455,6 +2465,10 @@ header .navbar li.active a {
     display: inline-block;
     margin-right: 5px;
     float: left;
+}
+
+.star-lg-0 {
+    background-image: url('/images/star-0-lg.png')
 }
 
 .star-lg-1 {
@@ -2478,7 +2492,6 @@ header .navbar li.active a {
 }
 
 .stats-body {
-    height: 26px;
     text-align: right;
     font-size: 18px;
 }
@@ -2486,6 +2499,7 @@ header .navbar li.active a {
 .average-rating-score {
     font-size: 18px;
     color: #333;
+    line-height: 26px;
 }
 
 .append-unit {
@@ -3913,6 +3927,52 @@ a.sm-tags:hover {
     text-align: center;
 }
 
+.btn-app {
+    color: #fff;
+    background: #1099DD;
+    margin-top: 22px;
+    width: 100%;
+}
+
+.btn-app:hover {
+    color: #fff;
+    background: #1099DD;
+    margin-top: 22px;
+    width: 100%;
+}
+
+.btn-app-not {
+    color: #fff;
+    background: #d62728;
+    margin-top: 22px;
+    width: 100%;
+}
+
+.btn-app-not:hover {
+    color: #fff;
+    background: #d62728;
+    margin-top: 22px;
+    width: 100%;
+}
+
+
+.btn-interesting {
+    color: #fff;
+    background: #666666;
+    margin-top: 22px;
+    width: 100%;
+}
+
+.btn-interesting:hover {
+    color: #fff;
+    background: #666666;
+    margin-top: 22px;
+    width: 100%;
+}
+
+
+
+
 .btn-lg {
     padding: 10px 16px;
     font-size: 18px;
@@ -4283,7 +4343,7 @@ div.media-body h5.faq_f {
 .side-tittle {
     font-size: 18px;
     font-weight: 600;
-    margin: 5px 0 15px 13px;
+    margin: 5px 0 15px 0;
     text-transform: none;
     border-bottom: 1px dotted #cccccc;
     padding-bottom: 10px;
@@ -5617,7 +5677,7 @@ h6.my_h6 {
     text-decoration: underline !important;
 }
 
-.history_table {
+.history_table, .sub_menu{
     width: 100%;
 }
 
@@ -5633,6 +5693,14 @@ h6.my_h6 {
     font-weight: bold;
     line-height: 26px;
     text-align: right !important;
+    color: #ff7915;
+    border-bottom: solid 1px #ddd;
+}
+
+.sub_menu td {
+    padding: 10px 3px 10px 0px;
+    font-weight: bold;
+    line-height: 26px;
     color: #ff7915;
     border-bottom: solid 1px #ddd;
 }
@@ -5745,7 +5813,7 @@ h6.my_h6 {
 }
 
 .phone_width {
-    width: 31.8% !important;
+    width: 32.5% !important;
     height: 33px;
 }
 
@@ -6555,3 +6623,7 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
 @media screen and (max-width:990px){
     .lastmar{ padding-top:80px;}
     .area4_header{ margin-bottom:50px;}}
+
+
+
+.validation-error {color:red !important; padding:5px 0 10px 0; margin-top: 0 !important;}

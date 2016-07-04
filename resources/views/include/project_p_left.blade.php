@@ -40,7 +40,7 @@
                 <th>진행중 프로젝트</th>
                 <td>{{ count($carryon) }}건</td>
             </tr>
-        @elseif(Request::is('partner/project/done/partner'))
+        @elseif(Request::is('partner/project/done'))
             <tr>
                 <th>완료한 프로젝트</th>
                 <td>{{ count($compeleted) }}건</td>
