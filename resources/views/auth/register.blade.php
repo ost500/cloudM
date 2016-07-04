@@ -115,12 +115,12 @@
                         <article>
                             <div class="signup_right">
 
-                                <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 아이디로 가입</a>
-                                <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 아이디로 가입</a>
-                                <a class="btn-facebook btn-lg btn-block"><i class="fa fa-google-plus"></i> 구글 아이디로
-                                    가입</a>
+                                {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 아이디로 가입</a>--}}
+                                {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 아이디로 가입</a>--}}
+                                {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-google-plus"></i> 구글 아이디로--}}
+                                    {{--가입</a>--}}
 
-                                <p class="redirect01">이미 회원이신가요? <a href="#"><strong>로그인하기</strong></a></p>
+                                <p class="redirect01">이미 회원이신가요? <a href="#"><br><strong>로그인하기</strong></a></p>
                                 <p class="redirect01">아이디,비밀번호를 잊으셨나요? <br/><a href="#"><strong>아이디,비밀번호 찾기</strong></a>
                                 </p>
 

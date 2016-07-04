@@ -27,8 +27,7 @@
                                         <a href="{{ url('detail/'.$project['id']) }}">
                                             <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
                                     @else
-                                        <a style="cursor : pointer" data-toggle="modal"
-                                           data-target="#loginModal">
+                                        <a href="{{url('/login')}}">
                                             <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
                                     @endif
 

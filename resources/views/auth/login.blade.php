@@ -83,12 +83,12 @@
                     <div class="story">
                         <article>
                             <div class="login_right">
-                                <label>페이스북으로 로그인해보세요!
-                                    <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북으로
-                                        로그인</a>
-                                </label>
+                                {{--<label>페이스북으로 로그인해보세요!--}}
+                                    {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북으로--}}
+                                        {{--로그인</a>--}}
+                                {{--</label>--}}
                                 <p class="redirect01">아직 회원이 아니신가요? <a
-                                            href="{{ url('/register') }}"><strong>회원가입하기</strong></a></p>
+                                            href="{{ url('/register') }}"><br><strong>회원가입하기</strong></a></p>
                                 <p class="redirect01">아이디,비밀번호를 잊으셨나요? <br/><a
                                             href="{{ url('/password/reset') }}"><strong>아이디,비밀번호 찾기</strong></a>
                                 </p>

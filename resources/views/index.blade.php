@@ -99,7 +99,7 @@
                                     @if(Auth::check())
                                         <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
                                     @else
-                                        <a style = "cursor : pointer" data-toggle="modal" data-target="#loginModal"><h5>{{ $project->title }}</h5></a>
+                                        <a href="{{url('/login')}}"><h5>{{ $project->title }}</h5></a>
                                     @endif
                                     <p class="price">월 예산 {{ number_format($project->budget) }}원
                                         <span>|</span> {{ $project->estimated_duration }}
