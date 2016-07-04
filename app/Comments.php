@@ -12,4 +12,8 @@ class Comments extends Model
     {
         return $this->belongsTo('App\User', 'u_id', 'id');
     }
+    public function project()
+    {
+        return $this->belongsTo('App\Project', 'project_id', 'id');
+    }
 }
