@@ -1,140 +1,148 @@
 @extends('include.head')
 @section('content')
 
-
-        <!-- Content -->
 <div id="content">
+    <div class="container">
 
-    <!-- Revenues -->
-    <section class="check-out padding-top-15 padding-bottom-30">
-        <div class="container">
-            <!-- Heading -->
-            <div class="heading text-left margin-bottom-20">
-                <h4>회원가입</h4>
-            </div>
+        <div class="coupen">
+            <p class="h3 text-bold">회원가입</p>
+            <p class="padding-top-10"> 마케팅 플랫폼 <span>패스트엠</span>에 오신것을 환영합니다.</p>
+        </div>
 
-            <!-- coupen -->
-            <div class="coupen">
-                <p>회원가입 후 이용하시면 <span>더 많은 서비스</span>를 이용하실 수 있습니다.</p>
-            </div>
+        <div class="row margin-top-15">
 
-            <!--div class="top_title">
-                <h4>로그인</h4>
-                <span>착한마케팅과 </span>
-            </div-->
-
-            <div class="row">
-
-                <!-- Revenues Sidebar -->
-                <div class="col-md-8">
-                    <!-- Story -->
-                    <div class="story">
+            <!-- Revenues Sidebar -->
+            <div class="col-md-8">
+                <div class="job-content job-post-page register_box">
+                    <div class="panel-body padding-30">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                             {!! csrf_field() !!}
-                            <article>
-                                <div class="signup">
-                                    <div class="form-group{{ $errors->has('ClientPartners') ? ' has-error' : '' }}">
-                                        <label>이용목적 *<br/>
-                                            <label for="ccc" class="label_n"><input name="ClientPartners" id="ccc"
-                                                                                    type="radio"
-                                                                                    value="ccc">클라이언트</label>
-                                            <label for="ppp" class="label_n"><input name="ClientPartners" id="ppp"
-                                                                                    type="radio"
-                                                                                    value="ppp">파트너스</label>
-                                            @if ($errors->has('ClientPartners'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('ClientPartners') }}</strong>
-                                                </span>
-                                            @endif
-                                        </label>
-                                    </div>
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label>이름 *
-                                            <input class="form-control" type="text" name="name" placeholder=""
-                                                   value="{{ old('name') }}">
-                                            @if ($errors->has('name'))
-                                                <span class="help-block">
-                                                    <strong>{{ $errors->first('name') }}</strong>
-                                                </span>
-                                            @endif
-                                        </label>
-                                    </div>
-                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                        <label>이메일 *
-                                            <input class="form-control" type="text" name="email" placeholder=""
-                                                   value="{{ old('email') }}">
-                                        </label>
-                                        @if ($errors->has('email'))
-                                            <span class=" help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                        <label>비밀번호 *
-                                            <input class="form-control" type="text" name="password" placeholder="">
-                                        </label>
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                        <label>비밀번호 재입력 *
-                                            <input class="form-control" type="text" name="password_confirmation"
-                                                   placeholder="">
-                                        </label>
-                                        @if ($errors->has('password_confirmation'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                            </span>
-                                        @endif
+                            <input type="hidden" name="email" value="">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 회원타입 </label>
+                                <div class="col-sm-7">
+
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-primary active">
+                                            <input type="radio" name="PorC" id="option1" autocomplete="off" value="ccc" checked>
+                                            광고주 </label>
+
+                                        <label class="btn btn-primary">
+                                            <input type="radio" name="PorC" id="option2" autocomplete="off" value="ppp">
+                                            대행사 </label>
                                     </div>
 
-                                    <div class="checkbox">
-                                        <input type="checkbox" name="checkbox1" id="checkbox1" value="option1"
-                                               checked="">
-                                        <label for="checkbox1"><a href="#">이용약관</a> 및 <a href="#">개인정보 보호방침</a>에
-                                            동의합니다.</label>
-                                    </div>
-
-                                    <button type="submit" href="#" class="btn login_button margin-top-20">회원가입<i
-                                                class="fa fa-caret-right"></i></button>
+                                    @if ($errors->has('PorC'))
+                                        <span class="help-block">
+                                            <p class="validation-error">{{ $errors->first('PorC') }}</p>
+                                        </span>
+                                    @endif
                                 </div>
-                            </article>
+                            </div>
+
+                            <div class="form-group padding-top-15 {{ $errors->has('name') ? ' has-error' : '' }}">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 이름 </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="text" name="name" required="required"
+                                           value="{{ old('name') }}">
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <p class="validation-error">{{ $errors->first('name') }}</p>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group padding-top-15 {{ $errors->has('email') ? ' has-error' : '' }}">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 이메일 </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="text" name="email"  required="required"
+                                           value="{{ old('email') }}">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <p class="validation-error">{{ $errors->first('email') }}</p>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group padding-top-15 {{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 비밀번호 </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="password" name="password" required="required">
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <p class="validation-error">{{ $errors->first('password') }}</p>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group padding-top-15 {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 비밀번호 확인 </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="password" name="password_confirmation" required="required">
+                                    @if ($errors->has('password_confirmation'))
+                                        <span class="help-block">
+                                            <p class="validation-error">{{ $errors->first('password_confirmation') }}</p>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group padding-top-15">
+                                <label class="col-sm-3 control-label" for="inputEmail3"></label>
+                                <div class="col-sm-7">
+                                    <input type="checkbox" name="checkbox1" id="checkbox1" value="option1"
+                                           checked="" required="required">
+                                    <label for="checkbox1"><a href="#">이용약관</a> 및 <a href="#">개인정보 보호방침</a>에
+                                        동의합니다.</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="inputEmail3"></label>
+                                <div class="col-sm-7">
+                                    <div class="">
+                                        <button class="btn btn-app" type="submit">
+                                            회원가입
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group padding-top-15">
+                                <label class="col-sm-3 control-label" for="inputEmail3"></label>
+                                <div class="col-sm-7">
+                                    비밀번호 기억이 안나면? <a href="/password/reset"><span>비밀번호 찾기</span></a>
+                                </div>
+                            </div>
                         </form>
                     </div>
-
-                </div>
-
-                <!-- Stories -->
-                <div class="col-md-4">
-                    <!-- Story -->
-                    <div class="story">
-                        <article>
-                            <div class="signup_right">
-
-                                {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 아이디로 가입</a>--}}
-                                {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 아이디로 가입</a>--}}
-                                {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-google-plus"></i> 구글 아이디로--}}
-                                    {{--가입</a>--}}
-
-                                <p class="redirect01">이미 회원이신가요? <a href="#"><br><strong>로그인하기</strong></a></p>
-                                <p class="redirect01">아이디,비밀번호를 잊으셨나요? <br/><a href="#"><strong>아이디,비밀번호 찾기</strong></a>
-                                </p>
-
-
-                            </div>
-                        </article>
-                    </div>
-
-
                 </div>
             </div>
 
+            <!-- Stories -->
+            <div class="col-md-4">
+                <div class="job-content job-post-page register_box">
+                    <div class="login_right">
+                        <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 회원가입</a>
+                        <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 회원가입</a>
+
+                        <p class="redirect01">이미 회원이신가요? <a
+                                    href="{{ url('/login') }}"><br><strong>로그인</strong></a></p>
+                        <p class="redirect01">비밀번호를 잊으셨나요? <br/><a
+                                    href="{{ url('/password/reset') }}"><strong>비밀번호 찾기</strong></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+
 </div>
 <script>
     $(function(){

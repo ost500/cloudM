@@ -1,106 +1,98 @@
 @extends('include.head')
 @section('content')
-        <!-- Content -->
-<div id="content">
 
-    <!-- Revenues -->
-    <section class="check-out padding-top-15 padding-bottom-30">
-        <div class="container">
-            <!-- Heading -->
-            <div class="heading text-left margin-bottom-20">
-                <h4>로그인</h4>
-            </div>
+<div class="content">
+    <div class="container">
 
-            <!-- coupen -->
-            <div class="coupen">
-                <p> 마케팅 플랫폼 <span>착한마케팅</span>에 오신것을 환영합니다.</p>
-            </div>
-
-            <!--div class="top_title">
-                <h4>로그인</h4>
-                <span>착한마케팅과 </span>
-            </div-->
-
-
-            <div class="row">
-
-                <!-- Revenues Sidebar -->
-                <div class="col-md-8">
-                    <!-- Story -->
-                    <div class="story">
-                        <article>
-                            <div class="login">
-
-                                <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                                    {!! csrf_field() !!}
-                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                        <label>아이디 *
-                                            <input class="form-control" type="email" name="email" placeholder="">
-                                            @if ($errors->has('email'))
-                                                <span class="help-block">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                            @endif
-                                        </label>
-                                    </div>
-
-                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                        <label>비밀번호 *
-                                            <input class="form-control" type="password" name="password"
-                                                   placeholder="">
-                                        </label>
-                                        @if ($errors->has('password'))
-                                            <span class="help-block">
-                                                    <strong>{{ $errors->first('password') }}</strong>
-                                                </span>
-                                        @endif
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-md-offset-4">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="remember"> Remember Me
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn login_button margin-top-20">로그인<i
-                                                    class="fa fa-caret-right"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </article>
-                    </div>
-
-                </div>
-
-                <!-- Stories -->
-                <div class="col-md-4">
-
-                    <!-- Story -->
-                    <div class="story">
-                        <article>
-                            <div class="login_right">
-                                {{--<label>페이스북으로 로그인해보세요!--}}
-                                    {{--<a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북으로--}}
-                                        {{--로그인</a>--}}
-                                {{--</label>--}}
-                                <p class="redirect01">아직 회원이 아니신가요? <a
-                                            href="{{ url('/register') }}"><br><strong>회원가입하기</strong></a></p>
-                                <p class="redirect01">아이디,비밀번호를 잊으셨나요? <br/><a
-                                            href="{{ url('/password/reset') }}"><strong>아이디,비밀번호 찾기</strong></a>
-                                </p>
-
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-
+        <div class="coupen">
+            <p class="h3 text-bold">로그인</p>
+            <p class="padding-top-10"> 마케팅 플랫폼 <span>패스트엠</span>에 오신것을 환영합니다.</p>
         </div>
-    </section>
+
+        <div class="login row margin-top-15 margin-bottom-30">
+
+            <!-- Revenues Sidebar -->
+            <div class="col-md-8">
+                <div class="job-content job-post-page ">
+                    <div class="panel-body padding-30">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                            {!! csrf_field() !!}
+                            <input type="hidden" name="email" value="">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 이메일 </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="email" name="email" placeholder="" required="required">
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                        <p class="validation-error">{{ $errors->first('email') }}</p>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group padding-top-15">
+                                <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 비밀번호 </label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="password" name="password"
+                                    placeholder="" required="required">
+                                    </label>
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <p class="validation-error">{{ $errors->first('password') }}</p>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group padding-top-15">
+                                <label class="col-sm-3 control-label" for="inputEmail3"></label>
+                                <div class="col-sm-7">
+                                    아이디 저장 <input type="checkbox" name="remember">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="inputEmail3"></label>
+                                <div class="col-sm-7">
+                                    <div class="">
+                                        <button class="btn btn-app" type="submit">
+                                            로그인
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group padding-top-15">
+                                <label class="col-sm-3 control-label" for="inputEmail3"></label>
+                                <div class="col-sm-7">
+                                    비밀번호 기억이 안나면? <a href="/password/reset"><span>비밀번호 찾기</span></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stories -->
+            <div class="col-md-4">
+                <div class="job-content job-post-page padding-bottom-32">
+                    <div class="login_right">
+                        <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 로그인</a>
+                        <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 로그인</a>
+
+                        <p class="redirect01">아직 회원이 아니신가요? <a
+                                    href="{{ url('/register') }}"><br><strong>회원가입하기</strong></a></p>
+                        <p class="redirect01">비밀번호를 잊으셨나요? <br/><a
+                                    href="{{ url('/password/reset') }}"><strong>비밀번호 찾기</strong></a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @include('include.footer')
