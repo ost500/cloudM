@@ -28,14 +28,12 @@
                             <!-- PANEL HEADING -->
                             <div class="panel-heading">
                                     <div class="media-left">
-                                        <div class="partner_icon"> 활동가능 <!--<span>MAY</span>--> </div>
+                                        <div class="partner_icon"> 활동가능 </div>
                                     </div>
                                     <div style="cursor:pointer" id="partner_detail_click{{$partner['id']}}" class="media-body">
                                         <span class="media-body-sm">{{ $partner['name'] }}</span>
 
                                         <span class="media-body-sm la-line">{{ $partner['company_type'] }}</span>
-
-                                        {{--<span class="media-body-sm la-line">{{ $partner['created_at'] }}</span>--}}
                                     </div>
                                 <script>
                                     $("#partner_detail_click"+"{{$partner['id']}}").click(function () {
