@@ -14,7 +14,7 @@
         <a href="/setting/bank" class="head {{ (Request::is('setting/bank'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;계좌관리</a>
 
-        <a href="/setting/password" class="head {{ (Request::is('setting/password'))?"on":"" }}"><i
+        <a href="/setting/password" class="head {{ (Request::is('setting/password') || Request::is('setting/passwordChange'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;비밀번호 변경</a>
 
         <a href="/setting/notification" class="head {{ (Request::is('setting/notification'))?"on":"" }}"><i

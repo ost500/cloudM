@@ -2977,7 +2977,7 @@
   position: relative;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  padding: 15px;
+  padding: 30px 15px;
   min-height: 50px;
 }
 .panel-heading .panel-heading-tabs {

@@ -5945,8 +5945,22 @@ span.rd span.rd_box {
 
 .p_add_span {
     color: #777;
-    font-size: 13px;
-    padding-left:69px;
+    font-size: 14px;
+    padding:10px 0 0 10px;
+}
+
+.p_add_span p {
+    color: #2d3a45;
+}
+
+.p_add_span p.title {
+    font-weight: bold;
+}
+
+.p_add_span div.content {
+    color:#333;
+    margin-top: 3px;
+    padding-left:16px;
 }
 
 div.img_f {
@@ -6499,10 +6513,16 @@ span.gry {
     clear: both;
     border: dashed 1px #c8c8c8;
     background: #f5f6f7;
-    margin:20px 0 10px 0;
-    padding: 15px 20px;
+    padding: 10px 0 20px 20px;
 }
 
+.port_guide div.content {
+    padding-top:5px;
+}
+.port_guide span.title {
+    color:#2d3a45;
+    font-weight: bold;
+}
 .has-success .control-label {
     color: #666 !important;
     font-weight: 600;
