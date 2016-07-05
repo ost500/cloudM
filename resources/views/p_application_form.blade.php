@@ -18,29 +18,31 @@
                     <div class="row">
                         <div class="col-md-3">
 
-
                             <div class="job-sider-bar003">
                                 <h5 class="side-tittle">광고주</h5>
-                                <div>
+                                <div class="col-md-3">
                                     @if($project->client->profileImage != null)
                                         <img class="partner_profile02"
                                              src="{{ URL::asset($project->client->profileImage) }}"><br>
                                     @else
                                         <img class="partner_profile02" src="/images/p_img02.png"><br>
                                     @endif
-
                                 </div>
-                                <h5 class="text-center">{{ $project->client->name }}</h5>
-                                <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
+                                <div class="col-md-9">
+                                    <p class="side-title-name"><h5
+                                            class="text-center">{{ $project->client->name }}</h5></p>
+                                    <a href="#.">
+                                        <div id="tag02">
+                                            <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-
                         </div>
 
 
                         <!-- Job  Content -->
                         <div class="col-md-9 job-right">
-
-
                             <!-- Job Content -->
                             <div id="accordion">
 

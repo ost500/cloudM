@@ -1,141 +1,160 @@
 @extends('include.head')
 @section('content')
-    <!-- Content -->
     <div id="content">
-
-        <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
+                <div class="coupen">
+                    <p class="h3 text-bold"><span>{{ $project[0]->title }}</span> 프로젝트의 지원자 목록</p>
+                    <p class="padding-top-10">마음에 드는 지원자를 선정 후 미팅 요청을 하세요.</p>
+                </div>
 
-                <!--
-                        <div class="heading text-left margin-bottom-20">
-                          <h4>프로젝트 검색</h4>
-                        </div>
-                        <div class="coupen">
-                          <p> 내가 찾는 <span>프로젝트</span>를 검색해보세요.</p>
-                        </div>
-                -->
-
-                <!-- Side Bar -->
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="job-sider-bar003">
-                            @if($loginUser->PorC == "P")
-                                <h5 class="side-tittle">파트너스</h5>
-                            @else
-                                <h5 class="side-tittle">클라이언트</h5>
-                            @endif
-                            <div>
-                                @if($loginUser->profileImage != null)
-                                    <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}"><br>
-                                @else
-                                    <img class="partner_profile02" src="/images/p_img02.png"><br>
-                                @endif
-
-                                <h6>{{ $loginUser->name }}</h6>
-                                <a href="#.">
-                                    <div id="tag02">
-                                        <div class="button">기본정보수정</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Job  Content -->
-                    <div class="col-md-9 job-right">
-
-
-                        <!-- Job Content -->
+                <div class="row padding-top-15">
+                    <div class="col-md-12">
                         <div id="accordion">
-
-                            <!-- Job Section -->
                             <div class="job-content job-post-page">
-                                <!-- Job Tittle -->
-                                <div class="panel-group">
-                                    <div class="panel panel-default">
-                                        <!-- Save -->
-                                        <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                                        <!-- PANEL HEADING -->
-                                        <div class="panel-heading">
 
-                                            <a class="mypage_link" href="/partners-use.html">처음 오셨나요? 이용방법을 확인하세요 > </a>
-                                            <!--<div class="job-tittle02">
-
-
-
-
-                                                <div class="tags_bg02 margin-top-20 padding-top-5">
-                                                    <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
-
-
-                                                    <div class="row">
-                                                    <ul>
-                                                        <div class="col-md-2"><li><div class="rating star-lg star-lg-4"></div></li></div>
-                                                        <div class="col-md-3"><li><span class="rating-stats-body stats-body">
-                                                                <span class="average-rating-score">4.2</span>
-                                                                <span class="rating-append-unit append-unit">/ 평가 20개</span>
-                                                            </span></li></div>
-
-                                                        <div class="col-md-4"><li><span class="partners-authorized"><i class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span></li></div>
-                                                        <div class="col-md-3"><li><span class="partners-authorized"><i class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span></li></div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="port_guide img_f">
+                                            <img src="/images/i_icon.png" style="margin-top:10px;">
+                                            <div class="p_add_span padding-top-0 padding-left-60">
+                                                <div class="content">1. 인증은 근무일 기준 24시간 이상 소요 되며</div>
+                                                <div class="content">2. 인증은 근무일 기준 24시간 이상 소요 되며</div>
+                                                <div class="content">3. 인증완료 후 서류 변경을 원하실 경우에는</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 
-                                                    </ul>
-                                                    </div>
+
+
+                                    <div class="panel padding-top-20">
+                                        <div class="tabbable">
+                                            <ul id="myTab1" class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#myTab1_example1" data-toggle="tab" aria-expanded="true"> 전체 지원자 ({{ $applist->count() }})</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#myTab1_example2" data-toggle="tab" aria-expanded="false"> 미팅요청 지원자 ({{ $count['app_meeting_count'] }})</a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#myTab1_example3" data-toggle="tab" aria-expanded="false"> 관심 지원자 </a>
+                                                </li>
+                                                <li class="">
+                                                    <a href="#myTab1_example3" data-toggle="tab" aria-expanded="false"> 탈락 지원자 </a>
+                                                </li>
+                                            </ul>
+
+                                            <div class="tab-content padding-top-20">
+                                                <div class="tab-pane fade active in" id="myTab1_example1">
+
+                                                    @if($count['app_count'] == 0)
+                                                        <div class="col-md-12 padding-0">지원자가 없습니다</div>
+                                                    @else
+
+                                                    @foreach($applist as $app_list)
+                                                        @if($app_list->choice == '광고주 검수중')
+                                                            <div class="col-md-10 padding-0">
+                                                                <div class="row">
+                                                                    <div class="col-md-2 text-center">
+                                                                        @if($app_list->user['profileImage'] != null)
+                                                                            <img class="partner_profile02"
+                                                                                 src="{{ URL::asset($app_list->user['profileImage']) }}"><br>
+                                                                        @else
+                                                                            <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="col-md-10">
+                                                                        {{ $app_list->user['name'] }}
+
+                                                                        <div class="rating star-lg star-lg-0"></div>
+                                                                        <span class="rating-stats-body stats-body">
+                                                                            <span class="average-rating-score padding-left-10">{{ 0.0 }}</span>
+                                                                            <span class="rating-append-unit append-unit pull-right">/ 평가 0개</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row padding-top-30">
+                                                                    <div class="col-md-2 text-center">지원내용</div>
+                                                                    <div class="col-md-10">{{ $app_list->content }}</div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <form action="{{ url('/applist/meeting') }}"
+                                                                      method="POST" role="form">
+                                                                    {!! csrf_field() !!}
+                                                                    <input name="id" type="hidden"
+                                                                           value="{{ $app_list['id']}}">
+                                                                    <td>
+                                                                        <button class="button004"
+                                                                                type="submit">미팅신청
+                                                                        </button>
+                                                                    </td>
+
+                                                                </form>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                    @endif
+
+
                                                 </div>
-                                            </div>-->
-
-
-                                            <div class="job-tittle03">
-                                                <h4>{{ $project[0]->title }} 프로젝트</h4>
-                                                <h6>지원자 목록</h6>
-
-
-                                                <div class="panel02 panel-default02">
-
+                                                <div class="tab-pane fade" id="myTab1_example2">
                                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                                         <col style="width:40%;"/>
-
+                                                        <col style="width:15%;"/>
+                                                        <col style="width:15%;"/>
                                                         <col style="width:15%;"/>
                                                         <col style="width:15%;"/>
                                                         <col style="width:15%;"/>
                                                         <tr>
-                                                            <th>지원자</th>
-
-                                                            <th>예상기간</th>
+                                                            <th>프로젝트 제목</th>
+                                                            <th>등록일자</th>
                                                             <th>마감일자</th>
-                                                            <th>미팅신청</th>
+                                                            <th>지원자수</th>
+                                                            <th>취소</th>
+                                                            <th>계약</th>
                                                         </tr>
 
-                                                        @if($count['app_count'] == 0)
+                                                        @if($count['app_meeting_count'] == 0)
                                                             <tr>
-                                                                <td colspan="5">지원자가 없습니다</td>
+                                                                <td colspan="5">미팅신청자가 없습니다</td>
                                                             </tr>
                                                         @else
 
                                                             @foreach($applist as $app_list)
 
-                                                                @if($app_list->choice == '광고주 검수중')
+                                                                @if($app_list->choice == '미팅')
 
                                                                     <tr>
-                                                                        <td>{{ $app_list->user['name'] }}</td>
-
+                                                                        <td>{{ $app_list->user->name }}</td>
+                                                                        <td>{{ $app_list->project->title }}</td>
                                                                         <td>30일</td>
                                                                         <td>2016.01.21</td>
-                                                                        <form action="{{ url('/applist/meeting') }}"
+                                                                        <form action="{{ url('/applist/meetingCancel') }}"
                                                                               method="POST" role="form">
                                                                             {!! csrf_field() !!}
                                                                             <input name="id" type="hidden"
-                                                                                   value="{{ $app_list['id']}}">
+                                                                                   value="{{ $app_list['id'] }}">
                                                                             <td>
                                                                                 <button class="button004"
-                                                                                        type="submit">신청
+                                                                                        type="submit">취소
                                                                                 </button>
                                                                             </td>
-
+                                                                        </form>
+                                                                        <form action="{{ url('/applist/contract') }}"
+                                                                              method="POST" role="form">
+                                                                            {!! csrf_field() !!}
+                                                                            <input name="id" type="hidden"
+                                                                                   value="{{ $app_list['id'] }}">
+                                                                            <td>
+                                                                                <button class="button004"
+                                                                                        type="submit">계약
+                                                                                </button>
+                                                                            </td>
                                                                         </form>
                                                                     </tr>
 
@@ -145,105 +164,23 @@
                                                         @endif
                                                     </table>
                                                 </div>
+                                                <div class="tab-pane fade" id="myTab1_example3">
+                                                    <p>
+                                                        Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin.
+                                                    </p>
+                                                    <p>
+                                                        Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                                                    </p>
+                                                </div>
                                             </div>
-
                                         </div>
-
-
-                                        <div class="job-tittle03">
-                                            <h6>미팅신청 목록</h6>
-
-
-                                            <div class="panel02 panel-default02">
-
-                                                <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                                    <col style="width:40%;"/>
-                                                    <col style="width:15%;"/>
-                                                    <col style="width:15%;"/>
-                                                    <col style="width:15%;"/>
-                                                    <col style="width:15%;"/>
-                                                    <col style="width:15%;"/>
-                                                    <tr>
-                                                        <th>프로젝트 제목</th>
-                                                        <th>등록일자</th>
-                                                        <th>마감일자</th>
-                                                        <th>지원자수</th>
-                                                        <th>취소</th>
-                                                        <th>계약</th>
-                                                    </tr>
-
-                                                    @if($count['app_meeting_count'] == 0)
-                                                        <tr>
-                                                            <td colspan="5">미팅신청자가 없습니다</td>
-                                                        </tr>
-                                                    @else
-
-                                                        @foreach($applist as $app_list)
-
-                                                            @if($app_list->choice == '미팅')
-
-                                                                <tr>
-                                                                    <td>{{ $app_list->user->name }}</td>
-                                                                    <td>{{ $app_list->project->title }}</td>
-                                                                    <td>30일</td>
-                                                                    <td>2016.01.21</td>
-                                                                    <form action="{{ url('/applist/meetingCancel') }}"
-                                                                          method="POST" role="form">
-                                                                        {!! csrf_field() !!}
-                                                                        <input name="id" type="hidden"
-                                                                               value="{{ $app_list['id'] }}">
-                                                                        <td>
-                                                                            <button class="button004"
-                                                                                    type="submit">취소
-                                                                            </button>
-                                                                        </td>
-                                                                    </form>
-                                                                    <form action="{{ url('/applist/contract') }}"
-                                                                          method="POST" role="form">
-                                                                        {!! csrf_field() !!}
-                                                                        <input name="id" type="hidden"
-                                                                               value="{{ $app_list['id'] }}">
-                                                                        <td>
-                                                                            <button class="button004"
-                                                                                    type="submit">계약
-                                                                            </button>
-                                                                        </td>
-                                                                    </form>
-                                                                </tr>
-
-                                                            @endif
-
-                                                        @endforeach
-                                                    @endif
-                                                </table>
-
-                                            </div>
-
-                                        </div>
-
                                     </div>
-
-
                                 </div>
-                                <!-- Content -->
-                                <!--<div id="job1" class="panel-collapse collapse in">
-                                  <div class="panel-body">
-                                    <p> [프로젝트 진행 방식] 시작시점에 미팅, 주 1회 미팅 등 [프로젝트의 현재 상황] 리뉴얼 기획 제안서만 있음 [상세한 업무 내용] 반응형 웹 제작 [참고자료 / 유의사항] http://www.skhynix.com/kor/index.jsp 와 같은 톤앤매너 구상</p>
-
-
-                                    </div>
-                                  </div>-->
-
-
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-
         </section>
     </div>
 
