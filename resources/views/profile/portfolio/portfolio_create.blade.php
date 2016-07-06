@@ -27,215 +27,214 @@
                                    aria-required="true"
                                    aria-describedby="title-error">
                             <span id="title-error"
-                                  class="help-block valid"
-                                  style="display: none;"></span>
+                                    class="help-block valid"
+                                    style="display: none;"></span>
 
                             <div class="checkbox_css">
                                 <input type="checkbox" name="checkbox1"
                                        id="checkbox1" value="option1">
                                 <label for="checkbox1">패스트엠에서 진행한 프로젝트
                                     입니다.</label>
-                                <p class="validation-error"></p>
-                            </div>
+                            <p class="validation-error"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span> 분야 및 업종</label>
+
+                        <div class="col-sm-4">
+                            <select class="form-control"
+                                    name="area"
+                                    aria-required="true"
+                                    aria-describedby="area-error">
+
+                                <option selected="selected" value="">분야</option>
+
+                                <optgroup label="매체 광고">
+                                    <option value="네이버CPC">네이버CPC</option>
+                                    <option value="언론보도">언론보도</option>
+                                    <option value="구글광고">구글광고</option>
+                                    <option value="페이스북광고">페이스북광고</option>
+                                    <option value="매체 기타">매체 기타</option>
+                                </optgroup>
+                                <optgroup label="바이럴">
+                                    <option value="네이버SEO">네이버SEO</option>
+                                    <option value="컨텐츠 배포">컨텐츠 배포</option>
+                                    <option value="체험단 모집">체험단 모집</option>
+                                    <option value="바이럴 기타">바이럴 기타</option>
+                                </optgroup>
+                                <optgroup label="운영대행">
+                                    <option value="블로그">블로그</option>
+                                    <option value="페이스북페이지">페이스북페이지</option>
+                                    <option value="기타SNS">기타SNS</option>
+                                    <option value="홈페이지">홈페이지</option>
+                                    <option value="운영대행 기타">운영대행 기타</option>
+                                </optgroup>
+                                <optgroup label="1회성 프로젝트">
+                                    <option value="개발">개발</option>
+                                    <option value="디자인">디자인</option>
+                                    <option value="웹툰">웹툰</option>
+                                    <option value="영상">영상</option>
+                                    <option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
+                                </optgroup>
+                            </select><span id="area-error"
+                                           class="help-block valid"
+                                           style="display: none;"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"><span class="symbol required"></span> 분야 및 업종</label>
-
-                            <div class="col-sm-4">
-                                <select class="form-control"
-                                        name="area"
-                                        aria-required="true"
-                                        aria-describedby="area-error">
-
-                                    <option selected="selected" value="">분야</option>
-
-                                    <optgroup label="매체 광고">
-                                        <option value="네이버CPC">네이버CPC</option>
-                                        <option value="언론보도">언론보도</option>
-                                        <option value="구글광고">구글광고</option>
-                                        <option value="페이스북광고">페이스북광고</option>
-                                        <option value="매체 기타">매체 기타</option>
-                                    </optgroup>
-                                    <optgroup label="바이럴">
-                                        <option value="네이버SEO">네이버SEO</option>
-                                        <option value="컨텐츠 배포">컨텐츠 배포</option>
-                                        <option value="체험단 모집">체험단 모집</option>
-                                        <option value="바이럴 기타">바이럴 기타</option>
-                                    </optgroup>
-                                    <optgroup label="운영대행">
-                                        <option value="블로그">블로그</option>
-                                        <option value="페이스북페이지">페이스북페이지</option>
-                                        <option value="기타SNS">기타SNS</option>
-                                        <option value="홈페이지">홈페이지</option>
-                                        <option value="운영대행 기타">운영대행 기타</option>
-                                    </optgroup>
-                                    <optgroup label="1회성 프로젝트">
-                                        <option value="개발">개발</option>
-                                        <option value="디자인">디자인</option>
-                                        <option value="웹툰">웹툰</option>
-                                        <option value="영상">영상</option>
-                                        <option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
-                                    </optgroup>
-                                </select><span id="area-error"
-                                               class="help-block valid"
-                                               style="display: none;"></span>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <select class="form-control"
-                                        name="category"
-                                        aria-required="true"
-                                        aria-describedby="category-error">
-                                    <option value="">업종</option>
-                                    <option value="의료">의료</option>
-                                    <option value="법률">법률</option>
-                                    <option value="스타트업">스타트업</option>
-                                    <option value="프랜차이즈">프랜차이즈</option>
-                                    <option value="교육/대학교">교육/대학교</option>
-                                    <option value="쇼핑몰">쇼핑몰</option>
-                                    <option value="기타">기타</option>
-                                </select><span id="category-error"
-                                               class="help-block valid"
-                                               style="display: none;"></span>
-                            </div>
+                        <div class="col-sm-4">
+                            <select class="form-control"
+                                    name="category"
+                                    aria-required="true"
+                                    aria-describedby="category-error">
+                                <option value="">업종</option>
+                                <option value="의료">의료</option>
+                                <option value="법률">법률</option>
+                                <option value="스타트업">스타트업</option>
+                                <option value="프랜차이즈">프랜차이즈</option>
+                                <option value="교육/대학교">교육/대학교</option>
+                                <option value="쇼핑몰">쇼핑몰</option>
+                                <option value="기타">기타</option>
+                            </select><span id="category-error"
+                                           class="help-block valid"
+                                           style="display: none;"></span>
                         </div>
+                    </div>
 
 
-                        <div class="form-group margin-top-20">
-                            <label class="col-sm-3 control-label"><span class="symbol required"></span> 프로젝트 설명 </label>
-                            <div class="col-sm-8">
+                    <div class="form-group margin-top-20">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span> 프로젝트 설명 </label>
+                        <div class="col-sm-8">
                             <textarea name="description" class="form-control"
                                       rows=10 aria-required="true"
                                       aria-describedby="description-error"
                                       aria-invalid="false"></textarea>
-                                <span class="gry">한글 기준 5000자 이내로 작성해주세요.</span>
+                            <span class="gry">한글 기준 5000자 이내로 작성해주세요.</span>
                                                         <span id="description-error"
                                                               class="help-block valid"></span>
-                            </div>
                         </div>
+                    </div>
 
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"><span class="symbol required"></span> 진행기간 </label>
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control"
-                                       name="from_date">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span> 진행기간 </label>
+                        <div class="col-sm-4">
+                            <input type="date" class="form-control"
+                                   name="from_date">
                             <span id="from_date-error"
                                   class="help-block valid"
                                   style="display: none;"></span>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <input type="date" class="form-control"
-                                       name="to_date">
-                                <span id="to_date-error" class="help-block valid" style="display: none;"></span>
-                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"></label>
-                            <div class="col-sm-8">
-                                <div class="port_guide img_f">
-                                    <img src="/images/i_icon.png"
-                                         style="margin-top:2px;">
-                                    <div class="p_add_span"
-                                         style="">
-                                        <strong>[포트폴리오 추가 가이드]</strong><br>
-                                        포트폴리오 이미지는 가로 775px로 변환되어 보입니다.<br>
-                                        이미지 파일(.jpg, .jpeg, .png, .gif 등)만 업로드할 수
-                                        있습니다.<br>
-                                        파일 크기는 최대 8MB까지 업로드가 가능합니다.
-                                    </div>
+                        <div class="col-sm-4">
+                            <input type="date" class="form-control"
+                                   name="to_date">
+                            <span id="to_date-error" class="help-block valid" style="display: none;"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-8">
+                            <div class="port_guide img_f">
+                                <img src="/images/i_icon.png"
+                                     style="margin-top:2px;">
+                                <div class="p_add_span"
+                                     style="">
+                                    <strong>[포트폴리오 추가 가이드]</strong><br>
+                                    포트폴리오 이미지는 가로 775px로 변환되어 보입니다.<br>
+                                    이미지 파일(.jpg, .jpeg, .png, .gif 등)만 업로드할 수
+                                    있습니다.<br>
+                                    파일 크기는 최대 8MB까지 업로드가 가능합니다.
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"><span class="symbol required"></span>대표 이미지 </label>
-                            <div class="col-sm-8">
-                                <div class="filebox">
-                                    <input
-                                            id="image1"
-                                            class="upload-name"
-                                            value="이미지를 등록해주세요"
-                                            disabled="disabled"
-                                            aria-required="true"
-                                            aria-describedby="image1-error">
-                                    <label class="upload_button"
-                                           for="ex_filename">이미지 업로드</label>
-                                    <input name="image1" type="file"
-                                           id="ex_filename"
-                                           accept="jpg,jpeg,png,gif">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span>대표 이미지 </label>
+                        <div class="col-sm-8">
+                            <div class="filebox">
+                            <input
+                                    id="image1"
+                                    class="upload-name"
+                                    value="이미지를 등록해주세요"
+                                    disabled="disabled"
+                                    aria-required="true"
+                                    aria-describedby="image1-error">
+                            <label class="upload_button"
+                                   for="ex_filename">이미지 업로드</label>
+                            <input name="image1" type="file"
+                                   id="ex_filename"
+                                   accept="jpg,jpeg,png,gif">
                             <span id="image1-error"
-                                  class="help-block valid"
-                                  style="display: none;"></span>
-                                    <script>
-                                        $("#ex_filename").change(function (ev) {
+                                    class="help-block valid"
+                                    style="display: none;"></span>
+                            <script>
+                                $("#ex_filename").change(function (ev) {
 
-                                            $("#image1").val(this.value);
-                                        });
-                                    </script>
+                                    $("#image1").val(this.value);
+                                });
+                            </script>
                                 </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol"></span> 이미지2 </label>
+                        <div class="col-sm-8">
+                            <div class="filebox">
+                            <input id="image2_name"
+                                   class="upload-name"
+                                   value="두번째 이미지를 등록해주세요"
+                                   disabled="disabled">
+                            <label class="upload_button"
+                                   for="ex_filename2">이미지
+                                업로드</label>
+                            <input name="image2" type="file"
+                                   id="ex_filename2"
+                                   class="upload-hidden"
+                                   accept="jpg,jpeg,png,gif">
+                            <script>
+                                $("#ex_filename2").change(function (ev) {
+                                    $("#image2_name").val(this.value);
+                                });
+                            </script>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol"></span> 이미지3 </label>
+                        <div class="col-sm-8">
+                            <div class="filebox">
+                            <input id="image3_name"
+                                   class="upload-name"
+                                   value="세번째 이미지를 등록해주세요"
+                                   disabled="disabled"
+                                   accept="jpg,jpeg,png,gif">
+                            <label class="upload_button"
+                                   for="ex_filename3">이미지
+                                업로드</label>
+                            <input name="image3" type="file"
+                                   id="ex_filename3"
+                                   class="upload-hidden">
+                            <script>
+                                $("#ex_filename3").change(function (ev) {
+                                    $("#image3_name").val(this.value);
+                                });
+                            </script>
                             </div>
                         </div>
+                    </div>
 
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"><span class="symbol"></span> 이미지2 </label>
-                            <div class="col-sm-8">
-                                <div class="filebox">
-                                    <input id="image2_name"
-                                           class="upload-name"
-                                           value="두번째 이미지를 등록해주세요"
-                                           disabled="disabled">
-                                    <label class="upload_button"
-                                           for="ex_filename2">이미지
-                                        업로드</label>
-                                    <input name="image2" type="file"
-                                           id="ex_filename2"
-                                           class="upload-hidden"
-                                           accept="jpg,jpeg,png,gif">
-                                    <script>
-                                        $("#ex_filename2").change(function (ev) {
-                                            $("#image2_name").val(this.value);
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label"><span class="symbol"></span> 이미지3 </label>
-                            <div class="col-sm-8">
-                                <div class="filebox">
-                                    <input id="image3_name"
-                                           class="upload-name"
-                                           value="세번째 이미지를 등록해주세요"
-                                           disabled="disabled"
-                                           accept="jpg,jpeg,png,gif">
-                                    <label class="upload_button"
-                                           for="ex_filename3">이미지
-                                        업로드</label>
-                                    <input name="image3" type="file"
-                                           id="ex_filename3"
-                                           class="upload-hidden">
-                                    <script>
-                                        $("#ex_filename3").change(function (ev) {
-                                            $("#image3_name").val(this.value);
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group margin-top-50 margin-bottom-20">
-                            <div class="col-sm-offset-5 col-sm-10">
-                                <button class="btn btn-o btn-primary" type="submit">
-                                    등록하기
-                                </button>
-                            </div>
+                    <div class="form-group margin-top-50 margin-bottom-20">
+                        <div class="col-sm-offset-5 col-sm-10">
+                            <button class="btn btn-o btn-primary" type="submit">
+                                등록하기
+                            </button>
                         </div>
                     </div>
                 </form>
