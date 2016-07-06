@@ -9,11 +9,6 @@
             <!-- Job -->
             <section class="job padding-top-15 padding-bottom-70">
                 <div class="container">
-
-                    <div class="coupen">
-                        <p><span>프로젝트 상세</span> - 내가 찾는 프로젝트를 검색해보세요.</p>
-                    </div>
-
                     <!-- Side Bar -->
                     <div class="row">
                         <div class="col-md-3">
@@ -94,30 +89,6 @@
                                                                 <td>{{ $project['address_sido'] }}</td>
                                                             </tr>
                                                         </table>
-
-                                                        {{--<div class="panel-heading03">--}}
-                                                        {{--<div class="row">--}}
-                                                        {{--<span class="col-xs-2"><strong>목적</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>매니징경험</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>등록일자</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>예상시작일</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>미팅방식</strong></span>--}}
-                                                        {{--<span class="col-xs-2"><strong>진행지역</strong></span>--}}
-
-                                                        {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="panel-body03">--}}
-                                                        {{--<ul>--}}
-                                                        {{--<li class="row">--}}
-                                                        {{--<span class="col-xs-2">{{ $project['purpose'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['managing_experience'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['created_at'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['expected_start_date'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['meeting_way'] }}</span>--}}
-                                                        {{--<span class="col-xs-2">{{ $project['address_sido'] }}</span>--}}
-                                                        {{--</li>--}}
-                                                        {{--</ul>--}}
-                                                        {{--</div>--}}
                                                     </div>
                                                 </div>
 
@@ -130,7 +101,7 @@
 
 
                                                     <div class="margin-top-10">
-                                                        <span class="media-body-sm margin-top-23">관련기술</span>
+                                                        <span class="media-body-sm margin-top-23">분야</span>
                                                         <ul class="tags dall margin-top-20 margin-bottom-10">
                                                             @foreach($project->projects_area as $areas)
                                                                 <li><a href="#.">{{ $areas->area }}</a></li>
@@ -138,14 +109,8 @@
                                                             <li><a href="#.">{{ $project['category'] }}</a></li>
                                                         </ul>
                                                     </div>
-
-
                                                 </div>
-
-
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -154,140 +119,109 @@
 
                             <div id="wizard" class="swMain">
                                 <div class="job-content job-post-page margin-top-20 padding-bottom-20">
-                                    <h5>{{ $project->title }}의 지원서 작성</h5>
                                     <form action="{{ url("/apply/".$project->id) }}" method="post" role="form"
-                                          class="smart-wizard" id="form"
+                                          class="smart-wizard form-horizontal" id="form"
                                           novalidate="novalidate" enctype="multipart/form-data" accept-charset="UTF-8">
                                         {!! csrf_field() !!}
 
-                                        <div class="col-md-20">
 
-
-                                            <fieldset>
-
-                                                {{--<div class="row">--}}
-                                                    {{--<div class="col-md-6">--}}
-                                                        {{--<div class="form-group">--}}
-                                                            {{--<label class="control-label"> 지원 금액 <span--}}
-                                                                        {{--class="symbol required"></span>--}}
-                                                            {{--</label>--}}
-                                                            {{--<input type="text" class="form-control"--}}
-                                                                   {{--name="money" aria-required="true"--}}
-                                                                   {{--aria-describedby="money-error"--}}
-                                                                   {{--value=""><span--}}
-                                                                    {{--id="money-error"--}}
-                                                                    {{--class="help-block valid"--}}
-                                                                    {{--style="display: none;"></span>--}}
-
-                                                        {{--</div>--}}
-                                                        {{--<p class="text-small">--}}
-                                                            {{--<a data-original-title="" title="">※ 수수료 10%를 포함한 가격입니다</a>--}}
-                                                        {{--</p>--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="col-md-6">--}}
-                                                        {{--<div class="form-group">--}}
-                                                            {{--<label class="control-label"> 지원 기간 <span--}}
-                                                                        {{--class="symbol required"></span>--}}
-                                                            {{--</label>--}}
-                                                            {{--<input id="duration" type="text" name="duration"--}}
-                                                                   {{--class="form-control" placeholder="3개월"--}}
-
-                                                            {{--><span--}}
-                                                                    {{--id="phone-error"--}}
-                                                                    {{--class="help-block valid"--}}
-                                                                    {{--style="display: none;"></span>--}}
-                                                        {{--</div>--}}
-                                                        {{--<p class="text-small">--}}
-                                                            {{--<a data-original-title="" title="">※ 월 단위로 입력해 주세요</a>--}}
-                                                        {{--</p>--}}
-                                                    {{--</div>--}}
-                                                {{--</div>--}}
-
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label class="control-label"> 지원 내용 <span
-                                                                        class="symbol required"></span></label>
-                                                    <textarea autofocus name="contents"
-                                                              class="form-control"
-                                                              rows=10 aria-required="true"
-                                                              placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요.지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
-                                                    ></textarea>
-                                                        </div>
-                                                        <p class="text-small">
-                                                            <a href="javascript:void(0)"
-                                                               data-content="이메일, 전화번호 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다."
-                                                               data-title="주의사항!" data-placement="top"
-                                                               data-toggle="popover"
-                                                               data-original-title="" title="">※이메일,
-                                                                전화번호 등 게시금지.</a>
-                                                        </p>
-                                                    </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <div class="port_guide img_f">
+                                                    <img src="/images/i_icon.png" style="margin-top:12px;">
+                                                    <p><span class="title">[프로젝트 지원 안내]</span>
+                                                    <div class="content">프로젝트 지원시 <strong>회사소개서</strong>, <strong>기본제안서</strong>를 등록하시고,<br><strong>맞춤 제안서</strong>를 함께 제출 하시면 선택 확률이 더 높아 집니다..</div></p>
                                                 </div>
-
-                                                <div class="row">
-                                                    <div class="form-group">
-                                                        <div class="col-md-3">
-                                                            <label class="control-label"> 관련 포트폴리오 <span
-                                                                        class="symbol required"></span></label>
-                                                        </div>
-                                                        <div class="radio">
-
-                                                            <div class="col-md-4">
-                                                                <input class="radio" type="radio" id="radio1"
-                                                                       name="has_portfolio" value="true"><label
-                                                                        for="radio1">관련 포트폴리오가 있습니다</label>
-
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <input class="radio" type="radio" id="radio2"
-                                                                       name="has_portfolio"
-                                                                       checked="checked" value="false"><label
-                                                                        for="radio2">관련 포트폴리오가 없습니다</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label class="control-label"> 제안서, 견적서 (.zip 파일만 업로드 가능) <span
-                                                                        class="symbol"></span>
-                                                            </label>
-                                                            <div class="form-group">
-                                                                <input class="form-control" type="file"
-                                                                       name="application_attach"
-                                                                       id="application_attach"/>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {{--<p class="text-small">--}}
-                                                {{--<a href="javascript:void(0)"--}}
-                                                {{--data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial"--}}
-                                                {{--data-title="Don't worry!"--}}
-                                                {{--data-placement="top" data-toggle="popover"--}}
-                                                {{--data-original-title="" title=""> 왜 개인정보가--}}
-                                                {{--필요한가요? </a>--}}
-                                                {{--</p>--}}
-                                            </fieldset>
-
-
-                                            <div class="form-group">
-                                                <button type="submit"
-                                                        class="btn btn-1 btn-primary btn-o next-step btn-wide pull-right">
-                                                    제출 <i class="fa fa-arrow-circle-right"></i>
-                                                </button>
                                             </div>
                                         </div>
+
+                                        <div class="panel-heading">
+                                            <h5 class="panel-title">{{ $project->title }} 프로젝트의 지원서 작성</h5>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span class="symbol required"></span> 지원내용 </label>
+                                            <div class="col-sm-10">
+                                                <textarea autofocus name="contents"
+                                                          class="form-control"
+                                                          rows=10 aria-required="true"
+                                                          placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요.지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
+                                                        ></textarea>
+                                                <p class="text-small">
+                                                    <a href="javascript:void(0)"
+                                                       data-content="이메일, 전화번호 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다."
+                                                       data-title="주의사항!" data-placement="top"
+                                                       data-toggle="popover"
+                                                       data-original-title="" title="">※이메일,
+                                                        전화번호 등 게시금지.</a>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group margin-top-20">
+                                            <label class="col-sm-2 control-label"><span class="symbol required"></span> 포트폴리오 </label>
+                                            <div class="col-sm-10">
+                                                <div class="radio">
+                                                    <input type="radio" id="radio1"
+                                                        name="has_portfolio" value="true"><label
+                                                        for="radio1">관련 포트폴리오가 있습니다</label>
+
+                                                    <input type="radio" id="radio2"
+                                                       name="has_portfolio"
+                                                       checked="checked" value="false"><label
+                                                        for="radio2">관련 포트폴리오가 없습니다</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group margin-top-40">
+                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 서류</label>
+                                            <div class="col-sm-10">
+                                                <table class="table_04">
+                                                    <col style="width:20%;"/>
+                                                    <col style="width:30%;"/>
+                                                    <col style="width:20%;"/>
+                                                    <col style="width:30%;"/>
+                                                    <tr>
+                                                        <th>회사소개서</th>
+                                                        <td>
+                                                            @if($partnerFile['company'])
+                                                                {{ $partnerFile['company_origin_name'] }}
+                                                            @else
+                                                                <a href="{{ url("profile/company") }}">등록하러 가기</a>
+                                                            @endif
+                                                        </td>
+
+                                                        <th>기본제안서</th>
+                                                        <td>
+                                                            @if($partnerFile['proposal'])
+                                                                {{ $partnerFile['proposal_origin_name'] }}
+                                                            @else
+                                                                <a href="{{ url("profile/proposal") }}">등록하러 가기</a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group margin-top-20">
+                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 맞춤제안서 </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="file"
+                                                       name="application_attach"
+                                                       id="application_attach"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group text-center margin-top-50">
+                                                <button class="btn btn-o btn-primary" type="submit">
+                                                    지원하기
+                                                </button>
+                                        </div>
                                     </form>
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

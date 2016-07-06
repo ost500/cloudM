@@ -97,8 +97,7 @@ Route::get('/setting/bank', 'MypageController@settingBank');
 Route::get('/setting/password', 'MypageController@settingPassword');
 Route::get('/setting/notification', 'MypageController@settingNotification');
 Route::get('/setting/passwordChange', 'MypageController@settingPasswordChange');
-Route::get('/setting/proposal', 'MypageController@settingproposal');
-Route::get('/setting/company', 'MypageController@settingcompany');
+
 
 // delete project
 Route::post('/rm_project', 'DeleteController@delete_project');
@@ -127,39 +126,51 @@ Route::post('/setting/passwordUpdate', 'MypagePostController@password_update');
 Route::post('/setting/notification/email/save', 'MypagePostController@notification_email_update');
 Route::post('/setting/notification/sms/save', 'MypagePostController@notification_sms_update');
 
-Route::post('/setting/proposal/save', 'MypagePostController@proposal_update');
-Route::post('/setting/company/save', 'MypagePostController@company_update');
+
 
 
 // 제안서/견적서 업로드
 Route::post('/proposalFileUpload', 'MypageController@proposalFileUpload');
 
 //프로필
-Route::get('/mypage', 'MypageController@mypage');
-//프로필 edit intro
-Route::get('/mypage/intro_edit', 'MypageController@mypage_intro_edit');
-Route::post('/mypage/intro_edit', 'MypageController@mypage_intro_edit_post');
-//프로필 edit skill
-Route::post('/mypage/skill_edit', 'MypageController@mypage_skill_edit_post');
-Route::post('/mypage/skill_delete', 'MypageController@mypage_skill_del_post');
-//프로필 skill list
-Route::get("/mypage/skill_list", 'MypageController@skills_list');
+Route::get('/profile', 'MypageController@profile');
+
+Route::get('/profile/proposal', 'MypageController@profileProposal');
+Route::get('/profile/company', 'MypageController@profileCompany');
+
+Route::post('/profile/proposal/save', 'MypagePostController@proposal_update');
+Route::post('/profile/company/save', 'MypagePostController@company_update');
 
 //프로필 포트폴리오 create
-Route::get("/portfolio/create", 'MypageController@portfolio_create');
-Route::post("/portfolio/create", 'MypageController@portfolio_create_post');
+Route::get("/profile/portfolio/create", 'MypageController@portfolio_create');
+Route::post("/profile/portfolio/create", 'MypageController@portfolio_create_post');
 //프로필 포트폴리오 자세히 list
-Route::get("/portfolio_list/{id}", 'MypageController@portfolio')
+
+Route::get("/profile/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[1-9]+']);
 //프로필 포트폴리오 detail
-Route::get("/portfolio/{id}", 'MypageController@portfolio_detail')
+Route::get("/profile/portfolio/{id}", 'MypageController@portfolio_detail')
     ->where(['id' => '[1-9]+']);
-Route::post("/portfolio/delete/{id}", 'MypageController@portfolio_delete')
+Route::post("/profile/portfolio/delete/{id}", 'MypageController@portfolio_delete')
     ->where(['id' => '[1-9]+']);
-Route::get("/portfolio/update/{id}",'MypageController@portfolio_update')
+Route::get("/profile/portfolio/update/{id}",'MypageController@portfolio_update')
     ->where(['id' => '[1-9]+']);
-Route::post("/portfolio/update/{id}",'MypageController@portfolio_update_post')
+Route::post("/profile/portfolio/update/{id}",'MypageController@portfolio_update_post')
     ->where(['id' => '[1-9]+']);
+
+
+
+
+//프로필 edit intro
+Route::get('/profile/intro/edit', 'MypageController@profile_intro_edit');
+Route::post('/profile/intro/edit', 'MypageController@profile_intro_edit_post');
+//프로필 edit skill
+Route::post('/profile/skill/edit', 'MypageController@profile_skill_edit_post');
+Route::post('/profile/skill/delete', 'MypageController@profile_skill_del_post');
+//프로필 skill list
+Route::get("/profile/skill/list", 'MypageController@profile_skill_list');
+
+
 
 
 

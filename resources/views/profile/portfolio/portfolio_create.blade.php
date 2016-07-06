@@ -14,7 +14,7 @@
                 <h5 class="panel-title">포트폴리오 관리</h5>
             </div>
             <div class="panel-body padding-right-30">
-                <form action="{{ url("/portfolio/create") }}" method="post"
+                <form action="{{ url("/profile/portfolio/create") }}" method="post"
                       role="form" class="smart-wizard form-horizontal" id="form"
                       novalidate="novalidate" enctype="multipart/form-data">
                     {!! csrf_field() !!}
@@ -22,20 +22,18 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label"><span class="symbol required"></span> 제목 </label>
                         <div class="col-sm-8">
-
                             <input type="text" class="form-control"
                                    name="title"
                                    aria-required="true"
                                    aria-describedby="title-error">
-                            <label for="title"></label>
-                            <span
-                                    id="title-error"
-                                    class="help-block valid"
-                                    style="display: none;"></span>
+                            <span id="title-error"
+                                  class="help-block valid"
+                                  style="display: none;"></span>
+
                             <div class="checkbox_css">
                                 <input type="checkbox" name="checkbox1"
                                        id="checkbox1" value="option1">
-                                <label for="checkbox1">클라우드엠에서 진행한 프로젝트
+                                <label for="checkbox1">패스트엠에서 진행한 프로젝트
                                     입니다.</label>
                                 <p class="validation-error"></p>
                             </div>
@@ -241,7 +239,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

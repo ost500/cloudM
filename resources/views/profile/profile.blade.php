@@ -88,7 +88,7 @@
                             $("#intro_edit_button").click(function () {
                                 var display_result = $("#textarea_location");
                                 $.ajax({
-                                    url: "/mypage/intro_edit",
+                                    url: "/profile/intro/edit",
                                     success: function (result) {
                                         display_result.html(result);
                                         $("#intro_edit_button").hide();
@@ -101,7 +101,7 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
-                            <a href="{{ url('portfolio_list/'.$loginUser->id) }}"
+                            <a href="{{ url('profile/portfolio_list/'.$loginUser->id) }}"
                                class="button002 signup002 margin-top-12">더 보기</a>
 
                             <div class="row">
@@ -110,12 +110,12 @@
                                     <div class="col-md-4">
                                         <div class="thumbnail">
                                             <div class="thum_imgbox">
-                                                <a href="{{ url('/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}" alt="" class="img-responsive"></a>
+                                                <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}" alt="" class="img-responsive"></a>
                                             </div>
                                             <div class="caption">
-                                                <a href="{{ url('/portfolio/'.$portfolio->id) }}"><h3 class="thum_title">{{ $portfolio->title }}</h3></a>
+                                                <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><h3 class="thum_title">{{ $portfolio->title }}</h3></a>
                                                 <p class="thum_category">{{ $portfolio->area }} > {{ $portfolio->category }}</p>
-                                                <p><a href="{{ url('/portfolio/'.$portfolio->id) }}" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>
+                                                <p><a href="{{ url('/profile/portfolio/'.$portfolio->id) }}" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -210,18 +210,11 @@
                                                 <div id="title_error"></div>
                                             </td>
                                             <td><select id="job_option" name="number" class="form-control02">
-                                                    <option selected="selected" value="">급</option>
-
-
+                                                    <option selected="selected" value="">숙련도</option>
                                                     <option value="초급">초급</option>
                                                     <option value="중급">중급</option>
                                                     <option value="고급">고급</option>
                                                     <option value="특급">특급</option>
-
-
-
-
-
                                                 </select><br>
                                                 <div id="number_error"></div>
                                             </td>
@@ -248,7 +241,7 @@
                                 $("#edit_skill_button").click(function () {
                                     $.ajax({
                                         type: 'GET',
-                                        url: '/mypage/skill_list',
+                                        url: '/profile/skill/list',
                                         success: function (data) {
                                             $("#skill_list").html(data);
                                         }
@@ -258,7 +251,7 @@
                                 $("#skill_input_button").click(function () {
                                     $.ajax({
                                         type: 'POST',
-                                        url: '/mypage/skill_edit',
+                                        url: '/profile/skill/edit',
                                         data: $("#skill_form").serialize(),
                                         success: function (data) {
                                             $("#skill_list").html(data);
@@ -270,7 +263,7 @@
                                             $("#experience_error").html("");
                                             $.ajax({
                                                 type: 'GET',
-                                                url: '/mypage/skill_list',
+                                                url: '/profile/skill/list',
                                                 success: function (data) {
                                                     $("#skill_list").html(data);
                                                 }
@@ -299,25 +292,9 @@
                                         }
                                     });
                                 });
-
-
                             </script>
-
-
                         </div>
-
-
                     </div>
-                    <!-- Content -->
-                    <!--<div id="job1" class="panel-collapse collapse in">
-                      <div class="panel-body">
-                        <p> [프로젝트 진행 방식] 시작시점에 미팅, 주 1회 미팅 등 [프로젝트의 현재 상황] 리뉴얼 기획 제안서만 있음 [상세한 업무 내용] 반응형 웹 제작 [참고자료 / 유의사항] http://www.skhynix.com/kor/index.jsp 와 같은 톤앤매너 구상</p>
-
-
-                        </div>
-                      </div>-->
-
-
                 </div>
             </div>
         </div>

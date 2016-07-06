@@ -20,11 +20,5 @@
         <a href="/setting/notification" class="head {{ (Request::is('setting/notification'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;알림설정</a>
 
-        <a href="/setting/proposal" class="head {{ (Request::is('setting/proposal'))?"on":"" }}"><i
-                    class="fa fa-angle-double-right "></i> &nbsp;기본제안서</a>
-
-        <a href="/setting/company" class="head {{ (Request::is('setting/company'))?"on":"" }}"><i
-                    class="fa fa-angle-double-right "></i> &nbsp;회사소개서</a>
-
     </div>
 </div>
