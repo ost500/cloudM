@@ -4,6 +4,29 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Comments
+ *
+ * @property integer $id
+ * @property integer $project_id
+ * @property string $comment
+ * @property string $deleted_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property integer $u_id
+ * @property boolean $secret
+ * @property-read \App\User $user
+ * @property-read \App\Project $project
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereProjectId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereComment($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereUId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereSecret($value)
+ * @mixin \Eloquent
+ */
 class Comments extends Model
 {
     protected $table = 'comments';
