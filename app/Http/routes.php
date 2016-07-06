@@ -28,8 +28,8 @@ Route::post('/p_update', 'CreateController@update_project');
 //프로젝트
 Route::get('/project', 'SearchController@p_search');
 //프로젝트 list
-Route::get('/project/{SearchOption}/{page?}/{sort?}/{keyword?}', 'SearchController@get_p_list')
-    ->where(['SearchOption' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '[1-4]']);
+Route::get('/project/{SearchOption}/{SearchOption2}/{page?}/{sort?}/{keyword?}', 'SearchController@get_p_list')
+    ->where(['SearchOption' => '[0-9]+','SearchOption2' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '[1-4]']);
 //프로젝트 pagination
 Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 //프로젝트 상세화면
