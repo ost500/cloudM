@@ -33,14 +33,14 @@ var UITreeview = function () {
                                 },
                                 "children": [
                                     {
-                                        "id": "area_1_1",
+                                        "id": "id_1",
                                         "icon": "fa fa-folder text-primary",
                                         "text": "네이버CPC"
                                     },
-                                    {"id": "area_1_2", "icon": "fa fa-folder text-primary", "text": "언론보도"},
-                                    {"id": "area_1_3", "icon": "fa fa-folder text-primary", "text": "구글광고"},
-                                    {"id": "area_1_4", "icon": "fa fa-folder text-primary", "text": "페이스북광고"},
-                                    {"id": "area_1_5", "icon": "fa fa-folder text-primary", "text": "매체 기타"},
+                                    {"id": "id_2", "icon": "fa fa-folder text-primary", "text": "언론보도"},
+                                    {"id": "id_3", "icon": "fa fa-folder text-primary", "text": "구글광고"},
+                                    {"id": "id_4", "icon": "fa fa-folder text-primary", "text": "페이스북광고"},
+                                    {"id": "id_5", "icon": "fa fa-folder text-primary", "text": "매체 기타"},
                                 ]
 
                             }, {
@@ -51,11 +51,11 @@ var UITreeview = function () {
 
                                 },
                                 "children": [
-                                    {"id": "area_2_1", "icon": "fa fa-folder text-primary", "text": "네이버SEO"},
+                                    {"id": "id_6", "icon": "fa fa-folder text-primary", "text": "네이버SEO"},
 
-                                    {"id": "area_2_2", "icon": "fa fa-folder text-primary", "text": "컨텐츠 배포"},
-                                    {"id": "area_2_3", "icon": "fa fa-folder text-primary", "text": "체험단 모집"},
-                                    {"id": "area_2_4", "icon": "fa fa-folder text-primary", "text": "바이럴 기타"},
+                                    {"id": "id_7", "icon": "fa fa-folder text-primary", "text": "컨텐츠 배포"},
+                                    {"id": "id_8", "icon": "fa fa-folder text-primary", "text": "체험단 모집"},
+                                    {"id": "id_9", "icon": "fa fa-folder text-primary", "text": "바이럴 기타"},
                                 ]
 
                             }, {
@@ -66,11 +66,11 @@ var UITreeview = function () {
 
                                 },
                                 "children": [
-                                    {"id": "area_3_1", "icon": "fa fa-folder text-primary", "text": "블로그"},
-                                    {"id": "area_3_2", "icon": "fa fa-folder text-primary", "text": "페이스북페이지"},
-                                    {"id": "area_3_3", "icon": "fa fa-folder text-primary", "text": "기타SNS"},
-                                    {"id": "area_3_4", "icon": "fa fa-folder text-primary", "text": "홈페이지"},
-                                    {"id": "area_3_5", "icon": "fa fa-folder text-primary", "text": "운영대행 기타"},
+                                    {"id": "id_10", "icon": "fa fa-folder text-primary", "text": "블로그"},
+                                    {"id": "id_11", "icon": "fa fa-folder text-primary", "text": "페이스북페이지"},
+                                    {"id": "id_12", "icon": "fa fa-folder text-primary", "text": "기타SNS"},
+                                    {"id": "id_13", "icon": "fa fa-folder text-primary", "text": "홈페이지"},
+                                    {"id": "id_14", "icon": "fa fa-folder text-primary", "text": "운영대행 기타"},
                                 ]
 
                             }, {
@@ -81,11 +81,30 @@ var UITreeview = function () {
 
                                 },
                                 "children": [
-                                    {"id": "area_4_1", "icon": "fa fa-folder text-primary", "text": "개발"},
-                                    {"id": "area_4_2", "icon": "fa fa-folder text-primary", "text": "디자인"},
-                                    {"id": "area_4_3", "icon": "fa fa-folder text-primary", "text": "웹툰"},
-                                    {"id": "area_4_4", "icon": "fa fa-folder text-primary", "text": "영상"},
-                                    {"id": "area_4_5", "icon": "fa fa-folder text-primary", "text": "1회성 프로젝트 기타"},
+                                    {"id": "id_15", "icon": "fa fa-folder text-primary", "text": "개발"},
+                                    {"id": "id_16", "icon": "fa fa-folder text-primary", "text": "디자인"},
+                                    {"id": "id_17", "icon": "fa fa-folder text-primary", "text": "웹툰"},
+                                    {"id": "id_18", "icon": "fa fa-folder text-primary", "text": "영상"},
+                                    {"id": "id_19", "icon": "fa fa-folder text-primary", "text": "1회성 프로젝트 기타"},
+                                ]
+
+                            },
+                            {
+                                "icon": "fa fa-folder text-primary",
+                                "text": "오프라인 광고",
+                                "state": {
+                                    "selected": false,
+
+                                },
+                                "children": [
+                                    {"id": "id_20", "icon": "fa fa-folder text-primary", "text": "TV광고"},
+                                    {"id": "id_21", "icon": "fa fa-folder text-primary", "text": "신문광고"},
+                                    {"id": "id_22", "icon": "fa fa-folder text-primary", "text": "라디오광고"},
+                                    {"id": "id_23", "icon": "fa fa-folder text-primary", "text": "지하철광고"},
+                                    {"id": "id_24", "icon": "fa fa-folder text-primary", "text": "버스광고"},
+                                    {"id": "id_25", "icon": "fa fa-folder text-primary", "text": "잡지광고"},
+                                    {"id": "id_26", "icon": "fa fa-folder text-primary", "text": "외부광고"},
+                                    {"id": "id_27", "icon": "fa fa-folder text-primary", "text": "오프라인 기타"},
                                 ]
 
                             },
@@ -103,7 +122,7 @@ var UITreeview = function () {
                         },
                         "children": [
                             {
-                                "id": "category_1",
+                                "id": "id_28",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "의료",
                                 "state": {
@@ -113,7 +132,7 @@ var UITreeview = function () {
 
 
                             }, {
-                                "id": "category_2",
+                                "id": "id_29",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "법률",
                                 "state": {
@@ -123,7 +142,7 @@ var UITreeview = function () {
 
 
                             }, {
-                                "id": "category_3",
+                                "id": "id_30",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "스타트업",
                                 "state": {
@@ -133,7 +152,7 @@ var UITreeview = function () {
 
 
                             }, {
-                                "id": "category_4",
+                                "id": "id_31",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "프랜차이즈",
                                 "state": {
@@ -143,7 +162,7 @@ var UITreeview = function () {
 
 
                             }, {
-                                "id": "category_5",
+                                "id": "id_32",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "교육/대학교",
                                 "state": {
@@ -153,7 +172,7 @@ var UITreeview = function () {
 
 
                             }, {
-                                "id": "category_6",
+                                "id": "id_33",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "쇼핑몰",
                                 "state": {
@@ -163,7 +182,7 @@ var UITreeview = function () {
 
 
                             }, {
-                                "id": "category_7",
+                                "id": "id_34",
                                 "icon": "fa fa-folder text-primary",
                                 "text": "기타",
                                 "state": {

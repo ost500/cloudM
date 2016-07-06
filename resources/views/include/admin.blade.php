@@ -43,6 +43,8 @@
             if ($("#third").hasClass('on'))
                 $("#third").removeClass('on');
 
+
+
             @if(starts_with(Route::getCurrentRoute()->getPath(), 'customer_centre/notification'))
             $("#first").addClass("on");
             @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'customer_centre/man_to_man'))
