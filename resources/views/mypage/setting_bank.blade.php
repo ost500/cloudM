@@ -9,17 +9,28 @@
     <!-- Job Content -->
     <div id="accordion">
         <div class="job-content job-post-page ">
-
-            <div class="panel-heading">
-                <h5 class="panel-title">계좌 정보</h5>
-            </div>
-            <div class="panel-body padding-right-30">
+            <div class="panel-body">
                 <form action="{{ url('/setting/bankEdit') }}" method="POST" role="form" class="form-horizontal"  accept-charset="UTF-8">
                     {!! csrf_field() !!}
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 은행 </label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
+                            <div class="port_guide img_f">
+                                <img src="/images/i_icon.png" style="margin-top:12px;">
+                                <p><span class="title">[계좌 관리 안내]</span>
+                                <div class="content">프로젝트 대금 정산 및 환불을 위해서 정확한 계좌번호를 입력해 주세요.</div></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel-heading">
+                        <h5 class="panel-title">계좌 정보</h5>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span> 은행 </label>
+                        <div class="col-sm-7">
                             <select name="bank" class="form-control"
                                     id="bank" required="required">
                                 <option value="">은행 선택</option>
@@ -84,8 +95,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 예금주 </label>
-                        <div class="col-sm-8">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span> 예금주 </label>
+                        <div class="col-sm-7">
                             <input class="form-control" required="required" type="text" name="account_holder"
                                    placeholder=""
                                    value="{{$loginUser->account_holder}}">
@@ -95,8 +106,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="inputEmail3"><span class="symbol required"></span> 계좌번호 </label>
-                        <div class="col-sm-8">
+                        <label class="col-sm-3 control-label"><span class="symbol required"></span> 계좌번호 </label>
+                        <div class="col-sm-7">
                             <input class="form-control" required="required" type="text" name="account_number"
                                    placeholder=""
                                    value="{{$loginUser->account_number}}">
@@ -104,9 +115,11 @@
                             <p class="validation-error">{{ $errors->first('account_number') }}</p>
                         </div>
                     </div>
-                    <div class="form-group margin-top-20 padding-right-50">
-                        <div class="col-sm-offset-10 col-sm-10">
-                            <button class="btn btn-o btn-primary" type="submit">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-7">
+                            <button class="btn btn-o btn-primary pull-right" type="submit">
                                 저장하기
                             </button>
                         </div>

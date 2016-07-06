@@ -4320,7 +4320,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 }
 
 .nav-tabs {
-    border-bottom: 1px solid #ddd
+    border-bottom: 1px solid #1099DD
 }
 
 .nav-tabs > li {
@@ -4343,7 +4343,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
     color: #555;
     cursor: default;
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid #1099DD;
     border-bottom-color: transparent
 }
 
