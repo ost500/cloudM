@@ -97,7 +97,6 @@ class Project extends Model
         return $this->hasMany('App\projectsProposal', 'p_id', 'id');
     }
 
-    
     public function interesting()
     {
         return $this->hasMany('App\Interesting', 'p_id', 'id');

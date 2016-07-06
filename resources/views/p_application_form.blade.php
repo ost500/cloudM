@@ -193,7 +193,7 @@
                                                             @endif
                                                         </td>
 
-                                                        <th>기본제안서</th>
+                                                        <th>상품소개서</th>
                                                         <td>
                                                             @if($partnerFile['proposal'])
                                                                 {{ $partnerFile['proposal_origin_name'] }}
