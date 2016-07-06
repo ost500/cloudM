@@ -520,6 +520,20 @@ class MypageController extends Controller
         return view('mypage/setting_notification', compact('loginUser'));
     }
 
+    public function settingProposal()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/setting_proposal', compact('loginUser'));
+    }
+
+    public function settingCompany()
+    {
+        $loginUser = Auth::user();
+
+        return view('mypage/setting_company', compact('loginUser'));
+    }
+
 
     public function proposalFileUpload(Request $request)
     {

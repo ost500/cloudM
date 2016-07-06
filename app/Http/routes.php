@@ -97,6 +97,8 @@ Route::get('/setting/bank', 'MypageController@settingBank');
 Route::get('/setting/password', 'MypageController@settingPassword');
 Route::get('/setting/notification', 'MypageController@settingNotification');
 Route::get('/setting/passwordChange', 'MypageController@settingPasswordChange');
+Route::get('/setting/proposal', 'MypageController@settingproposal');
+Route::get('/setting/company', 'MypageController@settingcompany');
 
 // delete project
 Route::post('/rm_project', 'DeleteController@delete_project');
@@ -107,7 +109,7 @@ Route::post('/rm_app', 'DeleteController@delete_application');
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 
 // mypage post
-Route::post('/mypage/auth_img', 'MypagePostController@setProfileAuthimg');
+Route::post('/mypage/auth/save', 'MypagePostController@setProfileAuthimg');
 
 // User info
 Route::post('/mypage/info', 'MypagePostController@set_profile_info');
@@ -125,6 +127,8 @@ Route::post('/setting/passwordUpdate', 'MypagePostController@password_update');
 Route::post('/setting/notification/email/save', 'MypagePostController@notification_email_update');
 Route::post('/setting/notification/sms/save', 'MypagePostController@notification_sms_update');
 
+Route::post('/setting/proposal/save', 'MypagePostController@proposal_update');
+Route::post('/setting/company/save', 'MypagePostController@company_update');
 
 
 // 제안서/견적서 업로드
