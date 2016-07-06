@@ -306,22 +306,22 @@
                 <div class="row">
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article><img class="img-responsive post_img00" src="images/m_pho01.png" alt="">
+                        <article>
 
 
                             <!-- Detail -->
                             <div class="post-detail">
                                 <h8 class="post-tittle">비즈팜 김남형 부장님</h8>
                                 <span><img src="images/m_pho01_txt.png"></span>
-                                <p>급하게 진행할 마케팅 프로젝트에서 대행사를 찾고 있었는데,<br>
-                                    프로젝트 등록 후 빠르게 적합한 대행사를 찾아<br>
-                                    프로젝트를 진행할 수 있었습니다.</p>
+                                <p>프로젝트 계약부터 대금보호, 분쟁조정, 대금지금까지<br>
+                                    패스트엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
+                                    프로젝트에만 집중해서 좋은 결과를 낼 수 있었습니다.</p>
                             </div>
                         </article>
                     </div>
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article><img class="img-responsive post_img00" src="images/m_pho02.png" alt="">
+                        <article>
                             <!-- Detail -->
                             <div class="post-detail">
                                 <h8 class="post-tittle">펠리체 송영종 대표님</h8>
@@ -334,15 +334,15 @@
                     </div>
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
-                        <article><img class="img-responsive post_img00" src="images/m_pho03.png" alt="">
+                        <article>
 
                             <!-- Detail -->
                             <div class="post-detail">
                                 <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8>
                                 <span><img src="images/m_pho03_txt.png"></span>
-                                <p>프로젝트 계약부터 대금보호, 분쟁조정, 대금지금까지<br>
-                                    패스트엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
-                                    프로젝트에만 집중해서 좋은 결과를 낼 수 있었습니다.</p>
+                                <p>급하게 진행할 마케팅 프로젝트에서 대행사를 찾고 있었는데,<br>
+                                    프로젝트 등록 후 빠르게 적합한 대행사를 찾아<br>
+                                    프로젝트를 진행할 수 있었습니다.</p>
                             </div>
                         </article>
                     </div>

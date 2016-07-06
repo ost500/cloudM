@@ -239,6 +239,10 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 
 
 //고객센터
+//공지사항
 Route::get('/customer_centre/notification','CustomerCentreController@notification');
 Route::get('/customer_centre/notification/{id}','CustomerCentreController@notification_detail')
     ->where(['id' => '[0-9]+']);
+//일대일 문의
+Route::get('/customer_centre/man_to_man','CustomerCentreController@man_to_man');
+Route::post('/customer_centre/man_to_man','CustomerCentreController@man_to_man_post');
