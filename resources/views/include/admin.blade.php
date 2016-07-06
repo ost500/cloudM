@@ -18,7 +18,7 @@
                                             class="fa fa-angle-double-right "></i> &nbsp;공지사항</a>
 
 
-                                <a aria-expanded="false" id="second" class="head"><i
+                                <a href="{{url('customer_centre/man_to_man')}}" aria-expanded="false" id="second" class="head"><i
                                             class="fa fa-angle-double-right "></i> &nbsp;일대일 문의</a>
 
                                 <a href="{{url('password/reset')}}" aria-expanded="false" id="third" class="head"><i
