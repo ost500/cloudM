@@ -20,8 +20,29 @@ class AppController extends Controller
 
     public function application_form($id)
     {
+        $user = Auth::user();
+        $partners = $user->partners;
+        $proposal_file = public_path().$partners->proposal_file_name;
+        $company_file = public_path().$partners->company_file_name;
+
+        $partnerFile['proposal'] = false;
+        $partnerFile['company'] = false;
+
+        if ($partners->proposal_file_name && file_exists($proposal_file)) {
+            $partnerFile['proposal'] = true;
+            $partnerFile['proposal_origin_name'] = $partners->proposal_origin_name;
+            $partnerFile['proposal_link'] = "profile/proposal/download/".$user->id;
+        }
+
+        if ($partners->company_file_name && file_exists($company_file)) {
+            $partnerFile['company'] = true;
+            $partnerFile['company_origin_name'] = $partners->company_origin_name;
+            $partnerFile['company_link'] = "profile/company/download/".$user->id;
+        }
+
         $detailProject = Project::where('id', '=', $id)->get();
-        return view('p_application_form', compact('detailProject'));
+
+        return view('p_application_form', compact('detailProject', 'partnerFile'));
     }
 
     public function application_post(Request $request, $pid)
