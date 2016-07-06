@@ -3,8 +3,8 @@
  */
 
 var checked = 0;
-var checked_area = 67108863;
-var checked_category = 0;
+var checked_area = 0;
+var cate_checked_area = 0;
 var page = 1;
 // var pagemultiply = 1;
 var sort = 3;
@@ -22,10 +22,10 @@ function viewLoad() {
     display_results.html("<img src=images/ajax-loader.gif>");
 
     $.ajax({
-        url: "project/" + checked_area + "/" + page + "/" + sort + "/" + literal_search,
+        url: "project/" + checked_area + "/" + cate_checked_area + "/" + page + "/" + sort + "/" + literal_search,
 
         success: function (result) {
-            console.log("project/" + checked_area + "/" + page + "/" + sort + "/" + literal_search);
+            console.log("project/" + checked_area+ "/" + cate_checked_area + "/" + page + "/" + sort + "/" + literal_search);
             display_results.html(result);
             countofprojects = parseInt($('#count').text());
             currentpageBlock = Math.ceil(page / 5);
@@ -97,7 +97,7 @@ $(function () {
     if (checked == 0) {
         viewLoad();
     }
-    
+
 });
 
 // 검색-------------------------------------------
@@ -137,89 +137,43 @@ $('#tree_2')
         for (i = 0, j = data.selected.length; i < j; i++) {
             r.push($('#tree_2').jstree(true).get_selected()[i]);
         }
-        var max_binary = 67108863;
-        checked_area = max_binary;
+        var max_binary = Number(134217727);
+        var area_max_num_children = 27;
+        checked_area = Number(134217727);
+
+        var index_calculator = (max_binary / 2).toFixed(0);
+        console.log("---------------------------------");
+        // -1 means unchecked
+
+        for (var i = 1; i <= area_max_num_children; i++) {
+            if (jQuery.inArray("id_" + i, r) == -1) {
+                console.log(checked_area + " & " + (max_binary - (index_calculator)));
+                checked_area = checked_area & (max_binary - (index_calculator));
+            }
+            index_calculator = (index_calculator / 2).toFixed(0);
+        }
+
+        var cate_max_binary = Number(127);
+        var cate_max_num_children = 7;
+        cate_checked_area = cate_max_binary;
+        var cate_index_calculator = (cate_max_binary / 2).toFixed(0);
+        for (var i = 1; i <= cate_max_num_children; i++) {
+
+            if (jQuery.inArray("id_" + (i + area_max_num_children), r) == -1) {
+                console.log(cate_checked_area + " & " + (cate_max_binary - (cate_index_calculator)));
+                cate_checked_area = cate_checked_area & (cate_max_binary - (cate_index_calculator));
+            }
+            cate_index_calculator = (cate_index_calculator / 2).toFixed(0);
+        }
 
 
         // -1 means unchecked
 
-        if (jQuery.inArray("area_1_1", r) == -1) {
-            checked_area = checked_area & (max_binary - 33554432);
-        }
 
-        console.log("binary1_1 " + jQuery.inArray("area_1_1", r) + " " + checked_area);
-
-        if (jQuery.inArray("area_1_2", r) == -1) {
-            checked_area = checked_area & (max_binary - 16777216);
-        }
-
-        console.log("binary1_2 "+jQuery.inArray("area_1_2", r)+" " + checked_area);
-
-
-        if (jQuery.inArray("area_1_3", r) == -1){
-            checked_area = checked_area & (max_binary - 8388608);
-        }
-        console.log("binary1_2 "+jQuery.inArray("area_1_3", r)+" " + checked_area);
-        if (jQuery.inArray("area_1_4", r) == -1){
-            checked_area = checked_area & (max_binary - 4194304);
-        }
-        if (jQuery.inArray("area_1_5", r) == -1){
-            checked_area = checked_area & (max_binary - 2097152);
-        }
-        if (jQuery.inArray("area_2_1", r) == -1){
-            checked_area = checked_area & (max_binary - 1048576);
-        }if (jQuery.inArray("area_2_2", r) == -1){
-            checked_area = checked_area & (max_binary - 524288);
-        }if (jQuery.inArray("area_2_3", r) == -1){
-            checked_area = checked_area & (max_binary - 262144);
-        }if (jQuery.inArray("area_2_5", r) == -1){
-            checked_area = checked_area & (max_binary - 131072);
-        }if (jQuery.inArray("area_3_1", r) == -1){
-            checked_area = checked_area & (max_binary - 65536);
-        }if (jQuery.inArray("area_3_2", r) == -1){
-            checked_area = checked_area & (max_binary - 32768);
-        }if (jQuery.inArray("area_3_3", r) == -1){
-            checked_area = checked_area & (max_binary - 16384);
-        }if (jQuery.inArray("area_3_4", r) == -1){
-            checked_area = checked_area & (max_binary - 8192);
-        }if (jQuery.inArray("area_3_5", r) == -1){
-            checked_area = checked_area & (max_binary - 4096);
-        }if (jQuery.inArray("area_4_1", r) == -1){
-            checked_area = checked_area & (max_binary - 2048);
-        }if (jQuery.inArray("area_4_2", r) == -1){
-            checked_area = checked_area & (max_binary - 1024);
-        }if (jQuery.inArray("area_4_3", r) == -1){
-            checked_area = checked_area & (max_binary - 512);
-        }if (jQuery.inArray("area_4_4", r) == -1){
-            checked_area = checked_area & (max_binary - 256);
-        }if (jQuery.inArray("area_4_5", r) == -1){
-            checked_area = checked_area & (max_binary - 128);
-        }
-
-        // -1 means unchecked
-        if (jQuery.inArray("category_1", r) == -1){
-            checked_area = checked_area & (max_binary - 64);
-        }if (jQuery.inArray("category_2", r) == -1){
-            checked_area = checked_area & (max_binary - 32);
-        }if (jQuery.inArray("category_3", r) == -1){
-            checked_area = checked_area & (max_binary - 16);
-        }if (jQuery.inArray("category_4", r) == -1){
-            checked_area = checked_area & (max_binary - 8);
-        }if (jQuery.inArray("category_5", r) == -1){
-            checked_area = checked_area & (max_binary - 4);
-        }
-        if (jQuery.inArray("category_6", r) == -1) {
-            checked_area = checked_area & (max_binary - 2);
-        }
-        if (jQuery.inArray("category_7", r) == -1) {
-            checked_area = checked_area & (max_binary - 1);
-        }
-        console.log("result " + checked_area);
         page = 1;
         viewLoad();
     });
 // create the instance
-
 
 
 //----------------SORT----------------
