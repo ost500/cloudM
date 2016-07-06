@@ -79,7 +79,7 @@ Route::get('/notification', 'MainController@notificationShow');
 // mypage
 Route::get('/dashboard', 'MypageController@dashBoard');
 
-Route::get('/applist/{id}', 'MypageController@applicationList')
+Route::get('/client/project/applist/{id}', 'MypageController@applicationList')
     ->where(['id' => '[0-9]+']);
 // meeting proposal
 Route::post('/applist/meeting', 'MypageController@meetingProposal');
@@ -111,7 +111,7 @@ Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 Route::post('/mypage/auth/save', 'MypagePostController@setProfileAuthimg');
 
 // User info
-Route::post('/mypage/info', 'MypagePostController@set_profile_info');
+Route::post('/setting/profile/save', 'MypagePostController@set_profile_info');
 
 // User bank
 Route::post('/setting/bankEdit', 'MypagePostController@set_bank');
@@ -186,6 +186,14 @@ Route::post('/apply/{pid}', 'AppController@application_post')
 Route::get('/apply/application_attach/{id}', 'AppController@application_attach_download')
     ->where(['id' => '[1-9]+']);
 
+Route::get('/apply/download/{id}', 'AppController@application_attach_download')
+    ->where(['id' => '[1-9]+']);
+
+Route::get('/apply/download/company/{id}', 'AppController@company_file_download')
+    ->where(['id' => '[1-9]+']);
+
+Route::get('/apply/download/proposal/{id}', 'AppController@proposal_file_download')
+    ->where(['id' => '[1-9]+']);
 
 //Route::get('/admin', 'HomeController@gnuboard');
 

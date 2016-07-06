@@ -113,20 +113,33 @@ class MypageController extends Controller
             return response()->view('errors.503');
         }
 
-        $app = Application::where('p_id', '=', $id)->where('choice','!=','관리자 검수중');
+        $app = Application::where('p_id', '=', $id)->where('choice','!=','관리자 검수중')->orderby('created_at', 'desc');
         $applist = $app->get();
 
         $app_count = 0;
         $app_meeting_count = 0;
+        $app_interest_count = 0;
+        $app_out_count = 0;
+
         foreach ($applist as $item) {
-            if ($item->choice == "광고주 검수중") {
+            if ($item->choice == "광고주 검수중" || $item->choice == '미팅' || $item->choice == '관심') {
                 $app_count = $app_count + 1;
-            } else if ($item->choice == "미팅") {
+            }
+
+            if ($item->choice == "미팅") {
                 $app_meeting_count = $app_meeting_count + 1;
+            }
+
+            if ($item->choice == "관심") {
+                $app_interest_count = $app_interest_count + 1;
+            }
+
+            if ($item->choice == "탈락") {
+                $app_out_count = $app_out_count + 1;
             }
         }
 
-        $count = ['app_count' => $app_count, 'app_meeting_count' => $app_meeting_count];
+        $count = ['app_count' => $app_count, 'app_meeting_count' => $app_meeting_count, 'app_interest_count' => $app_interest_count, 'app_out_count' => $app_out_count];
 
 
 //        $result_false="";
