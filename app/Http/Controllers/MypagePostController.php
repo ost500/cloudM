@@ -79,7 +79,6 @@ class MypagePostController extends Controller
     {
         $validator = Validator::make(
             ['name' => $request->name],
-            ['name' => ['required', 'max:255', 'unique:users,name']],
             ['required' => '이름은 필수 입니다',
                 'max:255' => '255자 까지 입력할 수 있습니다 ',
                 'unique' => '이미 사용중인 이름입니다']
@@ -113,6 +112,13 @@ class MypagePostController extends Controller
         Auth::user()->BOD = $request->BOD;
         Auth::user()->address = $request->address;
         Auth::user()->save();
+
+        if (Auth::user()->PorC == "C") {
+            $user = Auth::user();
+            $clients = $user->clients;
+            $clients->intro = $request->intro;
+            $clients->save();
+        }
 
         return redirect()->back();
     }

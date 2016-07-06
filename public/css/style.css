@@ -2477,6 +2477,7 @@ header .navbar li.active a {
     width: 108px;
     height: 20px;
     display: inline-block;
+    margint-top:7px;
     margin-right: 5px;
     float: left;
 }
@@ -6048,13 +6049,7 @@ ul.tags li a {
 }
 
 .partner_profile03 {
-    float: left;
-    width: 45px;
-    height: 50px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    text-align: center;
-    border-radius: 100px;
+    float:left; width:47px; height:50px; margin-bottom:10px; margin-right:20px; text-align:center; border-radius:300px;
 }
 
 .inquiry_01 div {
@@ -6419,6 +6414,10 @@ h2.p_add_header i {
 }
 
 
+.table_04 {
+    width:100%;
+}
+
 .table_04 tr th {
 
     color: #444 !important;
@@ -6728,3 +6727,18 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
 
 
 .validation-error {color:red !important; padding:5px 0 10px 0; margin-top: 0 !important;}
+
+
+.name_b{ font-size:14.5px; color:#1193d4 !important; font-weight:600; float:left; margin-right:7px; margin-top:2px;}
+.media-body-sm02{  float:left; font-size:13px !important; font-weight: 600 !important; color:#666 !important; float:left; line-height:18px; }
+.media-body-sm02.bar{ height:11px; padding-right:10px; margin-right:8px; border-right:1px dotted #333; margin-top:4px;}
+.media-body-sm02 span{ color:#1193d4 !important; font-size:13px !important; }
+.la-line{ border-right:none; }
+.heart_btn{ position:relative; padding-bottom:30px; width:100px; float:right; text-align:right; }
+.heart_btn span{ color:#888; margin-left:7px; }
+
+.applist_profile_line {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #F5F6F7;
+}

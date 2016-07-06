@@ -1,8 +1,8 @@
 @extends('layouts.master_layout')
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-        <span class="h3 text-bold">기본제안서</span>
-        <p class="padding-top-5">프로젝트에 지원할 때 광고주에게 기본적으로 제공되는 제안서 입니다.</p>
+        <span class="h3 text-bold">상품소개서</span>
+        <p class="padding-top-5">프로젝트에 지원할 때 광고주에게 기본적으로 제공되는 상품소개서 입니다.</p>
     </div>
 
     <!-- Job Content -->
@@ -17,14 +17,14 @@
                         <div class="col-sm-12">
                             <div class="port_guide img_f">
                                 <img src="/images/i_icon.png" style="margin-top:12px;">
-                                <p><span class="title">[제안서 관리 안내]</span>
+                                <p><span class="title">[상품소개서 관리 안내]</span>
                                 <div class="content">연락처, 이메일 등 직거래를 유도 할 수 있는 정보는, 약관에 의해 수정된 후 제공 됩니다.</div></p>
 
                                 <div class="p_add_span">
-                                    <p class="title">1. 제안서 등록.</p>
+                                    <p class="title">1. 상품소개서 등록.</p>
                                     <div class="content">ppt, pptx, pdf 파일만 업로드 가능 합니다.</div>
 
-                                    <p class="title">2. 제안서 변경</p>
+                                    <p class="title">2. 상품소개서 변경</p>
                                     <div class="content">제안서 등록 후 서류 변경을 원하실 경우에는, <br>패스트엠 고객센터를 통해 연락 주시면 신속히 처리해 드립니다.</div>
                                 </div>
                             </div>
@@ -34,9 +34,9 @@
                     <div class="panel-heading">
                         <h5 class="panel-title">
                             @if ($partners->proposal_file_name && File::exists($proposal_file))
-                                기본제안서 등록 완료
+                                상품소개서 등록 완료
                             @else
-                                기본제안서 등록
+                                상품소개서 등록
                             @endif
                         </h5>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <p class="text-center"><i class="fa fa-check-circle-o fa-5x"></i></p>
-                                <p class="text-center">등록된 제안서 : {{ $partners->proposal_origin_name }}</p>
+                                <p class="text-center">등록된 상품소개서 : {{ $partners->proposal_origin_name }}</p>
                             </div>
                         </div>
                     @else
