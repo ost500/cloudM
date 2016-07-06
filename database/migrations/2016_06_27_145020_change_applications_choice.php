@@ -33,7 +33,7 @@ class ChangeApplicationsChoice extends Migration
     public function down()
     {
         Schema::table('applications', function (Blueprint $table) {
-
+            //1
             $table->enum('step', array('승인', '대기', '취소'))->default('대기');
 
         });
