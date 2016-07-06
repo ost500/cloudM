@@ -4,12 +4,17 @@
 
 <div class="job-sider-bar02">
     <div class="side-bar-revenues">
-
-        <a href="/mypage" class="head {{ (Request::is('mypage'))?"on":"" }}"><i
+        <a href="/profile" class="head {{ (Request::is('profile'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;프로필관리</a>
 
-        <a href="/portfolio_list/1" class="head {{ (starts_with(Route::getCurrentRoute()->getPath(), 'portfolio'))?"on":"" }}"><i
+        <a href="/profile/portfolio/list/1" class="head {{ (Request::is('profile/portfolio/*'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;포트폴리오</a>
+
+        <a href="/profile/proposal" class="head {{ (Request::is('profile/proposal'))?"on":"" }}"><i
+                    class="fa fa-angle-double-right "></i> &nbsp;기본제안서</a>
+
+        <a href="/profile/company" class="head {{ (Request::is('profile/company'))?"on":"" }}"><i
+                    class="fa fa-angle-double-right "></i> &nbsp;회사소개서</a>
 
     </div>
 </div>

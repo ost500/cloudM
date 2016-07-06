@@ -21,7 +21,7 @@
                             <div id="wizard" class="swMain">
                                 <div class="stepContainer"
                                      style="height: 558px; padding-top:30px;">
-                                    <form action="{{ url("/portfolio/update/"."$portfolio->id") }}"
+                                    <form action="{{ url("/profile/portfolio/update/"."$portfolio->id") }}"
                                           method="post"
                                           role="form" class="smart-wizard" id="form"
                                           novalidate="novalidate" enctype="multipart/form-data">

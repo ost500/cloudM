@@ -187,25 +187,25 @@ class MypageController extends Controller
     }
 
 
-    public function mypage()
+    public function profile()
     {
         if (Auth::user()->PorC == "P") {
             $loginUser = Auth::user();
             $portfolios = $loginUser->partners->portfolio->take(3);
-            return view('mypage/mypage', compact('loginUser', 'portfolios'));
+            return view('profile/profile', compact('loginUser', 'portfolios'));
         } else {
             $loginUser = Auth::user();
-            return view('mypage/mypage', compact('loginUser'));
+            return view('profile/profile', compact('loginUser'));
         }
 
     }
 
-    public function mypage_intro_edit()
+    public function profile_intro_edit()
     {
-        return view('mypage/profile_edit/intro_edit');
+        return view('profile/intro_edit');
     }
 
-    public function mypage_intro_edit_post(Request $request)
+    public function profile_intro_edit_post(Request $request)
     {
         //validate
         $validator = Validator::make(
@@ -227,7 +227,7 @@ class MypageController extends Controller
         return redirect()->back();
     }
 
-    public function mypage_skill_edit_post(Request $request)
+    public function profile_skill_edit_post(Request $request)
     {
         $validator = Validator::make(
             ['title' => $request->title,
@@ -262,17 +262,15 @@ class MypageController extends Controller
             echo "<td>" . $job->experience . "</td>";
             echo "<tr>";
         }
-
-
     }
 
-    public function mypage_skill_del_post(Request $request)
+    public function profile_skill_del_post(Request $request)
     {
         $del_skill = Partners_job::find($request->id);
         $del_skill->delete();
     }
 
-    public function skills_list()
+    public function profile_skill_list()
     {
         foreach (Auth::user()->partners->job()->get() as $job) {
             echo "<tr>";
@@ -293,12 +291,12 @@ class MypageController extends Controller
                     $(\"#" . $job->id . "button\").click(function () {
                         $.ajax({
                             type: 'POST',
-                            url: '/mypage/skill_delete',
+                            url: '/profile/skill/delete',
                             data: $(\"#del_form" . $job->id . "\").serialize(),
                             success: function (data) {
                                 $.ajax({
                                         type:'GET',
-                                        url: '/mypage/skill_list',
+                                        url: '/profile/skill/list',
                                         success: function(data){
                                             $(\"#skill_list\").html(data);
                                         }
@@ -321,7 +319,7 @@ class MypageController extends Controller
         $loginUser = User::find($id);
         $portfolios = $loginUser->partners->portfolio;
 
-        return view('mypage/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
+        return view('profile/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
     }
 
     public function portfolio_detail($id)
@@ -331,7 +329,7 @@ class MypageController extends Controller
         $portfolios = Portfolio::find($id);
 
 
-        return view('mypage/portfolio/portfolio_detail', compact('loginUser', 'portfolios'));
+        return view('profile/portfolio/portfolio_detail', compact('loginUser', 'portfolios'));
     }
 
     public function portfolio_create()
@@ -341,7 +339,7 @@ class MypageController extends Controller
         }
         $loginUser = Auth::user();
 
-        return view('mypage/portfolio/portfolio_create', compact('loginUser'));
+        return view('profile/portfolio/portfolio_create', compact('loginUser'));
     }
 
     public function portfolio_create_post(Request $request)
@@ -410,7 +408,7 @@ class MypageController extends Controller
         $loginUser = Auth::user();
         $portfolio = Portfolio::find($id);
 
-        return view('mypage/portfolio/portfolio_update', compact('loginUser', 'portfolio'));
+        return view('profile/portfolio/portfolio_update', compact('loginUser', 'portfolio'));
 
     }
 
@@ -520,18 +518,22 @@ class MypageController extends Controller
         return view('mypage/setting_notification', compact('loginUser'));
     }
 
-    public function settingProposal()
+    public function profileProposal()
     {
         $loginUser = Auth::user();
+        $partners = $loginUser->partners;
+        $proposal_file = public_path().$partners->proposal_file_name;
 
-        return view('mypage/setting_proposal', compact('loginUser'));
+        return view('profile/profile_proposal', compact('loginUser', 'partners', 'proposal_file'));
     }
 
-    public function settingCompany()
+    public function profileCompany()
     {
         $loginUser = Auth::user();
+        $partners = $loginUser->partners;
+        $company_file = public_path().$partners->company_file_name;
 
-        return view('mypage/setting_company', compact('loginUser'));
+        return view('profile/profile_company', compact('loginUser', 'partners', 'company_file'));
     }
 
 

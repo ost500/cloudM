@@ -178,30 +178,43 @@ class MypagePostController extends Controller
 
     public function proposal_update(Request $request)
     {
-        if ($request->hasFile('proposal_file')) {
 
-            $validator = Validator::make(
-                ['auth_image' => $request->file('proposal_file')]
-            );
-            if ($validator->fails()) {
-                return redirect()->back()->withErrors($validator->errors());
-            }
+        if ($request->hasFile('proposal_attach')) {
 
 
-            $file = $request->file('proposal_file');
-            $tmpFilePath = '/files/proposal';
-            $tmpFileName = Auth::user()->id.".".$file->getClientOriginalExtension();
-//            $ext = $file->guessExtension();
+            $file = $request->file('proposal_attach');
+            $tmpFilePath = '/files/proposals';
+            $tmpFileName = Auth::user()->id;
             $file->move(public_path() . $tmpFilePath, $tmpFileName);
 
-            $path = $tmpFilePath . $tmpFileName;
+            $path = $tmpFilePath .'/'. $tmpFileName;
             $user = Auth::user();
-            $user->auth_image = $path;
-            $user->auth_check = "인증요청";
-            $user->save();
+            $new_proposal = $user->partners;
+            $new_proposal->proposal_file_name = $path;
+            $new_proposal->proposal_origin_name = $request->file('proposal_attach')->getClientOriginalName();
+            $new_proposal->save();
         }
 
+        return redirect()->action('MypageController@profileProposal');
+    }
 
-        return redirect()->action('MypageController@settingAuth');
+    public function company_update(Request $request)
+    {
+        if ($request->hasFile('company_attach')) {
+
+            $file = $request->file('company_attach');
+            $tmpFilePath = '/files/companys';
+            $tmpFileName = Auth::user()->id;
+            $file->move(public_path() . $tmpFilePath, $tmpFileName);
+
+            $path = $tmpFilePath .'/'. $tmpFileName;
+            $user = Auth::user();
+            $new_proposal = $user->partners;
+            $new_proposal->company_file_name = $path;
+            $new_proposal->company_origin_name = $request->file('company_attach')->getClientOriginalName();
+            $new_proposal->save();
+        }
+
+        return redirect()->action('MypageController@profileCompany');
     }
 }

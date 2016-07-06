@@ -148,7 +148,7 @@
                 <ul>
 
                     @if(Auth::user()->PorC == "P")
-                        <li><a href="{{ url("/mypage") }}">프로필</a></li>
+                        <li><a href="{{ url("/profile") }}">프로필</a></li>
                         <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
                         <li><a href="{{ url("/partner/project/apply") }}">지원한 프로젝트</a></li>
                         <li><a href="{{ url("/partner/project/carryon") }}">진행중 프로젝트</a></li>
