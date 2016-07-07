@@ -7,16 +7,16 @@
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
-                        @if (starts_with(Route::getCurrentRoute()->getPath(), 'setting'))
+                        @if (Request::is('setting/*'))
                             @include('include.setting_left')
-                        @elseif(Request::is('dashboard') || starts_with(Route::getCurrentRoute()->getPath(), 'client') || starts_with(Route::getCurrentRoute()->getPath(), 'partner'))
+                        @elseif(Request::is('dashboard') || Request::is('client/*') || Request::is('partner/*'))
                             @if($loginUser->PorC == "P")
                                 @include('include.project_p_left')
                             @else
                                 @include('include.project_c_left')
                             @endif
                         @else
-                            @include('include.mypage_left')
+                            @include('include.profile_left')
                         @endif
                     </div>
 

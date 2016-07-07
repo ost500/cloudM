@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class PartnerController extends Controller
@@ -178,8 +179,34 @@ class PartnerController extends Controller
 
     public function detail($id)
     {
+        $loginUser = Auth::user();
         $partner = Partners::find($id);
         $portfolios = $partner->portfolio->take(3);
-        return view('partner/partner_detail', compact('partner', 'portfolios'));
+        return view('partner/partner_detail', compact('loginUser', 'partner', 'portfolios'));
+    }
+
+    public function intro($id)
+    {
+        $partner = Partners::find($id);
+        return view('partner/partner_intro', compact('partner'));
+    }
+
+    public function portfolio($id)
+    {
+        $partner = Partners::find($id);
+        $portfolios = $partner->portfolio->take(3);
+        return view('partner/partner_intro', compact('partner', 'portfolios'));
+    }
+
+    public function job($id)
+    {
+        $partner = Partners::find($id);
+        return view('partner/partner_intro', compact('partner'));
+    }
+
+    public function review($id)
+    {
+        $partner = Partners::find($id);
+        return view('partner/partner_intro', compact('partner'));
     }
 }
