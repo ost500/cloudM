@@ -18,7 +18,17 @@
                       enctype="multipart/form-data" accept-charset="UTF-8">
                     {!! csrf_field() !!}
 
+
+
                     <div class="form-group">
+                        <div class="col-sm-12 text-center">
+                            @if($loginUser->profileImage != null)
+                                <img class="partner_profile_150" src="{{ URL::asset($loginUser->profileImage) }}">
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group padding-top-20">
                         <label class="col-sm-3 control-label" for="inputEmail3"> 사진 </label>
                         <div class="col-sm-8">
                             <input class="form-control" type="file"

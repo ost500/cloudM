@@ -50,6 +50,19 @@ Route::post('/commentdel', 'SearchController@delete_comment');
 Route::get('/partner', 'PartnerController@partner');
 Route::get('/partner/{id}', 'PartnerController@detail')
     ->where(['id' => '[0-9]+']);
+
+Route::get('/partner/{id}/intro', 'PartnerController@intro')
+    ->where(['id' => '[0-9]+']);
+
+Route::get('/partner/{id}/portfolio', 'PartnerController@portfolio')
+    ->where(['id' => '[0-9]+']);
+
+Route::get('/partner/{id}/job', 'PartnerController@job')
+    ->where(['id' => '[0-9]+']);
+
+Route::get('/partner/{id}/review', 'PartnerController@review')
+    ->where(['id' => '[0-9]+']);
+
 //파트너 list
 Route::get('/partner/{page}/{option}/{option2}/{keyword?}', 'PartnerController@partner_list')
     ->where(['page' => '[0-9]+']);
@@ -148,9 +161,15 @@ Route::post("/profile/portfolio/create", 'MypageController@portfolio_create_post
 
 Route::get("/profile/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[1-9]+']);
+Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
+    ->where(['id' => '[1-9]+']);
+
 //프로필 포트폴리오 detail
 Route::get("/profile/portfolio/{id}", 'MypageController@portfolio_detail')
     ->where(['id' => '[1-9]+']);
+Route::get("/partner/portfolio/{id}", 'MypageController@portfolio_detail')
+    ->where(['id' => '[1-9]+']);
+
 Route::post("/profile/portfolio/delete/{id}", 'MypageController@portfolio_delete')
     ->where(['id' => '[1-9]+']);
 Route::get("/profile/portfolio/update/{id}",'MypageController@portfolio_update')
@@ -246,9 +265,9 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 
 //고객센터
 //공지사항
-Route::get('/customer_centre/notification','CustomerCentreController@notification');
-Route::get('/customer_centre/notification/{id}','CustomerCentreController@notification_detail')
+Route::get('/customer/notification','CustomerCentreController@notification');
+Route::get('/customer/notification/{id}','CustomerCentreController@notification_detail')
     ->where(['id' => '[0-9]+']);
 //일대일 문의
-Route::get('/customer_centre/man_to_man','CustomerCentreController@man_to_man');
-Route::post('/customer_centre/man_to_man','CustomerCentreController@man_to_man_post');
+Route::get('/customer/man_to_man','CustomerCentreController@man_to_man');
+Route::post('/customer/man_to_man','CustomerCentreController@man_to_man_post');

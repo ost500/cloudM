@@ -14,11 +14,11 @@
                         <div class="job-sider-bar02">
                             <div class="side-bar-revenues">
 
-                                <a href="{{url('customer_centre/notification')}}" aria-expanded="false" id="first" class="head"><i
+                                <a href="{{url('customer/notification')}}" aria-expanded="false" id="first" class="head"><i
                                             class="fa fa-angle-double-right "></i> &nbsp;공지사항</a>
 
 
-                                <a href="{{url('customer_centre/man_to_man')}}" aria-expanded="false" id="second" class="head"><i
+                                <a href="{{url('customer/man_to_man')}}" aria-expanded="false" id="second" class="head"><i
                                             class="fa fa-angle-double-right "></i> &nbsp;일대일 문의</a>
 
                                 <a href="{{url('password/reset')}}" aria-expanded="false" id="third" class="head"><i
@@ -45,9 +45,9 @@
 
 
 
-            @if(starts_with(Route::getCurrentRoute()->getPath(), 'customer_centre/notification'))
+            @if(starts_with(Route::getCurrentRoute()->getPath(), 'customer/notification'))
             $("#first").addClass("on");
-            @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'customer_centre/man_to_man'))
+            @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'customer/man_to_man'))
                 $("#second").addClass("on");
             @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'password/reset'))
                 $("#third").addClass("on");
