@@ -226,11 +226,7 @@
                                 <form action="{{ url('commentadd') }}" method="POST" role="form">
                                     {!! csrf_field() !!}
                                     <div class="media inquiry_01">
-                                        @if(!Auth::check())
-                                            <img class="partner_profile03" src="/images/p_img02.png" onerror="this.src='{{ url('images/p_img02.png') }}'">
-                                        @else
-                                            <img class="partner_profile03" src="{{ Auth::user()->profileImage }}" onerror="this.src='{{ url('images/p_img02.png') }}'">
-                                        @endif
+                                        <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
                                         <div class="media-body">
                                             <div class="col-md-9 ">
                                                 <label for="comment">
