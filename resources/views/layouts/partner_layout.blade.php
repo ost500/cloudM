@@ -10,12 +10,7 @@
                     <div class="job-sider-bar003">
                         <h5 class="side-tittle">파트너스</h5>
                         <div class="col-md-12 text-center">
-                            @if($partner['user']->profileImage != null)
-                                <img class="partner_profile_150"
-                                     src="{{ URL::asset($partner['user']->profileImage) }}"><br>
-                            @else
-                                <img class="partner_profile_150" src="/images/p_img02.png"><br>
-                            @endif
+                            <img class="partner_profile_150" src="{{ URL::asset($partner['user']->profileImage) }}"><br>
                         </div>
                         <div class="col-md-12 padding-top-15">
                             <p class="side-title-name big"><h5 class="text-center">{{ $partner->user->nick }}</h5></p>
