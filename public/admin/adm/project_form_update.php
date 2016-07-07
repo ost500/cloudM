@@ -55,6 +55,7 @@ else if ($w == 'u')
                   area          = '{$_POST['areas'][$i][0]}',
                   price         = '{$_POST['areas'][$i][1]}',
                   commission    = '{$_POST['areas'][$i][2]}',
+                  memo          = '{$_POST['areas'][$i][3]}',
                   created_at    = now(),
                   updated_at    = now()";
         sql_query($sql);
@@ -75,9 +76,11 @@ else if ($w == 'u')
                 charge_check      = '{$_POST['charge_check']}',
                 charge_date       = '{$_POST['charge_date']}',
                 charge_type       = '{$_POST['charge_type']}',
+                type_pay          = '{$_POST['type_pay']}',
                 contract_date     = '{$_POST['contract_date']}',
                 start_work_date   = '{$_POST['start_work_date']}',
                 finish_work_date  = '{$_POST['finish_work_date']}',
+                contract_pay      = '{$_POST['contract_pay']}',
 				updated_at        = now()
             where p_id = '{$id}'";
     sql_query($sql);

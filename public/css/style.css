@@ -6370,6 +6370,10 @@ h2.p_add_header i {
     border-right: none;
 }
 
+.table_01 td.left {
+    text-align: left !important;;
+}
+
 
 .table_02 tr th {
     color: #444 !important;
@@ -6398,6 +6402,9 @@ h2.p_add_header i {
     border-right: none;
 }
 
+.table_02 td.left {
+    text-align: left !important;;
+}
 
 .table_03 tr th {
     color: #444 !important;
@@ -6424,6 +6431,9 @@ h2.p_add_header i {
     border-right: none;
 }
 
+.table_03 td.left {
+    text-align: left !important;
+}
 
 .table_04 {
     width:100%;

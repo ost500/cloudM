@@ -98,6 +98,17 @@ class ProcessController extends Controller
         return view('mypage.projects_process_client.carry_on', compact('loginUser', 'proceeding'));
     }
 
+    public function carry_on_client_detail($id)
+    {
+        $loginUser = Auth::user();
+        $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
+        $contract = Contract::where('p_id', '=', $id)->get()->first();
+
+        return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract'));
+    }
+
+
+
     public function done_client()
     {
         $loginUser = Auth::user();

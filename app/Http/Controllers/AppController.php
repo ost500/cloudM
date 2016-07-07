@@ -22,6 +22,12 @@ class AppController extends Controller
     {
         $user = Auth::user();
         $partners = $user->partners;
+
+        $app = $user->app->where('p_id', (int)$id);
+        if (!$app->isEmpty()) {
+            return redirect("detail/$id");
+        }
+
         $proposal_file = public_path().$partners->proposal_file_name;
         $company_file = public_path().$partners->company_file_name;
 
@@ -42,7 +48,7 @@ class AppController extends Controller
 
         $detailProject = Project::where('id', '=', $id)->get();
 
-        return view('p_application_form', compact('detailProject', 'partnerFile'));
+        return view('p_application_form', compact('detailProject', 'partnerFile', 'app'));
     }
 
     public function application_post(Request $request, $pid)
@@ -69,6 +75,8 @@ class AppController extends Controller
             $path = $tmpFilePath . $tmpFileName;
             $newApp->file_name = $path;
             $newApp->origin_name = $request->file('application_attach')->getClientOriginalName();
+        } else {
+            $newApp->choice = "광고주 검수중";
         }
 
         $newApp->save();

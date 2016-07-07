@@ -129,7 +129,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 				<tr>
 					<th scope="row"><label for="name">계약금액<?php echo $sound_only ?></label></th>
 					<td>
-						<input type="text" name="charge_pay" value="<?php echo $project['charge_pay'] ?>" id="charge_pay" class="frm_input" style="width:20%;" minlength="3" maxlength="20">
+						<input type="text" name="contract_pay" value="<?php echo $project['contract_pay'] ?>" id="contract_pay" class="frm_input" style="width:20%;" minlength="3" maxlength="20">
 					</td>
 				</tr>
 				<tr>
@@ -160,12 +160,20 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 				<tr>
 					<th scope="row"><label for="phone">지급형태<?php echo $sound_only ?></label></th>
-					<td><input type="text" name="type_pay" value="<?php echo $project['type_pay'] ?>" id="type_pay" class="frm_input" style="width:20%;" maxlength="20"></td>
+					<td>
+						<select name="type_pay" id="type_pay" class="frm_input">
+							<option value="">선택</option>
+							<option value="선불">선불</option>
+							<option value="프로젝트 종료 후 지급">프로젝트 종료 후 지급</option>
+							<option value="2분할 지급">2분할 지급</option>
+							<option value="3분할 지급">3분할 지급</option>
+						</select>
+					</td>
 				</tr>
 
 				<tr>
-					<th scope="row"><label for="phone">시작일<?php echo $sound_only ?></label></th>
-					<td><input type="text" name="start_work_date" value="<?php echo $project['start_work_date'] ?>" id="start_work_date" class="frm_input" style="width:20%;" maxlength="20"></td>
+					<th scope="row"><label for="phone">프로젝트 기간<?php echo $sound_only ?></label></th>
+					<td><input type="text" name="start_work_date" value="<?php echo $project['start_work_date'] ?>" id="start_work_date" class="frm_input" style="width:20%;" maxlength="20"> ~ <input type="text" name="finish_work_date" value="<?php echo $project['finish_work_date'] ?>" id="finish_work_date" class="frm_input" style="width:20%;" maxlength="20"></td>
 				</tr>
 
 				<tr>
@@ -196,7 +204,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 ?>
 							<!-- The template for adding new field -->
 							<div class="form-group hide" id="areaTemplate">
-								<div class="col-xs-3" style="padding-left:0px;">
+								<div class="col-xs-2" style="padding-left:0px;">
 									<select id="optgroups" name="area" class="frm_input">
 										<option value="">매체 선택</option>
 										<optgroup label="매체 광고">
@@ -228,13 +236,16 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 										</optgroup>
 									</select>
 								</div>
-								<div class="col-xs-3" style="padding-left:30px;">
+								<div class="col-xs-2" style="padding-left:10px;">
 									<input type="text" class="frm_input" name="price" placeholder="견적" />
 								</div>
-								<div class="col-xs-3" style="padding-left:40px;">
+								<div class="col-xs-2" style="padding-left:10px;">
 									<input type="text" class="frm_input" name="commission" placeholder="수수료" />
 								</div>
-								<div class="col-xs-1" style="padding-left:40px;">
+								<div class="col-xs-5" style="padding-left:10px;">
+									<input type="text" class="frm_input" name="memo" size="60" placeholder="한줄메모" />
+								</div>
+								<div class="col-xs-1" style="padding-left:10px;">
 									<button type="button" id="addButton" class="btn-xs btn-default removeButton"><i class="fa fa-minus"></i></button>
 								</div>
 							</div>
@@ -378,6 +389,7 @@ $(function(){
 	$("#reason").val("<?=$project[reason]?>");
 	$("#charge_type").val("<?=$project[charge_type]?>");
 	$("#charge_check").val("<?=$project[charge_check]?>");
+	$("#type_pay").val("<?=$project[type_pay]?>");
 });
 </script>
 

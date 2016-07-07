@@ -44,8 +44,9 @@
                                         <tr><td colspan="8">검수중 프로젝트가 없습니다.</td></tr>
                                     @endif
                                     @foreach($checking as $checkItem)
+                                        @if($count++ == 5) @break @endif
                                         <tr>
-                                            <td style="text-align:left;">
+                                            <td class="left">
                                                 <a href="{{ url("/detail/".$checkItem->id) }}">{{ $checkItem->title }}</a>
                                             </td>
                                             <td>{{ number_format($checkItem->budget) }}</td>
@@ -100,12 +101,13 @@
                                     @endif
                                     @foreach($registered as $registeredItem)
                                         <tr>
-                                            <td style="text-align:left;"><a href="{{url("/detail/".$registeredItem->id)}}">{{ $registeredItem->title }}</a></td>
+                                            <td class="left"><a href="{{url("/detail/".$registeredItem->id)}}">{{ $registeredItem->title }}</a></td>
                                             <td>{{ substr($registeredItem->created_at, 0, 10) }}</td>
                                             <td>{{ $registeredItem->deadline}}</td>
                                             <td><a href="{{ url('/applist/'.$registeredItem->id) }}">{{ $registeredItem->cnt }}명</a></td>
                                             <td>{{ $registeredItem->step }}</td>
                                         </tr>
+                                        @if($count++ % 5 == 0) @break @endif
                                     @endforeach
                                 </table>
                             </div>
@@ -136,7 +138,7 @@
                                     @endif
                                     @foreach($proceeding as $proceedingItem)
                                         <tr>
-                                            <td>
+                                            <td class="left">
                                                 <a href="{{ url("/detail/".$proceedingItem->id) }}">{{ $proceedingItem->title }}</a>
                                             </td>
                                             <td>{{ number_format($proceedingItem->budget) }}</td>
@@ -144,6 +146,7 @@
                                             <td>{{ $proceedingItem->deadline }}</td>
                                             <td>{{ $proceedingItem->step }}</td>
                                         </tr>
+                                        @if($count++ % 5 == 0) @break @endif
                                     @endforeach
                                 </table>
 
@@ -175,16 +178,15 @@
                                     @endif
                                     @foreach($done as $doneItem)
                                         <tr>
-                                            <td>
+                                            <td class="left">
                                                 <a href="{{ url("/detail/".$doneItem->id) }}">{{ $doneItem->title }}</a>
                                             </td>
                                             <td>{{ number_format($doneItem->budget) }}</td>
                                             <td>{{ $doneItem->estimated_duration }}</td>
                                             <td>{{ $doneItem->deadline }}</td>
                                             <td>{{ $doneItem->step }}</td>
-
-
                                         </tr>
+                                        @if($count++ % 5 == 0) @break @endif
                                     @endforeach
                                 </table>
                             </div>
