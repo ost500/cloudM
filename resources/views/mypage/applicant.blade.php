@@ -33,16 +33,16 @@
                                         <div class="tabbable">
                                             <ul id="myTab1" class="nav nav-tabs">
                                                 <li class="active">
-                                                    <a href="#myTab1_example1" data-toggle="tab" aria-expanded="true"> 전체 지원자 ({{ $applist->count() }})</a>
+                                                    <a href="#myTab1_example1" data-toggle="tab" aria-expanded="true"> 전체 지원자 <span class="badge">{{ $applist->count() }}</span></a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="#myTab1_example2" data-toggle="tab" aria-expanded="false"> 미팅요청 지원자 ({{ $count['app_meeting_count'] }})</a>
+                                                    <a href="#myTab1_example2" data-toggle="tab" aria-expanded="false"> 미팅요청 지원자 <span class="badge">{{ $count['app_meeting_count'] }}</span></a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="#myTab1_example3" data-toggle="tab" aria-expanded="false"> 관심 지원자 ({{ $count['app_interest_count'] }}) </a>
+                                                    <a href="#myTab1_example3" data-toggle="tab" aria-expanded="false"> 관심 지원자 <span class="badge">{{ $count['app_interest_count'] }}</span> </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="#myTab1_example4" data-toggle="tab" aria-expanded="false"> 탈락 지원자 ({{ $count['app_out_count'] }})</a>
+                                                    <a href="#myTab1_example4" data-toggle="tab" aria-expanded="false"> 탈락 지원자 <span class="badge">{{ $count['app_out_count'] }}</span></a>
                                                 </li>
                                             </ul>
 

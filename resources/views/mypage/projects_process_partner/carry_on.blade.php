@@ -72,7 +72,7 @@
 
 
                                     <tr>
-                                        <td>{{ $carryonItem->client->name }}</td>
+                                        <td><a href="{{ url('partner/') }}"><button class="btn btn-azure btn-sm">{{ $carryonItem->client->name }}</button></a></td>
                                         <td>{{ $carryonItem->charger_name }}</td>
                                         <td>{{ $carryonItem->charger_phone }}</td>
                                         <td>{{ $carryonItem->deadline }}</td>

@@ -81,6 +81,12 @@ else if ($w == 'u')
                 start_work_date   = '{$_POST['start_work_date']}',
                 finish_work_date  = '{$_POST['finish_work_date']}',
                 contract_pay      = '{$_POST['contract_pay']}',
+                start_pay_date    = '{$_POST['start_pay_date']}',
+                middle_pay_date   = '{$_POST['middle_pay_date']}',
+                finish_pay_date   = '{$_POST['finish_pay_date']}',
+                start_pay_ratio    = '{$_POST['start_pay_ratio']}',
+                middle_pay_ratio   = '{$_POST['middle_pay_ratio']}',
+                finish_pay_ratio   = '{$_POST['finish_pay_ratio']}',
 				updated_at        = now()
             where p_id = '{$id}'";
     sql_query($sql);
