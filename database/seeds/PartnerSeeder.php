@@ -18,6 +18,7 @@ class PartnerSeeder extends Seeder
         for ($i = 7; $i <= 150; $i += 4) {
             $userCreation = User::create([
                 'name' => '박한울' . $i,
+                'nick' => 'foo' . $i,
                 'email' => 'foo' . $i . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
                 'PorC' => 'P',
@@ -44,6 +45,7 @@ class PartnerSeeder extends Seeder
 
             $userCreation = User::create([
                 'name' => '심현보' . $i,
+                'nick' => 'foo' . $i,
                 'email' => 'foo' . ($i + 1) . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
                 'PorC' => 'P',
@@ -65,6 +67,7 @@ class PartnerSeeder extends Seeder
 
             $userCreation = User::create([
                 'name' => '오상택' . $i,
+                'nick' => 'foo' . $i,
                 'email' => 'foo' . ($i + 2) . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
                 'PorC' => 'C'
@@ -77,6 +80,7 @@ class PartnerSeeder extends Seeder
         }
         User::create([
             'name' => '관리자',
+            'nick' => '관리자',
             'email' => 'admin@bar.com',
             'password' => bcrypt('qwqw1212'),
             'PorC' => 'A'

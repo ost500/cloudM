@@ -67,10 +67,12 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $nick_ = explode("@", $data['email']);
 
         if ($data['PorC'] == "ccc") {
             $userCreation = User::create([
                 'name' => $data['name'],
+                'nick' => $nick_[0],
                 'email' => $data['email'],
                 'PorC' => "C",
                 'password' => bcrypt($data['password']),
@@ -82,6 +84,7 @@ class AuthController extends Controller
         } else {
             $userCreation = User::create([
                 'name' => $data['name'],
+                'nick' => $nick_[0],
                 'email' => $data['email'],
                 'PorC' => "P",
                 'password' => bcrypt($data['password']),

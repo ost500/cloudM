@@ -1,5 +1,9 @@
 @extends('layouts.partner_layout')
 @section('right_content')
+<div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
+    <span class="h3 text-bold">{{ $partner->user->nick }} 님의 자기소개 입니다.</span>
+</div>
+
         <!-- Job Content -->
 <div id="accordion">
 
