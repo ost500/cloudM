@@ -18,7 +18,7 @@
                             @endif
                         </div>
                         <div class="col-md-12 padding-top-15">
-                            <p class="side-title-name big"><h5 class="text-center">{{ $partner->user->name }}</h5></p>
+                            <p class="side-title-name big"><h5 class="text-center">{{ $partner->user->nick }}</h5></p>
                         </div>
                     </div>
 

@@ -11,7 +11,7 @@
                 <!-- PANEL HEADING -->
                 <div class="panel-heading">
                     <div class="job-tittle02">
-                        <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
+                        <h6 class="partner_title">{{ $partner->user->nick }} 님의 전문분야 입니다.</h6>
                         <div class="panel02 panel-default02 margin-top-20">
                             <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                 <col style="width:16.6%;"/>

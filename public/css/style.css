@@ -5615,6 +5615,17 @@ h6.my_h6 {
     margin-bottom: 0px;
 }
 
+h6.partner_title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    margin-top:20px;
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
 .partners-authorized span {
     color: #1193d4;
     font-weight: bold;

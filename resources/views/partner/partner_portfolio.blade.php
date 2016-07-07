@@ -11,7 +11,7 @@
                 <!-- PANEL HEADING -->
                 <div class="panel-heading">
                     <div class="job-tittle02 txt_color_g">
-                        <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
+                        <h6 class="partner_title">{{ $partner->user->nick }} 님의 포트폴리오 입니다.</h6>
                         <div class="row">
                             @if($partner->portfolio->isEmpty())
                                 포트폴리오가 없습니다

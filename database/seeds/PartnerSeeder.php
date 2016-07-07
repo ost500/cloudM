@@ -22,7 +22,7 @@ class PartnerSeeder extends Seeder
                 'email' => 'foo' . $i . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
                 'PorC' => 'P',
-                'profileImage' => "/files/userImage/3"
+                'profileImage' => "/files/userImage/default"
             ]);
 
             $partnerCreation = Partners::create([
@@ -49,7 +49,7 @@ class PartnerSeeder extends Seeder
                 'email' => 'foo' . ($i + 1) . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
                 'PorC' => 'P',
-                'profileImage' => '/files/userImage/1'
+                'profileImage' => '/files/userImage/default'
             ]);
             $partnerCreation = Partners::create([
                 'user_id' => $userCreation['id'],
@@ -70,7 +70,8 @@ class PartnerSeeder extends Seeder
                 'nick' => 'foo' . $i,
                 'email' => 'foo' . ($i + 2) . '@bar.com',
                 'password' => bcrypt('qwqw1212'),
-                'PorC' => 'C'
+                'PorC' => 'C',
+                'profileImage' => '/files/userImage/default'
             ]);
             Client::create([
                 'user_id' => $userCreation['id']
