@@ -12,7 +12,7 @@
         @endif
     </div>
     <div class="col-md-9">
-        <p class="side-title-name">{{ $loginUser->name }}</p>
+        <p class="side-title-name">{{ $loginUser->nick }}</p>
         <a href="/setting">
             <div id="tag02">
                 <div class="button">기본정보수정</div>

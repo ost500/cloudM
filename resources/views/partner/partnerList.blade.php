@@ -31,7 +31,7 @@
                                         <div class="partner_icon"> 활동가능 </div>
                                     </div>
                                     <div style="cursor:pointer" id="partner_detail_click{{$partner['id']}}" class="media-body">
-                                        <span class="media-body-sm">{{ $partner['name'] }}</span>
+                                        <span class="media-body-sm">{{ $partner['nick'] }}</span>
 
                                         <span class="media-body-sm la-line">{{ $partner['company_type'] }}</span>
                                     </div>

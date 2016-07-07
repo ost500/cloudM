@@ -12,7 +12,7 @@
                     <div class="panel-heading">
                         <div class="job-tittle02">
                             <div class="media-body02 padding-bottom-10">
-                                <h3 class="margin-bottom-0">{{ $loginUser->name }}</h3>
+                                <h3 class="margin-bottom-0">{{ $loginUser->nick }}</h3>
                             </div>
                             <span class="media-body-sm">
                                 <ul class="tags dall">

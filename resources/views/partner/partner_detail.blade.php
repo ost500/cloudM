@@ -12,9 +12,9 @@
                     <div class="panel-heading">
                         <div class="job-tittle02">
 
-                            <div class="media-body02">
-                                <h3 class="margin-bottom-0">{{ $partner['user']->name }}</h3>
-                            </div>
+                        <div class="media-body02">
+                            <h3 class="margin-bottom-0">{{ $partner['user']->nick }}</h3>
+                        </div>
                             <span class="media-body-sm"><i
                                         class="fa fa-align-left"></i> 전문분야
                                 @foreach($partner->job()->get() as $jobs)
