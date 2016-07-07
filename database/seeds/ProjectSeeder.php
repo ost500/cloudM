@@ -22,7 +22,7 @@ class ProjectSeeder extends Seeder
                 'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
                 'intro' => "네이버 광고를 이용해 매출 20% 신장을 목표로 하고 있습니다. 페이스북도 좋습니다.",
                 'step' => '검수',
-                'Client_id' => $i,
+                'Client_id' => 1,
 
                 'budget' => 10000000,
                 'estimated_duration' => "8개월",

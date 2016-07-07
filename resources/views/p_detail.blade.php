@@ -9,11 +9,6 @@
             <!-- Job -->
             <section class="job padding-top-15 padding-bottom-70">
                 <div class="container">
-
-                    <div class="coupen">
-                        <p><span>프로젝트 상세</span> - 내가 찾는 프로젝트를 검색해보세요.</p>
-                    </div>
-
                     <!-- Side Bar -->
                     <div class="row">
                         <div class="col-md-3">
@@ -29,7 +24,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <p class="side-title-name"><h5
-                                            class="text-center">{{ $project->client->name }}</h5></p>
+                                            class="text-center">{{ $project->client->nick }}</h5></p>
                                     <a href="#.">
                                         <div id="tag02">
                                             <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
@@ -192,9 +187,9 @@
 
                                 @foreach($comment as $comments)
                                     <div class="inquiry_01">
-                                        <span><img class="partner_profile03" src="{{ $comments->user->profileImage }}"></span>
+                                        <span><img class="partner_profile03" src="{{ $comments->user->profileImage }}" onerror="this.src='{{ url('images/p_img02.png') }}'"></span>
                                         <div>
-                                            <span><strong>{{ $comments->user->name }}</strong></span>
+                                            <span><strong>{{ $comments->user->nick }}</strong></span>
                                             @if(Auth::check())
                                                 @if($comments->u_id == Auth::user()->id)
                                                     <form style="display: inline;"
@@ -232,15 +227,15 @@
                                     {!! csrf_field() !!}
                                     <div class="media inquiry_01">
                                         @if(!Auth::check())
-                                            <img class="partner_profile03" src="/images/p_img02.png">
+                                            <img class="partner_profile03" src="/images/p_img02.png" onerror="this.src='{{ url('images/p_img02.png') }}'">
                                         @else
-                                            <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
+                                            <img class="partner_profile03" src="{{ Auth::user()->profileImage }}" onerror="this.src='{{ url('images/p_img02.png') }}'">
                                         @endif
                                         <div class="media-body">
                                             <div class="col-md-9 ">
                                                 <label for="comment">
                                                     @if(Auth::check())
-                                                        {{Auth::user()->name}}
+                                                        {{Auth::user()->nick}}
                                                     @else
                                                         <a style="cursor : pointer" data-toggle="modal"
                                                            data-target="#loginModal" class="button signin">로그인 하세요</a>
