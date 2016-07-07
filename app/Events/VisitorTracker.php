@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Events\Event;
+use Auth;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Log;
@@ -14,16 +15,18 @@ class VisitorTracker extends Event
 
     protected $ipAddress;
     protected $url;
+    protected $ajax_flag;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($url, $ipAddress)
+    public function __construct($request)
     {
-        $this->url = $url;
-        $this->ipAddress = $ipAddress;
+        $this->url = $request->fullUrl();
+        $this->ipAddress = $request->getClientIp();
+        $this->ajax_flag = $request->ajax();
     }
 
     /**
@@ -33,9 +36,17 @@ class VisitorTracker extends Event
      */
     public function broadcastOn()
     {
-        Log::useDailyFiles(storage_path().'/logs/visitor_tracker.log');
 
-        Log::info($this->url."\n".$this->ipAddress);
+        if(!$this->ajax_flag){
+            Log::useDailyFiles(storage_path().'/logs/visitor_tracker.log');
+            if(Auth::check()){
+                Log::info($this->url."\n".$this->ipAddress."\n".Auth::user()->name);
+            }
+            else{
+                Log::info($this->url."\n".$this->ipAddress."\n");
+            }
+        }
+
 
     }
 }

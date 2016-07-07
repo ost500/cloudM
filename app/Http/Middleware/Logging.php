@@ -17,7 +17,7 @@ class Logging
      */
     public function handle($request, Closure $next)
     {
-        Event::fire(new VisitorTracker($request->fullUrl(), $request->getClientIp()));
+        Event::fire(new VisitorTracker($request));
         return $next($request);
     }
 }
