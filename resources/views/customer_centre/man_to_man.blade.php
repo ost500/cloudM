@@ -18,65 +18,49 @@
 
                         <!-- PANEL HEADING -->
                         <div class="panel-heading">
-                            <div id="map" style="width:100%;height:250px; margin-bottom: 50px"></div>
+                            <div id="map" style="width:100%;height:250px; margin-bottom: 50px">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1119.4120083533867!2d126.88150376168049!3d37.48018970613318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b61e25cd585f3%3A0xc194bd0b358c83ef!2z7Jqw66a8IOudvOydtOyYqOyKpCDrsqjrpqw!5e0!3m2!1sko!2skr!4v1467797346376" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
 
                             <div class="job-tittle03 margin-top-20 margin-bottom-40">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <h4>
-                                            고객센터 위치</h4>
-                                        <h4>주소 서울시 금천구 가산동 우림라이온스밸리 C동 703호</h4>
-                                        <h4>Tel 1544-2329</h4>
-                                        <h4>Email help@fastm.io</h4>
-                                        <h4>Fax 0505-300-8863</h4>
-                                        @if($try == "success")
-                                            <h4>문의를 등록했습니다.
-                                                24시간 내에 답변을 드리겠습니다.</h4>
-                                        @endif
+                                    <form class="form-horizontal" role="form" method="post" action="{{ url('/customer/man_to_man') }}">
+                                        {!! csrf_field() !!}
+                                        <input type="hidden" name="email" value="">
 
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="title"><span class="symbol required"></span> 제목 </label>
+                                            <div class="col-sm-9">
+                                                <input autofocus class="form-control" name="title" class="title" placeholder=""
+                                                       required="required">
 
-                                    </div>
-                                    <div class="col-md-6">
-
-                                        <form class="form-horizontal" role="form" method="post" action="{{ url('/customer_centre/man_to_man') }}">
-                                            {!! csrf_field() !!}
-                                            <input type="hidden" name="email" value="">
-
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3">제목 </label>
-                                                <div class="col-sm-10">
-                                                    <input autofocus class="form-control" name="title" placeholder=""
-                                                           required="required">
-
-                                                </div>
                                             </div>
+                                        </div>
 
-                                            <div class="form-group padding-top-15">
-                                                <label class="col-sm-2 control-label" for="inputEmail3"> 내용 </label>
-                                                <div class="col-sm-10">
-                                            <textarea rows="10" class="form-control" name="content_query"
-                                                      placeholder="" required="required"></textarea>
-                                                    </label>
+                                        <div class="form-group padding-top-15">
+                                            <label class="col-sm-2 control-label" for="content_query"><span class="symbol required"></span> 내용 </label>
+                                            <div class="col-sm-9">
+                                        <textarea rows="10" class="form-control" name="content_query" id="content_query"
+                                                  placeholder="" required="required"></textarea>
+                                                </label>
 
-                                                </div>
                                             </div>
+                                        </div>
 
 
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label" for="inputEmail3"></label>
-                                                <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" for="inputEmail3"></label>
+                                            <div class="col-sm-9">
 
-                                                    <button class="btn btn-app" type="submit">
-                                                        문의하기
-                                                    </button>
+                                                <button class="btn btn-app" type="submit">
+                                                    문의하기
+                                                </button>
 
-                                                </div>
                                             </div>
+                                        </div>
 
 
-                                        </form>
-
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -88,29 +72,4 @@
 
         </div>
     </div>
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
-
-    <script>
-        function initialize() {
-
-            var myLatLng = {lat: 37.4798262, lng: 126.8799983};
-
-            // Create a map object and specify the DOM element for display.
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: myLatLng,
-                scrollwheel: false,
-                zoom: 14
-            });
-
-            // Create a marker and set its position.
-            var marker = new google.maps.Marker({
-                map: map,
-                position: myLatLng,
-                title: 'FastM'
-            });
-
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
 @endsection

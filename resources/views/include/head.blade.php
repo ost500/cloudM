@@ -118,7 +118,7 @@
                         <li><a href="{{ url('project') }}">프로젝트 검색</a></li>
                         <li><a href="{{ url('partner') }}">파트너 목록</a></li>
 
-                        <li><a href="{{ url('customer_centre/notification') }}">고객센터</a></li>
+                        <li><a href="{{ url('customer/notification') }}">고객센터</a></li>
                         <li><a href="{{ url('services') }}">이용안내</a></li>
 
 
