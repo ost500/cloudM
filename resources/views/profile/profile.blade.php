@@ -101,7 +101,7 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
-                            <a href="{{ url('profile/portfolio_list/'.$loginUser->id) }}"
+                            <a href="{{ url('profile/portfolio/list/'.$loginUser->id) }}"
                                class="button002 signup002 margin-top-12">더 보기</a>
 
                             <div class="row">

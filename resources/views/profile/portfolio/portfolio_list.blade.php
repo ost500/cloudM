@@ -29,7 +29,7 @@
                                     <div class="col-md-4">
                                         <div class="thumbnail">
                                             <div class="thum_imgbox">
-                                                <a href="{{ url('/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}" alt="" class="img-responsive"></a>
+                                                <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}" alt="" class="img-responsive"></a>
                                             </div>
                                             <div class="caption">
                                                 <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><h3 class="thum_title">{{ $portfolio->title }}</h3></a>

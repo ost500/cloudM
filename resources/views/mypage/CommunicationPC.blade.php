@@ -34,10 +34,10 @@
                     </th>
                 </tr>
 
-                @for($i=0; $i<count($communi); $i++)
+                @for($i=count($communi)-1; $i>=0; $i--)
                     <tr>
                         <td>
-                            {{ $i }}
+                            {{ $i+1 }}
                         </td>
                         <td>
                             <a href="{{ url('client/project/carryon/'.$communi[$i]->project_id."/".$communi[$i]->id) }}">{{ $communi[$i]->title }}</a>

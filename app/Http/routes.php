@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::get('/', ['as' => "home", 'uses' => 'MainController@index']);
 
 //프로젝트 등록
 Route::post('/p_add', 'CreateController@indextesta');
@@ -29,14 +29,14 @@ Route::post('/p_update', 'CreateController@update_project');
 Route::get('/project', 'SearchController@p_search');
 //프로젝트 list
 Route::get('/project/{SearchOption}/{SearchOption2}/{page?}/{sort?}/{keyword?}', 'SearchController@get_p_list')
-    ->where(['SearchOption' => '[0-9]+','SearchOption2' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '[1-4]']);
+    ->where(['SearchOption' => '[0-9]+', 'SearchOption2' => '[0-9]+', 'page' => '[0-9]+', 'sort' => '[1-4]']);
 //프로젝트 pagination
 Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 //프로젝트 상세화면
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
 //관심 프로젝트
-Route::post('/detail/{id}/interesting','SearchController@interesting')
+Route::post('/detail/{id}/interesting', 'SearchController@interesting')
     ->where(['id' => '[0-9]+']);
 
 
@@ -140,8 +140,6 @@ Route::post('/setting/notification/email/save', 'MypagePostController@notificati
 Route::post('/setting/notification/sms/save', 'MypagePostController@notification_sms_update');
 
 
-
-
 // 제안서/견적서 업로드
 Route::post('/proposalFileUpload', 'MypageController@proposalFileUpload');
 
@@ -165,19 +163,17 @@ Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[1-9]+']);
 
 //프로필 포트폴리오 detail
-Route::get("/profile/portfolio/{id}", 'MypageController@portfolio_detail')
+Route::get("/profile/portfolio/{id}",['as'=>'portfolio_detail','uses'=>'MypageController@portfolio_detail'])
     ->where(['id' => '[1-9]+']);
 Route::get("/partner/portfolio/{id}", 'MypageController@portfolio_detail')
     ->where(['id' => '[1-9]+']);
 
 Route::post("/profile/portfolio/delete/{id}", 'MypageController@portfolio_delete')
     ->where(['id' => '[1-9]+']);
-Route::get("/profile/portfolio/update/{id}",'MypageController@portfolio_update')
+Route::get("/profile/portfolio/update/{id}", 'MypageController@portfolio_update')
     ->where(['id' => '[1-9]+']);
-Route::post("/profile/portfolio/update/{id}",'MypageController@portfolio_update_post')
+Route::post("/profile/portfolio/update/{id}", 'MypageController@portfolio_update_post')
     ->where(['id' => '[1-9]+']);
-
-
 
 
 //프로필 edit intro
@@ -188,9 +184,6 @@ Route::post('/profile/skill/edit', 'MypageController@profile_skill_edit_post');
 Route::post('/profile/skill/delete', 'MypageController@profile_skill_del_post');
 //프로필 skill list
 Route::get("/profile/skill/list", 'MypageController@profile_skill_list');
-
-
-
 
 
 // application
@@ -225,7 +218,6 @@ Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
     ->where(['id' => '[0-9]+']);
 
 
-
 //내 프로젝트 단계별
 //검수중 프로젝트
 Route::get('/client/project/checking', 'ProcessController@checking_client');
@@ -241,7 +233,7 @@ Route::get('/client/project/carryon', 'ProcessController@carry_on_client');
 Route::get('/client/project/carryon/{p_id}', 'ProcessController@communication_PC')
     ->where(['p_id' => '[0-9]+']);
 Route::get('/client/project/carryon/{p_id}/{id}', 'ProcessController@communication_PC_detail')
-    ->where(['id' => '[0-9]+' ]);
+    ->where(['id' => '[0-9]+']);
 //완료된 프로젝트
 Route::get('/client/project/done', 'ProcessController@done_client');
 //취소한 프로젝트
@@ -250,7 +242,7 @@ Route::get('/client/project/cancel', 'ProcessController@cancel_client');
 //지원 프로젝트
 Route::get('/partner/project/apply', 'ProcessController@apply_partner');
 //관심 프로젝트
-Route::get('/partner/project/interesting','ProcessController@interesting_partner');
+Route::get('/partner/project/interesting', 'ProcessController@interesting_partner');
 
 //지원 종료 프로젝트
 Route::get('/partner/project/apply/finished', 'ProcessController@apply_finished_partner');
@@ -265,9 +257,9 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 
 //고객센터
 //공지사항
-Route::get('/customer/notification','CustomerCentreController@notification');
-Route::get('/customer/notification/{id}','CustomerCentreController@notification_detail')
+Route::get('/customer/notification', 'CustomerCentreController@notification');
+Route::get('/customer/notification/{id}', 'CustomerCentreController@notification_detail')
     ->where(['id' => '[0-9]+']);
 //일대일 문의
-Route::get('/customer/man_to_man','CustomerCentreController@man_to_man');
-Route::post('/customer/man_to_man','CustomerCentreController@man_to_man_post');
+Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
+Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
