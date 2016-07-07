@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Communication;
 use App\Contract;
 use App\Interesting;
 use App\Project;
@@ -248,5 +249,27 @@ class ProcessController extends Controller
         $compeleted = $compeleted->sortByDesc('created_at');
 
         return view('mypage.projects_process_partner.done', compact('loginUser', 'compeleted'));
+    }
+    public function communication_PC($p_id)
+    {
+        $loginUser = Auth::user();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $communi = Communication::where('project_id', $p_id)->get();
+        $proceeding = $projects->where('step', '=', '계약')
+            ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
+            ->get();
+
+        return view('mypage.CommunicationPC', compact('communi','loginUser','proceeding'));
+    }
+    public function communication_PC_detail($p_id, $id)
+    {
+        $loginUser = Auth::user();
+        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $communi = Communication::find($id);
+        $proceeding = $projects->where('step', '=', '계약')
+            ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
+            ->get();
+
+        return view('mypage.CommunicationPC_detail', compact('communi','loginUser','proceeding'));
     }
 }

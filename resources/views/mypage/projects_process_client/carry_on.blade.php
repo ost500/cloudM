@@ -24,15 +24,16 @@
                                     <col style="width:25.6%;"/>
                                     <col style="width:16.6%;"/>
                                     <col style="width:16.6%;"/>
+                                    <col style="width:14%;"/>
                                     <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
+                                    <col style="width:20%;"/>
                                     <tr>
                                         <th>프로젝트 제목</th>
                                         <th>지원비용</th>
                                         <th>기간</th>
                                         <th>제출일자</th>
                                         <th>상태</th>
+                                        <th>게시판</th>
 
                                     </tr>
                                     @if(count($proceeding) == 0)
@@ -49,6 +50,9 @@
                                             <td>{{ $proceedingItem->estimated_duration }}</td>
                                             <td>{{ $proceedingItem->deadline }}</td>
                                             <td>{{ $proceedingItem->step }}</td>
+                                            <td>
+                                                <a href="{{ url("/client/project/carryon/".$proceedingItem->id) }}">게시판</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </table>

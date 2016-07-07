@@ -101,5 +101,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Client','user_id','id');
     }
+    public function writer()
+    {
+        return $this->hasOne('App\Communication','writer_id','id');
+    }
 
 }
