@@ -255,6 +255,17 @@ Route::get('/partner/project/apply/finished', 'ProcessController@apply_finished_
 
 //진행 중 프로젝트
 Route::get('/partner/project/carryon', 'ProcessController@carry_on_partner');
+Route::get('/partner/project/carryon/{id}', 'ProcessController@carry_on_partner_detail')
+    ->where(['id' => '[0-9]+']);
+
+// 지급요청
+Route::post('/partner/project/carryon/pay/request/{id}', 'ProcessController@carry_on_pay_request')
+    ->where(['id' => '[0-9]+']);
+
+// 지급요청
+Route::post('/client/project/carryon/pay/request/{id}', 'ProcessController@carry_on_pay_accept')
+    ->where(['id' => '[0-9]+']);
+
 
 //완료된 프로젝트
 Route::get('/partner/project/done', 'ProcessController@done_partner');

@@ -39,6 +39,13 @@ else if ($w == 'u')
 			where p_id = '$id'
 			order by id asc";
 	$area_result = sql_query($sql);
+
+
+
+
+	$pay['start'] = ($project['start_pay_ratio'])?@number_format(($project['contract_pay']*($project['start_pay_ratio'])/100)):0;
+	$pay['middle'] = ($project['middle_pay_ratio'])?@number_format(($project['contract_pay']*($project['middle_pay_ratio'])/100)):0;
+	$pay['finish'] = ($project['finish_pay_ratio'])?@number_format(($project['contract_pay']*($project['finish_pay_ratio'])/100)):0;
 }
 else
     alert('제대로 된 값이 넘어오지 않았습니다.');
@@ -78,7 +85,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
     <tbody>
 
 	<tr>
-		<td width="30%" colspan="2">
+		<td width="40%" colspan="2">
 			<p style="font-size: 18px; font-weight: bold;">업체관리</p>
 			<table width="100%" cellpadding="0" cellspacing="0">
 				<tr>
@@ -117,7 +124,7 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 				</tr>
 			</table>
 		</td>
-		<td width="70%" colspan="2" valign="top">
+		<td width="60%" colspan="2" valign="top">
 			<p style="font-size: 18px; font-weight: bold;">계약관리</p>
 			<table width="100%" cellpadding="0" cellspacing="0">
 				<tr>
@@ -182,96 +189,192 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 
 
 				<tr>
-					<th scope="row"><label for="phone">계약금/중도금/잔금 지급일<?php echo $sound_only ?></label></th>
+					<th scope="row"><label for="phone"><?php echo $sound_only ?></label></th>
 					<td>
-						<input type="text" name="start_pay_date" value="<?php echo $project['start_pay_date'] ?>" id="start_pay_date" class="frm_input" size="10" maxlength="10">
-						<input type="text" name="start_pay_ratio" value="<?php echo $project['start_pay_ratio'] ?>" id="start_pay_ratio" class="frm_input" size="3" maxlength="3">%
-						&nbsp;&nbsp;
-						<input type="text" name="middle_pay_date" value="<?php echo $project['middle_pay_date'] ?>" id="middle_pay_date" class="frm_input" size="10" maxlength="10">
-						<input type="text" name="middle_pay_ratio" value="<?php echo $project['middle_pay_ratio'] ?>" id="middle_pay_ratio" class="frm_input" size="3" maxlength="3">%
-						&nbsp;&nbsp;
-
-						<input type="text" name="finish_pay_date" value="<?php echo $project['finish_pay_date'] ?>" id="finish_pay_date" class="frm_input" size="10" maxlength="10">
-						<input type="text" name="finish_pay_ratio" value="<?php echo $project['finish_pay_ratio'] ?>" id="finish_pay_ratio" class="frm_input" size="3" maxlength="3">%
-						&nbsp;&nbsp;
 					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
+		</tbody>
+</table>
 
+	<table style="margin-top: 50px">
+		<table>
+			<caption><?php echo $g5['title']; ?></caption>
+			<colgroup>
+				<col class="grid_4">
+				<col>
+				<col class="grid_4">
+				<col>
+			</colgroup>
+			<tbody>
+			<tr>
+				<th scope="row"><label for="area">매체<strong class="sound_only">필수</strong></label></th>
+				<td colspan="3">
+					<div class="bts">
+						<div class="container-fluid pull-left">
+							<div class="row">
+								<div class="col-xs-12" id="demoContainer" style="height: auto; padding-left:0;">
+									<?php
+									for ($i = 0; $areas = sql_fetch_array($area_result); $i++)
+									{
+										include("./project_form_area.skin.php");
 
-    <tr>
-        <th scope="row"><label for="area">매체<strong class="sound_only">필수</strong></label></th>
-        <td colspan="3">
-			<div class="bts">
-				<div class="container-fluid pull-left">
-					<div class="row">
-						<div class="col-xs-12" id="demoContainer" style="height: auto; padding-left:0;">
-<?php
-	for ($i = 0; $areas = sql_fetch_array($area_result); $i++)
-	{
-		include("./project_form_area.skin.php");
+										if ($areas_total > ($i+1)) $area_index++;
+									}
 
-		if ($areas_total > ($i+1)) $area_index++;
-	}
-
-	if ($i == 0) include("./project_form_area.skin.php");
-?>
-							<!-- The template for adding new field -->
-							<div class="form-group hide" id="areaTemplate">
-								<div class="col-xs-2" style="padding-left:0px;">
-									<select id="optgroups" name="area" class="frm_input">
-										<option value="">매체 선택</option>
-										<optgroup label="매체 광고">
-											<option value="네이버CPC">네이버CPC</option>
-											<option value="언론보도">언론보도</option>
-											<option value="구글광고">구글광고</option>
-											<option value="페이스북광고">페이스북광고</option>
-											<option value="매체 기타">매체 기타</option>
-										</optgroup>
-										<optgroup label="바이럴">
-											<option value="네이버SEO">네이버SEO</option>
-											<option value="컨텐츠배포">컨텐츠배포</option>
-											<option value="체험단모집">체험단모집</option>
-											<option value="바이럴 기타">바이럴 기타</option>
-										</optgroup>
-										<optgroup label="운영대행">
-											<option value="블로그">블로그</option>
-											<option value="페이스북페이지">페이스북페이지</option>
-											<option value="기타SNS">기타SNS</option>
-											<option value="홈페이지">홈페이지</option>
-											<option value="운영대행 기타">운영대행 기타</option>
-										</optgroup>
-										<optgroup label="1회성 프로젝트">
-											<option value="개발">개발</option>
-											<option value="디자인">디자인</option>
-											<option value="웹툰">웹툰</option>
-											<option value="영상">영상</option>
-											<option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
-										</optgroup>
-									</select>
-								</div>
-								<div class="col-xs-2" style="padding-left:10px;">
-									<input type="text" class="frm_input" name="price" placeholder="견적" />
-								</div>
-								<div class="col-xs-2" style="padding-left:10px;">
-									<input type="text" class="frm_input" name="commission" placeholder="수수료" />
-								</div>
-								<div class="col-xs-5" style="padding-left:10px;">
-									<input type="text" class="frm_input" name="memo" size="60" placeholder="한줄메모" />
-								</div>
-								<div class="col-xs-1" style="padding-left:10px;">
-									<button type="button" id="addButton" class="btn-xs btn-default removeButton"><i class="fa fa-minus"></i></button>
+									if ($i == 0) include("./project_form_area.skin.php");
+									?>
+									<!-- The template for adding new field -->
+									<div class="form-group hide" id="areaTemplate">
+										<div class="col-xs-2" style="padding-left:0px;">
+											<select id="optgroups" name="area" class="frm_input">
+												<option value="">매체 선택</option>
+												<optgroup label="매체 광고">
+													<option value="네이버CPC">네이버CPC</option>
+													<option value="언론보도">언론보도</option>
+													<option value="구글광고">구글광고</option>
+													<option value="페이스북광고">페이스북광고</option>
+													<option value="매체 기타">매체 기타</option>
+												</optgroup>
+												<optgroup label="바이럴">
+													<option value="네이버SEO">네이버SEO</option>
+													<option value="컨텐츠배포">컨텐츠배포</option>
+													<option value="체험단모집">체험단모집</option>
+													<option value="바이럴 기타">바이럴 기타</option>
+												</optgroup>
+												<optgroup label="운영대행">
+													<option value="블로그">블로그</option>
+													<option value="페이스북페이지">페이스북페이지</option>
+													<option value="기타SNS">기타SNS</option>
+													<option value="홈페이지">홈페이지</option>
+													<option value="운영대행 기타">운영대행 기타</option>
+												</optgroup>
+												<optgroup label="1회성 프로젝트">
+													<option value="개발">개발</option>
+													<option value="디자인">디자인</option>
+													<option value="웹툰">웹툰</option>
+													<option value="영상">영상</option>
+													<option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
+												</optgroup>
+											</select>
+										</div>
+										<div class="col-xs-2" style="padding-left:10px;">
+											<input type="text" class="frm_input" name="price" placeholder="견적" />
+										</div>
+										<div class="col-xs-2" style="padding-left:10px;">
+											<input type="text" class="frm_input" name="commission" placeholder="수수료" />
+										</div>
+										<div class="col-xs-5" style="padding-left:10px;">
+											<input type="text" class="frm_input" name="memo" size="60" placeholder="한줄메모" />
+										</div>
+										<div class="col-xs-1" style="padding-left:10px;">
+											<button type="button" id="addButton" class="btn-xs btn-default removeButton"><i class="fa fa-minus"></i></button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</td>
+			</tr>
+		</table>
+	<table style="width:60%; margin-top: 50px">
+		<caption><?php echo $g5['title']; ?></caption>
+		<colgroup>
+			<col class="grid_4">
+			<col>
+			<col class="grid_4">
+			<col>
+		</colgroup>
+		<tr>
+		<th scope="row"><label for="phone">비용지급<?php echo $sound_only ?></label></th>
+		<td colspan=3">
+			<table cellpadding="0" cellspacing="0">
+				<tr align="center">
+					<td width="10%" align="center">타입</td>
+					<td height="20">금액</td>
+					<td>지급기일</td>
+					<td>비율</td>
+					<td>지급요청일</td>
+					<td>지급승인일</td>
+					<td>처리일</td>
+				</tr>
+
+				<tr align="center">
+					<th scope="row"><label for="title">착수금</label></th>
+					<td>
+						<input type="text" value="<?php echo $pay['start'] ?>" id="start_pay_date" class="frm_input" size="20" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="start_pay_date" value="<?php echo $project['start_pay_date'] ?>" id="start_pay_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="start_pay_ratio" value="<?php echo $project['start_pay_ratio'] ?>" id="start_pay_ratio" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="start_pay_request_date" value="<?php echo $project['start_pay_request_date'] ?>" id="start_pay_request_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="start_pay_accept_date" value="<?php echo $project['start_pay_accept_date'] ?>" id="start_pay_accept_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="start_pay_give_date" value="<?php echo $project['start_pay_give_date'] ?>" id="start_pay_date" class="frm_input" size="10" maxlength="10">
+					</td>
+				</tr>
+
+
+
+				<tr align="center">
+					<th scope="row"><label for="title">중도금</label></th>
+					<td>
+						<input type="text" value="<?php echo $pay['middle'] ?>" id="start_pay_date" class="frm_input" size="20" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="middle_pay_date" value="<?php echo $project['middle_pay_date'] ?>" id="middle_pay_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="middle_pay_ratio" value="<?php echo $project['middle_pay_ratio'] ?>" id="middle_pay_ratio" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="middle_pay_request_date" value="<?php echo $project['middle_pay_request_date'] ?>" id="middle_pay_request_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="middle_pay_accept_date" value="<?php echo $project['middle_pay_accept_date'] ?>" id="middle_pay_accept_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="middle_pay_give_date" value="<?php echo $project['middle_pay_give_date'] ?>" id="middle_pay_date" class="frm_input" size="10" maxlength="10">
+					</td>
+				</tr>
+
+				<tr align="center">
+					<th scope="row"><label for="title">잔금</label></th>
+					<td>
+						<input type="text" value="<?php echo $pay['finish'] ?>" id="start_pay_date" class="frm_input" size="20" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="finish_pay_date" value="<?php echo $project['finish_pay_date'] ?>" id="finish_pay_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="finish_pay_ratio" value="<?php echo $project['finish_pay_ratio'] ?>" id="finish_pay_ratio" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="finish_pay_request_date" value="<?php echo $project['finish_pay_request_date'] ?>" id="finish_pay_request_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="finish_pay_accept_date" value="<?php echo $project['finish_pay_accept_date'] ?>" id="finish_pay_accept_date" class="frm_input" size="10" maxlength="10">
+					</td>
+					<td>
+						<input type="text" name="finish_pay_give_date" value="<?php echo $project['finish_pay_give_date'] ?>" id="finish_pay_date" class="frm_input" size="10" maxlength="10">
+					</td>
+				</tr>
+			</table>
 		</td>
 	</tr>
+</table>
 
+<table style="margin-top: 50px">
 	<tr>
         <th scope="row"><label for="category">업종</label></th>
         <td colspan="3">
