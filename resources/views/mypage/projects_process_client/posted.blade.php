@@ -44,8 +44,8 @@
                                             <td>{{ substr($registeredItem->created_at, 0, 10) }}</td>
                                             <td>{{ $registeredItem->deadline}}</td>
                                             <td>
-                                                <a href="{{ url('/client/project/applist/'.$registeredItem->id) }}">{{ $registeredItem->applications_cnt}}
-                                                    명</a></td>
+                                                <a href="{{ url("client/project/applist/".$registeredItem->id) }}"><button class="btn btn-azure btn-sm">{{ $registeredItem->applications_cnt}}명</button></a>
+                                            </td>
                                             <td>{{ $registeredItem->step }}</td>
                                         </tr>
                                     @endforeach

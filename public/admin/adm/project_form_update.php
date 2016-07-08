@@ -73,21 +73,30 @@ else if ($w == 'u')
 
     $sql = "update {$g5['contract_table']}
             set
-                charge_check      = '{$_POST['charge_check']}',
-                charge_date       = '{$_POST['charge_date']}',
-                charge_type       = '{$_POST['charge_type']}',
-                type_pay          = '{$_POST['type_pay']}',
-                contract_date     = '{$_POST['contract_date']}',
-                start_work_date   = '{$_POST['start_work_date']}',
-                finish_work_date  = '{$_POST['finish_work_date']}',
-                contract_pay      = '{$_POST['contract_pay']}',
-                start_pay_date    = '{$_POST['start_pay_date']}',
-                middle_pay_date   = '{$_POST['middle_pay_date']}',
-                finish_pay_date   = '{$_POST['finish_pay_date']}',
-                start_pay_ratio    = '{$_POST['start_pay_ratio']}',
-                middle_pay_ratio   = '{$_POST['middle_pay_ratio']}',
-                finish_pay_ratio   = '{$_POST['finish_pay_ratio']}',
-				updated_at        = now()
+                charge_check              = '{$_POST['charge_check']}',
+                charge_date               = '{$_POST['charge_date']}',
+                charge_type               = '{$_POST['charge_type']}',
+                type_pay                  = '{$_POST['type_pay']}',
+                contract_date             = '{$_POST['contract_date']}',
+                start_work_date           = '{$_POST['start_work_date']}',
+                finish_work_date          = '{$_POST['finish_work_date']}',
+                contract_pay              = '{$_POST['contract_pay']}',
+                start_pay_date            = '{$_POST['start_pay_date']}',
+                middle_pay_date           = '{$_POST['middle_pay_date']}',
+                finish_pay_date           = '{$_POST['finish_pay_date']}',
+                start_pay_ratio           = '{$_POST['start_pay_ratio']}',
+                middle_pay_ratio          = '{$_POST['middle_pay_ratio']}',
+                finish_pay_ratio          = '{$_POST['finish_pay_ratio']}',
+                start_pay_request_date    = '{$_POST['start_pay_request_date']}',
+                start_pay_accept_date     = '{$_POST['start_pay_accept_date']}',
+                start_pay_give_date       = '{$_POST['start_pay_give_date']}',
+                middle_pay_request_date   = '{$_POST['middle_pay_request_date']}'
+                middle_pay_accept_date    = '{$_POST['middle_pay_accept_date']}'
+                middle_pay_give_date      = '{$_POST['middle_pay_give_date']}',
+                finish_pay_request_date   = '{$_POST['finish_pay_request_date']}',
+                finish_pay_accept_date    = '{$_POST['finish_pay_accept_date']}',
+                finish_pay_give_date      = '{$_POST['finish_pay_give_date']}',
+				updated_at                = now()
             where p_id = '{$id}'";
     sql_query($sql);
 }

@@ -363,6 +363,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddContractsPay' => __DIR__ . '/../..' . '/database/migrations/2016_06_29_174334_add_contracts_pay.php',
         'AddContractsPay2' => __DIR__ . '/../..' . '/database/migrations/2016_07_07_201342_add_contracts_pay2.php',
         'AddContractsPayRadio' => __DIR__ . '/../..' . '/database/migrations/2016_07_07_220341_add_contracts_pay_radio.php',
+        'AddContractsPayRequest' => __DIR__ . '/../..' . '/database/migrations/2016_07_08_170404_add_contracts_pay_request.php',
         'AddNotificationsContent' => __DIR__ . '/../..' . '/database/migrations/2016_07_04_132025_add_notifications_content.php',
         'AddPartnersArea' => __DIR__ . '/../..' . '/database/migrations/2016_06_01_040735_add_partners_area.php',
         'AddPartnersFiles' => __DIR__ . '/../..' . '/database/migrations/2016_07_06_113716_add_partners_files.php',
