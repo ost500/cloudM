@@ -90,8 +90,8 @@ else if ($w == 'u')
                 start_pay_request_date    = '{$_POST['start_pay_request_date']}',
                 start_pay_accept_date     = '{$_POST['start_pay_accept_date']}',
                 start_pay_give_date       = '{$_POST['start_pay_give_date']}',
-                middle_pay_request_date   = '{$_POST['middle_pay_request_date']}'
-                middle_pay_accept_date    = '{$_POST['middle_pay_accept_date']}'
+                middle_pay_request_date   = '{$_POST['middle_pay_request_date']}',
+                middle_pay_accept_date    = '{$_POST['middle_pay_accept_date']}',
                 middle_pay_give_date      = '{$_POST['middle_pay_give_date']}',
                 finish_pay_request_date   = '{$_POST['finish_pay_request_date']}',
                 finish_pay_accept_date    = '{$_POST['finish_pay_accept_date']}',

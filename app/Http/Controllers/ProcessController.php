@@ -105,9 +105,9 @@ class ProcessController extends Controller
         $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
         $contract = Contract::where('p_id', '=', $id)->get()->first();
 
-        $pay['start'] = ($contract->start_pay_ratio)?@number_format(($contract->contract_pay*($contract->start_pay_ratio)/100)):0;
-        $pay['middle'] = ($contract->middle_pay_ratio)?@number_format(($contract->contract_pay*($contract->middle_pay_ratio)/100)):0;
-        $pay['finish'] = ($contract->finish_pay_ratio)?@number_format(($contract->contract_pay*($contract->finish_pay_ratio)/100)):0;
+        $pay['start'] = ($contract->start_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->start_pay_ratio) / 100)) : 0;
+        $pay['middle'] = ($contract->middle_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->middle_pay_ratio) / 100)) : 0;
+        $pay['finish'] = ($contract->finish_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->finish_pay_ratio) / 100)) : 0;
 
         return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
     }
@@ -117,7 +117,7 @@ class ProcessController extends Controller
         $loginUser = Auth::user();
         $contract = Contract::where('id', '=', $id)->where('u_id', '=', $loginUser->id)->where('p_id', '=', $request['p_id'])->get()->first();
 
-        if(empty($contract->id)) {
+        if (empty($contract->id)) {
             return redirect("partner/project/carryon/$id");
         } else {
             $newContract = Contract::find($contract->id);
@@ -148,7 +148,7 @@ class ProcessController extends Controller
 
         $contract = Contract::where('id', '=', $id)->where('p_id', '=', $project->id)->get()->first();
 
-        if(empty($contract->id)) {
+        if (empty($contract->id)) {
             return redirect("partner/project/carryon/$id");
         } else {
             $newContract = Contract::find($contract->id);
@@ -166,7 +166,6 @@ class ProcessController extends Controller
             return redirect("client/project/carryon/$contract->p_id");
         }
     }
-
 
 
     public function done_client()
@@ -205,7 +204,7 @@ class ProcessController extends Controller
         $app_finished = new Collection();
         for ($i = 0; $i < $appList->count(); $i++) {
             if ($appList[$i]->project->deadline <= date('Y-m-d') &&
-                ($appList[$i]->choice == "광고주 검수중" || $appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
+                ($appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
             ) {
                 $app[] = $appList[$i];
             } else {
@@ -264,11 +263,11 @@ class ProcessController extends Controller
         $app_finished = new Collection();
         for ($i = 0; $i < $appList->count(); $i++) {
             if ($appList[$i]->project->deadline <= date('Y-m-d') &&
-                ($appList[$i]->choice == "광고주 검수중" || $appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
+                ($appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
             ) {
-                $app_finished[] = $appList[$i];
-            } else {
                 $app[] = $appList[$i];
+            } else {
+                $app_finished[] = $appList[$i];
             }
         }
 
@@ -311,9 +310,9 @@ class ProcessController extends Controller
         $contract = Contract::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $id)->get()->first();
         $project = Project::where('id', '=', $contract->p_id)->get()->first();
 
-        $pay['start'] = ($contract->start_pay_ratio)?@number_format(($contract->contract_pay*($contract->start_pay_ratio)/100)):0;
-        $pay['middle'] = ($contract->middle_pay_ratio)?@number_format(($contract->contract_pay*($contract->middle_pay_ratio)/100)):0;
-        $pay['finish'] = ($contract->finish_pay_ratio)?@number_format(($contract->contract_pay*($contract->finish_pay_ratio)/100)):0;
+        $pay['start'] = ($contract->start_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->start_pay_ratio) / 100)) : 0;
+        $pay['middle'] = ($contract->middle_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->middle_pay_ratio) / 100)) : 0;
+        $pay['finish'] = ($contract->finish_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->finish_pay_ratio) / 100)) : 0;
 
         return view('mypage.projects_process_partner.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
     }

@@ -11,10 +11,10 @@
     <div id="accordion">
 
         <!-- Job Section -->
-        @if(sizeof($app) == 0)
-            <td colspan="7">지원한 프로젝트가 없습니다</td>
+        @if(sizeof($app_finished) == 0)
+            <td colspan="7">지원 종료된 프로젝트가 없습니다</td>
         @endif
-        @foreach($app as $appItem)
+        @foreach($app_finished as $appItem)
             <div class="job-content job-post-page margin-bottom-10">
                 <div class="panel-group">
                     <div class="panel">
