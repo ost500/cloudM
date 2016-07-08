@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+
 use App\ManToMan;
 use App\Notification;
 use Auth;
@@ -21,7 +21,7 @@ class CustomerCentreController extends Controller
 
     public function man_to_man()
     {
-        return view('customer_centre.man_to_man',['try' => 'carry_on']);
+        return view('customer_centre.man_to_man', ['try' => 'carry_on']);
     }
 
     public function man_to_man_post(Request $request)
@@ -43,4 +43,6 @@ class CustomerCentreController extends Controller
         $notis = Notification::find($id);
         return view('customer_centre.notification_detail', compact('notis'));
     }
+
+    
 }
