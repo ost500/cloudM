@@ -50,8 +50,8 @@
                 });
             </script>
             @else
-                @if($contract->middle_pay_request_date != "0000-00-00" &&
-                   $contract->middle_pay_accept_date != "0000-00-00")
+                @if($contract->start_pay_request_date != "0000-00-00" &&
+                   $contract->start_pay_accept_date != "0000-00-00")
                     <button class="btn btn-azure btn-sm" id="start_button_{{$contract->id}}">{{ $contract->start_pay_accept_date }} 승인완료</button>
                 @else
                     승인전
@@ -176,8 +176,8 @@
                 });
             </script>
             @else
-                @if($contract->middle_pay_request_date != "0000-00-00" &&
-                   $contract->middle_pay_accept_date != "0000-00-00")
+                @if($contract->finish_pay_request_date != "0000-00-00" &&
+                   $contract->finish_pay_accept_date != "0000-00-00")
                     <button class="btn btn-azure btn-sm" id="start_button_{{$contract->id}}">{{ $contract->start_pay_accept_date }} 승인완료</button>
                 @else
                     승인전
