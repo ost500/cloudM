@@ -25,7 +25,6 @@
                                     <col style="width:15%;"/>
                                     <col style="width:15%;"/>
                                     <col style="width:15%;"/>
-                                    <col style="width:15%;"/>
                                     <tr>
                                         <th>프로젝트 제목</th>
                                         <th>계약일자</th>
