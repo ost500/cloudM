@@ -67,6 +67,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Query\Builder|\App\User whereProjectSms($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereContractSms($value)
  * @mixin \Eloquent
+ * @property string $nick
+ * @property-read \App\Communication $writer
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereNick($value)
  */
 class User extends Authenticatable
 {
@@ -106,4 +109,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Application', 'u_id', 'id');
     }
+    public function writer()
+    {
+        return $this->hasOne('App\Communication','writer_id','id');
+    }
+
 }

@@ -42,6 +42,9 @@
                         class="fa fa-angle-double-right "></i> &nbsp;완료된 프로젝트 {{ count($done) }}건</a>
             <a href="{{ url('/client/project/cancel') }}" class="head {{ (Request::is('client/project/cancel'))?"on":"" }}"><i
                         class="fa fa-angle-double-right "></i> &nbsp;취소한 프로젝트 {{ count($cancel) }}건</a>
+        @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'client/project/carryon'))
+            <a href="{{ url('/client/project/carryon') }}" class="head {{ (Request::is('client/project/carryon'))?"on":"" }}"><i
+                        class="fa fa-angle-double-right "></i> &nbsp;진행중 프로젝트 {{ count($proceeding) }}건</a>
         @endif
     </div>
 </div>

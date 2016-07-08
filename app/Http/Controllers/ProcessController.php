@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\Communication;
 use App\Contract;
 use App\Interesting;
 use App\Project;
@@ -216,7 +217,7 @@ class ProcessController extends Controller
         $app_finished = $app_finished->sortBy('created_at');
 
 
-        return view('mypage.projects_process_partner.apply', compact('loginUser', 'app', 'app_finished','interesting'));
+        return view('mypage.projects_process_partner.apply', compact('loginUser', 'app', 'app_finished', 'interesting'));
     }
 
     public function interesting_partner()
@@ -228,7 +229,7 @@ class ProcessController extends Controller
 
         $interesting = new Collection();
 
-        foreach($interestingList as $item){
+        foreach ($interestingList as $item) {
             $interesting->push($item->project);
         }
 
@@ -248,7 +249,7 @@ class ProcessController extends Controller
         $interesting = $interesting->sortByDesc('created_at');
 
 
-        return view('mypage.projects_process_partner.interesting', compact('loginUser','app','app_finished','interesting'));
+        return view('mypage.projects_process_partner.interesting', compact('loginUser', 'app', 'app_finished', 'interesting'));
     }
 
     public function apply_finished_partner()
@@ -274,7 +275,7 @@ class ProcessController extends Controller
         $app = $app->sortByDesc('created_at');
         $app_finished = $app_finished->sortBy('created_at');
 
-        return view('mypage.projects_process_partner.apply_finished', compact('loginUser', 'app', 'app_finished','interesting'));
+        return view('mypage.projects_process_partner.apply_finished', compact('loginUser', 'app', 'app_finished', 'interesting'));
     }
 
     public function carry_on_partner()
