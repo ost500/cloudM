@@ -237,6 +237,9 @@ Route::get('/client/project/fail', 'ProcessController@fail_client');
 Route::get('/client/project/posted', 'ProcessController@posted_client');
 //진행 중 프로젝트
 Route::get('/client/project/carryon', 'ProcessController@carry_on_client');
+//진행 중 프로젝트 상세정보
+Route::get('/client/project/carryon/{id}', 'ProcessController@carry_on_client_detail')
+    ->where(['id' => '[0-9]+']);;
 //완료된 프로젝트
 Route::get('/client/project/done', 'ProcessController@done_client');
 //취소한 프로젝트

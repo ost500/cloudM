@@ -7,7 +7,7 @@
  */
 ?>
 <div class="form-group" data-area-index="<?=$i?>">
-    <div class="col-xs-3" style="padding-left:0px;">
+    <div class="col-xs-2" style="padding-left:0px;">
         <select id="optgroups<?=$i?>" name="areas[<?=$i?>][0]" class="frm_input">
             <option value="">매체 선택</option>
             <optgroup label="매체 광고">
@@ -41,13 +41,16 @@
         <script> $(function() { $("#optgroups<?=$i?>").val("<?=$areas[area]?>"); }); </script>
     </div>
 
-    <div class="col-xs-3" style="padding-left:30px;">
+    <div class="col-xs-2" style="padding-left:10px;">
         <input type="text" class="frm_input" name="areas[<?=$i?>][1]" value="<?php echo $areas['price']?>" placeholder="견적"/>
     </div>
-    <div class="col-xs-3" style="padding-left:40px;">
+    <div class="col-xs-2" style="padding-left:10px;">
         <input type="text" class="frm_input" name="areas[<?=$i?>][2]" value="<?php echo $areas['commission']?>" placeholder="수수료"/>
     </div>
-    <div class="col-xs-1" style="padding-left:40px;">
+    <div class="col-xs-5" style="padding-left:10px;">
+        <input type="text" class="frm_input" name="areas[<?=$i?>][3]" value="<?php echo $areas['memo']?>" size="60" placeholder="한줄메모"/>
+    </div>
+    <div class="col-xs-1" style="padding-left:10px;">
         <button type="button" class="btn-xs btn-default <?=($i==0)?"addButton":"removeButton";?>"><i class="fa fa-<?=($i==0)?"plus":"minus";?>"></i>
         </button>
     </div>

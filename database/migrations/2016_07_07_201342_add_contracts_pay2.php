@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserNick extends Migration
+class AddContractsPay2 extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class AddUserNick extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('nick', 45)->after('name');
-
+        Schema::table('contracts', function(Blueprint $table){
+            $table->integer('contract_pay')->unsigned();
         });
     }
 
@@ -25,8 +24,8 @@ class AddUserNick extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('nick');
+        Schema::table('contracts', function (Blueprint $table) {
+            $table->dropColumn('contract_pay');
         });
     }
 }

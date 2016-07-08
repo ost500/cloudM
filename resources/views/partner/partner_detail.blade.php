@@ -75,7 +75,7 @@
 
                     <div class="job-tittle02 txt_color_g">
                         <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
-                        <a href="{{ url('partner/intro') }}" class="more_btn margin-top-20">더보기 ></a>
+                        <a href="{{ url('partner/'.$partner->id.'/intro') }}" class="more_btn margin-top-20">더보기 ></a>
 
 
                         {{ $partner->intro }}
@@ -85,7 +85,7 @@
 
                     <div class="job-tittle02 txt_color_g">
                         <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
-                        <a href="{{ url('/partner/portfolio/list/'.$partner->id) }}"
+                        <a href="{{ url('/partner/'.$partner->id.'/portfolio') }}"
                            class="more_btn margin-top-20">더보기 ></a>
                         <div class="row">
                             @if($partner->portfolio->isEmpty())
@@ -118,6 +118,7 @@
 
                     <div class="job-tittle02">
                         <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
+                        <a href="{{ url('partner/'.$partner->id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
                         <div class="panel02 panel-default02 margin-top-20">
                             <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                 <col style="width:16.6%;"/>
@@ -138,10 +139,9 @@
                                 @endif
                                 @foreach($partner->job()->get() as $job)
                                     <tr>
-                                        <td>{{ $job->job }}</td>
+                                        <td>{{ $job->job }} {{ $job->number }}</td>
                                         <td>{{ $job->number }}</td>
                                         <td>{{ $job->experience }}</td>
-
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -182,7 +182,7 @@
 
                     <div class="job-tittle02">
                         <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
-                        <a href="#." class="more_btn margin-top-20">더보기 ></a>
+                        <a href="{{ url('partner/'.$partner->id.'/review') }}" class="more_btn margin-top-20">더보기 ></a>
                         <div class="panel02 panel-default02 margin-top-20">
                             <div class="panel-heading03">
                                 <div>

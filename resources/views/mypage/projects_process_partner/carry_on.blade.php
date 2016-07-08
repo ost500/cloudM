@@ -31,7 +31,7 @@
 
 
                                     <tr>
-                                        <td class="text-left"><a href="{{ url("detail/".$carryonItem->id) }}">{{ $carryonItem->title }}</a></td>
+                                        <td class="left"><a href="{{ url("detail/".$carryonItem->id) }}">{{ $carryonItem->title }}</a></td>
                                         <td>{{ substr($carryonItem->created_at, 0, 10) }}</td>
                                         <td>
                                             @if($carryonItem->app->file_name != "")
@@ -72,7 +72,7 @@
 
 
                                     <tr>
-                                        <td>{{ $carryonItem->client->name }}</td>
+                                        <td><a href="{{ url('partner/') }}"><button class="btn btn-azure btn-sm">{{ $carryonItem->client->name }}</button></a></td>
                                         <td>{{ $carryonItem->charger_name }}</td>
                                         <td>{{ $carryonItem->charger_phone }}</td>
                                         <td>{{ $carryonItem->deadline }}</td>
@@ -109,7 +109,7 @@
 
                                     <tr>
                                         <td>{{ $carryonItem->contract->contract_date }}</td>
-                                        <td></td>
+                                        <td>{{ number_format($carryonItem->contract->contract_pay) }}원</td>
                                         <td>{{ ($carryonItem->contract->charge_check)?"결제완료":"결제전" }}</td>
                                         <td>{{ $carryonItem->contract->charge_date}}</td>
                                         <td>{{ $carryonItem->contract->charge_type}}</td>
@@ -121,14 +121,14 @@
                             <h6 class="my_h6">계약 매체</h6>
                             <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                    <col style="width:30%;"/>
-                                    <col style="width:35%;"/>
-                                    <col style="width:35%;"/>
+                                    <col style="width:20%;"/>
+                                    <col style="width:20%;"/>
+                                    <col style="width:60%;"/>
 
                                     <tr>
                                         <th>매체명</th>
                                         <th>계약금액</th>
-                                        <th>수수료</th>
+                                        <th>한줄설명</th>
                                     </tr>
 
                                     @foreach($carryonItem->projects_area as $areas)
@@ -136,7 +136,7 @@
                                         <tr>
                                             <td>{{ $areas->area }}</td>
                                             <td>{{ number_format($areas->price) }}원</td>
-                                            <td>{{ $areas->commission }}%</td>
+                                            <td class="left">{{ $areas->memo }}</td>
                                         </tr>
                                     @endforeach
 

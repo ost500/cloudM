@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserNick extends Migration
+class AddAreasMemo extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class AddUserNick extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('nick', 45)->after('name');
-
-        });
+        Schema::table('projects_areas', function (Blueprint $table) {
+            $table->text('memo')->after('commission');
+    });
     }
 
     /**
@@ -25,8 +24,8 @@ class AddUserNick extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('nick');
+        Schema::table('projects_areas', function (Blueprint $table) {
+            $table->dropColumn('memo');
         });
     }
 }

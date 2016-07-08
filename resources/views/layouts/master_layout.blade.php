@@ -7,7 +7,7 @@
                 <!-- Side Bar -->
                 <div class="row">
                     <div class="col-md-3">
-                        @if (Request::is('setting/*'))
+                        @if (Request::is('setting') || Request::is('setting/*'))
                             @include('include.setting_left')
                         @elseif(Request::is('dashboard') || Request::is('client/*') || Request::is('partner/*'))
                             @if($loginUser->PorC == "P")

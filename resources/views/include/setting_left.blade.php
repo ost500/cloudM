@@ -5,7 +5,7 @@
 <div class="job-sider-bar02">
     <div class="side-bar-revenues">
 
-        <a href="/setting/profile" class="head {{ (Request::is('setting/profile'))?"on":"" }}"><i
+        <a href="/setting" class="head {{ (Request::is('setting'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;개인정보수정</a>
 
         <a href="/setting/auth" class="head {{ (Request::is('setting/auth'))?"on":"" }}"><i
