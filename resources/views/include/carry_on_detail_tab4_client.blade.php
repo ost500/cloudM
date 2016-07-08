@@ -163,7 +163,7 @@
                           action="{{ url("/client/project/carryon/pay/request/".$contract->id) }}"
                           onsubmit="return confirm('지급승인 하시겠습니까?');">
                         {!! csrf_field() !!}
-                        <input name="pay_type" hidden value="first">
+                        <input name="pay_type" hidden value="finish">
                         <input name="p_id" hidden
                                value="{{$contract->p_id}}">
                         <button class="btn btn-danger btn-sm" id="finish_button_{{$contract->id}}">지급승인</button>
