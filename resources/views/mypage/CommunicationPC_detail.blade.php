@@ -24,12 +24,30 @@
                             <div class="media-body02">
                                 <h3 class="margin-bottom-20">{{ $communi->title }}</h3>
                             </div>
-
-                                            <span class="media-body-sm">
+                            <span class="media-body-sm">
                             <i class="fa fa-clock-o"></i> 날짜 <span>{{$communi->created_at}}</span></span>
-                                                    <span class="media-body-sm la-line"><i
-                                                                class="fa fa-calendar-minus-o"></i> 글쓴이 <span>{{ $communi->writer->name }}</span></span>
-                            <div style="clear:both;"></div>
+                            <span class="media-body-sm"><i
+                                        class="fa fa-calendar-minus-o"></i> 글쓴이 <span>{{ $communi->writer->name }}</span></span>
+                            @if($communi->writer == Auth::user())
+                                <span style="cursor:pointer" id="edit" class="media-body-sm"><i
+                                            class="fa fa-pencil-square-o"
+                                            aria-hidden="true"></i>  <span>수정하기</span></span>
+                                <script>
+                                    $("#edit").click(function () {
+                                        window.location.assign("{{ route('communication_update',['id' => $communi->id]) }}");
+                                    });
+                                </script>
+                            @endif
+                            @if($communi->writer == Auth::user())
+                                <span style="cursor:pointer" id="del" class="media-body-sm la-line"><i
+                                            class="fa fa-times" aria-hidden="true"></i>  <span>삭제하기</span></span>
+                                <script>
+                                    $("#del").click(function () {
+                                        window.location.assign("");
+                                    });
+                                </script>
+                            @endif
+
 
                             <div class="panel02 panel-default02 margin-top-20">
 
@@ -40,7 +58,7 @@
 
                         <div style="clear:both;"></div>
                         <div class="p_search02_txt margin-top-20">
-                            <h5>공지 내용</h5>
+                            <h5>내용</h5>
 
                             <br>
                             {{ $communi->content }}

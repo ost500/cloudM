@@ -10,8 +10,11 @@
     <!-- Job Content -->
     <div id="accordion">
 
+
         <!-- Job Section -->
         <div class="job-content job-post-page">
+            <a href="{{ route('communication_create_post',['p_id' => $p_id]) }}"
+               class="button004 signup002 margin-top-12">작성</a>
             <!-- Job Tittle -->
             <table class="table">
                 <col style="width:10%;"/>

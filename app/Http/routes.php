@@ -163,7 +163,7 @@ Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[1-9]+']);
 
 //프로필 포트폴리오 detail
-Route::get("/profile/portfolio/{id}",['as'=>'portfolio_detail','uses'=>'MypageController@portfolio_detail'])
+Route::get("/profile/portfolio/{id}", ['as' => 'portfolio_detail', 'uses' => 'MypageController@portfolio_detail'])
     ->where(['id' => '[1-9]+']);
 Route::get("/partner/portfolio/{id}", 'MypageController@portfolio_detail')
     ->where(['id' => '[1-9]+']);
@@ -230,10 +230,21 @@ Route::get('/client/project/posted', 'ProcessController@posted_client');
 //진행 중 프로젝트
 Route::get('/client/project/carryon', 'ProcessController@carry_on_client');
 //커뮤니케이션 게시판
-Route::get('/client/project/carryon/{p_id}', 'ProcessController@communication_PC')
+Route::get('/client/project/carryon/{p_id}',
+    ['as' => 'communication', 'uses' => 'ProcessController@communication_PC'])
     ->where(['p_id' => '[0-9]+']);
 Route::get('/client/project/carryon/{p_id}/{id}', 'ProcessController@communication_PC_detail')
     ->where(['id' => '[0-9]+']);
+Route::get('/client/project/carryon/{p_id}/create',
+    ['as' => 'communication_create', 'uses' => 'ProcessController@communication_PC_create']);
+Route::post('/client/project/carryon/{p_id}/create',
+    ['as' => 'communication_create_post', 'uses' => 'ProcessController@communication_PC_create_post']);
+Route::get('/client/project/carryon/{id}/update',
+    ['as' => 'communication_update', 'uses' => 'ProcessController@communication_PC_update']);
+Route::post('/client/project/carryon/{id}/update',
+    ['as' => 'communication_update_put', 'uses' => 'ProcessController@communication_PC_update_put']);
+Route::post('/client/project/carryon/{id}/delete',
+    ['as' => 'communication_update_put', 'uses' => 'ProcessController@communication_PC_update_put']);
 //완료된 프로젝트
 Route::get('/client/project/done', 'ProcessController@done_client');
 //취소한 프로젝트
