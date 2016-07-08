@@ -69,7 +69,6 @@ class MypageController extends Controller
             return view('mypage/dashBoardP', compact('loginUser', 'app', 'carryon', 'compeleted'));
 
         } else {
-
             $projects = Project::where('Client_id', '=', Auth::user()->id);
             $checking = $projects->where('step', '=', '검수')->get();
 
@@ -100,8 +99,11 @@ class MypageController extends Controller
             $registered = $registered->sortByDesc('created_at');
             $proceeding = $proceeding->sortByDesc('created_at');
             $done = $done->sortByDesc('created_at');
+
+
+            $count = 0;
             return view('mypage/dashBoardC',
-                compact('loginUser', 'checking', 'registered', 'proceeding', 'done'));
+                compact('loginUser', 'checking', 'registered', 'proceeding', 'done', 'count'));
         }
     }
 

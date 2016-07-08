@@ -2,7 +2,6 @@
 @section('content')
 
     @foreach($detailProject as $project)
-
         <!-- Content -->
         <div id="content" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
@@ -159,7 +158,7 @@
                                         </div>
 
                                         <div class="form-group margin-top-20">
-                                            <label class="col-sm-2 control-label"><span class="symbol required"></span> 포트폴리오 </label>
+                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 포트폴리오 </label>
                                             <div class="col-sm-10">
                                                 <div class="radio">
                                                     <input type="radio" id="radio1"

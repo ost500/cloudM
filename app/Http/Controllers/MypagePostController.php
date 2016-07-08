@@ -96,7 +96,7 @@ class MypagePostController extends Controller
             ['phone_num1' => ['required', 'max:4'],
                 'phone_num2' => ['required', 'max:4'],
                 'phone_num3' => ['required', 'max:4'],
-                'fax_num' => ['max:12']],
+                'fax_num' => ['max:13']],
             ['required' => '휴대폰 번호는 필수입니다',
                 'max' => ':max 자리까지 입력 가능합니다']
         );

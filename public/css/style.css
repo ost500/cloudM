@@ -6234,6 +6234,138 @@ input#comment_status {
     margin-bottom: 0px;
 }
 
+
+
+/* todo */
+.todo-list .todo-header {
+    color: #454545;
+    display: block;
+    margin: 0;
+    padding:0;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.todo-list .todo-header:first-child {
+    margin-top: 10px;
+}
+.todo-list ul {
+    padding-top: 10px;
+    list-style: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.todo-list ul.todo-completed li > p {
+    color: rgba(27, 34, 44, 0.32);
+    font-style: italic;
+    text-decoration: line-through;
+}
+.todo-list ul li {
+    padding-left: 2px;
+    padding-right: 40px;
+    border-radius: 2px;
+    border:1px solid rgba(27, 34, 44, 0.12);
+    margin-bottom: 2px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+.todo-list ul li.ui-sortable-helper {
+    box-shadow: 0 0 1px rgba(27, 34, 44, 0.12), 0 16px 40px -8px rgba(27, 34, 44, 0.2);
+    -webkit-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    transform: rotate(1deg);
+}
+.todo-list ul li .drag-todo {
+    display: block;
+    height: 100%;
+    padding: 7px 26px 0px 10px;
+    width: 24px;
+    vertical-align: top;
+    position: absolute;
+    cursor: -webkit-move;
+    cursor: -moz-move;
+    cursor: move;
+}
+.todo-list ul li .drag-todo .icheck.checkbox-inline {
+    padding-top: 0px;
+}
+.todo-list ul li .drag-todo .icheck.checkbox-inline input[type="checkbox"] {
+    margin-left: 0;
+}
+.todo-list ul li > .todo-description {
+    display: inline-block;
+    width: auto;
+    height: 100%;
+    margin-left: 40px;
+    margin-bottom: 0;
+    padding: 3px 16px 3px 0;
+    min-height: 36px;
+    line-height: normal;
+    font-size: 14px;
+    color: #454545;
+}
+.todo-list ul li:hover .drag-handle:after {
+    border-top: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+}
+.todo-list ul li .todo-options {
+    float: right;
+    top: 8px;
+    right: 8px;
+    position: absolute;
+}
+.todo-list ul li.item-primary {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #03a9f4;
+}
+.todo-list ul li.item-info {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #00bcd4;
+}
+.todo-list ul li.item-danger {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #e51c23;
+}
+.todo-list ul li.item-warning {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #ffeb3b;
+}
+.todo-list ul li.item-success {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #8bc34a;
+}
+.todo-list ul li.item-inverse {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #999da3;
+}
+.todo-list ul li.item-orange {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 2px solid #ff9800;
+}
+.todo-list .todo-footer {
+    padding: 8px;
+    border-top: 1px solid #f2f4f5;
+    background: #fff;
+}
+
+
+
+
+
+/* etc */
 .panel-body06 div {
     overflow: hidden;
     margin-bottom: 20px;
@@ -6370,6 +6502,10 @@ h2.p_add_header i {
     border-right: none;
 }
 
+.table_01 td.left {
+    text-align: left !important;;
+}
+
 
 .table_02 tr th {
     color: #444 !important;
@@ -6398,6 +6534,9 @@ h2.p_add_header i {
     border-right: none;
 }
 
+.table_02 td.left {
+    text-align: left !important;;
+}
 
 .table_03 tr th {
     color: #444 !important;
@@ -6424,6 +6563,9 @@ h2.p_add_header i {
     border-right: none;
 }
 
+.table_03 td.left {
+    text-align: left !important;
+}
 
 .table_04 {
     width:100%;

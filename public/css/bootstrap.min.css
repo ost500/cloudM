@@ -5302,7 +5302,8 @@ a.label:focus, a.label:hover {
     white-space: nowrap;
     vertical-align: middle;
     background-color: #777;
-    border-radius: 10px
+    border-radius: 10px;
+    margin-bottom: 3px;
 }
 
 .badge:empty {

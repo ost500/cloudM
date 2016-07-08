@@ -99,6 +99,21 @@ class ProcessController extends Controller
         return view('mypage.projects_process_client.carry_on', compact('loginUser', 'proceeding'));
     }
 
+    public function carry_on_client_detail($id)
+    {
+        $loginUser = Auth::user();
+        $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
+        $contract = Contract::where('p_id', '=', $id)->get()->first();
+
+        $pay['start'] = ($contract->start_pay_ratio)?@number_format(($contract->contract_pay/$contract->start_pay_ratio)*100):0;
+        $pay['middle'] = ($contract->middle_pay_ratio)?@number_format(($contract->contract_pay/$contract->middle_pay_ratio)*100):0;
+        $pay['finish'] = ($contract->finish_pay_ratio)?@number_format(($contract->contract_pay/$contract->finish_pay_ratio)*100):0;
+
+        return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
+    }
+
+
+
     public function done_client()
     {
         $loginUser = Auth::user();
