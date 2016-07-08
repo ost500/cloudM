@@ -26,23 +26,24 @@
                                     </div>
 
 
-
-
-
                                     <div class="panel padding-top-20">
                                         <div class="tabbable">
                                             <ul id="myTab1" class="nav nav-tabs">
                                                 <li class="active">
-                                                    <a href="#project_tab1" data-toggle="tab" aria-expanded="true"> 계약사항/업무가이드 </a>
+                                                    <a href="#project_tab1" data-toggle="tab" aria-expanded="true">
+                                                        계약사항/업무가이드 </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="#project_tab2" data-toggle="tab" aria-expanded="false"> 체크리스트 </a>
+                                                    <a href="#project_tab2" data-toggle="tab" aria-expanded="false">
+                                                        체크리스트 </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="#project_tab3" data-toggle="tab" aria-expanded="false"> 프로젝트 게시판 </a>
+                                                    <a href="#project_tab3" data-toggle="tab" aria-expanded="false">
+                                                        프로젝트 게시판 </a>
                                                 </li>
                                                 <li class="">
-                                                    <a href="#project_tab4" data-toggle="tab" aria-expanded="false"> 탈락 지원자 </a>
+                                                    <a href="#project_tab4" data-toggle="tab" aria-expanded="false"> 탈락
+                                                        지원자 </a>
                                                 </li>
                                             </ul>
 
@@ -84,11 +85,18 @@
 
 
                                                             <tr>
-                                                                <td>{{ $contract->start_work_date }} ~ {{ $contract->finish_work_date }}</td>
+                                                                <td>{{ $contract->start_work_date }}
+                                                                    ~ {{ $contract->finish_work_date }}</td>
                                                                 <td>{{ $contract->type_pay }}</td>
-                                                                <td>{{ $pay['start'] }}원 ({{ $contract->start_pay_ratio }}%) / {{ $contract->start_pay_date }} </td>
-                                                                <td>{{ $pay['middle'] }}원 ({{ $contract->middle_pay_ratio }}%) / {{ $contract->middle_pay_date }} </td>
-                                                                <td>{{ $pay['finish'] }}원 ({{ $contract->finish_pay_ratio }}%) / {{ $contract->finish_pay_date }} </td>
+                                                                <td>{{ $pay['start'] }}원
+                                                                    ({{ $contract->start_pay_ratio }}%)
+                                                                    / {{ $contract->start_pay_date }} </td>
+                                                                <td>{{ $pay['middle'] }}원
+                                                                    ({{ $contract->middle_pay_ratio }}%)
+                                                                    / {{ $contract->middle_pay_date }} </td>
+                                                                <td>{{ $pay['finish'] }}원
+                                                                    ({{ $contract->finish_pay_ratio }}%)
+                                                                    / {{ $contract->finish_pay_date }} </td>
                                                             </tr>
                                                         </table>
                                                     </div>
@@ -114,7 +122,9 @@
 
 
                                                             <tr>
-                                                                <td><a href="{{ url('partner/'.$contract->user->id) }}"><button class="btn btn-azure btn-sm">{{ $contract->user->name }}</button></a></td>
+                                                                <td><a href="{{ url('partner/'.$contract->user->id) }}">
+                                                                        <button class="btn btn-azure btn-sm">{{ $contract->user->name }}</button>
+                                                                    </a></td>
                                                                 <td>{{ $project->charger_name }}</td>
                                                                 <td>{{ $contract->user->phone_num }}</td>
                                                                 <td>{{ $contract->user->email }}</td>
@@ -154,24 +164,29 @@
 
                                                             <div class="todo-list">
                                                                 <span class="todo-header">체크사항</span>
-                                                                <ul class="connectedSortable ui-sortable" id="sortable-todo">
+                                                                <ul class="connectedSortable ui-sortable"
+                                                                    id="sortable-todo">
 
                                                                     <li class="">
                                                                     <span class="drag-todo">
                                                                         <span class="checkbox pt">
-                                                                            <input type="checkbox" class="tectonic" id="checked2" value="1" name="ham">
+                                                                            <input type="checkbox" class="tectonic"
+                                                                                   id="checked2" value="1" name="ham">
                                                                             <label for="checked2"></label>
                                                                         </span>
                                                                     </span>
                                                                         <p class="todo-description">
-                                                                            Sketch wireframes for new project and send it to client as soon as possible
+                                                                            Sketch wireframes for new project and send
+                                                                            it to client as soon as possible
                                                                         </p>
 
                                                                     </li>
                                                                     <li class="">
                                                                         <span class="drag-todo">
                                                                             <span class="checkbox pt">
-                                                                                <input type="checkbox" class="tectonic" id="checked3" value="1" name="ham">
+                                                                                <input type="checkbox" class="tectonic"
+                                                                                       id="checked3" value="1"
+                                                                                       name="ham">
                                                                                 <label for="checked3"></label>
                                                                             </span>
                                                                         </span>
@@ -183,7 +198,9 @@
                                                                     <li class="">
                                                                         <span class="drag-todo">
                                                                             <span class="checkbox pt">
-                                                                                <input type="checkbox" class="tectonic" id="checked4" value="1" name="ham">
+                                                                                <input type="checkbox" class="tectonic"
+                                                                                       id="checked4" value="1"
+                                                                                       name="ham">
                                                                                 <label for="checked4"></label>
                                                                             </span>
                                                                         </span>
@@ -195,7 +212,10 @@
                                                                     <li class="">
                                                                             <span class="drag-todo">
                                                                                 <span class="checkbox pt">
-                                                                                    <input type="checkbox" class="tectonic" id="checked5" value="1" name="ham">
+                                                                                    <input type="checkbox"
+                                                                                           class="tectonic"
+                                                                                           id="checked5" value="1"
+                                                                                           name="ham">
                                                                                     <label for="checked5"></label>
                                                                                 </span>
                                                                             </span>
@@ -206,7 +226,9 @@
                                                                     <li class="">
                                                                         <span class="drag-todo">
                                                                             <span class="checkbox pt">
-                                                                                <input type="checkbox" class="tectonic" id="checked6" value="1" name="ham" checked="">
+                                                                                <input type="checkbox" class="tectonic"
+                                                                                       id="checked6" value="1"
+                                                                                       name="ham" checked="">
                                                                                 <label for="checked6"></label>
                                                                             </span>
                                                                             <span class="drag-image"></span>
@@ -215,14 +237,18 @@
                                                                             Assign todo to designers
                                                                         </p>
 
-                                                                    </li></ul>
+                                                                    </li>
+                                                                </ul>
                                                                 <span class="todo-header margin-top-50">처리완료</span>
-                                                                <ul class="todo-completed connectedSortable ui-sortable" id="completed-todo">
+                                                                <ul class="todo-completed connectedSortable ui-sortable"
+                                                                    id="completed-todo">
 
                                                                     <li class="">
                                                                         <span class="drag-todo">
                                                                             <span class="checkbox pt">
-                                                                                <input type="checkbox" class="tectonic" id="checked7" value="1" name="ham" checked="">
+                                                                                <input type="checkbox" class="tectonic"
+                                                                                       id="checked7" value="1"
+                                                                                       name="ham" checked="">
                                                                                 <label for="checked7"></label>
                                                                             </span>
                                                                             <span class="drag-image"></span>
@@ -234,7 +260,9 @@
                                                                     <li class="">
                                                                         <span class="drag-todo">
                                                                             <span class="checkbox pt">
-                                                                                <input type="checkbox" class="tectonic" id="checked1" value="1" name="ham">
+                                                                                <input type="checkbox" class="tectonic"
+                                                                                       id="checked1" value="1"
+                                                                                       name="ham">
                                                                                 <label for="checked1"></label>
                                                                             </span>
                                                                         </span>
@@ -242,13 +270,14 @@
                                                                             Send project demo files to client
                                                                         </p>
 
-                                                                    </li></ul>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane fade" id="project_tab3">
-
+                                                    <div id="communication_board"></div>
                                                 </div>
                                                 <div class="tab-pane fade" id="project_tab4">
 
@@ -264,6 +293,28 @@
             </div>
         </section>
     </div>
+    <script>
+
+        function viewLoad() {
+            var display_results = $("#communication_board");
+            display_results.html("<img src={{ asset('images/ajax-loader.gif') }}>");
+
+            $.ajax({
+                url: '{{ route('communication',['p_id' => $project->id]) }}',
+
+                success: function (result) {
+
+                    display_results.html(result);
+
+                }
+            });
+        }
+
+        $(function(){
+            viewLoad();
+        });
+
+    </script>
 
     <script type="text/javascript" src="http://tectonic.kaijuthemes.com/assets/demo/demo-app-todo.js"></script>
     @include('include.footer')

@@ -105,13 +105,12 @@ class ProcessController extends Controller
         $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
         $contract = Contract::where('p_id', '=', $id)->get()->first();
 
-        $pay['start'] = ($contract->start_pay_ratio)?@number_format(($contract->contract_pay/$contract->start_pay_ratio)*100):0;
-        $pay['middle'] = ($contract->middle_pay_ratio)?@number_format(($contract->contract_pay/$contract->middle_pay_ratio)*100):0;
-        $pay['finish'] = ($contract->finish_pay_ratio)?@number_format(($contract->contract_pay/$contract->finish_pay_ratio)*100):0;
+        $pay['start'] = ($contract->start_pay_ratio) ? @number_format(($contract->contract_pay / $contract->start_pay_ratio) * 100) : 0;
+        $pay['middle'] = ($contract->middle_pay_ratio) ? @number_format(($contract->contract_pay / $contract->middle_pay_ratio) * 100) : 0;
+        $pay['finish'] = ($contract->finish_pay_ratio) ? @number_format(($contract->contract_pay / $contract->finish_pay_ratio) * 100) : 0;
 
         return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
     }
-
 
 
     public function done_client()
@@ -266,73 +265,5 @@ class ProcessController extends Controller
         return view('mypage.projects_process_partner.done', compact('loginUser', 'compeleted'));
     }
 
-    public function communication_PC($p_id)
-    {
-        $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
-        $communi = Communication::where('project_id', $p_id)->get();
-        $proceeding = $projects->where('step', '=', '계약')
-            ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
-            ->get();
-
-        return view('mypage.CommunicationPC', compact('communi', 'loginUser', 'proceeding', 'p_id'));
-    }
-
-    public function communication_PC_detail($p_id, $id)
-    {
-        $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
-        $communi = Communication::find($id);
-        $proceeding = $projects->where('step', '=', '계약')
-            ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
-            ->get();
-
-        return view('mypage.CommunicationPC_detail', compact('communi', 'loginUser', 'proceeding'));
-    }
-
-    public function communication_PC_create($p_id)
-    {
-        $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
-
-        $proceeding = $projects->where('step', '=', '계약')
-            ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
-            ->get();
-
-        return view('mypage.CommunicationPC_create', compact('loginUser', 'proceeding', 'p_id'));
-    }
-
-    public function communication_PC_create_post(Request $request, $p_id)
-    {
-        $new_communi = new Communication();
-        $new_communi->title = $request->title;
-        $new_communi->content = $request->description;
-        $new_communi->project_id = $p_id;
-        $new_communi->writer_id = Auth::user()->id;
-        $new_communi->save();
-
-        return redirect()->route('communication', ['p_id' => $p_id]);
-    }
-
-    public function communication_PC_update($id)
-    {
-        $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
-        $communi = Communication::find($id);
-        $proceeding = $projects->where('step', '=', '계약')
-            ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
-            ->get();
-        return view('mypage.CommunicationPC_update',compact('loginUser', 'proceeding','communi', 'id'));
-    }
-
-    public function communication_PC_update_put(Request $request, $id)
-    {
-        $update_communi = Communication::find($id);
-        $update_communi->title = $request->title;
-        $update_communi->content = $request->description;
-        $update_communi->save();
-
-        return redirect()->route('communication', ['p_id' => $update_communi->project_id]);
-    }
 
 }

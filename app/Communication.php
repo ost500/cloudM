@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Communication
@@ -26,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Communication extends Model
 {
+    use SoftDeletes;
+
     public function writer()
     {
         return $this->belongsTo('App\User', 'writer_id', 'id');

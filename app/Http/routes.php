@@ -140,8 +140,6 @@ Route::post('/setting/notification/email/save', 'MypagePostController@notificati
 Route::post('/setting/notification/sms/save', 'MypagePostController@notification_sms_update');
 
 
-
-
 // 제안서/견적서 업로드
 Route::post('/proposalFileUpload', 'MypageController@proposalFileUpload');
 
@@ -178,8 +176,6 @@ Route::post("/profile/portfolio/update/{id}", 'MypageController@portfolio_update
     ->where(['id' => '[1-9]+']);
 
 
-
-
 //프로필 edit intro
 Route::get('/profile/intro/edit', 'MypageController@profile_intro_edit');
 Route::post('/profile/intro/edit', 'MypageController@profile_intro_edit_post');
@@ -188,9 +184,6 @@ Route::post('/profile/skill/edit', 'MypageController@profile_skill_edit_post');
 Route::post('/profile/skill/delete', 'MypageController@profile_skill_del_post');
 //프로필 skill list
 Route::get("/profile/skill/list", 'MypageController@profile_skill_list');
-
-
-
 
 
 // application
@@ -225,7 +218,6 @@ Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
     ->where(['id' => '[0-9]+']);
 
 
-
 //내 프로젝트 단계별
 //검수중 프로젝트
 Route::get('/client/project/checking', 'ProcessController@checking_client');
@@ -239,23 +231,24 @@ Route::get('/client/project/posted', 'ProcessController@posted_client');
 Route::get('/client/project/carryon', 'ProcessController@carry_on_client');
 //진행 중 프로젝트 상세정보
 Route::get('/client/project/carryon/{id}', 'ProcessController@carry_on_client_detail')
-    ->where(['id' => '[0-9]+']);;
+    ->where(['id' => '[0-9]+']);
 //커뮤니케이션 게시판
-Route::get('/client/project/carryon/{p_id}',
-    ['as' => 'communication', 'uses' => 'ProcessController@communication_PC'])
+Route::get('/client/project/carryon/communication/{p_id}',
+    ['as' => 'communication', 'uses' => 'CommunicationController@communication_PC'])
     ->where(['p_id' => '[0-9]+']);
-Route::get('/client/project/carryon/{p_id}/{id}', 'ProcessController@communication_PC_detail')
+Route::get('/client/project/carryon/detail/{p_id}/{id}',
+    ['as' => 'communication_detail', 'uses' => 'CommunicationController@communication_PC_detail'])
     ->where(['id' => '[0-9]+']);
 Route::get('/client/project/carryon/{p_id}/create',
-    ['as' => 'communication_create', 'uses' => 'ProcessController@communication_PC_create']);
+    ['as' => 'communication_create', 'uses' => 'CommunicationController@communication_PC_create']);
 Route::post('/client/project/carryon/{p_id}/create',
-    ['as' => 'communication_create_post', 'uses' => 'ProcessController@communication_PC_create_post']);
+    ['as' => 'communication_create_post', 'uses' => 'CommunicationController@communication_PC_create_post']);
 Route::get('/client/project/carryon/{id}/update',
-    ['as' => 'communication_update', 'uses' => 'ProcessController@communication_PC_update']);
+    ['as' => 'communication_update', 'uses' => 'CommunicationController@communication_PC_update']);
 Route::post('/client/project/carryon/{id}/update',
-    ['as' => 'communication_update_put', 'uses' => 'ProcessController@communication_PC_update_put']);
+    ['as' => 'communication_update_put', 'uses' => 'CommunicationController@communication_PC_update_put']);
 Route::post('/client/project/carryon/{id}/delete',
-    ['as' => 'communication_update_put', 'uses' => 'ProcessController@communication_PC_update_put']);
+    ['as' => 'communication_delete', 'uses' => 'CommunicationController@communication_PC_delete']);
 //완료된 프로젝트
 Route::get('/client/project/done', 'ProcessController@done_client');
 //취소한 프로젝트
