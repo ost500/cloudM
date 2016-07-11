@@ -110,9 +110,9 @@
                                                         <h3 class="margin-bottom-20">{{ $project['title'] }}</h3>
                                                     </div>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-krw"></i> 월 예산 <span>{{ number_format($project['budget']) }}</span></span>
+                                                        class="fa fa-krw"></i> 월 예산 <span>{{ number_format($project['budget']) }}원</span></span>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-clock-o"></i> 예상기간 <span>{{ $project['estimated_duration'] }} </span></span>
+                                                        class="fa fa-clock-o"></i> 마케팅기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i
                                                                 class="fa fa-calendar-minus-o"></i> 모집마감 <span>{{ $project['deadline'] }} </span></span>
                                                     <div style="clear:both;"></div>
@@ -157,7 +157,7 @@
 
 
                                                     <div class="margin-top-10">
-                                                        <span class="media-body-sm margin-top-23">관련기술</span>
+                                                        <span class="media-body-sm margin-top-23">요청매체</span>
                                                         <ul class="tags dall margin-top-20 margin-bottom-10">
                                                             @foreach($project->projects_area as $areas)
                                                                 <li><a href="#.">{{ $areas->area }}</a></li>
