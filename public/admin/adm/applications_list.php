@@ -131,6 +131,11 @@ $colspan = 16;
 						where u_id = '$row[user_id]'
 						where step = '대금지급'";
 				$step3 = sql_fetch($sql);
+
+                $sql = "select *
+						from {$g5['project_table']}
+						where id = '$row[p_id]'";
+                $project = sql_fetch($sql);
             ?>
 
                 <tr class="<?php echo $bg; ?>">
@@ -164,7 +169,7 @@ $colspan = 16;
                     <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
                     <td class="td_40 bts">
                         <?php if ($row['choice']=="미팅") {?>
-                        <button type="button" class="btn btn-danger btn-xs" onclick="set_setp('<?=$row[u_id]?>');">계약</button>
+                        <button type="button" class="btn btn-danger btn-xs" onclick="set_setp('<?=$row[u_id]?>', '<?=$project[Client_id]?>');">계약</button>
                         <?php } ?>
                     </td>
                 </tr>
@@ -190,6 +195,7 @@ $colspan = 16;
     <input type="hidden" name="act_button" value="계약">
     <input type="hidden" name="p_id" value="<?=$_GET['p_id']?>">
     <input type="hidden" name="u_id">
+    <input type="hidden" name="c_id">
     <input type="hidden" name="chk[]">
 </form>
 
@@ -213,10 +219,11 @@ $colspan = 16;
         return true;
     }
 
-    function set_setp(u_id) {
+    function set_setp(u_id, c_id) {
         var f = document.fapp;
 
         f.u_id.value = u_id;
+        f.c_id.value = c_id;
         f.action = "applications_list_update.php";
         f.submit();
     }

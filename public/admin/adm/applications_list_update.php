@@ -60,6 +60,7 @@ if ($_POST['act_button'] == "선택수정") {
               created_at  = now(),
               updated_at  = now(),
               u_id        = '{$_POST['u_id']}',
+              c_id        = '{$_POST['c_id']}',
               p_id        = '{$_POST['p_id']}',
               step        = '계약'";
     sql_query($sql);

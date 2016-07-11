@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
+use App\User;
+use App\Client;
 use App\Comments;
+use App\Contract;
 use App\Interesting;
 use App\Project;
 
@@ -38,7 +40,27 @@ class SearchController extends Controller
         }
         $detailProject = Project::where('id', '=', $id)->get();
         $comment = Comments::where('project_id', '=', $id)->get();
-        return view('p_detail', compact('detailProject', 'comment'));
+
+        $client_id = $detailProject->first()->Client_id;
+
+
+        $contracts = Contract::where("c_id", '=', $client_id)->get();
+        $userProject = Project::where("Client_id", '=', $client_id)->get();
+
+        $count['등록'] = $userProject->count();
+        $count['계약'] = 0;
+        $count['완료'] = 0;
+        $count['진행'] = 0;
+        $count['계약률'] = 0;
+        foreach ($contracts as $contract) {
+            if($contract['step'] != "취소") $count['계약']++;
+            if($contract['step'] == "전체완료") $count['완료']++;
+            if($contract['step'] == "계약") $count['진행']++;
+        }
+
+        $count['계약률'] = round((($count['계약'] / $userProject->count()) * 100), 1);
+
+        return view('p_detail', compact('detailProject', 'comment', 'count'));
     }
 
     public function pagination($start, $end)

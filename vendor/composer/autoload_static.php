@@ -358,6 +358,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddClientsIntro' => __DIR__ . '/../..' . '/database/migrations/2016_06_07_034332_add_clients_intro.php',
         'AddCommentsColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_08_005356_add_comments_columns.php',
         'AddCommunicationsSoftdel' => __DIR__ . '/../..' . '/database/migrations/2016_07_08_174940_add_Communications_softdel.php',
+        'AddContractCId' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_172730_add_contract_c_id.php',
         'AddContractPayDate' => __DIR__ . '/../..' . '/database/migrations/2016_07_07_215531_add_contract_pay_date.php',
         'AddContractStep' => __DIR__ . '/../..' . '/database/migrations/2016_05_20_040220_add_contract_step.php',
         'AddContractsPay' => __DIR__ . '/../..' . '/database/migrations/2016_06_29_174334_add_contracts_pay.php',

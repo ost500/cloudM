@@ -5522,6 +5522,12 @@ ul.p_align02 {
     border-radius: 10px;
 }
 
+.partner_profile_200 {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
 .job-sider-bar003 div {
     /*text-align: center;*/
 }
