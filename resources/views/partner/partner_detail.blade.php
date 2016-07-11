@@ -15,62 +15,87 @@
                         <div class="media-body02">
                             <h3 class="margin-bottom-0">{{ $partner['user']->nick }}</h3>
                         </div>
-                            <span class="media-body-sm"><i
-                                        class="fa fa-align-left"></i> 전문분야
-                                @foreach($partner->job()->get() as $jobs)
-                                    <span>{{ $jobs->job }}</span>
-                                @endforeach
-                            </span>
-                            <span class="media-body-sm"><i class="fa fa-user"></i> {{ $partner['user']->company_type }}</span>
-                            <span class="media-body-sm">
-                                @if($partner['user']->auth_check == "인증완료")
-                                    <i class="fa fa-check-circle-o"></i> {{ $partner['user']->auth_check }}
-                                @else
-                                    <i class="fa fa-times "></i> 신원미인증
-                                @endif
-                            </span>
+
+                        <div class="row">
+                            <span class="media-body-sm"><i class="fa fa-at"></i> 전문분야</span>
 
                             <span class="media-body-sm la-line">
-                                @if(strlen($partner['user']->phone_num) > 8)
-                                    <i class="fa fa-check-circle-o"></i> 연락처등록
-                                @else
-                                    <i class="fa fa-times "></i> 연락처미등록
-                                @endif
+                                <ul class="tags ">
+                                @foreach($partner->job()->get() as $jobs)
+                                    <li><a href="#.">{{ $jobs->job }}</a></li>
+                                @endforeach
+                                </ul>
                             </span>
-                            <div class="tags_bg02 margin-top-20 padding-top-5">
-                                <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
+                        </div>
 
 
-                                <div class="row">
-                                    <ul>
-                                        <div class="col-md-2">
-                                            <li>
-                                                <div class="rating star-lg star-lg-4"></div>
-                                            </li>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <li><span class="rating-stats-body stats-body">
-                                                <span class="average-rating-score">4.2</span>
-                                                <span class="rating-append-unit append-unit">/ 평가 20개</span>
-                                            </span></li>
-                                        </div>
+                        <span class="media-body-sm"><i class="fa fa-user"></i> {{ $partner['user']->company_type }}</span>
+                        <span class="media-body-sm">
+                            @if($partner['user']->auth_check == "인증완료")
+                                <i class="fa fa-check-circle-o"></i> {{ $partner['user']->auth_check }}
+                            @else
+                                <i class="fa fa-times "></i> 신원미인증
+                            @endif
+                        </span>
 
-                                        <div class="col-md-4">
-                                            <li><span class="partners-authorized"><i
-                                                            class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span>
-                                            </li>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <li><span class="partners-authorized"><i
-                                                            class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span>
-                                            </li>
-                                        </div>
+                        <span class="media-body-sm la-line">
+                            @if(strlen($partner['user']->phone_num) > 8)
+                                <i class="fa fa-check-circle-o"></i> 연락처등록
+                            @else
+                                <i class="fa fa-times "></i> 연락처미등록
+                            @endif
+                        </span>
+
+                        <span class="media-body-sm la-line">
+                            @if($partner['proposal_file_name'] && file_exists(public_path().$partner['proposal_file_name']))
+                                <i class="fa fa-check-circle-o"></i> 상품소개서 등록
+                            @else
+                                <i class="fa fa-times "></i> 상품소개서 미등록
+                            @endif
+                        </span>
+
+                        <span class="media-body-sm la-line">
+                            @if($partner['company_file_name'] && file_exists(public_path().$partner['company_file_name']))
+                                <i class="fa fa-check-circle-o"></i> 회사소개서 등록
+                            @else
+                                <i class="fa fa-times "></i> 회사소개서 미등록
+                            @endif
+                        </span>
+
+                        <div class="tags_bg02 margin-top-20 padding-top-5">
+                            <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
 
 
-                                    </ul>
-                                </div>
+                            <div class="row">
+                                <ul>
+                                    <div class="col-md-2">
+                                        <li>
+                                            <div class="rating star-lg star-lg-0"></div>
+                                        </li>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <li><span class="rating-stats-body stats-body">
+                                            <span class="average-rating-score">0.0</span>
+                                            <span class="rating-append-unit append-unit">/ 평가 0개</span>
+                                        </span></li>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <li><span class="partners-authorized"><i
+                                                        class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span>
+                                        </li>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <li><span class="partners-authorized"><i
+                                                        class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span>
+                                        </li>
+                                    </div>
+
+
+                                </ul>
                             </div>
                         </div>
+                    </div>
 
 
                     <div class="job-tittle02 txt_color_g">
@@ -87,7 +112,7 @@
                         <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
                         <a href="{{ url('/partner/'.$partner->id.'/portfolio') }}"
                            class="more_btn margin-top-20">더보기 ></a>
-                        <div class="row">
+                        <div class="row padding-left-20">
                             @if($partner->portfolio->isEmpty())
                                 포트폴리오가 없습니다
                             @endif
