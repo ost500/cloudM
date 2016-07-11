@@ -162,7 +162,7 @@ Route::get("/profile/portfolio/create", 'MypageController@portfolio_create');
 Route::post("/profile/portfolio/create", 'MypageController@portfolio_create_post');
 //프로필 포트폴리오 자세히 list
 
-Route::get("/profile/portfolio/list/{id}", 'MypageController@portfolio')
+Route::get("/profile/portfolio/list/{id}", ['as'=>'profile_portfolio_list','uses'=>'MypageController@portfolio'])
     ->where(['id' => '[1-9]+']);
 Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[1-9]+']);
@@ -172,8 +172,7 @@ Route::get("/profile/portfolio/{id}", ['as' => 'portfolio_detail', 'uses' => 'My
     ->where(['id' => '[1-9]+']);
 
 
-
-Route::post("/profile/portfolio/delete/{id}", 'MypageController@portfolio_delete')
+Route::post("/profile/portfolio/delete/{id}", ['as' => 'portfolio_del', 'uses' => 'MypageController@portfolio_delete'])
     ->where(['id' => '[1-9]+']);
 Route::get("/profile/portfolio/update/{id}", 'MypageController@portfolio_update')
     ->where(['id' => '[1-9]+']);
@@ -281,7 +280,6 @@ Route::post('/client/project/carryon/pay/request/{id}', 'ProcessController@carry
     ->where(['id' => '[0-9]+']);
 
 
-
 //완료된 프로젝트
 Route::get('/partner/project/done', 'ProcessController@done_partner');
 
@@ -289,7 +287,7 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 //고객센터
 //공지사항
 Route::get('/customer/notification', 'CustomerCentreController@notification');
-Route::get('/customer/notification/{id}', 'CustomerCentreController@notification_detail')
+Route::get('/customer/notification/{id}', ['as'=>'noti_detail','uses'=>'CustomerCentreController@notification_detail'])
     ->where(['id' => '[0-9]+']);
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');

@@ -1,15 +1,12 @@
 <?php
 if (!defined('_GNUBOARD_')) exit;
-define('G5_MYSQL_HOST', 'localhost');
+define('G5_MYSQL_HOST', 'locahost');
 define('G5_MYSQL_USER', 'homestead');
 define('G5_MYSQL_PASSWORD', 'secret');
 define('G5_MYSQL_DB', 'homestead');
 define('G5_MYSQL_SET_MODE', true);
-
 define('G5_TABLE_PREFIX', 'g5_');
-
 $g5['write_prefix'] = G5_TABLE_PREFIX.'write_'; // 게시판 테이블명 접두사
-
 $g5['auth_table'] = G5_TABLE_PREFIX.'auth'; // 관리권한 설정 테이블
 $g5['config_table'] = G5_TABLE_PREFIX.'config'; // 기본환경 설정 테이블
 $g5['group_table'] = G5_TABLE_PREFIX.'group'; // 게시판 그룹 테이블
@@ -39,7 +36,6 @@ $g5['faq_table'] = G5_TABLE_PREFIX.'faq'; // 자주하시는 질문 테이블
 $g5['faq_master_table'] = G5_TABLE_PREFIX.'faq_master'; // 자주하시는 질문 마스터 테이블
 $g5['new_win_table'] = G5_TABLE_PREFIX.'new_win'; // 새창 테이블
 $g5['menu_table'] = G5_TABLE_PREFIX.'menu'; // 메뉴관리 테이블
-
 $g5['admin_table'] = 'g5_member'; // 관리자 테이블
 $g5['project_table'] = 'projects'; // 프로젝트 테이블
 $g5['application_table'] = 'applications'; // 지원 목록 테이블
