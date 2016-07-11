@@ -187,26 +187,26 @@ class PartnerController extends Controller
 
     public function intro($id)
     {
-        $partner = Partners::find($id);
+        $partner = User::find($id)->partners;
         return view('partner/partner_intro', compact('partner'));
     }
 
     public function portfolio($id)
     {
-        $partner = Partners::find($id);
+        $partner = User::find($id)->partners;
         $portfolios = $partner->portfolio->take(3);
         return view('partner/partner_portfolio', compact('partner', 'portfolios'));
     }
 
     public function job($id)
     {
-        $partner = Partners::find($id);
+        $partner = User::find($id)->partners;
         return view('partner/partner_job', compact('partner'));
     }
 
     public function review($id)
     {
-        $partner = Partners::find($id);
+        $partner = User::find($id)->partners;
         return view('partner/partner_review', compact('partner'));
     }
 }
