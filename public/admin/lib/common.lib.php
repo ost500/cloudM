@@ -702,8 +702,9 @@ function get_group($gr_id)
 function get_member($mb_id, $fields='*')
 {
     global $g5;
+    $sql = " select $fields from {$g5['admin_table']} where mb_id = TRIM('$mb_id') ";
 
-    return sql_fetch(" select $fields from {$g5['admin_table']} where mb_id = TRIM('$mb_id') ");
+    return sql_fetch($sql);
 }
 
 
@@ -775,17 +776,17 @@ function get_admin($admin='super', $fields='*')
 
     $is = false;
     if ($admin == 'board') {
-        $mb = sql_fetch("select {$fields} from {$g5['member_table']} where mb_id in ('{$board['bo_admin']}') limit 1 ");
+        $mb = sql_fetch("select {$fields} from {$g5['admin_table']} where mb_id in ('{$board['bo_admin']}') limit 1 ");
         $is = true;
     }
 
     if (($is && !$mb['mb_id']) || $admin == 'group') {
-        $mb = sql_fetch("select {$fields} from {$g5['member_table']} where mb_id in ('{$group['gr_admin']}') limit 1 ");
+        $mb = sql_fetch("select {$fields} from {$g5['admin_table']} where mb_id in ('{$group['gr_admin']}') limit 1 ");
         $is = true;
     }
 
     if (($is && !$mb['mb_id']) || $admin == 'super') {
-        $mb = sql_fetch("select {$fields} from {$g5['member_table']} where mb_id in ('{$config['cf_admin']}') limit 1 ");
+        $mb = sql_fetch("select {$fields} from {$g5['admin_table']} where mb_id in ('{$config['cf_admin']}') limit 1 ");
     }
 
     return $mb;
@@ -894,7 +895,7 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
 
     // 회원아이디가 없다면 업데이트 할 필요 없음
     if ($mb_id == '') { return 0; }
-    $mb = sql_fetch(" select mb_id from {$g5['member_table']} where mb_id = '$mb_id' ");
+    $mb = sql_fetch(" select email from {$g5['member_table']} where email = '$mb_id' ");
     if (!$mb['mb_id']) { return 0; }
 
     // 회원포인트
@@ -950,7 +951,7 @@ function insert_point($mb_id, $point, $content='', $rel_table='', $rel_id='', $r
 
     // 포인트 UPDATE
     $sql = " update {$g5['member_table']} set mb_point = '$po_mb_point' where mb_id = '$mb_id' ";
-    sql_query($sql);
+    //sql_query($sql);
 
     return 1;
 }
@@ -1204,7 +1205,7 @@ function delete_point($mb_id, $rel_table, $rel_id, $rel_action)
 
         // 포인트 UPDATE
         $sql = " update {$g5['member_table']} set mb_point = '$sum_point' where mb_id = '$mb_id' ";
-        $result = sql_query($sql);
+        //$result = sql_query($sql);
     }
 
     return $result;
@@ -2873,7 +2874,7 @@ function member_delete($mb_id)
         return;
 
     if ($mb['mb_recommend']) {
-        $row = sql_fetch(" select count(*) as cnt from {$g5['member_table']} where mb_id = '".addslashes($mb['mb_recommend'])."' ");
+        $row = sql_fetch(" select count(*) as cnt from {$g5['member_table']} where email = '".addslashes($mb['mb_recommend'])."' ");
         if ($row['cnt'])
             insert_point($mb['mb_recommend'], $config['cf_recommend_point'] * (-1), $mb_id.'님의 회원자료 삭제로 인한 추천인 포인트 반환', "@member", $mb['mb_recommend'], $mb_id.' 추천인 삭제');
     }

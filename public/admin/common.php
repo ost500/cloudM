@@ -338,34 +338,23 @@ if (isset($_REQUEST['gr_id'])) {
 
 // 자동로그인 부분에서 첫로그인에 포인트 부여하던것을 로그인중일때로 변경하면서 코드도 대폭 수정하였습니다.
 if ($_SESSION['ss_mb_id']) { // 로그인중이라면
-    //$member = get_member_email($_SESSION['ss_mb_id']);
+//    $member = get_member_email($_SESSION['ss_mb_id']);
     $member = get_member($_SESSION['ss_mb_id']);
 
     // 차단된 회원이면 ss_mb_id 초기화
     if($member['mb_intercept_date'] && $member['mb_intercept_date'] <= date("Ymd", G5_SERVER_TIME)) {
         set_session('ss_mb_id', '');
         $member = array();
-    } else {
-        // 오늘 처음 로그인 이라면
-        if (substr($member['mb_today_login'], 0, 10) != G5_TIME_YMD) {
-            // 첫 로그인 포인트 지급
-            //insert_point($member['mb_id'], $config['cf_login_point'], G5_TIME_YMD.' 첫로그인', '@login', $member['mb_id'], G5_TIME_YMD);
-
-            // 오늘의 로그인이 될 수도 있으며 마지막 로그인일 수도 있음
-            // 해당 회원의 접근일시와 IP 를 저장
-            //$sql = " update {$g5['member_table']} set mb_today_login = '".G5_TIME_YMDHIS."', mb_login_ip = '{$_SERVER['REMOTE_ADDR']}' where mb_id = '{$member['mb_id']}' ";
-            //sql_query($sql);
-        }
     }
 } else {
     // 자동로그인 ---------------------------------------
     // 회원아이디가 쿠키에 저장되어 있다면 (3.27)
     if ($tmp_mb_id = get_cookie('ck_mb_id')) {
-
         $tmp_mb_id = substr(preg_replace("/[^a-zA-Z0-9_]*/", "", $tmp_mb_id), 0, 20);
         // 최고관리자는 자동로그인 금지
         if (strtolower($tmp_mb_id) != strtolower($config['cf_admin'])) {
-            $sql = " select mb_password, mb_intercept_date, mb_leave_date, mb_email_certify from {$g5['member_table']} where mb_id = '{$tmp_mb_id}' ";
+            $sql = " select mb_password, mb_intercept_date, mb_leave_date, mb_email_certify from {$g5['admin_table']} where mb_id = '{$tmp_mb_id}' ";
+
             $row = sql_fetch($sql);
             $key = md5($_SERVER['SERVER_ADDR'] . $_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT'] . $row['mb_password']);
             // 쿠키에 저장된 키와 같다면
