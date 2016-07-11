@@ -108,6 +108,7 @@ class MypagePostController extends Controller
 
 
         Auth::user()->name = $request->name;
+        Auth::user()->company_type = $request->company_type;
         Auth::user()->sex = $request->sex;
         Auth::user()->BOD = $request->BOD;
         Auth::user()->address = $request->address;

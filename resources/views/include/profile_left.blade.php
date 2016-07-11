@@ -7,7 +7,7 @@
         <a href="/profile" class="head {{ (Request::is('profile'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;프로필관리</a>
 
-        <a href="/profile/portfolio/list/1" class="head {{ (Request::is('profile/portfolio/*'))?"on":"" }}"><i
+        <a href="/profile/portfolio/list/{{ $loginUser->id }}" class="head {{ (Request::is('profile/portfolio/*'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;포트폴리오</a>
 
         <a href="/profile/company" class="head {{ (Request::is('profile/company'))?"on":"" }}"><i

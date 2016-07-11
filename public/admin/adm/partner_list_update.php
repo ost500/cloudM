@@ -41,5 +41,5 @@ if ($msg)
     //echo '<script> alert("'.$msg.'"); </script>';
     alert($msg);
 
-goto_url('./parnter_list.php?'.$qstr);
+goto_url('./partner_list.php?'.$qstr);
 ?>

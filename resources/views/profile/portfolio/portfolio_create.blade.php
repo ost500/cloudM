@@ -240,7 +240,7 @@
 
                     <div class="form-group margin-top-50 margin-bottom-20">
                         <div class="col-sm-offset-5 col-sm-10">
-                            <button class="btn btn-o btn-primary" type="submit">
+                            <button class="btn btn-dark-azure" type="submit">
                                 등록하기
                             </button>
                         </div>

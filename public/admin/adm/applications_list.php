@@ -78,7 +78,7 @@ $colspan = 16;
 </form>
 
 <div class="btn_list01 btn_list">
-	<a href="./project_list.php?page=<?=$page?>&step=<?=$step?>">프로젝트로 돌아가기</a>
+	<a href="./project_form.php?id=<?=$p_id?>&w=u">프로젝트 상세정보</a>
 </div>
 
 

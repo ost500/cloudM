@@ -108,9 +108,12 @@
                                     <p><?php echo mb_strcut($project['detail_content'], 0, 200) . "..."; ?></p>
 
                                     <div id="tag">
-                                        @for ($i = 0; $i < 3; $i++)
-                                            <div class="button">{{ $project->project_area[$i] }}</div>
-                                        @endfor
+
+                                        @foreach($project->projects_area as $area)
+                                            @if($count++ % 4 == 0) @break @endif
+                                            <div class="button">{{ $area->area }}</div>
+                                        @endforeach
+
 
                                         <div class="button">{{ $project->category }}</div>
                                     </div>
