@@ -312,7 +312,7 @@
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
                         <article>
-
+                            <img class="img-responsive post_img00" src="images/m_pho01.png" alt="">
 
                             <!-- Detail -->
                             <div class="post-detail">
@@ -325,6 +325,7 @@
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
                         <article>
+                            <img class="img-responsive post_img00" src="images/m_pho02.png" alt="">
                             <!-- Detail -->
                             <div class="post-detail">
                                 <h8 class="post-tittle">펠리체 송영종 대표님</h8>
@@ -336,7 +337,7 @@
                     <!-- Blog Post -->
                     <div class="col-md-4 no-padding">
                         <article>
-
+                            <img class="img-responsive post_img00" src="images/m_pho03.png" alt="">
                             <!-- Detail -->
                             <div class="post-detail">
                                 <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8>
