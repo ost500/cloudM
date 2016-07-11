@@ -13,6 +13,7 @@ return array(
     'AddClientsIntro' => $baseDir . '/database/migrations/2016_06_07_034332_add_clients_intro.php',
     'AddCommentsColumns' => $baseDir . '/database/migrations/2016_06_08_005356_add_comments_columns.php',
     'AddCommunicationsSoftdel' => $baseDir . '/database/migrations/2016_07_08_174940_add_Communications_softdel.php',
+    'AddContractCId' => $baseDir . '/database/migrations/2016_07_11_172730_add_contract_c_id.php',
     'AddContractPayDate' => $baseDir . '/database/migrations/2016_07_07_215531_add_contract_pay_date.php',
     'AddContractStep' => $baseDir . '/database/migrations/2016_05_20_040220_add_contract_step.php',
     'AddContractsPay' => $baseDir . '/database/migrations/2016_06_29_174334_add_contracts_pay.php',
