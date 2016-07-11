@@ -121,7 +121,7 @@ Route::post('/rm_app', 'DeleteController@delete_application');
 Route::post('/mypage/img', 'MypagePostController@setProfileimg');
 
 // mypage post
-Route::post('/mypage/auth/save', 'MypagePostController@setProfileAuthimg');
+Route::post('/setting/auth/save', 'MypagePostController@setProfileAuthimg');
 
 // User info
 Route::post('/setting/profile/save', 'MypagePostController@set_profile_info');

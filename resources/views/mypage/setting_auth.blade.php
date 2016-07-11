@@ -9,7 +9,7 @@
     <div id="accordion">
         <div class="job-content job-post-page padding-bottom-30">
             <div class="panel-body">
-                <form action="{{ url('/mypage/auth') }}" method="POST" role="form" class="form-horizontal"
+                <form action="{{ url('/setting/auth/save') }}" method="POST" role="form" class="form-horizontal"
                       enctype="multipart/form-data" accept-charset="UTF-8">
                     {!! csrf_field() !!}
 
