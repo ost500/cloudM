@@ -191,7 +191,7 @@
 
                                 @foreach($comment as $comments)
                                     <div class="inquiry_01">
-                                        <span><img class="partner_profile03" src="{{ $comments->user->profileImage }}" onerror="this.src='{{ url('images/p_img02.png') }}'"></span>
+                                        <span><img class="partner_profile03" src="{{ $comments->user->profileImage }}"></span>
                                         <div>
                                             <span><strong>{{ $comments->user->nick }}</strong></span>
                                             @if(Auth::check())

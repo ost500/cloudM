@@ -76,7 +76,7 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'PorC' => "C",
                 'password' => bcrypt($data['password']),
-
+                'profileImage' => '/files/userImage/default'
             ]);
             Client::create([
                 'user_id' => $userCreation['id']
@@ -88,7 +88,7 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'PorC' => "P",
                 'password' => bcrypt($data['password']),
-
+                'profileImage' => '/files/userImage/default'
             ]);
 
             Partners::create([
