@@ -37,7 +37,7 @@
                                 {{ $noti->id }}
                             </td>
                             <td>
-                                <a href="{{ url('customer_centre/notification/'.$noti->id) }}">{{ $noti->notification }}</a>
+                                <a href="{{ route('noti_detail',['id'=>$noti->id]) }}">{{ $noti->notification }}</a>
                             </td>
 
                             <td>

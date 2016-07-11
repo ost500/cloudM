@@ -287,7 +287,7 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 //고객센터
 //공지사항
 Route::get('/customer/notification', 'CustomerCentreController@notification');
-Route::get('/customer/notification/{id}', 'CustomerCentreController@notification_detail')
+Route::get('/customer/notification/{id}', ['as'=>'noti_detail','uses'=>'CustomerCentreController@notification_detail'])
     ->where(['id' => '[0-9]+']);
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
