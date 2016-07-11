@@ -23,7 +23,7 @@
                                 </div>
 
                                 <div id="tag02" class="padding-20">
-                                    <span class="side-tittle_txt01">{{ $project->client->clients->intro }}</span>
+                                    <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
                                 </div>
                             </div>
 
