@@ -57,6 +57,11 @@ Route::get('/partner/{id}/intro', 'PartnerController@intro')
 Route::get('/partner/{id}/portfolio', 'PartnerController@portfolio')
     ->where(['id' => '[0-9]+']);
 
+Route::get("/partner/{user_id}/portfolio/{id}", ['as' => 'partner_portfolio_detail', 'uses' => 'PartnerController@portfolio_detail'])
+    ->where(['user_id' => '[1-9]+'])
+    ->where(['id' => '[1-9]+']);
+
+
 Route::get('/partner/{id}/job', 'PartnerController@job')
     ->where(['id' => '[0-9]+']);
 
@@ -162,11 +167,11 @@ Route::get("/profile/portfolio/list/{id}", 'MypageController@portfolio')
 Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[1-9]+']);
 
-//프로필 포트폴리오 detail
+// 프로필 포트폴리오 detail
 Route::get("/profile/portfolio/{id}", ['as' => 'portfolio_detail', 'uses' => 'MypageController@portfolio_detail'])
     ->where(['id' => '[1-9]+']);
-Route::get("/partner/portfolio/{id}", 'MypageController@portfolio_detail')
-    ->where(['id' => '[1-9]+']);
+
+
 
 Route::post("/profile/portfolio/delete/{id}", 'MypageController@portfolio_delete')
     ->where(['id' => '[1-9]+']);
