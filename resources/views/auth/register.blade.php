@@ -128,9 +128,12 @@
             <div class="col-md-4">
                 <div class="job-content job-post-page register_box">
                     <div class="login_right">
-                        <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 회원가입</a>
-                        <a class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 회원가입</a>
-
+                        <a id="facebook" class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 회원가입</a>
+                        <a id="naver" class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 회원가입</a>
+                        <script>
+                            $("#facebook").click(function(){ alert('준비 중입니다') });
+                            $("#naver").click(function(){ alert('준비 중입니다') });
+                        </script>
                         <p class="redirect01">이미 회원이신가요? <a
                                     href="{{ url('/login') }}"><br><strong>로그인</strong></a></p>
                         <p class="redirect01">비밀번호를 잊으셨나요? <br/><a
