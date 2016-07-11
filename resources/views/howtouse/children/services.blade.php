@@ -6,19 +6,17 @@
 
             <h5 class="side-tittle02">서비스소개</h5>
 
-            <div class="ser01_boxBG">
+            {{--<div class="ser01_boxBG">--}}
 
-                현재 1,257명의 광고주와<br>
-                21,090개의 회사&프리랜서가 활동중입니다.
+                {{--현재 1,257명의 광고주와<br>--}}
+                {{--21,090개의 회사&프리랜서가 활동중입니다.--}}
 
-            </div>
+            {{--</div>--}}
 
             <h4 class="ser_s_title">패스트엠이란?</h4>
             <br>
             <div class="row ser_group">
-                <div class="col-md-5 ser_txt"><br><strong>패스트엠</strong>은 기업의 프로젝트와 회사&프리랜서를 이어주는 마케팅
-                    아웃소싱 플랫폼입니다.<br>
-                    키워드/바이럴/SNS/언론/영상/디자인/홈페이지제작/콘텐츠제작 의뢰까지! 패스트엠을 통해 높은 성과를 만들어보세요.
+                <div class="col-md-5 ser_txt"><br><strong>패스트엠</strong>은 기업의 마케팅 프로젝트와 믿을 만한 광고대행사를 이어주는 마케팅 중개 플랫폼입니다. 키워드/바이럴/SNS/언론/영상/디자인/홈페이지제작/콘텐츠제작 의뢰까지! 패스트엠을 통해 높은 성과를 만들어보세요.
                 </div>
                 <div class="col-md-7">
                     <img src="/images/ser_img01.png" class="img-responsive ser_img001">
