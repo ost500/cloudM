@@ -383,6 +383,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddUsersNotification' => __DIR__ . '/../..' . '/database/migrations/2016_07_04_170726_add_users_notification.php',
         'AddUsersPhonenum' => __DIR__ . '/../..' . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',
         'AlterPartnersJobJob' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_143522_alter_partners_job_job.php',
+        'AlterPortfolioArea' => __DIR__ . '/../..' . '/database/migrations/2016_07_11_151801_alter_portfolio_area.php',
         'ChangeApplicationsChoice' => __DIR__ . '/../..' . '/database/migrations/2016_06_27_145020_change_applications_choice.php',
         'ChangeApplicationsChoice2' => __DIR__ . '/../..' . '/database/migrations/2016_07_05_185207_change_applications_choice2.php',
         'ChangeProjectsCategory' => __DIR__ . '/../..' . '/database/migrations/2016_05_27_053851_change_projects_category.php',

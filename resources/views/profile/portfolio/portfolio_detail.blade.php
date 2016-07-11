@@ -23,10 +23,11 @@
                                     </form>
                                     <script>
                                         $("#delete_port").click(function () {
+
                                             if (confirm('정말로 삭제하시겠습니까?')) {
                                                 $.ajax({
                                                     type: 'POST',
-                                                    url: '/portfolio/delete/'+"{{$portfolios->id}}",
+                                                    url: "profile/portfolio/delete/{{$portfolios->id}}",
                                                     data: $("#delete_portfolio").serialize(),
                                                     success:function(){
                                                         window.location.assign("{{url('/portfolio_list/'.Auth::user()->id)}}");
