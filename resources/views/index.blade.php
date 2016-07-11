@@ -108,8 +108,9 @@
                                     <p><?php echo mb_strcut($project['detail_content'], 0, 200) . "..."; ?></p>
 
                                     <div id="tag">
-
-                                        <div class="button">{{ $project->area }}</div>
+                                        @foreach($project->projects_area as $area)
+                                            <div class="button">{{ $area->area }}</div>
+                                        @endforeach
                                         <div class="button">{{ $project->category }}</div>
                                     </div>
                                     </a>
