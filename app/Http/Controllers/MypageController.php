@@ -447,7 +447,7 @@ class MypageController extends Controller
         $new_port->partner_id = Auth::user()->partners->id;
         $new_port->save();
 
-        if ($request->hasFile('image2')) {
+        if ($request->hasFile('image1')) {
 //        echo $request->image123;
             $file = $request->file('image1');
 
