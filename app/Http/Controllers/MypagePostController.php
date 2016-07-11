@@ -51,7 +51,7 @@ class MypagePostController extends Controller
 
             $validator = Validator::make(
                 ['auth_image' => $request->file('auth_image')],
-                ['auth_image' => ['image', 'max:500']]
+                ['auth_image' => ['image', 'max:1024']]
             );
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator->errors());
