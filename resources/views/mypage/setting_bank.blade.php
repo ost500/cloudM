@@ -90,6 +90,12 @@
                                 <option value="54">비엔비파리바은행</option>
                             </select>
 
+                            <script type="text/javascript">
+                                $(function(){
+                                    $("#bank").val("<?=$loginUser->bank?>");
+                                });
+                            </script>
+
                             <p class="validation-error">{{ $errors->first('bank') }}</p>
                         </div>
                     </div>
@@ -128,4 +134,5 @@
             </div>
         </div>
     </div>
+    \
 @endsection
