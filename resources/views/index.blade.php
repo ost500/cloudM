@@ -108,8 +108,9 @@
                                     <p><?php echo mb_strcut($project['detail_content'], 0, 200) . "..."; ?></p>
 
                                     <div id="tag">
-
-                                        <div class="button">{{ $project->area }}</div>
+                                        @foreach($project->projects_area as $area)
+                                            <div class="button">{{ $area->area }}</div>
+                                        @endforeach
                                         <div class="button">{{ $project->category }}</div>
                                     </div>
                                     </a>
@@ -313,9 +314,7 @@
                             <div class="post-detail">
                                 <h8 class="post-tittle">비즈팜 김남형 부장님</h8>
                                 <span><img src="images/m_pho01_txt.png"></span>
-                                <p>프로젝트 계약부터 대금보호, 분쟁조정, 대금지금까지<br>
-                                    패스트엠 프로젝트 매니저가 꼼꼼하게 일을 처리해주어서<br>
-                                    프로젝트에만 집중해서 좋은 결과를 낼 수 있었습니다.</p>
+
                             </div>
                         </article>
                     </div>
@@ -326,9 +325,7 @@
                             <div class="post-detail">
                                 <h8 class="post-tittle">펠리체 송영종 대표님</h8>
                                 <span><img src="images/m_pho02_txt.png"></span>
-                                <p>업종/분야별 전문 대행사들이 실제로 진행한<br>
-                                    프로젝트 포트폴리오와 객관적인 고객들의 평가를 통해서<br>
-                                    실력있는 대행사를 찾을 수 있어 너무 좋았습니다.</p>
+
                             </div>
                         </article>
                     </div>
@@ -340,9 +337,7 @@
                             <div class="post-detail">
                                 <h8 class="post-tittle">솔가 마케팅담당 김서영님</h8>
                                 <span><img src="images/m_pho03_txt.png"></span>
-                                <p>급하게 진행할 마케팅 프로젝트에서 대행사를 찾고 있었는데,<br>
-                                    프로젝트 등록 후 빠르게 적합한 대행사를 찾아<br>
-                                    프로젝트를 진행할 수 있었습니다.</p>
+
                             </div>
                         </article>
                     </div>
