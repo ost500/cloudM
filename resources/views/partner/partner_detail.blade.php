@@ -17,19 +17,6 @@
                                 <h3 class="margin-bottom-0">{{ $partner['user']->nick }}</h3>
                             </div>
 
-                            <div class="row">
-                                <span class="media-body-sm"><i class="fa fa-at"></i> 전문분야</span>
-
-                                <span class="media-body-sm la-line">
-                                    <ul class="tags ">
-                                    @foreach($partner->job()->get() as $jobs)
-                                        <li><a href="#.">{{ $jobs->job }}</a></li>
-                                    @endforeach
-                                    </ul>
-                                </span>
-                            </div>
-
-
                             <span class="media-body-sm"><i class="fa fa-user"></i> {{ $partner['user']->company_type }}</span>
                             <span class="media-body-sm">
                                 @if($partner['user']->auth_check == "인증완료")
@@ -127,8 +114,9 @@
                                             </div>
                                             <div class="caption">
                                                 <a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}">
-                                                    <h3 class="thum_title">{{ $portfolio->title }}</h3>
+                                                    <h6>{{ $portfolio->title }}</h6>
                                                 </a>
+
                                                 <p class="thum_category">{{ $portfolio->area }}
                                                     > {{ $portfolio->category }}</p>
                                                 <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}"
