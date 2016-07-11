@@ -198,6 +198,15 @@ class PartnerController extends Controller
         return view('partner/partner_portfolio', compact('partner', 'portfolios'));
     }
 
+    public function portfolio_detail($user_id, $id)
+    {
+        $partner = User::find($user_id)->partners;
+
+        $portfolios = $partner->portfolio->find($id);
+
+        return view('partner/portfolio_detail', compact('partner', 'portfolios'));
+    }
+
     public function job($id)
     {
         $partner = User::find($id)->partners;

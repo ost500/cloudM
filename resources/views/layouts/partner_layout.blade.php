@@ -19,13 +19,13 @@
 
                     <div class="job-sider-bar02">
                         <div class="side-bar-revenues">
-                            <a href="{{ url('partner') }}/{{ $partner['user']->id }}" class="head  {{ (Request::is('partner/[1-9]+'))?"on":"" }}"><i
+                            <a href="{{ url('partner') }}/{{ $partner['user']->id }}" class="head  {{ (Request::is('partner/'.$partner['user']->id))?"on":"" }}"><i
                                         class="fa fa-angle-double-right"></i> 전체보기</a>
 
                             <a href="{{ url('partner')}}/{{ $partner['user']->id }}/intro" class="head {{ (Request::is('partner/*/intro'))?"on":"" }}"><i
                                         class="fa fa-angle-double-right "></i> 자기소개</a>
 
-                            <a href="{{ url('partner')}}/{{ $partner['user']->id }}/portfolio" class="head {{ (Request::is('partner/*/portfolio'))?"on":"" }}"><i
+                            <a href="{{ url('partner')}}/{{ $partner['user']->id }}/portfolio" class="head {{ (Request::is('partner/*/portfolio')) || (Request::is('partner/*/portfolio/*'))?"on":"" }}"><i
                                         class="fa fa-angle-double-right "></i> 포트폴리오</a>
 
                             <a href="{{ url('partner')}}/{{ $partner['user']->id }}/job" class="head {{ (Request::is('partner/*/job'))?"on":"" }}"><i
