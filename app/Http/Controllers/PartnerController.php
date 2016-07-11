@@ -180,7 +180,7 @@ class PartnerController extends Controller
     public function detail($id)
     {
         $loginUser = Auth::user();
-        $partner = Partners::find($id);
+        $partner = User::find($id)->partners;
         $portfolios = $partner->portfolio->take(3);
         return view('partner/partner_detail', compact('loginUser', 'partner', 'portfolios'));
     }
