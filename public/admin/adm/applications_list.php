@@ -8,6 +8,11 @@ auth_check($auth[$sub_menu], 'r');
 $step = $_GET['step'];
 $p_id = $_GET['p_id'];
 
+$sql = "select *
+        from {$g5['contract_table']}
+        where p_id = '$p_id'";
+$contract = sql_fetch($sql);
+
 
 $sql_common = " from {$g5['application_table']} as a left join {$g5['member_table']} as b ";
 $sql_common .= " on a.u_id = b.id ";
@@ -168,9 +173,15 @@ $colspan = 16;
                     </td>
                     <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
                     <td class="td_40 bts">
-                        <?php if ($row['choice']=="미팅") {?>
-                        <button type="button" class="btn btn-danger btn-xs" onclick="set_setp('<?=$row[u_id]?>', '<?=$project[Client_id]?>');">계약</button>
-                        <?php } ?>
+                        <?php
+                            if ($row['choice']=="미팅") {
+                                if ($contract['u_id'] == $row['u_id']) {
+                                    echo "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"set_setp('$row[u_id]', '$project[Client_id]');\">계약완료</button>";
+                                } else {
+                                    echo "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"set_setp('$row[u_id]', '$project[Client_id]');\">계약</button>";
+                                }
+                            }
+                        ?>
                     </td>
                 </tr>
 

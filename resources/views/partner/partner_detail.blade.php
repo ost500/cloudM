@@ -14,7 +14,7 @@
 
                         <div class="job-tittle02">
                             <div class="media-body02">
-                                <h3 class="margin-bottom-0">{{ $partner['user']->nick }}</h3>
+                                <h3 class="margin-bottom-10">{{ $partner['user']->nick }}</h3>
                             </div>
 
                             <span class="media-body-sm"><i class="fa fa-user"></i> {{ $partner['user']->company_type }}</span>
@@ -90,8 +90,16 @@
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/intro') }}" class="more_btn margin-top-20">더보기></a>
 
+                            @if(!$partner->intro)
+                                <div class="text-center">
+                                    <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
 
+                                    <div class="padding-bo"></div>
+                                    <h7>자기소개가 없습니다</h7>
+                                </div>
+                            @else
                             {{ $partner->intro }}
+                            @endif
 
                         </div>
 
@@ -102,7 +110,12 @@
                                class="more_btn margin-top-20">더보기 ></a>
                             <div class="row padding-left-15">
                                 @if($partner->portfolio->isEmpty())
-                                    포트폴리오가 없습니다
+                                    <div class="text-center">
+                                        <img class="padding-bottom-10" src="http://fastm.io/images/empty_portfolio.png" data-pin-nopin="true">
+
+                                        <div class="padding-bo"></div>
+                                        <h7>포트폴리오가 없습니다</h7>
+                                    </div>
                                 @endif
                                 @foreach($portfolios as $portfolio)
                                     <div class="col-md-4">
@@ -133,6 +146,14 @@
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
+                            @if($partner->job()->get()->isEmpty())
+                                <div class="text-center">
+                                    <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
+
+                                    <div class="padding-bo"></div>
+                                    <h7>전문분야가 없습니다</h7>
+                                </div>
+                            @else
                             <div class="panel02 panel-default02 margin-top-20">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                     <col style="width:16.6%;"/>
@@ -146,11 +167,6 @@
 
                                     </tr>
                                     <tbody id="skill_list">
-                                    @if($partner->job()->get()->isEmpty())
-                                        <tr>
-                                            <td colspan="3">전문분야가 없습니다</td>
-                                        </tr>
-                                    @endif
                                     @foreach($partner->job()->get() as $job)
                                         <tr>
                                             <td>{{ $job->job }} {{ $job->number }}</td>
@@ -159,9 +175,9 @@
                                         </tr>
                                     @endforeach
                                     </tbody>
-
                                 </table>
                             </div>
+                            @endif
                         </div>
 
 
@@ -198,7 +214,12 @@
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/review') }}" class="more_btn margin-top-20">더보기
                                 ></a>
-                            평가가 없습니다
+                            <div class="text-center">
+                                <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
+
+                                <div class="padding-bo"></div>
+                                <h7>평가가 없습니다</h7>
+                            </div>
 
                         </div>
 
