@@ -84,6 +84,9 @@ class CreateController extends Controller
         $input->charger_name = $request->name;
         $input->charger_phone = $request->phone;
 
+        $request->money = str_replace(',','', $request->money);
+        $request->money = str_replace('¿ø','', $request->money);
+
 
         //$input->area = $request->area;
         $input->category = $request->category;
@@ -101,10 +104,8 @@ class CreateController extends Controller
         $input->Client_id = Auth::user()->id;
         $input->save();
 
-        echo "aaaa";
         if ($request->hasFile('project_attach')) {
 
-            echo "bbbb";
             $file = $request->file('project_attach');
 
 
