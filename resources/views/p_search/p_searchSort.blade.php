@@ -28,10 +28,10 @@
                                 <div class="media-body">
                                     @if(Auth::check())
                                         <a href="{{ url('detail/'.$project['id']) }}">
-                                            <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
+                                            <h5>{{ $project['title']}}</h5></a>
                                     @else
                                         <a href="{{url('/login')}}">
-                                            <h5>{{ $project['title']."  ".$project['id'] }}</h5></a>
+                                            <h5>{{ $project['title']}}</h5></a>
                                     @endif
 
 
