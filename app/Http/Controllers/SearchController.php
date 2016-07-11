@@ -47,6 +47,7 @@ class SearchController extends Controller
         $contracts = Contract::where("c_id", '=', $client_id)->get();
         $userProject = Project::where("Client_id", '=', $client_id)->get();
 
+        $count['등록'] = $userProject->count();
         $count['계약'] = 0;
         $count['완료'] = 0;
         $count['진행'] = 0;

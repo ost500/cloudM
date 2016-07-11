@@ -87,7 +87,7 @@
                                     <tbody>
                                     <tr>
                                         <th>등록 프로젝트</th>
-                                        <td>{{ $project->count() }}건</td>
+                                        <td>{{ $count['등록'] }}건</td>
                                     </tr>
                                     <tr>
                                         <th>계약한 프로젝트</th>
