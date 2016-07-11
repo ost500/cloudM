@@ -111,7 +111,7 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">포트폴리오</h6>
-                            <a href="{{ url('/partner/'.$partner->id.'/portfolio') }}"
+                            <a href="{{ url('/profile/partner/'.$partner->id.'/portfolio') }}"
                                class="more_btn margin-top-20">더보기 ></a>
                             <div class="row padding-left-15">
                                 @if($partner->portfolio->isEmpty())
@@ -126,12 +126,12 @@
                                                             class="img-responsive"></a>
                                             </div>
                                             <div class="caption">
-                                                <a href="{{ url('/portfolio/'.$portfolio->id) }}">
+                                                <a href="{{ route('portfolio_detail',['id' =>$portfolio->id]) }}">
                                                     <h3 class="thum_title">{{ $portfolio->title }}</h3>
                                                 </a>
                                                 <p class="thum_category">{{ $portfolio->area }}
                                                     > {{ $portfolio->category }}</p>
-                                                <p><a href="{{ url('/portfolio/'.$portfolio->id) }}"
+                                                <p><a href="{{ route('portfolio_detail',['id' =>$portfolio->id]) }}"
                                                       class="btn btn-primary margin-top-10"
                                                       role="button">자세히보기</a></p>
                                             </div>
