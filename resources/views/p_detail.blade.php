@@ -14,24 +14,19 @@
                         <div class="col-md-3">
                             <div class="job-sider-bar003">
                                 <h5 class="side-tittle">광고주</h5>
-                                <div class="col-md-3">
+                                <div class="col-md-12 text-center">
                                     @if($project->client->profileImage != null)
-                                        <img class="partner_profile02"
-                                             src="{{ URL::asset($project->client->profileImage) }}"><br>
+                                        <img class="partner_profile_200" src="{{ URL::asset($project->client->profileImage) }}"><br>
                                     @else
-                                        <img class="partner_profile02" src="/images/p_img02.png"><br>
+                                        <img class="partner_profile0_150" src="/images/p_img02.png"><br>
                                     @endif
                                 </div>
-                                <div class="col-md-9">
-                                    <p class="side-title-name"><h5
-                                            class="text-center">{{ $project->client->nick }}</h5></p>
-                                    <a href="#.">
-                                        <div id="tag02">
-                                            <span class="side-tittle_txt01">{{ $project->client->intro }}</span>
-                                        </div>
-                                    </a>
+
+                                <div id="tag02" class="padding-20">
+                                    <span class="side-tittle_txt01">{{ $project->client->clients->intro }}</span>
                                 </div>
                             </div>
+
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -84,6 +79,42 @@
                                         </form>
                                     </a>
                                 </div>
+                            </div>
+
+                            <div class="job-sider-bar02">
+                                <h5 class="side-tittle">클라이언트 정보</h5>
+                                <table class="history_table">
+                                    <tbody>
+                                    <tr>
+                                        <th>등록 프로젝트</th>
+                                        <td>{{ $project->count() }}건</td>
+                                    </tr>
+                                    <tr>
+                                        <th>계약한 프로젝트</th>
+                                        <td>{{ $count['계약'] }}건</td>
+                                    </tr>
+                                    <tr>
+                                        <th>계약률</th>
+                                        <td>{{ $count['계약률'] }}%</td>
+                                    </tr>
+                                    <tr>
+                                        <th>진행중 프로젝트</th>
+                                        <td>{{ $count['진행'] }}건</td>
+                                    </tr>
+                                    <tr>
+                                        <th>완료한 프로젝트</th>
+                                        <td>{{ $count['완료'] }}건</td>
+                                    </tr>
+                                    {{--<tr>--}}
+                                        {{--<th>평균 진행기간</th>--}}
+                                        {{--<td>{{ $project->count() }}건</td>--}}
+                                    {{--</tr>--}}
+                                    {{--<tr>--}}
+                                        {{--<th>평균 집행비용</th>--}}
+                                        {{--<td>{{ $project->count() }}건</td>--}}
+                                    {{--</tr>--}}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
