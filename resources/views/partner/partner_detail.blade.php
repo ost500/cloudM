@@ -89,9 +89,13 @@
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/intro') }}" class="more_btn margin-top-20">더보기></a>
-
-
-                            {{ $partner->intro }}
+                            @if($partner->intro == null)
+                                <img class="img_cen" src="{{asset('images/empty_introduction.png')}}">
+                                <div class="clear"></div>
+                                <h7>자기소개가 없습니다</h7>
+                            @else
+                                {{ $partner->intro }}
+                            @endif
 
                         </div>
 
@@ -102,7 +106,9 @@
                                class="more_btn margin-top-20">더보기 ></a>
                             <div class="row padding-left-15">
                                 @if($partner->portfolio->isEmpty())
-                                    포트폴리오가 없습니다
+                                    <img class="img_cen" src="{{asset('images/empty_portfolio.png')}}">
+                                    <div class="clear"></div>
+                                    <h7 style="text-align: center">포트폴리오가 없습니다</h7>
                                 @endif
                                 @foreach($portfolios as $portfolio)
                                     <div class="col-md-4">
@@ -119,9 +125,10 @@
 
                                                 <p class="thum_category">{{ $portfolio->area }}
                                                     > {{ $portfolio->category }}</p>
-                                                <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}"
-                                                      class="btn btn-primary margin-top-10"
-                                                      role="button">자세히보기</a></p>
+                                                <p>
+                                                    <a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}"
+                                                       class="btn btn-primary margin-top-10"
+                                                       role="button">자세히보기</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -132,7 +139,8 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
-                            <a href="{{ url('partner/'.$partner->user_id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
+                            <a href="{{ url('partner/'.$partner->user_id.'/job') }}" class="more_btn margin-top-20">더보기
+                                ></a>
                             <div class="panel02 panel-default02 margin-top-20">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                     <col style="width:16.6%;"/>
@@ -148,7 +156,9 @@
                                     <tbody id="skill_list">
                                     @if($partner->job()->get()->isEmpty())
                                         <tr>
-                                            <td colspan="3">전문분야가 없습니다</td>
+                                            <td colspan="3"><img class="img_cen"
+                                                                 src="{{asset('images/empty_area.png')}}"><br>전문분야가 없습니다
+                                            </td>
                                         </tr>
                                     @endif
                                     @foreach($partner->job()->get() as $job)
@@ -198,12 +208,11 @@
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/review') }}" class="more_btn margin-top-20">더보기
                                 ></a>
-                            평가가 없습니다
+                            <img class="img_cen" src="{{asset('images/empty_area.png')}}">
+                            <div class="clear"></div>
+                            <h7>평가가 없습니다</h7>
 
                         </div>
-
-
-
 
 
                     </div>
