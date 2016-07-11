@@ -5,7 +5,12 @@
 @endif
 <div>
     <div class="col-md-3">
-        <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}">
+        @if($loginUser->profileImage == null)
+            <img class="partner_profile02" src="{{url('/files/userImage/default')}}">
+        @else
+            <img class="partner_profile02" src="{{ URL::asset($loginUser->profileImage) }}">
+        @endif
+
     </div>
     <div class="col-md-9">
         <p class="side-title-name">{{ $loginUser->nick }}</p>
