@@ -112,7 +112,7 @@ class ProcessController extends Controller
         return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
     }
 
-    public function  carry_on_pay_request(Request $request, $id)
+    public function carry_on_pay_request(Request $request, $id)
     {
         $loginUser = Auth::user();
         $contract = Contract::where('id', '=', $id)->where('u_id', '=', $loginUser->id)->where('p_id', '=', $request['p_id'])->get()->first();
@@ -137,7 +137,7 @@ class ProcessController extends Controller
     }
 
 
-    public function  carry_on_pay_accept(Request $request, $id)
+    public function carry_on_pay_accept(Request $request, $id)
     {
         $loginUser = Auth::user();
         $project = Project::find($request['p_id']);
@@ -203,9 +203,9 @@ class ProcessController extends Controller
         $app = new Collection();
         $app_finished = new Collection();
         for ($i = 0; $i < $appList->count(); $i++) {
-            if ($appList[$i]->project->deadline <= date('Y-m-d') &&
-                ($appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
-            ) {
+            if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
+                && $appList[$i]->project->deadline <= date('Y-m-d')
+            ){
                 $app[] = $appList[$i];
             } else {
                 $app_finished[] = $appList[$i];
@@ -236,9 +236,9 @@ class ProcessController extends Controller
         $app = array();
         $app_finished = array();
         for ($i = 0; $i < $appList->count(); $i++) {
-            if ($appList[$i]->project->deadline <= date('Y-m-d') &&
-                ($appList[$i]->choice == "광고주 검수중" || $appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
-            ) {
+            if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
+                && $appList[$i]->project->deadline <= date('Y-m-d')
+            ){
                 $app_finished[] = $appList[$i];
             } else {
                 $app[] = $appList[$i];
@@ -262,8 +262,8 @@ class ProcessController extends Controller
         $app = new Collection();
         $app_finished = new Collection();
         for ($i = 0; $i < $appList->count(); $i++) {
-            if ($appList[$i]->project->deadline <= date('Y-m-d') &&
-                ($appList[$i]->choice == "미팅" || $appList[$i]->choice == "관리자 검수중")
+            if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
+                && $appList[$i]->project->deadline <= date('Y-m-d')
             ) {
                 $app[] = $appList[$i];
             } else {
