@@ -16,7 +16,8 @@
                                 @if(Auth::user() == $portfolios->partner->user)
                                     <a style="cursor:pointer" id="delete_port"
                                        class="button004">삭제</a>
-                                    <a href="{{ url('/profile/portfolio/update/'.$portfolios->id) }}" class="button004 margin-top-3">수정</a>
+                                    <a href="{{ url('/profile/portfolio/update/'.$portfolios->id) }}"
+                                       class="button004 margin-top-3">수정</a>
                                     <form hidden id="delete_portfolio">
                                         {!! csrf_field() !!}
                                         <input hidden name="id" value="{{ $portfolios->id }}">
@@ -27,10 +28,10 @@
                                             if (confirm('정말로 삭제하시겠습니까?')) {
                                                 $.ajax({
                                                     type: 'POST',
-                                                    url: "profile/portfolio/delete/{{$portfolios->id}}",
+                                                    url: '{{ route('portfolio_del',['id'=>$portfolios->id]) }}',
                                                     data: $("#delete_portfolio").serialize(),
-                                                    success:function(){
-                                                        window.location.assign("{{url('/portfolio_list/'.Auth::user()->id)}}");
+                                                    success: function () {
+                                                        window.location.assign("{{route('profile_portfolio_list',['id'=>Auth::user()->id])}}");
                                                     }
 
                                                 });
