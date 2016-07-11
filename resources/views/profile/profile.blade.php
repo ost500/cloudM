@@ -14,15 +14,6 @@
                             <div class="media-body02 padding-bottom-10">
                                 <h3 class="margin-bottom-0">{{ $loginUser->nick }}</h3>
                             </div>
-                            <span class="media-body-sm">
-                                <ul class="tags dall">
-                                    <i class="fa pull-left"></i>
-                                    <li>전문분야</li>
-                                    @foreach($loginUser->partners->job()->get() as $jobs)
-                                        <li><a href="#.">{{ $jobs->job }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </span>
                             <span class="media-body-sm"><i class="fa fa-user"></i> {{ $loginUser->company_type }}</span>
                             <span class="media-body-sm">
                                  @if($loginUser->auth_check == "인증완료")
@@ -39,6 +30,22 @@
                                 @endif
                             </span>
 
+                            <span class="media-body-sm la-line">
+                                @if($loginUser->partners->proposal_file_name && file_exists(public_path().$loginUser->partners->proposal_file_name))
+                                    <i class="fa fa-check-circle-o"></i> 상품소개서 등록
+                                @else
+                                    <i class="fa fa-times "></i> 상품소개서 미등록
+                                @endif
+                            </span>
+
+                            <span class="media-body-sm la-line">
+                                @if($loginUser->partners->company_file_name && file_exists(public_path().$loginUser->partners->company_file_name))
+                                    <i class="fa fa-check-circle-o"></i> 회사소개서 등록
+                                @else
+                                    <i class="fa fa-times "></i> 회사소개서 미등록
+                                @endif
+                            </span>
+
                             <div class="tags_bg02 margin-top-20 padding-top-5">
                                 <h6 class="my_h6 margin-bottom-10">활동요약정보</h6>
 
@@ -47,13 +54,13 @@
                                     <ul>
                                         <div class="col-md-2">
                                             <li>
-                                                <div class="rating star-lg star-lg-4"></div>
+                                                <div class="rating star-lg star-lg-0"></div>
                                             </li>
                                         </div>
                                         <div class="col-md-3">
                                             <li><span class="rating-stats-body stats-body">
-                                            <span class="average-rating-score">4.2</span>
-                                            <span class="rating-append-unit append-unit">/ 평가 20개</span>
+                                            <span class="average-rating-score">0.0</span>
+                                            <span class="rating-append-unit append-unit">/ 평가 0개</span>
                                         </span></li>
                                         </div>
 
