@@ -111,7 +111,7 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">포트폴리오</h6>
-                            <a href="{{ url('/partner/'.$partner->id.'/portfolio/') }}"
+                            <a href="{{ url('/partner/'.$partner->user->id.'/portfolio') }}"
                                class="more_btn margin-top-20">더보기 ></a>
                             <div class="row padding-left-15">
                                 @if($partner->portfolio->isEmpty())
