@@ -198,7 +198,7 @@ class PartnerController extends Controller
     public function portfolio($id)
     {
         $partner = User::find($id)->partners;
-        $portfolios = $partner->portfolio->take(3);
+        $portfolios = $partner->portfolio;
         return view('partner/partner_portfolio', compact('partner', 'portfolios'));
     }
 
