@@ -19,8 +19,8 @@
             </optgroup>
             <optgroup label="바이럴">
                 <option value="네이버SEO">네이버SEO</option>
-                <option value="컨텐츠배포">컨텐츠배포</option>
-                <option value="체험단모집">체험단모집</option>
+                <option value="컨텐츠 배포">컨텐츠 배포</option>
+                <option value="체험단 모집">체험단 모집</option>
                 <option value="바이럴 기타">바이럴 기타</option>
             </optgroup>
             <optgroup label="운영대행">
@@ -51,7 +51,7 @@
         <input type="text" class="frm_input" name="areas[<?=$i?>][3]" value="<?php echo $areas['memo']?>" size="60" placeholder="한줄메모"/>
     </div>
     <div class="col-xs-1" style="padding-left:10px;">
-        <button type="button" class="btn-xs btn-default <?=($i==0)?"addButton":"removeButton";?>"><i class="fa fa-<?=($i==0)?"plus":"minus";?>"></i>
+        <button type="button" class="btn-xs btn-azure <?=($i==0)?"addButton":"removeButton";?>"><i class="fa fa-<?=($i==0)?"plus":"minus";?>"></i>
         </button>
     </div>
 </div>

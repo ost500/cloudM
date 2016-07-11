@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <p class="side-title-name"><h5
-                                            class="text-center">{{ $project->client->name }}</h5></p>
+                                            class="text-center">{{ $project->client->nick }}</h5></p>
                                     <a href="#.">
                                         <div id="tag02">
                                             <span class="side-tittle_txt01">{{ $project->client->intro }}</span>

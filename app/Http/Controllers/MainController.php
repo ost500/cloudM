@@ -21,8 +21,9 @@ class MainController extends Controller
         $projects = $projects->where('step', '!=', '검수')->get();
         $projects = $projects->sortByDesc('updated_at');
         $projects = $projects->forPage(1, 6);
+        $count = 1;
 
-        return view('index', compact('projects'));
+        return view('index', compact('projects', 'count'));
     }
 
     public function notificationShow()

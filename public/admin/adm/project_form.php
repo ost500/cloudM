@@ -22,9 +22,9 @@ if ($w == '')
 else if ($w == 'u')
 {
     $sql = "select *, a.id as p_id, b.id as c_id
-			from {$g5['project_table']} as a, {$g5['contract_table']} as b
-			where a.id = '$id' and
-				a.id = b.p_id";
+			from {$g5['project_table']} as a left join {$g5['contract_table']} as b
+			on a.id = b.p_id
+			where a.id = '$id'";
     $project = sql_fetch($sql);
 
 
@@ -72,6 +72,10 @@ add_javascript(G5_POSTCODE_JS, 0);    //다음 주소 js
 <input type="hidden" name="page" value="<?php echo $page ?>">
 <input type="hidden" name="token" value="">
 <input type="hidden" name="id" value="<?php echo $id ?>">
+
+	<div class="btn_list01 btn_list">
+		<a href="./applications_list.php?p_id=<?=$id?>">지원자 목록</a>
+	</div>
 
 <div class="tbl_frm01 tbl_wrap">
     <table>

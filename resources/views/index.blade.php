@@ -109,6 +109,7 @@
 
                                     <div id="tag">
                                         @foreach($project->projects_area as $area)
+                                            @if($count++ % 4 == 0) @break @endif
                                             <div class="button">{{ $area->area }}</div>
                                         @endforeach
                                         <div class="button">{{ $project->category }}</div>
