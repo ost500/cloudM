@@ -202,6 +202,16 @@
                                                         <option value="영상">영상</option>
                                                         <option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
                                                     </optgroup>
+                                                    <optgroup label="오프라인 광고">
+                                                        <option value="TV광고">TV광고</option>
+                                                        <option value="신문광고">신문광고</option>
+                                                        <option value="라디오광고">라디오광고</option>
+                                                        <option value="지하철광고">지하철광고</option>
+                                                        <option value="버스광고">버스광고</option>
+                                                        <option value="잡지광고">잡지광고</option>
+                                                        <option value="외부광고">외부광고</option>
+                                                        <option value="오프라인 기타">오프라인 기타</option>
+                                                    </optgroup>
 
 
 

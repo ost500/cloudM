@@ -37,6 +37,7 @@ return array(
     'AddUsersLevel' => $baseDir . '/database/migrations/2016_06_13_020515_add_users_level.php',
     'AddUsersNotification' => $baseDir . '/database/migrations/2016_07_04_170726_add_users_notification.php',
     'AddUsersPhonenum' => $baseDir . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',
+    'AlterPartnersJobJob' => $baseDir . '/database/migrations/2016_07_11_143522_alter_partners_job_job.php',
     'ChangeApplicationsChoice' => $baseDir . '/database/migrations/2016_06_27_145020_change_applications_choice.php',
     'ChangeApplicationsChoice2' => $baseDir . '/database/migrations/2016_07_05_185207_change_applications_choice2.php',
     'ChangeProjectsCategory' => $baseDir . '/database/migrations/2016_05_27_053851_change_projects_category.php',
