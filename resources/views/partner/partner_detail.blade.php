@@ -98,9 +98,10 @@
                     </div>
 
 
-                    <div class="job-tittle02 txt_color_g">
-                        <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
-                        <a href="{{ url('partner/'.$partner->id.'/intro') }}" class="more_btn margin-top-20">더보기 ></a>
+                        <div class="job-tittle02 txt_color_g">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
+                            <a href="{{ url('partner/'.$partner->user_id.'/intro') }}" class="more_btn margin-top-20">더보기
+                                ></a>
 
 
                             {{ $partner->intro }}
@@ -123,53 +124,68 @@
                                             <a href="{{ route('portfolio_detail',['id' =>$portfolio->id]) }}"><img
                                                         src="{{ $portfolio->image1 }}" alt=""
                                                         class="img-responsive"></a>
-                                        </div>
-                                        <div class="caption">
-                                            <a href="{{ url('/portfolio/'.$portfolio->id) }}">
-                                                <h3 class="thum_title">{{ $portfolio->title }}</h3>
-                                            </a>
-                                            <p class="thum_category">{{ $portfolio->area }}
-                                                > {{ $portfolio->category }}</p>
-                                            <p><a href="{{ url('/portfolio/'.$portfolio->id) }}"
-                                                  class="btn btn-primary margin-top-10"
-                                                  role="button">자세히보기</a></p>
+                        <div class="job-tittle02 txt_color_g">
+                            <h6 class="my_h6 margin-bottom-20 margin-top-20">포트폴리오</h6>
+                            <a href="{{ url('/partner/'.$partner->user_id.'/portfolio') }}"
+                               class="more_btn margin-top-20">더보기 ></a>
+                            <div class="row">
+                                @if($partner->portfolio->isEmpty())
+                                    포트폴리오가 없습니다
+                                @endif
+                                @foreach($portfolios as $portfolio)
+                                    <div class="col-md-4">
+                                        <div class="thumbnail">
+                                            <div class="thum_imgbox">
+                                                <a href="{{ route('portfolio_detail',['id' =>$portfolio->id]) }}"><img
+                                                            src="{{ $portfolio->image1 }}" alt=""
+                                                            class="img-responsive"></a>
+                                            </div>
+                                            <div class="caption">
+                                                <a href="{{ url('/portfolio/'.$portfolio->id) }}">
+                                                    <h3 class="thum_title">{{ $portfolio->title }}</h3>
+                                                </a>
+                                                <p class="thum_category">{{ $portfolio->area }}
+                                                    > {{ $portfolio->category }}</p>
+                                                <p><a href="{{ url('/portfolio/'.$portfolio->id) }}"
+                                                      class="btn btn-primary margin-top-10"
+                                                      role="button">자세히보기</a></p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-
-                    <div class="job-tittle02">
-                        <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
-                        <a href="{{ url('partner/'.$partner->id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
-                        <div class="panel02 panel-default02 margin-top-20">
-                            <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                <col style="width:16.6%;"/>
-                                <col style="width:16.6%;"/>
-                                <col style="width:16.6%;"/>
-
-                                <tr>
-                                    <th>종류</th>
-                                    <th>숙련도</th>
-                                    <th>경험</th>
-
-                                </tr>
-                                <tbody id="skill_list">
-                                @if($partner->job()->get()->isEmpty())
-                                    <tr>
-                                        <td colspan="3">전문분야가 없습니다</td>
-                                    </tr>
-                                @endif
-                                @foreach($partner->job()->get() as $job)
-                                    <tr>
-                                        <td>{{ $job->job }} {{ $job->number }}</td>
-                                        <td>{{ $job->number }}</td>
-                                        <td>{{ $job->experience }}</td>
-                                    </tr>
                                 @endforeach
-                                </tbody>
+                            </div>
+                        </div>
+
+
+                        <div class="job-tittle02">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
+                            <a href="{{ url('partner/'.$partner->user_id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
+                            <div class="panel02 panel-default02 margin-top-20">
+                                <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                    <col style="width:16.6%;"/>
+                                    <col style="width:16.6%;"/>
+                                    <col style="width:16.6%;"/>
+
+                                    <tr>
+                                        <th>종류</th>
+                                        <th>숙련도</th>
+                                        <th>경험</th>
+
+                                    </tr>
+                                    <tbody id="skill_list">
+                                    @if($partner->job()->get()->isEmpty())
+                                        <tr>
+                                            <td colspan="3">전문분야가 없습니다</td>
+                                        </tr>
+                                    @endif
+                                    @foreach($partner->job()->get() as $job)
+                                        <tr>
+                                            <td>{{ $job->job }} {{ $job->number }}</td>
+                                            <td>{{ $job->number }}</td>
+                                            <td>{{ $job->experience }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
 
                                 </table>
                             </div>
@@ -205,109 +221,12 @@
                         {{--</div>--}}
 
 
-                    <div class="job-tittle02">
-                        <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
-                        <a href="{{ url('partner/'.$partner->id.'/review') }}" class="more_btn margin-top-20">더보기 ></a>
-                        <div class="panel02 panel-default02 margin-top-20">
-                            <div class="panel-heading03">
-                                <div>
-                                    <ul>
-                                        <li class="panel-heading03_title">CPS 머천트 사이트 PC 및 모바일
-                                            웹디자인,
-                                            퍼블리싱
-                                        </li>
-                                        <li class="panel-heading03_title02">클라이언트 &nbsp;
-                                            <strong>benbro</strong>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="panel-body04">
-                                <ul>
-                                    <!--<li class="row">
-                                      <span class="col-xs-4">계약일 2015년12월12일</span>
-                                      <span class="col-xs-4">계약금액 5,000,000원</span>
-                                      <span class="col-xs-4">계약기간 100일</span>
-                                    </li>-->
+                        <div class="job-tittle02">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
+                            <a href="{{ url('partner/'.$partner->user_id.'/review') }}" class="more_btn margin-top-20">더보기
+                                ></a>
+                            평가가 없습니다
 
-                                        <li class="col-xs-4"><i class="fa fa-calendar-minus-o"></i>
-                                            계약일
-                                            2015년12월12일
-                                        </li>
-                                        <li class="col-xs-4"><i class="fa fa-krw"></i> 계약금액
-                                            5,000,000원
-                                        </li>
-                                        <li class="col-xs-4"><i class="fa fa-clock-o"></i> 계약기간 100일
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="panel-body05">
-                                    <ul>
-                                        <li>
-                                            <div>광고주 별점</div>
-                                            <div class="rating star-lg star-lg-4"></div>
-                                            <div>4.8</div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="panel-body06">
-                                <span><img class="partner_profile03"
-                                           src="/images/p_img02.png"></span>
-                                    <div>
-                                        <span class="rd_box02">광고주</span><span><strong>dkdlel123</strong></span><br>
-                                        <span>중간에 시안이 여러번 바뀌었음에도 잘 지원 해주신 부분이나, 추가 수정 요청부분에 잘 지원해 주신 부분이 좋았습니다. 디자인 퀄리티도 만족 합니다!</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="panel02 panel-default02 margin-top-10">
-                                <div class="panel-heading03">
-                                    <div>
-                                        <ul>
-                                            <li class="panel-heading03_title">CPS 머천트 사이트 PC 및 모바일
-                                                웹디자인,
-                                                퍼블리싱
-                                            </li>
-                                            <li class="panel-heading03_title02">클라이언트 &nbsp;
-                                                <strong>benbro</strong>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="panel-body04">
-                                    <ul>
-                                        <li class="col-xs-4"><i class="fa fa-calendar-minus-o"></i>
-                                            계약일
-                                            2015년12월12일
-                                        </li>
-                                        <li class="col-xs-4"><i class="fa fa-krw"></i> 계약금액
-                                            5,000,000원
-                                        </li>
-                                        <li class="col-xs-4"><i class="fa fa-clock-o"></i> 계약기간 100일
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="panel-body05">
-                                    <ul>
-                                        <li>
-                                            <div>광고주 별점</div>
-                                            <div class="rating star-lg star-lg-4"></div>
-                                            <div>4.8</div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="panel-body06">
-                                <span><img class="partner_profile03"
-                                           src="/images/p_img02.png"></span>
-                                    <div>
-                                        <span class="rd_box02">광고주</span><span><strong>dkdlel123</strong></span><br>
-                                        <span>중간에 시안이 여러번 바뀌었음에도 잘 지원 해주신 부분이나, 추가 수정 요청부분에 잘 지원해 주신 부분이 좋았습니다. 디자인 퀄리티도 만족 합니다!</span>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
