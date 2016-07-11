@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\View;
 
 class PartnerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function partner()
     {
         $partners = Partners::with('user');
