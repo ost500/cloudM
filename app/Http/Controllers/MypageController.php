@@ -337,7 +337,15 @@ class MypageController extends Controller
         return view('profile/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
     }
 
+    public function portfolio_detail($id)
+    {
 
+        $loginUser = Auth::user();
+        $portfolios = Portfolio::find($id);
+
+
+        return view('profile/portfolio/portfolio_detail', compact('loginUser', 'portfolios'));
+    }
 
     public function portfolio_create()
     {
