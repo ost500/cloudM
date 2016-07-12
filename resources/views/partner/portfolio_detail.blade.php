@@ -23,18 +23,20 @@
                                 <col style="width:15%;"/>
                                 <col style="width:85%;"/>
                                 <tr>
-                                    <th>카테고리</th>
-                                    <td>{{ $portfolios->area }}/{{ $portfolios->category }}</td>
+                                    <th>업종</th>
+                                    <td class="left">{{ $portfolios->category }}</td>
+                                </tr>
+                                <tr>
+                                    <th>매체</th>
+                                    <td class="left">{{ $portfolios->area }}</td>
                                 </tr>
                                 <tr>
                                     <th>설명</th>
-                                    <td>
-                                        {{ $portfolios->description }}
-                                    </td>
+                                    <td class="left"><?=nl2br($portfolios->description)?></td>
                                 </tr>
                                 <tr>
                                     <th>참여기간</th>
-                                    <td>{{ $portfolios->from_date }}
+                                    <td class="left">{{ $portfolios->from_date }}
                                         - {{ $portfolios->to_date }}</td>
                                 </tr>
                             </table>
