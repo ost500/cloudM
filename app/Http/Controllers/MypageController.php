@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Array_;
 use Validator;
 use Session;
+use Intervention\Image\ImageManager;
 
 class MypageController extends Controller
 {
@@ -389,6 +390,23 @@ class MypageController extends Controller
         $path = $tmpFilePath . $tmpFileName;
         $new_port->image1 = $path;
 
+        $manager = new ImageManager(array('driver' => 'gd'));
+
+        // open an image file
+        $thum_path = public_path().$path;
+        $img = $manager->make($thum_path);
+
+        // now you are able to resize the instance
+        $img->resize(null, 200, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        $img->crop(228, 200, 0, 0);
+
+        // finally we save the image as a new file
+        $img->save(public_path().$tmpFilePath.$tmpFileName."_228_200");
+
+
         if ($request->hasFile('image2')) {
             $file = $request->file('image2');
             $tmpFileName = $new_port->partner_id . "_" . $new_port->id . "_2";
@@ -406,13 +424,18 @@ class MypageController extends Controller
 
         $new_port->save();
 
-        return redirect()->action('MypageController@portfolio', [Auth::user()->id]);
+        return redirect("/profile/portfolio/list/".Auth::user()->id);
     }
 
     public function portfolio_delete(Request $request)
     {
         $del_portfolio = Portfolio::find($request->id);
         $del_portfolio->delete();
+
+        @unlink(public_path().$del_portfolio->image1);
+        @unlink(public_path().$del_portfolio->image1."_228_200");
+        @unlink(public_path().$del_portfolio->image2);
+        @unlink(public_path().$del_portfolio->image3);
 
     }
 
@@ -457,6 +480,23 @@ class MypageController extends Controller
             $file->move(public_path() . $tmpFilePath, $tmpFileName);
             $path = $tmpFilePath . $tmpFileName;
             $new_port->image1 = $path;
+
+            $manager = new ImageManager(array('driver' => 'gd'));
+
+            // open an image file
+            $thum_path = public_path().$path;
+            $img = $manager->make($thum_path);
+
+
+            // now you are able to resize the instance
+            $img->resize(null, 200, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $img->crop(228, 200, 0, 0);
+
+            // finally we save the image as a new file
+            $img->save(public_path().$tmpFilePath.$tmpFileName."_228_200");
         }
 
         if ($request->hasFile('image2')) {
