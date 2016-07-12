@@ -16,7 +16,8 @@
                                 <h5 class="side-tittle">광고주</h5>
                                 <div class="col-md-12 text-center">
                                     @if($project->client->profileImage != null)
-                                        <img class="partner_profile_200" src="{{ URL::asset($project->client->profileImage) }}"><br>
+                                        <img class="partner_profile_200"
+                                             src="{{ URL::asset($project->client->profileImage) }}"><br>
                                     @else
                                         <img class="partner_profile0_150" src="/images/p_img02.png"><br>
                                     @endif
@@ -35,7 +36,9 @@
                                             <div class="btn btn-app-not margin-top-10 margin-bottom-5">이미 지원한 프로젝트</div>
                                         @else
                                             <a style="cursor:pointer" id="pro_app_btn">
-                                                <div id="pro_apply" class="btn btn-app margin-top-10 margin-bottom-5">프로젝트 지원하기</div>
+                                                <div id="pro_apply" class="btn btn-app margin-top-10 margin-bottom-5">
+                                                    프로젝트 지원하기
+                                                </div>
                                             </a>
                                         @endif
                                     @else
@@ -68,11 +71,18 @@
 
                                             @else
                                                 @if(Auth::user()->PorC == "P")
-                                                    <div class="btn btn-interesting margin-top-5">관심 프로젝트 추가</div>
-                                                @elseif(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
-                                                    <div onclick="javascript:alert('이미 추가하셨습니다');"
-                                                         class="btn btn-interesting margin-top-5">관심 프로젝트
-                                                    </div>
+
+                                                    @if(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
+                                                        <div onclick="javascript:alert('이미 추가하셨습니다');"
+                                                             class="btn btn-app-not margin-top-10 margin-bottom-5">관심 프로젝트
+                                                        </div>
+                                                    @else
+                                                        <form method="post"
+                                                              action="{{route('interesting_add',['id'=> $project->id])}}">
+                                                            <button class="btn btn-interesting margin-top-5">관심 프로젝트 추가
+                                                            </button>
+                                                        </form>
+                                                    @endif
                                                 @else
                                                 @endif
                                             @endif
@@ -106,12 +116,12 @@
                                         <td>{{ $count['완료'] }}건</td>
                                     </tr>
                                     {{--<tr>--}}
-                                        {{--<th>평균 진행기간</th>--}}
-                                        {{--<td>{{ $project->count() }}건</td>--}}
+                                    {{--<th>평균 진행기간</th>--}}
+                                    {{--<td>{{ $project->count() }}건</td>--}}
                                     {{--</tr>--}}
                                     {{--<tr>--}}
-                                        {{--<th>평균 집행비용</th>--}}
-                                        {{--<td>{{ $project->count() }}건</td>--}}
+                                    {{--<th>평균 집행비용</th>--}}
+                                    {{--<td>{{ $project->count() }}건</td>--}}
                                     {{--</tr>--}}
                                     </tbody>
                                 </table>
@@ -141,7 +151,8 @@
                                                         <h3 class="margin-bottom-20">{{ $project['title'] }}</h3>
                                                     </div>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-krw"></i> 월 예산 <span>{{ number_format($project['budget']) }}원</span></span>
+                                                        class="fa fa-krw"></i> 월 예산 <span>{{ number_format($project['budget']) }}
+                                                    원</span></span>
                                             <span class="media-body-sm"><i
                                                         class="fa fa-clock-o"></i> 마케팅기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i

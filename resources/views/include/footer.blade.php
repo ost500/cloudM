@@ -12,6 +12,7 @@
                 <li><a href="{{url("/services/4")}}">이용요금</a></li>
                 <li><a href="{{url("/services/5")}}">자주묻는질문</a></li>
                 <li><a href="{{route('agreement')}}">이용약관</a></li>
+                <li><a href="{{route('personal_info')}}">개인정보 취급방침</a></li>
                 <li class="bg_round"><a href="{{url("/services/2")}}">광고주 이용방법</a></li>
                 <li class="bg_round"><a href="{{url("/services/3")}}">파트너 이용방법</a></li>
             </ul>

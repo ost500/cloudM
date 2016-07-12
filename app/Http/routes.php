@@ -36,7 +36,7 @@ Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
 //관심 프로젝트
-Route::post('/detail/{id}/interesting', 'SearchController@interesting')
+Route::post('/detail/{id}/interesting', ['as' => 'interesting_add','uses'=>'SearchController@interesting'])
     ->where(['id' => '[0-9]+']);
 
 
@@ -287,13 +287,13 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 //고객센터
 //공지사항
 Route::get('/customer/notification', 'CustomerCentreController@notification');
-Route::get('/customer/notification/{id}', ['as'=>'noti_detail','uses'=>'CustomerCentreController@notification_detail'])
+Route::get('/customer/notification/{id}', ['as' => 'noti_detail', 'uses' => 'CustomerCentreController@notification_detail'])
     ->where(['id' => '[0-9]+']);
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
 Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
 
 //이용약관
-Route::get('/agreement',['as'=>'agreement','uses'=>'CustomerCentreController@agreement']);
+Route::get('/agreement', ['as' => 'agreement', 'uses' => 'CustomerCentreController@agreement']);
 //개인정보 취급방침
-Route::get('/personal_info',['as'=>'personal_info','uses'=>'CustomerCentreController@personal_info']);
+Route::get('/personal_info', ['as' => 'personal_info', 'uses' => 'CustomerCentreController@personal_info']);

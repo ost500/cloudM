@@ -17,7 +17,7 @@ class PartnerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     public function partner()
@@ -215,6 +215,10 @@ class PartnerController extends Controller
 
     public function detail($id)
     {
+        if(Auth::check() == false){
+            return redirect('login');
+        }
+
         $loginUser = Auth::user();
         $partner = User::find($id)->partners;
         $portfolios = $partner->portfolio->take(3);
@@ -223,12 +227,18 @@ class PartnerController extends Controller
 
     public function intro($id)
     {
+        if(Auth::check() == false){
+            return redirect('login');
+        }
         $partner = User::find($id)->partners;
         return view('partner/partner_intro', compact('partner'));
     }
 
     public function portfolio($id)
     {
+        if(Auth::check() == false){
+            return redirect('login');
+        }
         $partner = User::find($id)->partners;
         $portfolios = $partner->portfolio;
         return view('partner/partner_portfolio', compact('partner', 'portfolios'));
@@ -236,6 +246,9 @@ class PartnerController extends Controller
 
     public function portfolio_detail($user_id, $id)
     {
+        if(Auth::check() == false){
+            return redirect('login');
+        }
         $partner = User::find($user_id)->partners;
 
         $portfolios = $partner->portfolio->find($id);
@@ -245,12 +258,18 @@ class PartnerController extends Controller
 
     public function job($id)
     {
+        if(Auth::check() == false){
+            return redirect('login');
+        }
         $partner = User::find($id)->partners;
         return view('partner/partner_job', compact('partner'));
     }
 
     public function review($id)
     {
+        if(Auth::check() == false){
+            return redirect('login');
+        }
         $partner = User::find($id)->partners;
         return view('partner/partner_review', compact('partner'));
     }
