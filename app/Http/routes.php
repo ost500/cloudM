@@ -292,3 +292,8 @@ Route::get('/customer/notification/{id}', ['as'=>'noti_detail','uses'=>'Customer
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
 Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
+
+//이용약관
+Route::get('/agreement',['as'=>'agreement','uses'=>'CustomerCentreController@agreement']);
+//개인정보 취급방침
+Route::get('/personal_info',['as'=>'personal_info','uses'=>'CustomerCentreController@personal_info']);
