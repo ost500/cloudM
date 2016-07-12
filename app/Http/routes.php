@@ -240,7 +240,7 @@ Route::get('/client/project/carryon/{id}', 'ProcessController@carry_on_client_de
 Route::get('/client/project/carryon/communication/{p_id}',
     ['as' => 'communication', 'uses' => 'CommunicationController@communication_PC'])
     ->where(['p_id' => '[0-9]+']);
-Route::get('/client/project/carryon/detail/{p_id}/{id}',
+Route::get('/client/project/carryon/detail/{id}',
     ['as' => 'communication_detail', 'uses' => 'CommunicationController@communication_PC_detail'])
     ->where(['id' => '[0-9]+']);
 Route::get('/client/project/carryon/{p_id}/create',

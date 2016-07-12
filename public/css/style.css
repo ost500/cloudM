@@ -4432,11 +4432,7 @@ div.media-body h5.faq_f {
     height: 100%;
 }
 
-.ser01_group ul li span {
-    font-size: 14px;
-    color: #555 !important;
-    text-align: justify;
-}
+.ser01_group ul li span{ font-size:14px; color:#555 !important; }
 
 .ser01_group ul li span strong {
     color: #000;
@@ -4446,33 +4442,11 @@ div.media-body h5.faq_f {
     color: #0092db !important;
 }
 
-li.ser01_img01 {
-    background: url('/images/icon01.jpg') 0px 0px no-repeat;
-    background-size: 70px;
-    padding-left: 80px;
-    margin-bottom: 30px;
-}
+li.ser01_img01{ background:url('/images/icon01.jpg') 6px 4px no-repeat; background-size:70px; padding-left:102px; margin-bottom:20px; }
+li.ser01_img02{ background:url('/images/icon02.jpg') 6px 4px no-repeat; background-size:70px; padding-left:102px; margin-bottom:20px; }
+li.ser01_img03{ background:url('/images/icon03.jpg') 6px 4px no-repeat; background-size:70px; padding-left:102px; margin-bottom:20px; }
+li.ser01_img04{ background:url('/images/icon04.jpg') 6px 4px no-repeat; background-size:70px; padding-left:102px; margin-bottom:20px; }
 
-li.ser01_img02 {
-    background: url('/images/icon02.jpg') 0px 0px no-repeat;
-    background-size: 70px;
-    padding-left: 80px;
-    margin-bottom: 30px;
-}
-
-li.ser01_img03 {
-    background: url('/images/icon03.jpg') 0px 0px no-repeat;
-    background-size: 70px;
-    padding-left: 80px;
-    margin-bottom: 30px;
-}
-
-li.ser01_img04 {
-    background: url('/images/icon04.jpg') 0px 0px no-repeat;
-    background-size: 70px;
-    padding-left: 80px;
-    margin-bottom: 30px;
-}
 
 li.ser01_img05 {
     background: url('/images/icon05.jpg') 0px 0px no-repeat;
@@ -6389,11 +6363,15 @@ span.rd_box02 {
 
 .top-info .personal-info .notice-li {
     border-right: none;
-    padding: 0px
+    padding: 0px;
+
 }
 
 .top-info .personal-info .notice-li-txt {
-    width: 150px;
+    width: 200px;
+}
+.top-info .personal-info .ring {
+    width: 30px;
 }
 
 .top-info .personal-info .notice-li p .fa-chevron-left {
@@ -6903,3 +6881,7 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
 }
 
 .img_cen{margin: 0px;}
+
+.ser_img000{ width:439px; margin:0px auto !important; text-align:center !important; display:block !important;}
+@media screen and (max-width:767px){  .ser_img000{ width:100%; }}
+.heading .ser_s_title02{ text-align:center !important; font-weight:500 !important; font-size:22px; line-height:30px; margin-bottom:7px; letter-spacing:-2px;}
