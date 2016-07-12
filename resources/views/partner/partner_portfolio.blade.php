@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="caption">
                                             <a href="{{ url('/partner/'.$partner->user->id.'/portfolio/'.$portfolio->id) }}">
-                                                <h3 class="thum_title">{{ $portfolio->title }}</h3>
+                                                <h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 37) . ".."; ?></h3>
                                             </a>
                                             <p class="thum_category">{{ $portfolio->area }}
                                                 > {{ $portfolio->category }}</p>

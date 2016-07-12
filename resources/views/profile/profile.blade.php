@@ -140,7 +140,7 @@
                                                     <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}" alt="" class="img-responsive"></a>
                                                 </div>
                                                 <div class="caption">
-                                                    <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><h3 class="thum_title">{{ $portfolio->title }}</h3></a>
+                                                    <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 37) . ".."; ?></h3></a>
                                                     <p class="thum_category">{{ $portfolio->area }} > {{ $portfolio->category }}</p>
                                                     <p><a href="{{ url('/profile/portfolio/'.$portfolio->id) }}" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>
                                                 </div>
