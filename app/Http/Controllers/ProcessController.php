@@ -200,8 +200,10 @@ class ProcessController extends Controller
         $interesting = Interesting::where('u_id', Auth::user()->id)->get();
 
         $appList = Application::where('u_id', '=', Auth::user()->id)->get();
+
         $app = new Collection();
         $app_finished = new Collection();
+
         for ($i = 0; $i < $appList->count(); $i++) {
             if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
                 && $appList[$i]->project->deadline >= date('Y-m-d')
