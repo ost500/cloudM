@@ -48,6 +48,10 @@
                 $("#second").removeClass('on');
             if ($("#third").hasClass('on'))
                 $("#third").removeClass('on');
+            if ($("#fourth").hasClass('on'))
+                $("#fourth").removeClass('on');
+            if ($("#fifth").hasClass('on'))
+                $("#fifth").removeClass('on');
 
 
 
@@ -57,10 +61,10 @@
                 $("#second").addClass("on");
             @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'personal_info'))
                 $("#third").addClass("on");
-            @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'password/man_to_man'))
+            @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'customer/man_to_man'))
                 $("#fourth").addClass("on");
             @elseif(starts_with(Route::getCurrentRoute()->getPath(), 'password/reset'))
-                $("#fourth").addClass("on");
+                $("#fifth").addClass("on");
             @endif
         });
     </script>
