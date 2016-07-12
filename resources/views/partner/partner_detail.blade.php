@@ -127,7 +127,7 @@
                                             </div>
                                             <div class="caption">
                                                 <a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}">
-                                                    <h6>{{ $portfolio->title }}</h6>
+                                                    <h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 37) . ".."; ?></h3>
                                                 </a>
 
                                                 <p class="thum_category">{{ $portfolio->area }}
