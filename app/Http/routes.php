@@ -162,22 +162,22 @@ Route::get("/profile/portfolio/create", 'MypageController@portfolio_create');
 Route::post("/profile/portfolio/create", 'MypageController@portfolio_create_post');
 //프로필 포트폴리오 자세히 list
 
-Route::get("/profile/portfolio/list/{id}", ['as' => 'profile_portfolio_list', 'uses' => 'MypageController@portfolio'])
-    ->where(['id' => '[1-9]+']);
+Route::get("/profile/portfolio/list/{id}", ['as'=>'profile_portfolio_list','uses'=>'MypageController@portfolio'])
+    ->where(['id' => '[0-9]+']);
 Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
-    ->where(['id' => '[1-9]+']);
+    ->where(['id' => '[0-9]+']);
 
 // 프로필 포트폴리오 detail
 Route::get("/profile/portfolio/{id}", ['as' => 'portfolio_detail', 'uses' => 'MypageController@portfolio_detail'])
-    ->where(['id' => '[1-9]+']);
+    ->where(['id' => '[0-9]+']);
 
 
 Route::post("/profile/portfolio/delete/{id}", ['as' => 'portfolio_del', 'uses' => 'MypageController@portfolio_delete'])
-    ->where(['id' => '[1-9]+']);
+    ->where(['id' => '[0-9]+']);
 Route::get("/profile/portfolio/update/{id}", 'MypageController@portfolio_update')
-    ->where(['id' => '[1-9]+']);
+    ->where(['id' => '[0-9]+']);
 Route::post("/profile/portfolio/update/{id}", 'MypageController@portfolio_update_post')
-    ->where(['id' => '[1-9]+']);
+    ->where(['id' => '[0-9]+']);
 
 
 //프로필 edit intro
@@ -261,7 +261,7 @@ Route::get('/client/project/cancel', 'ProcessController@cancel_client');
 //지원 프로젝트
 Route::get('/partner/project/apply', 'ProcessController@apply_partner');
 //관심 프로젝트
-Route::get('/partner/project/interesting', ['as' => 'interesting_list', 'uses' => 'ProcessController@interesting_partner']);
+Route::get('/partner/project/interesting', 'ProcessController@interesting_partner');
 
 //지원 종료 프로젝트
 Route::get('/partner/project/apply/finished', 'ProcessController@apply_finished_partner');
