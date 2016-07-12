@@ -53,9 +53,9 @@ class SearchController extends Controller
         $count['진행'] = 0;
         $count['계약률'] = 0;
         foreach ($contracts as $contract) {
-            if($contract['step'] != "취소") $count['계약']++;
-            if($contract['step'] == "전체완료") $count['완료']++;
-            if($contract['step'] == "계약") $count['진행']++;
+            if ($contract['step'] != "취소") $count['계약']++;
+            if ($contract['step'] == "전체완료") $count['완료']++;
+            if ($contract['step'] == "계약") $count['진행']++;
         }
 
         $count['계약률'] = round((($count['계약'] / $userProject->count()) * 100), 1);
@@ -272,29 +272,27 @@ class SearchController extends Controller
         return back();
     }
 
-    public
-    function delete_comment(Request $request)
+    public function delete_comment(Request $request)
     {
         $del_commnet = Comments::find($request->input('id'));
         $del_commnet->delete();
         return redirect()->back();
     }
 
-    public
-    function interesting($id)
+    public function interesting($id)
     {
         if (Auth::user()->PorC == "C" ||
-            Interesting::where('u_id', Auth::user()->id)->where('p_id', $id)->get()->isEmpty() != false
+            Interesting::where('u_id', Auth::user()->id)->where('p_id', $id)->get()->isEmpty() == false
         ) {
             echo Interesting::where('u_id', Auth::user()->id)->where('p_id', $id)->get()->isEmpty();
-//            return response()->view('errors.503');
+            return response()->view('errors.503');
         }
 
         $new_inter = new Interesting();
         $new_inter->p_id = $id;
         $new_inter->u_id = Auth::user()->id;
         $new_inter->save();
-        return redirect()->back();
+        return redirect()->route('interesting_list');
     }
 
 }
