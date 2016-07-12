@@ -45,7 +45,7 @@
                                         <th>기간</th>
                                         <th>마감</th>
                                         <th>서류</th>
-                                        <th>지원 상태</th>
+                                        <th>상태</th>
                                     </tr>
 
 
@@ -60,7 +60,7 @@
                                                     data-pid="{{$appItem->project->id}}">등록
                                             </button>
                                         </td>
-                                        <td>{{ $appItem->choice }}</td>
+                                        <td>{{ $appItem->project->step }}</td>
                                     </tr>
                                 </table>
                             </div>

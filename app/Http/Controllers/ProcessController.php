@@ -204,7 +204,7 @@ class ProcessController extends Controller
         $app_finished = new Collection();
         for ($i = 0; $i < $appList->count(); $i++) {
             if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
-                && $appList[$i]->project->deadline <= date('Y-m-d')
+                && $appList[$i]->project->deadline >= date('Y-m-d')
             ){
                 $app[] = $appList[$i];
             } else {
@@ -237,7 +237,7 @@ class ProcessController extends Controller
         $app_finished = array();
         for ($i = 0; $i < $appList->count(); $i++) {
             if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
-                && $appList[$i]->project->deadline <= date('Y-m-d')
+                && $appList[$i]->project->deadline >= date('Y-m-d')
             ){
                 $app_finished[] = $appList[$i];
             } else {
@@ -263,7 +263,7 @@ class ProcessController extends Controller
         $app_finished = new Collection();
         for ($i = 0; $i < $appList->count(); $i++) {
             if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
-                && $appList[$i]->project->deadline <= date('Y-m-d')
+                && $appList[$i]->project->deadline >= date('Y-m-d')
             ) {
                 $app[] = $appList[$i];
             } else {
