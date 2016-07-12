@@ -96,7 +96,7 @@
                                 <div class="col-sm-7">
                                     <input type="checkbox" name="checkbox1" id="checkbox1" value="option1"
                                            checked="" required="required">
-                                    <label for="checkbox1"><a href="#">이용약관</a> 및 <a href="#">개인정보 보호방침</a>에
+                                    <label for="checkbox1"><a href="{{route('agreement')}}">이용약관</a> 및 <a href="{{route('personal_info')}}">개인정보 보호방침</a>에
                                         동의합니다.</label>
                                 </div>
                             </div>

@@ -44,5 +44,14 @@ class CustomerCentreController extends Controller
         return view('customer_centre.notification_detail', compact('notis'));
     }
 
-    
+    public function agreement()
+    {
+        return view('customer_centre.agreement');
+    }
+    public function personal_info()
+    {
+        return view('customer_centre.personal_info');
+    }
+
+
 }
