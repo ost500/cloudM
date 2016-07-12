@@ -19,9 +19,10 @@ class PartnerController extends Controller
     {
         $this->middleware('auth');
     }
+
     public function partner()
     {
-        $partners = Partners::with('user');
+        $partners = Partners::with('user')->where('check', 1);
 
         return view('partner/partner', compact('partners'));
     }
@@ -103,8 +104,30 @@ class PartnerController extends Controller
                 case 19:
                     $job_name = "1회성 프로젝트 기타";
                     break;
-
-               
+                case 20:
+                    $job_name = "TV광고";
+                    break;
+                case 21:
+                    $job_name = "신문광고";
+                    break;
+                case 22:
+                    $job_name = "라디오광고";
+                    break;
+                case 23:
+                    $job_name = "지하철광고";
+                    break;
+                case 24:
+                    $job_name = "버스광고";
+                    break;
+                case 25:
+                    $job_name = "잡지광고";
+                    break;
+                case 26:
+                    $job_name = "외부광고";
+                    break;
+                case 27:
+                    $job_name = "오프라인 기타";
+                    break;
 
 
             }
@@ -131,6 +154,9 @@ class PartnerController extends Controller
                     break;
                 case 10:
                     $job_name2 = "쇼핑몰";
+                    break;
+                case 11:
+                    $job_name2 = "기타";
                     break;
             }
 
@@ -168,6 +194,12 @@ class PartnerController extends Controller
                 ->union(User::where('PorC', '=', 'P')->where('name', 'LIKE', $keyword3))
                 ->get();
         }
+
+        $partners = $partners->filter(function ($value) {
+            if ($value->partners->check == true) {
+                return $value;
+            }
+        });
 
 
         $count = $partners->count();

@@ -175,6 +175,30 @@ $("#job_option").change(function () {
     }if ($("#job_option").val() == "1회성 프로젝트 기타") {
         console.log("4 checked");
         option = 19;
+    }if ($("#job_option").val() == "TV광고") {
+        console.log("4 checked");
+        option = 20;
+    }if ($("#job_option").val() == "신문광고") {
+        console.log("4 checked");
+        option = 21;
+    }if ($("#job_option").val() == "라디오광고") {
+        console.log("4 checked");
+        option = 22;
+    }if ($("#job_option").val() == "지하철광고") {
+        console.log("4 checked");
+        option = 23;
+    }if ($("#job_option").val() == "버스광고") {
+        console.log("4 checked");
+        option = 24;
+    }if ($("#job_option").val() == "잡지광고") {
+        console.log("4 checked");
+        option = 25;
+    }if ($("#job_option").val() == "외부광고") {
+        console.log("4 checked");
+        option = 26;
+    }if ($("#job_option").val() == "오프라인 기타") {
+        console.log("4 checked");
+        option = 27;
     }
 
     page = 1;
