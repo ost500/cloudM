@@ -65,7 +65,7 @@
                 <div class="container">
                     <ul class="personal-info">
 
-                        <li class="notice-li"><p><i class="fa fa-bell"></i></p></li>
+                        <li class="notice-li ring"><p><i class="fa fa-bell"></i></p></li>
                         <li class="notice-li notice-li-txt "><p id="noti"></p></li>
                         <li class="notice-li">
                             <a style="cursor:pointer;" id="left_btn" class="white-text"><i

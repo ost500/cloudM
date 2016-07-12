@@ -31,7 +31,7 @@ class CommunicationController extends Controller
         return view('mypage.CommunicationPC.CommunicationPC', compact('communi', 'loginUser', 'proceeding', 'p_id'));
     }
 
-    public function communication_PC_detail($p_id, $id)
+    public function communication_PC_detail($id)
     {
         $loginUser = Auth::user();
         $projects = Project::where('Client_id', '=', Auth::user()->id);
@@ -40,7 +40,7 @@ class CommunicationController extends Controller
             ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
             ->get();
 
-        return view('mypage.CommunicationPC.CommunicationPC_detail', compact('communi', 'loginUser', 'proceeding'));
+        return view('mypage.CommunicationPC.CommunicationPC_detail', compact('communi', 'loginUser', 'proceeding','id'));
     }
 
     public function communication_PC_create($p_id)
@@ -79,6 +79,17 @@ class CommunicationController extends Controller
             ->get();
 
         return view('mypage.CommunicationPC.CommunicationPC_update', compact('loginUser', 'proceeding', 'communi', 'id'));
+    }
+
+    public function communication_PC_update_post(Request $request,$id)
+    {
+        $communi = Communication::find($id);
+        $communi->title = $request->title;
+        $communi->content = $request->description;
+        $communi->save();
+
+
+        //TODO 이거 해야됨
     }
 
     public function communication_PC_delete(Request $request, $id)
