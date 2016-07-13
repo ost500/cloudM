@@ -291,7 +291,7 @@ class ProcessController extends Controller
 
                 $appList = Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $contractList[$i]->project->id)->get();
 
-                $contractList[$i]->project->app = $appList[0];
+                $contractList[$i]->project->app = $appList->first();
 
                 $carryon[] = $contractList[$i]->project;
 

@@ -21,7 +21,7 @@
                                     <div class="thumbnail">
                                         <div class="thum_imgbox">
                                             <a href="{{ url('/partner/'.$partner->user->id.'/portfolio/'.$portfolio->id) }}"><img
-                                                        src="{{ $portfolio->image1 }}" alt=""
+                                                        src="{{ $portfolio->image1 }}_228_200" alt=""
                                                         class="img-responsive"></a>
                                         </div>
                                         <div class="caption">

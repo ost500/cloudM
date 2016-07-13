@@ -122,7 +122,7 @@
                                         <div class="thumbnail">
                                             <div class="thum_imgbox">
                                                 <a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}"><img
-                                                            src="{{ $portfolio->image1 }}" alt=""
+                                                            src="{{ $portfolio->image1 }}_228_200" alt=""
                                                             class="img-responsive"></a>
                                             </div>
                                             <div class="caption">
