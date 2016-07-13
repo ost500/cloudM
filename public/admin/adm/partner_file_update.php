@@ -132,7 +132,7 @@ for ($i=0; $i<count($_FILES['bf_file']['name']); $i++)
 
 
         $file_name = $file_dir.$upload[$i]['file'];
-        echo $sql = "update {$g5['partner_table']}
+        $sql = "update {$g5['partner_table']}
                 set
                 $file_field = '$file_name',
                 $origin_field = '{$upload[$i]['source']}'
@@ -141,5 +141,5 @@ for ($i=0; $i<count($_FILES['bf_file']['name']); $i++)
     }
 }
 
-//goto_url("partner_list.php?page=$page");
+goto_url("partner_list.php?page=$page");
 ?>
