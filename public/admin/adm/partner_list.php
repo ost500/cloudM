@@ -53,7 +53,7 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 $g5['title'] = '파트너 관리';
 include_once('./admin.head.php');
 
-$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+$sql = " select *, a.id as user_id, b.id as partner_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
 $colspan = 16;
@@ -157,7 +157,7 @@ $colspan = 16;
 
     <tr class="<?php echo $bg; ?>">
         <td headers="mb_list_chk" class="td_chk">
-            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['id'] ?>" id="mb_id_<?php echo $i ?>">
+            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['user_id'] ?>" id="mb_id_<?php echo $i ?>">
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
         </td>
@@ -189,13 +189,13 @@ $colspan = 16;
         </td>
 
         <td headers="mb_list_mobile" class="td_tel">
-            <select name="check[<?=$i?>]" id="check_<?=$i?>">
+            <select name="authenticated[<?=$i?>]" id="authenticated_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">승인전</option>
                 <option value="1">승인완료</option>
             </select>
 
-            <script> $(function(){  $("#check_<?=$i?>").val("<?=$row[check]?>"); });</script>
+            <script> $(function(){  $("#authenticated_<?=$i?>").val("<?=$row[authenticated]?>"); });</script>
         </td>
 
 
