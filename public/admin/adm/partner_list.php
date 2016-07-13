@@ -142,15 +142,15 @@ $colspan = 16;
         $company_file = "";
 
         if ($row[auth_check] != "인증전") {
-            $auth = " <a href='download.php?t=user&id={$row['id']}'><font color='red'>다운</font></a>";
+            $auth = " <a href='download.php?t=user&id={$row['user_id']}'><font color='red'>다운</font></a>";
         }
 
         if ($row[proposal_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[proposal_file_name])) {
-            $proposal_file = "<br><a href='download.php?t=proposal&id={$row['id']}'><font color='red'>{$row['proposal_origin_name']}</font></a>";
+            $proposal_file = "<br><a href='download.php?t=proposal&id={$row['user_id']}'><font color='red'>{$row['proposal_origin_name']}</font></a>";
         }
 
         if ($row[company_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[company_file_name])) {
-            $company_file = "<br><a href='download.php?t=company&id={$row['id']}'><font color='red'>{$row['company_origin_name']}</font></a>";
+            $company_file = "<br><a href='download.php?t=company&id={$row['user_id']}'><font color='red'>{$row['company_origin_name']}</font></a>";
         }
 
     ?>
@@ -167,22 +167,28 @@ $colspan = 16;
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
         <td headers="mb_list_mobile" class="c td_100"><?php echo $row[phone_num]; ?></td>
 
-        <td class="c td_50">
+        <td class="c td_50 bts">
             <select name="company_check[<?=$i?>]" id="company_check_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">인증전</option>
                 <option value="1">인증완료</option>
             </select>
+
+            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#companyFileModal"  data-uid="<?=$row[user_id]?>" data-type="company">관리</button>
+
             <?=$company_file?>
 
             <script> $(function(){  $("#company_check_<?=$i?>").val("<?=$row[company_check]?>"); });</script>
         </td>
-        <td class="c td_50">
+        <td class="c td_50 bts">
             <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">인증전</option>
                 <option value="1">인증완료</option>
             </select>
+
+            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#proposalFileModal"  data-uid="<?=$row[user_id]?>" data-type="proposal">관리</button>
+
             <?=$proposal_file?>
 
             <script> $(function(){  $("#proposal_check_<?=$i?>").val("<?=$row[proposal_check]?>"); });</script>
