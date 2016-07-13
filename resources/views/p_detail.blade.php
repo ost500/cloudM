@@ -48,7 +48,7 @@
 
                                     echo '<script>';
                                         echo '$("#pro_apply").click(function(){';
-                                        if (!Auth::user()->partners->authenticated) {
+                                        if (!Auth::user()->partners['authenticated']) {
                                             echo 'alert("\n패스트엠은 회원 가입 후 인증을 거쳐야 활동이 가능합니다.\n\n신원인증, 회사소개서, 상품소개서, 회사소개, 포트폴리오 등록 필요\n\n"); return false;';
                                         }
                                         echo '});';
