@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\ProjectsArea whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\ProjectsArea whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $memo
+ * @method static \Illuminate\Database\Query\Builder|\App\ProjectsArea whereMemo($value)
  */
 class ProjectsArea extends Model
 {

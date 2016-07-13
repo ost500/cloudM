@@ -26,6 +26,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Comments whereUId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Comments whereSecret($value)
  * @mixin \Eloquent
+ * @property integer $parent_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comments[] $children
+ * @method static \Illuminate\Database\Query\Builder|\App\Comments whereParentId($value)
  */
 class Comments extends Model
 {
@@ -39,4 +42,10 @@ class Comments extends Model
     {
         return $this->belongsTo('App\Project', 'project_id', 'id');
     }
+
+    public function children()
+    {
+        return $this->hasMany('App\Comments', 'parent_id');
+    }
+
 }

@@ -36,6 +36,40 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishWorkDate($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Contract whereTypePay($value)
  * @mixin \Eloquent
+ * @property integer $c_id
+ * @property integer $contract_pay
+ * @property string $start_pay_date
+ * @property string $middle_pay_date
+ * @property string $finish_pay_date
+ * @property integer $start_pay_ratio
+ * @property integer $middle_pay_ratio
+ * @property integer $finish_pay_ratio
+ * @property string $start_pay_request_date
+ * @property string $middle_pay_request_date
+ * @property string $finish_pay_request_date
+ * @property string $start_pay_accept_date
+ * @property string $middle_pay_accept_date
+ * @property string $finish_pay_accept_date
+ * @property string $start_pay_give_date
+ * @property string $middle_pay_give_date
+ * @property string $finish_pay_give_date
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereCId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereContractPay($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereStartPayDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereMiddlePayDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishPayDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereStartPayRatio($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereMiddlePayRatio($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishPayRatio($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereStartPayRequestDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereMiddlePayRequestDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishPayRequestDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereStartPayAcceptDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereMiddlePayAcceptDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishPayAcceptDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereStartPayGiveDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereMiddlePayGiveDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishPayGiveDate($value)
  */
 class Contract extends Model
 {

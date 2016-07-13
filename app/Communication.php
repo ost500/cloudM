@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Communication whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Communication whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $deleted_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Communication whereDeletedAt($value)
  */
 class Communication extends Model
 {

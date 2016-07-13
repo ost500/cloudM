@@ -12,6 +12,7 @@ return array(
     'AddAreasMemo' => $baseDir . '/database/migrations/2016_07_07_210043_add_areas_memo.php',
     'AddClientsIntro' => $baseDir . '/database/migrations/2016_06_07_034332_add_clients_intro.php',
     'AddCommentsColumns' => $baseDir . '/database/migrations/2016_06_08_005356_add_comments_columns.php',
+    'AddCommentsParentId' => $baseDir . '/database/migrations/2016_07_13_134448_add_comments_parent_id.php',
     'AddCommunicationsSoftdel' => $baseDir . '/database/migrations/2016_07_08_174940_add_Communications_softdel.php',
     'AddContractCId' => $baseDir . '/database/migrations/2016_07_11_172730_add_contract_c_id.php',
     'AddContractPayDate' => $baseDir . '/database/migrations/2016_07_07_215531_add_contract_pay_date.php',

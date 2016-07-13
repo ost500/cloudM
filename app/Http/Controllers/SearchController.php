@@ -39,7 +39,7 @@ class SearchController extends Controller
             return redirect()->action('MainController@index');
         }
         $detailProject = Project::where('id', '=', $id)->get();
-        $comment = Comments::where('project_id', '=', $id)->get();
+        $comment = Comments::where('project_id', '=', $id)->where('parent_id',0);
 
         $client_id = $detailProject->first()->Client_id;
 
