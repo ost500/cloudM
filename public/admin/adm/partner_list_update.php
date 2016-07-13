@@ -20,7 +20,12 @@ if ($_POST['act_button'] == "선택수정") {
 
         $sql = " update {$g5['member_table']}
                     set
-                    auth_check = '{$_POST['auth_check'][$k]}'
+                    name          = '{$_POST['name'][$k]}',
+                    homepage      = '{$_POST['homepage'][$k]}',
+                    phone_num     = '{$_POST['phone_num'][$k]}',
+                    fax_num       = '{$_POST['fax_num'][$k]}',
+                    company_name  = '{$_POST['company_name'][$k]}',
+                    auth_check    = '{$_POST['auth_check'][$k]}'
                     where id = '{$_POST['id'][$k]}' ";
         sql_query($sql);
 
