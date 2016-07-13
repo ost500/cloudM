@@ -326,7 +326,7 @@
                             <img class="img-responsive post_img00" src="images/m_pho02.png" alt="">
                             <!-- Detail -->
                             <div class="post-detail">
-                                <h8 class="post-tittle">펠리체 송영종 대표님</h8>
+                                <h8 class="post-tittle">레이호텔 임종정 대표님</h8>
                                 <span><img src="images/m_pho02_txt.png"></span>
 
                             </div>
