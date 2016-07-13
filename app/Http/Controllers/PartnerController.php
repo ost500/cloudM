@@ -22,7 +22,7 @@ class PartnerController extends Controller
 
     public function partner()
     {
-        $partners = Partners::with('user')->where('check', 1);
+        $partners = Partners::with('user')->where('authenticated', 1);
 
         return view('partner/partner', compact('partners'));
     }
@@ -196,7 +196,7 @@ class PartnerController extends Controller
         }
 
         $partners = $partners->filter(function ($value) {
-            if ($value->partners->check == true) {
+            if ($value->partners->authenticated == true) {
                 return $value;
             }
         });
