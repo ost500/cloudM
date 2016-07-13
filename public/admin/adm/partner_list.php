@@ -168,7 +168,7 @@ $colspan = 16;
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>"> <?php echo $row[id] ?>
         </td>
         <td class="c td_100"><?php echo $mb_id ?></td>
-        <td class="c td_50"><?php echo get_text($row['name']); ?></td>
+        <td class="c td_50"><input type="text" name="name[<?php echo $i?>]" value="<?php echo get_text($row['name']); ?>" class="frm_input" style="width: 100%"></td>
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
         <td headers="mb_list_mobile" class="c td_100"><input type="text" name="phone_num[<?php echo $i?>]" value="<?php echo $row[phone_num]; ?>" class="frm_input" style="width: 100%"></td>
 
