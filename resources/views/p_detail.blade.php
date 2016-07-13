@@ -83,7 +83,8 @@
 
                                                     @if(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
                                                         <div onclick="javascript:alert('이미 추가하셨습니다');"
-                                                             class="btn btn-app-not margin-top-10 margin-bottom-5">관심 프로젝트
+                                                             class="btn btn-app-not margin-top-10 margin-bottom-5">관심
+                                                            프로젝트
                                                         </div>
                                                     @else
                                                         <form method="post"
@@ -240,13 +241,13 @@
                             <div class="job-content02 job-post-page margin-top-20 padding-bottom-20">
                                 <h5>프로젝트 문의</h5>
 
-
-                                @include('comment_show',['comment' => $comment->get(), 'count'=> 1])
-
+                                <div class="inquiry_01">
+                                    @include('comment_show',['comment' => $comment->get(), 'count'=> 1])
+                                </div>
 
                                 <form action="{{ url('commentadd/0') }}" method="POST" role="form">
                                     {!! csrf_field() !!}
-                                    <div class="media inquiry_01">
+                                    <div class="media inquiry_01 comment02">
                                         <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
                                         <div class="media-body">
                                             <div class="col-md-9 ">

@@ -6050,7 +6050,7 @@ ul.tags li a {
 }
 
 .partner_profile03 {
-    float:left; width:47px; height:50px; margin-bottom:10px; margin-right:20px; text-align:center; border-radius:300px;
+    float:left; width:40px; height:43px; margin-bottom:10px; margin-right:20px; text-align:center; border-radius:300px;
 }
 
 .inquiry_01 div {
@@ -6079,23 +6079,24 @@ input#comment_status {
     margin-top: -4px;
 }
 
-.button007 {
-    position: relative;
-    top: 0px;
-    right: 0px;
-    height: 50px !important;
-    width: 160px !important;
-    line-height: 30px;
-    text-align: center;
-    color: #333333;
-    background: #666;
-    border-radius: 3px;
-    border: none;
-    display: inline-block;
-    letter-spacing: -1px;
-    clear: both;
-    color: #fff;
-    margin-top: 3px;
+.button007{
+    position:relative;
+    top:0px;
+    right:0px;
+    height:50px !important;
+    width:100% !important;
+    line-height:30px;
+    text-align:center;
+    color:#333333;
+    background:#666;
+    border-radius:3px;
+    border:none;
+    display:inline-block;
+    letter-spacing:-1px;
+    clear:both;
+    color:#fff;
+    margin-top:3px;
+    padding-left:0px !important;
 }
 .button008 {
     position: relative;
@@ -6900,3 +6901,33 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
 .ser_img000{ width:439px; margin:0px auto !important; text-align:center !important; display:block !important;}
 @media screen and (max-width:767px){  .ser_img000{ width:100%; }}
 .heading .ser_s_title02{ text-align:center !important; font-weight:500 !important; font-size:22px; line-height:30px; margin-bottom:7px; letter-spacing:-2px;}
+
+.comment02{ border-left:2px solid #cdcdcd; padding-left:15px; border-bottom:none; padding-bottom:0px; margin-top:0px; padding-top:5px; clear:both; }
+
+.hori_bar {
+    position: relative;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    overflow: hidden;
+    color: #444;
+}
+.comment_btn{ clear:both; font-size:12px; border:dotted 1px #666; color:#666; padding:0px 5px 3px 5px; float:right; border-radius:3px; background:#f7f7f7; margin-top:4px;}
+.comment-form-control{color:#666; font-weight:normal; height:60px; padding:6px 12px; font-size:14px; line-height:1.4285; color:#555; background-color:#fff; border:1px solid #ccc; border-radius:3px; width:100%; display:inline !important; margin-top:3px;}
+.comment-button007{ position:relative;
+    top:0px;
+    right:0px;
+    height:34px !important;
+    width:100% !important;
+    line-height:30px;
+    text-align:center;
+    color:#333333;
+    background:#666;
+    border-radius:3px;
+    border:none;
+    display:inline-block;
+    letter-spacing:-1px;
+    clear:both;
+    color:#fff;
+    margin-top:3px;
+    padding-left:0px !important;}
