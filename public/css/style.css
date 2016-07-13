@@ -942,7 +942,7 @@ header .navbar li.active a {
 
 .services article {
     background: #fff;
-    border: 1px solid #e6e6e6;
+    border:1px solid #d2d2d2;
     text-align: left;
     display: inline-block;
     width: 100%;
@@ -954,6 +954,8 @@ header .navbar li.active a {
     -o-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
 }
+
+.services article:hover{ border:1px solid #000; transition:none; }
 
 .services article i {
     font-size: 60px;
@@ -6159,7 +6161,7 @@ input#comment_status {
     font-size: 17px;
     color: #4b7fce;
     font-weight: 600;
-    margin: 5px 0px 5px 0px;
+    padding: 5px 0px 5px 0px;
     letter-spacing: -1px;
 }
 
