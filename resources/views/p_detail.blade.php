@@ -83,8 +83,7 @@
 
                                                     @if(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
                                                         <div onclick="javascript:alert('이미 추가하셨습니다');"
-                                                             class="btn btn-app-not margin-top-10 margin-bottom-5">관심
-                                                            프로젝트
+                                                             class="btn btn-app-not margin-top-10 margin-bottom-5">관심 프로젝트
                                                         </div>
                                                     @else
                                                         <form method="post"

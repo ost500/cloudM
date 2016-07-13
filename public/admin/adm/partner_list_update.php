@@ -26,9 +26,10 @@ if ($_POST['act_button'] == "선택수정") {
 
         $sql = " update {$g5['partner_table']}
                     set
-                    authenticated = '{$_POST['authenticated'][$k]}',
-                    company_check = '{$_POST['company_check'][$k]}',
-                    proposal_check = '{$_POST['proposal_check'][$k]}'
+                    intro           = '{$_POST['intro'][$k]}',
+                    authenticated   = '{$_POST['authenticated'][$k]}',
+                    company_check   = '{$_POST['company_check'][$k]}',
+                    proposal_check  = '{$_POST['proposal_check'][$k]}'
                     where user_id = '{$_POST['id'][$k]}' ";
         sql_query($sql);
     }

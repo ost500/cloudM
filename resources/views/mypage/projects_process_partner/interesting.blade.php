@@ -52,9 +52,8 @@
                                             </td>
                                             <td>{{ number_format($interestingItem->budget) }}</td>
                                             <td>{{ $interestingItem->deadline }}</td>
-                                            <td><a href="/apply/{{$interestingItem->id}}/application"><button class="btn btn-sm btn-dark-azure">지원하기</button></a></td>
+                                            <td><a href="/apply/{{$interestingItem->id}}/application"><button class="btn btn-sm btn-dark-azure" id="pro_apply">지원하기</button></a></td>
                                         </tr>
-
                                     @endforeach
                                 </table>
                             </div>
@@ -65,16 +64,16 @@
         </div>
     </div>
 
-    <script type="text/javascript">
-        <!--
-        $('#fileModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget)
-            var pid = button.data('pid')
+    <?php
 
-            var modal = $(this)
-            modal.find(".modal-body input[name$='p_id']").val(pid)
-        });
-        //-->
-    </script>
+    echo '<script>';
+    echo '$("#pro_apply").click(function(){';
+    if (!Auth::user()->partners['authenticated']) {
+        echo 'alert("\n패스트엠은 회원 가입 후 인증을 거쳐야 활동이 가능합니다.\n\n신원인증, 회사소개서, 상품소개서, 회사소개, 포트폴리오 등록 필요\n\n"); return false;';
+    }
+    echo '});';
+    echo '</script>';
+
+    ?>
 @endsection
 

@@ -98,7 +98,7 @@ if (!defined('_GNUBOARD_')) exit;
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">회사소개서 업로드</h4>
+                    <h4 class="modal-title" id="myModalLabel">상품소개서 업로드</h4>
                 </div>
                 <form role="form" method="POST" action="partner_file_update.php" enctype="multipart/form-data">
                 <div class="modal-body" style="padding:30px 100px 50px 100px;">
