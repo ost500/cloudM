@@ -259,7 +259,7 @@ class SearchController extends Controller
 //    }
 
     public
-    function postcomment(Request $request)
+    function postcomment(Request $request, $com_id)
     {
         $input = new Comments();
         $input->project_id = $request->input('project_id');
@@ -268,6 +268,7 @@ class SearchController extends Controller
         if ($request->input('comment_status') != null) {
             $input->secret = true;
         }
+        $input->parent_id = $com_id;
         $input->save();
         return back();
     }

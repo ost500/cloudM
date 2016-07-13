@@ -14,7 +14,7 @@ class AddCommentsParentId extends Migration
     {
         Schema::table('comments', function(Blueprint $table){
             $table->integer('parent_id')->unsigned()->index();
-            
+
         });
     }
 
