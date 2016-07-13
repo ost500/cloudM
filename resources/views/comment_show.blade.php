@@ -32,60 +32,60 @@
             @endif
 
 
-            <form action="{{ url('commentadd/'.$comments->id) }}" method="POST" role="form">
-                {!! csrf_field() !!}
-                <div class="media inquiry_01">
-                    <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
-                    <div class="media-body">
-                        <div class="col-md-9 ">
-                            <label for="comment">
-                                @if(Auth::check())
-                                    {{Auth::user()->nick}}
-                                @else
-                                    <a style="cursor : pointer" data-toggle="modal"
-                                       data-target="#loginModal" class="button signin">로그인 하세요</a>
-                                @endif
-                            </label>
-                            @if(Auth::check())
-                                <textarea name="comment" type="text" class="form-control06"
-                                          id="id_body" required=""
-                                          rows="10"
-                                          cols="40" resize="none"></textarea>
-                            @else
-                                <a style="cursor : pointer" data-toggle="modal"
-                                   data-target="#loginModal" class="button signin">
-                                                    <textarea name="comment" type="text" class="form-control06"
-                                                              id="id_body" required=""
-                                                              rows="10"
-                                                              cols="40" resize="none"></textarea></a>
-                            @endif
+            {{--<form action="{{ url('commentadd/'.$comments->id) }}" method="POST" role="form">--}}
+                {{--{!! csrf_field() !!}--}}
+                {{--<div class="media inquiry_01">--}}
+                    {{--<img class="partner_profile03" src="{{ Auth::user()->profileImage }}">--}}
+                    {{--<div class="media-body">--}}
+                        {{--<div class="col-md-9 ">--}}
+                            {{--<label for="comment">--}}
+                                {{--@if(Auth::check())--}}
+                                    {{--{{Auth::user()->nick}}--}}
+                                {{--@else--}}
+                                    {{--<a style="cursor : pointer" data-toggle="modal"--}}
+                                       {{--data-target="#loginModal" class="button signin">로그인 하세요</a>--}}
+                                {{--@endif--}}
+                            {{--</label>--}}
+                            {{--@if(Auth::check())--}}
+                                {{--<textarea name="comment" type="text" class="form-control06"--}}
+                                          {{--id="id_body" required=""--}}
+                                          {{--rows="10"--}}
+                                          {{--cols="40" resize="none"></textarea>--}}
+                            {{--@else--}}
+                                {{--<a style="cursor : pointer" data-toggle="modal"--}}
+                                   {{--data-target="#loginModal" class="button signin">--}}
+                                                    {{--<textarea name="comment" type="text" class="form-control06"--}}
+                                                              {{--id="id_body" required=""--}}
+                                                              {{--rows="10"--}}
+                                                              {{--cols="40" resize="none"></textarea></a>--}}
+                            {{--@endif--}}
 
-                        </div>
-                        <div class="col-md-3 ">
-                            <input name="comment_status" id="comment_status" type="checkbox">
-                            <label for="comment_status"><i class="fa fa-lock"
-                                                           style="margin-right: 4px;"></i>비공개
-                                설정</label>
-                            <input type="hidden" name="project_id" value="{{ $project['id'] }}">
-                            @if(Auth::check())
-                                <button type="submit" class="button007" id="id_submit" type="button"
-                                        value="작성하기">작성하기
-                                </button>
-                            @else
-                                <a style="cursor : pointer" data-toggle="modal"
-                                   data-target="#loginModal" class="button signin">
-                                    <button class="button007">작성하기</button>
-                                </a>
-                            @endif
+                        {{--</div>--}}
+                        {{--<div class="col-md-3 ">--}}
+                            {{--<input name="comment_status" id="comment_status" type="checkbox">--}}
+                            {{--<label for="comment_status"><i class="fa fa-lock"--}}
+                                                           {{--style="margin-right: 4px;"></i>비공개--}}
+                                {{--설정</label>--}}
+                            {{--<input type="hidden" name="project_id" value="{{ $project['id'] }}">--}}
+                            {{--@if(Auth::check())--}}
+                                {{--<button type="submit" class="button007" id="id_submit" type="button"--}}
+                                        {{--value="작성하기">작성하기--}}
+                                {{--</button>--}}
+                            {{--@else--}}
+                                {{--<a style="cursor : pointer" data-toggle="modal"--}}
+                                   {{--data-target="#loginModal" class="button signin">--}}
+                                    {{--<button class="button007">작성하기</button>--}}
+                                {{--</a>--}}
+                            {{--@endif--}}
 
-                        </div>
-                        <br>
-                        <div style="clear:both;"></div>
-                        <small class="text-warning02">프로젝트 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>
-                    </div>
+                        {{--</div>--}}
+                        {{--<br>--}}
+                        {{--<div style="clear:both;"></div>--}}
+                        {{--<small class="text-warning02">프로젝트 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>--}}
+                    {{--</div>--}}
 
-                </div>
-            </form>
+                {{--</div>--}}
+            {{--</form>--}}
 
 
             @if($count <= 2 && count($comment->count()) != 0)
