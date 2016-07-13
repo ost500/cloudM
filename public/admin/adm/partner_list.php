@@ -189,13 +189,13 @@ $colspan = 16;
         </td>
 
         <td headers="mb_list_mobile" class="td_tel">
-            <select name="check[<?=$i?>]" id="check_<?=$i?>">
+            <select name="authenticated[<?=$i?>]" id="authenticated_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">승인전</option>
                 <option value="1">승인완료</option>
             </select>
 
-            <script> $(function(){  $("#check_<?=$i?>").val("<?=$row[check]?>"); });</script>
+            <script> $(function(){  $("#authenticated_<?=$i?>").val("<?=$row[authenticated]?>"); });</script>
         </td>
 
 
