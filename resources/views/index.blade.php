@@ -314,7 +314,7 @@
 
                             <!-- Detail -->
                             <div class="post-detail">
-                                <h8 class="post-tittle">비즈팜 김남형 부장님</h8>
+                                <h8 class="post-tittle">쇼핑몰 장지호 대표님</h8>
                                 <span><img src="images/m_pho01_txt.png"></span>
 
                             </div>
