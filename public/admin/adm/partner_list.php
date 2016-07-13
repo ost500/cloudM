@@ -170,7 +170,7 @@ $colspan = 16;
         <td class="c td_100"><?php echo $mb_id ?></td>
         <td class="c td_50"><?php echo get_text($row['name']); ?></td>
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
-        <td headers="mb_list_mobile" class="c td_100"><?php echo $row[phone_num]; ?></td>
+        <td headers="mb_list_mobile" class="c td_100"><input type="text" name="phone_num[<?php echo $i?>]" value="<?php echo $row[phone_num]; ?>" class="frm_input" style="width: 100%"></td>
 
         <td class="c td_100 bts">
             <select name="company_check[<?=$i?>]" id="company_check_<?=$i?>">
@@ -205,8 +205,8 @@ $colspan = 16;
 
 
         <tr class="<?php echo $bg; ?>">
-            <td><?php echo get_text($row['homepage']); ?></td>
-            <td class="c td_50"><?php echo get_text($row['company_name']); ?></td>
+            <td><input type="text" name="homepage[<?php echo $i?>]" value="<?php echo get_text($row['homepage']); ?>" class="frm_input" style="width: 100%"></td>
+            <td><input type="text" name="company_name[<?php echo $i?>]" value="<?php echo get_text($row['company_name']); ?>" class="frm_input" style="width: 100%"></td>
             <td headers="mb_list_mobile" class="td_tel">
                 <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
                     <option value="">선택</option>
@@ -219,7 +219,7 @@ $colspan = 16;
 
                 <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
             </td>
-            <td headers="mb_list_mobile" class="c td_100"><?php echo $row[fax_num]; ?></td>
+            <td headers="mb_list_mobile"><input type="text" name="fax_num[<?php echo $i?>]" value="<?php echo $row[fax_num]; ?>" class="frm_input" style="width: 100%"></td>
 
             <td class="c td_100 bts">
                 <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
