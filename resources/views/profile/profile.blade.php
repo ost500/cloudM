@@ -152,6 +152,62 @@
                             </div>
                         </div>
 
+                        <div class="job-tittle02 txt_color_g">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">회사소개서</h6>
+                            <a href="profile/company" class="button002 signup002 margin-top-12">수정하기</a>
+
+                            <div id="textarea_location">
+                                @if(!$loginUser->partners['company_file_name'])
+                                    <div class="text-center">
+                                        <img class="padding-bottom-10" src="http://fastm.io/images/empty_portfolio.png" data-pin-nopin="true">
+
+                                        <div class="padding-bo"></div>
+                                        <h7>회사소개서가 없습니다</h7>
+                                    </div>
+                                @else
+                                    @if($loginUser->partners['company_file_check'])
+                                        <div class="text-center panel-body">
+                                            <p class="text-center"><i class="fa fa-check-circle-o fa-5x"></i></p>
+                                            성공적으로 등록되었습니다.
+                                        </div>
+                                    @else
+                                        <div class="text-center panel-body">
+                                            <p class="text-center"><i class="fa fa-exclamation-circle fa-5x"></i></p>
+                                            패스트엠 검수중 입니다.
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="job-tittle02 txt_color_g ">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">상품소개서</h6>
+                            <a href="profile/proposal" class="button002 signup002 margin-top-12">수정하기</a>
+
+                            <div id="">
+                                @if(!$loginUser->partners['proposal_file_name'])
+                                    <div class="text-center">
+                                        <img class="padding-bottom-10" src="http://fastm.io/images/empty_portfolio.png" data-pin-nopin="true">
+
+                                        <div class="padding-bo"></div>
+                                        <h7>상품소개서가 없습니다</h7>
+                                    </div>
+                                @else
+                                    @if($loginUser->partners['proposal_file_check'])
+                                        <div class="text-center panel-body">
+                                            <p class="text-center"><i class="fa fa-check-circle-o fa-5x"></i></p>
+                                            성공적으로 등록되었습니다.
+                                        </div>
+                                    @else
+                                        <div class="text-center panel-body">
+                                            <p class="text-center"><i class="fa fa-exclamation-circle fa-5x"></i></p>
+                                            패스트엠 검수중 입니다.
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="job-tittle02">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>

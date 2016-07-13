@@ -53,7 +53,10 @@ if ($_FILES['bf_file']['name'][0] == "") {
     if (isset($_POST['file_name_del'][0]) && $_POST['file_name_del'][0]) {
         $upload[$i]['del_check'] = true;
 
-        @unlink($_SERVER['DOCUMENT_ROOT'].$file_dir . $row[$file_name]);
+        @unlink($_SERVER['DOCUMENT_ROOT'] . $row[$file_field]);
+
+        $sql = "update {$g5['partner_table']} set $file_field = '', $origin_field = '' where user_id = '$u_id'";
+        sql_query($sql);
     } else
         $upload[0]['del_check'] = false;
 }
