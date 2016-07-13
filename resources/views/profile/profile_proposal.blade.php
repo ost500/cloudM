@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <p class="text-center"><i class="fa fa-check-circle-o fa-5x"></i></p>
-                                <p class="text-center">등록된 상품소개서 : {{ $partners->proposal_origin_name }}</p>
+                                <p class="text-center">상품소개서가 등록되었습니다.</p>
                             </div>
                         </div>
                     @else

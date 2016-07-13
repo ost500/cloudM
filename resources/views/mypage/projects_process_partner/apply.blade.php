@@ -9,13 +9,21 @@
     <!-- Job Content -->
     <div id="accordion">
 
-        <!-- Job Section -->
-        @if(sizeof($app) == 0)
-            <td colspan="7">지원한 프로젝트가 없습니다</td>
-        @endif
+        <div class="job-content job-post-page margin-bottom-10">
+            <div class="panel-body">
+
+                <div class="port_guide img_f">
+                    <img src="/images/i_icon.png" style="margin-top:12px;">
+
+                    <div class="p_add_span padding-left-50">
+                        <div class="content">1. 서류 접수시 양질의 제안서 요청을 위해 패스트엠 검수를 우선 거칩니다.</div>
+                        <div class="content">2. 광고주가 미팅을 요청 하는 경우, 패스트엠이 미팅 주선을 위해 연락을 드립니다.</div>
+                    </div>
+                </div>
+
+
         @foreach($app as $appItem)
-            <div class="job-content job-post-page margin-bottom-10">
-                <div class="form-group">
+                <div class="form-group padding-top-20">
                     <div class="panel">
                         <div class="margin-bottom-10">
                             <a href="{{ url("detail/".$appItem->project->id) }}"><h6
@@ -83,8 +91,15 @@
                     </div>
 
                 </div>
+                <div class="border_bott"></div>
+                @endforeach
+
+                @if(sizeof($app) == 0)
+                    <td colspan="7">지원한 프로젝트가 없습니다</td>
+                @endif
+
             </div>
-        @endforeach
+        </div>
     </div>
     <script type="text/javascript">
         <!--

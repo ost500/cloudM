@@ -106,6 +106,9 @@ Route::post('/applist/meetingCancel', 'MypageController@meetingCancel');
 // contract
 Route::post('/applist/contract', 'MypageController@contract');
 
+Route::post('/applist/interest', 'MypageController@meetingInterest');
+Route::post('/applist/out', 'MypageController@meetingOut');
+
 
 Route::get('/setting', 'MypageController@setting');
 

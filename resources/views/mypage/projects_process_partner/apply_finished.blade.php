@@ -2,7 +2,7 @@
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
         <span class="h3 text-bold">지원 종료 프로젝트</span>
-        <p class="padding-top-5">지원 종료된 프로젝트를 확인할 수 있습니다.</p>
+        <p class="padding-top-5">계약이 성사되지 않은 프로젝트를 확인할 수 있습니다.</p>
     </div>
 
 

@@ -15,10 +15,10 @@
                     <ul>
                         <li style="float:left"><div class="rating star-lg star-lg-0"></div></li>
                         <li style="float:left">
-                                                                                        <span class="rating-stats-body stats-body">
-                                                                                            <span class="average-rating-score">0.0</span>
-                                                                                            <span class="rating-append-unit append-unit">/ 평가 0개</span>
-                                                                                        </span>
+                            <span class="rating-stats-body stats-body">
+                                <span class="average-rating-score">0.0</span>
+                                <span class="rating-append-unit append-unit">/ 평가 0개</span>
+                            </span>
                         </li>
                     </ul>
                     <div class="clear padding-top-5"></div>
@@ -55,7 +55,7 @@
                     <tr>
                         <th>회사소개서</th>
                         <td>
-                            @if($app_list->user->partners['company_file_name'] && file_exists(public_path().$app_list->user->partners['company_file_name']))
+                            @if($app_list->user->partners['company_file_name'] && file_exists(public_path().$app_list->user->partners['company_file_name'] && $app_list->user->partners['company_file_check']))
                                 <a href="/apply/download/company/{{ $app_list->id }}">{{ $app_list->user->partners['company_origin_name'] }}</a>
                             @else
                                 등록된 회사소개서가 없습니다.
@@ -64,7 +64,7 @@
 
                         <th>상품소개서</th>
                         <td>
-                            @if($app_list->user->partners['proposal_file_name'] && file_exists(public_path().$app_list->user->partners['proposal_file_name']))
+                            @if($app_list->user->partners['proposal_file_name'] && file_exists(public_path().$app_list->user->partners['proposal_file_name']) && $app_list->user->partners['proposal_file_check'])
                                 <a href="/apply/download/proposal/{{ $app_list->id }}">{{ $app_list->user->partners['proposal_origin_name'] }}</a>
                             @else
                                 등록된 상품소개서가 없습니다.
@@ -90,18 +90,35 @@
     </div>
 
     <div class="col-md-2">
-        <div class="heart_btn">
-            <span><i class="fa fa-heart" aria-hidden="true"></i></span>
-            <span><i class="fa fa-times" aria-hidden="true"></i></span>
+        <div class="row">
+            <form action="{{ url('/applist/meeting') }}"
+                  method="POST" role="form" onsubmit="return confirm('미팅신청 하시겠습니까?');">
+                {!! csrf_field() !!}
+                <input name="id" type="hidden"
+                       value="{{ $app_list['id']}}">
+                <button class="btn btn-dark-azure pull-right" type="submit">미팅신청</button>
+            </form>
         </div>
 
+        <div class="row margin-top-5">
+            <form action="{{ url('/applist/interest') }}"
+                  method="POST" role="form" onsubmit="return confirm('관심등록 하시겠습니까?');">
+                {!! csrf_field() !!}
+                <input name="id" type="hidden"
+                       value="{{ $app_list['id']}}">
+                <button class="btn btn-orange pull-right" type="submit">관심등록</button>
+            </form>
+        </div>
 
-        <form action="{{ url('/applist/meeting') }}"
-              method="POST" role="form">
-            {!! csrf_field() !!}
-            <input name="id" type="hidden"
-                   value="{{ $app_list['id']}}">
-            <button class="btn btn-blue pull-right" type="submit">미팅신청</button>
-        </form>
+        <div class="row margin-top-5">
+            <form action="{{ url('/applist/out') }}"
+                  method="POST" role="form" onsubmit="return confirm('탈락등록 하시겠습니까?');">
+                {!! csrf_field() !!}
+                <input name="id" type="hidden"
+                       value="{{ $app_list['id']}}">
+                <button class="btn btn-dark-grey pull-right" type="submit">탈락등록</button>
+            </form>
+        </div>
+
     </div>
 </div>

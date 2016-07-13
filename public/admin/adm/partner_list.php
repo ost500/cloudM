@@ -4,7 +4,7 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
 
-$sql_common = " from {$g5['member_table']} ";
+$sql_common = " from {$g5['member_table']} as a left join {$g5['partner_table']} as b on a.id = b.user_id ";
 
 $sql_search = " where (1) and PorC = 'P'";
 if ($stx) {
@@ -33,7 +33,7 @@ if ($is_admin != 'super')
 */
 
 if (!$sst) {
-    $sst = "created_at";
+    $sst = "a.created_at";
     $sod = "desc";
 }
 
@@ -117,7 +117,10 @@ $colspan = 16;
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
-        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>인증</a></th>
+        <th scope="col" id="mb_list_auth">회사소개서</th>
+        <th scope="col" id="mb_list_auth">상품소개서</th>
+        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('check', '', 'desc') ?>노출승인</a></th>
+        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
         <th scope="col" id="mb_list_mng">관리</th>
     </tr>
@@ -135,9 +138,21 @@ $colspan = 16;
         $bg = 'bg'.($i%2);
 
         $auth = "";
+        $proposal_file = "";
+        $company_file = "";
+
         if ($row[auth_check] != "인증전") {
             $auth = " <a href='download.php?t=user&id={$row['id']}'><font color='red'>다운</font></a>";
         }
+
+        if ($row[proposal_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[proposal_file_name])) {
+            $proposal_file = "<br><a href='download.php?t=proposal&id={$row['id']}'><font color='red'>{$row['proposal_origin_name']}</font></a>";
+        }
+
+        if ($row[company_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[company_file_name])) {
+            $company_file = "<br><a href='download.php?t=company&id={$row['id']}'><font color='red'>{$row['company_origin_name']}</font></a>";
+        }
+
     ?>
 
     <tr class="<?php echo $bg; ?>">
@@ -151,6 +166,39 @@ $colspan = 16;
         <td class="c td_50"><?php echo get_text($row['name']); ?></td>
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
         <td headers="mb_list_mobile" class="c td_100"><?php echo $row[phone_num]; ?></td>
+
+        <td class="c td_50">
+            <select name="company_check[<?=$i?>]" id="company_check_<?=$i?>">
+                <option value="">선택</option>
+                <option value="0">인증전</option>
+                <option value="1">인증완료</option>
+            </select>
+            <?=$company_file?>
+
+            <script> $(function(){  $("#company_check_<?=$i?>").val("<?=$row[company_check]?>"); });</script>
+        </td>
+        <td class="c td_50">
+            <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
+                <option value="">선택</option>
+                <option value="0">인증전</option>
+                <option value="1">인증완료</option>
+            </select>
+            <?=$proposal_file?>
+
+            <script> $(function(){  $("#proposal_check_<?=$i?>").val("<?=$row[proposal_check]?>"); });</script>
+        </td>
+
+        <td headers="mb_list_mobile" class="td_tel">
+            <select name="check[<?=$i?>]" id="check_<?=$i?>">
+                <option value="">선택</option>
+                <option value="0">승인전</option>
+                <option value="1">승인완료</option>
+            </select>
+
+            <script> $(function(){  $("#check_<?=$i?>").val("<?=$row[check]?>"); });</script>
+        </td>
+
+
         <td headers="mb_list_mobile" class="td_tel">
             <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
                 <option value="">선택</option>
@@ -163,6 +211,7 @@ $colspan = 16;
 
             <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
         </td>
+
         <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
         <td headers="mb_list_mng" class="td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
     </tr>

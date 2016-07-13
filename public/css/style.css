@@ -6828,6 +6828,9 @@ span.gry {
     padding-bottom: 20px;
 }
 
+.border_bott:nth-last-child(1) {
+    border: none;
+}
 .border_bott > span {
     color: #666;
 }
