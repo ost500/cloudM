@@ -103,12 +103,29 @@ class MypagePostController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
+
+
+        $validator = Validator::make(
+            ['company_name' => $request->company_name],
+            ['required' => '업체명은 필수 입니다',
+                'max:255' => '255자 까지 입력할 수 있습니다 ',
+                'unique' => '이미 사용중인 업체명입니다']
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }
+
+
+
         Auth::user()->phone_num = $request->phone_num1.'-'.$request->phone_num2.'-'.$request->phone_num3;
         Auth::user()->fax_num = $request->fax_num;
 
 
         Auth::user()->name = $request->name;
         Auth::user()->company_type = $request->company_type;
+        Auth::user()->company_name = $request->company_name;
+        Auth::user()->homepage = $request->homepage;
         Auth::user()->sex = $request->sex;
         Auth::user()->BOD = $request->BOD;
         Auth::user()->address = $request->address;
