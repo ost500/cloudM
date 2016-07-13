@@ -41,7 +41,8 @@ Route::post('/detail/{id}/interesting', ['as' => 'interesting_add','uses'=>'Sear
 
 
 // 댓글
-Route::post('/commentadd', 'SearchController@postcomment');
+Route::post('/commentadd/{com_id}', ['as'=>'comment_post','uses'=>'SearchController@postcomment'])
+    ->where(['com_id' => '[0-9]+']);
 // 댓글 삭제
 Route::post('/commentdel', 'SearchController@delete_comment');
 
