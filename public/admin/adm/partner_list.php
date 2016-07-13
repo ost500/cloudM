@@ -108,19 +108,26 @@ $colspan = 16;
     <caption><?php echo $g5['title']; ?> 목록</caption>
     <thead>
     <tr>
-        <th scope="col" id="mb_list_chk">
+        <th scope="col" id="mb_list_chk" rowspan="2">
             <label for="chkall" class="sound_only">회원 전체</label>
             <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
+            <?php echo subject_sort_link('id') ?>번호</a>
         </th>
-        <th scope="col" id="mb_list_id"><?php echo subject_sort_link('id') ?>번호</a></th>
         <th scope="col" id="mb_list_id"><?php echo subject_sort_link('email') ?>아이디</a></th>
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
         <th scope="col" id="mb_list_mobile">회사소개서</th>
-        <th scope="col" id="mb_list_mobile">상품소개서</th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('check', '', 'desc') ?>노출승인</a></th>
+
+        <th scope="col" id="mb_list_lastcall" rowspan="2">소개</th>
+    </tr>
+    <tr>
+        <th scope="col" id="mb_list_mobile">홈페이지</th>
+        <th scope="col" id="mb_list_mobile">업체명</th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
+        <th scope="col" id="mb_list_mobile">팩스</th>
+        <th scope="col" id="mb_list_mobile">상품소개서</th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
     </tr>
     </thead>
@@ -155,12 +162,11 @@ $colspan = 16;
     ?>
 
     <tr class="<?php echo $bg; ?>">
-        <td headers="mb_list_chk" class="td_chk">
+        <td headers="mb_list_chk" class="td_chk" rowspan="2">
             <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['user_id'] ?>" id="mb_id_<?php echo $i ?>">
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
-            <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
+            <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>"> <?php echo $row[id] ?>
         </td>
-        <td headers="mb_list_chk" class="td_chk"><?php echo $row[id] ?></td>
         <td class="c td_100"><?php echo $mb_id ?></td>
         <td class="c td_50"><?php echo get_text($row['name']); ?></td>
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
@@ -179,19 +185,6 @@ $colspan = 16;
 
             <script> $(function(){  $("#company_check_<?=$i?>").val("<?=$row[company_check]?>"); });</script>
         </td>
-        <td class="c td_100 bts">
-            <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
-                <option value="">선택</option>
-                <option value="0">인증전</option>
-                <option value="1">인증완료</option>
-            </select>
-
-            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#proposalFileModal"  data-uid="<?=$row[user_id]?>" data-type="proposal">관리</button>
-
-            <?=$proposal_file?>
-
-            <script> $(function(){  $("#proposal_check_<?=$i?>").val("<?=$row[proposal_check]?>"); });</script>
-        </td>
 
         <td headers="mb_list_mobile" class="td_tel">
             <select name="authenticated[<?=$i?>]" id="authenticated_<?=$i?>">
@@ -202,23 +195,48 @@ $colspan = 16;
 
             <script> $(function(){  $("#authenticated_<?=$i?>").val("<?=$row[authenticated]?>"); });</script>
         </td>
-
-
-        <td headers="mb_list_mobile" class="td_tel">
-            <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
-                <option value="">선택</option>
-                <option value="인증전">인증전</option>
-                <option value="인증요청">인증요청</option>
-                <option value="인증완료">인증완료</option>
-            </select>
-
-            <?=$auth?>
-
-            <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
-        </td>
-
-        <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
+        <td class="td_300 left" rowspan="2"><textarea name="intro[<?php echo $i ?>]" rows="4"><?php echo $row['intro'] ?></textarea></td>
     </tr>
+
+
+
+
+
+
+
+        <tr class="<?php echo $bg; ?>">
+            <td><?php echo get_text($row['homepage']); ?></td>
+            <td class="c td_50"><?php echo get_text($row['company_name']); ?></td>
+            <td headers="mb_list_mobile" class="td_tel">
+                <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
+                    <option value="">선택</option>
+                    <option value="인증전">인증전</option>
+                    <option value="인증요청">인증요청</option>
+                    <option value="인증완료">인증완료</option>
+                </select>
+
+                <?=$auth?>
+
+                <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
+            </td>
+            <td headers="mb_list_mobile" class="c td_100"><?php echo $row[fax_num]; ?></td>
+
+            <td class="c td_100 bts">
+                <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
+                    <option value="">선택</option>
+                    <option value="0">인증전</option>
+                    <option value="1">인증완료</option>
+                </select>
+
+                <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#proposalFileModal"  data-uid="<?=$row[user_id]?>" data-type="proposal">관리</button>
+
+                <?=$proposal_file?>
+
+                <script> $(function(){  $("#proposal_check_<?=$i?>").val("<?=$row[proposal_check]?>"); });</script>
+            </td>
+            <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
+
+        </tr>
 
     <?php
     }

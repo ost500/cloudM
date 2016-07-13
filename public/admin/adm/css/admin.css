@@ -381,7 +381,7 @@ td.td_grpset {width:160px;border-left:1px solid #e9ecee;text-align:center}
 .td_100 {width:100px !important;text-align:center}
 .td_150 {width:150px !important;text-align:center}
 .td_200 {width:200px !important;text-align:center}
-.td_300 {width:300px !important;text-align:center}
+.td_300 {width:300px !important;}
 .td_mng button, .td_mngsmall button {margin:0;padding:0;border:0;background:transparent}
 .td_num {width:60px;text-align:center}
 .td_numbig {width:100px;text-align:center}
