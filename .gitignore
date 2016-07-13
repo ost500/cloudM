@@ -12,3 +12,4 @@ Homestead.json
 .idea/
 config/ide-helper.php
 /public/admin/data/dbconfig.php
+admin_dbconfig.php
