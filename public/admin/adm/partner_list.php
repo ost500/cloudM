@@ -117,12 +117,11 @@ $colspan = 16;
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
-        <th scope="col" id="mb_list_auth">회사소개서</th>
-        <th scope="col" id="mb_list_auth">상품소개서</th>
+        <th scope="col" id="mb_list_mobile">회사소개서</th>
+        <th scope="col" id="mb_list_mobile">상품소개서</th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('check', '', 'desc') ?>노출승인</a></th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
-        <th scope="col" id="mb_list_mng">관리</th>
     </tr>
     </thead>
     <tbody>
@@ -167,7 +166,7 @@ $colspan = 16;
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
         <td headers="mb_list_mobile" class="c td_100"><?php echo $row[phone_num]; ?></td>
 
-        <td class="c td_50 bts">
+        <td class="c td_100 bts">
             <select name="company_check[<?=$i?>]" id="company_check_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">인증전</option>
@@ -180,7 +179,7 @@ $colspan = 16;
 
             <script> $(function(){  $("#company_check_<?=$i?>").val("<?=$row[company_check]?>"); });</script>
         </td>
-        <td class="c td_50 bts">
+        <td class="c td_100 bts">
             <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">인증전</option>
@@ -219,7 +218,6 @@ $colspan = 16;
         </td>
 
         <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
-        <td headers="mb_list_mng" class="td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
     </tr>
 
     <?php
