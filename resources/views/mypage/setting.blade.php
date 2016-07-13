@@ -100,6 +100,17 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="company_name"><span class="symbol required"></span> 업체명</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" required="required" type="text" name="company_name" id="company_name"
+                                   placeholder=""
+                                   value="{{$loginUser->company_name}}">
+
+                            <p class="validation-error">{{ $errors->first('company_name') }}</p>
+                        </div>
+                    </div>
+
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="form_of_business"> 파트너형태 </label>
@@ -128,6 +139,18 @@
                             <p class="validation-error"></p>
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="homepage"><span class="symbol"></span> 홈페이지</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="text" name="homepage" id="homepage"
+                            placeholder=""
+                            value="{{$loginUser->homepage}}">
+
+                            <p class="validation-error">{{ $errors->first('homepage') }}</p>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="bod"> 생년월일 </label>
                         <div class="col-sm-8">
