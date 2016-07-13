@@ -31,6 +31,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Partners whereCompanyFileName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Partners whereCompanyOriginName($value)
  * @mixin \Eloquent
+ * @property boolean $proposal_check
+ * @property boolean $company_check
+ * @property boolean $authenticated
+ * @method static \Illuminate\Database\Query\Builder|\App\Partners whereProposalCheck($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Partners whereCompanyCheck($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Partners whereAuthenticated($value)
  */
 class Partners extends Model
 {

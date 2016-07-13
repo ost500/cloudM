@@ -231,45 +231,12 @@
                             <div class="job-content02 job-post-page margin-top-20 padding-bottom-20">
                                 <h5>프로젝트 문의</h5>
 
-                                @foreach($comment as $comments)
-                                    <div class="inquiry_01">
-                                        <span><img class="partner_profile03" src="{{ $comments->user->profileImage }}"></span>
-                                        <div>
-                                            <span><strong>{{ $comments->user->nick }}</strong></span>
-                                            @if(Auth::check())
-                                                @if($comments->u_id == Auth::user()->id)
-                                                    <form style="display: inline;"
-                                                          id="del_form{{ $comments->id }}"
-                                                          method="POST"
-                                                          action="{{ url("/commentdel") }}"
-                                                          onsubmit="return confirm('삭제하시겠습니까?');">
-                                                        {!! csrf_field() !!}
-                                                        <input name="id" hidden
-                                                               value="{{$comments->id}}">
-                                                        <i style="cursor: pointer"
-                                                           id="{{$comments->id}}button"
-                                                           class="fa fa-times fa-lg"></i>
-                                                    </form>
-                                                    <script>
-                                                        $("#{{$comments->id}}button").click(function () {
-                                                            $("#del_form{{ $comments->id }}").submit();
-                                                        });
-                                                    </script>
-                                                @endif
-                                            @endif
-                                            <br>
-                                            @if($comments->secret != true || ( $comments->user == Auth::user() || $comments->project->client == Auth::user() ))
-                                                <span>{{ $comments['comment'] }}</span>
-                                            @else
-                                                <span> 비공개 댓글입니다 </span>
-                                            @endif
 
 
-                                        </div>
-                                    </div>
-                                @endforeach
+                                    @include('comment_show',['comment' => $comment->get(), 'count'=> 1])
 
-                                <form action="{{ url('commentadd') }}" method="POST" role="form">
+
+                                <form action="{{ url('commentadd/0') }}" method="POST" role="form">
                                     {!! csrf_field() !!}
                                     <div class="media inquiry_01">
                                         <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">

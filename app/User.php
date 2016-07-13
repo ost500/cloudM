@@ -70,6 +70,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $nick
  * @property-read \App\Communication $writer
  * @method static \Illuminate\Database\Query\Builder|\App\User whereNick($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Application[] $app
  */
 class User extends Authenticatable
 {
