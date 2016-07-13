@@ -108,6 +108,8 @@ $colspan = 16;
                 <th scope="col" id="project_list_mobile"><?php echo subject_sort_link('name') ?>업체명</a></th>
 				<th scope="col" id="project_list_mng"><?php echo subject_sort_link('type') ?>기업<br>형태</a></th>
 				<th scope="col" id="project_list_mobile">연락처</th>
+                <th scope="col" id="project_list_mobile">지원내용</th>
+
 				<th scope="col" id="project_list_mobile">지원</th>
 				<th scope="col" id="project_list_mobile">계약</th>
 				<th scope="col" id="project_list_mobile">완료</th>
@@ -154,6 +156,8 @@ $colspan = 16;
                             <option value="">선택</option>
                             <option value="관리자 검수중">관리자 검수중</option>
                             <option value="광고주 검수중">광고주 검수중</option>
+                            <option value="관심">관심</option>
+                            <option value="숨김">숨김</option>
                             <option value="미팅">미팅</option>
                         </select>
                         <script> $(function() { $("#choice<?=$i?>").val("<?=$row[choice]?>"); }); </script>
@@ -161,9 +165,10 @@ $colspan = 16;
                     <td class="td_date"><a href="application_form.php?mb_id=<?=$row[email]?>&w=u&<?=$qrst?>"> <?php echo $row[name] ?></a></td>
 					<td class="td_40"><?=$row['company_type']?></td>
                     <td class="td_60"><?php echo $row['phone_num'] ?></td>
-					<td class="td_40"><?=number_format($step1['cnt']);?></td>
-					<td class="td_40"><?=number_format($step2['cnt']);?></td>
-					<td class="td_40"><?=number_format($step3['cnt']);?></td>
+                    <td class="td_300"><textarea name="content[<?php echo $i ?>]" rows="4"><?php echo $row['content'] ?></textarea></td>
+					<td class="td_30"><?=number_format($step1['cnt']);?></td>
+					<td class="td_30"><?=number_format($step2['cnt']);?></td>
+					<td class="td_30"><?=number_format($step3['cnt']);?></td>
                     <td class="td_date bts">
                         <? if ($row['file_name']) { ?>
                             <a href="download.php?t=app&id=<?=$row['id']?>"><?=$row['origin_name']?></a>

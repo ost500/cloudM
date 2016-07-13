@@ -160,7 +160,7 @@
                                                 <div class="port_guide img_f">
                                                     <img src="/images/i_icon.png" style="margin-top:12px;">
                                                     <p><span class="title">[프로젝트 지원 안내]</span>
-                                                    <div class="content">프로젝트 지원시 <strong>회사소개서</strong>, <strong>기본제안서</strong>를 등록하시고,<br><strong>맞춤 제안서</strong>를 함께 제출 하시면 선택 확률이 더 높아 집니다..</div></p>
+                                                    <div class="content">1. 프로젝트 지원시 <strong>회사소개서</strong>, <strong>기본제안서</strong>를 등록하시고,<br><strong>맞춤 제안서</strong>를 함께 제출 하시면 선택 확률이 더 높아 집니다..</div></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@
                                                 <textarea autofocus name="contents"
                                                           class="form-control"
                                                           rows=10 aria-required="true"
-                                                          placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요.지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
+                                                          placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요. 지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
                                                         ></textarea>
                                                 <p class="text-small">
                                                     <a href="javascript:void(0)"
@@ -246,7 +246,7 @@
                                         </div>
 
                                         <div class="form-group text-center margin-top-50">
-                                                <button class="btn btn-o btn-primary" type="submit">
+                                                <button class="btn btn-sm btn-dark-azure" type="submit">
                                                     지원하기
                                                 </button>
                                         </div>

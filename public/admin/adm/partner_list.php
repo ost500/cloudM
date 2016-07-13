@@ -53,7 +53,7 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 $g5['title'] = '파트너 관리';
 include_once('./admin.head.php');
 
-$sql = " select * {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+$sql = " select *, a.id as user_id, b.id as partner_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
 $colspan = 16;
@@ -117,12 +117,11 @@ $colspan = 16;
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
-        <th scope="col" id="mb_list_auth">회사소개서</th>
-        <th scope="col" id="mb_list_auth">상품소개서</th>
+        <th scope="col" id="mb_list_mobile">회사소개서</th>
+        <th scope="col" id="mb_list_mobile">상품소개서</th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('check', '', 'desc') ?>노출승인</a></th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
-        <th scope="col" id="mb_list_mng">관리</th>
     </tr>
     </thead>
     <tbody>
@@ -142,22 +141,22 @@ $colspan = 16;
         $company_file = "";
 
         if ($row[auth_check] != "인증전") {
-            $auth = " <a href='download.php?t=user&id={$row['id']}'><font color='red'>다운</font></a>";
+            $auth = " <a href='download.php?t=user&id={$row['user_id']}'><font color='red'>다운</font></a>";
         }
 
         if ($row[proposal_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[proposal_file_name])) {
-            $proposal_file = "<br><a href='download.php?t=proposal&id={$row['id']}'><font color='red'>{$row['proposal_origin_name']}</font></a>";
+            $proposal_file = "<br><a href='download.php?t=proposal&id={$row['user_id']}'><font color='red'>{$row['proposal_origin_name']}</font></a>";
         }
 
         if ($row[company_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[company_file_name])) {
-            $company_file = "<br><a href='download.php?t=company&id={$row['id']}'><font color='red'>{$row['company_origin_name']}</font></a>";
+            $company_file = "<br><a href='download.php?t=company&id={$row['user_id']}'><font color='red'>{$row['company_origin_name']}</font></a>";
         }
 
     ?>
 
     <tr class="<?php echo $bg; ?>">
         <td headers="mb_list_chk" class="td_chk">
-            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['id'] ?>" id="mb_id_<?php echo $i ?>">
+            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['user_id'] ?>" id="mb_id_<?php echo $i ?>">
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
         </td>
@@ -167,35 +166,41 @@ $colspan = 16;
         <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
         <td headers="mb_list_mobile" class="c td_100"><?php echo $row[phone_num]; ?></td>
 
-        <td class="c td_50">
+        <td class="c td_100 bts">
             <select name="company_check[<?=$i?>]" id="company_check_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">인증전</option>
                 <option value="1">인증완료</option>
             </select>
+
+            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#companyFileModal"  data-uid="<?=$row[user_id]?>" data-type="company">관리</button>
+
             <?=$company_file?>
 
             <script> $(function(){  $("#company_check_<?=$i?>").val("<?=$row[company_check]?>"); });</script>
         </td>
-        <td class="c td_50">
+        <td class="c td_100 bts">
             <select name="proposal_check[<?=$i?>]" id="proposal_check_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">인증전</option>
                 <option value="1">인증완료</option>
             </select>
+
+            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#proposalFileModal"  data-uid="<?=$row[user_id]?>" data-type="proposal">관리</button>
+
             <?=$proposal_file?>
 
             <script> $(function(){  $("#proposal_check_<?=$i?>").val("<?=$row[proposal_check]?>"); });</script>
         </td>
 
         <td headers="mb_list_mobile" class="td_tel">
-            <select name="check[<?=$i?>]" id="check_<?=$i?>">
+            <select name="authenticated[<?=$i?>]" id="authenticated_<?=$i?>">
                 <option value="">선택</option>
                 <option value="0">승인전</option>
                 <option value="1">승인완료</option>
             </select>
 
-            <script> $(function(){  $("#check_<?=$i?>").val("<?=$row[check]?>"); });</script>
+            <script> $(function(){  $("#authenticated_<?=$i?>").val("<?=$row[authenticated]?>"); });</script>
         </td>
 
 
@@ -213,7 +218,6 @@ $colspan = 16;
         </td>
 
         <td headers="mb_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
-        <td headers="mb_list_mng" class="td_mngsmall"><?php echo $s_mod ?> <?php echo $s_grp ?></td>
     </tr>
 
     <?php
