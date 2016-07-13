@@ -10,22 +10,26 @@ if ($t == "app") {
     $table = $g5['application_table'];
     $file_name = "file_name";
     $origin_name = "origin_name";
+    $sfl = "id";
 } else if ($t == "user") {
     $table = $g5['member_table'];
     $file_name = "auth_image";
     $origin_name = "auth_image";
+    $sfl = "id";
 } else if ($t == "proposal") {
     $table = $g5['partner_table'];
     $file_name = "proposal_file_name";
     $origin_name = "proposal_origin_name";
+    $sfl = "user_id";
 } else if ($t == "company") {
     $table = $g5['partner_table'];
     $file_name = "company_file_name";
     $origin_name = "company_origin_name";
+    $sfl = "user_id";
 }
 
 
-$sql = " select * from $table where id = '$id'";
+$sql = " select * from $table where $sfl = '$id'";
 $file = sql_fetch($sql);
 
 if (!$file[$file_name])
