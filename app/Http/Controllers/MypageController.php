@@ -138,7 +138,7 @@ class MypageController extends Controller
                 $app_interest_count = $app_interest_count + 1;
             }
 
-            if ($item->choice == "탈락") {
+            if ($item->choice == "숨김") {
                 $app_out_count = $app_out_count + 1;
             }
         }
@@ -165,6 +165,25 @@ class MypageController extends Controller
         $meeting_proposal->project->save();
 
         $meeting_proposal->choice = "미팅";
+        $meeting_proposal->save();
+
+        return redirect()->back();
+    }
+
+    public function meetingInterest(Request $request)
+    {
+        $meeting_proposal = Application::find($request->id);
+
+        $meeting_proposal->choice = "관심";
+        $meeting_proposal->save();
+
+        return redirect()->back();
+    }
+
+    public function meetingOut(Request $request)
+    {
+        $meeting_proposal = Application::find($request->id);
+        $meeting_proposal->choice = "숨김";
         $meeting_proposal->save();
 
         return redirect()->back();

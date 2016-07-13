@@ -18,9 +18,9 @@
                                         <div class="port_guide img_f">
                                             <img src="/images/i_icon.png" style="margin-top:10px;">
                                             <div class="p_add_span padding-top-0 padding-left-60">
-                                                <div class="content">1. 인증은 근무일 기준 24시간 이상 소요 되며</div>
-                                                <div class="content">2. 인증은 근무일 기준 24시간 이상 소요 되며</div>
-                                                <div class="content">3. 인증완료 후 서류 변경을 원하실 경우에는</div>
+                                                <div class="content">1. 지원자들의 회사소개서, 상품소개서, 맞춤제안서, 지원내용을 꼼꼼히 살펴보세요.</div>
+                                                <div class="content">2. 미팅은 최대2명까지 신청 가능합니다. 취소는 불가하니 신중히 선택해 주세요.</div>
+                                                <div class="content">3. 계약을 원하는 업체를 선정하면 계약부터 대금보관, 대금지급까지 대행해 드립니다.</div>
                                             </div>
                                         </div>
                                     </div>
@@ -33,7 +33,7 @@
                                         <div class="tabbable">
                                             <ul id="myTab1" class="nav nav-tabs">
                                                 <li class="active">
-                                                    <a href="#myTab1_example1" data-toggle="tab" aria-expanded="true"> 전체 지원자 <span class="badge">{{ $applist->count() }}</span></a>
+                                                    <a href="#myTab1_example1" data-toggle="tab" aria-expanded="true"> 전체 지원자 <span class="badge">{{ $count['app_count'] }}</span></a>
                                                 </li>
                                                 <li class="">
                                                     <a href="#myTab1_example2" data-toggle="tab" aria-expanded="false"> 미팅요청 지원자 <span class="badge">{{ $count['app_meeting_count'] }}</span></a>
@@ -89,13 +89,13 @@
                                                     @endif
                                                 </div>
                                                 <div class="tab-pane fade" id="myTab1_example4">
-                                                    @if($count['app_interest_count'] == 0)
+                                                    @if($count['app_out_count'] == 0)
                                                         <tr>
                                                             <td colspan="5">탈락 지원자가 없습니다</td>
                                                         </tr>
                                                     @else
                                                         @foreach($applist as $app_list)
-                                                            @if($app_list->choice == '탈락' )
+                                                            @if($app_list->choice == '숨김' )
                                                                 @include('include.applicant_list')
                                                             @endif
                                                         @endforeach

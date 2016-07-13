@@ -18,7 +18,7 @@
                             <div class="port_guide img_f">
                                 <img src="/images/i_icon.png" style="margin-top:12px;">
                                 <p><span class="title">[회사소개서 관리 안내]</span>
-                                <div class="content">연락처, 이메일 등 직거래를 유도 할 수 있는 정보는, 약관에 의해 수정된 후 제공 됩니다.</div></p>
+                                <div class="content">업체명, 연락처, 이메일 등 직거래를 유도 할 수 있는 정보는, 약관에 의해 수정된 후 제공 됩니다.</div></p>
 
                                 <div class="p_add_span">
                                     <p class="title">1. 회사소개서 등록.</p>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <p class="text-center"><i class="fa fa-check-circle-o fa-5x"></i></p>
-                                <p class="text-center">등록된 회사소개서 : {{ $partners->company_origin_name }}</p>
+                                <p class="text-center">회사소개서가 등록되었습니다.</p>
                             </div>
                         </div>
                     @else

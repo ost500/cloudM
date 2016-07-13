@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Application;
 
 use App\Project;
+use App\Contract;
+use App\Interesting;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,21 +36,55 @@ class AppController extends Controller
         $partnerFile['proposal'] = false;
         $partnerFile['company'] = false;
 
+
         if ($partners->proposal_file_name && file_exists($proposal_file)) {
             $partnerFile['proposal'] = true;
-            $partnerFile['proposal_origin_name'] = $partners->proposal_origin_name;
-            $partnerFile['proposal_link'] = "profile/proposal/download/".$user->id;
+
+            if ($partners->proposal_check) {
+                $partnerFile['proposal_origin_name'] = $partners->proposal_origin_name;
+                $partnerFile['proposal_link'] = "profile/proposal/download/".$user->id;
+            } else {
+                $partnerFile['proposal_origin_name'] = "패스트엠 검수중";
+            }
         }
+
+
 
         if ($partners->company_file_name && file_exists($company_file)) {
             $partnerFile['company'] = true;
-            $partnerFile['company_origin_name'] = $partners->company_origin_name;
-            $partnerFile['company_link'] = "profile/company/download/".$user->id;
+
+            if ($partners->company_check) {
+                $partnerFile['company_origin_name'] = $partners->company_origin_name;
+                $partnerFile['company_link'] = "profile/company/download/".$user->id;
+            } else {
+                $partnerFile['company_origin_name'] = "패스트엠 검수중";
+            }
         }
 
         $detailProject = Project::where('id', '=', $id)->get();
 
-        return view('p_application_form', compact('detailProject', 'partnerFile', 'app'));
+
+
+
+        $client_id = $detailProject->first()->Client_id;
+
+        $contracts = Contract::where("c_id", '=', $client_id)->get();
+        $userProject = Project::where("Client_id", '=', $client_id)->get();
+
+        $count['등록'] = $userProject->count();
+        $count['계약'] = 0;
+        $count['완료'] = 0;
+        $count['진행'] = 0;
+        $count['계약률'] = 0;
+        foreach ($contracts as $contract) {
+            if ($contract['step'] != "취소") $count['계약']++;
+            if ($contract['step'] == "전체완료") $count['완료']++;
+            if ($contract['step'] == "계약") $count['진행']++;
+        }
+
+        $count['계약률'] = round((($count['계약'] / $userProject->count()) * 100), 1);
+
+        return view('p_application_form', compact('detailProject', 'partnerFile', 'app', 'count'));
     }
 
     public function application_post(Request $request, $pid)
@@ -86,7 +122,12 @@ class AppController extends Controller
         $project = Project::find($pid);
         $project->applications_cnt = $appList->count();
         $project->save();
-//
+
+
+        // 관심 프로젝트 삭제
+        $del_inter = Interesting::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $pid);
+        $del_inter->delete();
+
         return redirect()->action('MypageController@dashBoard');
     }
 

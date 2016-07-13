@@ -10,42 +10,49 @@
 
         <!-- Job Section -->
         <div class="job-content job-post-page">
+            <div class="panel-body">
+
+                <div class="port_guide img_f">
+                    <img src="/images/i_icon.png" style="margin-top:12px;">
+
+                    <div class="p_add_span padding-left-50">
+                        <div class="content">1. 프로젝트 지원시 관심 프로젝트에서 제외 됩니다.</div>
+                        <div class="content">2. 프로젝트 모집 기간이 지난 경우, 관심 프로젝트에서 제외 됩니다.</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Job Tittle -->
             <div class="panel-group">
                 <div class="panel panel-default">
                     <!-- PANEL HEADING -->
                     <div class="panel-heading">
                         <div class="job-tittle03 margin-bottom-10">
-                            <h6 class="my_h6 margin-bottom-10 margin-top-20">관심 프로젝트</h6>
                             <div class="panel02 panel-default02">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
+                                    <col style="width:50%;"/>
+                                    <col style="width:20%;"/>
+                                    <col style="width:15%;"/>
+                                    <col style="width:15%;"/>
                                     <tr>
                                         <th>프로젝트 제목</th>
-                                        <th>클라이언트</th>
                                         <th>비용</th>
                                         <th>마감일자</th>
-                                        <th>상태</th>
+                                        <th>지원하기</th>
 
                                     </tr>
                                     @if(sizeof($interesting) == 0)
-                                        <td colspan="5">관심 프로젝트가 없습니다</td>
+                                        <td colspan="4">관심 프로젝트가 없습니다</td>
                                     @endif
                                     @foreach($interesting as $interestingItem)
 
                                         <tr>
-                                            <td><a
+                                            <td class="left"><a
                                                         href="{{url("/detail/".$interestingItem->id)}}">{{ $interestingItem->title }}</a>
                                             </td>
-                                            <td>{{ $interestingItem->client->name }}</td>
                                             <td>{{ number_format($interestingItem->budget) }}</td>
                                             <td>{{ $interestingItem->deadline }}</td>
-                                            <td>{{ $interestingItem->step }}</td>
+                                            <td><a href="/apply/{{$interestingItem->id}}/application"><button class="btn btn-sm btn-dark-azure">지원하기</button></a></td>
                                         </tr>
 
                                     @endforeach

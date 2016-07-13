@@ -292,7 +292,7 @@ class SearchController extends Controller
         $new_inter->p_id = $id;
         $new_inter->u_id = Auth::user()->id;
         $new_inter->save();
-        return redirect()->route('interesting_list');
+        return redirect('/partner/project/interesting');
     }
 
 }

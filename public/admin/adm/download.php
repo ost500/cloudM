@@ -14,6 +14,14 @@ if ($t == "app") {
     $table = $g5['member_table'];
     $file_name = "auth_image";
     $origin_name = "auth_image";
+} else if ($t == "proposal") {
+    $table = $g5['partner_table'];
+    $file_name = "proposal_file_name";
+    $origin_name = "proposal_origin_name";
+} else if ($t == "company") {
+    $table = $g5['partner_table'];
+    $file_name = "company_file_name";
+    $origin_name = "company_origin_name";
 }
 
 
@@ -37,6 +45,10 @@ if ($t == "app") {
     $size = sizeof(explode("/", $file[$file_name]));
     $original_ = explode("/", $file[$file_name]);
     $original = $original_[$size-1];
+} else if ($t == "proposal") {
+    $original = $file['proposal_origin_name'];
+} else if ($t == "company") {
+    $original = $file['company_origin_name'];
 }
 
 
