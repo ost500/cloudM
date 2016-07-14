@@ -32,8 +32,10 @@
                         <label class="col-sm-3 control-label" for="inputEmail3"> 사진 </label>
                         <div class="col-sm-8">
                             <input class="form-control" type="file"
-                                   name="Image" id="image_input"
-                                   value="{{ $loginUser->profileImage.".jpg" }}" />
+                                   name="Image" id="image_input" />
+
+                            <p class="validation-error"> 프로필 사진에 업체명, QR코드, 업체로고 등 직거래를 유도하거나 홍보성 내용이 포함 되어 있으면 파트너 목록에 노출 되지 않습니다.</p>
+
                             {{ $errors->first('Image') }}
                         </div>
                     </div>
