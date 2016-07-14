@@ -35,13 +35,25 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label"><span class="symbol required"></span></label>
+                        <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-8">
                             <div class="checkbox_css">
                                 <input type="checkbox" name="checkbox1"
                                        id="checkbox1" value="option1">
                                 <label for="checkbox1">패스트엠에서 진행한 프로젝트
                                     입니다.</label>
+                                <p class="validation-error"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="symbol">대표 프로젝트</span></label>
+                        <div class="col-sm-8">
+                            <div class="checkbox_css">
+                                <input type="checkbox" name="top"
+                                       id="checkbox2" value="1">
+                                <label for="checkbox2">대표 프로젝트로 선정.</label>
                                 <p class="validation-error"></p>
                             </div>
                         </div>

@@ -221,7 +221,7 @@ class PartnerController extends Controller
 
         $loginUser = Auth::user();
         $partner = User::find($id)->partners;
-        $portfolios = $partner->portfolio->take(3);
+        $portfolios = $partner->portfolio->sortByDesc('top')->take(3);
         return view('partner/partner_detail', compact('loginUser', 'partner', 'portfolios'));
     }
 
@@ -240,7 +240,7 @@ class PartnerController extends Controller
             return redirect('login');
         }
         $partner = User::find($id)->partners;
-        $portfolios = $partner->portfolio;
+        $portfolios = $partner->portfolio->sortByDesc('top');
         return view('partner/partner_portfolio', compact('partner', 'portfolios'));
     }
 

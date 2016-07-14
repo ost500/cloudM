@@ -227,7 +227,7 @@ class MypageController extends Controller
     {
         if (Auth::user()->PorC == "P") {
             $loginUser = Auth::user();
-            $portfolios = $loginUser->partners->portfolio->take(3);
+            $portfolios = $loginUser->partners->portfolio->sortByDesc('top')->take(3);
             return view('profile/profile', compact('loginUser', 'portfolios'));
         } else {
             $loginUser = Auth::user();
@@ -353,7 +353,7 @@ class MypageController extends Controller
     public function portfolio($id)
     {
         $loginUser = User::find($id);
-        $portfolios = $loginUser->partners->portfolio;
+        $portfolios = $loginUser->partners->portfolio->sortByDesc('top');
 
         return view('profile/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
     }
@@ -388,6 +388,7 @@ class MypageController extends Controller
         $new_port->description = $request->description;
         $new_port->from_date = $request->from_date;
         $new_port->to_date = $request->to_date;
+        $new_port->top = $request->top;
 
         if ($request->checkbox1 == null) {
             $new_port->iscloudm = false;
@@ -480,6 +481,7 @@ class MypageController extends Controller
         $new_port->description = $request->description;
         $new_port->from_date = $request->from_date;
         $new_port->to_date = $request->to_date;
+        $new_port->top = $request->top;
         $new_port->participation_rate = $request->participation_rate;
         if ($request->checkbox1 == null) {
             $new_port->iscloudm = false;

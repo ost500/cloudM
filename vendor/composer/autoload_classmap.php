@@ -28,6 +28,7 @@ return array(
     'AddPartnersFiles' => $baseDir . '/database/migrations/2016_07_06_113716_add_partners_files.php',
     'AddPartnersIntro' => $baseDir . '/database/migrations/2016_05_27_082145_add_partners_intro.php',
     'AddPartnersJobsColumns' => $baseDir . '/database/migrations/2016_06_21_083837_add_partners_jobs_columns.php',
+    'AddPortfoliosTop' => $baseDir . '/database/migrations/2016_07_14_175843_add_portfolios_top.php',
     'AddProjectsApplicationsCnt' => $baseDir . '/database/migrations/2016_06_15_085550_add_projects_applications_cnt.php',
     'AddProjectsAttach' => $baseDir . '/database/migrations/2016_06_24_172126_add_projects_attach.php',
     'AddProjectsCharger' => $baseDir . '/database/migrations/2016_06_15_023542_add_projects_charger.php',

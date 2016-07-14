@@ -378,6 +378,7 @@ class ComposerStaticInita32ea0a5eb56a0cb174b29fbd717cd99
         'AddPartnersFiles' => __DIR__ . '/../..' . '/database/migrations/2016_07_06_113716_add_partners_files.php',
         'AddPartnersIntro' => __DIR__ . '/../..' . '/database/migrations/2016_05_27_082145_add_partners_intro.php',
         'AddPartnersJobsColumns' => __DIR__ . '/../..' . '/database/migrations/2016_06_21_083837_add_partners_jobs_columns.php',
+        'AddPortfoliosTop' => __DIR__ . '/../..' . '/database/migrations/2016_07_14_175843_add_portfolios_top.php',
         'AddProjectsApplicationsCnt' => __DIR__ . '/../..' . '/database/migrations/2016_06_15_085550_add_projects_applications_cnt.php',
         'AddProjectsAttach' => __DIR__ . '/../..' . '/database/migrations/2016_06_24_172126_add_projects_attach.php',
         'AddProjectsCharger' => __DIR__ . '/../..' . '/database/migrations/2016_06_15_023542_add_projects_charger.php',
