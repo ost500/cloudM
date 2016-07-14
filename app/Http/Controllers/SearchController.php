@@ -39,7 +39,7 @@ class SearchController extends Controller
             return redirect()->action('MainController@index');
         }
         $detailProject = Project::where('id', '=', $id)->get();
-        $comment = Comments::where('project_id', '=', $id)->where('parent_id',0);
+        $comment = Comments::where('project_id', '=', $id)->where('parent_id', 0);
 
         $client_id = $detailProject->first()->Client_id;
 
@@ -60,16 +60,41 @@ class SearchController extends Controller
 
         $count['계약률'] = round((($count['계약'] / $userProject->count()) * 100), 1);
 
-        return view('p_detail', compact('detailProject', 'comment', 'count'));
+        $login_user = Auth::user();
+
+
+        //댓글 자격 확인
+        if (Project::find($id)->client == $login_user) {
+            //지금 프로젝트 클라이언트니?
+            $comment_qulification = true;
+        } else {
+            if ($login_user->PorC == 'C') {
+                //클라이언트니?
+                $comment_qulification = false;
+            } else {
+                //파트너니?
+                if ($login_user->partners->authenticated == 1) {
+                    //신원 인증 받았니?
+                    $comment_qulification = true;
+                } else {
+                    $comment_qulification = false;
+                }
+            }
+        }
+
+
+        return view('p_detail', compact('detailProject', 'comment', 'count', 'comment_qulification'));
     }
 
-    public function pagination($start, $end)
+    public
+    function pagination($start, $end)
     {
         return view('pagination', ['start' => $start, 'end' => $end]);
     }
 
 
-    public function get_p_list($SearchOption, $SearchOption2, $page, $sort, $keyword = "%")
+    public
+    function get_p_list($SearchOption, $SearchOption2, $page, $sort, $keyword = "%")
     {
         $SearchOption = intval($SearchOption);
         $page = intval($page);
@@ -273,14 +298,16 @@ class SearchController extends Controller
         return back();
     }
 
-    public function delete_comment(Request $request)
+    public
+    function delete_comment(Request $request)
     {
         $del_commnet = Comments::find($request->input('id'));
         $del_commnet->delete();
         return redirect()->back();
     }
 
-    public function interesting($id)
+    public
+    function interesting($id)
     {
         if (Auth::user()->PorC == "C" ||
             Interesting::where('u_id', Auth::user()->id)->where('p_id', $id)->get()->isEmpty() == false
