@@ -26,7 +26,7 @@
                                         </div>
                                         <div class="caption">
                                             <a href="{{ url('/partner/'.$partner->user->id.'/portfolio/'.$portfolio->id) }}">
-                                                <h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 37) . ".."; ?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
+                                                <h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 30) . ".."; ?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
                                             </a>
                                             <p class="thum_category">{{ $portfolio->area }}
                                                 > {{ $portfolio->category }}</p>
