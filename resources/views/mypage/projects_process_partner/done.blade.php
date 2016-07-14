@@ -46,7 +46,7 @@
                                                         href="{{ url("/detail/".$done->id) }}">{{ $done->title }}</a>
                                             </td>
                                             <td>{{ $done->client->name }}</td>
-                                            <td>{{ number_format($done->budget) }}</td>
+                                            <td>{{ number_format($done->budget) }}원</td>
                                             <td>{{ $done->deadline }}</td>
                                             <td>{{ $done->step }}</td>
 

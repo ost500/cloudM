@@ -50,7 +50,7 @@
                                             <td class="left"><a
                                                         href="{{url("/detail/".$interestingItem->id)}}">{{ $interestingItem->title }}</a>
                                             </td>
-                                            <td>{{ number_format($interestingItem->budget) }}</td>
+                                            <td>{{ number_format($interestingItem->budget) }}원</td>
                                             <td>{{ $interestingItem->deadline }}</td>
                                             <td><a href="/apply/{{$interestingItem->id}}/application"><button class="btn btn-sm btn-dark-azure" id="pro_apply">지원하기</button></a></td>
                                         </tr>

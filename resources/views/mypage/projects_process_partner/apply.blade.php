@@ -66,7 +66,7 @@
 
                                     <tr>
                                         </td>
-                                        <td>{{ number_format($appItem->project->budget) }}</td>
+                                        <td>{{ number_format($appItem->project->budget) }}원</td>
                                         <td>{{ $appItem->project->estimated_duration }}</td>
                                         <td>{{ $appItem->project->deadline }}</td>
                                         <td>{{ substr($appItem->project->created_at, 0, 10) }}</td>
