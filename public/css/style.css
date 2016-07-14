@@ -3990,7 +3990,8 @@ a.sm-tags:hover {
 
 
 .btn-lg {
-    padding: 10px 16px;
+
+    padding: 10px 30px;
     font-size: 18px;
     font-weight: 300;
     border-radius: 4px;
@@ -3998,8 +3999,15 @@ a.sm-tags:hover {
 }
 
 .btn-facebook {
+
     color: #fff;
     background: #3b5998;
+    border-color: #344e86;
+}
+.btn-naver {
+
+    color: #fff;
+    background: #1ec700;
     border-color: #344e86;
 }
 
@@ -4011,6 +4019,11 @@ a.sm-tags:hover {
 .btn-facebook:hover {
     color: #fff;
     background: #406ac1;
+
+}
+.btn-naver:hover {
+    color: #fff;
+    background: #1ade00;
 
 }
 

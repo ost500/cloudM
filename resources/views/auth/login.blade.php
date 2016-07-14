@@ -80,7 +80,7 @@
                 <div class="job-content job-post-page padding-bottom-32">
                     <div class="login_right">
                         <a id="facebook" class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북 로그인</a>
-                        <a id="naver" class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 네이버 로그인</a>
+                        <a id="facebook" class="btn-naver btn-lg btn-block"><img style="height:25px" src="{{asset("images/naver_login_icon.png")}}"> 네이버 로그인</a>
                         <script>
                             $("#facebook").click(function(){ alert('준비 중입니다') });
                             $("#naver").click(function(){ alert('준비 중입니다') });
