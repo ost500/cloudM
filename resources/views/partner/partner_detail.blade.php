@@ -91,11 +91,9 @@
                             <a href="{{ url('partner/'.$partner->user_id.'/intro') }}" class="more_btn margin-top-20">더보기></a>
 
                             @if(!$partner->intro)
-                                <div class="text-center">
-                                    <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
-
-                                    <div class="padding-bo"></div>
-                                    <h7>자기소개가 없습니다</h7>
+                                <div class="text-center panel-body">
+                                    <p class="text-center padding-bottom-15"><i class="fa fa-user-secret fa-5x"></i></p>
+                                    자기소개가 없습니다
                                 </div>
                             @else
                             {{ $partner->intro }}
@@ -110,12 +108,11 @@
                                class="more_btn margin-top-20">더보기 ></a>
                             <div class="row padding-left-15">
                                 @if($partner->portfolio->isEmpty())
-                                    <div class="text-center">
-                                        <img class="padding-bottom-10" src="http://fastm.io/images/empty_portfolio.png" data-pin-nopin="true">
-
-                                        <div class="padding-bo"></div>
-                                        <h7>포트폴리오가 없습니다</h7>
+                                    <div class="text-center panel-body">
+                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-image-o fa-5x"></i></p>
+                                        포트폴리오가 없습니다.
                                     </div>
+
                                 @endif
                                 @foreach($portfolios as $portfolio)
                                     <div class="col-md-4">
@@ -147,11 +144,9 @@
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
                             @if($partner->job()->get()->isEmpty())
-                                <div class="text-center">
-                                    <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
-
-                                    <div class="padding-bo"></div>
-                                    <h7>전문분야가 없습니다</h7>
+                                <div class="text-center panel-body">
+                                    <p class="text-center padding-bottom-15"><i class="fa fa fa-wrench fa-5x"></i></p>
+                                    전문분야가 없습니다
                                 </div>
                             @else
                             <div class="panel02 panel-default02 margin-top-20">
@@ -214,11 +209,9 @@
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/review') }}" class="more_btn margin-top-20">더보기
                                 ></a>
-                            <div class="text-center">
-                                <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
-
-                                <div class="padding-bo"></div>
-                                <h7>평가가 없습니다</h7>
+                            <div class="text-center panel-body">
+                                <p class="text-center padding-bottom-15"><i class="fa fa-comments fa-5x"></i></p>
+                                평가가 없습니다
                             </div>
 
                         </div>
