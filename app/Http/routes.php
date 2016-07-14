@@ -36,12 +36,12 @@ Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 Route::get('/detail/{id}', 'SearchController@detail')
     ->where(['id' => '[0-9]+']);
 //관심 프로젝트
-Route::post('/detail/{id}/interesting', ['as' => 'interesting_add','uses'=>'SearchController@interesting'])
+Route::post('/detail/{id}/interesting', ['as' => 'interesting_add', 'uses' => 'SearchController@interesting'])
     ->where(['id' => '[0-9]+']);
 
 
 // 댓글
-Route::post('/commentadd/{com_id}', ['as'=>'comment_post','uses'=>'SearchController@postcomment'])
+Route::post('/commentadd/{com_id}', ['as' => 'comment_post', 'uses' => 'SearchController@postcomment'])
     ->where(['com_id' => '[0-9]+']);
 // 댓글 삭제
 Route::post('/commentdel', 'SearchController@delete_comment');
@@ -166,7 +166,7 @@ Route::get("/profile/portfolio/create", 'MypageController@portfolio_create');
 Route::post("/profile/portfolio/create", 'MypageController@portfolio_create_post');
 //프로필 포트폴리오 자세히 list
 
-Route::get("/profile/portfolio/list/{id}", ['as'=>'profile_portfolio_list','uses'=>'MypageController@portfolio'])
+Route::get("/profile/portfolio/list/{id}", ['as' => 'profile_portfolio_list', 'uses' => 'MypageController@portfolio'])
     ->where(['id' => '[0-9]+']);
 Route::get("/partner/portfolio/list/{id}", 'MypageController@portfolio')
     ->where(['id' => '[0-9]+']);
@@ -293,6 +293,8 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 Route::get('/customer/notification', 'CustomerCentreController@notification');
 Route::get('/customer/notification/{id}', ['as' => 'noti_detail', 'uses' => 'CustomerCentreController@notification_detail'])
     ->where(['id' => '[0-9]+']);
+//회사소개
+Route::get('/customer/introduction', ['as' => 'introduction', 'uses' => 'CustomerCentreController@introduction']);
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
 Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
