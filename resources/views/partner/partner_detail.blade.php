@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <li><span class="partners-authorized"><i
-                                                            class="fa fa-file-image-o"></i> 포트폴리오 <span> 0개</span></span>
+                                                            class="fa fa-file-image-o"></i> 포트폴리오 <span> {{ $portfolios->count() }}개</span></span>
                                             </li>
                                         </div>
 
