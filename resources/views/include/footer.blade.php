@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-8">
             <ul class="footer_menu">
-                <li><a href="">회사소개</a></li>
+                <li><a href="{{route('introduction')}}">회사소개</a></li>
                 <li><a href="{{url("/services/1")}}">서비스소개</a></li>
                 <li><a href="{{url("/services/4")}}">이용요금</a></li>
                 <li><a href="{{url("/services/5")}}">자주묻는질문</a></li>

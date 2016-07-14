@@ -6939,3 +6939,6 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
     margin-top:7px;
 
 }
+.company_color{ margin-top:50px;}
+.company_color li{ float:left; margin-right:18px; font-size:15px; color:#777;}
+.company_color li:last-child{margin-right:0px;}
