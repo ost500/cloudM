@@ -5,7 +5,7 @@
         <div class="col-md-2">
             <img src="/images/logo-footer.png" alt="" class="margin-bottom-20">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
             <ul class="footer_menu">
                 <li><a href="{{route('introduction')}}">회사소개</a></li>
                 <li><a href="{{url("/services/1")}}">서비스소개</a></li>
@@ -15,6 +15,7 @@
                 <li><a href="{{route('personal_info')}}">개인정보 취급방침</a></li>
                 <li class="bg_round"><a href="{{url("/services/2")}}">광고주 이용방법</a></li>
                 <li class="bg_round"><a href="{{url("/services/3")}}">파트너 이용방법</a></li>
+                <li class="bg_round"><a href="#">상단으로 이동 ▲</a></li>
             </ul>
             <div class="clear"></div>
             <p class="footer_add">
@@ -22,9 +23,7 @@
                 서울시 금천구 가산동 우림라이온스밸리 C동 703호 고객센터 1544-2329 이메일 help@fastm.io
             </p>
         </div>
-        <div class="col-md-2">
-            <p class="foot_top"><a href="#">상단으로 이동 ▲</a></p>
-        </div>
+
 
     </div>
 </footer>
