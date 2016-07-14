@@ -6912,7 +6912,7 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
     overflow: hidden;
     color: #444;
 }
-.comment_btn{ clear:both; font-size:12px; border:dotted 1px #666; color:#666; padding:0px 5px 3px 5px; float:right; border-radius:3px; background:#f7f7f7; margin-top:4px;}
+.comment_btn{ clear:both; font-size:12px; border:dotted 1px #666; color:#666; padding:0px 5px 3px 5px; float:right; border-radius:3px; background:#f7f7f7; margin-top:4px; cursor:pointer;}
 .comment-form-control{color:#666; font-weight:normal; height:60px; padding:6px 12px; font-size:14px; line-height:1.4285; color:#555; background-color:#fff; border:1px solid #ccc; border-radius:3px; width:100%; display:inline !important; margin-top:3px;}
 .comment-button007{ position:relative;
     top:0px;
@@ -6931,3 +6931,11 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
     color:#fff;
     margin-top:3px;
     padding-left:0px !important;}
+
+.cocoment_bar{
+    border-bottom:dotted 1px #666;
+    width:100%;
+
+    margin-top:7px;
+
+}
