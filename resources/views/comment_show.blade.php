@@ -36,32 +36,12 @@
         <div class="clear"></div>
         @if($count == 3)
         @else
+            <div class="cocoment_bar"></div>
             <span id="comment_button_{{$comments->id}}" class="comment_btn">댓글달기</span>
+
         @endif
 
-        <div hidden>
-            <div class="media inquiry_01 comment02">
-                <img class="partner_profile03" src="{{ $comments->user->profileImage }}">
-                <div class="media-body">
-                    <span><strong>dkdlel123</strong></span>
-                    <div class="clear"></div>
-                    <div class="col-md-9" style="padding-left:0px; padding-right:0px;">
-                        <textarea name="body" class="comment-form-control" id="id_body" required="" rows="10" cols="40"
-                                  resize="none"></textarea>
-                    </div>
-                    <div class="col-md-3">
-                        <input name="comment_status" id="comment_status" type="checkbox">
-                        <label for="comment_status"><i class="fa fa-lock" style="margin-right: 4px;"></i>비공개
-                            설정</label>
-                        <input class="comment-button007" id="id_submit" type="button" value="작성하기">
-                    </div>
-                </div>
-            </div>
 
-            <br>
-            <div style="clear:both;"></div>
-
-        </div>
 
 
         <div hidden id="add_comment_{{ $comments->id }}">

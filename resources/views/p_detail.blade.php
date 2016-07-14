@@ -247,7 +247,7 @@
 
                                 <form action="{{ url('commentadd/0') }}" method="POST" role="form">
                                     {!! csrf_field() !!}
-                                    <div class="media inquiry_01 comment02">
+                                    <div class="media inquiry_01">
                                         <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
                                         <div class="media-body">
                                             <div class="col-md-9 ">
