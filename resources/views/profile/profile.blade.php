@@ -91,11 +91,9 @@
 
                             <div id="textarea_location">
                             @if(!$loginUser->partners['intro'])
-                                <div class="text-center">
-                                    <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
-
-                                    <div class="padding-bo"></div>
-                                    <h7>자기소개가 없습니다</h7>
+                                <div class="text-center panel-body">
+                                    <p class="text-center padding-bottom-15"><i class="fa fa fa-info-circle fa-5x"></i></p>
+                                    자기소개가 없습니다
                                 </div>
                             @else
                                     <?php echo nl2br($loginUser->partners['intro']); ?>
@@ -126,11 +124,9 @@
 
                             <div class="row">
                                 @if($portfolios->isEmpty())
-                                    <div class="text-center">
-                                        <img class="padding-bottom-10" src="http://fastm.io/images/empty_portfolio.png" data-pin-nopin="true">
-
-                                        <div class="padding-bo"></div>
-                                        <h7>포트폴리오가 없습니다</h7>
+                                    <div class="text-center panel-body">
+                                        <p class="text-center padding-bottom-15"><i class="fa fa fa-file-image-o fa-5x"></i></p>
+                                        포트폴리오가 없습니다
                                     </div>
                                 @else
                                     @foreach($portfolios as $portfolio)
@@ -152,18 +148,68 @@
                             </div>
                         </div>
 
+                        <div class="job-tittle02 txt_color_g">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">회사소개서</h6>
+                            <a href="profile/company" class="button002 signup002 margin-top-12">수정하기</a>
 
-                        <div class="job-tittle02">
+                            <div id="textarea_location">
+                                @if(!$loginUser->partners['company_file_name'])
+                                    <div class="text-center panel-body">
+                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-powerpoint-o fa-5x"></i></p>
+                                        회사소개서가 없습니다.
+                                    </div>
+                                @else
+                                    @if($loginUser->partners['company_file_check'])
+                                        <div class="text-center panel-body">
+                                            <p class="text-center padding-bottom-15"><i class="fa fa-check-circle-o fa-5x"></i></p>
+                                            성공적으로 등록되었습니다.
+                                        </div>
+                                    @else
+                                        <div class="text-center panel-body">
+                                            <p class="text-center padding-bottom-15"><i class="fa fa-exclamation-circle fa-5x"></i></p>
+                                            패스트엠 검수중 입니다.
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="job-tittle02 txt_color_g ">
+                            <h6 class="my_h6 margin-bottom-10 margin-top-20">상품소개서</h6>
+                            <a href="profile/proposal" class="button002 signup002 margin-top-12">수정하기</a>
+
+                            <div id="">
+                                @if(!$loginUser->partners['proposal_file_name'])
+                                    <div class="text-center panel-body">
+                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-powerpoint-o fa-5x"></i></p>
+                                        상품소개서가 없습니다.
+                                    </div>
+                                @else
+                                    @if($loginUser->partners['proposal_file_check'])
+                                        <div class="text-center panel-body">
+                                            <p class="text-center padding-bottom-15"><i class="fa fa-check-circle-o fa-5x"></i></p>
+                                            성공적으로 등록되었습니다.
+                                        </div>
+                                    @else
+                                        <div class="text-center panel-body">
+                                            <p class="text-center padding-bottom-15"><i class="fa fa-exclamation-circle fa-5x"></i></p>
+                                            패스트엠 검수중 입니다.
+                                        </div>
+                                    @endif
+                                @endif
+                            </div>
+                        </div>
+
+
+                        <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
                             <a style="cursor:pointer" id="edit_skill_button"
                                class="button002 signup002 margin-top-12">수정하기</a>
 
                             @if($loginUser->partners->job()->get()->isEmpty())
-                                <div class="text-center">
-                                    <img class="padding-bottom-10" src="http://fastm.io/images/empty_area.png" data-pin-nopin="true">
-
-                                    <div class="padding-bo"></div>
-                                    <h7>전문분야가 없습니다</h7>
+                                <div class="text-center panel-body">
+                                    <p class="text-center padding-bottom-15"><i class="fa fa fa-info-circle fa-5x"></i></p>
+                                    전문분야가 없습니다
                                 </div>
                             @else
                             <div class="panel02 panel-default02 margin-top-20">
