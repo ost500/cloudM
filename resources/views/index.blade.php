@@ -97,7 +97,11 @@
                             <li class="col-md-4">
                                 <article class="thumb">
                                     @if(Auth::check())
-                                        <a href="{{ url("/detail/".$project->id) }}"><h5>{{ $project->title }}</h5></a>
+                                        <a href="{{ url("/detail/".$project->id) }}"><h5>
+                                                <?php $p_title=mb_strcut($project['title'], 0, 45) . "...";
+                                                if (strlen($project['title']) > 45) {echo $p_title;}
+                                                else {echo $project['title'];} ?>
+                                            </h5></a>
                                     @else
                                         <a href="{{url('/login')}}"><h5>{{ $project->title }}</h5></a>
                                     @endif
@@ -119,8 +123,6 @@
                                 </article>
                             </li>
                         @endforeach
-
-
                     </ul>
                 </div>
             </div>
