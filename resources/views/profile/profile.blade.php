@@ -92,7 +92,7 @@
                             <div id="textarea_location">
                             @if(!$loginUser->partners['intro'])
                                 <div class="text-center panel-body">
-                                    <p class="text-center padding-bottom-15"><i class="fa fa fa-info-circle fa-5x"></i></p>
+                                    <p class="text-center padding-bottom-15"><i class="fa fa-user-secret fa-5x"></i></p>
                                     자기소개가 없습니다
                                 </div>
                             @else
@@ -125,7 +125,7 @@
                             <div class="row">
                                 @if($portfolios->isEmpty())
                                     <div class="text-center panel-body">
-                                        <p class="text-center padding-bottom-15"><i class="fa fa fa-file-image-o fa-5x"></i></p>
+                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-image-o fa-5x"></i></p>
                                         포트폴리오가 없습니다
                                     </div>
                                 @else
@@ -208,7 +208,7 @@
 
                             @if($loginUser->partners->job()->get()->isEmpty())
                                 <div class="text-center panel-body">
-                                    <p class="text-center padding-bottom-15"><i class="fa fa fa-info-circle fa-5x"></i></p>
+                                    <p class="text-center padding-bottom-15"><i class="fa fa fa-wrench fa-5x"></i></p>
                                     전문분야가 없습니다
                                 </div>
                             @else
