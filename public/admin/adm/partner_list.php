@@ -70,10 +70,11 @@ $colspan = 16;
 
 <label for="sfl" class="sound_only">검색대상</label>
 <select name="sfl" id="sfl">
-    <option value="mb_email"<?php echo get_selected($_GET['sfl'], "email"); ?>>아이디</option>
-    <option value="mb_name"<?php echo get_selected($_GET['sfl'], "name"); ?>>이름</option>
-    <option value="mb_level"<?php echo get_selected($_GET['sfl'], "level"); ?>>권한</option>
-    <option value="mb_tel"<?php echo get_selected($_GET['sfl'], "phone_num"); ?>>전화번호</option>
+    <option value="email"<?php echo get_selected($_GET['sfl'], "email"); ?>>아이디</option>
+    <option value="name"<?php echo get_selected($_GET['sfl'], "name"); ?>>이름</option>
+    <option value="company_name"<?php echo get_selected($_GET['sfl'], "company_name"); ?>>업체명</option>
+    <option value="level"<?php echo get_selected($_GET['sfl'], "level"); ?>>권한</option>
+    <option value="phone_num"<?php echo get_selected($_GET['sfl'], "phone_num"); ?>>전화번호</option>
 </select>
 <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
 <input type="text" name="stx" value="<?php echo $stx ?>" id="stx" required class="required frm_input">
@@ -113,19 +114,20 @@ $colspan = 16;
             <input type="checkbox" name="chkall" value="1" id="chkall" onclick="check_all(this.form)">
             <?php echo subject_sort_link('id') ?>번호</a>
         </th>
+        <th scope="col" id="mb_list_chk" rowspan="2">사진</a>
+        </th>
         <th scope="col" id="mb_list_id"><?php echo subject_sort_link('email') ?>아이디</a></th>
         <th scope="col" id="mb_list_name"><?php echo subject_sort_link('name') ?>이름</a></th>
-        <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a></th>
+        <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a> / <?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
         <th scope="col" id="mb_list_mobile">회사소개서</th>
         <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('check', '', 'desc') ?>노출승인</a></th>
-
         <th scope="col" id="mb_list_lastcall" rowspan="2">소개</th>
     </tr>
     <tr>
         <th scope="col" id="mb_list_mobile">홈페이지</th>
         <th scope="col" id="mb_list_mobile">업체명</th>
-        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
+        <th scope="col" id="mb_list_auth">포트폴리오</th>
         <th scope="col" id="mb_list_mobile">팩스</th>
         <th scope="col" id="mb_list_mobile">상품소개서</th>
         <th scope="col" id="mb_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>가입일</a></th>
@@ -148,7 +150,7 @@ $colspan = 16;
         $company_file = "";
 
         if ($row[auth_check] != "인증전") {
-            $auth = " <a href='download.php?t=user&id={$row['user_id']}'><font color='red'>다운</font></a>";
+            $auth = "<br><a href='download.php?t=user&id={$row['user_id']}'><font color='red'>다운</font></a>";
         }
 
         if ($row[proposal_file_name] && file_exists($_SERVER['DOCUMENT_ROOT'].$row[proposal_file_name])) {
@@ -159,6 +161,9 @@ $colspan = 16;
             $company_file = "<br><a href='download.php?t=company&id={$row['user_id']}'><font color='red'>{$row['company_origin_name']}</font></a>";
         }
 
+        $sql = "select count(*) as cnt from {$g5['portfolio_table']} where partner_id = '{$row['user_id']}'";
+        $portfolis = sql_fetch($sql);
+
     ?>
 
     <tr class="<?php echo $bg; ?>">
@@ -167,10 +172,24 @@ $colspan = 16;
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>"> <?php echo $row[id] ?>
         </td>
+        <td class="c td_50" rowspan="2"><img src="<?=$row[profileImage]?>" width="70"></td>
         <td class="c td_100"><?php echo $mb_id ?></td>
         <td class="c td_50"><input type="text" name="name[<?php echo $i?>]" value="<?php echo get_text($row['name']); ?>" class="frm_input" style="width: 100%"></td>
-        <td class="c td_50"><?php echo get_text($row['company_type']); ?></td>
-        <td headers="mb_list_mobile" class="c td_100"><input type="text" name="phone_num[<?php echo $i?>]" value="<?php echo $row[phone_num]; ?>" class="frm_input" style="width: 100%"></td>
+        <td class="c td_50">
+            <?php echo get_text($row['company_type']); ?>
+            <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
+                <option value="">선택</option>
+                <option value="인증전">인증전</option>
+                <option value="인증요청">인증요청</option>
+                <option value="인증완료">인증완료</option>
+            </select>
+
+            <?=$auth?>
+
+            <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
+        </td>
+
+        <td headers="mb_list_mobile" class="c td_60"><input type="text" name="phone_num[<?php echo $i?>]" value="<?php echo $row[phone_num]; ?>" class="frm_input" style="width: 100%"></td>
 
         <td class="c td_100 bts">
             <select name="company_check[<?=$i?>]" id="company_check_<?=$i?>">
@@ -195,7 +214,7 @@ $colspan = 16;
 
             <script> $(function(){  $("#authenticated_<?=$i?>").val("<?=$row[authenticated]?>"); });</script>
         </td>
-        <td class="td_300 left" rowspan="2"><textarea name="intro[<?php echo $i ?>]" rows="4"><?php echo $row['intro'] ?></textarea></td>
+        <td style="width:25%;" class="left" rowspan="2"><textarea name="intro[<?php echo $i ?>]" rows="4"><?php echo $row['intro'] ?></textarea></td>
     </tr>
 
 
@@ -207,18 +226,7 @@ $colspan = 16;
         <tr class="<?php echo $bg; ?>">
             <td><input type="text" name="homepage[<?php echo $i?>]" value="<?php echo get_text($row['homepage']); ?>" class="frm_input" style="width: 100%"></td>
             <td><input type="text" name="company_name[<?php echo $i?>]" value="<?php echo get_text($row['company_name']); ?>" class="frm_input" style="width: 100%"></td>
-            <td headers="mb_list_mobile" class="td_tel">
-                <select name="auth_check[<?=$i?>]" id="auth_check_<?=$i?>">
-                    <option value="">선택</option>
-                    <option value="인증전">인증전</option>
-                    <option value="인증요청">인증요청</option>
-                    <option value="인증완료">인증완료</option>
-                </select>
-
-                <?=$auth?>
-
-                <script> $(function(){  $("#auth_check_<?=$i?>").val("<?=$row[auth_check]?>"); });</script>
-            </td>
+            <td headers="mb_list_mobile" class="td_tel"><?=number_format($portfolis[cnt])?>개</td>
             <td headers="mb_list_mobile"><input type="text" name="fax_num[<?php echo $i?>]" value="<?php echo $row[fax_num]; ?>" class="frm_input" style="width: 100%"></td>
 
             <td class="c td_100 bts">
