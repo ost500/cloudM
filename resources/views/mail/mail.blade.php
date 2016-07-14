@@ -1,9 +1,9 @@
-!Doctype HTML>
+<!Doctype HTML>
 <html lang="ko">
 <head>
     <m-ta charset="utf-8">
         <m-ta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Works Mobile</title>
+            <title>마케팅중개 플랫폼/패스트엠</title>
 </head>
 <body style="padding:10px;margin:0">
 
@@ -16,30 +16,87 @@
                         <td>
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border:1px solid #d2d2d2">
                                 <tr>
-                                    <td align="left" style="padding:7% 6% 0"><a href="#"><img src="https://static.worksmobile.net/static/pwe/common/logo_works_mobile_retina.png" alt="Works Mobile" width="187" height="22" valign="top" border="0"></a></td>
+                                    <td align="left" style="padding:7% 6% 0"><a href="#"><img src="http://fastm.io/images/logo02.png" alt="fastm" width="144" height="34" valign="top" border="0"></a></td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:10px 6% 47px;font-family:'나눔고딕',nanumgothic,'돋움',Dotum;font-size:25px;color:#333;line-height:120%;letter-spacing:-1px;font-weight:bold" align="left">fastm.io 가입 완료 안내</td>
+                                    <td style="padding:10px 6% 47px;font-family:'나눔고딕',nanumgothic,'돋움',Dotum;font-size:25px;color:#333;line-height:120%;letter-spacing:-1px;font-weight:bold" align="left">신규 프로젝트 등록 안내</td>
                                 </tr>
                                 <tr><td height="1px"><p style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p></td></tr>
                                 <tr>
                                     <td style="padding:48px 0 0" align="left">
-                                        <p style="margin:0;padding:0 6%;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#333;line-height:21px;font-weight:bold">안녕하세요. Works Mobile 입니다.<br><strong style="color:#22b73f">김태훈</strong>님의 fastm.io 계정이 아래와 같이 생성되어<br>지금부터 바로 Works Mobile 서비스를 이용하실 수 있습니다.</p>
+                                        <p style="margin:0;padding:0 6%;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#333;line-height:21px;font-weight:bold">안녕하세요. 마케팅 중개 플랫폼 패스트엠 입니다.<br><strong style="color:#1099DD">새로운 마케팅 프로젝트</strong>가 아래와 같이 등록되어 안내 드립니다.<br>방문 하셔서 지원해 보시기 바랍니다.</p>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding:26px 0 0" align="left"><p style="margin:0 6%;padding:15px 19px 17px;background-color:#f5f5f5;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:19px"><strong>이름 : </strong>김태훈<br><strong>권한 : </strong>최고관리자<br><strong>아이디 : </strong><span style="color:#22b73f">jxamen@fastm.io</span></p></td>
+                                    <td style="padding:26px 0 0" align="left"><p style="margin:0 6%;padding:15px 19px 17px;background-color:#f5f5f5;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:19px"><strong>이름 : </strong>김태훈<br><strong>권한 : </strong>최고관리자<br><strong>아이디 : </strong><span style="color:#1099DD">jxamen@fastm.io</span></p></td>
                                 </tr>
                                 <tr><td height="50px" style="padding:0 2.9%"><p style="height:50px;overflow:hidden;border:0 none;font-size:0;line-height:0"></p></td></tr>
+
                                 <tr><td height="1px"><p style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p></td></tr>
+
+
                                 <tr>
-                                    <td align="left" style="padding:47px 6% 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#22b73f;line-height:19px"><strong>Works Mobile 접속 방법을 알려드립니다.</strong></td>
+                                    <td align="center" style="padding: 21px 0px 50px; text-align: center;">
+                                        <a style='background-color:#1099DD; margin: 10px 5px 0px; padding: 15px 10px 14px; width: 100%; color: rgb(255, 255, 255); line-height: 15px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; -ms-zoom: 1; max-width: 230px;' href="http://fastm.io/project" target="_blank">프로젝트 살펴보기</a>
+                                        <a style='background-color:#1099DD; margin: 10px 5px 0px; padding: 15px 10px 14px; width: 100%; color: rgb(255, 255, 255); line-height: 15px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; -ms-zoom: 1; max-width: 230px;' href="http://fastm.io" target="_blank">패스트엠 방문하기</a>
+                                    </td>
+                                </tr>
+
+                                <tr><td height="1px"><p style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p></td></tr>
+
+
+                                <tr>
+                                    <td align="left" style='padding: 48px 6% 0px; color: #1099DD; line-height: 19px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px;'><strong>패스트엠에 가입했다면 알고 계셔야 할 세가지!</strong></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="left" style='padding: 0px 5% 45px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum;'>
+                                        <table style="margin: 0px 1%; width: 188px; overflow: hidden; vertical-align: top; display: inline-block; -ms-zoom: 1;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" valign="top" style="padding: 25px 0px 0px;">
+                                                    <table style="width: 188px;" border="0" cellspacing="0" cellpadding="0">
+                                                        <tbody><tr><th align="left" style="padding: 0px; color: rgb(105, 105, 105); line-height: 18px; font-size: 12px; font-weight: bold;">1. 기본정보 수정&nbsp;&nbsp;<a style="color: rgb(105, 105, 105); font-weight: normal; text-decoration: underline;" href="http://fastm.io/setting/profile" target="_blank">바로가기</a></th></tr>
+                                                        <tr><td height="95" align="left" valign="top" style="padding: 1px 0px 0px; color: rgb(105, 105, 105); line-height: 18px; font-size: 12px;">프로필 사진, 기본정보 , 사업자등록증, 은행계좌를 등록을 하세요. 설정이 되어 있어야 프로젝트 지원이 가능합니다.</td></tr>
+                                                        <tr><td align="left" valign="top"><img alt="구성원 조직원 등록" src="https://static.worksmobile.net/static/pwe/nworks/dm/img_mx_desc1.gif"></td></tr>
+                                                        </tbody></table>
+                                                </td>
+                                            </tr>
+                                            </tbody></table>
+                                        <table style="margin: 0px 1%; width: 188px; overflow: hidden; vertical-align: top; display: inline-block; -ms-zoom: 1;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" valign="top" style="padding: 25px 0px 0px;">
+                                                    <table style="width: 188px;" border="0" cellspacing="0" cellpadding="0">
+                                                        <tbody><tr><th align="left" style="padding: 0px; color: rgb(105, 105, 105); line-height: 18px; font-size: 12px; font-weight: bold;">2. 프로필 설정&nbsp;&nbsp;<a style="color: rgb(105, 105, 105); font-weight: normal; text-decoration: underline;" href="http://fastm.io/profile" target="_blank">바로가기</a></th></tr>
+                                                        <tr><td height="95" align="left" valign="top" style="padding: 1px 0px 0px; color: rgb(105, 105, 105); line-height: 18px; font-size: 12px;">회사소개, 사업자등록증, 회사소개서, 상품소개서, 포트폴리오 등을 등록하세요. 프로젝트 지원시 선택 받을 확률이 올라갑니다.</td></tr>
+                                                        <tr><td align="left" valign="top"><img alt="서비스 URL 설정" src="https://static.worksmobile.net/static/pwe/nworks/dm/img_mx_desc2.gif"></td></tr>
+                                                        </tbody></table>
+                                                </td>
+                                            </tr>
+                                            </tbody></table>
+                                        <table style="margin: 0px 1%; width: 188px; overflow: hidden; vertical-align: top; display: inline-block; -ms-zoom: 1;" border="0" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" valign="top" style="padding: 25px 0px 0px;">
+                                                    <table style="width: 188px;" border="0" cellspacing="0" cellpadding="0">
+                                                        <tbody><tr><th align="left" style="padding: 0px; color: rgb(105, 105, 105); line-height: 18px; font-size: 12px; font-weight: bold;">3. 알림설정&nbsp;&nbsp;<a style="color: rgb(105, 105, 105); font-weight: normal; text-decoration: underline;" href="http://fastm.io/setting/notification" target="_blank">바로가기</a></th></tr>
+                                                        <tr><td height="95" align="left" valign="top" style="padding: 1px 0px 0px; color: rgb(105, 105, 105); line-height: 18px; font-size: 12px;">이메일 또는 문자메세지로 신규 프로젝트 등록, 댓글 등록, 진행상태 변경 등 프로젝트와 관련해 실시간 안내를 받아 볼 수 있습니다.</td></tr>
+                                                        <tr><td align="left" valign="top"><img alt="로고 관리" src="https://static.worksmobile.net/static/pwe/nworks/dm/img_mx_desc3.gif"></td></tr>
+                                                        </tbody></table>
+                                                </td>
+                                            </tr>
+                                            </tbody></table>
+                                    </td>
+                                </tr>
+
+                                <tr><td height="1px"><p style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p></td></tr>
+
+                                <tr>
+                                    <td align="left" style="padding:47px 6% 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#1099DD;line-height:19px"><strong>Works Mobile 접속 방법을 알려드립니다.</strong></td>
                                 </tr>
                                 <tr>
                                     <td align="left" style="padding:23px 6% 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:19px;font-weight:bold">1. PC에서는 아래 URL로 접속하세요.</td>
                                 </tr>
                                 <tr>
-                                    <td align="left" valign="top" style="padding:9px 3% 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:17px">
+                                    <td align="left" valign="top" style="padding:9px 3% 30px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:17px">
                                         <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 6px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;font-weight:normal;vertical-align:top">메일</strong><span style="padding:0 0 0 10px;vertical-align:top"><a href="https://mail.worksmobile.com" style="color:#1783f0;text-decoration:underline">https://mail.worksmobile.com</a></span></p>
                                         <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 6px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;font-weight:normal;vertical-align:top">캘린더</strong><span style="padding:0 0 0 10px;vertical-align:top"><a href="https://calendar.worksmobile.com" style="color:#1783f0;text-decoration:underline">https://calendar.worksmobile.com</a></span></p>
                                         <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 6px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;font-weight:normal;vertical-align:top">주소록</strong><span style="padding:0 0 0 10px;vertical-align:top"><a href="https://contact.worksmobile.com" style="color:#1783f0;text-decoration:underline">https://contact.worksmobile.com</a></span></p>
@@ -49,57 +106,24 @@
                                         <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 6px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;font-weight:normal;vertical-align:top">관리페이지</strong><span style="padding:0 0 0 10px;vertical-align:top"><a href="https://admin.worksmobile.com" style="color:#1783f0;text-decoration:underline">https://admin.worksmobile.com</a></span></p>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td align="left" style="padding:42px 6% 6px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:19px;font-weight:bold">2. 스마트폰에서는 Works Mobile 전용앱을 설치하세요. 앱스토어 아이콘을 누르시면 설치 페이지로 이동합니다.</td>
-                                </tr>
-                                <tr>
-                                    <td align="left" valign="top" style="padding:13px 3% 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:17px">
-                                        <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 14px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">메일</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="http://nstore.naver.com/appstore/web/detail.nhn?productNo=1504858"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_naver_1506.png" alt="네이버 앱스토어" border="0" width="40" height="40"></a><a href="https://play.google.com/store/apps/details?id=com.nhn.works.android.mail" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_android_1506.png" alt="구글 플레이" border="0" width="40" height="40"></a><a href="https://itunes.apple.com/app/id877564069" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_ios_1506.png" alt="애플 앱스토어" border="0" width="40" height="40"></a></span></p>
-                                        <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 14px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">캘린더</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="http://nstore.naver.com/appstore/web/detail.nhn?productNo=1504859"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_naver_1506.png" alt="네이버 앱스토어" border="0" width="40" height="40"></a><a href="https://play.google.com/store/apps/details?id=com.nhn.android.works.calendar" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_android_1506.png" alt="구글 플레이" border="0" width="40" height="40"></a><a href="https://itunes.apple.com/us/app/id876348466" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_ios_1506.png" alt="애플 앱스토어" border="0" width="40" height="40"></a></span></p>
-                                        <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 14px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">주소록</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="http://nstore.naver.com/appstore/web/detail.nhn?productNo=1504864 "><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_naver_1506.png" alt="네이버 앱스토어" border="0" width="40" height="40"></a><a href="https://play.google.com/store/apps/details?id=com.nhn.android.workscontacts" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_android_1506.png" alt="구글 플레이" border="0" width="40" height="40"></a><a href="https://itunes.apple.com/us/app/id878036334" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_ios_1506.png" alt="애플 앱스토어" border="0" width="40" height="40"></a></span></p>
-                                        <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 14px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">드라이브</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="http://nstore.naver.com/appstore/web/detail.nhn?productNo=1502022"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_naver_1506.png" alt="네이버 앱스토어" border="0" width="40" height="40"></a><a href="https://play.google.com/store/apps/details?id=com.nhn.android.works.drive" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_android_1506.png" alt="구글 플레이" border="0" width="40" height="40"></a><a href="https://itunes.apple.com/us/app/id877532402" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_ios_1506.png" alt="애플 앱스토어" border="0" width="40" height="40"></a></span></p>
-                                        <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0 0 2px;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">오피스</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="http://nstore.naver.com/appstore/web/detail.nhn?productNo=1570100"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_naver_1506.png" alt="네이버 앱스토어" border="0" width="40" height="40"></a><a href="https://play.google.com/store/apps/details?id=com.naver.android.works.office" style="margin-left:34px"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_android_1506.png" alt="구글 플레이" border="0" width="40" height="40"></a><a href="#" style="margin-left:34px;display:none"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_ios_1506.png" alt="애플 앱스토어" border="0" width="40" height="40"></a></span></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="left" style="padding:1px 6% 34px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#a1a0a0;line-height:19px">※ 전용앱은 네이버 앱스토어, 구글 플레이, 애플 앱스토어에서 'Works Mobile'로 검색하여 설치 가능합니다.</td>
-                                </tr>
-                                <!--
-                                <tr>
-                                <td align="left" style="padding:42px 6% 20px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:19px;font-weight:bold">3. 데스크탑 어플리케이션은 아래 아이콘을 누르시면 설치 페이지로 이동합니다.</td>
-                                </tr>
-                                <tr>
-                                <td align="left" valign="top" style="padding:0 3% 34px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:17px">
-                                <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">Windows</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="#"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_windows.png" alt="Windows" border="0" width="188" height="38"></a></span></p>
-                                <p style="display:inline-block;*display:inline;zoom:1;width:280px;margin:0 3%;padding:0;vertical-align:top;overflow:hidden"><strong style="display:inline-block;*display:inline;zoom:1;width:70px;height:40px;font-weight:normal;vertical-align:middle">Mac OS</strong><span style="height:40px;padding:0 0 0 10px;vertical-align:middle"><a href="#"><img src="https://static.worksmobile.net/static/pwe/nworks/dm/ic_app_mac.png" alt="Mac OS" border="0" width="188" height="38"></a></span></p>
-                                </td>
-                                </tr> -->
                                 <tr><td height="1px"><p style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p></td></tr>
+
+
+
+
+                                <!-- footer -->
                                 <tr>
-                                    <td align="left" style="padding:0 0 47px">
-                                        <table border="0" cellpadding="0" cellspacing="0" style="margin:0 6%">
-                                            <tr><th scope="col" align="left" style="padding:47px 0 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#333;line-height:19px">일반 구성원의 Works Mobile 이용에 관한 책임 주체 안내</th></tr>
-                                            <tr><td align="left" style="padding:1px 0 0;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:12px;color:#32383e;line-height:19px"><p style="margin:0;padding:8px 0 0">구성원의 Works Mobile 이용은 각 법인(또는 단체)의 정관, 인사규정, 개인정보처리방침 등에 따라 운영됩니다. 각 법인(또는 단체)의 정관, 인사규정, 개인정보처리방침 등은 해당 법인(또는 단체)의 인사부서, 정보보호부서 등의 담당자에게 확인할 수 있습니다.</p><p style="margin:0;padding:8px 0 0">Works Mobile의 일부 기능(파일 이전 관리, 모바일 보안설정(접속시간확인), 이메일 전달 등)에 대해 각 법인(또는 단체)에서는 관련 법령과 법인(또는단체)별 정관, 인사규정,개인정보처리방침 등에 따라 구성원의 사전 동의를 받고 있습니다.</p><p style="margin:0;padding:8px 0 0">따라서 일반 구성원의 Works Mobile 이용은 각 법인(또는 단체)의 사전 동의가 있었음을 전제로 합니다.</p><p style="margin:0;padding:8px 0 0">Works Mobile의 이용약관 및개인정보취급방침은 이를 이용하는 각 법인(또는 단체)에 적용될뿐, 해당 법인(또는 단체)의 구성원에게 적용되지는 않습니다.</p></td></tr>
-                                        </table>
+                                    <td align="center" style="padding:18px 0 8px;font-size:11px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum,Helvetica;color:#a1a0a0;line-height:17px;text-align:center">
+                                        본 메일은 발신전용 입니다. 궁금하신 점이나 불편한 사항은 <a href="http://fastm.io/customer/man_to_man" target="_blank" style="color:#a1a0a0;text-decoration:underline">고객센터</a>에 문의해 주시기 바랍니다.
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td align="center" style="padding:0 0 57px;font-size:11px;font-family:Tahoma;color:#a3a3a3;line-height:17px;text-align:center">
+                                        &copy; <strong>Fastm Corp.</strong>
+                                    </td>
+                                </tr>
+                                <!-- //footer -->
                             </table>
-                        </td>
-                    </tr>
-
-                    <!-- footer -->
-                    <tr>
-                        <td align="center" style="padding:18px 0 8px;font-size:11px;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum,Helvetica;color:#a1a0a0;line-height:17px;text-align:center">
-                            본 메일은 발신전용 입니다. 궁금하신 점이나 불편한 사항은 <a href="https://help.worksmobile.com/home.nhn?lang=ko" target="_blank" style="color:#a1a0a0;text-decoration:underline">고객센터</a>에 문의해 주시기 바랍니다.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" style="padding:0 0 57px;font-size:11px;font-family:Tahoma;color:#a3a3a3;line-height:17px;text-align:center">
-                            &copy; <strong>Works Mobile Corp.</strong>
-                        </td>
-                    </tr>
-                    <!-- //footer -->
-                </table>
             </div>
         </td>
     </tr>
