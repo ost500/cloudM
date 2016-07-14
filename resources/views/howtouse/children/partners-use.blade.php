@@ -32,7 +32,7 @@
                     </li>
                     <li class="cli01_img03">
                         <h4 class="cli_title">미팅 및 계약</h4><br>
-						<span class="cli_txt">클라이언트가 미팅을 신청한 지원자에게는, 위시켓 팀이 개별적으로 연락을 드립니다.<br>
+						<span class="cli_txt">클라이언트가 미팅을 신청한 지원자에게는, 패스트엠 팀이 개별적으로 연락을 드립니다.<br>
 패스트엠 팀에서 미팅 주선에서 계약까지 전 과정을 도와드립니다.</span>
                         <div class="cli_box">
                             - 미팅은 온라인 미팅(skype, 카카오톡 등) / 오프라인 대면 미팅이 가능합니다.<br>
