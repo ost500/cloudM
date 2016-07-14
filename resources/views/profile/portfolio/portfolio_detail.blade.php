@@ -41,7 +41,7 @@
                             @endif
 
                             <div class="media-body02">
-                                <h6 class="portfolio_title">{{ $portfolios->title }} {{--<span class="port_title_box">대표작품</span>--}}</h6>
+                                <h6 class="portfolio_title">{{ $portfolios->title }} <?=($portfolios->top)?"<span class=\"port_title_box\">대표 포트폴리오</span>":"" ?></h6>
                             </div>
                         </div>
                         <table class="table_02 margin-top-30" width=100%>
