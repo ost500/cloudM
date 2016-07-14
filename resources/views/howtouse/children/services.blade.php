@@ -12,7 +12,7 @@
             </div>
 
 
-            <h5 class="ser_s_title02 margin-top-30">빠르고 안정적인 크라우드엠</h5>
+            <h5 class="ser_s_title02 margin-top-30">빠르고 안정적인 패스트엠</h5>
             <br>
             <br>
             <div class="ser01_group ser_group">
