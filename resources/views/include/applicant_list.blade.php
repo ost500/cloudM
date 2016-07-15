@@ -13,7 +13,9 @@
                 <div>
                     <span class="name_b">{{ $app_list->user['email'] }}</span>
                     <ul>
-                        <li style="float:left"><div class="rating star-lg star-lg-0"></div></li>
+                        <li style="float:left">
+                            <div class="rating star-lg star-lg-0"></div>
+                        </li>
                         <li style="float:left">
                             <span class="rating-stats-body stats-body">
                                 <span class="average-rating-score">0.0</span>
@@ -89,36 +91,46 @@
 
     </div>
 
+
     <div class="col-md-2">
-        <div class="row">
-            <form action="{{ url('/applist/meeting') }}"
-                  method="POST" role="form" onsubmit="return confirm('미팅신청 하시겠습니까?');">
-                {!! csrf_field() !!}
-                <input name="id" type="hidden"
-                       value="{{ $app_list['id']}}">
-                <button class="btn btn-dark-azure pull-right" type="submit">미팅신청</button>
-            </form>
-        </div>
+        @if($app_list['choice'] == '미팅')
+        @else
+            <div class="row">
+                <form action="{{ url('/applist/meeting') }}"
+                      method="POST" role="form" onsubmit="return confirm('미팅신청 하시겠습니까?');">
+                    {!! csrf_field() !!}
+                    <input name="id" type="hidden"
+                           value="{{ $app_list['id']}}">
+                    <button class="btn btn-dark-azure pull-right" type="submit">미팅신청</button>
+                </form>
+            </div>
+        @endif
+        @if($app_list['choice'] == '관심')
+        @else
+            <div class="row margin-top-5">
+                <form action="{{ url('/applist/interest') }}"
+                      method="POST" role="form" onsubmit="return confirm('관심등록 하시겠습니까?');">
+                    {!! csrf_field() !!}
+                    <input name="id" type="hidden"
+                           value="{{ $app_list['id']}}">
+                    <button class="btn btn-orange pull-right" type="submit">관심등록</button>
+                </form>
+            </div>
+        @endif
 
-        <div class="row margin-top-5">
-            <form action="{{ url('/applist/interest') }}"
-                  method="POST" role="form" onsubmit="return confirm('관심등록 하시겠습니까?');">
-                {!! csrf_field() !!}
-                <input name="id" type="hidden"
-                       value="{{ $app_list['id']}}">
-                <button class="btn btn-orange pull-right" type="submit">관심등록</button>
-            </form>
-        </div>
+        @if($app_list['choice'] == '숨김')
+        @else
+            <div class="row margin-top-5">
+                <form action="{{ url('/applist/out') }}"
+                      method="POST" role="form" onsubmit="return confirm('탈락등록 하시겠습니까?');">
+                    {!! csrf_field() !!}
+                    <input name="id" type="hidden"
+                           value="{{ $app_list['id']}}">
+                    <button class="btn btn-dark-grey pull-right" type="submit">탈락등록</button>
+                </form>
+            </div>
+        @endif
 
-        <div class="row margin-top-5">
-            <form action="{{ url('/applist/out') }}"
-                  method="POST" role="form" onsubmit="return confirm('탈락등록 하시겠습니까?');">
-                {!! csrf_field() !!}
-                <input name="id" type="hidden"
-                       value="{{ $app_list['id']}}">
-                <button class="btn btn-dark-grey pull-right" type="submit">탈락등록</button>
-            </form>
-        </div>
 
     </div>
 </div>
