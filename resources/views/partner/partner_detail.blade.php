@@ -162,7 +162,7 @@
 
                                     </tr>
                                     <tbody id="skill_list">
-                                    @foreach($partner->job()->get() as $job)
+                                    @foreach($partner->job()->take(10)->get() as $job)
                                         <tr>
                                             <td>{{ $job->job }} {{ $job->number }}</td>
                                             <td>{{ $job->number }}</td>

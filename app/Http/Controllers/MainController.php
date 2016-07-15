@@ -18,8 +18,8 @@ class MainController extends Controller
     {
         $projects = new Project();
 
-        $projects = $projects->where('step', '!=', '검수')->get();
-        $projects = $projects->sortByDesc('updated_at');
+        $projects = $projects->orWhere('step', '=', '게시')->orWhere('step', '=', '미팅')->get();
+        $projects = $projects->sortByDesc('created_at')->sortByDesc('updated_at');
         $projects = $projects->forPage(1, 6);
         $count = 1;
 

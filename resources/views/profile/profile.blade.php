@@ -212,7 +212,7 @@
                                     전문분야가 없습니다
                                 </div>
                             @else
-                            <div class="panel02 panel-default02 margin-top-20">
+                                <div class="panel02 panel-default02 margin-top-20">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                     <col style="width:33.3%;"/>
                                     <col style="width:33.3%;"/>
@@ -236,10 +236,33 @@
                                     </tbody>
 
                                 </table>
-                            </div>
+                                </div>
+                            @endif
+
+
 
                             <div id="skill_input_form" hidden
                                  class="panel02 panel-default02 margin-top-20">
+
+                                <div class="panel02 panel-default02">
+                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                        <col style="width:33.3%;"/>
+                                        <col style="width:33.3%;"/>
+                                        <col style="width:33.3%;"/>
+
+                                        <tr>
+                                            <th>종류</th>
+                                            <th>숙련도</th>
+                                            <th>경험</th>
+
+                                        </tr>
+                                        <tbody id="skill_list">
+                                        </tbody>
+
+                                    </table>
+                                </div>
+
+
                                 <form id="skill_form">
                                     {!! csrf_field() !!}
                                     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
@@ -380,7 +403,6 @@
                                     });
                                 });
                             </script>
-                            @endif
                         </div>
                     </div>
                 </div>
