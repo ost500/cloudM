@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => "FastM@FastM.com", 'name' => "FastM"],
+    'from' => ['address' => "help@fastm.io", 'name' => "FASTM"],
 
     /*
     |--------------------------------------------------------------------------

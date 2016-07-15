@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 
 
 class SearchController extends Controller
@@ -295,7 +296,22 @@ class SearchController extends Controller
         }
         $input->parent_id = $com_id;
         $input->save();
-        return back();
+
+        $subject = "HELLO OST";
+
+//        $comments_mail_to = Comments::where('project_id', $input->project_id)->get();
+//
+//        foreach ($comments_mail_to as $mail_to) {
+//            Mail::queue('mail.mail', ['key' => 'value'], function ($message) use ($subject, $mail_to) {
+//                $message->from('help@fastm.io', 'Sender Name');
+//                $message->to($mail_to->user->email, 'John Smith')
+//                    ->subject($subject);
+//            });
+//        }
+//
+//
+//        return $comments_mail_to;
+        return redirect()->back();
     }
 
     public
