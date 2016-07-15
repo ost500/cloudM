@@ -50,6 +50,19 @@ if ($_POST['act_button'] == "선택수정") {
                    where id = '{$_POST['id'][$k]}' ";
         sql_query($sql);
     }
+} else if ($_POST['act_button'] == "프로필사진 초기화") {
+
+    for ($i=0; $i<count($_POST['chk']); $i++)
+    {
+        // 실제 번호를 넘김
+        $k = $_POST['chk'][$i];
+
+        $sql = "update {$g5['member_table']}
+                set
+                  profileImage = '/files/userImage/default'
+                where id = '{$_POST['id'][$k]}' ";
+        sql_query($sql);
+    }
 }
 
 if ($msg)

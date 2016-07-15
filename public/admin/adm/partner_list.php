@@ -101,6 +101,8 @@ $colspan = 16;
 <div class="btn_list01 btn_list">
     <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
     <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+
+    <input type="submit" name="act_button" value="프로필사진 초기화" onclick="document.pressed=this.value">
 </div>
 
 
@@ -225,8 +227,13 @@ $colspan = 16;
 
         <tr class="<?php echo $bg; ?>">
             <td><input type="text" name="homepage[<?php echo $i?>]" value="<?php echo get_text($row['homepage']); ?>" class="frm_input" style="width: 100%"></td>
+
             <td><input type="text" name="company_name[<?php echo $i?>]" value="<?php echo get_text($row['company_name']); ?>" class="frm_input" style="width: 100%"></td>
-            <td headers="mb_list_mobile" class="td_tel"><?=number_format($portfolis[cnt])?>개</td>
+
+            <td headers="mb_list_mobile" class="td_tel bts"><a href="/partner/<?=$row[user_id]?>/portfolio" target="_blank">
+                    <button type="button" class="btn btn-danger btn-xs"><?=number_format($portfolis[cnt])?>개</button>
+            </td>
+
             <td headers="mb_list_mobile"><input type="text" name="fax_num[<?php echo $i?>]" value="<?php echo $row[fax_num]; ?>" class="frm_input" style="width: 100%"></td>
 
             <td class="c td_100 bts">
@@ -258,6 +265,7 @@ $colspan = 16;
 <div class="btn_list01 btn_list">
     <input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
     <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
+    <input type="submit" name="act_button" value="프로필사진 초기화" onclick="document.pressed=this.value">
 </div>
 
 </form>

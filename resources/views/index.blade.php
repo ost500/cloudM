@@ -106,7 +106,7 @@
                                     @else
                                         <a href="{{url('/login')}}">
                                     @endif
-                                    
+
                                             <h5>{{ $p_title }}</h5></a>
                                     <p class="price">월 예산 {{ number_format($project->budget) }}원
                                         <span>|</span> {{ $project->estimated_duration }}
