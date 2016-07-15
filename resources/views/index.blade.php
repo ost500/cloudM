@@ -96,15 +96,18 @@
                         @foreach($projects as $project)
                             <li class="col-md-4">
                                 <article class="thumb">
+                                    <?php
+                                    if (strlen($project['title']) > 45) $p_title = mb_strcut($project['title'], 0, 45) . "...";
+                                    else $p_title = $project['title'];
+                                    ?>
+
                                     @if(Auth::check())
-                                        <a href="{{ url("/detail/".$project->id) }}"><h5>
-                                                <?php $p_title=mb_strcut($project['title'], 0, 45) . "...";
-                                                if (strlen($project['title']) > 45) {echo $p_title;}
-                                                else {echo $project['title'];} ?>
-                                            </h5></a>
+                                        <a href="{{ url("/detail/".$project->id) }}">
                                     @else
-                                        <a href="{{url('/login')}}"><h5>{{ $project->title }}</h5></a>
+                                        <a href="{{url('/login')}}">
                                     @endif
+                                    
+                                            <h5>{{ $p_title }}</h5></a>
                                     <p class="price">월 예산 {{ number_format($project->budget) }}원
                                         <span>|</span> {{ $project->estimated_duration }}
                                         <span>|</span> {{ $project->application->count() }}명 지원</p>

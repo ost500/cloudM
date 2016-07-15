@@ -66,7 +66,7 @@
     </table>
 </div>
 
-@if($loginUser->PorC == "C")
+@if($loginUser->PorC == "P")
 <h6 class="my_h6">클라이언트 정보</h6>
 <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
