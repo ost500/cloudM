@@ -26,10 +26,10 @@
                         class="fa fa-angle-double-right "></i> &nbsp;검수중 캠페인 {{ count($checking) }}건</a>
 
             <a href="{{ url('/client/project/temp') }}" class="head {{ (Request::is('client/project/temp'))?"on":"" }}"><i
-                        class="fa fa-angle-double-right "></i> &nbsp;임시 저장 {{ count($checking) }}건</a>
+                        class="fa fa-angle-double-right "></i> &nbsp;임시 저장 {{ count($temp) }}건</a>
 
             <a href="{{ url('/client/project/fail') }}" class="head {{ (Request::is('client/project/fail'))?"on":"" }}"><i
-                        class="fa fa-angle-double-right "></i> &nbsp;등록 실패 {{ count($checking) }}건</a>
+                        class="fa fa-angle-double-right "></i> &nbsp;등록 실패 {{ count($fail) }}건</a>
         @elseif(Request::is('client/project/posted'))
             <a href="{{ url('/client/project/posted') }}" class="head {{ (Request::is('client/project/posted'))?"on":"" }}"><i
                     class="fa fa-angle-double-right "></i> &nbsp;등록 캠페인 {{ count($registered) }}건</a>
