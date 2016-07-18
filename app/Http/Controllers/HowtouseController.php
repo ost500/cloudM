@@ -41,8 +41,8 @@ class HowtouseController extends Controller
 
     public function faq()
     {
-        $clients = FaqMaster::find(1)->faqs;
-        $partners = FaqMaster::find(2)->faqs;
+        $clients = FaqMaster::find(1)->faqs->sortBy('order_by');
+        $partners = FaqMaster::find(2)->faqs->sortBy('order_by');
         return view('howtouse/children/faq', compact('clients', 'partners'));
     }
 }

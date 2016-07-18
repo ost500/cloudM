@@ -8,12 +8,12 @@
     <meta name="author" content="M_Adnan">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="마케팅주치의 패스트엠">
+    <meta property="og:title" content="우리회사 마케팅주치의 패스트엠">
     <meta property="og:image" content="http://fastm.app/images/preview.png">
-    <meta property="og:description" content="마케팅주치의, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
+    <meta property="og:description" content="우리회사 마케팅주치의, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
     <meta property="og:url" content="http://fastm.io">
 
-    <meta name="description" content="마케팅주치의, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
+    <meta name="description" content="우리회사 마케팅주치의, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
 
     <meta name="naver-site-verification" content="a357861d27d02e4f068c4b1cc3daf41fce62cccc"/>
 

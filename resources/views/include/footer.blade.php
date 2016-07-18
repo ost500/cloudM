@@ -14,7 +14,7 @@
                 <li><a href="{{route('agreement')}}">이용약관</a></li>
                 <li><a href="{{route('personal_info')}}">개인정보 취급방침</a></li>
                 <li class="bg_round"><a href="{{url("/services/2")}}">광고주 이용방법</a></li>
-                <li class="bg_round"><a href="{{url("/services/3")}}">파트너 이용방법</a></li>
+                <li class="bg_round"><a href="{{url("/services/3")}}">대행사 이용방법</a></li>
                 <li class="bg_round"><a href="#">상단으로 이동 ▲</a></li>
             </ul>
             <div class="clear"></div>

@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="job-sider-bar003">
-                        <h5 class="side-tittle">파트너스</h5>
+                        <h5 class="side-tittle">대행사</h5>
                         <div class="col-md-12 text-center">
                             <img class="partner_profile_150" src="{{ URL::asset($partner['user']->profileImage) }}"><br>
                         </div>

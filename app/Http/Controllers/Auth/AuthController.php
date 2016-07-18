@@ -84,7 +84,7 @@ class AuthController extends Controller
             Mail::queue('mail.register_confirm_mail', ['confirmation_code' => $confirmation_code],
                 function ($message) use ($to_email, $to_name) {
                     $message->to($to_email, $to_name)
-                        ->subject('이메일을 인증하세요');
+                        ->subject('[패스트엠] 회원가입용 이메일 인증');
                 });
             return false;
         } else
@@ -141,7 +141,7 @@ class AuthController extends Controller
         }
         $this->create($request->all());
 
-        Session::flash('message',$request->email.'로 메일을 발송해 드렸습니다.\n이메일 인증을 받으세요');
+        Session::flash('message',$request->email.'로 인증 메일을 발송해 드렸습니다.\n이메일 인증 후 회원가입이 완료 됩니다.');
 
         return redirect()->route('home');
     }
@@ -207,7 +207,7 @@ class AuthController extends Controller
             function ($message) use ($data) {
                 echo $data['email'], $data['name'];
                 $message->to($data['email'], $data['name'])
-                    ->subject('이메일을 인증하세요');
+                    ->subject('[패스트엠] 회원가입용 이메일 인증');
             });
 
 
