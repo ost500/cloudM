@@ -80,7 +80,7 @@ class AuthController extends Controller
             $confirmation_code = $user->confirmation_code;
             $to_email = $request['email'];
             $to_name = $user->name;
-            Mail::queue('mail.mail', ['confirmation_code' => $confirmation_code],
+            Mail::queue('mail.register_confirm_mail', ['confirmation_code' => $confirmation_code],
                 function ($message) use ($to_email, $to_name) {
                     $message->to($to_email, $to_name)
                         ->subject('이메일을 인증하세요');
