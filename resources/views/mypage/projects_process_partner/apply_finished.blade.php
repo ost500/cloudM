@@ -1,8 +1,8 @@
 @extends('layouts.master_layout')
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-        <span class="h3 text-bold">지원 종료 프로젝트</span>
-        <p class="padding-top-5">계약이 성사되지 않은 프로젝트를 확인할 수 있습니다.</p>
+        <span class="h3 text-bold">지원 종료 캠페인</span>
+        <p class="padding-top-5">계약이 성사되지 않은 캠페인을 확인할 수 있습니다.</p>
     </div>
 
 
@@ -12,7 +12,7 @@
 
         <!-- Job Section -->
         @if(sizeof($app_finished) == 0)
-            <td colspan="7">지원 종료된 프로젝트가 없습니다</td>
+            <td colspan="7">지원 종료된 캠페인이 없습니다</td>
         @endif
         @foreach($app_finished as $appItem)
             <div class="job-content job-post-page margin-bottom-10">

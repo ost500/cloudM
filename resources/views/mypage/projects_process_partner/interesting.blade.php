@@ -1,8 +1,8 @@
 @extends('layouts.master_layout')
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-        <span class="h3 text-bold">관심 프로젝트</span>
-        <p class="padding-top-5">관심 프로젝트를 확인할 수 있습니다.</p>
+        <span class="h3 text-bold">관심 캠페인</span>
+        <p class="padding-top-5">관심 캠페인을 확인할 수 있습니다.</p>
     </div>
 
     <!-- Job Content -->
@@ -16,8 +16,8 @@
                     <img src="/images/i_icon.png" style="margin-top:12px;">
 
                     <div class="p_add_span padding-left-50">
-                        <div class="content">1. 프로젝트 지원시 관심 프로젝트에서 제외 됩니다.</div>
-                        <div class="content">2. 프로젝트 모집 기간이 지난 경우, 관심 프로젝트에서 제외 됩니다.</div>
+                        <div class="content">1. 캠페인 지원시 관심 캠페인에서 제외 됩니다.</div>
+                        <div class="content">2. 캠페인 모집 기간이 지난 경우, 관심 캠페인에서 제외 됩니다.</div>
                     </div>
                 </div>
             </div>
@@ -35,14 +35,14 @@
                                     <col style="width:15%;"/>
                                     <col style="width:15%;"/>
                                     <tr>
-                                        <th>프로젝트 제목</th>
+                                        <th>캠페인 제목</th>
                                         <th>비용</th>
                                         <th>마감일자</th>
                                         <th>지원하기</th>
 
                                     </tr>
                                     @if(sizeof($interesting) == 0)
-                                        <td colspan="4">관심 프로젝트가 없습니다</td>
+                                        <td colspan="4">관심 캠페인가 없습니다</td>
                                     @endif
                                     @foreach($interesting as $interestingItem)
 
