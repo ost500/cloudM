@@ -90,6 +90,11 @@ Route::get('/faq', 'HowtouseController@faq');
 
 //로그인
 Route::auth();
+//이메일 확인
+Route::get('register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'RegistrationController@confirm'
+]);
 
 Route::get('/loginModal', 'MainController@loginModal');
 
@@ -298,6 +303,9 @@ Route::get('/customer/introduction', ['as' => 'introduction', 'uses' => 'Custome
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
 Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
+//이메일 인증
+Route::get('/customer/email_confirm',
+    ['as' => 'email_confirm', 'uses' => 'CustomerCentreController@email_confirm']);
 
 //이용약관
 Route::get('/agreement', ['as' => 'agreement', 'uses' => 'CustomerCentreController@agreement']);

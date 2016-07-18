@@ -40,7 +40,7 @@ class CommunicationController extends Controller
             ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
             ->get();
 
-        return view('mypage.CommunicationPC.CommunicationPC_detail', compact('communi', 'loginUser', 'proceeding','id'));
+        return view('mypage.CommunicationPC.CommunicationPC_detail', compact('communi', 'loginUser', 'proceeding', 'id'));
     }
 
     public function communication_PC_create($p_id)
@@ -81,22 +81,22 @@ class CommunicationController extends Controller
         return view('mypage.CommunicationPC.CommunicationPC_update', compact('loginUser', 'proceeding', 'communi', 'id'));
     }
 
-    public function communication_PC_update_post(Request $request,$id)
+    public function communication_PC_update_put(Request $request, $id)
     {
         $communi = Communication::find($id);
         $communi->title = $request->title;
         $communi->content = $request->description;
         $communi->save();
 
-
-        //TODO 이거 해야됨
+        return redirect()->action('CommunicationController@communication_PC_detail', ['id' => $id]);
+        
     }
 
     public function communication_PC_delete(Request $request, $id)
     {
 
         $delete_communi = Communication::find($id);
-        if(Auth::user()->id != $delete_communi->writer_id){
+        if (Auth::user()->id != $delete_communi->writer_id) {
             return response()->view('errors.503');
         }
         $p_id = $delete_communi->project_id;
