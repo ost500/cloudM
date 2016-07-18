@@ -1,8 +1,6 @@
 <?php
 $sub_menu = '300700';
 include_once('./_common.php');
-include_once(G5_EDITOR_LIB);
-
 auth_check($auth[$sub_menu], "w");
 
 $sql = " select * from {$g5['faq_master_table']} where f_id = '$f_id' ";
@@ -55,7 +53,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
     </tr>
     <tr>
         <th scope="row">답변</th>
-        <td><?php echo editor_html('content', get_text($fa['content'], 0)); ?></td>
+        <td><textarea name="content" rows="10" cols="50"><?=$fa['content']?></textarea> </td>
     </tr>
     </tbody>
     </table>
@@ -84,8 +82,6 @@ function frmfaqform_check(f)
         return false;
     }
 
-    <?php echo get_editor_js('subject'); ?>
-    <?php echo get_editor_js('content'); ?>
 
     return true;
 }
