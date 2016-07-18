@@ -33,7 +33,7 @@
                                 <!-- ADD INFO HERE -->
                                 <div id="job{{  $faqs->id }}" class="panel-collapse collapse">
                                     <div class="panel-body02">
-                                        <p>{{ $faqs->content }}</p>
+                                        <p><?=nl2br($faqs->content)?></p>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <!-- ADD INFO HERE -->
                                 <div id="job{{  $faqs->id }}" class="panel-collapse collapse">
                                     <div class="panel-body02">
-                                        <p>{{ $faqs->content }}</p>
+                                        <p><?=nl2br($faqs->content)?></p>
                                     </div>
                                 </div>
                             </div>
