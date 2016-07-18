@@ -18,26 +18,26 @@
                         <h4 class="ser_s_title">광고주가 자주 묻는 질문</h4>
 
                         @foreach($clients as $faqs)
-                            <!-- Job Section -->
-                            <div class="job-content03 job-post-page margin-top-15">
-                                <div class="panel-default">
-                                    <!-- PANEL HEADING -->
-                                    <div class="panel-heading"><a data-toggle="collapse" href="#job{{ $faqs->id }}">
-                                            <div class="job-tittle">
-                                                <div class="media-body">
-                                                    <h5 class="faq_f">{!! $faqs->subject !!}</h5>
-                                                </div>
+                                <!-- Job Section -->
+                        <div class="job-content03 job-post-page margin-top-15">
+                            <div class="panel-default">
+                                <!-- PANEL HEADING -->
+                                <div class="panel-heading"><a data-toggle="collapse" href="#job{{ $faqs->id }}">
+                                        <div class="job-tittle">
+                                            <div class="media-body">
+                                                <h5 class="faq_f">{{ $faqs->subject }}</h5>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <!-- ADD INFO HERE -->
-                                    <div id="job{{  $faqs->id }}" class="panel-collapse collapse">
-                                        <div class="panel-body02">
-                                            {!! $faqs->content !!}
                                         </div>
+                                    </a>
+                                </div>
+                                <!-- ADD INFO HERE -->
+                                <div id="job{{  $faqs->id }}" class="panel-collapse collapse">
+                                    <div class="panel-body02">
+                                        <p>{{ $faqs->content }}</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
 
 
@@ -54,7 +54,7 @@
                                 <div class="panel-heading"><a data-toggle="collapse" href="#job{{ $faqs->id }}">
                                         <div class="job-tittle">
                                             <div class="media-body">
-                                                <h5 class="faq_f">{!! $faqs->subject !!}</h5>
+                                                <h5 class="faq_f">{{ $faqs->subject }}</h5>
                                             </div>
                                         </div>
                                     </a>
@@ -62,7 +62,7 @@
                                 <!-- ADD INFO HERE -->
                                 <div id="job{{  $faqs->id }}" class="panel-collapse collapse">
                                     <div class="panel-body02">
-                                        {!! $faqs->content !!}
+                                        <p>{{ $faqs->content }}</p>
                                     </div>
                                 </div>
                             </div>
