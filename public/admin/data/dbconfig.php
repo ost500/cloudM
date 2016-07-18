@@ -10,4 +10,6 @@ $g5['contract_table'] = 'contracts'; // 지원자 선정 테이블
 $g5['file_table'] = 'projects_proposals'; // 제안서/견적서 테이블
 $g5['area_table'] = 'projects_areas'; // 분야 테이블
 $g5['portfolio_table'] = 'portfolios'; // 포트폴리오 테이블
+$g5['faq_table'] = 'faqs'; // 자주하시는 질문 테이블
+$g5['faq_master_table'] = 'faq_masters'; // 자주하시는 질문 마스터 테이블
 ?>

@@ -40,7 +40,7 @@ else if ($w == "d")
 
 if ($w == "" || $w == "u")
 {
-    goto_url("./faqmasterform.php?w=u&amp;f_id=$f_id");
+    goto_url("./faqmasterform.php?w=u&amp;id=$id");
 }
 else
     goto_url("./faqmasterlist.php");
