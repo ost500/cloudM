@@ -9,6 +9,7 @@ use Auth;
 use Mail;
 use Illuminate\Http\Request;
 use phpbrowscap\Exception;
+use Session;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -140,8 +141,9 @@ class AuthController extends Controller
         }
         $this->create($request->all());
 
+        Session::flash('message',$request->email.'로 메일을 발송해 드렸습니다.\n이메일 인증을 받으세요');
 
-        return redirect(route('email_confirm'))->with('email', $request->email);
+        return redirect()->route('home');
     }
 
     /**
