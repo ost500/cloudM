@@ -12,7 +12,7 @@
                 <div id="accordion">
 
 
-                    <div class="row">
+                    <div class="row padding-bottom-30">
 
 
                         <h4 class="ser_s_title">광고주가 자주 묻는 질문</h4>

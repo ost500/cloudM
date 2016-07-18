@@ -83,7 +83,7 @@ class AuthController extends Controller
             Mail::queue('mail.mail', ['confirmation_code' => $confirmation_code],
                 function ($message) use ($to_email, $to_name) {
                     $message->to($to_email, $to_name)
-                        ->subject('이메일을 인증하세요');
+                        ->subject('[패스트엠] 회원가입용 이메일 인증');
                 });
             return false;
         } else

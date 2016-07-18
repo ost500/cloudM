@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>마케팅중개 플랫폼/패스트엠</title>
+    <title>마케팅주치의::패스트엠</title>
 </head>
 <body style="padding:10px;margin:0">
 
@@ -25,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding:10px 6% 47px;font-family:'나눔고딕',nanumgothic,'돋움',Dotum;font-size:25px;color:#333;line-height:120%;letter-spacing:-1px;font-weight:bold"
-                                        align="left">이메일 인증 안내
+                                        align="left">회원가입용 이메일 인증
                                     </td>
                                 </tr>
                                 <tr>
@@ -36,10 +36,10 @@
                                 <tr>
                                     <td style="padding:48px 0 0" align="left">
                                         <p style="margin:0;padding:0 6%;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#333;line-height:21px;font-weight:bold">
-                                            안녕하세요. 마케팅 중개 플랫폼 패스트엠 입니다.
+                                            안녕하세요. 마케팅주치의 패스트엠 입니다.
 
 
-                                            아래 <strong style="color:#1099DD">인증 버튼</strong>을 누르면 인증이 됩니다.<br></p>
+                                            아래 <strong style="color:#1099DD">인증 버튼</strong>을 누르면 회원가입이 완료 됩니다.<br></p>
                                     </td>
                                 </tr>
                                 <tr><br><br>
@@ -60,24 +60,6 @@
                                                 style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p>
                                     </td>
                                 </tr>
-
-
-                                <tr>
-                                    <td align="center" style="padding: 21px 0px 50px; text-align: center;">
-                                        <a style='background-color:#1099DD; margin: 10px 5px 0px; padding: 15px 10px 14px; width: 100%; color: rgb(255, 255, 255); line-height: 15px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; -ms-zoom: 1; max-width: 230px;'
-                                           href="http://fastm.io/project" target="_blank">프로젝트 살펴보기</a>
-                                        <a style='background-color:#1099DD; margin: 10px 5px 0px; padding: 15px 10px 14px; width: 100%; color: rgb(255, 255, 255); line-height: 15px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; -ms-zoom: 1; max-width: 230px;'
-                                           href="http://fastm.io" target="_blank">패스트엠 방문하기</a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td height="1px"><p
-                                                style="height:1px;margin:0 2.9%;overflow:hidden;background-color:#e5e5e5;border:0 none;font-size:0;line-height:0"></p>
-                                    </td>
-                                </tr>
-
-
 
 
                                 <!-- footer -->
