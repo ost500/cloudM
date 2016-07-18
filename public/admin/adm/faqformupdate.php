@@ -12,34 +12,35 @@ else
 
 check_admin_token();
 
-$sql_common = " fa_subject = '$fa_subject',
-                fa_content = '$fa_content',
-                fa_order = '$fa_order' ";
+$sql_common = " subject = '$subject',
+                content = '$content',
+                order_by = '$order_by',
+                 updated_at = now()";
 
 if ($w == "")
 {
     $sql = " insert {$g5['faq_table']}
-                set fm_id ='$fm_id',
+                set f_id ='$f_id',
+                    created_at = now(),
                     $sql_common ";
     sql_query($sql);
-
-    $fa_id = sql_insert_id();
+    $id = sql_insert_id();
 }
 else if ($w == "u")
 {
     $sql = " update {$g5['faq_table']}
                 set $sql_common
-              where fa_id = '$fa_id' ";
+              where id = '$id' ";
     sql_query($sql);
 }
 else if ($w == "d")
 {
-	$sql = " delete from {$g5['faq_table']} where fa_id = '$fa_id' ";
+	$sql = " delete from {$g5['faq_table']} where id = '$id' ";
     sql_query($sql);
 }
 
 if ($w == 'd')
-    goto_url("./faqlist.php?fm_id=$fm_id");
+    goto_url("./faqlist.php?f_id=$f_id");
 else
-    goto_url("./faqform.php?w=u&amp;fm_id=$fm_id&amp;fa_id=$fa_id");
+    goto_url("./faqform.php?w=u&amp;f_id=$f_id&amp;id=$id");
 ?>

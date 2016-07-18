@@ -5,19 +5,19 @@ include_once(G5_EDITOR_LIB);
 
 auth_check($auth[$sub_menu], "w");
 
-$sql = " select * from {$g5['faq_master_table']} where fm_id = '$fm_id' ";
+$sql = " select * from {$g5['faq_master_table']} where f_id = '$f_id' ";
 $fm = sql_fetch($sql);
 
-$html_title = 'FAQ '.$fm['fm_subject'];
+$html_title = 'FAQ '.$fm['subject'];
 
 if ($w == "u")
 {
     $html_title .= " 수정";
     $readonly = " readonly";
 
-    $sql = " select * from {$g5['faq_table']} where fa_id = '$fa_id' ";
+    $sql = " select * from {$g5['faq_table']} where id = '$id' ";
     $fa = sql_fetch($sql);
-    if (!$fa['fa_id']) alert("등록된 자료가 없습니다.");
+    if (!$fa['id']) alert("등록된 자료가 없습니다.");
 }
 else
     $html_title .= ' 항목 입력';
@@ -29,8 +29,8 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
 
 <form name="frmfaqform" action="./faqformupdate.php" onsubmit="return frmfaqform_check(this);" method="post">
 <input type="hidden" name="w" value="<?php echo $w; ?>">
-<input type="hidden" name="fm_id" value="<?php echo $fm_id; ?>">
-<input type="hidden" name="fa_id" value="<?php echo $fa_id; ?>">
+<input type="hidden" name="f_id" value="<?php echo $f_id; ?>">
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 <input type="hidden" name="token" value="">
 
 <div class="tbl_frm01 tbl_wrap">
@@ -45,17 +45,17 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
         <th scope="row"><label for="fa_order">출력순서</label></th>
         <td>
             <?php echo help('숫자가 작을수록 FAQ 페이지에서 먼저 출력됩니다.'); ?>
-            <input type="text" name="fa_order" value="<?php echo $fa['fa_order']; ?>" id="fa_order" class="frm_input" maxlength="10" size="10">
-            <?php if ($w == 'u') { ?><a href="<?php echo G5_BBS_URL; ?>/faq.php?fm_id=<?php echo $fm_id; ?>" class="btn_frmline">내용보기</a><?php } ?>
+            <input type="text" name="order_by" value="<?php echo $fa['order_by']; ?>" id="order_by" class="frm_input" maxlength="10" size="10">
+            <?php if ($w == 'u') { ?><a href="<?php echo G5_BBS_URL; ?>/faq.php?f_id=<?php echo $f_id; ?>" class="btn_frmline">내용보기</a><?php } ?>
         </td>
     </tr>
     <tr>
         <th scope="row">질문</th>
-        <td><?php echo editor_html('fa_subject', get_text($fa['fa_subject'], 0)); ?></td>
+        <td><?php echo editor_html('subject', get_text($fa['subject'], 0)); ?></td>
     </tr>
     <tr>
         <th scope="row">답변</th>
-        <td><?php echo editor_html('fa_content', get_text($fa['fa_content'], 0)); ?></td>
+        <td><?php echo editor_html('content', get_text($fa['content'], 0)); ?></td>
     </tr>
     </tbody>
     </table>
@@ -63,7 +63,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
 
 <div class="btn_confirm01 btn_confirm">
     <input type="submit" value="확인" class="btn_submit" accesskey="s">
-    <a href="./faqlist.php?fm_id=<?php echo $fm_id; ?>">목록</a>
+    <a href="./faqlist.php?f_id=<?php echo $f_id; ?>">목록</a>
 </div>
 
 </form>
@@ -84,8 +84,8 @@ function frmfaqform_check(f)
         return false;
     }
 
-    <?php echo get_editor_js('fa_subject'); ?>
-    <?php echo get_editor_js('fa_content'); ?>
+    <?php echo get_editor_js('subject'); ?>
+    <?php echo get_editor_js('content'); ?>
 
     return true;
 }
