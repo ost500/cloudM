@@ -2,7 +2,7 @@
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
         <span class="h3 text-bold">알림설정</span>
-        <p class="padding-top-5">프로젝트 등록, 지원등의 소식을 빠르게 받아 보세요.</p>
+        <p class="padding-top-5">광고캠페인 등록, 지원등의 소식을 빠르게 받아 보세요.</p>
     </div>
 
     <!-- Job Content -->
@@ -39,7 +39,7 @@
                                             </tr>
 
                                             <tr>
-                                                <th rowspan="2">프로젝트 알람</th>
+                                                <th rowspan="2">광고캠페인 알람</th>
                                                 <td>
                                                     <input type="radio"
                                                            name="project_email" id="project_all"
@@ -52,7 +52,7 @@
                                                     <input type="radio"
                                                            name="project_email" id="project_important"
                                                            value="중요" {{ ($loginUser->project_email=="중요")?"checked":"" }} />
-                                                    <label for="project_important">중요한 알람만 받기 | 프로젝트 지원자 발생, 댓글 문의, 미팅 요청, 제안서 등록 등</label>
+                                                    <label for="project_important">중요한 알람만 받기 | 광고캠페인 지원자 발생, 댓글 문의, 미팅 요청, 제안서 등록 등</label>
                                                 </td>
                                             </tr>
 
@@ -129,7 +129,7 @@
                                             </tr>
 
                                             <tr>
-                                                <th rowspan="2">프로젝트 알람</th>
+                                                <th rowspan="2">광고캠페인 알람</th>
                                                 <td>
                                                     <input type="radio"
                                                            name="project_sms" id="project_sms_all"
@@ -142,7 +142,7 @@
                                                     <input type="radio"
                                                            name="project_sms" id="project_sms_important"
                                                            value="중요" {{ ($loginUser->project_sms=="중요")?"checked":"" }} />
-                                                    <label for="project_sms_important">중요한 알람만 받기 | 프로젝트 지원자 발생, 댓글 문의, 미팅 요청, 제안서 등록 등</label>
+                                                    <label for="project_sms_important">중요한 알람만 받기 | 광고캠페인 지원자 발생, 댓글 문의, 미팅 요청, 제안서 등록 등</label>
                                                 </td>
                                             </tr>
 

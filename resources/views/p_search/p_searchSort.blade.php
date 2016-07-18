@@ -41,7 +41,6 @@
                             <span class="media-body-sm-Plist">월 예산 <span>{{ number_format($project['budget']) }}</span>원</span>
                             <span class="media-body-sm-Plist">예상기간 <span>{{ $project['estimated_duration'] }}</span></span>
                             <span class="media-body-sm-Plist la-line">등록일자 <span>{{ substr($project['created_at'], 0, 10) }}</span></span>
-                        <!--span class="media-body-sm-Plist la-line">마감 <span>{{ $project['deadline'] }}</span></span-->
                         </div>
                     </div>
                     <!-- Content -->
@@ -54,14 +53,7 @@
                                     <div>
 
                                             <ul class="tags dall margin-top-20">
-                                                <li>미팅 >
-                                                    @if($project->meeting_way == "온라인 미팅")
-                                                        온라인
-                                                    @else
-                                                        {{ str_limit($project->address_sido, 4, '') }}
-                                                    @endif
-                                                    | 마케팅 분야
-                                                    @foreach($project->projects_area as $areas)
+                                                <li>@foreach($project->projects_area as $areas)
                                                         <a href="#.">{{ $areas->area }}</a>
                                                     @endforeach
                                                 </li>
@@ -72,7 +64,8 @@
                                 <div class="col-md-3">
 
                                     <ul class="list-unstyled">
-                                        <li class="padding-top-5"></li>
+                                        <li class=""></li>
+
 
                                         <li class="partners-authentication ">
                                             @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
@@ -86,6 +79,14 @@
 
                                         <li class="partners-authentication ">
                                             <span class="s_icon02">총 {{ $project->application->count() }}명 지원</span>
+                                        </li>
+
+                                        <li class="partners-authentication ">
+                                            @if($project->meeting_way == "온라인 미팅")
+                                                <span>온라인 미팅</span>
+                                            @else
+                                                <span>오프라인 미팅 > {{ str_limit($project->address_sido, 4, '') }}</span>
+                                            @endif
                                         </li>
                                     </ul>
                                     </p>
