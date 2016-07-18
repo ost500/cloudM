@@ -1,6 +1,6 @@
 <!-- Pagination -->
 {{--페이지네이션 관련 지우지 마세요--}}
-<h5 hidden id="count">{{ $projects['count'] }}개의 프로젝트</h5>
+<h5 hidden id="count">{{ $projects['count'] }}개의 광고캠페인</h5>
 {{--지우지 마세요--}}
 @foreach($projects as $project)
     @if($project['title'])

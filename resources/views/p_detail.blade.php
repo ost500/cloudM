@@ -33,16 +33,16 @@
                                 <div class="col-md-12">
                                     @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
                                         @if(App\Application::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
-                                            <div class="btn btn-app-not margin-top-10 margin-bottom-5">이미 지원한 프로젝트</div>
+                                            <div class="btn btn-app-not margin-top-10 margin-bottom-5">이미 지원한 캠페인</div>
                                         @else
                                             <a style="cursor:pointer" id="pro_app_btn">
                                                 <div id="pro_apply" class="btn btn-app margin-top-10 margin-bottom-5">
-                                                    프로젝트 지원하기
+                                                    캠페인 지원하기
                                                 </div>
                                             </a>
                                         @endif
                                     @else
-                                        <div class="btn btn-app-not margin-top-10 margin-bottom-5">프로젝트 지원불가</div>
+                                        <div class="btn btn-app-not margin-top-10 margin-bottom-5">캠페인 지원불가</div>
                                     @endif
                                     <?php
 
@@ -60,7 +60,7 @@
                                     if (!Auth::check()) {
                                         echo '$("#loginModal").modal("show");';
                                     } else if (Auth::user()->PorC == "C") {
-                                        echo 'alert("파트너가 아닙니다")';
+                                        echo 'alert("대행사가 아닙니다")';
                                     } else if (App\Application::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $project['id'])->get()->isEmpty() == false) {
                                         echo '$("#pro_apply").css("btn btn-app-not margin-top-10 margin-bottom-5")';
                                     } else {
@@ -84,12 +84,12 @@
                                                     @if(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
                                                         <div onclick="javascript:alert('이미 추가하셨습니다');"
                                                              class="btn btn-app-not margin-top-10 margin-bottom-5">관심
-                                                            프로젝트
+                                                            캠페인
                                                         </div>
                                                     @else
                                                         <form method="post"
                                                               action="{{route('interesting_add',['id'=> $project->id])}}">
-                                                            <button class="btn btn-interesting margin-top-5">관심 프로젝트 추가
+                                                            <button class="btn btn-interesting margin-top-5">관심 캠페인 추가
                                                             </button>
                                                         </form>
                                                     @endif
@@ -102,15 +102,15 @@
                             </div>
 
                             <div class="job-sider-bar02">
-                                <h5 class="side-tittle">클라이언트 정보</h5>
+                                <h5 class="side-tittle">광고주 정보</h5>
                                 <table class="history_table">
                                     <tbody>
                                     <tr>
-                                        <th>등록 프로젝트</th>
+                                        <th>등록 캠페인</th>
                                         <td>{{ $count['등록'] }}건</td>
                                     </tr>
                                     <tr>
-                                        <th>계약한 프로젝트</th>
+                                        <th>계약한 캠페인</th>
                                         <td>{{ $count['계약'] }}건</td>
                                     </tr>
                                     <tr>
@@ -118,11 +118,11 @@
                                         <td>{{ $count['계약률'] }}%</td>
                                     </tr>
                                     <tr>
-                                        <th>진행중 프로젝트</th>
+                                        <th>진행중 캠페인</th>
                                         <td>{{ $count['진행'] }}건</td>
                                     </tr>
                                     <tr>
-                                        <th>완료한 프로젝트</th>
+                                        <th>완료한 캠페인</th>
                                         <td>{{ $count['완료'] }}건</td>
                                     </tr>
                                     {{--<tr>--}}
@@ -164,7 +164,7 @@
                                                         class="fa fa-krw"></i> 월 예산 <span>{{ number_format($project['budget']) }}
                                                     원</span></span>
                                             <span class="media-body-sm"><i
-                                                        class="fa fa-clock-o"></i> 마케팅기간 <span>{{ $project['estimated_duration'] }} </span></span>
+                                                        class="fa fa-clock-o"></i> 캠페인기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i
                                                                 class="fa fa-calendar-minus-o"></i> 모집마감 <span>{{ $project['deadline'] }} </span></span>
                                                     <div style="clear:both;"></div>
@@ -179,8 +179,8 @@
                                                             <col style="width:16.6%;"/>
                                                             <col style="width:16.6%;"/>
                                                             <tr>
-                                                                <th>마케팅 목적</th>
-                                                                <th>마케팅 경험</th>
+                                                                <th>캠페인 목적</th>
+                                                                <th>캠페인 경험</th>
                                                                 <th>등록일자</th>
                                                                 <th>예상시작일</th>
                                                                 <th>미팅방식</th>
@@ -203,7 +203,7 @@
 
                                                 <div style="clear:both;"></div>
                                                 <div class="p_search02_txt margin-top-20">
-                                                    <h5>프로젝트 내용</h5>
+                                                    <h5>캠페인 내용</h5>
 
                                                     <?php echo nl2br($project['detail_content']); ?><br><br>
 
@@ -239,7 +239,7 @@
 
 
                             <div class="job-content02 job-post-page margin-top-20 padding-bottom-20">
-                                <h5>프로젝트 문의</h5>
+                                <h5>캠페인 문의</h5>
 
                                 <div class="inquiry_01">
                                     @include('comment_show',['comment' => $comment->get(), 'count'=> 1])
@@ -284,7 +284,7 @@
                                                 </div>
                                                 <br>
                                                 <div style="clear:both;"></div>
-                                                <small class="text-warning02">프로젝트 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>
+                                                <small class="text-warning02">캠페인 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>
                                             </div>
                                             <span class="rd"><span class="rd_box">주의</span> 이메일, 전화번호 등을 게시하여 직거래를 유도하는 경우, 서비스 이용에 제재를 받을 수 있습니다.</span>
 

@@ -8,13 +8,6 @@
         <!-- Job -->
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
-
-
-                <div class="coupen">
-                    <p>프로젝트 등록 전에 <span>광고주 정보</span>를 입력해주세요.</p>
-                </div>
-
-
                 <!-- Side Bar -->
                 <div class="row">
 
@@ -53,7 +46,7 @@
                                                             <div class="stepNumber">
                                                                 2
                                                             </div>
-                                                            <span class="stepDesc"> <small> 프로젝트 정보 등록 </small></span>
+                                                            <span class="stepDesc"> <small> 광고캠페인 정보 등록 </small></span>
                                                         </a>
                                                     </li>
                                                     <li>
@@ -61,7 +54,7 @@
                                                             <div class="stepNumber">
                                                                 3
                                                             </div>
-                                                            <span class="stepDesc"> <small> 프로젝트 등록 완료 </small> </span>
+                                                            <span class="stepDesc"> <small> 광고캠페인 등록 완료 </small> </span>
                                                         </a>
                                                     </li>
 
@@ -73,18 +66,10 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <div class="padding-30">
-                                                                    {{--<h6 class="StepTitle">정확한 광고주 기본정보를 입력해 주세요.</h6>--}}
-                                                                    {{--<p>--}}
-                                                                    {{--This is an added measure against fraud and to--}}
-                                                                    {{--help with billing issues.--}}
-                                                                    {{--</p>--}}
-                                                                    {{--<p class="text-small">--}}
-                                                                    {{--Enter security questions in case you lose access--}}
-                                                                    {{--to your account.--}}
-                                                                    {{--</p>--}}
+
                                                                     <img src="/images/p_add_bannIMG.png"
                                                                          class="margin-top_-30">
-                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>패스트엠과
+                                                                    <h6 class="p_add_banntitle">당신의 광고캠페인,<br>패스트엠과
                                                                         함께 하세요!</h6>
                                                                     <ul class="p_add_ul">
                                                                         <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수
@@ -93,13 +78,14 @@
                                                                         <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고
                                                                             선택할 수 있습니다.
                                                                         </li>
-                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수
+                                                                        <li class="p_add_ul_num03">안전하게 광고캠페인을 진행할 수
                                                                             있습니다.
                                                                         </li>
                                                                         <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지
-                                                                            편리하게 프로젝트를 진행할 수 있습니다.
+                                                                            편리하게 광고캠페인을 진행할 수 있습니다.
                                                                         </li>
                                                                     </ul>
+
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-7">
@@ -188,14 +174,6 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    {{--<p class="text-small">--}}
-                                                                    {{--<a href="javascript:void(0)"--}}
-                                                                    {{--data-content="Your personal information is not required for unlawful purposes, but only in order to proceed in this tutorial"--}}
-                                                                    {{--data-title="Don't worry!"--}}
-                                                                    {{--data-placement="top" data-toggle="popover"--}}
-                                                                    {{--data-original-title="" title=""> 왜 개인정보가--}}
-                                                                    {{--필요한가요? </a>--}}
-                                                                    {{--</p>--}}
                                                                 </fieldset>
 
 
@@ -213,28 +191,9 @@
                                                         <div class="row">
                                                             <div class="col-md-5">
                                                                 <div class="padding-30">
-                                                                    {{--<h2 class="StepTitle">Create an account <span--}}
-                                                                    {{--class="text-large block">to manage everything you do with Clip-Two</span>--}}
-                                                                    {{--</h2>--}}
-                                                                    {{--<p>--}}
-                                                                    {{--You’ll enjoy personal services and great--}}
-                                                                    {{--benefits including:--}}
-                                                                    {{--</p>--}}
-                                                                    {{--<p class="text-small">--}}
-                                                                    {{--</p>--}}
-                                                                    {{--<ul class="no-margin">--}}
-                                                                    {{--<li>--}}
-                                                                    {{--Access to exclusive releases and limited--}}
-                                                                    {{--products.--}}
-                                                                    {{--</li>--}}
-                                                                    {{--<li>--}}
-                                                                    {{--ng-Clip services, benefits and promotions.--}}
-                                                                    {{--</li>--}}
-                                                                    {{--</ul>--}}
-                                                                    {{--<p></p>--}}
                                                                     <img src="/images/p_add_bannIMG.png"
                                                                          class="margin-top_-30">
-                                                                    <h6 class="p_add_banntitle">당신의 마케팅 프로젝트,<br>패스트엠과
+                                                                    <h6 class="p_add_banntitle">당신의 광고캠페인,<br>패스트엠과
                                                                         함께 하세요!</h6>
                                                                     <ul class="p_add_ul">
                                                                         <li class="p_add_ul_num01">빠르게 마케팅 대행사를 찾을 수
@@ -243,11 +202,11 @@
                                                                         <li class="p_add_ul_num02">실력있는 대행사를 꼼꼼하게 비교하고
                                                                             선택할 수 있습니다.
                                                                         </li>
-                                                                        <li class="p_add_ul_num03">안전하게 프로젝트를 진행할 수
+                                                                        <li class="p_add_ul_num03">안전하게 광고캠페인을 진행할 수
                                                                             있습니다.
                                                                         </li>
                                                                         <li class="p_add_ul_num04">계약부터, 분쟁조정, 대금지급까지
-                                                                            편리하게 프로젝트를 진행할 수 있습니다.
+                                                                            편리하게 광고캠페인을 진행할 수 있습니다.
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -255,13 +214,13 @@
                                                             <div class="col-md-7">
                                                                 <fieldset>
                                                                     <legend>
-                                                                        프로젝트 정보를 입력하세요
+                                                                        광고캠페인 정보를 입력하세요
                                                                     </legend>
                                                                     <div class="row padding-top-15">
 
                                                                         <div class="form-group"
                                                                              style="padding:0 15px 0 15px;">
-                                                                            <label class="control-label"> 분야 <span
+                                                                            <label class="control-label"> 진행 희망 분야 <span
                                                                                         class="symbol required"></span>
                                                                             </label>
                                                                             <select name="area[]" id="area"
@@ -333,7 +292,7 @@
 
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 마케팅진행
+                                                                                <label class="control-label"> 캠페인 진행
                                                                                     목적 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
@@ -363,7 +322,7 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 업종 <span
+                                                                                <label class="control-label"> 진행 업종 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
@@ -391,7 +350,7 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 마케팅 진행 기간
+                                                                                <label class="control-label"> 캠페인 진행 기간
                                                                                     (개월/년) <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
@@ -422,7 +381,7 @@
 
 
                                                                     <div class="form-group">
-                                                                        <label class="control-label"> 프로젝트 제목 <span
+                                                                        <label class="control-label"> 모집 제목 <span
                                                                                     class="symbol required"></span>
                                                                         </label>
                                                                         <input type="text" class="form-control"
@@ -435,17 +394,17 @@
 
 
                                                                     <div class="form-group">
-                                                                        <label class="control-label"> 프로젝트 내용 <span
+                                                                        <label class="control-label"> 캠페인 희망 내용 <span
                                                                                     class="symbol required"></span>
                                                                         </label>
                                                                         <div class="form-group">
-								<textarea name="content_detail" class="form-control" rows=20>< 프로젝트 진행 방식 >
+								<textarea name="content_detail" class="form-control" rows=20>< 광고캠페인 진행 방식 >
 예시) 주 1회 미팅 / 월 보고서 진행 등
 
-< 마케팅 현재 상황 >
+< 캠페인전 사업 준비 상황 >
 예시) 제품개발 후 0월 본격적인 출시 맞추어 캠페인 진행예정 등
 
-< 상세한 업무 내용 >
+< 캠페인 희망 내용 >
 예시) 브랜드 블로그 운영대행 / 키워드 광고집행 등
 
 < 참고자료 / 유의사항 >
@@ -514,7 +473,7 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 프로젝트 예상
+                                                                                <label class="control-label"> 캠페인 예상
                                                                                     시작일 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
@@ -612,7 +571,7 @@
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 마케팅 진행
+                                                                                <label class="control-label"> 캠페인 진행
                                                                                     경험여부 <span
                                                                                             class="symbol required"></span>
                                                                                 </label>
@@ -630,7 +589,7 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
-                                                                                <label class="control-label"> 프로젝트 등록 사유
+                                                                                <label class="control-label"> 캠페인 등록 사유
                                                                                     <span class="symbol required"></span>
                                                                                 </label>
                                                                                 <select class="form-control"
@@ -675,18 +634,8 @@
                                                             <div class="col-md-12">
                                                                 <div class="text-center">
                                                                     <h1 class=" ti-check block text-primary"></h1>
-                                                                    <h2 class="StepTitle">프로젝트를 등록해주셔서 감사합니다.</h2>
-                                                                    <p class="text-large">
-                                                                        크라우드엠 내부 검수 후에 지원자 모집이 시작됩니다.<br>
-                                                                        검수에는 <strong>최대 24시간</strong>이 소요되며, 크라우드엠 매니저가
-                                                                        정확한 검수를 위해 유선 또는 이메일 연락을 할 수 있습니다.</span>
-                                                                    </p>
-                                                                    <p class="text-small">
-                                                                        검수 결과는 <strong>이메일과 SMS</strong>를 통해
-                                                                        발송해드립니다.<br>
-                                                                        검수에 대한 문의는 <strong>고객센터(1661-8863)</strong>를
-                                                                        이용해주세요.
-                                                                    </p>
+                                                                    <h2 class="StepTitle">광고캠페인을 등록해주셔서 감사합니다.</h2>
+
                                                                     <a class="btn btn-primary btn-o go-first"
                                                                        href="javascript:void(0)"> Back to first
                                                                         step </a>

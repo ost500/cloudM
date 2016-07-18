@@ -1,7 +1,7 @@
 @if($loginUser->PorC == "P")
-    <h5 class="side-tittle">파트너스</h5>
+    <h5 class="side-tittle">대행사</h5>
 @else
-    <h5 class="side-tittle">클라이언트</h5>
+    <h5 class="side-tittle">광고주</h5>
 @endif
 <div>
     <div class="col-md-3">

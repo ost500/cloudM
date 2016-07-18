@@ -11,8 +11,8 @@
 
                 <div class="coupen  padding-bottom-70">
                     <div class="col-md-4 padding-top-15">
-                        <p class="h4 text-bold"><span>프로젝트</span>를 검색해보세요.</p>
-                        <p class="padding-top-15" id="title_count">총 {{ $projects->count() }}개의 프로젝트가 등록 되었습니다.</p>
+                        <p class="h4 text-bold"><span>광고캠페인</span>을 검색해보세요.</p>
+                        <p class="padding-top-15" id="title_count">총 {{ $projects->count() }}개의 광고캠페인이 등록 되었습니다.</p>
                     </div>
 
                     <div class="col-md-8 padding-top-25">
@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-3 margin-top-10">
                         <div class="job-sider-bar">
-                            <h5 class="side-tittle">프로젝트 정렬</h5>
+                            <h5 class="side-tittle">광고캠페인 정렬</h5>
                             <div class="col-md-12 padding-0 category-align">
                                 <div class="col-md-6 padding-0 ">
                                     <a id="moneyhigh">- 금액 높은 순</a>
@@ -49,7 +49,7 @@
 
 
                         <div class="job-sider-bar">
-                            <h5 class="side-tittle">프로젝트 카테고리</h5>
+                            <h5 class="side-tittle">광고캠페인 카테고리</h5>
 
 
                             <div id="tree_2"></div>

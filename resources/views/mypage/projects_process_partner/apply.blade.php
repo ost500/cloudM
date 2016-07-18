@@ -2,7 +2,7 @@
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
         <span class="h3 text-bold">지원 중</span>
-        <p class="padding-top-5">지원한 프로젝트를 확인할 수 있습니다.</p>
+        <p class="padding-top-5">지원한 캠페인을 확인할 수 있습니다.</p>
     </div>
 
 
@@ -95,7 +95,7 @@
                 @endforeach
 
                 @if(sizeof($app) == 0)
-                    <td colspan="7">지원한 프로젝트가 없습니다</td>
+                    <td colspan="7">지원한 캠페인가 없습니다</td>
                 @endif
 
             </div>

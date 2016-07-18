@@ -8,12 +8,12 @@
     <meta name="author" content="M_Adnan">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="패스트엠 (Fastm)">
+    <meta property="og:title" content="마케팅주치의 패스트엠">
     <meta property="og:image" content="http://fastm.app/images/preview.png">
-    <meta property="og:description" content="마케팅 중개 플랫폼, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
+    <meta property="og:description" content="마케팅주치의, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
     <meta property="og:url" content="http://fastm.io">
 
-    <meta name="description" content="마케팅 중개 플랫폼, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
+    <meta name="description" content="마케팅주치의, 패스트엠은 믿을 수 있는 광고대행사와 기업을 연결 해 드립니다.">
 
     <meta name="naver-site-verification" content="a357861d27d02e4f068c4b1cc3daf41fce62cccc"/>
 
@@ -64,7 +64,7 @@
     </script>
 
 
-    <title>패스트엠::마케팅 중개 플랫폼</title>
+    <title>마케팅주치의::패스트엠</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
@@ -162,13 +162,13 @@
 
 
                         if (!Auth::check()) {
-                            echo "<li><a href=" . url('/login') . " >프로젝트 등록</a></li>";
+                            echo "<li><a href=" . url('/login') . " >광고캠페인 등록</a></li>";
                         } else if (Auth::user()->PorC == "C") {
-                            echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">프로젝트 등록</a></li>";
+                            echo "<li><a style = \"cursor : pointer\" href=" . url('p_add/1') . ">광고캠페인 등록</a></li>";
                         }
                         ?>
-                        <li><a href="{{ url('project') }}">프로젝트 검색</a></li>
-                        <li><a href="{{ url('partner') }}">파트너 목록</a></li>
+                        <li><a href="{{ url('project') }}">캠페인 검색</a></li>
+                        <li><a href="{{ url('partner') }}">대행사 목록</a></li>
 
                         <li><a href="{{ url('customer/notification') }}">고객센터</a></li>
                         <li><a href="{{ url('services') }}">이용안내</a></li>
@@ -201,16 +201,16 @@
 
                     @if(Auth::user()->PorC == "P")
                         <li><a href="{{ url("/profile") }}">프로필</a></li>
-                        <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
-                        <li><a href="{{ url("/partner/project/apply") }}">지원한 프로젝트</a></li>
-                        <li><a href="{{ url("/partner/project/carryon") }}">진행중 프로젝트</a></li>
-                        <li><a href="{{ url("/partner/project/done") }}">완료된 프로젝트</a></li>
+                        <li><a href="{{ url("/dashboard") }}">광고캠페인 관리</a></li>
+                        <li><a href="{{ url("/partner/project/apply") }}">지원한 캠페인</a></li>
+                        <li><a href="{{ url("/partner/project/carryon") }}">진행중 캠페인</a></li>
+                        <li><a href="{{ url("/partner/project/done") }}">완료된 캠페인</a></li>
                     @else
-                        <li><a href="{{ url("/dashboard") }}">프로젝트 관리</a></li>
-                        <li><a href="{{ url("/client/project/checking") }}">검수중 프로젝트</a></li>
-                        <li><a href="{{ url("/client/project/posted") }}">등록 프로젝트</a></li>
-                        <li><a href="{{ url("/client/project/carryon") }}">진행중 프로젝트</a></li>
-                        <li><a href="{{ url("/client/project/done") }}">완료된 프로젝트</a></li>
+                        <li><a href="{{ url("/dashboard") }}">광고캠페인 관리</a></li>
+                        <li><a href="{{ url("/client/project/checking") }}">검수중 캠페인</a></li>
+                        <li><a href="{{ url("/client/project/posted") }}">등록 캠페인</a></li>
+                        <li><a href="{{ url("/client/project/carryon") }}">진행중 캠페인</a></li>
+                        <li><a href="{{ url("/client/project/done") }}">완료된 캠페인</a></li>
                     @endif
 
                 </ul>
