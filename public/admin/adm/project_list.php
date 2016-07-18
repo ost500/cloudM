@@ -167,7 +167,7 @@ $colspan = 16;
                     <td rowspan="2" class="td_intro"><?php echo cut_str($row[detail_content], 140); ?></td>
                     <td class="td_date"><?php echo $row['deadline'] ?></td>
                     <td class="td_date"><?php echo $row['created_at'] ?></td>
-                    <td class="td_mngsmall" rowspan=2><a href="applications_list.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>"><?=number_format($row[applications_cnt])?>명</a> <?php echo $s_grp ?></td>
+                    <td class="td_mngsmall" rowspan=2><a href="applications.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>"><?=number_format($row[applications_cnt])?>명</a> <?php echo $s_grp ?></td>
                 </tr>
                 <tr class="<?php echo $bg; ?>">
                     <td class="td_80"><?php echo get_text($row['email']); ?></td>

@@ -1,4 +1,4 @@
-@extends('include.admin')
+@extends('layouts.customer_layout')
 @section('customer_centre')
 
 

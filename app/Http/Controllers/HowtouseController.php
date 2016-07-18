@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FaqMaster;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,6 +41,8 @@ class HowtouseController extends Controller
 
     public function faq()
     {
-        return view('howtouse/children/faq');
+        $clients = FaqMaster::find(1)->faqs;
+        $partners = FaqMaster::find(2)->faqs;
+        return view('howtouse/children/faq', compact('clients', 'partners'));
     }
 }

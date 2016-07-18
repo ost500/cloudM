@@ -4,7 +4,7 @@
         <section class="job padding-top-15 padding-bottom-70">
             <div class="container">
                 <div class="coupen">
-                    <p class="h3 text-bold"><span>{{ $project[0]->title }}</span> 프로젝트의 지원자 목록</p>
+                    <p class="h3 text-bold"><span>{{ $project[0]->title }}</span> 캠페인의 지원자 목록</p>
                     <p class="padding-top-10">마음에 드는 지원자를 선정 후 미팅 요청을 하세요.</p>
                 </div>
 

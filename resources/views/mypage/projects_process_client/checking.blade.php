@@ -1,8 +1,8 @@
 @extends('layouts.master_layout')
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-        <span class="h3 text-bold">검수중 프로젝트</span>
-        <p class="padding-top-10">프로젝트 등록 후 관리자가 적절한 프로젝트인지 검수를 진행하며, 근무일 기준 최대 24시간이 소요 됩니다.</p>
+        <span class="h3 text-bold">검수중 캠페인</span>
+        <p class="padding-top-10">캠페인 등록 후 관리자가 적절한 캠페인인지 검수를 진행하며, 근무일 기준 최대 24시간이 소요 됩니다.</p>
     </div>
 
 
@@ -20,7 +20,6 @@
 
 
                         <div class="job-tittle03">
-                            <h6 class="my_h6 margin-bottom-10 margin-top-20">검수중 프로젝트</h6>
                             <div class="panel02 panel-default02">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                     <col style="width:28%;"/>
@@ -31,7 +30,7 @@
                                     <col style="width:8%;"/>
                                     <col style="width:8%;"/>
                                     <tr>
-                                        <th>프로젝트 제목</th>
+                                        <th>캠페인 제목</th>
                                         <th>예상금액</th>
                                         <th>예상기간</th>
                                         <th>등록일자</th>
@@ -41,7 +40,7 @@
                                     </tr>
                                     @if(count($checking) == 0)
                                         <tr>
-                                            <td colspan="8">검수중 프로젝트가 없습니다.</td>
+                                            <td colspan="8">검수중 캠페인가 없습니다.</td>
                                         </tr>
                                     @endif
                                     @foreach($checking as $checkItem)
@@ -57,7 +56,7 @@
                                             <form id="del_form{{ $checkItem->id }}"
                                                   method="POST"
                                                   action="{{ url("/rm_project/") }}"
-                                                  onsubmit="return confirm('프로젝트를 취소 하시겠습니까?');">
+                                                  onsubmit="return confirm('캠페인를 취소 하시겠습니까?');">
                                                 {!! csrf_field() !!}
                                                 <input name="id" hidden
                                                        value="{{$checkItem->id}}">

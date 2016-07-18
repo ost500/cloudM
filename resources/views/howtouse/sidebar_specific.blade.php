@@ -21,7 +21,7 @@
                                         class="fa fa-angle-double-right "></i> &nbsp;광고주 이용방법</a>
 
                             <a aria-expanded="false" id="third" class="head"><i
-                                        class="fa fa-angle-double-right "></i> &nbsp;파트너 이용방법</a>
+                                        class="fa fa-angle-double-right "></i> &nbsp;대행사 이용방법</a>
 
                             <a aria-expanded="false" id="fourth" class="head"><i
                                         class="fa fa-angle-double-right "></i> &nbsp;이용요금</a>

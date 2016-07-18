@@ -10,18 +10,18 @@
 
 
                     <div class="mainv_cir"></div>
-                    <p class="main_banner_2">마케팅 중개 플랫폼, 패스트엠에 오신 것을 환영합니다.</p>
-                    <p class="b_txt01">믿을 수 있는 광고대행사와 기업을 연결 해 드립니다. 지금 프로젝트를 등록하세요.</p>
+                    <p class="main_banner_2">마케팅 주치의, 패스트엠에 오신 것을 환영합니다.</p>
+                    <p class="b_txt01">믿을 수 있는 광고대행사를 연결 해 드립니다. 지금 광고캠페인을 등록하세요.</p>
 
 
                     <?php
                     if (!Auth::check()) {
-                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
+                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"main_top_btn\">무료로 광고캠페인 등록하기</a>";
 
                     } else if (Auth::user()->PorC == "C") {
-                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 프로젝트 등록하기</a>";
+                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 광고캠페인 등록하기</a>";
                     } else {
-                        echo "<a href='/project' class=\"main_top_btn\">무료로 프로젝트 검색하기</a>";
+                        echo "<a href='/project' class=\"main_top_btn\">무료로 광고캠페인 검색하기</a>";
                     }
                     ?>
                 </div>
@@ -85,7 +85,7 @@
             <div class="container">
                 <!-- Heading -->
                 <div class="heading text-center">
-                    <h4>신규 프로젝트</h4>
+                    <h4>신규 광고캠페인</h4>
                 </div>
             </div>
 
@@ -106,7 +106,7 @@
                                     @else
                                         <a href="{{url('/login')}}">
                                     @endif
-                                    
+
                                             <h5>{{ $p_title }}</h5></a>
                                     <p class="price">월 예산 {{ number_format($project->budget) }}원
                                         <span>|</span> {{ $project->estimated_duration }}
@@ -146,7 +146,7 @@
                     <div class="col-md-6 no-p">
                         <li>
                             <img src="images/proc_01.png">
-                            <p class="main_process_h">프로젝트 등록</p>
+                            <p class="main_process_h">광고캠페인 등록</p>
                             <!--p class="main_process_t">마케팅 프로젝트를 등록하세요</p-->
                         </li>
                         <li>
@@ -168,12 +168,12 @@
                         </li>
                         <li>
                             <img src="images/proc_05.png">
-                            <p class="main_process_h">프로젝트 진행</p>
+                            <p class="main_process_h">캠페인 진행</p>
                             <!--p class="main_process_t">마케팅 프로젝트를 진행합니다</p-->
                         </li>
                         <li>
                             <img src="images/proc_06.png">
-                            <p class="main_process_h">프로젝트 완료</p>
+                            <p class="main_process_h">캠페인 완료</p>
                             <!--p class="main_process_t">마케팅 프로젝트를 완료합니다</p-->
                         </li>
                     </div>
@@ -195,7 +195,7 @@
                         <div class="history-thumbnail col-lg-5 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-7 col-sm-offset-0"> <img src="images/time-line-img.jpg" alt="" width="130"> </div>
                         <div class="history-content col-lg-5 col-md-5 col-sm-5">
                           <h5 class="title">프로젝트 등록</h5>
-                          <p>현재 준비중인 광고 캠페인 및 콘텐츠 제작 프로젝트를 등록하면, 패스트엠에 등록된 수많은 광고대행사 및 프리랜서들이 광고 캠페인 및 프로젝트를 살펴 보고, 견적서/제안서를 제출합니다.</p>
+                          <p>현재 준비중인 광고캠페인 및 콘텐츠 제작 프로젝트를 등록하면, 패스트엠에 등록된 수많은 광고대행사 및 프리랜서들이 광고캠페인 및 프로젝트를 살펴 보고, 견적서/제안서를 제출합니다.</p>
                         </div>
                       </div>
                     </li>
@@ -250,13 +250,13 @@
                     <ul class="area4_ul">
                         <li class="col-sm-6 no-p">
                             <div class="center"><img src="/images/area4_01.png"></div>
-                            <p class="main_area4_h">빠른 프로젝트 진행</p>
+                            <p class="main_area4_h">빠른 광고캠페인 진행</p>
                             <p class="main_area4_t">대행사들에게 개별 연락/설명 할 필요 없이, 제안서/견적서를 빠르게 받아 볼 수 있어, 신속한 프로젝트 진행이 가능
                                 합니다.</p>
                         </li>
                         <li class="col-sm-6 no-p">
                             <div class="center"><img src="/images/area4_02.png"></div>
-                            <p class="main_area4_h">편리한 프로젝트 진행</p>
+                            <p class="main_area4_h">편리한 광고캠페인 진행</p>
                             <p class="main_area4_t">계산서 발행, 계약서, 대금정산, 진행상황 체크, 분쟁조정까지 관리함으로써 업무에만 집중할 수 있도록 도와드립니다.</p>
                         </li>
                     </ul>
@@ -270,7 +270,7 @@
                         </li>
                         <li class="col-sm-6 no-p">
                             <div class="center"><img src="/images/area4_04.png"></div>
-                            <p class="main_area4_h">안전한 프로젝트 관리</p>
+                            <p class="main_area4_h">안전한 광고캠페인 관리</p>
                             <p class="main_area4_t">에스크로 시스템으로 대금을 안전하게 보호하고, 업무 진척도에 따라 중간 정산까지 알아서 척척. 분쟁을 사전에
                                 예방합니다.</p>
                         </li>
@@ -285,12 +285,12 @@
             <div class="container">
                 <div class="col-md-1"></div>
                 <div class="col-md-8" style="text-align:center;">
-                    <p>지금 준비중인 광고 캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
+                    <p>지금 준비중인 광고캠페인이나 영상/디자인/홈페이지/콘텐츠 제작 프로젝트를 등록해 보세요. </p>
                 </div>
                 <div class="col-md-3">
                     <?php
                     if (!Auth::check()) {
-                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";
+                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"btn_main btn_main-1\">광고캠페인 등록하기<i class=\"fa fa-caret-right\"></i></a>";
 
                     } else if (Auth::user()->PorC == "C") {
                         echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"btn_main btn_main-1\">프로젝트 등록하기<i class=\"fa fa-caret-right\"></i></a>";

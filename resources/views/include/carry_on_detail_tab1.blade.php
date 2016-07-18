@@ -10,7 +10,7 @@
         <tr>
             <th>계약일</th>
             <th>계약금액</th>
-            <th>프로젝트 비용 결제 방식</th>
+            <th>캠페인 비용 결제 방식</th>
             <th>결제여부</th>
             <th>결제일</th>
         </tr>
@@ -48,7 +48,7 @@
         <col style="width:20%;"/>
 
         <tr>
-            <th>프로젝트 기간</th>
+            <th>캠페인 기간</th>
             <th>대금 지급 방식</th>
             <th>착수금(%) / 지급일</th>
             <th>중도금(%) / 지급일</th>
@@ -67,7 +67,7 @@
 </div>
 
 @if($loginUser->PorC == "P")
-<h6 class="my_h6">클라이언트 정보</h6>
+<h6 class="my_h6">광고주 정보</h6>
 <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
     <table class="table_01" width=100% cellpadding=0 cellspacing=0>
         <col style="width:20%;"/>
@@ -96,7 +96,7 @@
     </table>
 </div>
 @else
-    <h6 class="my_h6">계약 파트너 정보</h6>
+    <h6 class="my_h6">계약 대행사 정보</h6>
     <div class="panel02 panel-default02 margin-top-10 margin-bottom-30">
         <table class="table_01" width=100% cellpadding=0 cellspacing=0>
             <col style="width:20%;"/>

@@ -9,8 +9,8 @@
 
                 <div class="coupen  padding-bottom-70">
                     <div class="col-md-4 padding-top-15">
-                        <p class="h4 text-bold"><span>파트너</span>를 검색해보세요.</p>
-                        <p class="padding-top-15" id="title_count">총 {{ $partners->count() }}명의 파트너가 등록 되었습니다.</p>
+                        <p class="h4 text-bold"><span>대행사</span>를 검색해보세요.</p>
+                        <p class="padding-top-15" id="title_count">총 {{ $partners->count() }}명의 대행사가 등록 되었습니다.</p>
                     </div>
 
                     <div class="col-md-8 padding-top-25">

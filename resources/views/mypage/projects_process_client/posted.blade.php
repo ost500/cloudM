@@ -1,8 +1,8 @@
 @extends('layouts.master_layout')
 @section('right_content')
     <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-        <span class="h3 text-bold">등록 프로젝트</span>
-        <p class="padding-top-10">관리자 검수를 거쳐서 지원자를 모집중인 프로젝트 입니다.</p>
+        <span class="h3 text-bold">등록 캠페인</span>
+        <p class="padding-top-10">관리자 검수를 거쳐서 지원자를 모집중인 캠페인 입니다.</p>
     </div>
 
     <!-- Job Content -->
@@ -16,7 +16,6 @@
                     <!-- PANEL HEADING -->
                     <div class="panel-heading">
                         <div class="job-tittle03">
-                            <h6 class="my_h6 margin-bottom-10 margin-top-20">등록 프로젝트</h6>
                             <div class="panel02 panel-default02">
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
                                     <col style="width:40%;"/>
@@ -25,7 +24,7 @@
                                     <col style="width:15%;"/>
                                     <col style="width:15%;"/>
                                     <tr>
-                                        <th>프로젝트 제목</th>
+                                        <th>캠페인 제목</th>
                                         <th>등록일자</th>
                                         <th>마감일자</th>
                                         <th>지원자수</th>
@@ -33,7 +32,7 @@
                                     </tr>
                                     @if(count($registered) == 0)
                                         <tr>
-                                            <td colspan="5">등록된 프로젝트가 없습니다.</td>
+                                            <td colspan="5">등록된 캠페인가 없습니다.</td>
                                         </tr>
                                     @endif
                                     @foreach($registered as $registeredItem)

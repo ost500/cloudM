@@ -1,8 +1,5 @@
-@extends('include.admin')
-@section('customer_centre')
-
-
-
+@extends('layouts.company_layout')
+@section('company')
     <div class="col-md-9 job-right">
         <!-- Job Content -->
         <div id="accordion">

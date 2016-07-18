@@ -1,11 +1,11 @@
-@extends('layouts.customer_layout')
-@section('customer_centre')
+@extends('layouts.company_layout')
+@section('company')
     <div class="col-md-9 job-right">
         <!-- Job Content -->
         <div id="accordion">
             <div class="coupen padding-top-30 padding-bottom-30 margin-bottom-10">
-                <span style="color:black" class="h3 text-bold">공지사항</span>
-                <p class="padding-top-5">패스트엠 관리자가 알리는 공지사항입니다.</p>
+                <span style="color:black" class="h3 text-bold">언론보도</span>
+                <p class="padding-top-5">언론에서 바라본 패스트엠 입니다.</p>
             </div>
 
             <!-- Job Section -->
@@ -13,9 +13,6 @@
                 <!-- Job Tittle -->
                 <div class="panel-group">
                     <div class="panel panel-default">
-                        <!-- Save -->
-                        <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                        <!-- PANEL HEADING -->
                         <div class="panel-heading">
                             <div class="job-tittle03">
 
@@ -39,7 +36,6 @@
 
                             <div style="clear:both;"></div>
                             <div class="p_search02_txt margin-top-20">
-                                <h5>공지 내용</h5>
 
                                 <br>
                                 {{ $notis->content }}
