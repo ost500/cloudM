@@ -51,7 +51,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
     </tr>
     <tr>
         <th scope="row">질문</th>
-        <td><?php echo editor_html('subject', get_text($fa['subject'], 0)); ?></td>
+        <td><input type="text" class="frm_input" name="subject" value="<?=$fa['subject']?>" size="100%"></td>
     </tr>
     <tr>
         <th scope="row">답변</th>

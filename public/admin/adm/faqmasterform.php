@@ -12,7 +12,7 @@ if ($w == "u")
     $html_title .= ' 수정';
     $readonly = ' readonly';
 
-    $sql = " select * from {$g5['faq_master_table']} where id = '$f_id' ";
+    $sql = " select * from {$g5['faq_master_table']} where id = '$id' ";
     $fm = sql_fetch($sql);
     if (!$fm['id']) alert('등록된 자료가 없습니다.');
 }
@@ -29,7 +29,7 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
 
 <form name="frmfaqmasterform" action="./faqmasterformupdate.php" onsubmit="return frmfaqmasterform_check(this);" method="post" enctype="MULTIPART/FORM-DATA">
 <input type="hidden" name="w" value="<?php echo $w; ?>">
-<input type="hidden" name="fm_id" value="<?php echo $fm_id; ?>">
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 <input type="hidden" name="token" value="">
 
 <div class="tbl_frm01 tbl_wrap">

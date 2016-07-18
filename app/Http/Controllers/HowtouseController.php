@@ -41,7 +41,8 @@ class HowtouseController extends Controller
 
     public function faq()
     {
-        $faqs = FaqMaster::faq();
-        return view('howtouse/children/faq', compact('faqs'));
+        $clients = FaqMaster::find(1)->faqs;
+        $partners = FaqMaster::find(2)->faqs;
+        return view('howtouse/children/faq', compact('clients', 'partners'));
     }
 }
