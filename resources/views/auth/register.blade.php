@@ -99,13 +99,14 @@
                                     <label for="checkbox1"><a href="{{route('agreement')}}">이용약관</a> 및 <a href="{{route('personal_info')}}">개인정보 보호방침</a>에
                                         동의합니다.</label>
                                 </div>
+                                <div class="col-sm-1" id="submit_loading"></div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="inputEmail3"></label>
                                 <div class="col-sm-7">
                                     <div class="">
-                                        <button class="btn btn-app" type="submit">
+                                        <button id="register_submit" class="btn btn-app" type="submit">
                                             회원가입
                                         </button>
                                     </div>
@@ -150,6 +151,14 @@
 <script>
     $(function(){
         $('input:radio[name=ClientPartners]')[0].checked = true;
+    });
+
+</script>
+
+<script>
+    var submit_loading = $("#submit_loading");
+    $("#register_submit").click(function () {
+        submit_loading.html("<img src=images/ajax-loader.gif>");
     });
 
 </script>

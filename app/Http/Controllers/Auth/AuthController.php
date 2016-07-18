@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Client;
 use App\Partners;
 use App\User;
+use Auth;
+use Mail;
+use Illuminate\Http\Request;
+use phpbrowscap\Exception;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -23,7 +27,12 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers {
+        validateLogin as vali;
+        register as regi;
+        login as log;
+    }
+    use ThrottlesLogins;
 
     /**
      * Where to redirect users after login / registration.
@@ -43,6 +52,98 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
+
+    protected function validateLogin(Request $request)
+    {
+
+
+        $this->validate($request, [
+            $this->loginUsername() => 'required', 'password' => 'required',
+        ]);
+
+
+        try {
+            $user = User::where('email', $request->email)->get()->first();
+
+            if ($user->confirmed == 1) {
+                $confirm_validator = false;
+            } else {
+                $confirm_validator = true;
+            }
+
+        } catch (\Exception $e) {
+            return true;
+        }
+
+
+        if ($confirm_validator) {
+            $confirmation_code = $user->confirmation_code;
+            $to_email = $request['email'];
+            $to_name = $user->name;
+            Mail::queue('mail.mail', ['confirmation_code' => $confirmation_code],
+                function ($message) use ($to_email, $to_name) {
+                    $message->to($to_email, $to_name)
+                        ->subject('이메일을 인증하세요');
+                });
+            return false;
+        } else
+            return true;
+    }
+
+    public function login(Request $request)
+    {
+        if (!$this->validateLogin($request)) {
+
+
+            return redirect()->back()
+                ->withErrors([
+                    $this->loginUsername() => "이메일 인증 요청을 다시 보내 드렸습니다. 이메일 인증을 받으세요",
+                ]);
+        }
+        $this->validateLogin($request);
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        $throttles = $this->isUsingThrottlesLoginsTrait();
+
+        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $credentials = $this->getCredentials($request);
+
+        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        if ($throttles && !$lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+        $this->create($request->all());
+
+
+        return redirect(route('email_confirm'))->with('email', $request->email);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -59,6 +160,7 @@ class AuthController extends Controller
         ]);
     }
 
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -68,6 +170,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         $nick_ = explode("@", $data['email']);
+        $confirmation_code = str_random(30);
 
         if ($data['PorC'] == "ccc") {
             $userCreation = User::create([
@@ -76,7 +179,8 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'PorC' => "C",
                 'password' => bcrypt($data['password']),
-                'profileImage' => '/files/userImage/default'
+                'profileImage' => '/files/userImage/default',
+                'confirmation_code' => $confirmation_code
             ]);
             Client::create([
                 'user_id' => $userCreation['id']
@@ -88,13 +192,21 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'PorC' => "P",
                 'password' => bcrypt($data['password']),
-                'profileImage' => '/files/userImage/default'
+                'profileImage' => '/files/userImage/default',
+                'confirmation_code' => $confirmation_code
             ]);
 
             Partners::create([
                 'user_id' => $userCreation['id']
             ]);
         }
+
+        Mail::queue('mail.register_confirm_mail', ['confirmation_code' => $confirmation_code],
+            function ($message) use ($data) {
+                echo $data['email'], $data['name'];
+                $message->to($data['email'], $data['name'])
+                    ->subject('이메일을 인증하세요');
+            });
 
 
         return $userCreation;

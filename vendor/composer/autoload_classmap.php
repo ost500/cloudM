@@ -40,6 +40,7 @@ return array(
     'AddUsersBank' => $baseDir . '/database/migrations/2016_07_01_153718_add_users_bank.php',
     'AddUsersColumns' => $baseDir . '/database/migrations/2016_06_10_013459_add_users_columns.php',
     'AddUsersCompany' => $baseDir . '/database/migrations/2016_07_13_150514_add_users_company.php',
+    'AddUsersConfirm' => $baseDir . '/database/migrations/2016_07_15_162922_add_users_confirm.php',
     'AddUsersLevel' => $baseDir . '/database/migrations/2016_06_13_020515_add_users_level.php',
     'AddUsersNotification' => $baseDir . '/database/migrations/2016_07_04_170726_add_users_notification.php',
     'AddUsersPhonenum' => $baseDir . '/database/migrations/2016_06_07_024101_add_users_phonenum.php',

@@ -45,6 +45,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Portfolio whereCaption3($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Portfolio whereIscloudm($value)
  * @mixin \Eloquent
+ * @property boolean $top
+ * @method static \Illuminate\Database\Query\Builder|\App\Portfolio whereTop($value)
  */
 class Portfolio extends Model
 {

@@ -71,6 +71,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property-read \App\Communication $writer
  * @method static \Illuminate\Database\Query\Builder|\App\User whereNick($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Application[] $app
+ * @property string $company_name
+ * @property string $homepage
+ * @property boolean $confirmed
+ * @property string $confirmation_code
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereCompanyName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereHomepage($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereConfirmed($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereConfirmationCode($value)
  */
 class User extends Authenticatable
 {
@@ -80,7 +88,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'nick', 'email', 'password', 'profileImage', 'PorC'
+        'name', 'nick', 'email', 'password', 'profileImage', 'PorC','confirmation_code','confirmed'
     ];
 
     /**

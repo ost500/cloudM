@@ -36,7 +36,11 @@
                                 <tr>
                                     <td style="padding:48px 0 0" align="left">
                                         <p style="margin:0;padding:0 6%;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#333;line-height:21px;font-weight:bold">
-                                            안녕하세요. 마케팅 중개 플랫폼 패스트엠 입니다.<br><strong style="color:#1099DD">새로운 마케팅
+                                            안녕하세요. 마케팅 중개 플랫폼 패스트엠 입니다.
+
+                                            <br>{{$confirmation_code}}<br>
+
+                                            <strong style="color:#1099DD">새로운 마케팅
                                                 프로젝트</strong>가 아래와 같이 등록되어 안내 드립니다.<br>방문 하셔서 지원해 보시기 바랍니다.</p>
                                     </td>
                                 </tr>
