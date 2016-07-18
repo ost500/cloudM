@@ -19,31 +19,33 @@
             <div class="col-md-12">
                 <!-- Job Content -->
                 <div id="accordion">
-                    <div class="row">
-                        <h4 class="ser_s_title">광고주가 자주 묻는 질문</h4>
 
-                        <!-- Job Section -->
-                        <div class="job-content03 job-post-page margin-top-15">
-                            <div class="panel-default">
-                                <!-- PANEL HEADING -->
-                                <div class="panel-heading"><a data-toggle="collapse" href="#job1">
-                                        <div class="job-tittle">
-                                            <div class="media-body">
-                                                <h5 class="faq_f">서비스 이용료가 무료라는 것이 정말인가요?</h5>
+
+                    <div class="row">
+
+                            <h4 class="ser_s_title">광고주가 자주 묻는 질문</h4>
+
+                            <!-- Job Section -->
+                            <div class="job-content03 job-post-page margin-top-15">
+                                <div class="panel-default">
+                                    <!-- PANEL HEADING -->
+                                    <div class="panel-heading"><a data-toggle="collapse" href="#job1">
+                                            <div class="job-tittle">
+                                                <div class="media-body">
+                                                    <h5 class="faq_f">서비스 이용료가 무료라는 것이 정말인가요?</h5>
+                                                </div>
                                             </div>
+                                        </a>
+                                    </div>
+                                    <!-- ADD INFO HERE -->
+                                    <div id="job1" class="panel-collapse collapse">
+                                        <div class="panel-body02">
+                                            <p>네, 무료입니다.<br>프로젝트를 등록할 때부터 미팅, 계약, 프로젝트 종료까지 모든 과정에서<br> 별도의 서비스
+                                                이용료가 발생하지 않습니다.</p>
                                         </div>
-                                    </a>
-                                </div>
-                                <!-- ADD INFO HERE -->
-                                <div id="job1" class="panel-collapse collapse">
-                                    <div class="panel-body02">
-                                        <p>네, 무료입니다.<br>프로젝트를 등록할 때부터 미팅, 계약, 프로젝트 종료까지 모든 과정에서<br> 별도의 서비스
-                                            이용료가 발생하지 않습니다.</p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
 
                         <!-- Job Section -->
                         <div class="job-content03 job-post-page">
@@ -67,6 +69,12 @@
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
 
 
                         <div style="clear:both"></div>

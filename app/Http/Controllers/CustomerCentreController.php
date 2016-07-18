@@ -52,11 +52,4 @@ class CustomerCentreController extends Controller
     {
         return view('customer_centre.personal_info');
     }
-
-    public function introduction()
-    {
-        return view('customer_centre.introduction');
-    }
-
-
 }

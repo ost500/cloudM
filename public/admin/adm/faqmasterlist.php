@@ -4,45 +4,6 @@ include_once('./_common.php');
 
 auth_check($auth[$sub_menu], "r");
 
-//dbconfig파일에 $g5['faq_table'] , $g5['faq_master_table'] 배열변수가 있는지 체크
-if( !isset($g5['faq_table']) || !isset($g5['faq_master_table']) ){
-    die('<meta charset="utf-8">/data/dbconfig.php 파일에 <br ><strong>$g5[\'faq_table\'] = G5_TABLE_PREFIX.\'faq\';</strong><br ><strong>$g5[\'faq_master_table\'] = G5_TABLE_PREFIX.\'faq_master\';</strong><br > 를 추가해 주세요.');
-}
-
-//자주하시는 질문 마스터 테이블이 있는지 검사한다.
-if(!sql_query(" DESCRIBE {$g5['faq_master_table']} ", false)) {
-    if(sql_query(" DESCRIBE {$g5['g5_shop_faq_master_table']} ", false)) {
-        sql_query(" ALTER TABLE {$g5['g5_shop_faq_master_table']} RENAME TO `{$g5['faq_master_table']}` ;", false);
-    } else {
-       $query_cp = sql_query(" CREATE TABLE IF NOT EXISTS `{$g5['faq_master_table']}` (
-                      `fm_id` int(11) NOT NULL AUTO_INCREMENT,
-                      `fm_subject` varchar(255) NOT NULL DEFAULT '',
-                      `fm_head_html` text NOT NULL,
-                      `fm_tail_html` text NOT NULL,
-                      `fm_order` int(11) NOT NULL DEFAULT '0',
-                      PRIMARY KEY (`fm_id`)
-                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ", true);
-    }
-    // FAQ Master
-    sql_query(" insert into `{$g5['faq_master_table']}` set fm_id = '1', fm_subject = '자주하시는 질문' ", false);
-}
-
-//자주하시는 질문 테이블이 있는지 검사한다.
-if(!sql_query(" DESCRIBE {$g5['faq_table']} ", false)) {
-    if(sql_query(" DESCRIBE {$g5['g5_shop_faq_table']} ", false)) {
-        sql_query(" ALTER TABLE {$g5['g5_shop_faq_table']} RENAME TO `{$g5['faq_table']}` ;", false);
-    } else {
-       $query_cp = sql_query(" CREATE TABLE IF NOT EXISTS `{$g5['faq_table']}` (
-                      `fa_id` int(11) NOT NULL AUTO_INCREMENT,
-                      `fm_id` int(11) NOT NULL DEFAULT '0',
-                      `fa_subject` text NOT NULL,
-                      `fa_content` text NOT NULL,
-                      `fa_order` int(11) NOT NULL DEFAULT '0',
-                      PRIMARY KEY (`fa_id`),
-                      KEY `fm_id` (`fm_id`)
-                    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ", true);
-    }
-}
 
 $g5['title'] = 'FAQ관리';
 include_once (G5_ADMIN_PATH.'/admin.head.php');
@@ -59,7 +20,7 @@ $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
 $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
-$sql = "select * $sql_common order by fm_order, fm_id limit $from_record, {$config['cf_page_rows']} ";
+$sql = "select * $sql_common id limit $from_record, {$config['cf_page_rows']} ";
 $result = sql_query($sql);
 ?>
 
@@ -94,20 +55,20 @@ $result = sql_query($sql);
     </thead>
     <tbody>
     <?php for ($i=0; $row=sql_fetch_array($result); $i++) {
-        $sql1 = " select COUNT(*) as cnt from {$g5['faq_table']} where fm_id = '{$row['fm_id']}' ";
+        $sql1 = " select COUNT(*) as cnt from {$g5['faq_table']} where f_id = '{$row['id']}' ";
         $row1 = sql_fetch($sql1);
         $cnt = $row1['cnt'];
         $bg = 'bg'.($i%2);
     ?>
     <tr class="<?php echo $bg; ?>">
-        <td class="td_num"><?php echo $row['fm_id']; ?></td>
-        <td><a href="./faqlist.php?fm_id=<?php echo $row['fm_id']; ?>&amp;fm_subject=<?php echo $row['fm_subject']; ?>"><?php echo stripslashes($row['fm_subject']); ?></a></td>
+        <td class="td_num"><?php echo $row['id']; ?></td>
+        <td><a href="./faqlist.php?f_id=<?php echo $row['id']; ?>&amp;subject=<?php echo $row['subject']; ?>"><?php echo stripslashes($row['subject']); ?></a></td>
         <td class="td_num"><?php echo $cnt; ?></td>
-        <td class="td_num"><?php echo $row['fm_order']?></td>
+        <td class="td_num"><?php echo $row['order_by']?></td>
         <td class="td_mng">
-            <a href="./faqmasterform.php?w=u&amp;fm_id=<?php echo $row['fm_id']; ?>"><span class="sound_only"><?php echo stripslashes($row['fm_subject']); ?> </span>수정</a>
-            <a href="<?php echo G5_BBS_URL; ?>/faq.php?fm_id=<?php echo $row['fm_id']; ?>"><span class="sound_only"><?php echo stripslashes($row['fm_subject']); ?> </span>보기</a>
-            <a href="./faqmasterformupdate.php?w=d&amp;fm_id=<?php echo $row['fm_id']; ?>" onclick="return delete_confirm(this);"><span class="sound_only"><?php echo stripslashes($row['fm_subject']); ?> </span>삭제</a>
+            <a href="./faqmasterform.php?w=u&amp;id=<?php echo $row['id']; ?>"><span class="sound_only"><?php echo stripslashes($row['subject']); ?> </span>수정</a>
+            <a href="<?php echo G5_BBS_URL; ?>/faq.php?id=<?php echo $row['id']; ?>"><span class="sound_only"><?php echo stripslashes($row['subject']); ?> </span>보기</a>
+            <a href="./faqmasterformupdate.php?w=d&amp;id=<?php echo $row['id']; ?>" onclick="return delete_confirm(this);"><span class="sound_only"><?php echo stripslashes($row['subject']); ?> </span>삭제</a>
         </td>
     </tr>
     <?php

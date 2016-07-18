@@ -293,8 +293,7 @@ Route::get('/partner/project/done', 'ProcessController@done_partner');
 Route::get('/customer/notification', 'CustomerCentreController@notification');
 Route::get('/customer/notification/{id}', ['as' => 'noti_detail', 'uses' => 'CustomerCentreController@notification_detail'])
     ->where(['id' => '[0-9]+']);
-//회사소개
-Route::get('/customer/introduction', ['as' => 'introduction', 'uses' => 'CustomerCentreController@introduction']);
+
 //일대일 문의
 Route::get('/customer/man_to_man', 'CustomerCentreController@man_to_man');
 Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
@@ -303,3 +302,11 @@ Route::post('/customer/man_to_man', 'CustomerCentreController@man_to_man_post');
 Route::get('/agreement', ['as' => 'agreement', 'uses' => 'CustomerCentreController@agreement']);
 //개인정보 취급방침
 Route::get('/personal_info', ['as' => 'personal_info', 'uses' => 'CustomerCentreController@personal_info']);
+
+
+//회사소개
+Route::get('/company/introduction', ['as' => 'introduction', 'uses' => 'CompanyController@introduction']);
+Route::get('/company/news', ['as' => 'news', 'uses' => 'CompanyController@news']);
+Route::get('/company/news/{id}', ['as' => 'news_view', 'uses' => 'CompanyController@news_view'])
+    ->where(['id' => '[0-9]+']);
+Route::get('/company/address', ['as' => 'address', 'uses' => 'CompanyController@address']);

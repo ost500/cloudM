@@ -16,13 +16,6 @@
 
                                 <a href="{{url('customer/notification')}}" aria-expanded="false" id="first" class="head"><i
                                             class="fa fa-angle-double-right "></i> &nbsp;공지사항</a>
-                                <a href="{{route('introduction')}}" aria-expanded="false" id="second" class="head"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;회사소개</a>
-
-                                <a href="{{route('agreement')}}" aria-expanded="false" id="third" class="head"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;이용 약관</a>
-                                <a href="{{route('personal_info')}}" aria-expanded="false" id="fourth" class="head"><i
-                                            class="fa fa-angle-double-right "></i> &nbsp;개인정보 취급방침</a>
 
 
                                 <a href="{{url('customer/man_to_man')}}" aria-expanded="false" id="fifth" class="head"><i
@@ -31,7 +24,10 @@
                                 <a href="{{url('password/reset')}}" aria-expanded="false" id="sixth" class="head"><i
                                             class="fa fa-angle-double-right "></i> &nbsp;비밀번호 찾기</a>
 
-
+                                <a href="{{route('agreement')}}" aria-expanded="false" id="third" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;이용 약관</a>
+                                <a href="{{route('personal_info')}}" aria-expanded="false" id="fourth" class="head"><i
+                                            class="fa fa-angle-double-right "></i> &nbsp;개인정보 취급방침</a>
                             </div>
                         </div>
                     </div>

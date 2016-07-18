@@ -79,10 +79,6 @@ $colspan = 16;
 
 </form>
 
-<div class="btn_list01 btn_list">
-	<a href="./project_form.php?id=<?=$p_id?>&w=u">프로젝트 상세정보</a>
-</div>
-
 
 <form name="fapplicationlist" id="fapplicationlist" action="./applications_list_update.php" onsubmit="return fapplicationlist_submit(this);" method="post">
     <input type="hidden" name="sst" value="<?php echo $sst ?>">
@@ -111,9 +107,8 @@ $colspan = 16;
 				<th scope="col" id="project_list_mobile">지원</th>
 				<th scope="col" id="project_list_mobile">미팅</th>
                 <th scope="col" id="project_list_mobile" rowspan="2">지원내용</th>
-                <th scope="col" id="project_list_name" rowspan="2">제안서</th>
-                <th scope="col" id="project_list_lastcall"" rowspan="2"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>지원일</a></th>
-                <th scope="col" id="project_list_name"" rowspan="2">계약처리</th>
+                <th scope="col" id="project_list_name">제안서</th>
+                <th scope="col" id="project_list_name" rowspan="2">계약처리</th>
             </tr>
 
             <tr>
@@ -123,6 +118,7 @@ $colspan = 16;
                 <th scope="col" id="project_list_mobile">팩스</th>
                 <th scope="col" id="project_list_mobile">계약</th>
                 <th scope="col" id="project_list_mobile">완료</th>
+                <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>지원일</a></th>
             </tr>
 
             </thead>
@@ -176,7 +172,7 @@ $colspan = 16;
                         </select>
                         <script> $(function() { $("#choice<?=$i?>").val("<?=$row[choice]?>"); }); </script>
                     </td>
-                    <td class="td_100"><a href="project_form.php?id=<?=$row['p_id']?>&w=u"><?php echo $row['title'] ?></a></td>
+                    <td class="l td_150"><a href="project_form.php?id=<?=$row['p_id']?>&w=u"><?php echo $row['title'] ?></a></td>
 
                     <td class="td_date"><a href="partner_form.php?id=<?=$row['user_id']?>&w=u"> <?php echo $row[name] ?></a></td>
 
@@ -185,16 +181,16 @@ $colspan = 16;
                     <td class="td_60"><?php echo $row['phone_num'] ?></td>
 					<td class="td_30"><?=number_format($step1['cnt']);?></td>
 					<td class="td_30"><?=number_format($step2['cnt']);?></td>
-                    <td class="td_300" rowspan="2"><textarea name="content[<?php echo $i ?>]" rows="4"><?php echo $row['content'] ?></textarea></td>
-                    <td class="td_date bts" rowspan="2">
+                    <td class="td_250" rowspan="2"><textarea name="content[<?php echo $i ?>]" rows="4"><?php echo $row['content'] ?></textarea></td>
+                    <td class="td_30 bts">
                         <? if ($row['file_name']) { ?>
                             <a href="download.php?t=app&id=<?=$row['id']?>"><?=$row['origin_name']?></a>
                         <? } ?>
 
                         <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">관리</button>
                     </td>
-                    <td headers="project_list_lastcall" class="td_date" rowspan="2"><?php echo $row['created_at'] ?></td>
-                    <td class="td_40 bts" rowspan="2">
+
+                    <td class="td_30 bts" rowspan="2">
                         <?php
                             if ($row['choice']=="미팅") {
                                 if ($contract['u_id'] == $row['u_id']) {
@@ -211,14 +207,13 @@ $colspan = 16;
 
 
                 <tr class="<?php echo $bg; ?>">
-                    <td class="td_100"><a href="client_form.php?id=<?=$row['c_id']?>&w=u"><?php echo $client['name'] ?></a></td>
+                    <td class="l"><a href="client_form.php?id=<?=$row['c_id']?>&w=u"><?php echo $client['name'] ?></a></td>
                     <td class="td_100"><a href="partner_form.php?id=<?=$row['user_id']?>&w=u"><?php echo $row['company_name'] ?></a></td>
                     <td class="td_date"><?=$row['auth_check']?></td>
                     <td class="td_60"><?=$row['fax_num'] ?></td>
                     <td class="td_30"><?=number_format($step3['cnt']);?></td>
                     <td class="td_30"><?=number_format($step4['cnt']);?></td>
-
-
+                    <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
                 </tr>
 
                 <?php

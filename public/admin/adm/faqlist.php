@@ -8,17 +8,17 @@ $g5['title'] = 'FAQ 상세관리';
 if ($fm_subject) $g5['title'] .= ' : '.$fm_subject;
 include_once (G5_ADMIN_PATH.'/admin.head.php');
 
-$sql = " select * from {$g5['faq_master_table']} where fm_id = '$fm_id' ";
+$sql = " select * from {$g5['faq_master_table']} where id = '$f_id' ";
 $fm = sql_fetch($sql);
 
-$sql_common = " from {$g5['faq_table']} where fm_id = '$fm_id' ";
+$sql_common = " from {$g5['faq_table']} where f_id = '$f_id' ";
 
 // 테이블의 전체 레코드수만 얻음
 $sql = " select count(*) as cnt " . $sql_common;
 $row = sql_fetch($sql);
 $total_count = $row[cnt];
 
-$sql = "select * $sql_common order by fa_order , fa_id ";
+$sql = "select * $sql_common order by order_by, id ";
 $result = sql_query($sql);
 ?>
 
@@ -34,7 +34,7 @@ $result = sql_query($sql);
 </div>
 
 <div class="btn_add01 btn_add">
-    <a href="./faqform.php?fm_id=<?php echo $fm['fm_id']; ?>">FAQ 상세내용 추가</a>
+    <a href="./faqform.php?f_id=<?php echo $fm['id']; ?>">FAQ 상세내용 추가</a>
 </div>
 
 <div class="tbl_head01 tbl_wrap">
@@ -52,7 +52,7 @@ $result = sql_query($sql);
     <?php
     for ($i=0; $row=sql_fetch_array($result); $i++)
     {
-        $row1 = sql_fetch(" select COUNT(*) as cnt from {$g5['faq_table']} where fm_id = '{$row['fm_id']}' ");
+        $row1 = sql_fetch(" select COUNT(*) as cnt from {$g5['faq_table']} where f_id = '{$row['id']}' ");
         $cnt = $row1[cnt];
 
         $s_mod = icon("수정", "");
@@ -65,11 +65,11 @@ $result = sql_query($sql);
 
     <tr class="<?php echo $bg; ?>">
         <td class="td_num"><?php echo $num; ?></td>
-        <td><?php echo stripslashes($row['fa_subject']); ?></td>
-        <td class="td_num"><?php echo $row['fa_order']; ?></td>
+        <td><?php echo stripslashes($row['subject']); ?></td>
+        <td class="td_num"><?php echo $row['order_by']; ?></td>
         <td class="td_mngsmall">
-            <a href="./faqform.php?w=u&amp;fm_id=<?php echo $row['fm_id']; ?>&amp;fa_id=<?php echo $row['fa_id']; ?>"><span class="sound_only"><?php echo stripslashes($row['fa_subject']); ?> </span>수정</a>
-            <a href="./faqformupdate.php?w=d&amp;fm_id=<?php echo $row['fm_id']; ?>&amp;fa_id=<?php echo $row['fa_id']; ?>" onclick="return delete_confirm(this);"><span class="sound_only"><?php echo stripslashes($row['fa_subject']); ?> </span>삭제</a>
+            <a href="./faqform.php?w=u&amp;f_id=<?php echo $row['f_id']; ?>&amp;id=<?php echo $row['id']; ?>"><span class="sound_only"><?php echo stripslashes($row['subject']); ?> </span>수정</a>
+            <a href="./faqformupdate.php?w=d&amp;f_id=<?php echo $row['f_id']; ?>&amp;id=<?php echo $row['id']; ?>" onclick="return delete_confirm(this);"><span class="sound_only"><?php echo stripslashes($row['subject']); ?> </span>삭제</a>
         </td>
     </tr>
 
