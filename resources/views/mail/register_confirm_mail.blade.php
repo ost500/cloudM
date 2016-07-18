@@ -36,7 +36,7 @@
                                 <tr>
                                     <td style="padding:48px 0 0" align="left">
                                         <p style="margin:0;padding:0 6%;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:14px;color:#333;line-height:21px;font-weight:bold">
-                                            안녕하세요. 마케팅주치의 패스트엠 입니다.
+                                            우리회사 마케팅주치의 패스트엠 입니다.
 
 
                                             아래 <strong style="color:#1099DD">인증 버튼</strong>을 누르면 회원가입이 완료 됩니다.<br></p>
