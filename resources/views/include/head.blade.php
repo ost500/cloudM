@@ -321,7 +321,12 @@
     });
 
 </script>
-
-
+@if(Session::has('message'))
+    <script>
+        $(function () {
+            alert('{{session('message')}}');
+        });
+    </script>
+@endif
 
 @yield('content')
