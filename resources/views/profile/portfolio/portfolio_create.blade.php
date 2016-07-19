@@ -51,6 +51,8 @@
                         <label class="col-sm-3 control-label"><span class="symbol">대표 프로젝트</span></label>
                         <div class="col-sm-8">
                             <div class="checkbox_css">
+                                <input type="hidden" name="top"
+                                       id="checkbox2" value="0">
                                 <input type="checkbox" name="top"
                                        id="checkbox2" value="1">
                                 <label for="checkbox2">대표 프로젝트로 선정.</label>
