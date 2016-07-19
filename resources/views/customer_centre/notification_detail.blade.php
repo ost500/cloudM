@@ -47,7 +47,7 @@
                                 <br><br><br><br><br>
 
                             </div>
-                            <a href="{{ url('customer_centre/notification') }}" class="button004">목록</a>
+                            <a href="{{ route('noti_list') }}" class="button004">목록</a>
 
 
                         </div>
