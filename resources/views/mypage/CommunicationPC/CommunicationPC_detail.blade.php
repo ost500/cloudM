@@ -106,29 +106,19 @@
                         </div>
                         <a id="list" style="cursor:pointer" class="button004">목록</a>
                         <script>
-
                             $("#list").click(function () {
-
                                 var display_results = $("#communication_board");
                                 display_results.html("<img src={{ asset('images/ajax-loader.gif') }}>");
 
                                 $.ajax({
                                     url: '{{ route('communication',['p_id' => $communi->project_id]) }}',
-
                                     success: function (result) {
-
                                         display_results.html(result);
-
                                     }
                                 });
                             });
-
                         </script>
-
-
                     </div>
-
-
                 </div>
             </div>
 

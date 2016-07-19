@@ -242,6 +242,52 @@ $("#job_option2").change(function () {
 });
 
 
+
+$('#tree_3')
+// listen for event
+    .on('changed.jstree', function (e, data) {
+        var i, j, r = [];
+        for (i = 0, j = data.selected.length; i < j; i++) {
+            r.push($('#tree_2').jstree(true).get_selected()[i]);
+        }
+        var max_binary = Number(134217727);
+        var area_max_num_children = 27;
+        checked_area = Number(134217727);
+
+        var index_calculator = (max_binary / 2).toFixed(0);
+        console.log("---------------------------------");
+        // -1 means unchecked
+
+        for (var i = 1; i <= area_max_num_children; i++) {
+            if (jQuery.inArray("id_" + i, r) == -1) {
+                console.log(checked_area + " & " + (max_binary - (index_calculator)));
+                checked_area = checked_area & (max_binary - (index_calculator));
+            }
+            index_calculator = (index_calculator / 2).toFixed(0);
+        }
+
+        var cate_max_binary = Number(127);
+        var cate_max_num_children = 7;
+        cate_checked_area = cate_max_binary;
+        var cate_index_calculator = (cate_max_binary / 2).toFixed(0);
+        for (var i = 1; i <= cate_max_num_children; i++) {
+
+            if (jQuery.inArray("id_" + (i + area_max_num_children), r) == -1) {
+                console.log(cate_checked_area + " & " + (cate_max_binary - (cate_index_calculator)));
+                cate_checked_area = cate_checked_area & (cate_max_binary - (cate_index_calculator));
+            }
+            cate_index_calculator = (cate_index_calculator / 2).toFixed(0);
+        }
+
+
+        // -1 means unchecked
+
+
+        page = 1;
+        viewLoad();
+    });
+// create the instance
+
 // 페이지 이전-------------------------------------------
 $("#nextPblock").click(function () {
     var nextpageCheck = ((Math.ceil(page / 5)) * 5) + 1;

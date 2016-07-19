@@ -64,7 +64,7 @@
     </script>
 
 
-    <title>마케팅주치의::패스트엠</title>
+    <title>마케팅주치의 패스트엠</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.ico">
@@ -153,7 +153,7 @@
                     <!-- LOGO -->
                     <div class="logo"><a href="{{ url("/") }}"><img class="img-responsive"
                                                                     src="{{ URL::asset('images/logo02.png') }}"
-                                                                    width="144"></a>
+                                                                    width="144" title="우리회사 마케팅 주치의 패스트엠"></a>
                     </div>
 
                     <!-- Nav -->
@@ -322,9 +322,16 @@
 
 </script>
 @if(Session::has('message'))
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        {{session('message')}}
+    </div>
+
     <script>
         $(function () {
-            alert('{{session('message')}}');
+            //alert('{{session('message')}}');
         });
     </script>
 @endif

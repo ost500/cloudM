@@ -101,7 +101,7 @@
 
                                         <div class="form-group margin-top-20">
                                             <div class="pull-right padding-right-15">
-                                                <button class="btn btn-o btn-primary" type="submit">
+                                                <button class="btn btn-dark-azure" type="submit">
                                                     저장하기
                                                 </button>
                                             </div>
@@ -168,7 +168,7 @@
 
                                         <div class="form-group margin-top-20">
                                             <div class="pull-right padding-right-15">
-                                                <button class="btn btn-o btn-primary" type="submit">
+                                                <button class="btn btn-dark-azure" type="submit">
                                                     저장하기
                                                 </button>
                                             </div>

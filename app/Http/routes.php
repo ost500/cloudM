@@ -49,6 +49,8 @@ Route::post('/commentdel', 'SearchController@delete_comment');
 
 //파트너
 Route::get('/partner', 'PartnerController@partner');
+Route::get('/partner2', 'PartnerController@partner_temp');
+
 Route::get('/partner/{id}', 'PartnerController@detail')
     ->where(['id' => '[0-9]+']);
 
@@ -72,6 +74,8 @@ Route::get('/partner/{id}/review', 'PartnerController@review')
 //파트너 list
 Route::get('/partner/{page}/{option}/{option2}/{keyword?}', 'PartnerController@partner_list')
     ->where(['page' => '[0-9]+']);
+
+
 //프로젝트 pagination
 Route::get('/project/pagination/{start}/{end}', 'SearchController@pagination');
 

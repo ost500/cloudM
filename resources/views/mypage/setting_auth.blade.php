@@ -87,7 +87,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-7">
-                            <button class="btn btn-o btn-primary pull-right" type="submit">
+                            <button class="btn btn-dark-azure pull-right" type="submit">
                                 저장하기
                             </button>
                         </div>

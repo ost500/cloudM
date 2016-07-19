@@ -18,10 +18,6 @@
 
                         <!-- PANEL HEADING -->
                         <div class="panel-heading">
-                            <div id="map" style="width:100%;height:250px; margin-bottom: 50px">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1119.4120083533867!2d126.88150376168049!3d37.48018970613318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b61e25cd585f3%3A0xc194bd0b358c83ef!2z7Jqw66a8IOudvOydtOyYqOyKpCDrsqjrpqw!5e0!3m2!1sko!2skr!4v1467797346376" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-                            </div>
-
                             <div class="job-tittle03 margin-top-20 margin-bottom-40">
                                 <div class="row">
                                     <form class="form-horizontal" role="form" method="post" action="{{ url('/customer/man_to_man') }}">

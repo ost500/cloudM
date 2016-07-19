@@ -34,14 +34,14 @@
                             <input class="form-control" type="file"
                                    name="Image" id="image_input" />
 
-                            <p class="validation-error"> 프로필 사진에 업체명, QR코드, 업체로고 등 직거래를 유도하거나 홍보성 내용이 포함 되어 있으면 파트너 목록에 노출 되지 않습니다.</p>
+                            <p class="validation-error">사진에 업체명, QR코드, URL 등이 포함 되어 있으면, 수정 후 게시 됩니다.</p>
 
                             {{ $errors->first('Image') }}
                         </div>
                     </div>
                     <div class="form-group margin-top-20 padding-right-50">
                         <div class="col-sm-offset-10 col-sm-10">
-                            <button class="btn btn-o btn-primary" type="submit">
+                            <button class="btn btn-dark-azure" type="submit">
                                 저장하기
                             </button>
                         </div>
@@ -259,7 +259,7 @@
 
                     <div class="form-group margin-top-20 padding-right-50">
                         <div class="col-sm-offset-10 col-sm-10">
-                            <button class="btn btn-o btn-primary" type="submit">
+                            <button class="btn btn btn-dark-azure" type="submit">
                                 저장하기
                             </button>
                         </div>

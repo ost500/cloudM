@@ -25,6 +25,13 @@
                             </a>
                             <div class="row">
 
+                                @if($portfolios->isEmpty())
+                                    <div class="text-center panel-body">
+                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-image-o fa-5x"></i></p>
+                                        포트폴리오가 없습니다
+                                    </div>
+                                @endif
+
                                 @foreach($portfolios as $portfolio)
                                     <div class="col-md-4">
                                         <div class="thumbnail">

@@ -209,8 +209,8 @@
 
 
                                                     <div class="margin-top-10">
-                                                        <span class="media-body-sm margin-top-23">요청매체</span>
-                                                        <ul class="tags dall margin-top-20 margin-bottom-10">
+                                                        <span class="media-body-sm margin-top-23">희망매체</span>
+                                                        <ul class="tags margin-top-20 margin-bottom-10">
                                                             @foreach($project->projects_area as $areas)
                                                                 <li><a href="#.">{{ $areas->area }}</a></li>
                                                             @endforeach

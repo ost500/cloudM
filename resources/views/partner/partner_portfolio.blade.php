@@ -13,8 +13,12 @@
                     <div class="job-tittle02 txt_color_g">
                         <h6 class="partner_title">{{ $partner->user->nick }} 님의 포트폴리오 입니다.</h6>
                         <div class="row">
+
                             @if($partner->portfolio->isEmpty())
-                                포트폴리오가 없습니다
+                                    <div class="text-center panel-body">
+                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-image-o fa-5x"></i></p>
+                                        포트폴리오가 없습니다
+                                    </div>
                             @endif
                             @foreach($portfolios as $portfolio)
                                 <div class="col-md-4">
