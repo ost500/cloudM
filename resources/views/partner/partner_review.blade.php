@@ -12,7 +12,12 @@
                     <div class="panel-heading">
                         <div class="job-tittle02">
                             <h6 class="partner_title">{{ $partner->user->nick }} 님의 클라이언트 평가 입니다.</h6>
-                            평가가 없습니다
+
+                            <div class="text-center panel-body">
+                                <p class="text-center padding-bottom-15"><i class="fa fa-comments fa-5x"></i></p>
+                                평가가 없습니다
+                            </div>
+
                             {{--<div class="panel02 panel-default02 margin-top-20">--}}
                                 {{--<div class="panel-heading03">--}}
                                     {{--<div>--}}

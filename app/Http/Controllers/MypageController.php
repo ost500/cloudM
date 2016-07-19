@@ -284,19 +284,26 @@ class MypageController extends Controller
             return redirect()->back()->withErrors($validator->errors());
         }
 
-        $job = new Partners_job();
-        $job->partner_id = Auth::user()->partners->id;
-        $job->job = $request->title;
-        $job->number = $request->number;
-        $job->experience = $request->experience;
-        $job->save();
+        if (Auth::user()->partners->job()->count() >= 5) {
+            $validator->errors()->add('title', '전문분야는 5개까지만 등록 가능합니다.');
 
-        foreach (Auth::user()->partners->job()->get() as $job) {
-            echo "<tr>";
-            echo "<td>" . $job->job . "</td>";
-            echo "<td>" . $job->number . "</td>";
-            echo "<td>" . $job->experience . "</td>";
-            echo "<tr>";
+            return $this->throwValidationException($request, $validator);
+        } else {
+
+            $job = new Partners_job();
+            $job->partner_id = Auth::user()->partners->id;
+            $job->job = $request->title;
+            $job->number = $request->number;
+            $job->experience = $request->experience;
+            $job->save();
+
+            foreach (Auth::user()->partners->job()->get() as $job) {
+                echo "<tr>";
+                echo "<td>" . $job->job . "</td>";
+                echo "<td>" . $job->number . "</td>";
+                echo "<td>" . $job->experience . "</td>";
+                echo "<tr>";
+            }
         }
     }
 

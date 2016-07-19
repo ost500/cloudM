@@ -165,7 +165,6 @@ $colspan = 16;
 
         $sql = "select count(*) as cnt from {$g5['portfolio_table']} where partner_id = '{$row['user_id']}'";
         $portfolis = sql_fetch($sql);
-
     ?>
 
     <tr class="<?php echo $bg; ?>">
@@ -174,7 +173,9 @@ $colspan = 16;
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>"> <?php echo $row[id] ?>
         </td>
-        <td class="c td_50" rowspan="2"><img src="<?=$row[profileImage]?>" width="70"></td>
+        <td class="c td_50 bts" rowspan="2"><img src="<?=$row[profileImage]?>" width="70"><br>
+            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#profileFileModal"  data-uid="<?=$row[user_id]?>" data-type="profile">관리</button>
+        </td>
         <td class="c td_100"><?php echo $mb_id ?></td>
         <td class="c td_50"><input type="text" name="name[<?php echo $i?>]" value="<?php echo get_text($row['name']); ?>" class="frm_input" style="width: 100%"></td>
         <td class="c td_50">

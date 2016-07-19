@@ -125,6 +125,41 @@ if (!defined('_GNUBOARD_')) exit;
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="profileFileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">프로필사진 업로드</h4>
+                </div>
+                <form role="form" method="POST" action="user_file_update.php" enctype="multipart/form-data">
+                <div class="modal-body" style="padding:30px 100px 50px 100px;">
+                        <input type="hidden" name="u_id" value="">
+                        <input type="hidden" name="type" value="">
+                        <input type="hidden" name="page" value="<?=$page?>">
+
+                        <div class="form-group">
+                            삭제 : <input type="checkbox" name="file_name_del[]" style="margin: 0;"> (재업로드시 체크를 안해도 기존 파일은 삭제 됩니다.)
+                        </div>
+
+                        <div class="form-group">
+                            <input type="file" name="bf_file[]"  style="width:100%;">
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-blue btn-block">
+                                업로드
+                            </button>
+                        </div>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -158,6 +193,19 @@ if (!defined('_GNUBOARD_')) exit;
     });
 
     $('#proposalFileModal').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget)
+        var type = button.data('type')
+        var uid = button.data('uid')
+
+
+        var modal = $(this)
+        //modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find(".modal-body input[name$='type']").val(type)
+        modal.find(".modal-body input[name$='u_id']").val(uid)
+    });
+
+    $('#profileFileModal').on('show.bs.modal', function (event) {
 
         var button = $(event.relatedTarget)
         var type = button.data('type')

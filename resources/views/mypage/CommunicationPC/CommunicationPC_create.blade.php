@@ -91,11 +91,29 @@
 
                 <div class="form-group margin-top-50 margin-bottom-20">
                     <div class="col-sm-offset-5 col-sm-10">
-                        <button class="btn btn-lg btn-dark-azure" type="submit">
-                            등록하기
+                        <button class="btn btn-dark-azure" type="submit">
+                            등록
                         </button>
+
+                        <button id="list" class="btn btn-danger" type="button">
+                            취소
+                        </button></a>
                     </div>
                 </div>
+
+                <script>
+                    $("#list").click(function () {
+                        var display_results = $("#communication_board");
+                        display_results.html("<img src={{ asset('images/ajax-loader.gif') }}>");
+
+                        $.ajax({
+                            url: '{{ route('communication',['p_id' => $communi->project_id]) }}',
+                            success: function (result) {
+                                display_results.html(result);
+                            }
+                        });
+                    });
+                </script>
 
 
             </form>
