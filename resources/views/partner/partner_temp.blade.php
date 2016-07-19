@@ -41,7 +41,6 @@
                         <div class="job-sider-bar padding-bottom-15">
                             <h5 class="side-tittle">전문분야 검색</h5>
 
-
                             <div id="tree_4"></div>
                         </div>
 
