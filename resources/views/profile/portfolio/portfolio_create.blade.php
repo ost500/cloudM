@@ -51,6 +51,8 @@
                         <label class="col-sm-3 control-label"><span class="symbol">대표 프로젝트</span></label>
                         <div class="col-sm-8">
                             <div class="checkbox_css">
+                                <input type="hidden" name="top"
+                                       id="checkbox2" value="0">
                                 <input type="checkbox" name="top"
                                        id="checkbox2" value="1">
                                 <label for="checkbox2">대표 프로젝트로 선정.</label>
@@ -152,7 +154,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label"><span class="symbol required"></span> 진행기간 </label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control"
+                            <input id="start_portfolio" class="form-control"
                                    name="from_date">
                             <span id="from_date-error"
                                   class="help-block valid"
@@ -160,7 +162,7 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <input type="date" class="form-control"
+                            <input id="end_portfolio" class="form-control"
                                    name="to_date">
                             <span id="to_date-error" class="help-block valid" style="display: none;"></span>
                         </div>
@@ -352,6 +354,25 @@
         });
 
     </script>
+
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui-i18n.js') }}">
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css">
+    <script type="text/javascript">
+
+
+        $('#start_portfolio').datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+
+        $('#end_portfolio').datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+
+
+    </script>
+
 
 @endsection
 

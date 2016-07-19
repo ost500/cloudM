@@ -29,11 +29,11 @@ class ProcessController extends Controller
             return response()->view('errors.503');
         }
         $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $checking = $projects->where('step', '=', '검수')->get();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $temp = $projects->where('step', '=', '임시 저장')->get();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $fail = $projects->where('step', '=', '등록 실패')->get();
 
         $checking = $checking->sortByDesc('created_at');
@@ -47,11 +47,11 @@ class ProcessController extends Controller
             return response()->view('errors.503');
         }
         $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $checking = $projects->where('step', '=', '검수')->get();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $temp = $projects->where('step', '=', '임시 저장')->get();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $fail = $projects->where('step', '=', '등록 실패')->get();
 
         $temp = $temp->sortByDesc('created_at');
@@ -64,11 +64,11 @@ class ProcessController extends Controller
             return response()->view('errors.503');
         }
         $loginUser = Auth::user();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $checking = $projects->where('step', '=', '검수')->get();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $temp = $projects->where('step', '=', '임시 저장')->get();
-        $projects = Project::where('Client_id', '=', Auth::user()->id);
+        $projects = Project::where('Client_id', '=', $loginUser->id);
         $fail = $projects->where('step', '=', '등록 실패')->get();
 
         $fail = $fail->sortByDesc('created_at');
