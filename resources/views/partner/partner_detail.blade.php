@@ -118,18 +118,18 @@
                                     <div class="col-md-4">
                                         <div class="thumbnail">
                                             <div class="thum_imgbox">
-                                                <a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}"><img
+                                                <a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"><img
                                                             src="{{ $portfolio->image1 }}_228_200" alt=""
                                                             class="img-responsive"></a>
                                             </div>
                                             <div class="caption">
-                                                <a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}">
+                                                <a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}">
                                                     <h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 30) . ".."; ?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
                                                 </a>
 
                                                 <p class="thum_category">{{ $portfolio->area }}
                                                     > {{ $portfolio->category }}</p>
-                                                <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$loginUser->id, 'id' =>$portfolio->id]) }}"
+                                                <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"
                                                       class="btn btn-primary margin-top-10"
                                                       role="button">자세히보기</a></p>
                                             </div>
