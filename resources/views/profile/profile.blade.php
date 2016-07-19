@@ -213,29 +213,29 @@
                                 </div>
                             @else
                                 <div class="panel02 panel-default02 margin-top-20">
-                                <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                    <col style="width:33.3%;"/>
-                                    <col style="width:33.3%;"/>
-                                    <col style="width:33.3%;"/>
+                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                        <col style="width:33.3%;"/>
+                                        <col style="width:33.3%;"/>
+                                        <col style="width:33.3%;"/>
 
-                                    <tr>
-                                        <th>종류</th>
-                                        <th>숙련도</th>
-                                        <th>경험</th>
-
-                                    </tr>
-                                    <tbody id="skill_list">
-                                    @foreach($loginUser->partners->job()->get() as $job)
                                         <tr>
-                                            <td>{{ $job->job }}</td>
-                                            <td>{{ $job->number }}</td>
-                                            <td>{{ $job->experience }}</td>
+                                            <th>종류</th>
+                                            <th>숙련도</th>
+                                            <th>경험</th>
 
                                         </tr>
-                                    @endforeach
-                                    </tbody>
+                                        <tbody id="skill_list">
+                                        @foreach($loginUser->partners->job()->get() as $job)
+                                            <tr>
+                                                <td>{{ $job->job }}</td>
+                                                <td>{{ $job->number }}</td>
+                                                <td>{{ $job->experience }}</td>
 
-                                </table>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+
+                                    </table>
                                 </div>
                             @endif
 
@@ -316,8 +316,6 @@
 
 
                                                 </select>
-                                                <br>
-                                                <div id="title_error"></div>
                                             </td>
                                             <td><select id="job_option" name="number" class="form-control02">
                                                     <option selected="selected" value="">숙련도</option>
@@ -342,6 +340,8 @@
                                             </td>
                                         </tr>
                                     </table>
+
+                                    <p class="validation-error text-center" id="title_error"></p>
 
                                 </form>
                                 <button id="skill_input_button" class="button004">입력</button>

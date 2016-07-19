@@ -27,6 +27,13 @@ class PartnerController extends Controller
         return view('partner/partner', compact('partners'));
     }
 
+    public function partner_temp()
+    {
+        $partners = Partners::with('user')->where('authenticated', 1);
+
+        return view('partner/partner_temp', compact('partners'));
+    }
+
     public function partner_list($page, $option = "0", $option2 = "0", $keyword = "%")
     {
         $keyword1 = "";

@@ -15,7 +15,7 @@
                 <!-- Stories -->
                 <div class="col-md-12">
                     <div class="job-content job-post-page margin-top-10">
-                        <div class="heading">
+                        <div>
 
                             <br>
                             <div class="ser01_group margin-bottom-50">
@@ -24,11 +24,10 @@
                                          style="width:342px; text-align:center;">
                                 </div>
                                 <div class="col-md-8">
-                                    <p style="font-size:21px; color:#000;">(주)플랫포머</p><br>
-                                    <p>플랫포머의 뜻은 새로운 플랫폼을 만들고 운영하는 사람을 의미합니다.<br><br>
-                                        플랫포머는 조금 더 나은 세상이 되기 위해 우리사회에 필요한 새로운 플랫폼을 고민하고 만들어 운영하는 플랫폼전문기업입니다.<br><br>
-                                        플랫포머는 앞으로 수요자와 공급자를 연결하는 플랫폼 서비스를 만들어
-                                        참여하는 모두에게 가치가 공정하게 돌아 갈 수 있는 서비스를 만들어 나가도록 하겠습니다.<br><br>
+                                    <p style="font-size:21px; color:#000;">주식회사 플랫포머</p><br>
+                                    <p>플랫포머는 새로운 플랫폼을 만들고 운영하는 사람을 의미합니다.<br><br>
+                                        플랫포머는 조금 더 나은 세상이 되기 위해, 우리 사회에 필요한 새로운 플랫폼을 고민하고 만들어 운영하는 플랫폼 전문 기업입니다.<br><br>
+                                        플랫포머는 수요자와 공급자, 참여하는 모두에게 가치가 공정하게 돌아 갈 수 있는, 서비스를 만들어 나가도록 하겠습니다.<br><br>
 
                                         감사합니다.</p>
 
@@ -41,8 +40,7 @@
                                 </div>
                                 <br>
                                 <p>주식회사 플랫포머</p>
-                                <p>서울시 금천구 가산동 우림라이온스밸리 C동 703호 <span style="float:right; color:#444;">T:1544-2329    M:help@fastm
-                                        .io</span></p>
+                                <p>서울시 금천구 가산동 우림라이온스밸리 C동 703호 <span style="float:right; color:#444;">1544-2329  &nbsp; &nbsp;  help@fastm.io</span></p>
                             </div>
 
                         </div>

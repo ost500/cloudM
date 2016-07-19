@@ -14,7 +14,7 @@
 
                         <div class="job-tittle02">
                             <div class="media-body02">
-                                <h3 class="margin-bottom-10">{{ $partner['user']->nick }}</h3>
+                                <h3 class="margin-bottom-10 nick">{{ $partner['user']->nick }}</h3>
                             </div>
 
                             <span class="media-body-sm"><i class="fa fa-user"></i> {{ $partner['user']->company_type }}</span>
@@ -96,7 +96,7 @@
                                     자기소개가 없습니다
                                 </div>
                             @else
-                            {{ $partner->intro }}
+                            <?=nl2br(mb_strcut($partner->intro, 0, 300))?>
                             @endif
 
                         </div>
@@ -142,7 +142,6 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">전문분야</h6>
-                            <a href="{{ url('partner/'.$partner->user_id.'/job') }}" class="more_btn margin-top-20">더보기 ></a>
                             @if($partner->job()->get()->isEmpty())
                                 <div class="text-center panel-body">
                                     <p class="text-center padding-bottom-15"><i class="fa fa fa-wrench fa-5x"></i></p>
@@ -162,7 +161,7 @@
 
                                     </tr>
                                     <tbody id="skill_list">
-                                    @foreach($partner->job()->take(10)->get() as $job)
+                                    @foreach($partner->job()->take(3)->get() as $job)
                                         <tr>
                                             <td>{{ $job->job }} {{ $job->number }}</td>
                                             <td>{{ $job->number }}</td>

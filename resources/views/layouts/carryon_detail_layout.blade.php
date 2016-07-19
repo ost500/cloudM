@@ -40,14 +40,14 @@
                                     <div class="panel padding-top-20">
                                         <div class="tabbable">
                                             <ul id="myTab1" class="nav nav-tabs">
-                                                <li class="active">
-                                                    <a href="#project_tab1" data-toggle="tab" aria-expanded="true"> 계약사항/업무가이드 </a>
+                                                <li class="">
+                                                    <a href="#project_tab1" data-toggle="tab" aria-expanded="false"> 계약사항/업무가이드 </a>
                                                 </li>
                                                 <li class="">
                                                     <a href="#project_tab2" data-toggle="tab" aria-expanded="false"> 체크리스트 </a>
                                                 </li>
-                                                <li class="">
-                                                    <a href="#project_tab3" data-toggle="tab" aria-expanded="false"> 캠페인 게시판 </a>
+                                                <li class="active">
+                                                    <a href="#project_tab3" data-toggle="tab" aria-expanded="true"> 캠페인 게시판 </a>
                                                 </li>
                                                 <li class="">
                                                     <a href="#project_tab4" data-toggle="tab" aria-expanded="false"> 결제 정보 상세 </a>

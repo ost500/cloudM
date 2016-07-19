@@ -2247,6 +2247,16 @@ header .navbar li.active a {
     margin-bottom: 3px;
 }
 
+.partner-content {
+    background: #fff;
+    padding: 10px 0;
+    position: relative;
+    border: 1px solid #dddddd;
+    border-top: 2px solid #333;
+    float: left;
+    width: 100%;
+}
+
 .star-save {
     position: absolute;
     right: 0px;
@@ -2449,6 +2459,14 @@ header .navbar li.active a {
     border-radius: 10px;
 }
 
+.partner_profile_100 {
+    width: 100px;
+    height: 100px;
+    margin:6px 0 15px  0;
+    text-align: center;
+    border-radius: 10px;
+}
+
 .partner_icon {
     position: relative;
     top: 0px;
@@ -2470,7 +2488,7 @@ header .navbar li.active a {
     border-bottom: 1px solid #dedede;
     color: #666;
     font-weight: normal !important;
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 5px;
     padding-bottom: 5px;
 }
@@ -2550,7 +2568,7 @@ header .navbar li.active a {
 .media-body-sm {
     height: 20px;
     float: left;
-    font-size: 14px !important;
+    font-size: 13px !important;
     font-weight: 600 !important;
     color: #666 !important;
     float: left;
@@ -5499,6 +5517,9 @@ ul.p_align02 {
     margin-top: 10px;
 }
 
+.nick {
+    text-transform: uppercase !important;
+}
 .partner_profile02 {
     width: 50px;
     height: 50px;

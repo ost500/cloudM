@@ -3,10 +3,7 @@
 
 <div class="row">
 
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-
-        <a style="cursor:pointer" id="create_btn" class="button004 signup002 margin-top-12">작성</a>
+    <div class="col-md-12">
 
         <script>
 
@@ -40,7 +37,7 @@
                     번호
                 </th>
                 <th>
-                    내용
+                    제목
                 </th>
                 <th>
                     날짜
@@ -49,6 +46,10 @@
                     글쓴이
                 </th>
             </tr>
+
+            @if(count($communi) == 0)
+                <tr><td colspan="4" align="center" height="30">등록된 글이 없습니다.</td></tr>
+            @endif
 
             @for($i=count($communi)-1; $i>=0; $i--)
                 <tr>
@@ -91,6 +92,8 @@
 
 
         </table>
+
+        <a style="cursor:pointer" id="create_btn" class="button004 signup002 margin-top-12">작성</a>
     </div>
     <div class="col-md-1"></div>
 
