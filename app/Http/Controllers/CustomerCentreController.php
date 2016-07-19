@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Session;
 
 class CustomerCentreController extends Controller
 {
@@ -35,7 +36,9 @@ class CustomerCentreController extends Controller
         $new_man_to_man->content = $request->content_query;
         $new_man_to_man->save();
 
-        return view('customer_centre.man_to_man', ['try' => 'success']);
+        Session::flash('message', '일대일 문의가 등록 됐습니다. 이메일로 답변 드리겠습니다');
+
+        return redirect()->back();
     }
 
     public function notification_detail($id)
