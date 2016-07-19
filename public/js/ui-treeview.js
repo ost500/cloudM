@@ -359,7 +359,6 @@ var UITreeview = function () {
                                 "text": "바이럴",
                                 "state": {
                                     "selected": false,
-
                                 },
                                 "children": [
                                     {"id": "id_6", "icon": "fa fa-folder text-primary", "text": "네이버SEO"},
