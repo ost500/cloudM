@@ -5,6 +5,9 @@
     <span><img class="partner_profile03" src="{{ $comments->user->profileImage }}"></span>
     <div>
         <span class="upper"><strong>{{ $comments->user->nick }}</strong></span>
+        @if($comments->u_id == Auth::user()->id && $comments->secret)
+            <span class="padding-left-10"><i class="fa fa-user-secret" title="비공개"></i></span>
+        @endif
         <span class="padding-left-10 padding-right-10">{{ $comments['created_at'] }}</span>
 
         @if(Auth::check())
@@ -28,13 +31,12 @@
                 </script>
             @endif
 
-                @if($count < 3)
-
+                @if($count < 3 && $comments->project->client->id == Auth::user()->id)
                     <span id="comment_button_{{$comments->id}}" class="comment_btn">댓글</span>
                 @endif
 
         @endif
-        <div class="clear"></div>
+        <div class="clear padding-top-10"></div>
         @if($comments->secret)
             @if($comments->user->id == Auth::user()->id || $comments->project->client->id == Auth::user()->id)
                 <span>{{ $comments['comment'] }}</span>

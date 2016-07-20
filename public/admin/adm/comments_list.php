@@ -56,7 +56,8 @@ $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목�
 $g5['title'] = '댓글 관리';
 include_once('./admin.head.php');
 
-$sql = " select *, a.id as com_id, b.id as p_id, c.id as user_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+$sql = " select *, a.id as com_id, b.id as p_id, c.id as user_id,
+                    a.created_at as com_created_at {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
 $colspan = 16;
@@ -183,7 +184,7 @@ $colspan = 16;
                     <td class="td_60"><?=$row['fax_num'] ?></td>
                     <td class="td_30"><?=number_format($step3['cnt']);?></td>
                     <td class="td_30"><?=number_format($step4['cnt']);?></td>
-                    <td headers="project_list_lastcall" class="td_date"><?php echo $row['created_at'] ?></td>
+                    <td headers="project_list_lastcall" class="td_date"><?php echo $row['com_created_at'] ?></td>
                 </tr>
 
                 <?php
