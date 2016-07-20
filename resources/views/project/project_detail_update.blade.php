@@ -378,12 +378,9 @@
 
                             </div>
 
-                            <div class="form-group">
-                                <button type="submit"
-                                        class="btn btn-1 btn-primary btn-o finish-step btn-wide pull-right">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 수정 완료 <i
-                                            class="fa fa-arrow-circle-right"></i>
-                                </button>
+                            <div class="form-group text-center margin-top-20">
+                                <button type="submit" class="btn btn-dark-azure finish-step">수정 완료</button>
+                                <button onclick="location.reload()" class="btn btn-danger">취소</button>
                             </div>
                         </div>
                     </div>
@@ -550,5 +547,3 @@
 
 
 </div>
-<button onclick="location.reload()" class="button004 hover">취소
-</button>

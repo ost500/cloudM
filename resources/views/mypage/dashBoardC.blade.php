@@ -119,19 +119,15 @@
                             <div class="panel02 panel-default02">
 
                                 <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                    <col style="width:25.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
+                                    <col style="width:40%;"/>
+                                    <col style="width:15%;"/>
+                                    <col style="width:15%;"/>
+                                    <col style="width:15%;"/>
                                     <tr>
                                         <th>캠페인 제목</th>
-                                        <th>지원비용</th>
-                                        <th>기간</th>
-                                        <th>제출일자</th>
+                                        <th>계약일자</th>
                                         <th>상태</th>
-
+                                        <th>상세정보</th>
                                     </tr>
                                     @if(count($proceeding) == 0)
                                         <tr><td colspan="5">진행중인 캠페인가 없습니다.</td></tr>
@@ -141,10 +137,9 @@
                                             <td class="left">
                                                 <a href="{{ url("/detail/".$proceedingItem->id) }}">{{ $proceedingItem->title }}</a>
                                             </td>
-                                            <td>{{ number_format($proceedingItem->budget) }}</td>
-                                            <td>{{ $proceedingItem->estimated_duration }}</td>
                                             <td>{{ $proceedingItem->deadline }}</td>
                                             <td>{{ $proceedingItem->step }}</td>
+                                            <td><a href="{{ url("client/project/carryon/".$proceedingItem->id) }}"><button class="btn btn-azure btn-sm">상세정보</button></a></td>
                                         </tr>
                                         @if($count++ % 5 == 0) @break @endif
                                     @endforeach

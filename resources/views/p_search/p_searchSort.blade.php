@@ -12,16 +12,13 @@
                 <!-- Job Tittle -->
                 <div class="panel-group margin-bottom-0">
                     <div class="panel panel-default">
-                        <!-- Save -->
-                        <!--<div class="star-save"><a href="#."> <i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-link"></i></a> </div>-->
-                        <!-- PANEL HEADING -->
                         <div class="panel-heading">
                             <div class="job-tittle">
                                 <div class="media-left">
                                     @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
-                                        <div class="date_on"> 모집중 <!--<span>MAY</span>--> </div>
+                                        <div class="date_on"> 모집중</div>
                                     @else
-                                        <div class="date_off"> 모집마감 <!--<span>MAY</span>--> </div>
+                                        <div class="date_off"> 모집마감</div>
                                     @endif
 
                                 </div>
@@ -49,14 +46,13 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <p> {{ str_limit($project['detail_content'], 250, '...') }}</p>
-                                    <!-- Additional Requirements -->
                                     <div>
 
                                             <ul class="tags margin-top-10">
                                                     <?php
                                                     $i = 0;
                                                     foreach($project->projects_area as $areas) {
-                                                        if ($i++ == 6) {
+                                                        if ($i++ == 7) {
                                                             if ($project->projects_area->count() > 7) {
                                                                 $etc_areas_cnt = $project->projects_area->count() - 7;
                                                                 echo "<li><a href=\"#.\">외 {$etc_areas_cnt}개</a></li>";

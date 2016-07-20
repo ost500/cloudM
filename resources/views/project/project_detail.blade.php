@@ -272,7 +272,7 @@
 
 
                                                 <div class="col-md-3 ">
-                                                    <input name="comment_status" id="comment_status" type="checkbox">
+                                                    <input name="comment_status" id="comment_status" type="checkbox" checked>
                                                     <label for="comment_status"><i class="fa fa-lock"
                                                                                    style="margin-right: 4px;"></i>비공개
                                                         설정</label>
@@ -286,7 +286,7 @@
                                                 <div style="clear:both;"></div>
                                                 <small class="text-warning02">캠페인 문의에 작성한 내용은 수정 및 삭제가 불가능합니다.</small>
                                             </div>
-                                            <span class="rd"><span class="rd_box">주의</span> 이메일, 전화번호 등을 게시하여 직거래를 유도하는 경우, 서비스 이용에 제재를 받을 수 있습니다.</span>
+                                            <span class="rd"><span class="rd_box">주의</span> 업체명, 도메인, 이메일, 전화번호 등을 게시하는 경우, 서비스 이용에 제재를 받을 수 있습니다.</span>
 
 
                                         </div>
