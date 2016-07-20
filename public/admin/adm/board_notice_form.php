@@ -45,12 +45,14 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
             <input type="text" name="notification" value="<?php echo get_text($row['notification']); ?>" class="frm_input" style="width: 90%">
         </td>
     </tr>
+    <?php if ($w == "u") { ?>
     <tr>
         <th scope="row"><label for="fm_subject">작성일</label></th>
         <td>
             <?=$row['created_at']?>
         </td>
     </tr>
+    <?php } ?>
     <tr>
         <th scope="row"><label for="fm_subject">내용</label></th>
         <td>

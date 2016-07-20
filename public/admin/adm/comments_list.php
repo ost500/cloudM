@@ -1,5 +1,5 @@
 <?php
-$sub_menu = "410100";
+$sub_menu = "410200";
 include_once('./_common.php');
 
 auth_check($auth[$sub_menu], 'r');
@@ -11,7 +11,7 @@ $sql = "select *
 $contract = sql_fetch($sql);
 
 
-$sql_common = " from {$g5['application_table']} as a left join {$g5['project_table']} as b on a.p_id = b.id ";
+$sql_common = " from {$g5['comment_table']} as a left join {$g5['project_table']} as b on a.project_id = b.id ";
 $sql_common .= " left join {$g5['member_table']} as c on a.u_id = c.id ";
 
 $sql_search = " where (1) ";
@@ -31,7 +31,7 @@ if ($stx) {
 
 /*
 if ($is_admin != 'super')
-    $sql_search .= " and mb_level <= '{$application['mb_level']}' ";
+    $sql_search .= " and mb_level <= '{$comment['mb_level']}' ";
 */
 
 if (!$sst) {
@@ -53,10 +53,10 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 $listall = '<a href="'.$_SERVER['SCRIPT_NAME'].'" class="ov_listall">전체목록</a>';
 
-$g5['title'] = '프로젝트 지원 관리';
+$g5['title'] = '댓글 관리';
 include_once('./admin.head.php');
 
-$sql = " select *, a.id as app_id, b.id as p_id, c.id as user_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
+$sql = " select *, a.id as com_id, b.id as p_id, c.id as user_id {$sql_common} {$sql_search} {$sql_order} limit {$from_record}, {$rows} ";
 $result = sql_query($sql);
 
 $colspan = 16;
@@ -80,7 +80,7 @@ $colspan = 16;
 </form>
 
 
-<form name="fapplicationlist" id="fapplicationlist" action="./applications_list_update.php" onsubmit="return fapplicationlist_submit(this);" method="post">
+<form name="fcommentlist" id="fcommentlist" action="./comments_list_update.php" onsubmit="return fcommentlist_submit(this);" method="post">
     <input type="hidden" name="sst" value="<?php echo $sst ?>">
     <input type="hidden" name="sod" value="<?php echo $sod ?>">
     <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
@@ -106,9 +106,8 @@ $colspan = 16;
 
 				<th scope="col" id="project_list_mobile">지원</th>
 				<th scope="col" id="project_list_mobile">미팅</th>
-                <th scope="col" id="project_list_mobile" rowspan="2">지원내용</th>
-                <th scope="col" id="project_list_name">제안서</th>
-                <th scope="col" id="project_list_name" rowspan="2">계약처리</th>
+                <th scope="col" id="project_list_mobile" rowspan="2">댓글내용</th>
+                <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('secret', '', 'desc') ?>비밀글</a></th>
             </tr>
 
             <tr>
@@ -118,7 +117,7 @@ $colspan = 16;
                 <th scope="col" id="project_list_mobile">팩스</th>
                 <th scope="col" id="project_list_mobile">계약</th>
                 <th scope="col" id="project_list_mobile">완료</th>
-                <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>지원일</a></th>
+                <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('created_at', '', 'desc') ?>작성일</a></th>
             </tr>
 
             </thead>
@@ -127,7 +126,7 @@ $colspan = 16;
             for ($i=0; $row=sql_fetch_array($result); $i++) {
 
 				$sql = "select count(*) as cnt
-						from {$g5['application_table']}
+						from {$g5['comment_table']}
 						where u_id = '$row[user_id]'";
 				$step1 = sql_fetch($sql);
 
@@ -157,20 +156,9 @@ $colspan = 16;
 
                 <tr class="<?php echo $bg; ?>">
                     <td class="td_40" rowspan="2">
-                        <input type="hidden" name="ids[<?php echo $i ?>]" value="<?php echo $row['app_id'] ?>">
-                        <input type="hidden" name="p_ids[<?php echo $i ?>]" value="<?php echo $row['p_id'] ?>">
+                        <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['com_id'] ?>">
 
                         <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
-
-                        <select name="choice[<?php echo $i ?>]" id="choice<?=$i?>" required class="required frm_input">
-                            <option value="">선택</option>
-                            <option value="관리자 검수중">관리자 검수중</option>
-                            <option value="광고주 검수중">광고주 검수중</option>
-                            <option value="관심">관심</option>
-                            <option value="숨김">숨김</option>
-                            <option value="미팅">미팅</option>
-                        </select>
-                        <script> $(function() { $("#choice<?=$i?>").val("<?=$row[choice]?>"); }); </script>
                     </td>
                     <td class="l td_150"><a href="project_form.php?id=<?=$row['p_id']?>&w=u"><?php echo $row['title'] ?></a></td>
 
@@ -181,26 +169,8 @@ $colspan = 16;
                     <td class="td_60"><?php echo $row['phone_num'] ?></td>
 					<td class="td_30"><?=number_format($step1['cnt']);?></td>
 					<td class="td_30"><?=number_format($step2['cnt']);?></td>
-                    <td class="td_250" rowspan="2"><textarea name="content[<?php echo $i ?>]" rows="4"><?php echo $row['content'] ?></textarea></td>
-                    <td class="td_30 bts">
-                        <? if ($row['file_name']) { ?>
-                            <a href="download.php?t=app&id=<?=$row['id']?>"><?=$row['origin_name']?></a>
-                        <? } ?>
-
-                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#fileModal"  data-fid="<?=$row[id]?>" data-pid="<?=$row[p_id]?>" data-uid="<?=$row[user_id]?>">관리</button>
-                    </td>
-
-                    <td class="td_30 bts" rowspan="2">
-                        <?php
-                            if ($row['choice']=="미팅") {
-                                if ($contract['u_id'] == $row['u_id']) {
-                                    echo "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"set_setp('$row[u_id]', '$project[Client_id]');\">계약완료</button>";
-                                } else {
-                                    echo "<button type=\"button\" class=\"btn btn-danger btn-xs\" onclick=\"set_setp('$row[u_id]', '$project[Client_id]');\">계약</button>";
-                                }
-                            }
-                        ?>
-                    </td>
+                    <td class="td_250" rowspan="2"><textarea name="comment[<?php echo $i ?>]" rows="4"><?php echo $row['comment'] ?></textarea></td>
+                    <td headers="project_list_lastcall" class="td_date"><input type="checkbox" name="secret[<?php echo $i ?>]" value="1" <?=($row['secret'])?"checked":""?>></td>
                 </tr>
 
 
@@ -245,7 +215,7 @@ $colspan = 16;
 
 
 <script>
-    function fapplicationlist_submit(f)
+    function fcommentlist_submit(f)
     {
         if (!is_checked("chk[]")) {
             alert(document.pressed+" 하실 항목을 하나 이상 선택하세요.");
@@ -259,15 +229,6 @@ $colspan = 16;
         }
 
         return true;
-    }
-
-    function set_setp(u_id, c_id) {
-        var f = document.fapp;
-
-        f.u_id.value = u_id;
-        f.c_id.value = c_id;
-        f.action = "applications_update.php";
-        f.submit();
     }
 </script>
 

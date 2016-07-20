@@ -1,3 +1,3 @@
 @foreach($noti as $notiEach)
-{{$notiEach->notification}}/
+{{$notiEach->notification}}/{{$notiEach->id}}
 @endforeach

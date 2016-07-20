@@ -18,7 +18,7 @@ $sql_common = " notification    = '$notification',
 
 if ($w == "")
 {
-    $sql = " insert {$g5['notice_table']} se created_at = now(), $sql_common ";
+    $sql = " insert {$g5['notice_table']} set created_at = now(), $sql_common ";
     sql_query($sql);
     $id = sql_insert_id();
 }

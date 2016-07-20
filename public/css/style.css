@@ -6072,7 +6072,6 @@ ul.tags li a {
 
 .inquiry_01 {
     position: relative;
-    border-bottom: 1px dotted #999;
     padding-bottom: 30px;
     padding-top: 10px;
     overflow: hidden;
@@ -6971,9 +6970,11 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
     border-bottom:dotted 1px #666;
     width:100%;
 
-    margin-top:7px;
+    margin:15px 0 15px 0;
 
 }
 .company_color{ margin-top:50px;}
 .company_color li{ float:left; margin-right:18px; font-size:15px; color:#777;}
 .company_color li:last-child{margin-right:0px;}
+
+.upper {text-transform: uppercase;}
