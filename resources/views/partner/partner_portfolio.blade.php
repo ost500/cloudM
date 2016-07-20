@@ -43,7 +43,7 @@
                                             </ul>
                                             </p>
                                             <p><a href="{{ url('/partner/'.$partner->user->id.'/portfolio/'.$portfolio->id) }}"
-                                                  class="btn btn-primary margin-top-10"
+                                                  class="btn btn-primary margin-top-5"
                                                   role="button">자세히보기</a></p>
                                         </div>
                                     </div>
