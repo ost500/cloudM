@@ -84,7 +84,7 @@ class SearchController extends Controller
         }
 
 
-        return view('p_detail', compact('detailProject', 'comment', 'count', 'comment_qulification'));
+        return view('project/project_detail', compact('detailProject', 'comment', 'count', 'comment_qulification'));
     }
 
     public

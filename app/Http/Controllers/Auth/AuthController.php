@@ -6,6 +6,8 @@ use App\Client;
 use App\Partners;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 use Mail;
 use Illuminate\Http\Request;
 use phpbrowscap\Exception;
@@ -40,7 +42,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+     protected $redirectTo = '/';
 
 
     /**
@@ -91,6 +93,7 @@ class AuthController extends Controller
             return true;
     }
 
+
     public function login(Request $request)
     {
         if (!$this->validateLogin($request)) {
@@ -129,6 +132,9 @@ class AuthController extends Controller
 
         return $this->sendFailedLoginResponse($request);
     }
+
+
+
 
     public function register(Request $request)
     {
