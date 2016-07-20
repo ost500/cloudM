@@ -57,7 +57,7 @@
                     <tr>
                         <th>회사소개서</th>
                         <td>
-                            @if($app_list->user->partners['company_file_name'] && file_exists(public_path().$app_list->user->partners['company_file_name'] && $app_list->user->partners['company_file_check']))
+                            @if($app_list->user->partners['company_file_name'] && file_exists(public_path().$app_list->user->partners['company_file_name']) && $app_list->user->partners['company_check'])
                                 <a href="/apply/download/company/{{ $app_list->id }}">{{ $app_list->user->partners['company_origin_name'] }}</a>
                             @else
                                 등록된 회사소개서가 없습니다.
@@ -66,7 +66,7 @@
 
                         <th>상품소개서</th>
                         <td>
-                            @if($app_list->user->partners['proposal_file_name'] && file_exists(public_path().$app_list->user->partners['proposal_file_name']) && $app_list->user->partners['proposal_file_check'])
+                            @if($app_list->user->partners['proposal_file_name'] && file_exists(public_path().$app_list->user->partners['proposal_file_name']) && $app_list->user->partners['proposal_check'])
                                 <a href="/apply/download/proposal/{{ $app_list->id }}">{{ $app_list->user->partners['proposal_origin_name'] }}</a>
                             @else
                                 등록된 상품소개서가 없습니다.
