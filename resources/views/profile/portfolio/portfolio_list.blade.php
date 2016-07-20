@@ -39,7 +39,15 @@
                                                 <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><img src="{{ $portfolio->image1 }}_228_200" alt="" class="img-responsive"></a>
                                             </div>
                                             <div class="caption">
-                                                <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><h3 class="thum_title"><?=($portfolio->top)?mb_strcut($portfolio->title, 0, 30) . "..":mb_strcut($portfolio->title, 0, 42)?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3></a>
+                                                <a href="{{ url('/profile/portfolio/'.$portfolio->id) }}"><h3
+                                                            class="thum_title">
+                                                        <?php
+                                                        if (strlen($portfolio['title']) > 17) {
+                                                            echo mb_strcut($portfolio['title'], 0, 17) . "...";
+                                                        } else echo $portfolio['title'];
+
+                                                        ?> <?=($portfolio->top) ? "<span class=\"port_title_box\">대표</span>" : "" ?></h3>
+                                                </a>
                                                 <p class="thum_category">
                                                 <ul class="tags">
                                                     <?php
