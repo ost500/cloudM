@@ -100,6 +100,37 @@ Route::get('register/verify/{confirmationCode}', [
     'uses' => 'RegistrationController@confirm'
 ]);
 
+Route::get('facebook', function()
+{
+    return "<a href='fbauth'>페이스북 로그인</a>";
+});
+
+Route::get('fbauth/{auth?}', function($auth = NULL)
+{
+    if ($auth == 'auth') {
+        try {
+            Hybrid_Endpoint::process();
+        } catch (Exception $e) {
+            return Redirect::to('fbauth');
+        }
+        return;
+    }
+
+    try {
+        $oauth = new Hybrid_Auth(config_path(). '/fb_auth.php');
+        $provider = $oauth->authenticate('Facebook');
+        $profile = $provider->getUserProfile();
+    }
+    catch(Exception $e) {
+        return $e->getMessage();
+    }
+
+    echo $profile->firstName . ' ' .$profile->lastName.'<br>';
+    echo $profile->email.'<br>';
+
+    dd($profile);
+});
+
 Route::get('/loginModal', 'MainController@loginModal');
 
 Route::get('/notification', 'MainController@notificationShow');

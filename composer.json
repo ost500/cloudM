@@ -11,7 +11,8 @@
         "doctrine/dbal": "^2.5",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "aws/aws-sdk-php": "^3.18",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "Hybridauth/hybridauth": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
