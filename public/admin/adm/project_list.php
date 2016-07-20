@@ -156,6 +156,8 @@ $colspan = 16;
                             <option value="대금지급">대금지급</option>
                             <option value="환불">환불</option>
                             <option value="취소">취소</option>
+                            <option value="등록 실패">등록 실패</option>
+                            <option value="완료">완료</option>
                         </select>
                         <script> $(function() { $("#step<?=$i?>").val("<?=$row[step]?>"); }); </script>
                     </td>
