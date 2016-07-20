@@ -46,7 +46,8 @@ class MypageController extends Controller
             $app = new Collection();
             for ($i = 0; $i < $appList->count(); $i++) {
                 if ($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅"
-                    && $appList[$i]->project->deadline >= date('Y-m-d'))
+                    && $appList[$i]->project->deadline >= date('Y-m-d')
+                )
                     $app[] = $appList[$i];
             }
 
@@ -117,7 +118,7 @@ class MypageController extends Controller
             return response()->view('errors.503');
         }
 
-        $app = Application::where('p_id', '=', $id)->where('choice','!=','관리자 검수중')->orderby('created_at', 'desc');
+        $app = Application::where('p_id', '=', $id)->where('choice', '!=', '관리자 검수중')->orderby('created_at', 'desc');
         $applist = $app->get();
 
         $app_count = 0;
@@ -390,7 +391,12 @@ class MypageController extends Controller
         $new_port = new Portfolio();
         $new_port->title = $request->title;
         $new_port->iscloudm = $request->checkbox1;
-        $new_port->area = $request->area;
+
+        $area_tray = "";
+        foreach ($request->area as $each_area) {
+            $area_tray = $area_tray . $each_area . ",";
+        }
+        $new_port->area = $area_tray;
         $new_port->category = $request->category;
         $new_port->description = $request->description;
         $new_port->from_date = $request->from_date;
@@ -420,7 +426,7 @@ class MypageController extends Controller
         $manager = new ImageManager(array('driver' => 'gd'));
 
         // open an image file
-        $thum_path = public_path().$path;
+        $thum_path = public_path() . $path;
         $img = $manager->make($thum_path);
 
         // now you are able to resize the instance
@@ -431,7 +437,7 @@ class MypageController extends Controller
         $img->crop(228, 200, 0, 0);
 
         // finally we save the image as a new file
-        $img->save(public_path().$tmpFilePath.$tmpFileName."_228_200");
+        $img->save(public_path() . $tmpFilePath . $tmpFileName . "_228_200");
 
 
         if ($request->hasFile('image2')) {
@@ -451,7 +457,7 @@ class MypageController extends Controller
 
         $new_port->save();
 
-        return redirect("/profile/portfolio/list/".Auth::user()->id);
+        return redirect("/profile/portfolio/list/" . Auth::user()->id);
     }
 
     public function portfolio_delete(Request $request)
@@ -459,10 +465,10 @@ class MypageController extends Controller
         $del_portfolio = Portfolio::find($request->id);
         $del_portfolio->delete();
 
-        @unlink(public_path().$del_portfolio->image1);
-        @unlink(public_path().$del_portfolio->image1."_228_200");
-        @unlink(public_path().$del_portfolio->image2);
-        @unlink(public_path().$del_portfolio->image3);
+        @unlink(public_path() . $del_portfolio->image1);
+        @unlink(public_path() . $del_portfolio->image1 . "_228_200");
+        @unlink(public_path() . $del_portfolio->image2);
+        @unlink(public_path() . $del_portfolio->image3);
 
     }
 
@@ -473,8 +479,10 @@ class MypageController extends Controller
         }
         $loginUser = Auth::user();
         $portfolio = Portfolio::find($id);
+        $portfolio_area_arr = explode(",", $portfolio->area);
 
-        return view('profile/portfolio/portfolio_update', compact('loginUser', 'portfolio'));
+
+        return view('profile/portfolio/portfolio_update', compact('loginUser', 'portfolio', 'portfolio_area_arr'));
 
     }
 
@@ -483,7 +491,11 @@ class MypageController extends Controller
         $new_port = Portfolio::find($id);
         $new_port->title = $request->title;
         $new_port->iscloudm = $request->checkbox1;
-        $new_port->area = $request->area;
+        $area_tray = "";
+        foreach ($request->area as $each_area) {
+            $area_tray = $area_tray . $each_area . ",";
+        }
+        $new_port->area = $area_tray;
         $new_port->category = $request->category;
         $new_port->description = $request->description;
         $new_port->from_date = $request->from_date;
@@ -512,7 +524,7 @@ class MypageController extends Controller
             $manager = new ImageManager(array('driver' => 'gd'));
 
             // open an image file
-            $thum_path = public_path().$path;
+            $thum_path = public_path() . $path;
             $img = $manager->make($thum_path);
 
 
@@ -524,7 +536,7 @@ class MypageController extends Controller
             $img->crop(228, 200, 0, 0);
 
             // finally we save the image as a new file
-            $img->save(public_path().$tmpFilePath.$tmpFileName."_228_200");
+            $img->save(public_path() . $tmpFilePath . $tmpFileName . "_228_200");
         }
 
         if ($request->hasFile('image2')) {
@@ -594,7 +606,6 @@ class MypageController extends Controller
     }
 
 
-
     public function settingNotification()
     {
         $loginUser = Auth::user();
@@ -606,7 +617,7 @@ class MypageController extends Controller
     {
         $loginUser = Auth::user();
         $partners = $loginUser->partners;
-        $proposal_file = public_path().$partners->proposal_file_name;
+        $proposal_file = public_path() . $partners->proposal_file_name;
 
         return view('profile/profile_proposal', compact('loginUser', 'partners', 'proposal_file'));
     }
@@ -615,7 +626,7 @@ class MypageController extends Controller
     {
         $loginUser = Auth::user();
         $partners = $loginUser->partners;
-        $company_file = public_path().$partners->company_file_name;
+        $company_file = public_path() . $partners->company_file_name;
 
         return view('profile/profile_company', compact('loginUser', 'partners', 'company_file'));
     }

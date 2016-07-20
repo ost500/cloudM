@@ -119,13 +119,6 @@
         });
 
     </script>
-    @if(Session::has('message'))
-        <script>
-            $(function(){
-               alert('이메일 인증에 성공하였습니다! 로그인 해주세요')
-            });
-        </script>
-    @endif
 
     @include('include.footer')
 @endsection

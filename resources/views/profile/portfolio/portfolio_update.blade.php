@@ -58,54 +58,120 @@
                         <label class="col-sm-3 control-label"><span class="symbol required"></span> 분야 및 업종</label>
 
                         <div class="col-sm-4">
-                            <select class="form-control"
-                                    name="area"
+                            <select name="area[]" id="area"
+                                    multiple="multiple" id="filter"
+                                    class="multiselect"
+                                    style="display: none;"
                                     aria-required="true"
-                                    aria-describedby="area-error">
+                                    aria-describedby="area-error"
+                                    required>
+                                <optgroup label="광고 의뢰">
 
-                                <option selected="selected" value="{{$portfolio->area}}">{{$portfolio->area}}</option>
+                                    <option value="네이버CPC"
+                                            @if(in_array("네이버CPC",$portfolio_area_arr)) selected @endif
+                                    >네이버CPC
+                                    </option>
+                                    <option value="언론보도"
+                                            @if(in_array("언론보도",$portfolio_area_arr)) selected @endif
+                                    >언론보도
+                                    </option>
+                                    <option value="구글광고"
+                                            @if(in_array("구글광고",$portfolio_area_arr)) selected @endif
 
-                                <optgroup label="매체 광고">
-                                    <option value="네이버CPC">네이버CPC</option>
-                                    <option value="언론보도">언론보도</option>
-                                    <option value="구글광고">구글광고</option>
-                                    <option value="페이스북광고">페이스북광고</option>
-                                    <option value="매체 기타">매체 기타</option>
+                                    >구글광고
+                                    </option>
+                                    <option value="페이스북광고"
+                                            @if(in_array("페이스북광고",$portfolio_area_arr)) selected @endif
+
+                                    >페이스북광고
+                                    </option>
+                                    <option value="매체 기타"
+                                            @if(in_array("매체 기타",$portfolio_area_arr)) selected @endif
+
+                                    >매체 기타
+                                    </option>
                                 </optgroup>
                                 <optgroup label="바이럴">
-                                    <option value="네이버SEO">네이버SEO</option>
-                                    <option value="컨텐츠 배포">컨텐츠 배포</option>
-                                    <option value="체험단 모집">체험단 모집</option>
-                                    <option value="바이럴 기타">바이럴 기타</option>
+                                    <option value="네이버SEO"
+                                            @if(in_array("네이버SEO",$portfolio_area_arr)) selected @endif
+
+                                    >네이버SEO
+                                    </option>
+                                    <option value="컨텐츠배포"
+                                            @if(in_array("컨텐츠배포",$portfolio_area_arr)) selected @endif
+
+                                    >컨텐츠배포
+                                    </option>
+                                    <option value="체험단모집"
+                                            @if(in_array("체험단모집",$portfolio_area_arr)) selected @endif
+
+                                    >체험단모집
+                                    </option>
+                                    <option value="바이럴 기타"
+                                            @if(in_array("바이럴 기타",$portfolio_area_arr)) selected @endif
+
+                                    >바이럴 기타
+                                    </option>
                                 </optgroup>
                                 <optgroup label="운영대행">
                                     <option value="블로그">블로그</option>
-                                    <option value="페이스북페이지">페이스북페이지</option>
-                                    <option value="기타SNS">기타SNS</option>
-                                    <option value="홈페이지">홈페이지</option>
-                                    <option value="운영대행 기타">운영대행 기타</option>
+                                    <option value="페이스북페이지">
+                                        페이스북페이지
+                                    </option>
+                                    <option value="기타SNS"
+                                            @if(in_array("기타SNS",$portfolio_area_arr)) selected @endif
+
+                                    >기타SNS
+                                    </option>
+                                    <option value="홈페이지"
+                                            @if(in_array("홈페이지",$portfolio_area_arr)) selected @endif
+
+                                    >홈페이지
+                                    </option>
+                                    <option value="운영대행 기타"
+                                            @if(in_array("운영대행 기타",$portfolio_area_arr)) selected @endif
+
+                                    >운영대행
+                                        기타
+                                    </option>
                                 </optgroup>
                                 <optgroup label="1회성 프로젝트">
-                                    <option value="개발">개발</option>
-                                    <option value="디자인">디자인</option>
-                                    <option value="웹툰">웹툰</option>
-                                    <option value="영상">영상</option>
-                                    <option value="1회성 프로젝트 기타">1회성 프로젝트 기타</option>
+                                    <option value="개발"
+                                            @if(in_array("개발",$portfolio_area_arr)) selected @endif
+
+                                    >개발
+                                    </option>
+                                    <option value="디자인"
+                                            @if(in_array("디자인",$portfolio_area_arr)) selected @endif
+
+                                    >디자인
+                                    </option>
+                                    <option value="웹툰"
+                                            @if(in_array("웹툰",$portfolio_area_arr)) selected @endif
+
+                                    >웹툰
+                                    </option>
+                                    <option value="영상"
+                                            @if(in_array("영상",$portfolio_area_arr)) selected @endif
+
+                                    >영상
+                                    </option>
+                                    <option value="1회성 프로젝트 기타"
+                                            @if(in_array("1회성 프로젝트 기타",$portfolio_area_arr)) selected @endif
+
+                                    >1회성 프로젝트 기타
+                                    </option>
                                 </optgroup>
                                 <optgroup label="오프라인 광고">
-                                    <option value="TV광고">TV광고</option>
-                                    <option value="신문광고">신문광고</option>
-                                    <option value="라디오광고">라디오광고</option>
-                                    <option value="지하철광고">지하철광고</option>
-                                    <option value="버스광고">버스광고</option>
-                                    <option value="잡지광고">잡지광고</option>
-                                    <option value="외부광고">외부광고</option>
-                                    <option value="오프라인 기타">오프라인 기타</option>
+                                    <option value="TV광고"@if(in_array("TV광고",$portfolio_area_arr)) selected @endif>TV광고</option>
+                                    <option value="신문광고"@if(in_array("신문광고",$portfolio_area_arr)) selected @endif>신문광고</option>
+                                    <option value="라디오광고"@if(in_array("라디오광고",$portfolio_area_arr)) selected @endif>라디오광고</option>
+                                    <option value="지하철광고"@if(in_array("지하철광고",$portfolio_area_arr)) selected @endif>지하철광고</option>
+                                    <option value="버스광고"@if(in_array("버스광고",$portfolio_area_arr)) selected @endif>버스광고</option>
+                                    <option value="잡지광고"@if(in_array("잡지광고",$portfolio_area_arr)) selected @endif>잡지광고</option>
+                                    <option value="외부광고"@if(in_array("외부광고",$portfolio_area_arr)) selected @endif>외부광고</option>
+                                    <option value="오프라인 기타"@if(in_array("오프라인 기타",$portfolio_area_arr)) selected @endif>오프라인 기타</option>
                                 </optgroup>
-
-
-
-
                             </select><span id="area-error"
                                            class="help-block valid"
                                            style="display: none;"></span>
@@ -362,6 +428,14 @@
         });
 
     </script>
+    <script src="/js/multiple-select.js"></script>
+    <script>
+        // for all
+        $(".multiselect").multipleSelect({
+            width: '100%'
+        });
+    </script>
+
 
 @endsection
 
