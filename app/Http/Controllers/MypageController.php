@@ -228,7 +228,7 @@ class MypageController extends Controller
     {
         if (Auth::user()->PorC == "P") {
             $loginUser = Auth::user();
-            $portfolios = $loginUser->partners->portfolio->sortByDesc('top')->sortByDesc('updated_at')->take(3);
+            $portfolios = $loginUser->partners->portfolio->sortByDesc('updated_at')->sortByDesc('top')->take(3);
             return view('profile/profile', compact('loginUser', 'portfolios'));
         } else {
             $loginUser = Auth::user();
@@ -361,7 +361,7 @@ class MypageController extends Controller
     public function portfolio($id)
     {
         $loginUser = User::find($id);
-        $portfolios = $loginUser->partners->portfolio->sortByDesc('top')->sortByDesc('updated_at');
+        $portfolios = $loginUser->partners->portfolio->sortByDesc('updated_at')->sortByDesc('top');
 
         return view('profile/portfolio/portfolio_list', compact('loginUser', 'portfolios'));
     }
