@@ -6,12 +6,11 @@ use App\Client;
 use App\Partners;
 use App\User;
 use Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\URL;
 use Mail;
 use Illuminate\Http\Request;
 use phpbrowscap\Exception;
 use Session;
+use URL;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -34,6 +33,7 @@ class AuthController extends Controller
         validateLogin as vali;
         register as regi;
         login as log;
+        handleUserWasAuthenticated as handleUserAuth;
     }
     use ThrottlesLogins;
 
@@ -42,7 +42,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-     protected $redirectTo = '/';
+    protected $redirectTo = '/';
 
 
     /**
@@ -93,7 +93,6 @@ class AuthController extends Controller
             return true;
     }
 
-
     public function login(Request $request)
     {
         if (!$this->validateLogin($request)) {
@@ -133,8 +132,39 @@ class AuthController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+    protected function handleUserWasAuthenticated(Request $request, $throttles)
+    {
+        if ($throttles) {
+            $this->clearLoginAttempts($request);
+        }
 
+        if (method_exists($this, 'authenticated')) {
+            return $this->authenticated($request, Auth::guard($this->getGuard())->user());
+        }
 
+        if (Session::has('url_back')) {
+            return redirect(Session::pull('url_back'));
+        } else {
+            return redirect()->intended($this->redirectPath());
+        }
+    }
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        $view = property_exists($this, 'loginView')
+            ? $this->loginView : 'auth.authenticate';
+
+        if (view()->exists($view)) {
+            return view($view);
+        }
+        session(['url_back' => redirect()->back()->getTargetUrl()]);
+        return view('auth.login');
+    }
 
     public function register(Request $request)
     {
@@ -147,7 +177,7 @@ class AuthController extends Controller
         }
         $this->create($request->all());
 
-        Session::flash('message',$request->email.'로 인증 메일을 발송해 드렸습니다.\n이메일 인증 후 회원가입이 완료 됩니다.');
+        Session::flash('message', $request->email . '로 인증 메일을 발송해 드렸습니다.\n이메일 인증 후 회원가입이 완료 됩니다.');
 
         return redirect()->route('home');
     }
