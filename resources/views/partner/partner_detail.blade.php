@@ -124,10 +124,21 @@
                                             </div>
                                             <div class="caption">
                                                 <a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}">
-                                                    <h3 class="thum_title"><?php echo mb_strcut($portfolio->title, 0, 30) . ".."; ?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
+                                                    <h3 class="thum_title">
+                                                        <?php
+                                                        if (strlen($portfolio['title']) > 17) {
+                                                            echo mb_strcut($portfolio['title'], 0, 17) . "...";
+                                                        } else echo $portfolio['title'];
+
+                                                        ?>
+                                                        <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
                                                 </a>
 
-                                                <p class="thum_category">{{ $portfolio->area }}
+                                                <p class="thum_category"><?php
+                                                    if (strlen($portfolio['area']) > 28) $p_area = mb_strcut($portfolio['area'], 0, 28) . "...";
+                                                    else $p_area = $portfolio['area'];
+                                                    echo $p_area;
+                                                    ?>
                                                     > {{ $portfolio->category }}</p>
                                                 <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"
                                                       class="btn btn-primary margin-top-10"
