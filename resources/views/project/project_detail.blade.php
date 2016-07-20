@@ -80,7 +80,6 @@
 
                                             @else
                                                 @if(Auth::user()->PorC == "P")
-
                                                     @if(App\Interesting::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
                                                         <div onclick="javascript:alert('이미 추가하셨습니다');"
                                                              class="btn btn-app-not margin-top-10 margin-bottom-5">관심
@@ -97,6 +96,24 @@
                                                 @endif
                                             @endif
                                         </form>
+
+                                        <script>
+                                            window.fbAsyncInit = function() {
+                                                FB.init({
+                                                    appId      : '1755433851403442',
+                                                    xfbml      : true,
+                                                    version    : 'v2.7'
+                                                });
+                                            };
+
+                                            (function(d, s, id){
+                                                var js, fjs = d.getElementsByTagName(s)[0];
+                                                if (d.getElementById(id)) {return;}
+                                                js = d.createElement(s); js.id = id;
+                                                js.src = "//connect.facebook.net/en_US/sdk.js";
+                                                fjs.parentNode.insertBefore(js, fjs);
+                                            }(document, 'script', 'facebook-jssdk'));
+                                        </script>
                                     </a>
                                 </div>
                             </div>
@@ -167,6 +184,7 @@
                                                         class="fa fa-clock-o"></i> 캠페인기간 <span>{{ $project['estimated_duration'] }} </span></span>
                                                     <span class="media-body-sm la-line"><i
                                                                 class="fa fa-calendar-minus-o"></i> 모집마감 <span>{{ $project['deadline'] }} </span></span>
+
                                                     <div style="clear:both;"></div>
 
                                                     <div class="panel02 panel-default02 margin-top-20">

@@ -131,8 +131,8 @@
 
 
                                                     <div class="margin-top-10">
-                                                        <span class="media-body-sm margin-top-23">분야</span>
-                                                        <ul class="tags dall margin-top-20 margin-bottom-10">
+                                                        <span class="media-body-sm margin-top-23">희망매체</span>
+                                                        <ul class="tags margin-top-20 margin-bottom-10">
                                                             @foreach($project->projects_area as $areas)
                                                                 <li><a href="#.">{{ $areas->area }}</a></li>
                                                             @endforeach
@@ -175,15 +175,10 @@
                                                 <textarea autofocus name="contents"
                                                           class="form-control"
                                                           rows=10 aria-required="true"
-                                                          placeholder="이메일, 전화번호 등 연락처를 게시하지 마세요. 지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
+                                                          placeholder="업체명, URL, 이메일, 연락처 등을 게시하지 마세요. 지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
                                                         ></textarea>
-                                                <p class="text-small">
-                                                    <a href="javascript:void(0)"
-                                                       data-content="이메일, 전화번호 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다."
-                                                       data-title="주의사항!" data-placement="top"
-                                                       data-toggle="popover"
-                                                       data-original-title="" title="">※이메일,
-                                                        전화번호 등 게시금지.</a>
+                                                <p class="text-small validation-error">
+                                                    업체명, URL, 이메일, 연락처 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다.
                                                 </p>
                                             </div>
                                         </div>
