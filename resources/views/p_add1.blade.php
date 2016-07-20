@@ -237,8 +237,7 @@
                                                                                     </option>
                                                                                     <option value="구글광고">구글광고
                                                                                     </option>
-                                                                                    <option value="페이스북 스폰서광고">페이스북
-                                                                                        광고
+                                                                                    <option value="페이스북광고">페이스북광고
                                                                                     </option>
                                                                                     <option value="매체 기타">매체 기타
                                                                                     </option>
@@ -262,8 +261,7 @@
                                                                                     </option>
                                                                                     <option value="홈페이지">홈페이지
                                                                                     </option>
-                                                                                    <option value="운영대행 기타">운영대행
-                                                                                        기타
+                                                                                    <option value="운영대행 기타">운영대행 기타
                                                                                     </option>
                                                                                 </optgroup>
                                                                                 <optgroup label="1회성 프로젝트">

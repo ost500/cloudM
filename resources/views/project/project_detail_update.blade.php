@@ -43,8 +43,8 @@
                                                     @if($update_project_area->has("구글광고")) selected @endif
                                             >구글광고
                                             </option>
-                                            <option value="페이스북 스폰서광고"
-                                                    @if($update_project_area->has("페이스북 스폰서광고")) selected @endif
+                                            <option value="페이스북광고"
+                                                    @if($update_project_area->has("페이스북광고")) selected @endif
                                             >페이스북
                                                 광고
                                             </option>

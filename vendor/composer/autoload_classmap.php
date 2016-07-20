@@ -47,6 +47,7 @@ return array(
     'AlterPartnersCheck' => $baseDir . '/database/migrations/2016_07_13_105142_alter_partners_check.php',
     'AlterPartnersJobJob' => $baseDir . '/database/migrations/2016_07_11_143522_alter_partners_job_job.php',
     'AlterPortfolioArea' => $baseDir . '/database/migrations/2016_07_11_151801_alter_portfolio_area.php',
+    'AlterPortfoliosArea' => $baseDir . '/database/migrations/2016_07_19_165315_alter_portfolios_area.php',
     'ChangeApplicationsChoice' => $baseDir . '/database/migrations/2016_06_27_145020_change_applications_choice.php',
     'ChangeApplicationsChoice2' => $baseDir . '/database/migrations/2016_07_05_185207_change_applications_choice2.php',
     'ChangeProjectsCategory' => $baseDir . '/database/migrations/2016_05_27_053851_change_projects_category.php',
