@@ -127,12 +127,16 @@
                                                     <h3 class="thum_title"><?=($portfolio->top)?mb_strcut($portfolio->title, 0, 30) . "..":mb_strcut($portfolio->title, 0, 42)?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
                                                 </a>
 
-                                                <p class="thum_category"><?php
-                                                    if (strlen($portfolio['area']) > 28) $p_area = mb_strcut($portfolio['area'], 0, 28) . "...";
-                                                    else $p_area = $portfolio['area'];
-                                                    echo $p_area;
+                                                <p class="thum_category">
+                                                <ul class="tags">
+                                                    <?php
+                                                    $areas = explode(",", $portfolio->area);
+                                                    if (sizeof($areas) > 1) echo "<li><a href=\"#.\">{$areas[0]}</a></li> <li><a href=\"#.\">외". (sizeof($areas)-1) . "개</a></li>";
+                                                    else echo "<li><a href=\"#.\">$portfolio->area</a></li>";
                                                     ?>
-                                                    > {{ $portfolio->category }}</p>
+                                                     <li><a href="#."> {{ $portfolio->category }} 분야</a></li>
+                                                </ul>
+                                                </p>
                                                 <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"
                                                       class="btn btn-primary margin-top-10"
                                                       role="button">자세히보기</a></p>

@@ -37,8 +37,16 @@
 
                                                     ?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
                                             </a>
-                                            <p class="thum_category">{{ $portfolio->area }}
-                                                > {{ $portfolio->category }}</p>
+                                            <p class="thum_category">
+                                            <ul class="tags">
+                                                <?php
+                                                $areas = explode(",", $portfolio->area);
+                                                if (sizeof($areas) > 1) echo "<li><a href=\"#.\">{$areas[0]}</a></li> <li><a href=\"#.\">외". (sizeof($areas)-1) . "개</a></li>";
+                                                else echo "<li><a href=\"#.\">$portfolio->area</a></li>";
+                                                ?>
+                                                <li><a href="#.">{{ $portfolio->category }} 분야</a></li>
+                                            </ul>
+                                            </p>
                                             <p><a href="{{ url('/partner/'.$partner->user->id.'/portfolio/'.$portfolio->id) }}"
                                                   class="btn btn-primary margin-top-10"
                                                   role="button">자세히보기</a></p>

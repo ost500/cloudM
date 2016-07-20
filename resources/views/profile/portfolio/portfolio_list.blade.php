@@ -51,11 +51,11 @@
                                                 <p class="thum_category">
                                                 <ul class="tags">
                                                     <?php
-                                                        $areas = explode(",", $portfolio->area);
-                                                        if (sizeof($areas) > 1) echo "<li><a href=\"#.\">{$areas[0]}</a></li> <li><a href=\"#.\">외". (sizeof($areas)-1) . "개</a></li>";
-                                                        else echo "<li><a href=\"#.\">$portfolio->area</a></li>";
+                                                    $areas = explode(",", $portfolio->area);
+                                                    if (sizeof($areas) > 1) echo "<li><a href=\"#.\">{$areas[0]}</a></li> <li><a href=\"#.\">외". (sizeof($areas)-1) . "개</a></li>";
+                                                    else echo "<li><a href=\"#.\">$portfolio->area</a></li>";
                                                     ?>
-                                                    > <li><a href="#."> {{ $portfolio->category }}</a></li>
+                                                    <li><a href="#."> {{ $portfolio->category }} 분야</a></li>
                                                 </ul>
                                                 </p>
                                                 <p><a href="{{ url('/profile/portfolio/'.$portfolio->id) }}" class="btn btn-primary margin-top-10" role="button">자세히보기</a></p>

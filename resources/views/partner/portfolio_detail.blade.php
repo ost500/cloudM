@@ -26,7 +26,16 @@
                                 </tr>
                                 <tr>
                                     <th>매체</th>
-                                    <td class="left">{{ $portfolios->area }}</td>
+                                    <td class="left">
+                                        <ul class="tags">
+                                        <?php
+                                            $areas = explode(",", $portfolios->area);
+                                            for($i = 0; $i < sizeof($areas); $i++) {
+                                                echo "<li><a href=\"#.\">{$areas[$i]}</a></li>";
+                                            }
+                                        ?>
+                                        </ul>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>설명</th>
