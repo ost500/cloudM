@@ -15,4 +15,5 @@ $g5['faq_master_table'] = 'faq_masters'; // 자주하시는 질문 마스터 테이블
 $g5['mantomen_table'] = 'man_to_men'; // 1:1문의 테이블
 $g5['notice_table'] = 'notifications'; // 공지사항 테이블
 $g5['news_table'] = 'news'; // 언론보도 테이블
+$g5['comment_table'] = 'comments'; // 댓글 테이블
 ?>

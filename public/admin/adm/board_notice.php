@@ -10,6 +10,15 @@ include_once (G5_ADMIN_PATH.'/admin.head.php');
 
 $sql_common = " from {$g5['notice_table']} ";
 
+
+if (!$sst) {
+    $sst = "created_at";
+    $sod = "desc";
+}
+
+$sql_order = " order by {$sst} {$sod} ";
+
+
 // 테이블의 전체 레코드수만 얻음
 $sql = " select count(*) as cnt " . $sql_common;
 $row = sql_fetch($sql);
@@ -20,13 +29,17 @@ $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
 if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
 $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
-$sql = "select * $sql_common limit $from_record, {$config['cf_page_rows']} ";
+$sql = "select * $sql_common $sql_order limit $from_record, {$config['cf_page_rows']}  ";
 $result = sql_query($sql);
 ?>
 
 <div class="local_ov01 local_ov">
     <?php if ($page > 1) {?><a href="<?php echo $_SERVER['SCRIPT_NAME']; ?>">처음으로</a><?php } ?>
     <span>전체 공지사항 <?php echo $total_count; ?>건</span>
+</div>
+
+<div class="btn_add01 btn_add">
+    <a href="./board_notice_form.php" id="member_add">공지추가</a>
 </div>
 
 <form name="fnoticelist" id="fnoticelist" action="./board_notice_list_update.php" onsubmit="return fnoticelist_submit(this);" method="post">
@@ -55,8 +68,8 @@ $result = sql_query($sql);
         $bg = 'bg'.($i%2);
     ?>
     <tr class="<?php echo $bg; ?>">
-        <td headers="mb_list_chk" class="td_chk" rowspan="2">
-            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['id'] ?>" id="man_id_<?php echo $i ?>">
+        <td headers="mb_list_chk" class="td_chk">
+            <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['id'] ?>" id="id_<?php echo $i ?>">
             <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>">
         </td>
         <td class="td_200"><a href="./board_notice_form.php?id=<?php echo $row['id']; ?>&amp;w=u"><?php echo stripslashes($row['notification']); ?></a></td>

@@ -1,5 +1,5 @@
 <?php
-$sub_menu = "400100";
+$sub_menu = "400200";
 include_once('./_common.php');
 
 check_demo();
@@ -17,11 +17,11 @@ if ($_POST['act_button'] == "선택수정") {
         // 실제 번호를 넘김
         $k = $_POST['chk'][$i];
 
-        $sql = " update {$g5['application_table']}
+        $sql = " update {$g5['comment_table']}
                     set
-                        content = '{$_POST['content'][$k]}',
-                        choice = '{$_POST['choice'][$k]}'
-                    where id = '{$_POST['ids'][$k]}' and p_id = '{$_POST['p_ids'][$k]}'";
+                        comment = '{$_POST['comment'][$k]}',
+                        secret = '{$_POST['secret'][$k]}'
+                    where id = '{$_POST['id'][$k]}'";
         sql_query($sql);
     }
 
@@ -32,44 +32,14 @@ if ($_POST['act_button'] == "선택수정") {
         // 실제 번호를 넘김
         $k = $_POST['chk'][$i];
 
-        $sql = " delete from {$g5['application_table']} where id = '{$_POST['ids'][$k]}' and p_id = '{$_POST['p_ids'][$k]}'";
+        $sql = " delete from {$g5['comment_table']} where id = '{$_POST['id'][$k]}'";
         sql_query($sql);
     }
-
-
-    $sql = "select count(*) as cnt
-                from {$g5['application_table']}
-                where id = '{$_POST['ids'][$k]}' and
-                  p_id = '{$_POST['p_ids'][$k]}'";
-    $row = sql_fetch($sql);
-
-    $sql = " update {$g5['project_table']}
-                    set
-                        applications_cnt = '{$row['cnt']}'
-                    where id = '{$_POST['p_id']}'";
-    sql_query($sql);
-}  else if ($_POST['act_button'] == "계약") {
-
-    $sql = "update {$g5['project_table']}
-            set
-                step = '계약'
-            where id = '{$_POST['p_id']}'";
-    sql_query($sql);
-
-    $sql = "insert into {$g5['contract_table']}
-              SET
-              created_at  = now(),
-              updated_at  = now(),
-              u_id        = '{$_POST['u_id']}',
-              c_id        = '{$_POST['c_id']}',
-              p_id        = '{$_POST['p_id']}',
-              step        = '계약'";
-    sql_query($sql);
 }
 
 if ($msg)
     //echo '<script> alert("'.$msg.'"); </script>';
     alert($msg);
 
-goto_url('./applications_list.php?p_id='.$p_id.'&'.$qstr);
+goto_url('./comments_list.php?p_id='.$p_id.'&'.$qstr);
 ?>
