@@ -82,14 +82,15 @@
     var google_remarketing_only = true;
     /* ]]> */
 </script>
-<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-</script>
+<div style="display: none">
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+</div>
 <noscript>
     <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/878031499/?value=0&amp;guid=ON&amp;script=0"/>
+        <img height="0" width="0" style="border-style:none;" alt=""
+             src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/878031499/?value=0&amp;guid=ON&amp;script=0"/>
     </div>
 </noscript>
-
 
 
 {{--<script src="/js/jquery.timelinr-0.9.54.js"></script>--}}
