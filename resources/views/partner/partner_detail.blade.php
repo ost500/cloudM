@@ -124,7 +124,7 @@
                                             </div>
                                             <div class="caption">
                                                 <a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}">
-                                                    <h3 class="thum_title"><?=($portfolio->top)?mb_strcut($portfolio->title, 0, 30) . "..":mb_strcut($portfolio->title, 0, 42)?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
+                                                    <h3 class="thum_title"><?=($portfolio->top)?mb_strcut($portfolio->title, 0, 30) . "..":mb_strcut($portfolio->title, 0, 38)?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
                                                 </a>
 
                                                 <p class="thum_category">
@@ -138,7 +138,7 @@
                                                 </ul>
                                                 </p>
                                                 <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"
-                                                      class="btn btn-primary margin-top-10"
+                                                      class="btn btn-primary margin-top-5"
                                                       role="button">자세히보기</a></p>
                                             </div>
                                         </div>
