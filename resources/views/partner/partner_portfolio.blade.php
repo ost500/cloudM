@@ -30,13 +30,8 @@
                                         </div>
                                         <div class="caption">
                                             <a href="{{ url('/partner/'.$partner->user->id.'/portfolio/'.$portfolio->id) }}">
-                                                <h3 class="thum_title"><?php
-                                                    if (strlen($portfolio['title']) > 17) {
-                                                        echo mb_strcut($portfolio['title'], 0, 17) . "...";
-                                                    } else echo $portfolio['title'];
-
-                                                    ?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
-                                            </a>
+                                                <h3 class="thum_title"><?=($portfolio->top)?mb_strcut($portfolio->title, 0, 30) . "..":mb_strcut($portfolio->title, 0, 38)?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
+                                                </a>
                                             <p class="thum_category">
                                             <ul class="tags">
                                                 <?php
