@@ -226,6 +226,7 @@ class MypageController extends Controller
 
     public function profile()
     {
+        // aaa
         if (Auth::user()->PorC == "P") {
             $loginUser = Auth::user();
             $portfolios = $loginUser->partners->portfolio->sortByDesc('updated_at')->sortByDesc('top')->take(3);
@@ -234,7 +235,6 @@ class MypageController extends Controller
             $loginUser = Auth::user();
             return view('profile/profile', compact('loginUser'));
         }
-
     }
 
     public function profile_intro_edit()

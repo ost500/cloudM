@@ -222,6 +222,7 @@ class PartnerController extends Controller
 
     public function detail($id)
     {
+        // a
         if(Auth::check() == false){
             return redirect('login');
         }
