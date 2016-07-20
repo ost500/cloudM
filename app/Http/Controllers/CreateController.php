@@ -132,7 +132,7 @@ class CreateController extends Controller
         $update_project = Project::find($id);
 //        return view('p_detail_update', compact('update_project'));
         $update_project_area = $update_project->projects_area->keyBy('area');
-        return view('p_detail_update', compact('update_project','update_project_area'));
+        return view('project/project_detail_update', compact('update_project','update_project_area'));
     }
 
     public function update_project(Request $request)

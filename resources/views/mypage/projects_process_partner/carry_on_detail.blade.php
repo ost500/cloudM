@@ -1,12 +1,12 @@
 @extends('layouts.carryon_detail_layout')
 @section('right_content')
-    <div class="tab-pane fade" id="project_tab1">
+    <div class="tab-pane fade active in" id="project_tab1">
         @include('include.carry_on_detail_tab1')
     </div>
     <div class="tab-pane fade" id="project_tab2">
         @include('include.carry_on_detail_tab2')
     </div>
-    <div class="tab-pane fade active in" id="project_tab3">
+    <div class="tab-pane fade" id="project_tab3">
         <div id="communication_board"></div>
     </div>
     <div class="tab-pane fade" id="project_tab4">
