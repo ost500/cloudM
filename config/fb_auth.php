@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: jxamen
  * Date: 2016-07-20
- * Time: ¿ÀÈÄ 2:33
+ * Time: ï¿½ï¿½ï¿½ï¿½ 2:33
  */
 return array(
     "base_url"  => "http://fastm.io/fbauth/auth",

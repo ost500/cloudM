@@ -11,6 +11,10 @@
 |
 */
 
+use App\Client;
+use App\Partners;
+use App\User;
+
 Route::get('/', ['as' => "home", 'uses' => 'MainController@index']);
 
 //프로젝트 등록
@@ -104,7 +108,7 @@ Route::get('facebook', function () {
     return "<a href='fbauth'>페이스북 로그인</a>";
 });
 
-Route::get('fbauth/{auth?}', function ($auth = NULL) {
+Route::get('fbauth/{auth?}', function (Request $request, $auth = NULL) {
     if ($auth == 'auth') {
         try {
             Hybrid_Endpoint::process();
@@ -124,8 +128,35 @@ Route::get('fbauth/{auth?}', function ($auth = NULL) {
 
     echo $profile->firstName . ' ' . $profile->lastName . '<br>';
     echo $profile->email . '<br>';
+    echo $profile->emailVerified . '<br>';
 
-    dd($profile);
+    if ($request->PorC == "P") {
+        $userCreation = User::create([
+            'name' => $profile->firstName,
+            'nick' => $profile->firstName,
+            'email' => $profile->email,
+            'PorC' => "C",
+            'profileImage' => '/files/userImage/default',
+            'confirmed' => 1
+        ]);
+        Client::create([
+            'user_id' => $userCreation['id']
+        ]);
+    } else {
+        $userCreation = User::create([
+            'name' => $profile->firstName,
+            'nick' => $profile->firstName,
+            'email' => $profile->email,
+            'PorC' => "P",
+            'profileImage' => '/files/userImage/default',
+            'confirmed' => 1
+        ]);
+
+        Partners::create([
+            'user_id' => $userCreation['id']
+        ]);
+    }
+    return redirect()->url('/');
 });
 
 Route::get('/loginModal', 'MainController@loginModal');
