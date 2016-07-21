@@ -147,11 +147,11 @@
                                 $("#facebook").click(function () {
                                     if ($("#option1").is(":checked")) {
                                         if(confirm("광고주로 가입 하시겠습니까?")){
-                                            window.location.replace("{{url('/fbauth?PorC=C')}}");
+                                            window.location.replace("{{url('/fbauth/auth?PorC=C')}}");
                                         }
                                     } else {
                                         if(confirm("대행사로 가입 하시겠습니까?")){
-                                            window.location.replace("{{url('/fbauth?PorC=P')}}");
+                                            window.location.replace("{{url('/fbauth/auth?PorC=P')}}");
                                         }
                                     }
                                 });
