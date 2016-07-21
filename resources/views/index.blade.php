@@ -101,7 +101,7 @@
                                     else $p_title = $project['title'];
                                     ?>
 
-                                    
+
                                     <a href="{{ url("/detail/".$project->id) }}">
 
 
