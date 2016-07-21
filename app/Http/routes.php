@@ -166,7 +166,7 @@ Route::get('{PorC}/fbauth/{auth?}', function ($PorC, $auth = NULL) {
         return redirect()->action("MainController@index");
     }
 
-    Session::flash('message', '이미 가입 하셔습니다');
+    Auth::loginUsingId(User::where('email',$profile->email)->get()->first()->id);
 
     return redirect()->action("MainController@index");
 
