@@ -212,7 +212,7 @@ var FormWizard = function () {
                     error: function (data2) {
 
                         console.log(data2);
-                        console.log(data);
+                        
                     }
                 });
             } else {

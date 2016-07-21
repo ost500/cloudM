@@ -23,13 +23,9 @@
 
                                 </div>
                                 <div class="media-body">
-                                    @if(Auth::check())
-                                        <a href="{{ url('detail/'.$project['id']) }}">
-                                            <h5>{{ $project['title']}}</h5></a>
-                                    @else
-                                        <a href="{{url('/login')}}">
-                                            <h5>{{ $project['title']}}</h5></a>
-                                    @endif
+
+                                    <a href="{{ url('detail/'.$project['id']) }}">
+                                        <h5>{{ $project['title']}}</h5></a>
 
 
                                 </div>
@@ -48,23 +44,23 @@
                                     <p> {{ str_limit($project['detail_content'], 250, '...') }}</p>
                                     <div>
 
-                                            <ul class="tags margin-top-10">
-                                                    <?php
-                                                    $i = 0;
-                                                    foreach($project->projects_area as $areas) {
-                                                        if ($i++ == 7) {
-                                                            if ($project->projects_area->count() > 7) {
-                                                                $etc_areas_cnt = $project->projects_area->count() - 7;
-                                                                echo "<li><a href=\"#.\">외 {$etc_areas_cnt}개</a></li>";
-                                                            }
-                                                            break;
-                                                        }
-                                                        echo "<li><a href=\"#.\">{$areas->area}</a></li>";
+                                        <ul class="tags margin-top-10">
+                                            <?php
+                                            $i = 0;
+                                            foreach ($project->projects_area as $areas) {
+                                                if ($i++ == 7) {
+                                                    if ($project->projects_area->count() > 7) {
+                                                        $etc_areas_cnt = $project->projects_area->count() - 7;
+                                                        echo "<li><a href=\"#.\">외 {$etc_areas_cnt}개</a></li>";
                                                     }
-                                                    ?>
-                                            </ul>
-                                        </div>
+                                                    break;
+                                                }
+                                                echo "<li><a href=\"#.\">{$areas->area}</a></li>";
+                                            }
+                                            ?>
+                                        </ul>
                                     </div>
+                                </div>
 
                                 <div class="col-md-3">
 

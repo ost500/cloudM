@@ -101,13 +101,11 @@
                                     else $p_title = $project['title'];
                                     ?>
 
-                                    @if(Auth::check())
-                                        <a href="{{ url("/detail/".$project->id) }}">
-                                    @else
-                                        <a href="{{url('/login')}}">
-                                    @endif
+                                    
+                                    <a href="{{ url("/detail/".$project->id) }}">
 
-                                            <h5>{{ $p_title }}</h5></a>
+
+                                        <h5>{{ $p_title }}</h5></a>
                                     <p class="price">월 예산 {{ number_format($project->budget) }}원
                                         <span>|</span> {{ $project->estimated_duration }}
                                         <span>|</span> {{ $project->application->count() }}명 지원</p>

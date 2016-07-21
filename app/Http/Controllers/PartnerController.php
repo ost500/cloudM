@@ -230,10 +230,11 @@ class PartnerController extends Controller
         return view('pagination', ['start' => $start, 'end' => $end]);
     }
 
-    public function detail($id)
+    public function detail($id, Request $request)
     {
-        // a
+
         if(Auth::check() == false){
+            session(['url_back2' => $request->url()]);
             return redirect('login');
         }
 
