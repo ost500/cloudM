@@ -142,7 +142,9 @@ class AuthController extends Controller
             return $this->authenticated($request, Auth::guard($this->getGuard())->user());
         }
 
-        if (Session::has('url_back')) {
+        if (Session::has('url_back2')) {
+            return redirect(Session::pull('url_back2'));
+        } elseif (Session::has('url_back')) {
             return redirect(Session::pull('url_back'));
         } else {
             return redirect()->intended($this->redirectPath());

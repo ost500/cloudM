@@ -34,10 +34,11 @@ class SearchController extends Controller
 
     }
 
-    public function detail($id)
+    public function detail($id, Request $request)
     {
         if (!Auth::check()) {
-            return redirect()->action('MainController@index');
+            session(['url_back2' => $request->url()]);
+            return redirect('login');
         }
         $detailProject = Project::where('id', '=', $id)->get();
         $comment = Comments::where('project_id', '=', $id)->where('parent_id', 0);

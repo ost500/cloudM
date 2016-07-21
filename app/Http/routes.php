@@ -357,3 +357,6 @@ Route::get('/test_email', function () {
 Route::get('/test_email2', function () {
     return view('mail/mail', ['project_name'=>'aaa']);
 });
+Route::get('/test_email_comment', function () {
+    return view('mail/comment_mail', ['project_name'=>'aaa']);
+});
