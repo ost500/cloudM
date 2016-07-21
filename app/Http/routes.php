@@ -129,34 +129,43 @@ Route::get('{PorC}/fbauth/{auth?}', function ($PorC, $auth = NULL) {
     echo $profile->firstName . ' ' . $profile->lastName . '<br>';
     echo $profile->email . '<br>';
     echo $profile->emailVerified . '<br>';
+    $vali = Validator::make($profile, [
+        'email' => 'required|email|max:255|unique:users',
+    ]);
+    if (!$vali->fails()) {
+        if ($PorC == "P") {
+            $userCreation = User::create([
+                'name' => $profile->firstName,
+                'nick' => $profile->firstName,
+                'email' => $profile->email,
+                'PorC' => "C",
+                'profileImage' => '/files/userImage/default',
+                'confirmed' => 1
+            ]);
+            Client::create([
+                'user_id' => $userCreation['id']
+            ]);
+        } else {
+            $userCreation = User::create([
+                'name' => $profile->firstName,
+                'nick' => $profile->firstName,
+                'email' => $profile->email,
+                'PorC' => "P",
+                'profileImage' => '/files/userImage/default',
+                'confirmed' => 1
+            ]);
+            Partners::create([
+                'user_id' => $userCreation['id']
+            ]);
+        }
+        Auth::loginUsingId($userCreation['id']);
 
-    if ($PorC == "P") {
-        $userCreation = User::create([
-            'name' => $profile->firstName,
-            'nick' => $profile->firstName,
-            'email' => $profile->email,
-            'PorC' => "C",
-            'profileImage' => '/files/userImage/default',
-            'confirmed' => 1
-        ]);
-        Client::create([
-            'user_id' => $userCreation['id']
-        ]);
-    } else {
-        $userCreation = User::create([
-            'name' => $profile->firstName,
-            'nick' => $profile->firstName,
-            'email' => $profile->email,
-            'PorC' => "P",
-            'profileImage' => '/files/userImage/default',
-            'confirmed' => 1
-        ]);
-
-        Partners::create([
-            'user_id' => $userCreation['id']
-        ]);
+        return redirect()->action("MainController@index");
     }
+    
+    Session::flash('message', '이미 가입 하셔습니다');
     return redirect()->action("MainController@index");
+
 });
 
 Route::get('/loginModal', 'MainController@loginModal');
@@ -383,11 +392,11 @@ Route::get('/company/news/{id}', ['as' => 'news_view', 'uses' => 'CompanyControl
 Route::get('/company/address', ['as' => 'address', 'uses' => 'CompanyController@address']);
 
 Route::get('/test_email', function () {
-    return view('mail/p_add_verifying_mail', ['project_name'=>'부동산 p2p신규오픈 업체 입니다. 마케팅 문의']);
+    return view('mail/p_add_verifying_mail', ['project_name' => '부동산 p2p신규오픈 업체 입니다. 마케팅 문의']);
 });
 Route::get('/test_email2', function () {
-    return view('mail/mail', ['project_name'=>'aaa']);
+    return view('mail/mail', ['project_name' => 'aaa']);
 });
 Route::get('/test_email_comment', function () {
-    return view('mail/comment_mail', ['project_name'=>'aaa']);
+    return view('mail/comment_mail', ['project_name' => 'aaa']);
 });

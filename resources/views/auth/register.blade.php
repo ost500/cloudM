@@ -146,12 +146,12 @@
                             <script>
                                 $("#facebook").click(function () {
                                     if ($("#option1").prop("checked", true)) {
-                                        if(confirm("대행사로 가입 하시겠습니까?")){
-                                            window.location.replace("{{url('P/fbauth')}}");
+                                        if(confirm("광고주로 가입 하시겠습니까?")){
+                                            window.location.replace("{{url('/C/fbauth')}}");
                                         }
                                     } else {
-                                        if(confirm("광고주로 가입 하시겠습니까?")){
-                                            window.location.replace("{{url('C/fbauth')}}");
+                                        if(confirm("대행사로 가입 하시겠습니까?")){
+                                            window.location.replace("{{url('/P/fbauth')}}");
                                         }
                                     }
                                 });
