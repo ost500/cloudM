@@ -36,6 +36,18 @@ class MypageController extends Controller
     /**
      * @return mixed
      */
+
+    public static function partnerRankUpdate($point) {
+        $partner = Auth::user()->partners;
+        if ($point < 0) {
+            $partner->rank -= $point;
+        } else {
+            $partner->rank += $point;
+        }
+
+        $partner->save();
+    }
+
     public function dashBoard()
     {
         $loginUser = Auth::user();
@@ -258,8 +270,14 @@ class MypageController extends Controller
 
         //save
 
+        if (empty(Auth::user()->partners->intro)) {
+            MypageController::partnerRankUpdate(4);
+        }
+
         Auth::user()->partners->intro = $request->intro;
         Auth::user()->partners->save();
+
+
 
         return redirect()->back();
     }
@@ -306,12 +324,16 @@ class MypageController extends Controller
                 echo "<tr>";
             }
         }
+
+        MypageController::partnerRankUpdate(1);
     }
 
     public function profile_skill_del_post(Request $request)
     {
         $del_skill = Partners_job::find($request->id);
         $del_skill->delete();
+
+        MypageController::partnerRankUpdate(-1);
     }
 
     public function profile_skill_list()
@@ -457,6 +479,9 @@ class MypageController extends Controller
 
         $new_port->save();
 
+
+        MypageController::partnerRankUpdate(5);
+
         return redirect("/profile/portfolio/list/" . Auth::user()->id);
     }
 
@@ -470,7 +495,9 @@ class MypageController extends Controller
         @unlink(public_path() . $del_portfolio->image2);
         @unlink(public_path() . $del_portfolio->image3);
 
+        MypageController::partnerRankUpdate(-5);
     }
+
 
     public function portfolio_update($id)
     {
@@ -658,6 +685,8 @@ class MypageController extends Controller
             $proposal->file_size = $file->getSize();
             $proposal->save();
         }
+
+        MypageController::partnerRankUpdate(2);
 
         return redirect()->action('MypageController@dashBoard');
     }
