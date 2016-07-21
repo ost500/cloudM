@@ -156,7 +156,7 @@ Route::get('{PorC}/fbauth/{auth?}', function ($PorC, $auth = NULL) {
             'user_id' => $userCreation['id']
         ]);
     }
-    return redirect()->url('/');
+    return redirect()->action("MainController@index");
 });
 
 Route::get('/loginModal', 'MainController@loginModal');
