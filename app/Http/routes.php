@@ -114,7 +114,7 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
         try {
             Hybrid_Endpoint::process();
         } catch (Exception $e) {
-            return Redirect::to('fbauth');
+            return Redirect::to('fbauth?PorC='.$_GET['PorC']);
         }
         return;
     }
