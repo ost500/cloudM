@@ -104,11 +104,12 @@ Route::get('register/verify/{confirmationCode}', [
     'uses' => 'RegistrationController@confirm'
 ]);
 
-Route::get('facebook', function () {
+Route::get('facebook', function (Request $request) {
+    echo $_GET['a'];
     return "<a href='fbauth'>페이스북 로그인</a>";
 });
 
-Route::get('{PorC}/fbauth/{auth?}', function ($PorC, $auth = NULL) {
+Route::get('/fbauth/{auth?}', function ($PorC, $auth = NULL) {
     if ($auth == 'auth') {
         try {
             Hybrid_Endpoint::process();
@@ -136,7 +137,7 @@ Route::get('{PorC}/fbauth/{auth?}', function ($PorC, $auth = NULL) {
         'email' => 'unique:users',
     ]);
     if (!$vali->fails()) {
-        if ($PorC == "P") {
+        if ($_GET['PorC'] == "P") {
             $userCreation = User::create([
                 'name' => $profile->firstName,
                 'nick' => $profile->firstName,
