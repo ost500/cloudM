@@ -38,7 +38,7 @@ class MypagePostController extends Controller
 //            DB::table('users')->where(Auth::user())
 //                ->update(['profileImage'=> $tmpFileName]);
 
-
+            MypageController::partnerRankUpdate(3);
         }
 
 
@@ -69,6 +69,8 @@ class MypagePostController extends Controller
             $user->auth_image = $path;
             $user->auth_check = "인증요청";
             $user->save();
+
+            MypageController::partnerRankUpdate(3);
         }
 
 
@@ -130,6 +132,14 @@ class MypagePostController extends Controller
         Auth::user()->BOD = $request->BOD;
         Auth::user()->address = $request->address;
         Auth::user()->save();
+
+        $point = 0;
+        if ($request->company_name) $point++;
+        if ($request->phone_num1 && $request->phone_num2 && $request->phone_num3) $point++;
+        if ($request->homepage) $point++;
+
+        MypageController::partnerRankUpdate($point);
+
 
         if (Auth::user()->PorC == "C") {
             $user = Auth::user();
@@ -217,6 +227,8 @@ class MypagePostController extends Controller
             $new_proposal->proposal_file_name = $path;
             $new_proposal->proposal_origin_name = $request->file('proposal_attach')->getClientOriginalName();
             $new_proposal->save();
+
+            MypageController::partnerRankUpdate(2);
         }
 
         return redirect()->action('MypageController@profileProposal');
@@ -237,6 +249,8 @@ class MypagePostController extends Controller
             $new_proposal->company_file_name = $path;
             $new_proposal->company_origin_name = $request->file('company_attach')->getClientOriginalName();
             $new_proposal->save();
+
+            MypageController::partnerRankUpdate(2);
         }
 
         return redirect()->action('MypageController@profileCompany');
