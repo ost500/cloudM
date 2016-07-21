@@ -36,10 +36,10 @@ class SearchController extends Controller
 
     public function detail($id, Request $request)
     {
-        if (!Auth::check()) {
-            session(['url_back2' => $request->url()]);
-            return redirect('login');
-        }
+
+        session(['url_back2' => $request->url()]);
+
+
         $detailProject = Project::where('id', '=', $id)->get();
         $comment = Comments::where('project_id', '=', $id)->where('parent_id', 0);
 
@@ -62,7 +62,12 @@ class SearchController extends Controller
 
         $count['계약률'] = round((($count['계약'] / $userProject->count()) * 100), 1);
 
-        $login_user = Auth::user();
+        if (Auth::check() == true) {
+            $login_user = Auth::user();
+        } else {
+            $comment_qulification = false;
+            return view('project/project_detail', compact('detailProject', 'comment', 'count', 'comment_qulification'));
+        }
 
 
         //댓글 자격 확인
@@ -114,11 +119,11 @@ class SearchController extends Controller
         if ($SearchOption == $multi_select_binary || $SearchOption == 0) {
 
 //            $projects = Project::all();
-            $projects = Project::where("step", "!=", "검수")->where("step", "!=", "취소")->where("step","!=","등록 실패")
+            $projects = Project::where("step", "!=", "검수")->where("step", "!=", "취소")->where("step", "!=", "등록 실패")
                 ->where('title', 'LIKE', $keyword)
 //                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword1))
 //                ->union(Project::where("step", "!=", "검수")->where('title','LIKE', $keyword2))
-                ->union(Project::where("step", "!=", "검수")->where('step','!=',"취소")->where("step","!=","등록 실패")->where('title', 'LIKE', $keyword3))
+                ->union(Project::where("step", "!=", "검수")->where('step', '!=', "취소")->where("step", "!=", "등록 실패")->where('title', 'LIKE', $keyword3))
                 ->get();
 
             $count = $projects->count();
@@ -184,7 +189,7 @@ class SearchController extends Controller
                 $query = ProjectsArea::where('area', '=', $area_menu_array[$i])->get();
 
                 foreach ($query as $q) {
-                    if ($q->project->step != '검수' && $q->project->step !='취소' && $q->project->step !='등록 실패') {
+                    if ($q->project->step != '검수' && $q->project->step != '취소' && $q->project->step != '등록 실패') {
                         $projects = $projects->push($q->project);
                     }
                 }

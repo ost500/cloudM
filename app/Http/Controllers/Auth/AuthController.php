@@ -156,7 +156,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
         $view = property_exists($this, 'loginView')
             ? $this->loginView : 'auth.authenticate';
@@ -164,7 +164,7 @@ class AuthController extends Controller
         if (view()->exists($view)) {
             return view($view);
         }
-        session(['url_back' => redirect()->back()->getTargetUrl()]);
+        session(['url_back' => $request->url()]);
         return view('auth.login');
     }
 

@@ -32,8 +32,11 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @if(($project['step'] == "게시" || $project['step'] == "미팅") && $project['deadline'] >= date('Y-m-d'))
-                                        @if(App\Application::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
-                                            <div class="btn btn-app-not margin-top-10 margin-bottom-5">이미 지원한 캠페인</div>
+                                        @if(Auth::check())
+                                            @if(App\Application::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
+                                                <div class="btn btn-app-not margin-top-10 margin-bottom-5">이미 지원한 캠페인
+                                                </div>
+                                            @endif
                                         @else
                                             <a style="cursor:pointer" id="pro_app_btn">
                                                 <div id="pro_apply" class="btn btn-app margin-top-10 margin-bottom-5">
@@ -98,18 +101,21 @@
                                         </form>
 
                                         <script>
-                                            window.fbAsyncInit = function() {
+                                            window.fbAsyncInit = function () {
                                                 FB.init({
-                                                    appId      : '1755433851403442',
-                                                    xfbml      : true,
-                                                    version    : 'v2.7'
+                                                    appId: '1755433851403442',
+                                                    xfbml: true,
+                                                    version: 'v2.7'
                                                 });
                                             };
 
-                                            (function(d, s, id){
+                                            (function (d, s, id) {
                                                 var js, fjs = d.getElementsByTagName(s)[0];
-                                                if (d.getElementById(id)) {return;}
-                                                js = d.createElement(s); js.id = id;
+                                                if (d.getElementById(id)) {
+                                                    return;
+                                                }
+                                                js = d.createElement(s);
+                                                js.id = id;
                                                 js.src = "//connect.facebook.net/en_US/sdk.js";
                                                 fjs.parentNode.insertBefore(js, fjs);
                                             }(document, 'script', 'facebook-jssdk'));
@@ -266,33 +272,40 @@
                                 <form action="{{ url('commentadd/0') }}" method="POST" role="form">
                                     {!! csrf_field() !!}
                                     <div class="media inquiry_01">
-                                        <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
+                                        @if(Auth::check())
+                                            <img class="partner_profile03" src="{{ Auth::user()->profileImage }}">
+                                        @else
+                                            <img class="partner_profile03" src="{{ asset('files/userImage/default') }}">
+                                        @endif
                                         <div class="media-body">
                                             <div class="col-md-9 ">
                                                 <label for="comment">
                                                     @if(Auth::check())
                                                         {{Auth::user()->nick}}
                                                     @else
-                                                        <a style="cursor : pointer" data-toggle="modal"
-                                                           data-target="#loginModal" class="button signin">로그인
+                                                        <a style="cursor : pointer" href="{{url('/login')}}"
+                                                           class="button signin">로그인
                                                             하세요</a>
                                                     @endif
                                                 </label>
 
 
-                                                <textarea name="comment" type="text" class="form-control06" id="id_body" required="required" rows="10"
-                                                          cols="40" resize="none" {{ (!$comment_qulification)?"disabled":"" }}>{{ (!$comment_qulification)?"신원인증 받은 후에만 작성가능합니다.":"" }}</textarea>
+                                                <textarea name="comment" type="text" class="form-control06" id="id_body"
+                                                          required="required" rows="10"
+                                                          cols="40"
+                                                          resize="none" {{ (!$comment_qulification)?"disabled":"" }}>{{ (!$comment_qulification)?"신원인증 받은 후에만 작성가능합니다.":"" }}</textarea>
                                             </div>
 
 
                                             <div class="col-md-3 ">
-                                                <input name="comment_status" id="comment_status" type="checkbox" checked>
+                                                <input name="comment_status" id="comment_status" type="checkbox"
+                                                       checked>
                                                 <label for="comment_status"><i class="fa fa-lock"
                                                                                style="margin-right: 4px;"></i>비공개
                                                     설정</label>
                                                 <input type="hidden" name="project_id" value="{{ $project['id'] }}">
                                                 <button type="submit" class="button007" id="id_submit" type="button"
-                                                        value="작성하기"  {{ (!$comment_qulification)?"disabled":"" }}>작성하기
+                                                        value="작성하기" {{ (!$comment_qulification)?"disabled":"" }}>작성하기
                                                 </button>
 
                                             </div>

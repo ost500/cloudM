@@ -232,7 +232,7 @@ class PartnerController extends Controller
 
     public function detail($id, Request $request)
     {
-
+        
         if(Auth::check() == false){
             session(['url_back2' => $request->url()]);
             return redirect('login');
