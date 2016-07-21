@@ -10,6 +10,7 @@ use App\Http\Requests\ProjectRequest;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Mail;
 
 
 class CreateController extends Controller
@@ -85,7 +86,7 @@ class CreateController extends Controller
         $input->charger_phone = $request->phone;
 
         $request->money = str_replace(',','', $request->money);
-        $request->money = str_replace('��','', $request->money);
+        $request->money = str_replace('��','', $request->money);
 
 
         //$input->area = $request->area;
@@ -125,6 +126,15 @@ class CreateController extends Controller
             $areas->area = $request->area[$i];
             $areas->save();
         }
+
+        $mail_data = array('email'=> $user->email,'name'=>$user->name,'title'=>$input->title);
+echo $mail_data['title'].$mail_data['email'].$mail_data['name'];
+
+        Mail::queue('mail.p_add_verifying_mail', ['project_name' => $mail_data['title']],
+            function ($message) use ($mail_data) {
+                $message->to($mail_data['email'], $mail_data['name'])
+                    ->subject('[패스트엠] "'.$mail_data['title'].'"캠페인 검수 중입니다');
+            });
     }
 
     public function update_project_form($id)

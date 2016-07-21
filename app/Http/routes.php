@@ -100,13 +100,11 @@ Route::get('register/verify/{confirmationCode}', [
     'uses' => 'RegistrationController@confirm'
 ]);
 
-Route::get('facebook', function()
-{
+Route::get('facebook', function () {
     return "<a href='fbauth'>페이스북 로그인</a>";
 });
 
-Route::get('fbauth/{auth?}', function($auth = NULL)
-{
+Route::get('fbauth/{auth?}', function ($auth = NULL) {
     if ($auth == 'auth') {
         try {
             Hybrid_Endpoint::process();
@@ -117,16 +115,15 @@ Route::get('fbauth/{auth?}', function($auth = NULL)
     }
 
     try {
-        $oauth = new Hybrid_Auth(config_path(). '/fb_auth.php');
+        $oauth = new Hybrid_Auth(config_path() . '/fb_auth.php');
         $provider = $oauth->authenticate('Facebook');
         $profile = $provider->getUserProfile();
-    }
-    catch(Exception $e) {
+    } catch (Exception $e) {
         return $e->getMessage();
     }
 
-    echo $profile->firstName . ' ' .$profile->lastName.'<br>';
-    echo $profile->email.'<br>';
+    echo $profile->firstName . ' ' . $profile->lastName . '<br>';
+    echo $profile->email . '<br>';
 
     dd($profile);
 });
@@ -268,7 +265,7 @@ Route::get('/admin/step_change/{id}/{change}', 'HomeController@step_change')
 
 //내 프로젝트 단계별
 //검수중 프로젝트
-Route::get('/client/project/checking', 'ProcessController@checking_client');
+Route::get('/client/project/checking', ['as' => 'checking_client', 'uses' => 'ProcessController@checking_client']);
 //검수_임시저장
 Route::get('/client/project/temp', 'ProcessController@temp_client');
 //검수_등록실패
@@ -353,3 +350,10 @@ Route::get('/company/news', ['as' => 'news', 'uses' => 'CompanyController@news']
 Route::get('/company/news/{id}', ['as' => 'news_view', 'uses' => 'CompanyController@news_view'])
     ->where(['id' => '[0-9]+']);
 Route::get('/company/address', ['as' => 'address', 'uses' => 'CompanyController@address']);
+
+Route::get('/test_email', function () {
+    return view('mail/p_add_verifying_mail', ['project_name'=>'부동산 p2p신규오픈 업체 입니다. 마케팅 문의']);
+});
+Route::get('/test_email2', function () {
+    return view('mail/mail', ['project_name'=>'aaa']);
+});
