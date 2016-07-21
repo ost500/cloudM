@@ -108,7 +108,7 @@ Route::get('facebook', function () {
     return "<a href='fbauth'>페이스북 로그인</a>";
 });
 
-Route::get('fbauth/{auth?}', function (Request $request, $auth = NULL) {
+Route::get('{PorC}/fbauth/{auth?}', function ($PorC, $auth = NULL) {
     if ($auth == 'auth') {
         try {
             Hybrid_Endpoint::process();
@@ -130,7 +130,7 @@ Route::get('fbauth/{auth?}', function (Request $request, $auth = NULL) {
     echo $profile->email . '<br>';
     echo $profile->emailVerified . '<br>';
 
-    if ($request->PorC == "P") {
+    if ($PorC == "P") {
         $userCreation = User::create([
             'name' => $profile->firstName,
             'nick' => $profile->firstName,
