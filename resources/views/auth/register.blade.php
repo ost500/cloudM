@@ -138,7 +138,7 @@
                 <div class="col-md-4">
                     <div class="job-content job-post-page register_box">
                         <div class="login_right">
-                            <a id="facebook" class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북
+                            <a style="cursor:pointer" id="facebook" class="btn-facebook btn-lg btn-block"><i class="fa fa-facebook"></i> 페이스북
                                 회원가입</a>
                             <a id="naver" class="btn-naver btn-lg btn-block"><img style="height:25px"
                                                                                   src="{{asset("images/naver_login_icon.png")}}">
@@ -147,11 +147,11 @@
                                 $("#facebook").click(function () {
                                     if ($("#option1").is(":checked")) {
                                         if(confirm("광고주로 가입 하시겠습니까?")){
-                                            window.location.replace("{{url('/fbauth/auth?PorC=C')}}");
+                                            window.location.replace("{{url('/fbauth?PorC=C')}}");
                                         }
                                     } else {
                                         if(confirm("대행사로 가입 하시겠습니까?")){
-                                            window.location.replace("{{url('/fbauth/auth?PorC=P')}}");
+                                            window.location.replace("{{url('/fbauth?PorC=P')}}");
                                         }
                                     }
                                 });
