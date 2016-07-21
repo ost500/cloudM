@@ -34,7 +34,8 @@ if ($_POST['act_button'] == "선택수정") {
                     intro           = '{$_POST['intro'][$k]}',
                     authenticated   = '{$_POST['authenticated'][$k]}',
                     company_check   = '{$_POST['company_check'][$k]}',
-                    proposal_check  = '{$_POST['proposal_check'][$k]}'
+                    proposal_check  = '{$_POST['proposal_check'][$k]}',
+                    rank            = '{$_POST['rank'][$k]}'
                     where user_id = '{$_POST['id'][$k]}' ";
         sql_query($sql);
     }
@@ -48,7 +49,11 @@ if ($_POST['act_button'] == "선택수정") {
 
         $sql = " delete from {$g5['member_table']}
                    where id = '{$_POST['id'][$k]}' ";
-        sql_query($sql);
+        //sql_query($sql);
+
+        $sql = "delete from {$g5['partner_table']}
+                  where u_id = '{$_POST['id'][$k]}'";
+        //sql_query($sql);
     }
 } else if ($_POST['act_button'] == "프로필사진 초기화") {
 

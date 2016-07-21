@@ -202,11 +202,21 @@ class PartnerController extends Controller
                 ->get();
         }
 
+
+
         $partners = $partners->filter(function ($value) {
             if ($value->partners->authenticated == true) {
                 return $value;
             }
         });
+
+
+
+        $sorted = $partners->sortByDesc(function ($product, $key) {
+            return $product->partners['rank'];
+        });
+
+        $partners = $sorted->values();
 
 
         $count = $partners->count();
