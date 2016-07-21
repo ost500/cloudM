@@ -123,7 +123,7 @@ $colspan = 16;
         <th scope="col" id="mb_list_cert"><?php echo subject_sort_link('company_type', '', 'desc') ?>타입</a> / <?php echo subject_sort_link('auth_chceck', '', 'desc') ?>신원인증</a></th>
         <th scope="col" id="mb_list_mobile">연락처</th>
         <th scope="col" id="mb_list_mobile">회사소개서</th>
-        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('check', '', 'desc') ?>노출승인</a></th>
+        <th scope="col" id="mb_list_auth"><?php echo subject_sort_link('authenticated', '', 'desc') ?>노출승인</a></th>
         <th scope="col" id="mb_list_lastcall" rowspan="2">소개</th>
     </tr>
     <tr>
@@ -171,7 +171,8 @@ $colspan = 16;
         <td headers="mb_list_chk" class="td_chk" rowspan="2">
             <input type="hidden" name="id[<?php echo $i ?>]" value="<?php echo $row['user_id'] ?>" id="mb_id_<?php echo $i ?>">
             <label for="chk_<?php echo $i; ?>" class="sound_only"><?php echo get_text($row['mb_name']); ?> <?php echo get_text($row['mb_nick']); ?>님</label>
-            <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>"> <?php echo $row[id] ?>
+            <input type="checkbox" name="chk[]" value="<?php echo $i ?>" id="chk_<?php echo $i ?>"> <?php echo $row[id] ?><br>
+            <input type="text" name="rank[<?php echo $i?>]" value="<?php echo $row['rank']; ?>" class="frm_input" size="5">
         </td>
         <td class="c td_50 bts" rowspan="2"><img src="<?=$row[profileImage]?>" width="70"><br>
             <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#profileFileModal"  data-uid="<?=$row[user_id]?>" data-type="profile">관리</button>
