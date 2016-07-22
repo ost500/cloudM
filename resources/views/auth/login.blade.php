@@ -94,7 +94,17 @@
                                 네이버 로그인</a>
                             <script>
                                 $("#facebook").click(function () {
-                                    alert('준비 중입니다')
+                                    if ($("#option1").is(":checked")) {
+                                        if(confirm("광고주로 가입 하시겠습니까?")){
+                                            window.location.replace("{{url('/fbauth')}}");
+                                            <?php Session::put("PorC","C")?>
+                                        }
+                                    } else {
+                                        if(confirm("대행사로 가입 하시겠습니까?")){
+                                            window.location.replace("{{url('/fbauth')}}");
+                                            <?php Session::put("PorC","P")?>
+                                        }
+                                    }
                                 });
                                 $("#naver").click(function () {
                                     alert('준비 중입니다')
