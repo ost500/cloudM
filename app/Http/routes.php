@@ -131,13 +131,16 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
     echo $profile->email . '<br>';
     echo $profile->emailVerified . '<br>';
 
-    $profile_save = array('email'=>$profile->email);
+    $profile_save = array('email' => $profile->email);
 
     $vali = Validator::make($profile_save, [
         'email' => 'unique:users',
     ]);
     if (!$vali->fails()) {
-        if (Session::pull("PorC") == "C") {
+        if (Session::pull("PorC") == null) {
+            Session::flash('message', '먼저 가입 하세요');
+            return redirect('/register');
+        } else if (Session::pull("PorC") == "C") {
             $userCreation = User::create([
                 'name' => $profile->firstName,
                 'nick' => $profile->firstName,
@@ -167,7 +170,7 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
         return redirect()->action("MainController@index");
     }
 
-    Auth::loginUsingId(User::where('email',$profile->email)->get()->first()->id);
+    Auth::loginUsingId(User::where('email', $profile->email)->get()->first()->id);
 
     return redirect()->action("MainController@index");
 
