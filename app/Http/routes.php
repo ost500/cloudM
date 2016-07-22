@@ -176,6 +176,10 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
 
 });
 
+
+Route::get('/auth/naver', 'NaverAuthController@redirectToProvider');
+Route::get('/auth/naver/callback', 'NaverAuthController@handleProviderCallback');
+
 Route::get('/loginModal', 'MainController@loginModal');
 
 Route::get('/notification', 'MainController@notificationShow');
