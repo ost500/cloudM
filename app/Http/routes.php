@@ -137,7 +137,7 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
         'email' => 'unique:users',
     ]);
     if (!$vali->fails()) {
-        if (Session::pull("PorC") == "P") {
+        if (Session::pull("PorC") == "C") {
             $userCreation = User::create([
                 'name' => $profile->firstName,
                 'nick' => $profile->firstName,
