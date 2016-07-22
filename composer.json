@@ -12,7 +12,8 @@
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "aws/aws-sdk-php": "^3.18",
         "intervention/image": "^2.3",
-        "Hybridauth/hybridauth": "dev-master"
+        "Hybridauth/hybridauth": "dev-master",
+        "socialiteproviders/naver": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

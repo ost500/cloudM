@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use SocialiteProviders\Manager\SocialiteWasCalled;
+use SocialiteProviders\Naver\NaverExtendSocialite;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -16,18 +18,21 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\VisitorTracker' => [
             'App\Listeners\VisitorTrackerListener',
         ],
+        SocialiteWasCalled::class => [
+            NaverExtendSocialite::class,
+        ]
     ];
 
     /**
      * Register any other events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Illuminate\Contracts\Events\Dispatcher $events
      * @return void
      */
     public function boot(DispatcherContract $events)
     {
         parent::boot($events);
-        
+
         //
     }
 }
