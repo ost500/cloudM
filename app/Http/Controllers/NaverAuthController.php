@@ -37,7 +37,7 @@ class NaverAuthController extends Controller
                 return redirect('/register');
             } else if (Session::pull("PorC") == "C") {
                 $userCreation = User::create([
-                    'name' => $user->name,
+                    'name' => $user->user['name'],
                     'nick' => explode("@", $user['email'])[0],
                     'email' => $user->email,
                     'PorC' => "C",
@@ -49,7 +49,7 @@ class NaverAuthController extends Controller
                 ]);
             } else {
                 $userCreation = User::create([
-                    'name' => $user->name,
+                    'name' => $user->user['name'],
                     'nick' => explode("@", $user['email'])[0],
                     'email' => $user->email,
                     'PorC' => "P",
