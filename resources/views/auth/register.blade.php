@@ -158,7 +158,17 @@
                                     }
                                 });
                                 $("#naver").click(function () {
-                                    alert('준비 중입니다')
+                                    if ($("#option1").is(":checked")) {
+                                        if(confirm("광고주로 가입 하시겠습니까?")){
+                                            window.location.replace("{{url('/auth/naver')}}");
+                                            <?php Session::put("PorC","C")?>
+                                        }
+                                    } else {
+                                        if(confirm("대행사로 가입 하시겠습니까?")){
+                                            window.location.replace("{{url('/auth/naver')}}");
+                                            <?php Session::put("PorC","P")?>
+                                        }
+                                    }
                                 });
                             </script>
                             <p class="redirect01">이미 회원이신가요? <a
