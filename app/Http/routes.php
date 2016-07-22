@@ -114,7 +114,7 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
         try {
             Hybrid_Endpoint::process();
         } catch (Exception $e) {
-            return Redirect::to('fbauth?PorC='.$_GET['PorC']);
+            return Redirect::to('fbauth');
         }
         return;
     }
@@ -137,7 +137,7 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
         'email' => 'unique:users',
     ]);
     if (!$vali->fails()) {
-        if ($_GET['PorC'] == "P") {
+        if (Session::pull("PorC") == "P") {
             $userCreation = User::create([
                 'name' => $profile->firstName,
                 'nick' => $profile->firstName,
