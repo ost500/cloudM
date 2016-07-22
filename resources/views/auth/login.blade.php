@@ -97,7 +97,7 @@
                                     window.location.replace("{{url('/fbauth')}}");
                                 });
                                 $("#naver").click(function () {
-                                    alert('준비 중입니다')
+                                    window.location.replace("{{url('/auth/naver')}}");
                                 });
                             </script>
                             <p class="redirect01">아직 회원이 아니신가요? <a

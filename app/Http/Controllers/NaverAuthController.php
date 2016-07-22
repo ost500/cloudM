@@ -18,7 +18,7 @@ class NaverAuthController extends Controller
 
     public function redirectToProvider()
     {
-//        echo "hi";
+
         return Socialite::with('naver')->redirect();
     }
 
