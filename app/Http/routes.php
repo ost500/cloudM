@@ -137,12 +137,12 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
         'email' => 'unique:users',
     ]);
     if (!$vali->fails()) {
-        if (Session::pull("PorC") == "P") {
+        if (Session::pull("PorC") == "C") {
             $userCreation = User::create([
                 'name' => $profile->firstName,
                 'nick' => $profile->firstName,
                 'email' => $profile->email,
-                'PorC' => "P",
+                'PorC' => "C",
                 'profileImage' => '/files/userImage/default',
                 'confirmed' => 1
             ]);
@@ -154,7 +154,7 @@ Route::get('/fbauth/{auth?}', function ($auth = NULL) {
                 'name' => $profile->firstName,
                 'nick' => $profile->firstName,
                 'email' => $profile->email,
-                'PorC' => "C",
+                'PorC' => "P",
                 'profileImage' => '/files/userImage/default',
                 'confirmed' => 1
             ]);
