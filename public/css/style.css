@@ -722,6 +722,7 @@ header .navbar li.active a {
 
 .is-sticky .sticky .logo {
     margin-top: 0px;
+    z-index:88;
 }
 
 .is-sticky .sticky {
