@@ -36,13 +36,15 @@
                                             @if(App\Application::where('u_id',Auth::user()->id)->where('p_id',$project->id)->get()->isEmpty() == false)
                                                 <div class="btn btn-app-not margin-top-10 margin-bottom-5">이미 지원한 캠페인
                                                 </div>
+
+                                            @else
+                                                <a style="cursor:pointer" id="pro_app_btn">
+                                                    <div id="pro_apply"
+                                                         class="btn btn-app margin-top-10 margin-bottom-5">
+                                                        캠페인 지원하기
+                                                    </div>
+                                                </a>
                                             @endif
-                                        @else
-                                            <a style="cursor:pointer" id="pro_app_btn">
-                                                <div id="pro_apply" class="btn btn-app margin-top-10 margin-bottom-5">
-                                                    캠페인 지원하기
-                                                </div>
-                                            </a>
                                         @endif
                                     @else
                                         <div class="btn btn-app-not margin-top-10 margin-bottom-5">캠페인 지원불가</div>

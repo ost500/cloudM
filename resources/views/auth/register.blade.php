@@ -142,7 +142,7 @@
                                 회원가입</a>
                             <a style="cursor:pointer" id="naver" class="btn-naver btn-lg btn-block"><img style="height:25px"
                                                                                   src="{{asset("images/naver_login_icon.png")}}">
-                                네이버 로그인</a>
+                                네이버 회원가입</a>
                             <script>
                                 $("#facebook").click(function () {
                                     if ($("#option1").is(":checked")) {
