@@ -305,6 +305,15 @@ class SearchController extends Controller
 
         $subject = "HELLO OST";
 
+        if (Auth::user()->PorC == "P") {
+            // 광고주한테 전송
+            $p_client = Project::find($input->project_id)->client->email;
+
+        } else {
+            // 파트너한테 전송
+            $parent_comment_user_email = Comments::find($input->parent_id)->user->email;
+        }
+
 //        $comments_mail_to = Comments::where('project_id', $input->project_id)->get();
 //
 //        foreach ($comments_mail_to as $mail_to) {

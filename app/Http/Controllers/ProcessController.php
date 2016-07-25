@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Session;
 
 class ProcessController extends Controller
 {
@@ -179,6 +180,27 @@ class ProcessController extends Controller
         return view('mypage.projects_process_client.done', compact('loginUser', 'done', 'cancel'));
     }
 
+    public function evaluation_client($id)
+    {
+        $loginUser = Auth::user();
+        $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
+        $contract = Contract::where('p_id', '=', $id)->get()->first();
+
+        return view('mypage.projects_process_client.evaluation', compact('loginUser', 'project', 'contract'));
+    }
+
+    public function evaluation_post_client($id, Request $request)
+    {
+        $contract = Contract::where('p_id', '=', $id)->get()->first();
+        $contract->star = $request->star;
+        $contract->evaluation = $request->evaluation;
+        $contract->save();
+        
+        Session::flash('message','평가가 등록 되었습니다');
+
+        return redirect()->back();
+    }
+
     public function cancel_client()
     {
         $loginUser = Auth::user();
@@ -207,7 +229,7 @@ class ProcessController extends Controller
         for ($i = 0; $i < $appList->count(); $i++) {
             if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
                 && $appList[$i]->project->deadline >= date('Y-m-d')
-            ){
+            ) {
                 $app[] = $appList[$i];
             } else {
                 $app_finished[] = $appList[$i];
@@ -240,7 +262,7 @@ class ProcessController extends Controller
         for ($i = 0; $i < $appList->count(); $i++) {
             if (($appList[$i]->project->step == "게시" || $appList[$i]->project->step == "미팅")
                 && $appList[$i]->project->deadline >= date('Y-m-d')
-            ){
+            ) {
                 $app_finished[] = $appList[$i];
             } else {
                 $app[] = $appList[$i];

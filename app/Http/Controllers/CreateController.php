@@ -20,6 +20,7 @@ class CreateController extends Controller
 
     public function __construct()
     {
+        session(['url_back2' => url('p_add/1')]);
         $this->middleware('auth');
     }
 
