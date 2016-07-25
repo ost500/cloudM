@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 /**
  * App\Contract
@@ -73,6 +74,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Contract extends Model
 {
+    use Rateable;
+
     public function project()
     {
         return $this->hasOne('App\Project', 'id', 'p_id');

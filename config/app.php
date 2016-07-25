@@ -162,6 +162,8 @@ return [
 
         SocialiteProviders\Manager\ServiceProvider::class,
 
+        willvincent\Rateable\RateableServiceProvider::class,
+
 
     ],
 

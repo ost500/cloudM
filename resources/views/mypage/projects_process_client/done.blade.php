@@ -32,6 +32,7 @@
                                         <th>기간</th>
                                         <th>마감일자</th>
                                         <th>상태</th>
+                                        <th>평가</th>
 
                                     </tr>
                                     @if(count($done) == 0)
@@ -40,6 +41,7 @@
                                         </tr>
                                     @endif
                                     @foreach($done as $doneItem)
+
                                         <tr>
                                             <td>
                                                 <a href="{{ url("/detail/".$doneItem->id) }}">{{ $doneItem->title }}</a>
@@ -48,11 +50,16 @@
                                             <td>{{ $doneItem->estimated_duration }}</td>
                                             <td>{{ $doneItem->deadline }}</td>
                                             <td>{{ $doneItem->step }}</td>
+                                            <td><a href="{{route("eval",['id'=> $doneItem->id])}}"><button class="btn btn-azure btn-sm">평가하기</button></a></td>
 
 
                                         </tr>
+
+
+
                                     @endforeach
                                 </table>
+
                             </div>
                         </div>
 
