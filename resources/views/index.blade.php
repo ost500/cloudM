@@ -16,7 +16,8 @@
 
                     <?php
                     if (!Auth::check()) {
-                        echo "<a style = \"cursor : pointer\" data-toggle=\"modal\" data-target=\"#loginModal\" class=\"main_top_btn\">무료로 광고캠페인 등록하기</a>";
+                        session(['url_back2' => url('p_add/1')]);
+                        echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 광고캠페인 등록하기</a>";
 
                     } else if (Auth::user()->PorC == "C") {
                         echo "<a style = \"cursor : pointer\" href= \"" . url('p_add/1') . "\" class=\"main_top_btn\">무료로 광고캠페인 등록하기</a>";
