@@ -58,24 +58,27 @@
                                     <ul>
                                         <div class="col-md-2">
                                             <li>
-                                                <div class="rating star-lg star-lg-0"></div>
+                                                <div class="rating star-partner-detail star-lg-{{round($eval_avg,0)}}"></div>
                                             </li>
                                         </div>
                                         <div class="col-md-3">
                                             <li><span class="rating-stats-body stats-body">
-                                                <span class="average-rating-score">0.0</span>
-                                                <span class="rating-append-unit append-unit">/ 평가 0개</span>
+                                                <span class="average-rating-score">{{$eval_avg}}</span>
+                                                <span class="rating-append-unit append-unit">/ 평가 {{$eval_count}}
+                                                    개</span>
                                             </span></li>
                                         </div>
 
                                         <div class="col-md-4">
                                             <li><span class="partners-authorized"><i
-                                                            class="fa fa-bars"></i> 계약한 프로젝트 <span> 0건</span></span>
+                                                            class="fa fa-bars"></i> 계약한 프로젝트 <span> {{$partner->user->contract->count()}}
+                                                        건</span></span>
                                             </li>
                                         </div>
                                         <div class="col-md-3">
                                             <li><span class="partners-authorized"><i
-                                                            class="fa fa-file-image-o"></i> 포트폴리오 <span> {{ $partner->portfolio->count() }}개</span></span>
+                                                            class="fa fa-file-image-o"></i> 포트폴리오 <span> {{ $partner->portfolio->count() }}
+                                                        개</span></span>
                                             </li>
                                         </div>
 
@@ -96,7 +99,7 @@
                                     자기소개가 없습니다
                                 </div>
                             @else
-                            <?=nl2br(mb_strcut($partner->intro, 0, 300))?>
+                                <?=nl2br(mb_strcut($partner->intro, 0, 300))?>
                             @endif
 
                         </div>
@@ -109,7 +112,8 @@
                             <div class="row padding-left-15">
                                 @if($partner->portfolio->isEmpty())
                                     <div class="text-center panel-body">
-                                        <p class="text-center padding-bottom-15"><i class="fa fa-file-image-o fa-5x"></i></p>
+                                        <p class="text-center padding-bottom-15"><i
+                                                    class="fa fa-file-image-o fa-5x"></i></p>
                                         포트폴리오가 없습니다.
                                     </div>
 
@@ -124,22 +128,23 @@
                                             </div>
                                             <div class="caption">
                                                 <a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}">
-                                                    <h3 class="thum_title"><?=($portfolio->top)?mb_strcut($portfolio->title, 0, 30) . "..":mb_strcut($portfolio->title, 0, 38)?> <?=($portfolio->top)?"<span class=\"port_title_box\">대표</span>":"" ?></h3>
+                                                    <h3 class="thum_title"><?=($portfolio->top) ? mb_strcut($portfolio->title, 0, 30) . ".." : mb_strcut($portfolio->title, 0, 38)?> <?=($portfolio->top) ? "<span class=\"port_title_box\">대표</span>" : "" ?></h3>
                                                 </a>
 
                                                 <p class="thum_category">
                                                 <ul class="tags">
                                                     <?php
                                                     $areas = explode(",", $portfolio->area);
-                                                    if (sizeof($areas) > 1) echo "<li><a href=\"#.\">{$areas[0]}</a></li> <li><a href=\"#.\">외". (sizeof($areas)-1) . "개</a></li>";
+                                                    if (sizeof($areas) > 1) echo "<li><a href=\"#.\">{$areas[0]}</a></li> <li><a href=\"#.\">외" . (sizeof($areas) - 1) . "개</a></li>";
                                                     else echo "<li><a href=\"#.\">$portfolio->area</a></li>";
                                                     ?>
-                                                     <li><a href="#."> {{ $portfolio->category }} 분야</a></li>
+                                                    <li><a href="#."> {{ $portfolio->category }} 분야</a></li>
                                                 </ul>
                                                 </p>
-                                                <p><a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"
-                                                      class="btn btn-primary margin-top-5"
-                                                      role="button">자세히보기</a></p>
+                                                <p>
+                                                    <a href="{{ route('partner_portfolio_detail',['user_id' =>$partner->user_id, 'id' =>$portfolio->id]) }}"
+                                                       class="btn btn-primary margin-top-5"
+                                                       role="button">자세히보기</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -156,75 +161,89 @@
                                     전문분야가 없습니다
                                 </div>
                             @else
-                            <div class="panel02 panel-default02 margin-top-20">
-                                <table class="table_01" width=100% cellpadding=0 cellspacing=0>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
-                                    <col style="width:16.6%;"/>
+                                <div class="panel02 panel-default02 margin-top-20">
+                                    <table class="table_01" width=100% cellpadding=0 cellspacing=0>
+                                        <col style="width:16.6%;"/>
+                                        <col style="width:16.6%;"/>
+                                        <col style="width:16.6%;"/>
 
-                                    <tr>
-                                        <th>종류</th>
-                                        <th>숙련도</th>
-                                        <th>경험</th>
-
-                                    </tr>
-                                    <tbody id="skill_list">
-                                    @foreach($partner->job()->take(3)->get() as $job)
                                         <tr>
-                                            <td>{{ $job->job }} {{ $job->number }}</td>
-                                            <td>{{ $job->number }}</td>
-                                            <td>{{ $job->experience }}</td>
+                                            <th>종류</th>
+                                            <th>숙련도</th>
+                                            <th>경험</th>
+
                                         </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                        <tbody id="skill_list">
+                                        @foreach($partner->job()->take(3)->get() as $job)
+                                            <tr>
+                                                <td>{{ $job->job }} {{ $job->number }}</td>
+                                                <td>{{ $job->number }}</td>
+                                                <td>{{ $job->experience }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             @endif
                         </div>
-
-
-                        {{--<div class="job-tittle02">--}}
-                        {{--<h6 class="my_h6 margin-bottom-10 margin-top-20">학력</h6>--}}
-                        {{--<div class="panel02 panel-default02 margin-top-20">--}}
-                        {{--<div class="panel-heading03">--}}
-                        {{--<div class="row">--}}
-                        {{--<span class="col-xs-2"><strong>학교명</strong></span>--}}
-                        {{--<span class="col-xs-2"><strong>분류</strong></span>--}}
-                        {{--<span class="col-xs-2"><strong>전공</strong></span>--}}
-                        {{--<span class="col-xs-2"><strong>상태</strong></span>--}}
-                        {{--<span class="col-xs-2"><strong>입학일</strong></span>--}}
-                        {{--<span class="col-xs-2"><strong>졸업일</strong></span>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="panel-body03">--}}
-                        {{--<ul>--}}
-                        {{--<li class="row">--}}
-                        {{--<span class="col-xs-2">학력 학교명</span>--}}
-                        {{--<span class="col-xs-2">학사</span>--}}
-                        {{--<span class="col-xs-2">학력 전공</span>--}}
-                        {{--<span class="col-xs-2">졸업</span>--}}
-                        {{--<span class="col-xs-2">2016년 12월 30일</span>--}}
-                        {{--<span class="col-xs-2">2016년 12월 30일</span>--}}
-                        {{--</li>--}}
-                        {{--</ul>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
-                        {{--</div>--}}
 
 
                         <div class="job-tittle02 ">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">평가</h6>
                             <a href="{{ url('partner/'.$partner->user_id.'/review') }}" class="more_btn margin-top-20">더보기
                                 ></a>
-                            <div class="text-center panel-body">
+
+                            @if($eval->isEmpty())
+                                <div class="text-center panel-body">
                                 <p class="text-center padding-bottom-15"><i class="fa fa-comments fa-5x"></i></p>
                                 평가가 없습니다
-                            </div>
+                                </div>
+                            @endif
+                            @foreach($eval as $each_eval)
+                                <div class="panel02 panel-default02 margin-top-20">
+                                    <div class="panel-heading03">
+                                        <div>
+                                            <ul>
+                                                <li class="panel-heading03_title">{{$each_eval->project->title}}</li>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body04">
+                                        <ul>
+                                            <li class="col-xs-4"><i class="fa fa-calendar-minus-o"></i>
+                                                계약일 {{$each_eval->project->contract->contract_date}}
+                                            </li>
+                                            <li class="col-xs-4"><i class="fa fa-krw"></i>
+                                                계약금액 {{$each_eval->project->contract->contract_pay}}원
+                                            </li>
+                                            <li class="col-xs-4"><i class="fa fa-clock-o"></i>
+                                                계약기간 {{$each_eval->project->estimated_duration}}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-body05">
+                                        <ul>
+                                            <li>
+                                                <div>광고주 별점</div>
+                                                <div class="rating star-lg star-lg-{{round($each_eval->star,0)}}"></div>
+                                                <div>{{round($each_eval->star,1)}}</div>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="panel-body06">
+                                        <span><img class="partner_profile03" src="/images/p_img02.png"></span>
+                                        <div>
+                                            <span class="rd_box02">광고주</span><span><strong>{{$each_eval->project->client->nick}}</strong></span><br>
+                                            <span>{{$each_eval->evaluation}}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endforeach
 
                         </div>
-
-
-
 
 
                     </div>

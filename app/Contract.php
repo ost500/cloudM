@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use willvincent\Rateable\Rateable;
+
 
 /**
  * App\Contract
@@ -71,10 +71,13 @@ use willvincent\Rateable\Rateable;
  * @method static \Illuminate\Database\Query\Builder|\App\Contract whereStartPayGiveDate($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Contract whereMiddlePayGiveDate($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Contract whereFinishPayGiveDate($value)
+ 
+ * @property-read mixed $average_rating
+ * @property-read mixed $sum_rating
  */
 class Contract extends Model
 {
-    use Rateable;
+    
 
     public function project()
     {
@@ -84,4 +87,5 @@ class Contract extends Model
     {
         return $this->belongsTo('App\User', 'u_id', 'id');
     }
+
 }

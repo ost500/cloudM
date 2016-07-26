@@ -7,7 +7,7 @@
             <div>
                 <ul>
                     <li class="panel-heading03_title">{{$project->title}}</li>
-                    <li class="panel-heading03_title02">클라이언트 &nbsp; <strong>{{$project->client->nick}}</strong></li>
+
                 </ul>
             </div>
         </div>
@@ -33,13 +33,25 @@
                         <div>광고주 별점</div>
 
                         <select name="star" autofocus id="example">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            @if(!$eval == null)
+                                @for($i=1; $i<=5; $i++)
+                                    <option
+                                            @if($i == $eval->star)
+                                            selected
+                                            @endif
+                                            value="{{$i}}">{{$i}}</option>
+                                @endfor
+                            @else
+                                @for($i=1; $i<=5; $i++)
+                                    <option value="{{$i}}">{{$i}}</option>
+                                @endfor
+                            @endif
                         </select>
-                        <div id="star_value">{{ $contract->star }}</div>
+                        <div id="star_value">
+                            @if(!$eval == null)
+                                {{ $eval->star }}
+                            @endif
+                        </div>
 
                     </li>
                 </ul>
@@ -49,7 +61,8 @@
                 <span><img class="partner_profile03" src="{{ $project->client->profileImage }}"></span>
                 <div>
                     <span class="rd_box02">광고주</span><span><strong>{{ $project->client->nick }}</strong></span><br>
-                    <textarea name="evaluation" style="width:100%">{{ $contract->evaluation }}</textarea>
+                    <textarea name="evaluation"
+                              style="width:100%">@if(!$eval == null){{ $eval->evaluation }}@endif</textarea>
                 </div>
             </div>
             <button style="left:80%; margin-bottom: 10px" class="button008" type="submit" value="eval_form">등록</button>

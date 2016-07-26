@@ -105,5 +105,9 @@ class Project extends Model
     {
         return $this->hasMany('App\Comments', 'project_id', 'id');
     }
+    public function evaluation()
+    {
+        return $this->hasOne('App\Evaluation', 'project_id', 'id');
+    }
 
 }

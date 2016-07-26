@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Evaluation;
 use App\Partners;
 use App\Partners_job;
 use App\User;
@@ -203,13 +204,11 @@ class PartnerController extends Controller
         }
 
 
-
         $partners = $partners->filter(function ($value) {
             if ($value->partners->authenticated == true) {
                 return $value;
             }
         });
-
 
 
         $sorted = $partners->sortByDesc(function ($product, $key) {
@@ -232,8 +231,8 @@ class PartnerController extends Controller
 
     public function detail($id, Request $request)
     {
-        
-        if(Auth::check() == false){
+
+        if (Auth::check() == false) {
             session(['url_back2' => $request->url()]);
             return redirect('login');
         }
@@ -241,12 +240,23 @@ class PartnerController extends Controller
         $loginUser = Auth::user();
         $partner = User::find($id)->partners;
         $portfolios = $partner->portfolio->sortByDesc('updated_at')->sortByDesc('top')->take(3);
-        return view('partner/partner_detail', compact('loginUser', 'partner', 'portfolios'));
+        $eval = $partner->evaluation;
+
+        $sum = 0;
+        foreach ($eval as $each_eval) {
+
+            $sum = $sum + $each_eval->star;
+        }
+        $eval_count = $eval->count();
+        $eval_avg = $eval_count != 0 ? round($sum / $eval_count, 1) : 0;
+
+
+        return view('partner/partner_detail', compact('loginUser', 'partner', 'portfolios', 'eval_avg', 'eval_count', 'eval'));
     }
 
     public function intro($id)
     {
-        if(Auth::check() == false){
+        if (Auth::check() == false) {
             return redirect('login');
         }
         $partner = User::find($id)->partners;
@@ -255,7 +265,7 @@ class PartnerController extends Controller
 
     public function portfolio($id)
     {
-        if(Auth::check() == false){
+        if (Auth::check() == false) {
             return redirect('login');
         }
         $partner = User::find($id)->partners;
@@ -265,7 +275,7 @@ class PartnerController extends Controller
 
     public function portfolio_detail($user_id, $id)
     {
-        if(Auth::check() == false){
+        if (Auth::check() == false) {
             return redirect('login');
         }
         $partner = User::find($user_id)->partners;
@@ -277,7 +287,7 @@ class PartnerController extends Controller
 
     public function job($id)
     {
-        if(Auth::check() == false){
+        if (Auth::check() == false) {
             return redirect('login');
         }
         $partner = User::find($id)->partners;
@@ -286,10 +296,11 @@ class PartnerController extends Controller
 
     public function review($id)
     {
-        if(Auth::check() == false){
+        if (Auth::check() == false) {
             return redirect('login');
         }
         $partner = User::find($id)->partners;
-        return view('partner/partner_review', compact('partner'));
+        $eval = $partner->evaluation;
+        return view('partner/partner_review', compact('partner', 'eval'));
     }
 }

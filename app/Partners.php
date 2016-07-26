@@ -37,6 +37,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Partners whereProposalCheck($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Partners whereCompanyCheck($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Partners whereAuthenticated($value)
+ * @property integer $rank
+ * @method static \Illuminate\Database\Query\Builder|\App\Partners whereRank($value)
  */
 class Partners extends Model
 {
@@ -60,5 +62,10 @@ class Partners extends Model
     {
         return $this->hasMany('App\Portfolio', 'partner_id', 'id');
     }
+    public function evaluation()
+    {
+        return $this->hasMany('App\Evaluation', 'partner_id', 'id');
+    }
     
+
 }

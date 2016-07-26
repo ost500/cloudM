@@ -4,7 +4,7 @@
         <div class="container">
             <div class="coupen">
                 <p class="h3 text-bold"><span>{{ $project['title'] }}</span> 캠페인의 평가</p>
-                <p class="padding-top-10">캠페인의 계약 사항과 업무 내용을 한눈에 살펴 볼 수 있도록, 정리해 두었습니다.</p>
+                <p class="padding-top-10">진행한 캠페인에 대해서 평가해주세요.</p>
             </div>
 
             <div class="row padding-top-15">

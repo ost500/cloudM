@@ -50,7 +50,15 @@
                                             <td>{{ $doneItem->estimated_duration }}</td>
                                             <td>{{ $doneItem->deadline }}</td>
                                             <td>{{ $doneItem->step }}</td>
-                                            <td><a href="{{route("eval",['id'=> $doneItem->id])}}"><button class="btn btn-azure btn-sm">평가하기</button></a></td>
+                                            @if($doneItem->evaluation == null)
+                                                <td><a href="{{route("eval",['id'=> $doneItem->id])}}">
+                                                        <button class="btn btn-azure btn-sm">평가하기</button>
+                                                    </a></td>
+                                            @else
+                                                <td><a href="{{route("eval",['id'=> $doneItem->id])}}">
+                                                        <button class="btn btn-azure btn-sm">평가완료</button>
+                                                    </a></td>
+                                            @endif
 
 
                                         </tr>
