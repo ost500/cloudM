@@ -325,17 +325,14 @@
 </script>
 @if(Session::has('message'))
     <div class="alert alert-danger">
+        {{session('message')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
-        {{session('message')}}
+
     </div>
 
-    <script>
-        $(function () {
-            //alert('{{session('message')}}');
-        });
-    </script>
+
 @endif
 
 @yield('content')

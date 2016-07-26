@@ -2498,7 +2498,15 @@ header .navbar li.active a {
     width: 108px;
     height: 20px;
     display: inline-block;
-    margint-top:7px;
+
+    margin-right: 5px;
+    float: left;
+}
+.star-partner-detail {
+    width: 108px;
+    height: 20px;
+    display: inline-block;
+    margin-top: 4px;
     margin-right: 5px;
     float: left;
 }
@@ -5025,12 +5033,13 @@ ul.p_align02 {
 			Alert Boxes
 ========================================================*/
 .alert {
+    height: 38px;
     color: #fff;
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 15px;
     border: none;
     border-radius: 0px;
-    padding: 20px 30px;
+
     position: relative;
     font-weight: bold;
     letter-spacing: 1.5px;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Application;
 use App\Communication;
 use App\Contract;
+use App\Evaluation;
 use App\Interesting;
 use App\Project;
 use Auth;
@@ -185,20 +186,32 @@ class ProcessController extends Controller
         $loginUser = Auth::user();
         $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
         $contract = Contract::where('p_id', '=', $id)->get()->first();
+        $eval = Evaluation::where('project_id', $id)->get()->first();
 
-        return view('mypage.projects_process_client.evaluation', compact('loginUser', 'project', 'contract'));
+        return view('mypage.projects_process_client.evaluation', compact('loginUser', 'project', 'contract', 'eval'));
     }
 
     public function evaluation_post_client($id, Request $request)
     {
-        $contract = Contract::where('p_id', '=', $id)->get()->first();
-        $contract->star = $request->star;
-        $contract->evaluation = $request->evaluation;
-        $contract->save();
-        
-        Session::flash('message','평가가 등록 되었습니다');
+        $eval = Evaluation::where('project_id', $id);
 
-        return redirect()->back();
+        if ($eval->get()->isEmpty() == true) {
+            $eval = new Evaluation();
+            $eval->project_id = $id;
+            $eval->partner_id = Contract::where('p_id', $id)->first()->u_id;
+            $eval->star = $request->star;
+            $eval->evaluation = $request->evaluation;
+            $eval->save();
+
+        } else {
+            $eval->update(['star' => $request->star, 'evaluation' => $request->evaluation]);
+
+        }
+
+
+        Session::flash('message', '평가가 등록 되었습니다');
+
+        return redirect()->route('client_done');
     }
 
     public function cancel_client()

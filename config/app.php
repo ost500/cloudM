@@ -161,10 +161,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
         SocialiteProviders\Manager\ServiceProvider::class,
-
-        willvincent\Rateable\RateableServiceProvider::class,
-
-
+        
     ],
 
     /*

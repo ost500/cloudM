@@ -347,7 +347,7 @@ Route::post('/client/project/carryon/{id}/update',
 Route::post('/client/project/carryon/{id}/delete',
     ['as' => 'communication_delete', 'uses' => 'CommunicationController@communication_PC_delete']);
 //완료된 프로젝트
-Route::get('/client/project/done', 'ProcessController@done_client');
+Route::get('/client/project/done', ['as'=>'client_done','uses'=>'ProcessController@done_client']);
 //평가하기
 Route::get('/client/project/eval/{id}', ['as' => 'eval', 'uses' => 'ProcessController@evaluation_client'])
     ->where(['id' => '[0-9]+']);
