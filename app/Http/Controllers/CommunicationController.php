@@ -51,6 +51,7 @@ class CommunicationController extends Controller
         $proceeding = $projects->where('step', '=', '계약')
             ->union(Project::where('Client_id', '=', Auth::user()->id)->where('step', '=', '대금지급'))
             ->get();
+        
 
         return view('mypage.CommunicationPC.CommunicationPC_create', compact('loginUser', 'proceeding', 'p_id'));
     }

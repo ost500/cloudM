@@ -107,7 +107,7 @@
                         display_results.html("<img src={{ asset('images/ajax-loader.gif') }}>");
 
                         $.ajax({
-                            url: '{{ route('communication',['p_id' => $communi->project_id]) }}',
+                            url: '{{ route('communication',['p_id' => $p_id]) }}',
                             success: function (result) {
                                 display_results.html(result);
                             }

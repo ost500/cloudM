@@ -55,7 +55,7 @@
                                                         <button class="btn btn-azure btn-sm">평가하기</button>
                                                     </a></td>
                                             @else
-                                                <td><a href="{{route("eval",['id'=> $doneItem->id])}}">
+                                                <td><a>
                                                         <button class="btn btn-azure btn-sm">평가완료</button>
                                                     </a></td>
                                             @endif

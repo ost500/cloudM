@@ -245,10 +245,14 @@ class PartnerController extends Controller
         $sum = 0;
         foreach ($eval as $each_eval) {
 
-            $sum = $sum + $each_eval->star;
+            $sum = $sum + $each_eval->star_result;
         }
+
+
         $eval_count = $eval->count();
+
         $eval_avg = $eval_count != 0 ? round($sum / $eval_count, 1) : 0;
+
 
 
         return view('partner/partner_detail', compact('loginUser', 'partner', 'portfolios', 'eval_avg', 'eval_count', 'eval'));

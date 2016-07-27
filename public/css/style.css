@@ -6175,7 +6175,7 @@ input#comment_status {
     top: 0px;
     right: 0px;
     height: 13px !important;
-    width: 45px !important;
+    width: 60px !important;
     border: none;
     display: inline-block;
     letter-spacing: -1px;
@@ -6413,6 +6413,7 @@ span.rd_box02 {
     font-size: 11px;
     padding: 2px;
     margin-right: 5px;
+
 }
 
 .top-info .personal-info .notice-li {
@@ -6989,3 +6990,5 @@ ul.main_process li p.main_process_t{ font-size:14.2px; color:#828282; line-heigh
 .company_color li:last-child{margin-right:0px;}
 
 .upper {text-transform: uppercase;}
+
+.eval_form{ margin:30px;}

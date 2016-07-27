@@ -193,20 +193,24 @@ class ProcessController extends Controller
 
     public function evaluation_post_client($id, Request $request)
     {
-        $eval = Evaluation::where('project_id', $id);
-
-        if ($eval->get()->isEmpty() == true) {
-            $eval = new Evaluation();
-            $eval->project_id = $id;
-            $eval->partner_id = Contract::where('p_id', $id)->first()->u_id;
-            $eval->star = $request->star;
-            $eval->evaluation = $request->evaluation;
-            $eval->save();
-
-        } else {
-            $eval->update(['star' => $request->star, 'evaluation' => $request->evaluation]);
-
+        if(!Evaluation::where('project_id', $id)->get()->isEmpty()){
+            Session::flash('message', '평가가 이미 등록 되었습니다');
+            return redirect()->back();
         }
+
+        $eval = new Evaluation();
+        $eval->project_id = $id;
+        $eval->partner_id = Contract::where('p_id', $id)->first()->u_id;
+        $eval->star_result = $request->eval_star;
+        $eval->star = $request->star1;
+        $eval->star2 = $request->star2;
+        $eval->star3 = $request->star3;
+        $eval->star4 = $request->star4;
+        $eval->star5 = $request->star5;
+
+
+        $eval->evaluation = $request->evaluation;
+        $eval->save();
 
 
         Session::flash('message', '평가가 등록 되었습니다');
