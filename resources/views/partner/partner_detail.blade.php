@@ -9,7 +9,7 @@
             <div class="panel-group">
                 <div class="panel panel-default">
                     <!-- PANEL HEADING -->
-                    <div class="panel-heading">
+                    <div class="">
 
 
                         <div class="job-tittle02">
@@ -91,7 +91,7 @@
 
                         <div class="job-tittle02 txt_color_g">
                             <h6 class="my_h6 margin-bottom-10 margin-top-20">자기소개</h6>
-                            <a href="{{ url('partner/'.$partner->user_id.'/intro') }}" class="more_btn margin-top-20">더보기></a>
+                            <a href="{{ url('partner/'.$partner->user_id.'/intro') }}" class="more_btn margin-top-20">더보기 ></a>
 
                             @if(!$partner->intro)
                                 <div class="text-center panel-body">
@@ -195,8 +195,8 @@
 
                             @if($eval->isEmpty())
                                 <div class="text-center panel-body">
-                                <p class="text-center padding-bottom-15"><i class="fa fa-comments fa-5x"></i></p>
-                                평가가 없습니다
+                                    <p class="text-center padding-bottom-15"><i class="fa fa-comments fa-5x"></i></p>
+                                    평가가 없습니다
                                 </div>
                             @endif
                             @foreach($eval as $each_eval)
@@ -222,12 +222,93 @@
                                                 계약기간 {{$each_eval->project->estimated_duration}}</li>
                                         </ul>
                                     </div>
+                                    <div class="panel-body04">
+                                        <ul>
+                                            <li class="col-xs-1"></li>
+                                            <li class="col-xs-2">
+                                                <div>캠페인만족도</div>
+                                                <select name="star1" autofocus id="{{$each_eval->id."_1"}}">
+                                                    @for($i=1; $i<=5; $i++)
+                                                        <option value="{{$i}}">{{$i}}</option>
+                                                    @endfor
+                                                </select>
+                                            </li>
+                                            <li class="col-xs-2">
+                                                <div>커뮤니케이션</div>
+                                                <select name="star2" id="{{$each_eval->id."_2"}}">
+                                                    @for($i=1; $i<=5; $i++)
+                                                        <option value="{{$i}}">{{$i}}</option>
+                                                    @endfor
+                                                </select></li>
+                                            <li class="col-xs-2">
+                                                <div>전문성</div>
+                                                <select name="star3" id="{{$each_eval->id."_3"}}">
+                                                    @for($i=1; $i<=5; $i++)
+                                                        <option value="{{$i}}">{{$i}}</option>
+                                                    @endfor
+                                                </select></li>
+                                            <li class="col-xs-2">
+                                                <div>책임감</div>
+                                                <select name="star4" id="{{$each_eval->id."_4"}}">
+                                                    @for($i=1; $i<=5; $i++)
+                                                        <option value="{{$i}}">{{$i}}</option>
+                                                    @endfor
+                                                </select></li>
+                                            <li class="col-xs-2">
+                                                <div>일정준수</div>
+                                                <select name="star5" id="{{$each_eval->id."_5"}}">
+                                                    @for($i=1; $i<=5; $i++)
+                                                        <option value="{{$i}}">{{$i}}</option>
+                                                    @endfor
+                                                </select></li>
+
+                                        </ul>
+                                    </div>
+
+                                    <link rel="stylesheet"
+                                          href="{{asset('js/jquery-bar-rating/dist/themes/fontawesome-stars.css')}}">
+                                    <script src="{{asset('js/jquery-bar-rating/dist/jquery.barrating.min.js')}}"></script>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#{{$each_eval->id."_1"}}').barrating({
+                                                theme: 'fontawesome-stars',
+                                                readonly: true,
+                                                initialRating: "{{$each_eval->star}}"
+                                            });
+                                            $('#{{$each_eval->id."_2"}}').barrating({
+                                                theme: 'fontawesome-stars',
+                                                readonly: true,
+                                                initialRating: "{{$each_eval->star2}}"
+                                            });
+                                            $('#{{$each_eval->id."_3"}}').barrating({
+                                                theme: 'fontawesome-stars',
+                                                readonly: true,
+                                                initialRating: "{{$each_eval->star3}}"
+                                            });
+                                            $('#{{$each_eval->id."_4"}}').barrating({
+                                                theme: 'fontawesome-stars',
+                                                readonly: true,
+                                                initialRating: "{{$each_eval->star4}}"
+                                            });
+                                            $('#{{$each_eval->id."_5"}}').barrating({
+                                                theme: 'fontawesome-stars',
+                                                readonly: true,
+                                                initialRating: "{{$each_eval->star5}}"
+                                            });
+
+
+                                            $("#star_value").html(1);
+                                            $("#input_star").val(1);
+
+                                        });
+                                    </script>
+
                                     <div class="panel-body05">
                                         <ul>
                                             <li>
                                                 <div>광고주 별점</div>
-                                                <div class="rating star-lg star-lg-{{round($each_eval->star,0)}}"></div>
-                                                <div>{{round($each_eval->star,1)}}</div>
+                                                <div class="rating star-lg star-lg-{{round($each_eval->star_result,0)}}"></div>
+                                                <div>{{$each_eval->star_result}}</div>
                                             </li>
                                         </ul>
                                     </div>
