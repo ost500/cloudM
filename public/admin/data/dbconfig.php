@@ -1,19 +1,20 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT']."/../admin_dbconfig.php");
 
-$g5['admin_table'] = 'g5_member'; // °ü¸®ÀÚ Å×ÀÌºí
-$g5['partner_table'] = 'partners'; // ÆÄÆ®³Ê Å×ÀÌºí
-$g5['client_table'] = 'clients'; // Å¬¶óÀÌ¾ðÆ® Å×ÀÌºí
-$g5['project_table'] = 'projects'; // ÇÁ·ÎÁ§Æ® Å×ÀÌºí
-$g5['application_table'] = 'applications'; // Áö¿ø ¸ñ·Ï Å×ÀÌºí
-$g5['contract_table'] = 'contracts'; // Áö¿øÀÚ ¼±Á¤ Å×ÀÌºí
-$g5['file_table'] = 'projects_proposals'; // Á¦¾È¼­/°ßÀû¼­ Å×ÀÌºí
-$g5['area_table'] = 'projects_areas'; // ºÐ¾ß Å×ÀÌºí
-$g5['portfolio_table'] = 'portfolios'; // Æ÷Æ®Æú¸®¿À Å×ÀÌºí
-$g5['faq_table'] = 'faqs'; // ÀÚÁÖÇÏ½Ã´Â Áú¹® Å×ÀÌºí
-$g5['faq_master_table'] = 'faq_masters'; // ÀÚÁÖÇÏ½Ã´Â Áú¹® ¸¶½ºÅÍ Å×ÀÌºí
-$g5['mantomen_table'] = 'man_to_men'; // 1:1¹®ÀÇ Å×ÀÌºí
-$g5['notice_table'] = 'notifications'; // °øÁö»çÇ× Å×ÀÌºí
-$g5['news_table'] = 'news'; // ¾ð·Ðº¸µµ Å×ÀÌºí
-$g5['comment_table'] = 'comments'; // ´ñ±Û Å×ÀÌºí
+$g5['admin_table'] = 'g5_member'; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['partner_table'] = 'partners'; // ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['client_table'] = 'clients'; // Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ìºï¿½
+$g5['project_table'] = 'projects'; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ìºï¿½
+$g5['application_table'] = 'applications'; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['contract_table'] = 'contracts'; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['file_table'] = 'projects_proposals'; // ï¿½ï¿½ï¿½È¼ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['area_table'] = 'projects_areas'; // ï¿½Ð¾ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['portfolio_table'] = 'portfolios'; // ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['faq_table'] = 'faqs'; // ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['faq_master_table'] = 'faq_masters'; // ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['mantomen_table'] = 'man_to_men'; // 1:1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['notice_table'] = 'notifications'; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['news_table'] = 'news'; // ï¿½ï¿½Ðºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['comment_table'] = 'comments'; // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½
+$g5['check_list'] = 'check_lists';
 ?>

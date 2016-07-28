@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Application;
+use App\CheckList;
 use App\Communication;
 use App\Contract;
 use App\Evaluation;
@@ -106,12 +107,14 @@ class ProcessController extends Controller
         $loginUser = Auth::user();
         $project = Project::where('Client_id', '=', Auth::user()->id)->where('id', '=', $id)->get()->first();
         $contract = Contract::where('p_id', '=', $id)->get()->first();
+        $check_list_checked = CheckList::where('project_id', $id)->where('checked',1)->get();
+        $check_list_unchecked = CheckList::where('project_id', $id)->where('checked',0)->get();
 
         $pay['start'] = ($contract->start_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->start_pay_ratio) / 100)) : 0;
         $pay['middle'] = ($contract->middle_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->middle_pay_ratio) / 100)) : 0;
         $pay['finish'] = ($contract->finish_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->finish_pay_ratio) / 100)) : 0;
 
-        return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
+        return view('mypage.projects_process_client.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay','check_list_checked','check_list_unchecked'));
     }
 
     public function carry_on_pay_request(Request $request, $id)
@@ -193,7 +196,7 @@ class ProcessController extends Controller
 
     public function evaluation_post_client($id, Request $request)
     {
-        if(!Evaluation::where('project_id', $id)->get()->isEmpty()){
+        if (!Evaluation::where('project_id', $id)->get()->isEmpty()) {
             Session::flash('message', '평가가 이미 등록 되었습니다');
             return redirect()->back();
         }

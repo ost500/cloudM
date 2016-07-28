@@ -20,7 +20,6 @@ class CreateController extends Controller
 
     public function __construct()
     {
-        session(['url_back2' => url('p_add/1')]);
         $this->middleware('auth');
     }
 
@@ -86,8 +85,8 @@ class CreateController extends Controller
         $input->charger_name = $request->name;
         $input->charger_phone = $request->phone;
 
-        $request->money = str_replace(',','', $request->money);
-        $request->money = str_replace('��','', $request->money);
+        $request->money = str_replace(',', '', $request->money);
+        $request->money = str_replace('��', '', $request->money);
 
 
         //$input->area = $request->area;
@@ -128,13 +127,13 @@ class CreateController extends Controller
             $areas->save();
         }
 
-        $mail_data = array('email'=> $user->email,'name'=>$user->name,'title'=>$input->title);
-echo $mail_data['title'].$mail_data['email'].$mail_data['name'];
+        $mail_data = array('email' => $user->email, 'name' => $user->name, 'title' => $input->title);
+        echo $mail_data['title'] . $mail_data['email'] . $mail_data['name'];
 
         Mail::queue('mail.p_add_verifying_mail', ['project_name' => $mail_data['title']],
             function ($message) use ($mail_data) {
                 $message->to($mail_data['email'], $mail_data['name'])
-                    ->subject('[패스트엠] "'.$mail_data['title'].'"캠페인 검수 중입니다');
+                    ->subject('[패스트엠] "' . $mail_data['title'] . '"캠페인 검수 중입니다');
             });
     }
 
@@ -143,7 +142,7 @@ echo $mail_data['title'].$mail_data['email'].$mail_data['name'];
         $update_project = Project::find($id);
 //        return view('p_detail_update', compact('update_project'));
         $update_project_area = $update_project->projects_area->keyBy('area');
-        return view('project/project_detail_update', compact('update_project','update_project_area'));
+        return view('project/project_detail_update', compact('update_project', 'update_project_area'));
     }
 
     public function update_project(Request $request)
@@ -163,7 +162,7 @@ echo $mail_data['title'].$mail_data['email'].$mail_data['name'];
         $update_project->category = $request->category;
         $update_project->save();
 
-        ProjectsArea::where('p_id',$request->id)->delete();
+        ProjectsArea::where('p_id', $request->id)->delete();
 
         for ($i = 0; $i < sizeof($request->area); $i++) {
             $areas = new ProjectsArea();
