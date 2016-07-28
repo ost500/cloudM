@@ -17,7 +17,7 @@
                     <label class="col-sm-2 control-label"><span class="symbol required"></span> 제목 </label>
                     <div class="col-sm-8">
 
-                        <input autofocus type="text" class="form-control"
+                        <input id="title_com" autofocus type="text" class="form-control"
                                name="title"
                                aria-required="true"
                                aria-describedby="title-error">
@@ -32,7 +32,7 @@
                 <div class="form-group margin-top-20">
                     <label class="col-sm-2 control-label"><span class="symbol required"></span> 내용 </label>
                     <div class="col-sm-8">
-                            <textarea name="description" class="form-control"
+                            <textarea id="description_com" name="description" class="form-control"
                                       rows=20 aria-required="true"
                                       aria-describedby="description-error"
                                       aria-invalid="false"></textarea>
@@ -73,8 +73,7 @@
                             <label class="upload_button"
                                    for="ex_filename">파일 업로드</label>
                             <input name="image1" type="file"
-                                   id="ex_filename"
-                                   accept="jpg,jpeg,png,gif">
+                                   id="ex_filename">
                             <span id="image1-error"
                                   class="help-block valid"
                                   style="display: none;"></span>
@@ -91,13 +90,14 @@
 
                 <div class="form-group margin-top-50 margin-bottom-20">
                     <div class="col-sm-offset-5 col-sm-10">
-                        <button class="btn btn-dark-azure" type="submit">
+                        <button class="btn btn-dark-azure" id="submit_btn" type="submit">
                             등록
                         </button>
 
-                        <button id="list" class="btn btn-danger" type="button">
+                        <button id="list" class="btn btn-danger">
                             취소
-                        </button></a>
+                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -121,16 +121,18 @@
     </div>
 </div>
 
-<script>
-    $(function () {
 
+<script>
+
+    $(function () {
+        var data;
 
         $('#form').submit(function (event) {
             event.preventDefault();
             var formData = $('#form').serialize();
 
             var display_results = $("#communication_board");
-            display_results.html("<img src={{ asset('images/ajax-loader.gif') }}>");
+
 
             $.ajax({
                 type: 'POST',
@@ -141,10 +143,28 @@
                 success: function (data2) {
 
                     display_results.html(data2);
-
-
                 },
                 error: function (data2) {
+
+                    console.log(data2.responseJSON.title);
+                    if (data2.responseJSON.title) {
+                        $("#title_com").closest('.help-block').removeClass('valid');
+                        // display OK icon
+                        $("#title_com").closest('.form-group').removeClass('has-success').addClass('has-error').find('.symbol').removeClass('ok').addClass('required');
+                        // add the Bootstrap error class to the control group
+                    }
+                    if (data2.responseJSON.description) {
+                        $("#description_com").closest('.help-block').removeClass('valid');
+                        // display OK icon
+                        $("#description_com").closest('.form-group').removeClass('has-success').addClass('has-error').find('.symbol').removeClass('ok').addClass('required');
+                        // add the Bootstrap error class to the control group
+                    }
+                    if (data2.responseJSON.image1) {
+                        $("#image1").closest('.help-block').removeClass('valid');
+                        // display OK icon
+                        $("#image1").closest('.form-group').removeClass('has-success').addClass('has-error').find('.symbol').removeClass('ok').addClass('required');
+                        // add the Bootstrap error class to the control group
+                    }
 
 
                 }
@@ -152,7 +172,6 @@
 
         });
     });
-
 
 </script>
 

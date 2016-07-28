@@ -123,7 +123,8 @@ $colspan = 16;
                 <th scope="col" rowspan="2" id="project_list_mng">설명</th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('deadline', '', 'desc') ?>지원 마감일</a></th>
                 <th scope="col" id="project_list_lastcall"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>등록시간</a></th>
-                <th scope="col" rowspan="2" id="project_list_mng">지원자</th>
+                <th scope="col" id="project_list_mng">지원자</th>
+
             </tr>
             <tr>
                 <th scope="col" id="project_list_nick"><?php echo subject_sort_link('email') ?>이메일</a></th>
@@ -132,6 +133,7 @@ $colspan = 16;
                 <th scope="col" id="project_list_tel">등록 사유</th>
                 <th scope="col" id="project_list_join"><?php echo subject_sort_link('expected_start_date', '', 'desc') ?>예상 시작일</a></th>
                 <th scope="col" id="project_list_join"><?php echo subject_sort_link('mb_datetime', '', 'desc') ?>승인시간</a></th>
+                <th scope="col" id="project_list_mng">체크리스트</th>
             </tr>
             </thead>
             <tbody>
@@ -170,7 +172,7 @@ $colspan = 16;
                     <td rowspan="2" class="td_intro"><?php echo cut_str($row[detail_content], 140); ?></td>
                     <td class="td_date"><?php echo $row['deadline'] ?></td>
                     <td class="td_date"><?php echo $row['created_at'] ?></td>
-                    <td class="td_mngsmall" rowspan=2><a href="applications.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>"><?=number_format($row[applications_cnt])?>명</a> <?php echo $s_grp ?></td>
+                    <td class="td_mngsmall"><a href="applications.php?p_id=<?=$row[project_id]?>&page=<?=$page?>&step=<?=$step?>"><?=number_format($row[applications_cnt])?>명</a> <?php echo $s_grp ?></td>
                 </tr>
                 <tr class="<?php echo $bg; ?>">
                     <td class="td_80"><?php echo get_text($row['email']); ?></td>
@@ -179,6 +181,7 @@ $colspan = 16;
                     <td class="td_date"><?php echo $row['reason']; ?></td>
                     <td class="td_date"><?php echo $row['expected_start_date']; ?></td>
                     <td class="td_date"><?php echo $row[updated_at]; ?></td>
+                    <td class="td_mngsmall">보기</td>
                 </tr>
 
                 <?php
