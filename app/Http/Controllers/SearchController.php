@@ -10,12 +10,14 @@ use App\Interesting;
 use App\Project;
 
 use App\ProjectsArea;
+use DateTime;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Mail;
+use Session;
 
 
 class SearchController extends Controller
@@ -293,6 +295,20 @@ class SearchController extends Controller
     public
     function postcomment(Request $request, $com_id)
     {
+        if (Session::has('comment_lock')) {
+            if (Session::get('comment_lock') > date('H:i:s')) {
+                Session::flash('message', "1분 후에 댓글을 작성하실 수 있습니다");
+                return redirect()->back();
+            }
+            Session::pull('comment_lock');
+
+        } else {
+            $lock_time = new Datetime();
+            $lock_time = $lock_time->modify("+1 minutes");
+            Session::put('comment_lock', $lock_time->format('H:i:s'));
+        }
+
+
         $input = new Comments();
         $input->project_id = $request->input('project_id');
         $input->comment = $request->input('comment');
