@@ -353,12 +353,14 @@ class ProcessController extends Controller
         //진행 중인 프로젝트
         $contract = Contract::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $id)->get()->first();
         $project = Project::where('id', '=', $contract->p_id)->get()->first();
+        $check_list_checked = CheckList::where('project_id', $id)->where('checked',1)->get();
+        $check_list_unchecked = CheckList::where('project_id', $id)->where('checked',0)->get();
 
         $pay['start'] = ($contract->start_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->start_pay_ratio) / 100)) : 0;
         $pay['middle'] = ($contract->middle_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->middle_pay_ratio) / 100)) : 0;
         $pay['finish'] = ($contract->finish_pay_ratio) ? @number_format(($contract->contract_pay * ($contract->finish_pay_ratio) / 100)) : 0;
 
-        return view('mypage.projects_process_partner.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay'));
+        return view('mypage.projects_process_partner.carry_on_detail', compact('loginUser', 'project', 'contract', 'pay','check_list_checked','check_list_unchecked'));
     }
 
     public function done_partner()

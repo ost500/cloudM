@@ -8,8 +8,11 @@ use App\Project;
 use App\Contract;
 use App\Interesting;
 
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Session;
 use Validator;
 
 
@@ -22,6 +25,9 @@ class AppController extends Controller
 
     public function application_form($id)
     {
+
+
+
         $user = Auth::user();
         $partners = $user->partners;
 
@@ -30,8 +36,8 @@ class AppController extends Controller
             return redirect("detail/$id");
         }
 
-        $proposal_file = public_path().$partners->proposal_file_name;
-        $company_file = public_path().$partners->company_file_name;
+        $proposal_file = public_path() . $partners->proposal_file_name;
+        $company_file = public_path() . $partners->company_file_name;
 
         $partnerFile['proposal'] = false;
         $partnerFile['company'] = false;
@@ -42,12 +48,11 @@ class AppController extends Controller
 
             if ($partners->proposal_check) {
                 $partnerFile['proposal_origin_name'] = $partners->proposal_origin_name;
-                $partnerFile['proposal_link'] = "profile/proposal/download/".$user->id;
+                $partnerFile['proposal_link'] = "profile/proposal/download/" . $user->id;
             } else {
                 $partnerFile['proposal_origin_name'] = "패스트엠 검수중";
             }
         }
-
 
 
         if ($partners->company_file_name && file_exists($company_file)) {
@@ -55,15 +60,13 @@ class AppController extends Controller
 
             if ($partners->company_check) {
                 $partnerFile['company_origin_name'] = $partners->company_origin_name;
-                $partnerFile['company_link'] = "profile/company/download/".$user->id;
+                $partnerFile['company_link'] = "profile/company/download/" . $user->id;
             } else {
                 $partnerFile['company_origin_name'] = "패스트엠 검수중";
             }
         }
 
         $detailProject = Project::where('id', '=', $id)->get();
-
-
 
 
         $client_id = $detailProject->first()->Client_id;
@@ -89,6 +92,19 @@ class AppController extends Controller
 
     public function application_post(Request $request, $pid)
     {
+        if (Session::has('app_lock')) {
+            if (Session::get('app_lock') > date('H:i:s')) {
+                Session::flash('message', "1분 후에 지원하실 수 있습니다");
+                return redirect()->back();
+            }
+            Session::pull('app_lock');
+
+        } else {
+            $lock_time = new Datetime();
+            $lock_time = $lock_time->modify("+1 minutes");
+            Session::put('app_lock', $lock_time->format('H:i:s'));
+        }
+
         $request->has_portfolio;
 
         $newApp = new Application();
@@ -112,7 +128,7 @@ class AppController extends Controller
             $newApp->file_name = $path;
             $newApp->origin_name = $request->file('application_attach')->getClientOriginalName();
         } else {
-            $newApp->choice = "광고주 검수중";
+            $newApp->choice = "관리자 검수중";
         }
 
         $newApp->save();
@@ -136,7 +152,7 @@ class AppController extends Controller
         $validator = Validator::make(
             ['file' => $request->application_attach,
             ],
-            ['file' => ['required', 'mimes:zip','max:10240'],
+            ['file' => ['required', 'mimes:zip', 'max:10240'],
 
             ],
             ['required' => '필수 입력 입니다',

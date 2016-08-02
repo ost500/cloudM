@@ -63,7 +63,10 @@
 
     </script>
 
-    <script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script> <script type="text/javascript"> if(!wcs_add) var wcs_add = {}; wcs_add["wa"] = "9949e0a591c558"; wcs_do(); </script>
+    <script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript"> if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "9949e0a591c558";
+        wcs_do(); </script>
 
     <title>마케팅주치의 패스트엠</title>
 
@@ -324,13 +327,18 @@
 
 </script>
 @if(Session::has('message'))
-    <div class="alert alert-danger">
+    <div id="msg" class="alert alert-danger">
         {{session('message')}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
 
     </div>
+    <script>
+        $(function () {
+            $("#msg").focus();
+        });
+    </script>
 
 
 @endif
