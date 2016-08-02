@@ -160,7 +160,10 @@
                                                 <div class="port_guide img_f">
                                                     <img src="/images/i_icon.png" style="margin-top:12px;">
                                                     <p><span class="title">[프로젝트 지원 안내]</span>
-                                                    <div class="content">1. 프로젝트 지원시 <strong>회사소개서</strong>, <strong>기본제안서</strong>를 등록하시고,<br><strong>맞춤 제안서</strong>를 함께 제출 하시면 선택 확률이 더 높아 집니다..</div></p>
+                                                    <div class="content">1. 프로젝트 지원시 <strong>회사소개서</strong>, <strong>기본제안서</strong>를
+                                                        등록하시고,<br><strong>맞춤 제안서</strong>를 함께 제출 하시면 선택 확률이 더 높아 집니다..
+                                                    </div>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -170,13 +173,18 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label"><span class="symbol required"></span> 지원내용 </label>
+                                            <label class="col-sm-2 control-label"><span class="symbol required"></span>
+                                                지원내용 </label>
                                             <div class="col-sm-10">
-                                                <textarea autofocus name="contents"
-                                                          class="form-control"
-                                                          rows=10 aria-required="true"
-                                                          placeholder="업체명, URL, 이메일, 연락처 등을 게시하지 마세요. 지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
-                                                        ></textarea>
+                                                <textarea
+                                                        @if(!Session::has('message'))
+                                                        autofocus
+                                                        @endif
+                                                        name="contents"
+                                                        class="form-control"
+                                                        rows=10 aria-required="true"
+                                                        placeholder="업체명, URL, 이메일, 연락처 등을 게시하지 마세요. 지원서는 관리자 검수 후에 광고주에게 노출 됩니다."
+                                                ></textarea>
                                                 <p class="text-small validation-error">
                                                     업체명, URL, 이메일, 연락처 등을 게시하는 경우 서비스 이용에 제재를 받을 수 있습니다.
                                                 </p>
@@ -184,24 +192,26 @@
                                         </div>
 
                                         <div class="form-group margin-top-20">
-                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 포트폴리오 </label>
+                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 포트폴리오
+                                            </label>
                                             <div class="col-sm-10">
                                                 <div class="radio">
                                                     <input type="radio" id="radio1"
-                                                        name="has_portfolio" value="true"><label
-                                                        for="radio1">관련 포트폴리오가 있습니다</label>
+                                                           name="has_portfolio" value="true"><label
+                                                            for="radio1">관련 포트폴리오가 있습니다</label>
 
                                                     <input type="radio" id="radio2"
-                                                       name="has_portfolio"
-                                                       checked="checked" value="false"><label
-                                                        for="radio2">관련 포트폴리오가 없습니다</label>
+                                                           name="has_portfolio"
+                                                           checked="checked" value="false"><label
+                                                            for="radio2">관련 포트폴리오가 없습니다</label>
                                                 </div>
                                             </div>
                                         </div>
 
 
                                         <div class="form-group margin-top-40">
-                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 서류</label>
+                                            <label class="col-sm-2 control-label"><span class="symbol"></span>
+                                                서류</label>
                                             <div class="col-sm-10">
                                                 <table class="table_04">
                                                     <col style="width:20%;"/>
@@ -232,7 +242,8 @@
                                         </div>
 
                                         <div class="form-group margin-top-20">
-                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 맞춤제안서 </label>
+                                            <label class="col-sm-2 control-label"><span class="symbol"></span> 맞춤제안서
+                                            </label>
                                             <div class="col-sm-10">
                                                 <input class="form-control" type="file"
                                                        name="application_attach"
@@ -241,9 +252,9 @@
                                         </div>
 
                                         <div class="form-group text-center margin-top-50">
-                                                <button class="btn btn-sm btn-dark-azure" type="submit">
-                                                    지원하기
-                                                </button>
+                                            <button class="btn btn-sm btn-dark-azure" type="submit">
+                                                지원하기
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
