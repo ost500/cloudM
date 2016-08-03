@@ -5039,7 +5039,8 @@ ul.p_align02 {
     font-size: 15px;
     border: none;
     border-radius: 0px;
-
+    padding:10px;
+    text-align:center;
     position: relative;
     font-weight: bold;
     letter-spacing: 1.5px;
