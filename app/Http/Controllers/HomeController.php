@@ -55,6 +55,10 @@ class HomeController extends Controller
             $App = Application::all();
             return view('admin.home', compact('App'));
         }
+        if($id == 4){
+            $projects = Project::all();
+            return view('admin.email_control', compact('projects'));
+        }
 
 
         return view('admin.home');
@@ -94,7 +98,7 @@ class HomeController extends Controller
     public function show_new_project_email($id)
     {
         $pro = Project::find($id);
-        return view('mail.new_project_mail', compact('pro'));
+        return view('mail.new_project_client_mail', compact('pro'));
     }
 
 
