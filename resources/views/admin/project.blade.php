@@ -15,6 +15,7 @@
                 <th>파트너</th>
                 <th>진행</th>
                 <th>변경</th>
+                <th>게시 메일 보내기</th>
             </tr>
             </thead>
             <tbody>
@@ -42,6 +43,7 @@
                             </ul>
                         </div>
                     </td>
+                    <td><a href = "{{ url("/new_project_send_email/".$pro->id) }}"><button class="btn btn-default">메일 보내기</button></a></td>
 
                 </tr>
             @endforeach

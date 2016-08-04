@@ -418,3 +418,9 @@ Route::get('/test_email2', function () {
 Route::get('/test_email_comment', function () {
     return view('mail/comment_mail', ['project_name' => 'aaa']);
 });
+
+
+
+
+
+Route::get('/new_project_send_email/{id}','HomeController@new_project_send_email');

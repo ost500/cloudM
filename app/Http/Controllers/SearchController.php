@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ShowProjectEmail;
 use App\User;
 use App\Client;
 use App\Comments;
@@ -368,6 +369,12 @@ class SearchController extends Controller
         $new_inter->u_id = Auth::user()->id;
         $new_inter->save();
         return redirect('/partner/project/interesting');
+    }
+
+    public function queue_test()
+    {
+        $this->dispatch(new ShowProjectEmail());
+        return 'good';
     }
 
 }
