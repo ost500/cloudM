@@ -79,6 +79,7 @@
                     </a></li>
                 <li><a href="{{ url("/admin/2") }}">사용자</a></li>
                 <li><a href="{{ url("/admin/3") }}">프로젝트 지원목록</a></li>
+                <li><a href="{{ url("/admin/4") }}">이메일 컨트롤러</a></li>
 
             </ul>
             <ul class="nav nav-sidebar">

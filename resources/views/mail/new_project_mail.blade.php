@@ -13,7 +13,7 @@
 
 
     .table_001 td.left {
-        text-align: left !important;;
+        text-align: left !important;
     }
 </style>
 
@@ -52,7 +52,7 @@
 
 
                                             <strong style="color:#1099DD">새로운 마케팅
-                                                캠페인</strong>가 아래와 같이 등록되어 안내 드립니다.<br>방문 하셔서 지원해 보시기 바랍니다.</p>
+                                                캠페인</strong>이 아래와 같이 등록되어 안내 드립니다.<br>방문 하셔서 지원해 보시기 바랍니다.</p>
                                     </td>
                                 </tr>
                                 <tr>

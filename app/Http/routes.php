@@ -419,8 +419,8 @@ Route::get('/test_email_comment', function () {
     return view('mail/comment_mail', ['project_name' => 'aaa']);
 });
 
+Route::get('/queue_test', 'SearchController@queue_test');
 
-
-
+Route::get('/show_new/{id}','HomeController@show_new_project_email');
 
 Route::get('/new_project_send_email/{id}','HomeController@new_project_send_email');

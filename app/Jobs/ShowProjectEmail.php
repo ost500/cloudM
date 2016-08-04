@@ -45,12 +45,30 @@ class ShowProjectEmail extends Job implements ShouldQueue
             $mailer->send('mail.new_project_mail', ['pro' => $this->pro], function ($message) use ($user) {
                 $message->from('help@fastm.io', '패스트엠');
                 $message->to($user->user->email, $user->user->name)
-                    ->subject("[패스트엠] 새로운 프로젝트가 등록되었습니다");
+                    ->subject("[패스트엠]새로운 캠페인이 등록되었습니다");
             });
             $email_log->who = $email_log->who . $user->user->email . " / ";
             $email_log->numbers = $email_log->numbers + 1;
-
         }
+        $email_log->save();
+
+
+        $email_log = new EmailLog();;
+        $email_log->content = "[패스트엠]회원님 캠페인의 지원자 모집이 시작됐습니다" . $this->pro->title;
+        $email_log->project_id = $this->pro->id;
+
+        $project = $this->pro;
+
+        $mailer->send('mail.new_project_client_mail', ['pro' => $this->pro], function ($message) use ($project) {
+            $message->from('help@fastm.io', '패스트엠');
+            $message->to($project->client->email, $project->client->name)
+                ->subject("[패스트엠]회원님 캠페인의 지원자 모집이 시작됐습니다");
+        });
+
+
+        $email_log->who = $email_log->who . $this->pro->client->email . " / ";
+        $email_log->numbers = $email_log->numbers + 1;
+
         $email_log->save();
 
 
