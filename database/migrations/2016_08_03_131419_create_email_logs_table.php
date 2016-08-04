@@ -14,6 +14,10 @@ class CreateEmailLogsTable extends Migration
     {
         Schema::create('email_logs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('project_id')->unsigned()->index();
+            $table->foreign('project_id')
+                ->references('id')->on('projects')
+                ->onDelete('cascade');
             $table->timestamps();
             $table->string('content',255);
             $table->text('who');

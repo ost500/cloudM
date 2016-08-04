@@ -39,6 +39,7 @@ class ShowProjectEmail extends Job implements ShouldQueue
     {
         $email_log = new EmailLog();;
         $email_log->content = "[패스트엠] 새로운 프로젝트가 등록되었습니다/" . $this->pro->title;
+        $email_log->project_id = $this->pro->id;
 
         foreach ($this->partner_users as $user) {
             $mailer->send('mail.new_project_mail', ['pro' => $this->pro], function ($message) use ($user) {
@@ -46,7 +47,7 @@ class ShowProjectEmail extends Job implements ShouldQueue
                 $message->to($user->user->email, $user->user->name)
                     ->subject("[패스트엠] 새로운 프로젝트가 등록되었습니다");
             });
-            $email_log->who = $email_log->who . $user->user->email." / ";
+            $email_log->who = $email_log->who . $user->user->email . " / ";
             $email_log->numbers = $email_log->numbers + 1;
 
         }
