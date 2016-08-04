@@ -43,7 +43,7 @@
                             </ul>
                         </div>
                     </td>
-                    <td><a href = "{{ url("/new_project_send_email/".$pro->id) }}"><button class="btn btn-default">메일 보내기</button></a></td>
+                    <td><a href = "{{ url("/new_project_send_email/".$pro->id) }}"><button class="btn btn-default">메일 보내기</button></a>{{$pro->email_sent->count()}}회 보냄</td>
 
                 </tr>
             @endforeach

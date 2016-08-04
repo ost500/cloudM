@@ -179,7 +179,7 @@ class AuthController extends Controller
         }
         $this->create($request->all());
 
-        Session::flash('message', $request->email . '로 인증 메일을 발송해 드렸습니다.\n이메일 인증 후 회원가입이 완료 됩니다.');
+        Session::flash('message', $request->email . '로 인증 메일을 발송해 드렸습니다. 이메일 인증 후 회원가입이 완료 됩니다.');
 
         return redirect()->route('home');
     }

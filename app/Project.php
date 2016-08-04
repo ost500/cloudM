@@ -110,4 +110,9 @@ class Project extends Model
         return $this->hasOne('App\Evaluation', 'project_id', 'id');
     }
 
+    public function email_sent()
+    {
+        return $this->hasMany('App\EmailLog', 'project_id', 'id');
+    }
+
 }
