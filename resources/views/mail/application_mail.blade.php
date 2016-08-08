@@ -25,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding:10px 6% 47px;font-family:'나눔고딕',nanumgothic,'돋움',Dotum;font-size:25px;color:#333;line-height:120%;letter-spacing:-1px;font-weight:bold"
-                                        align="left">지원자 모집 시작 안내
+                                        align="left">지원 안내
                                     </td>
                                 </tr>
                                 <tr>
@@ -40,8 +40,8 @@
 
                                             <br><br>
 
-                                            등록하신 캠페인에
-                                            <strong style="color:#1099DD">문의 댓글</strong>이 입력되어 안내 드립니다.<br>방문 하셔서 댓글을
+                                            등록하신 캠페인에 대행사가
+                                            <strong style="color:#1099DD">지원</strong>하였으므로 안내 드립니다.<br>방문 하셔서 제안서와 프로필, 포트폴리오를
                                             확인해 보시기 바랍니다.</p>
                                     </td>
                                 </tr>
@@ -57,9 +57,9 @@
                                 <tr>
                                     <td style="padding:26px 0 0" align="left">
                                         <p style="margin:0;padding:0 6%;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:20px;color:#333;line-height:21px;font-weight:bold">
-                                            <strong><img src="http://fastm.io{{$comment->user->profileImage}}"
+                                            <strong><img src="http://fastm.io{{$app->user->profileImage}}"
                                                          style="float:left; width:40px; height:43px; margin-bottom:10px; margin-right:20px; text-align:center; border-radius:300px;"></strong>
-                                            <strong style="padding:10px;color:#1099DD">{{$comment->user->name}}</strong>
+                                            <strong style="padding:10px;color:#1099DD">{{$app->user->name}}</strong>
                                         </p>
                                     </td>
                                 </tr>
@@ -67,7 +67,7 @@
                                 <tr>
                                     <td style="padding:26px 0 0" align="left"><p
                                                 style="margin:0 6%;padding:15px 19px 17px;background-color:#f5f5f5;font-family:'나눔고딕',nanumgothic,'맑은 고딕','Malgun Gothic','돋움',Dotum;font-size:18px;color:#32383e;line-height:19px">
-                                            {{$comment->comment}}
+                                            {{$app->content}}
                                         </p></td>
                                 </tr>
 
@@ -75,7 +75,7 @@
                                 <tr>
                                     <td align="center" style="padding: 21px 0px 50px; text-align: center;">
                                         <a style='background-color:#1099DD; margin: 10px 5px 0px; padding: 15px 10px 14px; width: 100%; color: rgb(255, 255, 255); line-height: 15px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; -ms-zoom: 1; max-width: 230px;'
-                                           href="http://fastm.io/detail/{{$pro->id}}" target="_blank">캠페인 살펴보기</a>
+                                           href="http://fastm.io/client/project/applist/{{$pro->id}}" target="_blank">지원자 목록 확인하기</a>
                                         <a style='background-color:#1099DD; margin: 10px 5px 0px; padding: 15px 10px 14px; width: 100%; color: rgb(255, 255, 255); line-height: 15px; font-family: "나눔고딕",nanumgothic,"맑은 고딕","Malgun Gothic","돋움",Dotum; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; -ms-zoom: 1; max-width: 230px;'
                                            href="http://fastm.io" target="_blank">패스트엠 방문하기</a>
                                     </td>

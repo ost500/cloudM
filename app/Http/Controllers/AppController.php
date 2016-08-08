@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Application;
 
+use App\Jobs\ApplicationEmail;
 use App\Project;
 use App\Contract;
 use App\Interesting;
@@ -25,7 +26,6 @@ class AppController extends Controller
 
     public function application_form($id)
     {
-
 
 
         $user = Auth::user();
@@ -145,8 +145,7 @@ class AppController extends Controller
         $del_inter->delete();
 
 
-        
-
+        $this->dispatch(new ApplicationEmail($newApp));
 
 
         return redirect()->action('MypageController@dashBoard');

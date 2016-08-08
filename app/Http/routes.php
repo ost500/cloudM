@@ -11,6 +11,7 @@
 |
 */
 
+use App\Application;
 use App\Client;
 use App\Comments;
 use App\Partners;
@@ -421,6 +422,12 @@ Route::get('/test_email_comment', function () {
     $pro = Project::find(1);
     $comment = Comments::find(8);
     return view('mail/comment_mail', ['comment' => $comment, 'pro' => $pro]);
+});
+Route::get('/test_email_app', function () {
+
+    $app = Application::find(13);
+    $pro = $app->project;
+    return view('mail/application_mail', ['app' => $app, 'pro' => $pro]);
 });
 
 Route::get('/queue_test', 'SearchController@queue_test');
