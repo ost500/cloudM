@@ -144,6 +144,11 @@ class AppController extends Controller
         $del_inter = Interesting::where('u_id', '=', Auth::user()->id)->where('p_id', '=', $pid);
         $del_inter->delete();
 
+
+        
+
+
+
         return redirect()->action('MypageController@dashBoard');
     }
 

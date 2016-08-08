@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CommentEmail;
 use App\Jobs\ShowProjectEmail;
 use App\User;
 use App\Client;
@@ -320,29 +321,13 @@ class SearchController extends Controller
         $input->parent_id = $com_id;
         $input->save();
 
-        $subject = "HELLO OST";
 
-        if (Auth::user()->PorC == "P") {
-            // 광고주한테 전송
-            $p_client = Project::find($input->project_id)->client->email;
 
-        } else {
-            // 파트너한테 전송
-            $parent_comment_user_email = Comments::find($input->parent_id)->user->email;
-        }
+        $this->dispatch(new CommentEmail($input));
 
-//        $comments_mail_to = Comments::where('project_id', $input->project_id)->get();
-//
-//        foreach ($comments_mail_to as $mail_to) {
-//            Mail::queue('mail.mail', ['key' => 'value'], function ($message) use ($subject, $mail_to) {
-//                $message->from('help@fastm.io', 'Sender Name');
-//                $message->to($mail_to->user->email, 'John Smith')
-//                    ->subject($subject);
-//            });
-//        }
-//
-//
-//        return $comments_mail_to;
+
+        
+
         return redirect()->back();
     }
 
