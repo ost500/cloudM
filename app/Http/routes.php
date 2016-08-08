@@ -12,7 +12,9 @@
 */
 
 use App\Client;
+use App\Comments;
 use App\Partners;
+use App\Project;
 use App\User;
 
 Route::get('/', ['as' => "home", 'uses' => 'MainController@index']);
@@ -347,7 +349,7 @@ Route::post('/client/project/carryon/{id}/update',
 Route::post('/client/project/carryon/{id}/delete',
     ['as' => 'communication_delete', 'uses' => 'CommunicationController@communication_PC_delete']);
 //완료된 프로젝트
-Route::get('/client/project/done', ['as'=>'client_done','uses'=>'ProcessController@done_client']);
+Route::get('/client/project/done', ['as' => 'client_done', 'uses' => 'ProcessController@done_client']);
 //평가하기
 Route::get('/client/project/eval/{id}', ['as' => 'eval', 'uses' => 'ProcessController@evaluation_client'])
     ->where(['id' => '[0-9]+']);
@@ -413,14 +415,16 @@ Route::get('/test_email', function () {
     return view('mail/p_add_verifying_mail', ['project_name' => '부동산 p2p신규오픈 업체 입니다. 마케팅 문의']);
 });
 Route::get('/test_email2', function () {
-    return view('mail/mail', ['project_name' => 'aaa']);
+    return view('mail/comment_mail');
 });
 Route::get('/test_email_comment', function () {
-    return view('mail/comment_mail', ['project_name' => 'aaa']);
+    $pro = Project::find(1);
+    $comment = Comments::find(8);
+    return view('mail/comment_mail', ['comment' => $comment, 'pro' => $pro]);
 });
 
 Route::get('/queue_test', 'SearchController@queue_test');
 
-Route::get('/show_new/{id}','HomeController@show_new_project_email');
+Route::get('/show_new/{id}', 'HomeController@show_new_project_email');
 
-Route::get('/new_project_send_email/{id}','HomeController@new_project_send_email');
+Route::get('/new_project_send_email/{id}', 'HomeController@new_project_send_email');

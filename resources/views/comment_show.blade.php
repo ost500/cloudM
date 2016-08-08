@@ -43,6 +43,8 @@
             @if(Auth::check())
                 @if($comments->user->id == Auth::user()->id || $comments->project->client->id == Auth::user()->id)
                     <span>{{ $comments['comment'] }}</span>
+                @elseif($comments->user->PorC == "C" && $comments->parent_id == 0)
+                    <span>{{ $comments['comment'] }}</span>
                 @else
                     <span> 비공개 댓글입니다 </span>
                 @endif
