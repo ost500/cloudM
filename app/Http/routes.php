@@ -425,7 +425,7 @@ Route::get('/test_email_comment', function () {
 });
 Route::get('/test_email_app', function () {
 
-    $app = Application::find(13);
+    $app = Application::find(18);
     $pro = $app->project;
     return view('mail/application_mail', ['app' => $app, 'pro' => $pro]);
 });
@@ -435,3 +435,9 @@ Route::get('/queue_test', 'SearchController@queue_test');
 Route::get('/show_new/{id}', 'HomeController@show_new_project_email');
 
 Route::get('/new_project_send_email/{id}', 'HomeController@new_project_send_email');
+
+Route::get('/meeting_end_email', function(){
+    $app = Application::find(18);
+    $pro = $app->project;
+    return view('mail.meeting_mail', ['app' => $app, 'pro' => $pro]);
+});
