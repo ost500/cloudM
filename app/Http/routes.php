@@ -412,6 +412,16 @@ Route::get('/company/news/{id}', ['as' => 'news_view', 'uses' => 'CompanyControl
     ->where(['id' => '[0-9]+']);
 Route::get('/company/address', ['as' => 'address', 'uses' => 'CompanyController@address']);
 
+//이메일 보내기 명령
+Route::get('/new_project_send_email/{id}', 'HomeController@new_project_send_email');
+Route::get('/email_manual/{id}', 'HomeController@email_manual');
+Route::post('/email_manual/{id}', 'HomeController@post_email_manual');
+
+
+
+
+
+
 Route::get('/test_email', function () {
     return view('mail/p_add_verifying_mail', ['project_name' => '부동산 p2p신규오픈 업체 입니다. 마케팅 문의']);
 });
@@ -434,7 +444,7 @@ Route::get('/queue_test', 'SearchController@queue_test');
 
 Route::get('/show_new/{id}', 'HomeController@show_new_project_email');
 
-Route::get('/new_project_send_email/{id}', 'HomeController@new_project_send_email');
+
 
 Route::get('/meeting_end_email', function(){
     $app = Application::find(18);
