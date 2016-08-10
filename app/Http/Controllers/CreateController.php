@@ -132,6 +132,7 @@ class CreateController extends Controller
 
         Mail::queue('mail.p_add_verifying_mail', ['project_name' => $mail_data['title']],
             function ($message) use ($mail_data) {
+                $message->from('help@fastm.io', '패스트엠');
                 $message->to($mail_data['email'], $mail_data['name'])
                     ->subject('[패스트엠] "' . $mail_data['title'] . '"캠페인 검수 중입니다');
             });

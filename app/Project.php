@@ -114,5 +114,17 @@ class Project extends Model
     {
         return $this->hasMany('App\EmailLog', 'project_id', 'id');
     }
+    public function email_new()
+    {
+        return $this->hasMany('App\EmailLog', 'project_id', 'id')->where('category',"새 프로젝트 등록");
+    }
+    public function email_failed()
+    {
+        return $this->hasMany('App\EmailLog', 'project_id', 'id')->where('category',"검수 내용 불충분");
+    }
+    public function email_meeting()
+    {
+        return $this->hasMany('App\EmailLog', 'project_id', 'id')->where('category',"미팅");
+    }
 
 }

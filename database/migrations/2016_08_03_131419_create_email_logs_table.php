@@ -14,6 +14,7 @@ class CreateEmailLogsTable extends Migration
     {
         Schema::create('email_logs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('category');
             $table->integer('project_id')->unsigned()->index();
             $table->foreign('project_id')
                 ->references('id')->on('projects')

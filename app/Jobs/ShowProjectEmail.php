@@ -38,7 +38,7 @@ class ShowProjectEmail extends Job implements ShouldQueue
     public function handle(Mailer $mailer)
     {
         $email_log = new EmailLog();;
-        $email_log->content = "[패스트엠] 새로운 프로젝트가 등록되었습니다/" . $this->pro->title;
+        $email_log->content = "[패스트엠]새로운 캠페인이 등록되었습니다/" . $this->pro->title;
         $email_log->project_id = $this->pro->id;
 
         foreach ($this->partner_users as $user) {
@@ -49,6 +49,7 @@ class ShowProjectEmail extends Job implements ShouldQueue
             });
             $email_log->who = $email_log->who . $user->user->email . " / ";
             $email_log->numbers = $email_log->numbers + 1;
+            $email_log->category = "새 캠페인 등록";
         }
         $email_log->save();
 
@@ -68,6 +69,7 @@ class ShowProjectEmail extends Job implements ShouldQueue
 
         $email_log->who = $email_log->who . $this->pro->client->email . " / ";
         $email_log->numbers = $email_log->numbers + 1;
+        $email_log->category = "지원자 모집 시작";
 
         $email_log->save();
 
